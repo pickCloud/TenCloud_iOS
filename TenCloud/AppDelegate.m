@@ -11,7 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "TCTabBarController.h"
 #import "VHLNavigation.h"
-
+#import "TCLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,19 +27,19 @@
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
     
-    if ([[TCLocalAccount shared] isLogin])
-    {
-        NSLog(@"已登录");
-    }else
-    {
-        NSLog(@"未登录");
-    }
+
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenRect];
-    //self.window.backgroundColor = [UIColor whiteColor];
-    TCTabBarController *tabBarController = [[TCTabBarController alloc] init];
-    self.window.rootViewController = tabBarController;
+    UIViewController *rootVC = nil;
+    if ([[TCLocalAccount shared] isLogin])
+    {
+        rootVC = [[TCTabBarController alloc] init];
+    }else
+    {
+        rootVC = [TCLoginViewController new];
+    }
+    self.window.rootViewController = rootVC;
     
     return YES;
 }

@@ -48,6 +48,8 @@
 		A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A51FD7E84500D16D22 /* TCLocalAccount.m */; };
 		A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A81FD7E8D700D16D22 /* TCUser+CoreDataClass.m */; };
 		A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AA1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m */; };
+		A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */; };
+		A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,9 @@
 		A02555A81FD7E8D700D16D22 /* TCUser+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCUser+CoreDataClass.m"; sourceTree = "<group>"; };
 		A02555A91FD7E8D700D16D22 /* TCUser+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCUser+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A02555AA1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A02555AD1FD7F0C300D16D22 /* TCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCLoginViewController.h; sourceTree = "<group>"; };
+		A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCLoginViewController.m; sourceTree = "<group>"; };
+		A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLoginViewController.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,6 +333,9 @@
 		A02555281FD6936700D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A02555AD1FD7F0C300D16D22 /* TCLoginViewController.h */,
+				A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */,
+				A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1049,6 +1057,7 @@
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
+				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
@@ -1230,6 +1239,7 @@
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
+				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
