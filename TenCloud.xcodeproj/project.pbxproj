@@ -1,0 +1,926 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06096DAA5E0F5E8430C95B9B /* libPods-TenCloudUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */; };
+		0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843340402D4E157C03304152 /* libPods-TenCloudTests.a */; };
+		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; };
+		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
+		A02554D81FD67FD400D16D22 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D71FD67FD400D16D22 /* FirstViewController.m */; };
+		A02554DB1FD67FD400D16D22 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554DA1FD67FD400D16D22 /* SecondViewController.m */; };
+		A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554DC1FD67FD400D16D22 /* Main.storyboard */; };
+		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
+		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
+		A02554E61FD67FD400D16D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554E51FD67FD400D16D22 /* main.m */; };
+		A02554F01FD67FD500D16D22 /* TenCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554EF1FD67FD500D16D22 /* TenCloudTests.m */; };
+		A02554FB1FD67FD500D16D22 /* TenCloudUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554FA1FD67FD500D16D22 /* TenCloudUITests.m */; };
+		A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A025550B1FD6930800D16D22 /* YTKBaseRequest.m */; };
+		A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A025550D1FD6930800D16D22 /* YTKBatchRequest.m */; };
+		A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A025550F1FD6930800D16D22 /* YTKBatchRequestAgent.m */; };
+		A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555111FD6930800D16D22 /* YTKChainRequest.m */; };
+		A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555131FD6930800D16D22 /* YTKChainRequestAgent.m */; };
+		A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555161FD6930800D16D22 /* YTKNetworkAgent.m */; };
+		A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555181FD6930800D16D22 /* YTKNetworkConfig.m */; };
+		A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = A025551A1FD6930800D16D22 /* YTKNetworkPrivate.m */; };
+		A02555251FD6930800D16D22 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A025551C1FD6930800D16D22 /* YTKRequest.m */; };
+		A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A025552D1FD693DB00D16D22 /* TCPasswordLoginRequest.m */; };
+		A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A025552F1FD694AC00D16D22 /* tc.xcdatamodeld */; };
+		A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555341FD7935900D16D22 /* TCGetCaptchaRequest.m */; };
+		A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555371FD7973D00D16D22 /* TCRegisterRequest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A02554EC1FD67FD500D16D22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A02554C81FD67FD400D16D22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A02554CF1FD67FD400D16D22;
+			remoteInfo = TenCloud;
+		};
+		A02554F71FD67FD500D16D22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A02554C81FD67FD400D16D22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A02554CF1FD67FD400D16D22;
+			remoteInfo = TenCloud;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26E3C5C7D9F7211A2A5455A8 /* Pods-TenCloudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C10D149B4F5B3CCB94AE33E /* Pods-TenCloudUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.release.xcconfig"; sourceTree = "<group>"; };
+		638E540D2495547DE8D8B4D9 /* Pods-TenCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.release.xcconfig"; sourceTree = "<group>"; };
+		843340402D4E157C03304152 /* libPods-TenCloudTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloudTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloudUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A02554D61FD67FD400D16D22 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		A02554D71FD67FD400D16D22 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		A02554D91FD67FD400D16D22 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A02554DA1FD67FD400D16D22 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		A02554DD1FD67FD400D16D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A02554DF1FD67FD400D16D22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A02554E21FD67FD400D16D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A02554E41FD67FD400D16D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A02554E51FD67FD400D16D22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A02554EB1FD67FD500D16D22 /* TenCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A02554EF1FD67FD500D16D22 /* TenCloudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TenCloudTests.m; sourceTree = "<group>"; };
+		A02554F11FD67FD500D16D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A02554F61FD67FD500D16D22 /* TenCloudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenCloudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A02554FA1FD67FD500D16D22 /* TenCloudUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TenCloudUITests.m; sourceTree = "<group>"; };
+		A02554FC1FD67FD500D16D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A025550A1FD6930800D16D22 /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
+		A025550B1FD6930800D16D22 /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
+		A025550C1FD6930800D16D22 /* YTKBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequest.h; sourceTree = "<group>"; };
+		A025550D1FD6930800D16D22 /* YTKBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequest.m; sourceTree = "<group>"; };
+		A025550E1FD6930800D16D22 /* YTKBatchRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequestAgent.h; sourceTree = "<group>"; };
+		A025550F1FD6930800D16D22 /* YTKBatchRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequestAgent.m; sourceTree = "<group>"; };
+		A02555101FD6930800D16D22 /* YTKChainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequest.h; sourceTree = "<group>"; };
+		A02555111FD6930800D16D22 /* YTKChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequest.m; sourceTree = "<group>"; };
+		A02555121FD6930800D16D22 /* YTKChainRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequestAgent.h; sourceTree = "<group>"; };
+		A02555131FD6930800D16D22 /* YTKChainRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequestAgent.m; sourceTree = "<group>"; };
+		A02555141FD6930800D16D22 /* YTKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetwork.h; sourceTree = "<group>"; };
+		A02555151FD6930800D16D22 /* YTKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkAgent.h; sourceTree = "<group>"; };
+		A02555161FD6930800D16D22 /* YTKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkAgent.m; sourceTree = "<group>"; };
+		A02555171FD6930800D16D22 /* YTKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkConfig.h; sourceTree = "<group>"; };
+		A02555181FD6930800D16D22 /* YTKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkConfig.m; sourceTree = "<group>"; };
+		A02555191FD6930800D16D22 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
+		A025551A1FD6930800D16D22 /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
+		A025551B1FD6930800D16D22 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
+		A025551C1FD6930800D16D22 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
+		A025552C1FD693DB00D16D22 /* TCPasswordLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPasswordLoginRequest.h; sourceTree = "<group>"; };
+		A025552D1FD693DB00D16D22 /* TCPasswordLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPasswordLoginRequest.m; sourceTree = "<group>"; };
+		A02555301FD694AC00D16D22 /* tc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tc.xcdatamodel; sourceTree = "<group>"; };
+		A02555321FD69D3000D16D22 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A02555331FD7935900D16D22 /* TCGetCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGetCaptchaRequest.h; sourceTree = "<group>"; };
+		A02555341FD7935900D16D22 /* TCGetCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGetCaptchaRequest.m; sourceTree = "<group>"; };
+		A02555361FD7973D00D16D22 /* TCRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRegisterRequest.h; sourceTree = "<group>"; };
+		A02555371FD7973D00D16D22 /* TCRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRegisterRequest.m; sourceTree = "<group>"; };
+		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
+		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A02554CD1FD67FD400D16D22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554E81FD67FD400D16D22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554F31FD67FD500D16D22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06096DAA5E0F5E8430C95B9B /* libPods-TenCloudUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B7C4D679B980AF4A6C182CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */,
+				638E540D2495547DE8D8B4D9 /* Pods-TenCloud.release.xcconfig */,
+				26E3C5C7D9F7211A2A5455A8 /* Pods-TenCloudTests.debug.xcconfig */,
+				AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */,
+				A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */,
+				3C10D149B4F5B3CCB94AE33E /* Pods-TenCloudUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C5D7663B6AA9293CBF57D89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */,
+				843340402D4E157C03304152 /* libPods-TenCloudTests.a */,
+				8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A02554C71FD67FD400D16D22 = {
+			isa = PBXGroup;
+			children = (
+				A02555321FD69D3000D16D22 /* PrefixHeader.pch */,
+				A02554D21FD67FD400D16D22 /* TenCloud */,
+				A02555081FD692FA00D16D22 /* vendor */,
+				A02554EE1FD67FD500D16D22 /* TenCloudTests */,
+				A02554F91FD67FD500D16D22 /* TenCloudUITests */,
+				A02554D11FD67FD400D16D22 /* Products */,
+				1B7C4D679B980AF4A6C182CE /* Pods */,
+				6C5D7663B6AA9293CBF57D89 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A02554D11FD67FD400D16D22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A02554D01FD67FD400D16D22 /* TenCloud.app */,
+				A02554EB1FD67FD500D16D22 /* TenCloudTests.xctest */,
+				A02554F61FD67FD500D16D22 /* TenCloudUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A02554D21FD67FD400D16D22 /* TenCloud */ = {
+			isa = PBXGroup;
+			children = (
+				A02555261FD6934700D16D22 /* public */,
+				A02554D31FD67FD400D16D22 /* AppDelegate.h */,
+				A02554D41FD67FD400D16D22 /* AppDelegate.m */,
+				A02554D61FD67FD400D16D22 /* FirstViewController.h */,
+				A02554D71FD67FD400D16D22 /* FirstViewController.m */,
+				A02554D91FD67FD400D16D22 /* SecondViewController.h */,
+				A02554DA1FD67FD400D16D22 /* SecondViewController.m */,
+				A02554DC1FD67FD400D16D22 /* Main.storyboard */,
+				A02554DF1FD67FD400D16D22 /* Assets.xcassets */,
+				A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */,
+				A02554E41FD67FD400D16D22 /* Info.plist */,
+				A02554E51FD67FD400D16D22 /* main.m */,
+				A025552F1FD694AC00D16D22 /* tc.xcdatamodeld */,
+			);
+			path = TenCloud;
+			sourceTree = "<group>";
+		};
+		A02554EE1FD67FD500D16D22 /* TenCloudTests */ = {
+			isa = PBXGroup;
+			children = (
+				A02554EF1FD67FD500D16D22 /* TenCloudTests.m */,
+				A02554F11FD67FD500D16D22 /* Info.plist */,
+			);
+			path = TenCloudTests;
+			sourceTree = "<group>";
+		};
+		A02554F91FD67FD500D16D22 /* TenCloudUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A02554FA1FD67FD500D16D22 /* TenCloudUITests.m */,
+				A02554FC1FD67FD500D16D22 /* Info.plist */,
+			);
+			path = TenCloudUITests;
+			sourceTree = "<group>";
+		};
+		A02555081FD692FA00D16D22 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A02555091FD6930800D16D22 /* YTKNetwork */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		A02555091FD6930800D16D22 /* YTKNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				A025550A1FD6930800D16D22 /* YTKBaseRequest.h */,
+				A025550B1FD6930800D16D22 /* YTKBaseRequest.m */,
+				A025550C1FD6930800D16D22 /* YTKBatchRequest.h */,
+				A025550D1FD6930800D16D22 /* YTKBatchRequest.m */,
+				A025550E1FD6930800D16D22 /* YTKBatchRequestAgent.h */,
+				A025550F1FD6930800D16D22 /* YTKBatchRequestAgent.m */,
+				A02555101FD6930800D16D22 /* YTKChainRequest.h */,
+				A02555111FD6930800D16D22 /* YTKChainRequest.m */,
+				A02555121FD6930800D16D22 /* YTKChainRequestAgent.h */,
+				A02555131FD6930800D16D22 /* YTKChainRequestAgent.m */,
+				A02555141FD6930800D16D22 /* YTKNetwork.h */,
+				A02555151FD6930800D16D22 /* YTKNetworkAgent.h */,
+				A02555161FD6930800D16D22 /* YTKNetworkAgent.m */,
+				A02555171FD6930800D16D22 /* YTKNetworkConfig.h */,
+				A02555181FD6930800D16D22 /* YTKNetworkConfig.m */,
+				A02555191FD6930800D16D22 /* YTKNetworkPrivate.h */,
+				A025551A1FD6930800D16D22 /* YTKNetworkPrivate.m */,
+				A025551B1FD6930800D16D22 /* YTKRequest.h */,
+				A025551C1FD6930800D16D22 /* YTKRequest.m */,
+			);
+			path = YTKNetwork;
+			sourceTree = "<group>";
+		};
+		A02555261FD6934700D16D22 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				A02555271FD6936700D16D22 /* account */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		A02555271FD6936700D16D22 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				A02555281FD6936700D16D22 /* controller */,
+				A02555291FD6936700D16D22 /* model */,
+				A025552A1FD6936700D16D22 /* request */,
+				A025552B1FD6936700D16D22 /* view */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
+		A02555281FD6936700D16D22 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A02555291FD6936700D16D22 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A025552A1FD6936700D16D22 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A02555361FD7973D00D16D22 /* TCRegisterRequest.h */,
+				A02555371FD7973D00D16D22 /* TCRegisterRequest.m */,
+				A02555331FD7935900D16D22 /* TCGetCaptchaRequest.h */,
+				A02555341FD7935900D16D22 /* TCGetCaptchaRequest.m */,
+				A025552C1FD693DB00D16D22 /* TCPasswordLoginRequest.h */,
+				A025552D1FD693DB00D16D22 /* TCPasswordLoginRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A025552B1FD6936700D16D22 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A02554CF1FD67FD400D16D22 /* TenCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A02554FF1FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloud" */;
+			buildPhases = (
+				A8BB5A339B7AA10B91A767E1 /* [CP] Check Pods Manifest.lock */,
+				A02554CC1FD67FD400D16D22 /* Sources */,
+				A02554CD1FD67FD400D16D22 /* Frameworks */,
+				A02554CE1FD67FD400D16D22 /* Resources */,
+				55F0D9A9E2CE4C3D93591F9B /* [CP] Embed Pods Frameworks */,
+				8E5D1358F4D04072DA5B619D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TenCloud;
+			productName = TenCloud;
+			productReference = A02554D01FD67FD400D16D22 /* TenCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A02554EA1FD67FD400D16D22 /* TenCloudTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A02555021FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloudTests" */;
+			buildPhases = (
+				0772F55AA79FF63561E4DFE2 /* [CP] Check Pods Manifest.lock */,
+				A02554E71FD67FD400D16D22 /* Sources */,
+				A02554E81FD67FD400D16D22 /* Frameworks */,
+				A02554E91FD67FD400D16D22 /* Resources */,
+				3EFB3C90EEEC75D3BB16AE0C /* [CP] Embed Pods Frameworks */,
+				DE1ACD6F62CCB4A829B9AADC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A02554ED1FD67FD500D16D22 /* PBXTargetDependency */,
+			);
+			name = TenCloudTests;
+			productName = TenCloudTests;
+			productReference = A02554EB1FD67FD500D16D22 /* TenCloudTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A02554F51FD67FD500D16D22 /* TenCloudUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A02555051FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloudUITests" */;
+			buildPhases = (
+				B823452E6E8B80CA0B3857FC /* [CP] Check Pods Manifest.lock */,
+				A02554F21FD67FD500D16D22 /* Sources */,
+				A02554F31FD67FD500D16D22 /* Frameworks */,
+				A02554F41FD67FD500D16D22 /* Resources */,
+				6ACA60F06EB9FE40D9D80AAF /* [CP] Embed Pods Frameworks */,
+				A5A8DBE8F3F00A0830BE079C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A02554F81FD67FD500D16D22 /* PBXTargetDependency */,
+			);
+			name = TenCloudUITests;
+			productName = TenCloudUITests;
+			productReference = A02554F61FD67FD500D16D22 /* TenCloudUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A02554C81FD67FD400D16D22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = 10.com;
+				TargetAttributes = {
+					A02554CF1FD67FD400D16D22 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					A02554EA1FD67FD400D16D22 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A02554CF1FD67FD400D16D22;
+					};
+					A02554F51FD67FD500D16D22 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A02554CF1FD67FD400D16D22;
+					};
+				};
+			};
+			buildConfigurationList = A02554CB1FD67FD400D16D22 /* Build configuration list for PBXProject "TenCloud" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A02554C71FD67FD400D16D22;
+			productRefGroup = A02554D11FD67FD400D16D22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A02554CF1FD67FD400D16D22 /* TenCloud */,
+				A02554EA1FD67FD400D16D22 /* TenCloudTests */,
+				A02554F51FD67FD500D16D22 /* TenCloudUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A02554CE1FD67FD400D16D22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
+				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
+				A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554E91FD67FD400D16D22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554F41FD67FD500D16D22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0772F55AA79FF63561E4DFE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TenCloudTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EFB3C90EEEC75D3BB16AE0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55F0D9A9E2CE4C3D93591F9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ACA60F06EB9FE40D9D80AAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E5D1358F4D04072DA5B619D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5A8DBE8F3F00A0830BE079C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8BB5A339B7AA10B91A767E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TenCloud-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B823452E6E8B80CA0B3857FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TenCloudUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE1ACD6F62CCB4A829B9AADC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A02554CC1FD67FD400D16D22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
+				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
+				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
+				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
+				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
+				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
+				A02554DB1FD67FD400D16D22 /* SecondViewController.m in Sources */,
+				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
+				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
+				A02554E61FD67FD400D16D22 /* main.m in Sources */,
+				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
+				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
+				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
+				A02554D81FD67FD400D16D22 /* FirstViewController.m in Sources */,
+				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
+				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
+				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554E71FD67FD400D16D22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02554F01FD67FD500D16D22 /* TenCloudTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02554F21FD67FD500D16D22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02554FB1FD67FD500D16D22 /* TenCloudUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A02554ED1FD67FD500D16D22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A02554CF1FD67FD400D16D22 /* TenCloud */;
+			targetProxy = A02554EC1FD67FD500D16D22 /* PBXContainerItemProxy */;
+		};
+		A02554F81FD67FD500D16D22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A02554CF1FD67FD400D16D22 /* TenCloud */;
+			targetProxy = A02554F71FD67FD500D16D22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A02554DC1FD67FD400D16D22 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A02554DD1FD67FD400D16D22 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A02554E21FD67FD400D16D22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A02554FD1FD67FD500D16D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A02554FE1FD67FD500D16D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A02555001FD67FD500D16D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				INFOPLIST_FILE = TenCloud/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A02555011FD67FD500D16D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 638E540D2495547DE8D8B4D9 /* Pods-TenCloud.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				INFOPLIST_FILE = TenCloud/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A02555031FD67FD500D16D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E3C5C7D9F7211A2A5455A8 /* Pods-TenCloudTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				INFOPLIST_FILE = TenCloudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TenCloud.app/TenCloud";
+			};
+			name = Debug;
+		};
+		A02555041FD67FD500D16D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				INFOPLIST_FILE = TenCloudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TenCloud.app/TenCloud";
+			};
+			name = Release;
+		};
+		A02555061FD67FD500D16D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				INFOPLIST_FILE = TenCloudUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TenCloud;
+			};
+			name = Debug;
+		};
+		A02555071FD67FD500D16D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C10D149B4F5B3CCB94AE33E /* Pods-TenCloudUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KE698WAK7T;
+				INFOPLIST_FILE = TenCloudUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TenCloud;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A02554CB1FD67FD400D16D22 /* Build configuration list for PBXProject "TenCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A02554FD1FD67FD500D16D22 /* Debug */,
+				A02554FE1FD67FD500D16D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A02554FF1FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A02555001FD67FD500D16D22 /* Debug */,
+				A02555011FD67FD500D16D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A02555021FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloudTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A02555031FD67FD500D16D22 /* Debug */,
+				A02555041FD67FD500D16D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A02555051FD67FD500D16D22 /* Build configuration list for PBXNativeTarget "TenCloudUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A02555061FD67FD500D16D22 /* Debug */,
+				A02555071FD67FD500D16D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A025552F1FD694AC00D16D22 /* tc.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A02555301FD694AC00D16D22 /* tc.xcdatamodel */,
+			);
+			currentVersion = A02555301FD694AC00D16D22 /* tc.xcdatamodel */;
+			path = tc.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A02554C81FD67FD400D16D22 /* Project object */;
+}

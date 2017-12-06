@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  TenCloud
+//
+//  Created by huangdx on 2017/12/5.
+//  Copyright © 2017年 10.com. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+
+#endif
+
+#define SERVER_URL_STRING       @"http://47.94.18.22:18010"
+//#define SERVER_URL_STRING       @"http://192.168.199.140:18010"
+
+
+#endif /* PrefixHeader_pch */
