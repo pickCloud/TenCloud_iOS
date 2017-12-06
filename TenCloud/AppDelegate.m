@@ -12,6 +12,7 @@
 #import "TCTabBarController.h"
 #import "VHLNavigation.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -25,6 +26,14 @@
     
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
+    
+    if ([[TCLocalAccount shared] isLogin])
+    {
+        NSLog(@"已登录");
+    }else
+    {
+        NSLog(@"未登录");
+    }
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenRect];
