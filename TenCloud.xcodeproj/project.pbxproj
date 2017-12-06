@@ -43,6 +43,8 @@
 		A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */; };
 		A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */; };
 		A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */; };
+		A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */; };
+		A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,9 @@
 		A025559A1FD7E36800D16D22 /* TCDiscoverHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDiscoverHomeViewController.h; sourceTree = "<group>"; };
 		A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCDiscoverHomeViewController.m; sourceTree = "<group>"; };
 		A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCDiscoverHomeViewController.xib; sourceTree = "<group>"; };
+		A025559F1FD7E44900D16D22 /* TCMineHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMineHomeViewController.h; sourceTree = "<group>"; };
+		A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMineHomeViewController.m; sourceTree = "<group>"; };
+		A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMineHomeViewController.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -840,6 +845,9 @@
 		A025558C1FD7E20C00D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A025559F1FD7E44900D16D22 /* TCMineHomeViewController.h */,
+				A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */,
+				A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1027,6 +1035,7 @@
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
+				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */,
 			);
@@ -1209,6 +1218,7 @@
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02554DB1FD67FD400D16D22 /* SecondViewController.m in Sources */,
+				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
