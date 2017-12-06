@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "YTKNetworkConfig.h"
 #import <AFNetworking/AFNetworking.h>
+#import "TCTabBarController.h"
+#import "VHLNavigation.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +22,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
+    
+    [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
+    [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:screenRect];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    TCTabBarController *tabBarController = [[TCTabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
     
     return YES;
 }

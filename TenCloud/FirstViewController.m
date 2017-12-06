@@ -58,6 +58,8 @@
         NSLog(@"fail msg:%@",message);
     }];
      */
+    
+    /*
     TCRegisterRequest *requet = [[TCRegisterRequest alloc] initWithPhoneNumber:@"18800000001"
                                                                       password:@"111111"
                                                                        captcha:@"111111"];
@@ -66,7 +68,7 @@
     } failure:^(NSString *message) {
         NSLog(@"fail msg:%@",message);
     }];
-        
+     */
 }
 
 
