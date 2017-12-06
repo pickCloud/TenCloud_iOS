@@ -41,6 +41,8 @@
 		A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555841FD7DD8C00D16D22 /* VHLNavigation.m */; };
 		A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555961FD7E24A00D16D22 /* TCResourceHomeViewController.m */; };
 		A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */; };
+		A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */; };
+		A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,9 @@
 		A02555951FD7E24A00D16D22 /* TCResourceHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCResourceHomeViewController.h; sourceTree = "<group>"; };
 		A02555961FD7E24A00D16D22 /* TCResourceHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCResourceHomeViewController.m; sourceTree = "<group>"; };
 		A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCResourceHomeViewController.xib; sourceTree = "<group>"; };
+		A025559A1FD7E36800D16D22 /* TCDiscoverHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDiscoverHomeViewController.h; sourceTree = "<group>"; };
+		A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCDiscoverHomeViewController.m; sourceTree = "<group>"; };
+		A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCDiscoverHomeViewController.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -793,6 +798,9 @@
 		A02555871FD7E20300D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A025559A1FD7E36800D16D22 /* TCDiscoverHomeViewController.h */,
+				A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */,
+				A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1017,6 +1025,7 @@
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
+				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */,
@@ -1214,6 +1223,7 @@
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
+				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

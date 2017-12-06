@@ -10,6 +10,7 @@
 #import "TCServerHomeViewController.h"
 #import "TCProjectHomeViewController.h"
 #import "TCResourceHomeViewController.h"
+#import "TCDiscoverHomeViewController.h"
 
 @interface TCTabBarController ()
 
@@ -52,6 +53,14 @@
     resourceHomeNav.tabBarItem.title = @"资源";
     [self addChildViewController:resourceHomeNav];
     
+    TCDiscoverHomeViewController *discoverHomeVC = [TCDiscoverHomeViewController new];
+    UINavigationController *discoverHomeNav = [[UINavigationController alloc] initWithRootViewController:discoverHomeVC];
+    UIImage *discoverSelIcon = [UIImage imageNamed:@"tabbar_discover_selected"];
+    UIImage *discoverIcon = [UIImage imageNamed:@"tabbar_discover"];
+    discoverHomeNav.tabBarItem.image = discoverIcon;
+    discoverHomeNav.tabBarItem.selectedImage = discoverSelIcon;
+    discoverHomeNav.tabBarItem.title = @"发现";
+    [self addChildViewController:discoverHomeNav];
     
 }
 
