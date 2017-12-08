@@ -11,9 +11,6 @@
 		0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843340402D4E157C03304152 /* libPods-TenCloudTests.a */; };
 		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; };
 		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
-		A02554D81FD67FD400D16D22 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D71FD67FD400D16D22 /* FirstViewController.m */; };
-		A02554DB1FD67FD400D16D22 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554DA1FD67FD400D16D22 /* SecondViewController.m */; };
-		A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554DC1FD67FD400D16D22 /* Main.storyboard */; };
 		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
 		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
 		A02554E61FD67FD400D16D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554E51FD67FD400D16D22 /* main.m */; };
@@ -78,11 +75,6 @@
 		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A02554D61FD67FD400D16D22 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		A02554D71FD67FD400D16D22 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		A02554D91FD67FD400D16D22 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		A02554DA1FD67FD400D16D22 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		A02554DD1FD67FD400D16D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A02554DF1FD67FD400D16D22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A02554E21FD67FD400D16D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A02554E41FD67FD400D16D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,11 +234,6 @@
 				A02555261FD6934700D16D22 /* public */,
 				A02554D31FD67FD400D16D22 /* AppDelegate.h */,
 				A02554D41FD67FD400D16D22 /* AppDelegate.m */,
-				A02554D61FD67FD400D16D22 /* FirstViewController.h */,
-				A02554D71FD67FD400D16D22 /* FirstViewController.m */,
-				A02554D91FD67FD400D16D22 /* SecondViewController.h */,
-				A02554DA1FD67FD400D16D22 /* SecondViewController.m */,
-				A02554DC1FD67FD400D16D22 /* Main.storyboard */,
 				A02554DF1FD67FD400D16D22 /* Assets.xcassets */,
 				A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */,
 				A02554E41FD67FD400D16D22 /* Info.plist */,
@@ -1061,7 +1048,6 @@
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
-				A02554DE1FD67FD400D16D22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1243,7 +1229,6 @@
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
-				A02554DB1FD67FD400D16D22 /* SecondViewController.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -1254,7 +1239,6 @@
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
-				A02554D81FD67FD400D16D22 /* FirstViewController.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
@@ -1297,14 +1281,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A02554DC1FD67FD400D16D22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A02554DD1FD67FD400D16D22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

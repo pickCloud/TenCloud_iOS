@@ -7,6 +7,7 @@
 //
 
 #import "TCServerHomeViewController.h"
+#import "TCPasswordLoginRequest.h"
 
 @interface TCServerHomeViewController ()
 
@@ -18,6 +19,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器";
+    
+    TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:@"18521316580" password:@"111111"];
+    [loginReq startWithSuccess:^(NSString *token) {
+        NSLog(@"登录成功:%@",token);
+    } failure:^(NSString *message) {
+        NSLog(@"fail:%@",message);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
