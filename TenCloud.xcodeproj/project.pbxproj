@@ -47,6 +47,7 @@
 		A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AA1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m */; };
 		A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */; };
 		A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */; };
+		A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		A02555AD1FD7F0C300D16D22 /* TCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCLoginViewController.h; sourceTree = "<group>"; };
 		A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCLoginViewController.m; sourceTree = "<group>"; };
 		A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLoginViewController.xib; sourceTree = "<group>"; };
+		A02555B91FDBD4B400D16D22 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +267,7 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A02555B81FDBD4B400D16D22 /* HMSegmentedControl */,
 				A02555821FD7DD8C00D16D22 /* VHLNavigation */,
 				A02555091FD6930800D16D22 /* YTKNetwork */,
 			);
@@ -925,6 +929,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A02555B81FDBD4B400D16D22 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				A02555B91FDBD4B400D16D22 /* HMSegmentedControl.h */,
+				A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1236,6 +1249,7 @@
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
 				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
 				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
+				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,

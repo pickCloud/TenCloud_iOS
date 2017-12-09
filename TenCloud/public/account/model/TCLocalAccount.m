@@ -84,8 +84,8 @@
 
 - (BOOL) isLogin
 {
-    //return ((self.token != nil) && (self.token.length > 0));
-    return YES;
+    return ((self.token != nil) && (self.token.length > 0));
+    //return YES;
 }
 
 - (void) loginSuccess:(TCUser*)user
