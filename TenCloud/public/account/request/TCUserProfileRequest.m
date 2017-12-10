@@ -67,7 +67,7 @@
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodPOST;
+    return YTKRequestMethodGET;
 }
 
 - (id)requestArgument

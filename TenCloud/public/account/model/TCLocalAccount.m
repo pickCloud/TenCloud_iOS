@@ -84,6 +84,7 @@
 
 - (BOOL) isLogin
 {
+    NSLog(@"tloen:%@",self.token);
     return ((self.token != nil) && (self.token.length > 0));
     //return YES;
 }

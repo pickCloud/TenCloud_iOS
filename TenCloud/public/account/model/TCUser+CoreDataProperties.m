@@ -15,14 +15,15 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCUser"];
 }
 
-@dynamic mobile;
-@dynamic token;
-@dynamic name;
-@dynamic email;
-@dynamic userID;
-@dynamic create_time;
-@dynamic update_time;
-@dynamic gender;
 @dynamic birthday;
+@dynamic create_time;
+@dynamic email;
+@dynamic gender;
+@dynamic mobile;
+@dynamic name;
+@dynamic token;
+@dynamic update_time;
+@dynamic userID;
+@dynamic image_url;
 
 @end

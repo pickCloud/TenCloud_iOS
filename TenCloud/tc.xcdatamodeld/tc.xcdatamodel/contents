@@ -37,6 +37,7 @@
         <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
@@ -44,11 +45,11 @@
         <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
+        <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
         <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="60"/>
         <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="90"/>
         <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
+        <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
+        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

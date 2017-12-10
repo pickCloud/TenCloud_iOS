@@ -91,7 +91,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="KAY-Yf-BGo" secondAttribute="height" multiplier="267:49" id="KDH-XD-Vq8"/>
                                     </constraints>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>

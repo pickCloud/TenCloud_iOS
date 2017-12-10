@@ -9,10 +9,12 @@
 #import "TCLoginViewController.h"
 #import "HMSegmentedControl.h"
 #import "TCPasswordLoginRequest.h"
+#import "TCTabBarController.h"
 
 //for test
-//#import "TCUserProfileRequest.h"
-#import "TCClusterRequest.h"
+#import "TCUserProfileRequest.h"
+#import "TCUser+CoreDataClass.h"
+//#import "TCClusterRequest.h"
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
@@ -76,13 +78,14 @@
     } failure:^(NSString *message) {
         NSLog(@"msg:%@",message);
     }];
-     */
+    
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         NSLog(@"severArray:%@",serverArray);
     } failure:^(NSString *message) {
         NSLog(@"msg:%@",message);
     }];
+     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,7 +182,19 @@
         TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNum password:password];
         [loginReq startWithSuccess:^(NSString *token) {
             NSLog(@"登录成功:%@",token);
-            [MMProgressHUD dismissWithSuccess:@"登录成功" title:nil afterDelay:1.32];
+            [[TCLocalAccount shared] setToken:token];
+            TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
+            [request startWithSuccess:^(TCUser *user) {
+                NSLog(@"user:%@",user);
+                user.token = token;
+                [[TCLocalAccount shared] loginSuccess:user];
+                TCTabBarController *tabBarController = [TCTabBarController new];
+                [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+                [MMProgressHUD dismissWithSuccess:@"登录成功" title:nil afterDelay:1.32];
+            } failure:^(NSString *message) {
+                NSLog(@"msg:%@",message);
+                [MMProgressHUD dismissWithError:@"登录失败"];
+            }];
         } failure:^(NSString *message) {
             NSLog(@"fail:%@",message);
             [MMProgressHUD dismissWithError:message];

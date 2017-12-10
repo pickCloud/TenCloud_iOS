@@ -16,15 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<TCUser *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *mobile;
-@property (nullable, nonatomic, copy) NSString *token;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSString *email;
-@property (nonatomic) int64_t userID;
-@property (nullable, nonatomic, copy) NSString *create_time;
-@property (nullable, nonatomic, copy) NSString *update_time;
-@property (nonatomic) int16_t gender;
 @property (nonatomic) int64_t birthday;
+@property (nullable, nonatomic, copy) NSString *create_time;
+@property (nullable, nonatomic, copy) NSString *email;
+@property (nonatomic) int16_t gender;
+@property (nullable, nonatomic, copy) NSString *mobile;
+@property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *token;
+@property (nullable, nonatomic, copy) NSString *update_time;
+@property (nonatomic) int64_t userID;
+@property (nullable, nonatomic, copy) NSString *image_url;
 
 @end
 
