@@ -7,7 +7,7 @@ target 'TenCloud' do
 
   # Pods for TenCloud
 pod 'AFNetworking','~> 3.1.0'
-
+pod 'MBProgressHUD','~> 0.9.1'
 
   target 'TenCloudTests' do
     inherit! :search_paths

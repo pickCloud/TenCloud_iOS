@@ -8,6 +8,7 @@
 
 #import "TCLoginViewController.h"
 #import "HMSegmentedControl.h"
+#import "TCPasswordLoginRequest.h"
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
@@ -138,12 +139,29 @@
 - (IBAction) onLoginButton:(id)sender
 {
     NSLog(@"点击登录按钮");
-    NSString *phoneNum = _phoneNumField.text;
-    NSString *password = _passwordField.text;
-    NSLog(@"phoneNum:%@ password:%@",phoneNum,password);
     if (_currentPageIndex == 0)
     {
         NSLog(@"密码登录页面");
+        NSString *phoneNum = _phoneNumField.text;
+        NSString *password = _passwordField.text;
+        NSLog(@"phoneNum:%@ password:%@",phoneNum,password);
+        if (!phoneNum || phoneNum.length == 0)
+        {
+            [MBProgressHUD showError:@"请输入手机号" toView:nil];
+            return;
+        }
+        if (!password || password.length == 0)
+        {
+            [MBProgressHUD showError:@"请输入密码" toView:nil];
+            return;
+        }
+        
+        TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNum password:password];
+        [loginReq startWithSuccess:^(NSString *token) {
+            NSLog(@"登录成功:%@",token);
+        } failure:^(NSString *message) {
+            NSLog(@"fail:%@",message);
+        }];
     }else
     {
         NSLog(@"验证码登录页面");

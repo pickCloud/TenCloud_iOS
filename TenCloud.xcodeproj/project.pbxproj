@@ -10,6 +10,7 @@
 		06096DAA5E0F5E8430C95B9B /* libPods-TenCloudUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */; };
 		0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843340402D4E157C03304152 /* libPods-TenCloudTests.a */; };
 		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; };
+		A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */; };
 		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
 		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
 		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
@@ -73,6 +74,8 @@
 		638E540D2495547DE8D8B4D9 /* Pods-TenCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.release.xcconfig"; sourceTree = "<group>"; };
 		843340402D4E157C03304152 /* libPods-TenCloudTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloudTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloudUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A001FA261FDD3777008328B0 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -202,6 +205,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A001FA251FDD3777008328B0 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A001FA261FDD3777008328B0 /* MBProgressHUD+Add.h */,
+				A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		A02554C71FD67FD400D16D22 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +279,7 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A001FA251FDD3777008328B0 /* MBProgressHUD */,
 				A02555B81FDBD4B400D16D22 /* HMSegmentedControl */,
 				A02555821FD7DD8C00D16D22 /* VHLNavigation */,
 				A02555091FD6930800D16D22 /* YTKNetwork */,
@@ -1239,6 +1252,7 @@
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
+				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
