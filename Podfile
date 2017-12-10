@@ -9,6 +9,8 @@ target 'TenCloud' do
 pod 'AFNetworking','~> 3.1.0'
 pod 'MBProgressHUD','~> 0.9.1'
 pod 'MMProgressHUD', :path => './LocalLibs/MMProgressHUD/'
+pod 'MagicalRecord', :path => './LocalLibs/MagicalRecord/'
+pod 'MJExtension', :path => './LocalLibs/MJExtension/'
 
   target 'TenCloudTests' do
     inherit! :search_paths

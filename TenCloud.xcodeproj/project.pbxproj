@@ -11,6 +11,18 @@
 		0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843340402D4E157C03304152 /* libPods-TenCloudTests.a */; };
 		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; };
 		A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */; };
+		A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA2A1FDD3D9E008328B0 /* TCUserProfileRequest.m */; };
+		A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA2C1FDD7E8F008328B0 /* TCClusterRequest.m */; };
+		A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA301FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m */; };
+		A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA321FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m */; };
+		A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA341FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m */; };
+		A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA361FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m */; };
+		A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA381FDD81CB008328B0 /* TCServerNet+CoreDataClass.m */; };
+		A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA3A1FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m */; };
+		A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA3C1FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m */; };
+		A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA3E1FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m */; };
+		A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA481FDD8292008328B0 /* TCServer+CoreDataClass.m */; };
+		A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA4A1FDD8292008328B0 /* TCServer+CoreDataProperties.m */; };
 		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
 		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
 		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
@@ -76,6 +88,30 @@
 		8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloudUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A001FA261FDD3777008328B0 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		A001FA291FDD3D9E008328B0 /* TCUserProfileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUserProfileRequest.h; sourceTree = "<group>"; };
+		A001FA2A1FDD3D9E008328B0 /* TCUserProfileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUserProfileRequest.m; sourceTree = "<group>"; };
+		A001FA2C1FDD7E8F008328B0 /* TCClusterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCClusterRequest.m; sourceTree = "<group>"; };
+		A001FA2D1FDD7E8F008328B0 /* TCClusterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCClusterRequest.h; sourceTree = "<group>"; };
+		A001FA2F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerMemory+CoreDataClass.h"; sourceTree = "<group>"; };
+		A001FA301FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerMemory+CoreDataClass.m"; sourceTree = "<group>"; };
+		A001FA311FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerMemory+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A001FA321FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerMemory+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A001FA331FDD81CB008328B0 /* TCServerCPU+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerCPU+CoreDataClass.h"; sourceTree = "<group>"; };
+		A001FA341FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerCPU+CoreDataClass.m"; sourceTree = "<group>"; };
+		A001FA351FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerCPU+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A001FA361FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerCPU+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A001FA371FDD81CB008328B0 /* TCServerNet+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerNet+CoreDataClass.h"; sourceTree = "<group>"; };
+		A001FA381FDD81CB008328B0 /* TCServerNet+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerNet+CoreDataClass.m"; sourceTree = "<group>"; };
+		A001FA391FDD81CB008328B0 /* TCServerNet+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerNet+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A001FA3A1FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerNet+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A001FA3B1FDD81CB008328B0 /* TCServerDisk+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerDisk+CoreDataClass.h"; sourceTree = "<group>"; };
+		A001FA3C1FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerDisk+CoreDataClass.m"; sourceTree = "<group>"; };
+		A001FA3D1FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerDisk+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A001FA3E1FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerDisk+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A001FA471FDD8292008328B0 /* TCServer+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServer+CoreDataClass.h"; sourceTree = "<group>"; };
+		A001FA481FDD8292008328B0 /* TCServer+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServer+CoreDataClass.m"; sourceTree = "<group>"; };
+		A001FA491FDD8292008328B0 /* TCServer+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServer+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A001FA4A1FDD8292008328B0 /* TCServer+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServer+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -360,6 +396,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A001FA291FDD3D9E008328B0 /* TCUserProfileRequest.h */,
+				A001FA2A1FDD3D9E008328B0 /* TCUserProfileRequest.m */,
 				A02555361FD7973D00D16D22 /* TCRegisterRequest.h */,
 				A02555371FD7973D00D16D22 /* TCRegisterRequest.m */,
 				A02555331FD7935900D16D22 /* TCGetCaptchaRequest.h */,
@@ -682,6 +720,26 @@
 		A02555621FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A001FA471FDD8292008328B0 /* TCServer+CoreDataClass.h */,
+				A001FA481FDD8292008328B0 /* TCServer+CoreDataClass.m */,
+				A001FA491FDD8292008328B0 /* TCServer+CoreDataProperties.h */,
+				A001FA4A1FDD8292008328B0 /* TCServer+CoreDataProperties.m */,
+				A001FA2F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.h */,
+				A001FA301FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m */,
+				A001FA311FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.h */,
+				A001FA321FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m */,
+				A001FA331FDD81CB008328B0 /* TCServerCPU+CoreDataClass.h */,
+				A001FA341FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m */,
+				A001FA351FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.h */,
+				A001FA361FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m */,
+				A001FA371FDD81CB008328B0 /* TCServerNet+CoreDataClass.h */,
+				A001FA381FDD81CB008328B0 /* TCServerNet+CoreDataClass.m */,
+				A001FA391FDD81CB008328B0 /* TCServerNet+CoreDataProperties.h */,
+				A001FA3A1FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m */,
+				A001FA3B1FDD81CB008328B0 /* TCServerDisk+CoreDataClass.h */,
+				A001FA3C1FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m */,
+				A001FA3D1FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.h */,
+				A001FA3E1FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -689,6 +747,8 @@
 		A02555631FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A001FA2D1FDD7E8F008328B0 /* TCClusterRequest.h */,
+				A001FA2C1FDD7E8F008328B0 /* TCClusterRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1245,17 +1305,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
+				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
+				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
+				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
+				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
+				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
+				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
+				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -1265,8 +1333,11 @@
 				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
+				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
+				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
+				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
@@ -1274,6 +1345,7 @@
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
+				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

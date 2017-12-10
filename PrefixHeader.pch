@@ -15,6 +15,8 @@
 #import "TCLocalAccount.h"
 #import "MBProgressHUD+Add.h"
 #import <MMProgressHUD/MMProgressHUD.h>
+#import <MagicalRecord/MagicalRecord.h>
+#import <MJExtension/MJExtension.h>
 #endif
 
 #define SERVER_URL_STRING       @"http://47.94.18.22:18080"

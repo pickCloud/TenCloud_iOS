@@ -1,0 +1,1 @@
+../../../../LocalLibs/MagicalRecord/MagicalRecord/Core/MagicalRecordInternal.h

@@ -22,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
     
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];

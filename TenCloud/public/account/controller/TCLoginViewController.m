@@ -10,6 +10,10 @@
 #import "HMSegmentedControl.h"
 #import "TCPasswordLoginRequest.h"
 
+//for test
+//#import "TCUserProfileRequest.h"
+#import "TCClusterRequest.h"
+
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
 @property (nonatomic, weak) IBOutlet    UITextField         *phoneNumField;
@@ -64,6 +68,21 @@
     UITapGestureRecognizer  *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                   action:@selector(onTapBlankArea:)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    /*
+    TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
+    [request startWithSuccess:^(TCUser *user) {
+        NSLog(@"user:%@",user);
+    } failure:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    }];
+     */
+    TCClusterRequest *request = [[TCClusterRequest alloc] init];
+    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        NSLog(@"severArray:%@",serverArray);
+    } failure:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

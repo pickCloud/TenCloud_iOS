@@ -1,0 +1,23 @@
+{
+  "name": "MJExtension",
+  "version": "3.0.13.1",
+  "summary": "MJExtension,基于原版修改，为了适配MagicalRecord",
+  "description": "基于原版修改，为了适配MagicalRecord",
+  "homepage": "http://ktyx.cn/MJExtension",
+  "license": "LICENSE",
+  "authors": {
+    "": ""
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "",
+    "tag": "3.0.13.1"
+  },
+  "source_files": [
+    "MJExtension",
+    "MJExtension/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude"
+}

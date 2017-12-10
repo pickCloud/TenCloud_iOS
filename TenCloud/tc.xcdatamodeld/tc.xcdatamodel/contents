@@ -1,10 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="TCServer" representedClassName="TCServer" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cpu_content" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="disk_content" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="instance_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="machine_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memory_content" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="net_content" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="public_ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="report_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="TCServerCPU" representedClassName="TCServerCPU" syncable="YES">
+        <attribute name="percent" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="TCServerDisk" representedClassName="TCServerDisk" syncable="YES">
+        <attribute name="free" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <entity name="TCServerMemory" representedClassName="TCServerMemory" syncable="YES">
+        <attribute name="available" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="free" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="TCServerNet" representedClassName="TCServerNet" syncable="YES">
+        <attribute name="intput" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="TCUser" representedClassName="TCUser" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
+        <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="60"/>
+        <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="105"/>
+        <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  TCUser+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/6.
+//  Created by huangdx on 2017/12/10.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 //
@@ -15,7 +15,14 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCUser"];
 }
 
-@dynamic token;
 @dynamic mobile;
+@dynamic token;
+@dynamic name;
+@dynamic email;
+@dynamic userID;
+@dynamic create_time;
+@dynamic update_time;
+@dynamic gender;
+@dynamic birthday;
 
 @end
