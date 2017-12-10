@@ -156,11 +156,14 @@
             return;
         }
         
+        [MMProgressHUD showWithStatus:@"登录中"];
         TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNum password:password];
         [loginReq startWithSuccess:^(NSString *token) {
             NSLog(@"登录成功:%@",token);
+            [MMProgressHUD dismissWithSuccess:@"登录成功" title:nil afterDelay:1.32];
         } failure:^(NSString *message) {
             NSLog(@"fail:%@",message);
+            [MMProgressHUD dismissWithError:message];
         }];
     }else
     {

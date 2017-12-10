@@ -1,0 +1,23 @@
+{
+  "name": "MMProgressHUD",
+  "version": "0.3.2",
+  "summary": "MMProgressHUD,下载不了- -，顾本地创建一份",
+  "description": "MMProgressHUD",
+  "homepage": "http://ktyx.cn/MMProgressHUD",
+  "license": "LICENSE",
+  "authors": {
+    "": ""
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "",
+    "tag": "0.3.2"
+  },
+  "source_files": [
+    "MMProgressHUD",
+    "MMProgressHUD/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude"
+}
