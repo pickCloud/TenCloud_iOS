@@ -24,26 +24,20 @@
     self.title = @"服务器";
     _serverArray = [NSMutableArray new];
     
-    /*
-    TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:@"18521316580" password:@"111111"];
-    [loginReq startWithSuccess:^(NSString *token) {
-        NSLog(@"登录成功:%@",token);
-    } failure:^(NSString *message) {
-        NSLog(@"fail:%@",message);
-    }];
-     */
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
     
+    [self startLoading];
     __weak  __typeof(self)  weakSelf = self;
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        //NSLog(@"severArray:%@",serverArray);
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];
+        [weakSelf stopLoading];
     } failure:^(NSString *message) {
-        //NSLog(@"msg:%@",message);
+        [MBProgressHUD showError:message toView:nil];
+        [weakSelf stopLoading];
     }];
 }
 
@@ -67,12 +61,6 @@
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     [cell setServer:server];
     return cell;
-    /*
-    YETeacherSearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SEARCH_RESULT_TABLE_CELL_REUSE_ID forIndexPath:indexPath];
-    Teacher *teacher = [_teacherArray objectAtIndex:indexPath.row];
-    [cell setTeacher:teacher];
-    return cell;
-     */
 }
 
 
