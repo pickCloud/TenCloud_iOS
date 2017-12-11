@@ -15,6 +15,11 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCServer"];
 }
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"serverID":@"id"};
+}
+
 @dynamic net_content;
 @dynamic machine_status;
 @dynamic cpu_content;

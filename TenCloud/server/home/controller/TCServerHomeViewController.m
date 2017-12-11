@@ -11,6 +11,10 @@
 #import "TCServerTableViewCell.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 
+//for test
+#import "TCServerLogTableViewController.h"
+#import "TCServer+CoreDataClass.h"
+
 @interface TCServerHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
@@ -74,6 +78,9 @@
     YETeacherResumeViewController *profileVC = [[YETeacherResumeViewController alloc] initWithTID:teacher.uid];
     [self.navigationController pushViewController:profileVC animated:YES];
      */
+    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    TCServerLogTableViewController *logVC = [[TCServerLogTableViewController alloc] initWithID:server.serverID];
+    [self.navigationController pushViewController:logVC animated:YES];
 }
 
 @end
