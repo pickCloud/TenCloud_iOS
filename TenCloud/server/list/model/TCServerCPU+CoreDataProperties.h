@@ -2,7 +2,7 @@
 //  TCServerCPU+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/10.
+//  Created by huangdx on 2017/12/11.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 //
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<TCServerCPU *> *)fetchRequest;
 
-@property (nonatomic) int64_t percent;
+@property (nullable, nonatomic, retain) NSNumber *percent;
 
 @end
 

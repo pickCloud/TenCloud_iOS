@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<TCServerDisk *> *)fetchRequest;
 
-@property (nullable, nonatomic, retain) NSObject *total;
-@property (nullable, nonatomic, retain) NSObject *free;
-@property (nullable, nonatomic, retain) NSObject *percent;
+@property (nullable, nonatomic, retain) NSNumber *total;
+@property (nullable, nonatomic, retain) NSNumber *free;
+@property (nullable, nonatomic, retain) NSNumber *percent;
 
 @end
 

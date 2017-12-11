@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t total;
 @property (nonatomic) int64_t available;
 @property (nonatomic) int64_t free;
-@property (nullable, nonatomic, retain) NSObject *percent;
+@property (nullable, nonatomic, retain) NSNumber *percent;
 
 @end
 

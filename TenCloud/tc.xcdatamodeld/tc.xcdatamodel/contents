@@ -15,7 +15,7 @@
         <attribute name="serverID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCServerCPU" representedClassName="TCServerCPU" syncable="YES">
-        <attribute name="percent" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="TCServerDisk" representedClassName="TCServerDisk" syncable="YES">
         <attribute name="free" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -29,7 +29,7 @@
         <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCServerNet" representedClassName="TCServerNet" syncable="YES">
-        <attribute name="intput" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="input" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="output" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCUser" representedClassName="TCUser" syncable="YES">
