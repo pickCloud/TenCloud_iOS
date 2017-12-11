@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TCViewController.h"
 
-@interface TCServerLogTableViewController : UIViewController
+@interface TCServerLogTableViewController : TCViewController
 
 - (instancetype) initWithID:(NSInteger)serverID;
 
