@@ -72,6 +72,8 @@
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
 		A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBDE51FDED78800F37715 /* TCServerLogTableViewController.xib */; };
 		A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE91FDED96200F37715 /* TCServerLogRequest.m */; };
+		A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDEF1FDEE53D00F37715 /* TCServerLogTableViewCell.m */; };
+		A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBDF01FDEE53D00F37715 /* TCServerLogTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +216,9 @@
 		A07DBDE51FDED78800F37715 /* TCServerLogTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerLogTableViewController.xib; sourceTree = "<group>"; };
 		A07DBDE81FDED96200F37715 /* TCServerLogRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerLogRequest.h; sourceTree = "<group>"; };
 		A07DBDE91FDED96200F37715 /* TCServerLogRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerLogRequest.m; sourceTree = "<group>"; };
+		A07DBDEE1FDEE53D00F37715 /* TCServerLogTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerLogTableViewCell.h; sourceTree = "<group>"; };
+		A07DBDEF1FDEE53D00F37715 /* TCServerLogTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerLogTableViewCell.m; sourceTree = "<group>"; };
+		A07DBDF01FDEE53D00F37715 /* TCServerLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerLogTableViewCell.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -716,6 +721,9 @@
 		A025555A1FD7C82100D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBDEE1FDEE53D00F37715 /* TCServerLogTableViewCell.h */,
+				A07DBDEF1FDEE53D00F37715 /* TCServerLogTableViewCell.m */,
+				A07DBDF01FDEE53D00F37715 /* TCServerLogTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1191,6 +1199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
@@ -1409,6 +1418,7 @@
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
+				A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,

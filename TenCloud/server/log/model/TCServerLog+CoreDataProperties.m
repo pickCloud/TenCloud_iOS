@@ -2,7 +2,7 @@
 //  TCServerLog+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/11.
+//  Created by huangdx on 2017/12/12.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 //
@@ -15,9 +15,9 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCServerLog"];
 }
 
-@dynamic create_time;
+@dynamic created_time;
+@dynamic operation;
 @dynamic operation_status;
 @dynamic user;
-@dynamic operation;
 
 @end

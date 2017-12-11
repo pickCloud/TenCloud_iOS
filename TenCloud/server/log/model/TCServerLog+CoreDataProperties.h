@@ -2,7 +2,7 @@
 //  TCServerLog+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/11.
+//  Created by huangdx on 2017/12/12.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 //
@@ -27,10 +27,10 @@ typedef NS_ENUM(NSInteger, ServerLogOperationStatus){
 
 + (NSFetchRequest<TCServerLog *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *create_time;
+@property (nullable, nonatomic, copy) NSString *created_time;
+@property (nonatomic) ServerLogOperation operation;
 @property (nonatomic) ServerLogOperationStatus operation_status;
 @property (nullable, nonatomic, copy) NSString *user;
-@property (nonatomic) ServerLogOperation operation;
 
 @end
 

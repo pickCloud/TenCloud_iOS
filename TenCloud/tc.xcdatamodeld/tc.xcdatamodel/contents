@@ -23,7 +23,7 @@
         <attribute name="total" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="TCServerLog" representedClassName="TCServerLog" syncable="YES">
-        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="operation" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="operation_status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
@@ -54,9 +54,9 @@
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
         <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="60"/>
         <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="TCServerLog" positionX="-27" positionY="135" width="128" height="105"/>
         <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="105"/>
         <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCServerLog" positionX="-27" positionY="135" width="128" height="105"/>
     </elements>
 </model>
