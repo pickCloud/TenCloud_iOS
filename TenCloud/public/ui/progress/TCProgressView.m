@@ -42,12 +42,13 @@
     NSLog(@"progress width:%.2f",progressWidth);
     _foreView.frame = progressRect;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void) layoutSubviews
+{
+    CGFloat radius = self.bounds.size.height/2.0;
+    self.layer.cornerRadius = radius;
+    self.foreView.layer.cornerRadius = radius;
+    [super layoutSubviews];
 }
-*/
 
 @end

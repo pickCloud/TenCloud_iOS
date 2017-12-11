@@ -18,15 +18,21 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *ipLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
+@property (nonatomic, weak) IBOutlet    UIView      *statusBackgroundView;
 @property (nonatomic, weak) IBOutlet    UIImageView *iconView;
 @property (nonatomic, weak) IBOutlet    UIView      *bg2View;
 @property (nonatomic, weak) IBOutlet    TCProgressView  *cpuProgressView;
 @property (nonatomic, weak) IBOutlet    UILabel         *cpuProgressLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *cpuLabel;
 @property (nonatomic, weak) IBOutlet    TCProgressView  *diskProgressView;
 @property (nonatomic, weak) IBOutlet    UILabel         *diskProgressLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *diskLabel;
 @property (nonatomic, weak) IBOutlet    TCProgressView  *memoryProgressView;
 @property (nonatomic, weak) IBOutlet    UILabel         *memoryProgressLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *memoryLabel;
 @property (nonatomic, weak) IBOutlet    UILabel         *networkSpeedLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *networkLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *speedLabel;
 - (void) updateUI;
 @end
 
@@ -40,6 +46,21 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.02];
     self.selectedBackgroundView = selectedBgView;
+    
+    self.bg2View.layer.cornerRadius = TCSCALE(2.0);
+    
+    self.nameLabel.font = TCFont(14);
+    self.ipLabel.font = TCFont(9.0);
+    self.cpuProgressLabel.font = TCFont(10.0);
+    self.diskProgressLabel.font = TCFont(10.0);
+    self.memoryProgressLabel.font = TCFont(10.0);
+    self.networkSpeedLabel.font = TCFont(10.0);
+    self.statusLabel.font = TCFont(9.0);
+    self.cpuLabel.font = TCFont(10);
+    self.memoryLabel.font = TCFont(10);
+    self.diskLabel.font = TCFont(10);
+    self.networkLabel.font = TCFont(10);
+    self.speedLabel.font = TCFont(9);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -105,5 +126,12 @@
     {
         self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
     }
+}
+
+- (void) layoutSubviews
+{
+    CGSize statusSize = self.statusBackgroundView.bounds.size;
+    self.statusBackgroundView.layer.cornerRadius = statusSize.height / 2.0;
+    [super layoutSubviews];
 }
 @end
