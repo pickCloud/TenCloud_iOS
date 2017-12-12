@@ -74,6 +74,11 @@
 		A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE91FDED96200F37715 /* TCServerLogRequest.m */; };
 		A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDEF1FDEE53D00F37715 /* TCServerLogTableViewCell.m */; };
 		A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBDF01FDEE53D00F37715 /* TCServerLogTableViewCell.xib */; };
+		A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDF41FDF685E00F37715 /* TCServerContainerTableViewController.m */; };
+		A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBDF51FDF685E00F37715 /* TCServerContainerTableViewController.xib */; };
+		A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDF81FDF696100F37715 /* TCServerContainerListRequest.m */; };
+		A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE011FDF7D3100F37715 /* TCServerContainerTableViewCell.xib */; };
+		A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE021FDF7D3100F37715 /* TCServerContainerTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +224,14 @@
 		A07DBDEE1FDEE53D00F37715 /* TCServerLogTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerLogTableViewCell.h; sourceTree = "<group>"; };
 		A07DBDEF1FDEE53D00F37715 /* TCServerLogTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerLogTableViewCell.m; sourceTree = "<group>"; };
 		A07DBDF01FDEE53D00F37715 /* TCServerLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerLogTableViewCell.xib; sourceTree = "<group>"; };
+		A07DBDF31FDF685E00F37715 /* TCServerContainerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerContainerTableViewController.h; sourceTree = "<group>"; };
+		A07DBDF41FDF685E00F37715 /* TCServerContainerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerContainerTableViewController.m; sourceTree = "<group>"; };
+		A07DBDF51FDF685E00F37715 /* TCServerContainerTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerContainerTableViewController.xib; sourceTree = "<group>"; };
+		A07DBDF81FDF696100F37715 /* TCServerContainerListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerContainerListRequest.m; sourceTree = "<group>"; };
+		A07DBDF91FDF696100F37715 /* TCServerContainerListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerContainerListRequest.h; sourceTree = "<group>"; };
+		A07DBE001FDF7D3100F37715 /* TCServerContainerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerContainerTableViewCell.h; sourceTree = "<group>"; };
+		A07DBE011FDF7D3100F37715 /* TCServerContainerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerContainerTableViewCell.xib; sourceTree = "<group>"; };
+		A07DBE021FDF7D3100F37715 /* TCServerContainerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerContainerTableViewCell.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -652,6 +665,9 @@
 		A02555521FD7C82100D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBDF31FDF685E00F37715 /* TCServerContainerTableViewController.h */,
+				A07DBDF41FDF685E00F37715 /* TCServerContainerTableViewController.m */,
+				A07DBDF51FDF685E00F37715 /* TCServerContainerTableViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -666,6 +682,8 @@
 		A02555541FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBDF91FDF696100F37715 /* TCServerContainerListRequest.h */,
+				A07DBDF81FDF696100F37715 /* TCServerContainerListRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -673,6 +691,9 @@
 		A02555551FD7C82100D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE001FDF7D3100F37715 /* TCServerContainerTableViewCell.h */,
+				A07DBE021FDF7D3100F37715 /* TCServerContainerTableViewCell.m */,
+				A07DBE011FDF7D3100F37715 /* TCServerContainerTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1206,6 +1227,8 @@
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
+				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
+				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
@@ -1388,6 +1411,7 @@
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
+				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
@@ -1408,6 +1432,7 @@
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
+				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
@@ -1431,6 +1456,7 @@
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
+				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

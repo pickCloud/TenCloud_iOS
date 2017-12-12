@@ -14,6 +14,7 @@
 //for test
 #import "TCServerLogTableViewController.h"
 #import "TCServer+CoreDataClass.h"
+#import "TCServerContainerTableViewController.h"
 
 @interface TCServerHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -73,14 +74,15 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     /*
-    Teacher *teacher = [_teacherArray objectAtIndex:indexPath.row];
-    YETeacherResumeViewController *profileVC = [[YETeacherResumeViewController alloc] initWithTID:teacher.uid];
-    [self.navigationController pushViewController:profileVC animated:YES];
-     */
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     TCServerLogTableViewController *logVC = [[TCServerLogTableViewController alloc] initWithID:server.serverID];
     [self.navigationController pushViewController:logVC animated:YES];
+     */
+    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    TCServerContainerTableViewController *containerVC = [[TCServerContainerTableViewController alloc] initWithID:server.serverID];
+    [self.navigationController pushViewController:containerVC animated:YES];
 }
 
 @end
