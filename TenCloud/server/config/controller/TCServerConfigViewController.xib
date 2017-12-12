@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerConfigViewController">
             <connections>
+                <outlet property="tableView" destination="dKI-at-WGf" id="utH-lz-dve"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +19,25 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-at-WGf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="0.18431372549019609" green="0.20392156862745098" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="mCo-zJ-5Jh"/>
+                        <outlet property="delegate" destination="-1" id="EIn-Ce-uU1"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dKI-at-WGf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="O7t-GN-LeJ"/>
+                <constraint firstItem="dKI-at-WGf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bP0-nM-9S1"/>
+                <constraint firstItem="dKI-at-WGf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dQ2-tP-5iV"/>
+                <constraint firstItem="dKI-at-WGf" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="ez7-gW-erw"/>
+            </constraints>
+            <point key="canvasLocation" x="55.5" y="84.5"/>
         </view>
     </objects>
 </document>

@@ -12,13 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TCServerBasicInfo;
+@class TCServerBusinessInfo;
+@class TCServerSystemInfo;
 @interface TCServerConfig (CoreDataProperties)
 
 + (NSFetchRequest<TCServerConfig *> *)fetchRequest;
 
-@property (nullable, nonatomic, retain) NSObject *basic_info;
-@property (nullable, nonatomic, retain) NSObject *business_info;
-@property (nullable, nonatomic, retain) NSObject *system_info;
+@property (nullable, nonatomic, retain) TCServerBasicInfo *basic_info;
+@property (nullable, nonatomic, retain) TCServerBusinessInfo *business_info;
+@property (nullable, nonatomic, retain) TCServerSystemInfo *system_info;
 
 @end
 
