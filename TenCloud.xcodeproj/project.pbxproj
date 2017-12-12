@@ -98,6 +98,11 @@
 		A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE381FDFB47600F37715 /* TCServerConfigTableViewCell.xib */; };
 		A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE411FDFBF8B00F37715 /* TCServerInfoViewController.m */; };
 		A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE421FDFBF8B00F37715 /* TCServerInfoViewController.xib */; };
+		A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE461FDFD5D300F37715 /* TCServerMonitorViewController.m */; };
+		A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE471FDFD5D300F37715 /* TCServerMonitorViewController.xib */; };
+		A07DBE4E1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE4B1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m */; };
+		A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */; };
+		A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +291,15 @@
 		A07DBE401FDFBF8B00F37715 /* TCServerInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerInfoViewController.h; sourceTree = "<group>"; };
 		A07DBE411FDFBF8B00F37715 /* TCServerInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerInfoViewController.m; sourceTree = "<group>"; };
 		A07DBE421FDFBF8B00F37715 /* TCServerInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerInfoViewController.xib; sourceTree = "<group>"; };
+		A07DBE451FDFD5D300F37715 /* TCServerMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerMonitorViewController.h; sourceTree = "<group>"; };
+		A07DBE461FDFD5D300F37715 /* TCServerMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerMonitorViewController.m; sourceTree = "<group>"; };
+		A07DBE471FDFD5D300F37715 /* TCServerMonitorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerMonitorViewController.xib; sourceTree = "<group>"; };
+		A07DBE4A1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerPerformance+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE4B1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerPerformance+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE4C1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerPerformance+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerPerformance+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerPerformanceRequest.m; sourceTree = "<group>"; };
+		A07DBE511FDFDDD600F37715 /* TCServerPerformanceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerPerformanceRequest.h; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -955,6 +969,9 @@
 		A02555661FD7C82100D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE451FDFD5D300F37715 /* TCServerMonitorViewController.h */,
+				A07DBE461FDFD5D300F37715 /* TCServerMonitorViewController.m */,
+				A07DBE471FDFD5D300F37715 /* TCServerMonitorViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -962,6 +979,10 @@
 		A02555671FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE4A1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.h */,
+				A07DBE4B1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m */,
+				A07DBE4C1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.h */,
+				A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -969,6 +990,8 @@
 		A02555681FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE511FDFDDD600F37715 /* TCServerPerformanceRequest.h */,
+				A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1312,6 +1335,7 @@
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
+				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
@@ -1511,6 +1535,7 @@
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
 				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
+				A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */,
 				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
 				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
@@ -1530,6 +1555,7 @@
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
+				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -1564,8 +1590,10 @@
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
+				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,
+				A07DBE4E1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

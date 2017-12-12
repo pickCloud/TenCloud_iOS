@@ -42,9 +42,11 @@
         <attribute name="system_info" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="TCServerCPU" representedClassName="TCServerCPU" syncable="YES">
+        <attribute name="created_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="TCServerDisk" representedClassName="TCServerDisk" syncable="YES">
+        <attribute name="created_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="free" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -57,13 +59,21 @@
     </entity>
     <entity name="TCServerMemory" representedClassName="TCServerMemory" syncable="YES">
         <attribute name="available" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="free" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCServerNet" representedClassName="TCServerNet" syncable="YES">
+        <attribute name="created_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="input" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="output" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="TCServerPerformance" representedClassName="TCServerPerformance" syncable="YES">
+        <attribute name="cpu" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="disk" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="memory" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="net" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="TCServerSystemConfig" representedClassName="TCServerSystemConfig" syncable="YES">
         <attribute name="cpu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -88,17 +98,18 @@
     </entity>
     <elements>
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
-        <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="60"/>
-        <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="90"/>
-        <element name="TCServerLog" positionX="-27" positionY="135" width="128" height="105"/>
-        <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
-        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCServerBasicInfo" positionX="0" positionY="162" width="128" height="210"/>
         <element name="TCServerBusinessContract" positionX="-18" positionY="144" width="128" height="90"/>
         <element name="TCServerBusinessInfo" positionX="-9" positionY="153" width="128" height="75"/>
-        <element name="TCServerBasicInfo" positionX="0" positionY="162" width="128" height="210"/>
+        <element name="TCServerConfig" positionX="36" positionY="189" width="128" height="90"/>
+        <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="105"/>
+        <element name="TCServerLog" positionX="-27" positionY="135" width="128" height="105"/>
+        <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="120"/>
+        <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="105"/>
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
-        <element name="TCServerConfig" positionX="36" positionY="189" width="128" height="90"/>
+        <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCServerPerformance" positionX="-9" positionY="135" width="128" height="105"/>
     </elements>
 </model>

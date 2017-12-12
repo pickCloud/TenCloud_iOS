@@ -2,7 +2,7 @@
 //  TCServerCPU+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/11.
+//  Created by huangdx on 2017/12/12.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 //
@@ -16,5 +16,6 @@
 }
 
 @dynamic percent;
+@dynamic created_time;
 
 @end
