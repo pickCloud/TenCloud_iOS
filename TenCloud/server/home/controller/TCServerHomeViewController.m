@@ -15,6 +15,7 @@
 #import "TCServerLogTableViewController.h"
 #import "TCServer+CoreDataClass.h"
 #import "TCServerContainerTableViewController.h"
+#import "TCServerConfigViewController.h"
 
 @interface TCServerHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -80,9 +81,15 @@
     TCServerLogTableViewController *logVC = [[TCServerLogTableViewController alloc] initWithID:server.serverID];
     [self.navigationController pushViewController:logVC animated:YES];
      */
+    
+    /*
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     TCServerContainerTableViewController *containerVC = [[TCServerContainerTableViewController alloc] initWithID:server.serverID];
     [self.navigationController pushViewController:containerVC animated:YES];
+     */
+    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    TCServerConfigViewController *configVC = [[TCServerConfigViewController alloc] initWithID:server.serverID];
+    [self.navigationController pushViewController:configVC animated:YES];
 }
 
 @end

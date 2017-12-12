@@ -79,6 +79,21 @@
 		A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDF81FDF696100F37715 /* TCServerContainerListRequest.m */; };
 		A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE011FDF7D3100F37715 /* TCServerContainerTableViewCell.xib */; };
 		A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE021FDF7D3100F37715 /* TCServerContainerTableViewCell.m */; };
+		A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE0A1FDF86C600F37715 /* TCServerConfigRequest.m */; };
+		A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE0E1FDF872900F37715 /* TCServerConfigViewController.m */; };
+		A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBE0F1FDF872900F37715 /* TCServerConfigViewController.xib */; };
+		A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE131FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m */; };
+		A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE151FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m */; };
+		A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE171FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m */; };
+		A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE191FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m */; };
+		A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE1F1FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m */; };
+		A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE211FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m */; };
+		A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE231FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m */; };
+		A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE251FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m */; };
+		A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE2B1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m */; };
+		A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE2D1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m */; };
+		A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE311FDFA92200F37715 /* TCServerConfig+CoreDataClass.m */; };
+		A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE331FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +247,35 @@
 		A07DBE001FDF7D3100F37715 /* TCServerContainerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerContainerTableViewCell.h; sourceTree = "<group>"; };
 		A07DBE011FDF7D3100F37715 /* TCServerContainerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerContainerTableViewCell.xib; sourceTree = "<group>"; };
 		A07DBE021FDF7D3100F37715 /* TCServerContainerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerContainerTableViewCell.m; sourceTree = "<group>"; };
+		A07DBE0A1FDF86C600F37715 /* TCServerConfigRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerConfigRequest.m; sourceTree = "<group>"; };
+		A07DBE0B1FDF86C600F37715 /* TCServerConfigRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerConfigRequest.h; sourceTree = "<group>"; };
+		A07DBE0D1FDF872900F37715 /* TCServerConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerConfigViewController.h; sourceTree = "<group>"; };
+		A07DBE0E1FDF872900F37715 /* TCServerConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerConfigViewController.m; sourceTree = "<group>"; };
+		A07DBE0F1FDF872900F37715 /* TCServerConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerConfigViewController.xib; sourceTree = "<group>"; };
+		A07DBE121FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerSystemConfig+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE131FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSystemConfig+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE141FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerSystemConfig+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE151FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSystemConfig+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE161FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBusinessContract+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE171FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBusinessContract+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE181FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBusinessContract+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE191FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBusinessContract+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE1E1FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerSystemInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE1F1FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSystemInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE201FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerSystemInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE211FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSystemInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE221FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBasicInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE231FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBasicInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE241FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBasicInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE251FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBasicInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE2A1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBusinessInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE2B1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBusinessInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE2C1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerBusinessInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE2D1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerBusinessInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A07DBE301FDFA92200F37715 /* TCServerConfig+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerConfig+CoreDataClass.h"; sourceTree = "<group>"; };
+		A07DBE311FDFA92200F37715 /* TCServerConfig+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerConfig+CoreDataClass.m"; sourceTree = "<group>"; };
+		A07DBE321FDFA92200F37715 /* TCServerConfig+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerConfig+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A07DBE331FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerConfig+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -763,6 +807,9 @@
 		A025555C1FD7C82100D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE0D1FDF872900F37715 /* TCServerConfigViewController.h */,
+				A07DBE0E1FDF872900F37715 /* TCServerConfigViewController.m */,
+				A07DBE0F1FDF872900F37715 /* TCServerConfigViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -770,6 +817,30 @@
 		A025555D1FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE301FDFA92200F37715 /* TCServerConfig+CoreDataClass.h */,
+				A07DBE311FDFA92200F37715 /* TCServerConfig+CoreDataClass.m */,
+				A07DBE321FDFA92200F37715 /* TCServerConfig+CoreDataProperties.h */,
+				A07DBE331FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m */,
+				A07DBE2A1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.h */,
+				A07DBE2B1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m */,
+				A07DBE2C1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.h */,
+				A07DBE2D1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m */,
+				A07DBE1E1FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.h */,
+				A07DBE1F1FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m */,
+				A07DBE201FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.h */,
+				A07DBE211FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m */,
+				A07DBE221FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.h */,
+				A07DBE231FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m */,
+				A07DBE241FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.h */,
+				A07DBE251FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m */,
+				A07DBE121FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.h */,
+				A07DBE131FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m */,
+				A07DBE141FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.h */,
+				A07DBE151FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m */,
+				A07DBE161FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.h */,
+				A07DBE171FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m */,
+				A07DBE181FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.h */,
+				A07DBE191FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -777,6 +848,8 @@
 		A025555E1FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE0B1FDF86C600F37715 /* TCServerConfigRequest.h */,
+				A07DBE0A1FDF86C600F37715 /* TCServerConfigRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1230,6 +1303,7 @@
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
+				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
@@ -1407,16 +1481,20 @@
 			files = (
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
+				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
+				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
+				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
 				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
+				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
@@ -1426,10 +1504,13 @@
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
+				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
+				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
+				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
@@ -1438,6 +1519,7 @@
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
 				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
 				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
+				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
@@ -1448,16 +1530,22 @@
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
+				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
+				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
+				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
+				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
+				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
+				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

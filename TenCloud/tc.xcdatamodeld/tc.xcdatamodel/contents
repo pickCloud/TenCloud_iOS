@@ -14,6 +14,33 @@
         <attribute name="report_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serverID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="TCServerBasicInfo" representedClassName="TCServerBasicInfo" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="business_status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cluster_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cluster_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instance_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="machine_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="public_ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serverID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="TCServerBusinessContract" representedClassName="TCServerBusinessContract" syncable="YES">
+        <attribute name="charge_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expired_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TCServerBusinessInfo" representedClassName="TCServerBusinessInfo" syncable="YES">
+        <attribute name="contract" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TCServerConfig" representedClassName="TCServerConfig" syncable="YES">
+        <attribute name="basic_info" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="business_info" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="system_info" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="TCServerCPU" representedClassName="TCServerCPU" syncable="YES">
         <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
@@ -38,6 +65,15 @@
         <attribute name="input" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="output" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="TCServerSystemConfig" representedClassName="TCServerSystemConfig" syncable="YES">
+        <attribute name="cpu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memory" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="os_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="os_type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TCServerSystemInfo" representedClassName="TCServerSystemInfo" syncable="YES">
+        <attribute name="config" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="TCUser" representedClassName="TCUser" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
@@ -58,5 +94,11 @@
         <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="105"/>
         <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="75"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCServerBusinessContract" positionX="-18" positionY="144" width="128" height="90"/>
+        <element name="TCServerBusinessInfo" positionX="-9" positionY="153" width="128" height="75"/>
+        <element name="TCServerBasicInfo" positionX="0" positionY="162" width="128" height="210"/>
+        <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="105"/>
+        <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
+        <element name="TCServerConfig" positionX="36" positionY="189" width="128" height="90"/>
     </elements>
 </model>
