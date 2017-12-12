@@ -76,6 +76,7 @@
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="leading" secondItem="Y6I-u8-nq5" secondAttribute="leading" id="mnX-Nk-qkg"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="keyLabel" destination="rIY-W5-OwV" id="4SO-NG-1m4"/>
                 <outlet property="valueLabel" destination="H6X-X5-GV5" id="GWF-ap-fyg"/>

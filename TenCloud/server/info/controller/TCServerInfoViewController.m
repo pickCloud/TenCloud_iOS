@@ -1,27 +1,25 @@
 //
-//  TCServerConfigViewController.m
+//  TCServerInfoViewController.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/12.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCServerConfigViewController.h"
+#import "TCServerInfoViewController.h"
 #import "TCServerConfigRequest.h"
-#import "TCServerConfigTableViewCell.h"
 #import "TCServerConfig+CoreDataClass.h"
-#import "TCServerSystemInfo+CoreDataClass.h"
-#import "TCServerSystemConfig+CoreDataClass.h"
-
+#import "TCServerBasicInfo+CoreDataClass.h"
+#import "TCServerConfigTableViewCell.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 
-@interface TCServerConfigViewController ()
+@interface TCServerInfoViewController ()
 @property (nonatomic, assign)   NSInteger   serverID;
-@property (nonatomic, weak)     IBOutlet    UITableView     *tableView;
+@property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableDictionary         *configDict;
 @end
 
-@implementation TCServerConfigViewController
+@implementation TCServerInfoViewController
 
 - (instancetype) initWithID:(NSInteger)serverID
 {
@@ -47,33 +45,25 @@
     TCServerConfigRequest *request = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(TCServerConfig *config) {
         [weakSelf stopLoading];
-        [weakSelf.configDict removeAllObjects];
-        TCServerSystemConfig *sysConfig = config.system_info.config;
-        NSString *os = sysConfig.os_name;
-        NSString *type = sysConfig.os_type;
-        NSInteger cpu = sysConfig.cpu;
-        NSInteger memory = sysConfig.memory;
-        if (!os || os.length == 0)
-        {
-            os = @"未知系统";
-        }
-        if (!type || type.length == 0)
-        {
-            type = @"未知系统类型";
-        }
-        NSString *cpuStr = [NSString stringWithFormat:@"%ld",cpu];
-        NSString *memoryStr = [NSString stringWithFormat:@"%ld",memory];
-        [_configDict setObject:os forKey:@"操作系统"];
-        [_configDict setObject:type forKey:@"系统类型"];
-        [_configDict setObject:cpuStr forKey:@"CPU"];
-        [_configDict setObject:memoryStr forKey:@"内存"];
+        TCServerBasicInfo *info = config.basic_info;
+        NSString *name = info.name ? info.name : @"";
+        NSString *clusterName = info.cluster_name ? info.cluster_name : @"";
+        NSString *address = info.address ? info.address : @"";
+        NSString *ip = info.public_ip ? info.public_ip : @"";
+        NSString *status = info.machine_status ? info.machine_status : @"";
+        NSString *time = info.created_time ? info.created_time : @"";
+        [_configDict setObject:name forKey:@"名称"];
+        [_configDict setObject:clusterName forKey:@"服务器"];
+        [_configDict setObject:address forKey:@"地址"];
+        [_configDict setObject:ip forKey:@"IP"];
+        [_configDict setObject:status forKey:@"状态"];
+        [_configDict setObject:time forKey:@"添加时间"];
         [weakSelf.tableView reloadData];
-        NSLog(@"_configDict:%@",_configDict);
+        NSLog(@"info_config_dict:%@",_configDict);
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,12 +87,6 @@
     NSString *value = [_configDict valueForKey:key];
     [cell setKey:key value:value];
     return cell;
-    /*
-    TCServerLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_LOG_CELL_REUSE_ID forIndexPath:indexPath];
-    TCServerLog *log = [_logArray objectAtIndex:indexPath.row];
-    [cell setLog:log];
-    return cell;
-     */
 }
 
 
@@ -112,4 +96,5 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 @end
