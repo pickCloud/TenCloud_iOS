@@ -30,7 +30,8 @@
 {
     [[TCLocalAccount shared] logout];
     TCLoginViewController *loginVC = [TCLoginViewController new];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginVC];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
 @end
