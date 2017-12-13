@@ -10,6 +10,7 @@
 #import "HMSegmentedControl.h"
 #import "TCPasswordLoginRequest.h"
 #import "TCTabBarController.h"
+#import "TCSpacingTextField.h"
 
 //for test
 #import "TCUserProfileRequest.h"
@@ -18,7 +19,7 @@
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
-@property (nonatomic, weak) IBOutlet    UITextField         *phoneNumField;
+@property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *phoneNum2Field;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
@@ -86,6 +87,13 @@
         NSLog(@"msg:%@",message);
     }];
      */
+    
+    _phoneNumField.firstSpacingPosition = 3;
+    _phoneNumField.secondSpacingPosition = 8;
+    _phoneNumField.maxLength = 11;
+    _phoneNumField.finishBlock = ^(TCSpacingTextField *textField) {
+        [weakSelf.passwordField becomeFirstResponder];
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -164,7 +172,7 @@
     if (_currentPageIndex == 0)
     {
         NSLog(@"密码登录页面");
-        NSString *phoneNum = _phoneNumField.text;
+        NSString *phoneNum = _phoneNumField.plainPhoneNum;
         NSString *password = _passwordField.text;
         NSLog(@"phoneNum:%@ password:%@",phoneNum,password);
         if (!phoneNum || phoneNum.length == 0)

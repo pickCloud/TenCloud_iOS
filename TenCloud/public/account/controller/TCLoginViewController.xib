@@ -56,14 +56,14 @@
                                         <constraint firstAttribute="width" secondItem="kTT-oA-gIn" secondAttribute="height" multiplier="45:49" id="Waa-v3-X0y"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tXu-jF-Bej">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tXu-jF-Bej" customClass="TCSpacingTextField">
                                     <rect key="frame" x="45" y="0.0" width="267" height="49"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="tXu-jF-Bej" secondAttribute="height" multiplier="267:49" id="Y63-sy-sBJ"/>
                                     </constraints>
                                     <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-C3-z0y" userLabel="sepeartor line">
                                     <rect key="frame" x="0.0" y="48" width="312" height="1"/>
@@ -93,7 +93,7 @@
                                     </constraints>
                                     <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
