@@ -106,6 +106,8 @@
 		A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE911FE1157800F37715 /* NSString+Extension.m */; };
 		A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE941FE11BE000F37715 /* TCServerDetailViewController.m */; };
 		A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE981FE15B4A00F37715 /* TCSpacingTextField.m */; };
+		A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE9B1FE176E200F37715 /* GetCaptchaButton.m */; };
+		A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +311,10 @@
 		A07DBE941FE11BE000F37715 /* TCServerDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerDetailViewController.m; sourceTree = "<group>"; };
 		A07DBE971FE15B4A00F37715 /* TCSpacingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSpacingTextField.h; sourceTree = "<group>"; };
 		A07DBE981FE15B4A00F37715 /* TCSpacingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSpacingTextField.m; sourceTree = "<group>"; };
+		A07DBE9A1FE176E200F37715 /* GetCaptchaButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCaptchaButton.h; sourceTree = "<group>"; };
+		A07DBE9B1FE176E200F37715 /* GetCaptchaButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCaptchaButton.m; sourceTree = "<group>"; };
+		A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCaptchaLoginRequest.m; sourceTree = "<group>"; };
+		A07DBE9E1FE1836000F37715 /* TCCaptchaLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCaptchaLoginRequest.h; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -543,6 +549,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE9E1FE1836000F37715 /* TCCaptchaLoginRequest.h */,
+				A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */,
 				A001FA291FDD3D9E008328B0 /* TCUserProfileRequest.h */,
 				A001FA2A1FDD3D9E008328B0 /* TCUserProfileRequest.m */,
 				A02555361FD7973D00D16D22 /* TCRegisterRequest.h */,
@@ -558,6 +566,8 @@
 		A025552B1FD6936700D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBE9A1FE176E200F37715 /* GetCaptchaButton.h */,
+				A07DBE9B1FE176E200F37715 /* GetCaptchaButton.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1623,6 +1633,7 @@
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
+				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
@@ -1634,6 +1645,7 @@
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
+				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
