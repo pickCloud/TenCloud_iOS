@@ -108,6 +108,8 @@
 		A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE981FE15B4A00F37715 /* TCSpacingTextField.m */; };
 		A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE9B1FE176E200F37715 /* GetCaptchaButton.m */; };
 		A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */; };
+		A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEA11FE187B600F37715 /* TCRegisterViewController.m */; };
+		A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEA21FE187B600F37715 /* TCRegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +317,9 @@
 		A07DBE9B1FE176E200F37715 /* GetCaptchaButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCaptchaButton.m; sourceTree = "<group>"; };
 		A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCaptchaLoginRequest.m; sourceTree = "<group>"; };
 		A07DBE9E1FE1836000F37715 /* TCCaptchaLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCaptchaLoginRequest.h; sourceTree = "<group>"; };
+		A07DBEA01FE187B600F37715 /* TCRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRegisterViewController.h; sourceTree = "<group>"; };
+		A07DBEA11FE187B600F37715 /* TCRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRegisterViewController.m; sourceTree = "<group>"; };
+		A07DBEA21FE187B600F37715 /* TCRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCRegisterViewController.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -529,6 +534,9 @@
 				A02555AD1FD7F0C300D16D22 /* TCLoginViewController.h */,
 				A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */,
 				A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */,
+				A07DBEA01FE187B600F37715 /* TCRegisterViewController.h */,
+				A07DBEA11FE187B600F37715 /* TCRegisterViewController.m */,
+				A07DBEA21FE187B600F37715 /* TCRegisterViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1389,6 +1397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */,
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
@@ -1641,6 +1650,7 @@
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
+				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,

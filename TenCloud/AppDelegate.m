@@ -39,7 +39,8 @@
         rootVC = [[TCTabBarController alloc] init];
     }else
     {
-        rootVC = [TCLoginViewController new];
+        UIViewController *loginVC = [TCLoginViewController new];
+        rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
     }
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];

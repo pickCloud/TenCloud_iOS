@@ -16,6 +16,8 @@
 #import "TCCaptchaLoginRequest.h"
 #import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
+#import "TCRegisterViewController.h"
+#import "VHLNavigation.h"
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
@@ -39,6 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self vhl_setNavBarHidden:YES];
+    
     // Do any additional setup after loading the view from its nib.
     NSMutableArray  *segmentTitles = [NSMutableArray new];
     [segmentTitles addObject:@"密码登录"];
@@ -96,6 +101,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //[self.navigationController setNavigationBarHidden:NO animated:animated];
+    //[self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -253,6 +265,8 @@
 - (IBAction) onRegisterButton:(id)sender
 {
     NSLog(@"注册");
+    TCRegisterViewController *registerVC = [TCRegisterViewController new];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 - (IBAction) onForgetPasswordButton:(id)sender
