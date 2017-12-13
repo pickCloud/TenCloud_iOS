@@ -65,7 +65,7 @@
         self.navigationItem.leftBarButtonItem = backButtonItem;
         //self.navigationItem.backBarButtonItem = backButtonItem;
         
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+        //self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
     
     

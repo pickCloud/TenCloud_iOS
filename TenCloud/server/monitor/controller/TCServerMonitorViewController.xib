@@ -14,6 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerMonitorViewController">
             <connections>
                 <outlet property="cpuChartView" destination="wfw-oO-U2I" id="SDN-rN-yh9"/>
+                <outlet property="diskChartView" destination="9iA-nH-fPZ" id="n3p-Tx-lEi"/>
+                <outlet property="memoryChartView" destination="I5v-C9-eYC" id="KJp-Y7-xAy"/>
+                <outlet property="netChartView" destination="shF-rb-gc0" id="jYy-8D-sZh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez1-E0-Tmg">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez1-E0-Tmg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-Y8-dpS">
@@ -47,7 +50,7 @@
                     <rect key="frame" x="0.0" y="41" width="375" height="626"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZE-u8-XR6">
-                            <rect key="frame" x="15" y="20" width="345" height="20"/>
+                            <rect key="frame" x="15" y="0.0" width="345" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="height" multiplier="69:4" id="TES-JJ-YMd"/>
                             </constraints>
@@ -68,22 +71,140 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfw-oO-U2I" customClass="WYLineChartView">
-                            <rect key="frame" x="15" y="48" width="345" height="186"/>
+                            <rect key="frame" x="11.5" y="28" width="345" height="186"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="wfw-oO-U2I" secondAttribute="height" multiplier="115:62" id="bOc-Iz-bND"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzL-Ha-UR0">
+                            <rect key="frame" x="15" y="242" width="345" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="bzL-Ha-UR0" secondAttribute="height" multiplier="69:4" id="Nl3-5N-JeM"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="内存">
+                                    <attributes>
+                                        <color key="NSColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="(%)">
+                                    <attributes>
+                                        <color key="NSColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-C9-eYC" customClass="WYLineChartView">
+                            <rect key="frame" x="11" y="270" width="345.5" height="186"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="I5v-C9-eYC" secondAttribute="height" multiplier="115:62" id="nax-kF-Moi"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-NP-u4n">
+                            <rect key="frame" x="15" y="483" width="345" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="gvN-NP-u4n" secondAttribute="height" multiplier="69:4" id="Sos-OU-HQh"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="硬盘">
+                                    <attributes>
+                                        <color key="NSColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="(%)">
+                                    <attributes>
+                                        <color key="NSColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iA-nH-fPZ" customClass="WYLineChartView">
+                            <rect key="frame" x="11" y="511" width="345.5" height="186.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="9iA-nH-fPZ" secondAttribute="height" multiplier="115:62" id="oIf-Bw-EGi"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-cx-ANo">
+                            <rect key="frame" x="15" y="725" width="345" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="OLn-cx-ANo" secondAttribute="height" multiplier="69:4" id="1AG-xP-TRy"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="网络">
+                                    <attributes>
+                                        <color key="NSColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="(kb/s)">
+                                    <attributes>
+                                        <color key="NSColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shF-rb-gc0" customClass="WYLineChartView">
+                            <rect key="frame" x="11" y="753" width="345.5" height="186.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="shF-rb-gc0" secondAttribute="height" multiplier="115:62" id="xzg-TU-lNA"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="I5v-C9-eYC" firstAttribute="width" secondItem="bzL-Ha-UR0" secondAttribute="width" id="23g-T2-cLn"/>
+                        <constraint firstItem="gvN-NP-u4n" firstAttribute="width" secondItem="gvN-NP-u4n" secondAttribute="height" multiplier="69:4" id="3AU-T7-6Bg"/>
+                        <constraint firstItem="9iA-nH-fPZ" firstAttribute="top" secondItem="gvN-NP-u4n" secondAttribute="bottom" constant="8" id="6lK-7k-rvR"/>
+                        <constraint firstItem="I5v-C9-eYC" firstAttribute="width" secondItem="I5v-C9-eYC" secondAttribute="height" multiplier="115:62" id="8BS-KE-StT"/>
+                        <constraint firstItem="9iA-nH-fPZ" firstAttribute="width" secondItem="9iA-nH-fPZ" secondAttribute="height" multiplier="115:62" id="8aS-Ro-Spg"/>
+                        <constraint firstItem="OLn-cx-ANo" firstAttribute="top" secondItem="9iA-nH-fPZ" secondAttribute="bottom" constant="27.5" id="B5h-j4-DQs"/>
+                        <constraint firstItem="I5v-C9-eYC" firstAttribute="top" secondItem="bzL-Ha-UR0" secondAttribute="bottom" constant="8" id="Bb9-Iu-CoS"/>
                         <constraint firstAttribute="trailing" secondItem="lZE-u8-XR6" secondAttribute="trailing" constant="15" id="CZA-UK-klp"/>
-                        <constraint firstItem="wfw-oO-U2I" firstAttribute="centerX" secondItem="lZE-u8-XR6" secondAttribute="centerX" id="EFK-gl-wUc"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="width" secondItem="shF-rb-gc0" secondAttribute="height" multiplier="115:62" id="DIZ-E6-r8g"/>
+                        <constraint firstItem="I5v-C9-eYC" firstAttribute="centerX" secondItem="bzL-Ha-UR0" secondAttribute="centerX" multiplier="0.98" id="Dh6-cj-PXF"/>
+                        <constraint firstItem="wfw-oO-U2I" firstAttribute="centerX" secondItem="lZE-u8-XR6" secondAttribute="centerX" multiplier="0.98" id="EFK-gl-wUc"/>
+                        <constraint firstItem="gvN-NP-u4n" firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="width" id="ENh-RW-nZp"/>
+                        <constraint firstAttribute="bottom" secondItem="shF-rb-gc0" secondAttribute="bottom" constant="15" id="Fm0-vJ-WPG"/>
                         <constraint firstItem="wfw-oO-U2I" firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="width" id="GwV-hZ-VnN"/>
+                        <constraint firstItem="9iA-nH-fPZ" firstAttribute="width" secondItem="gvN-NP-u4n" secondAttribute="width" id="INl-cQ-kpw"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="width" secondItem="shF-rb-gc0" secondAttribute="height" multiplier="115:62" id="NFv-Hb-9La"/>
+                        <constraint firstItem="OLn-cx-ANo" firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="width" id="QiU-9O-BHt"/>
+                        <constraint firstItem="OLn-cx-ANo" firstAttribute="width" secondItem="OLn-cx-ANo" secondAttribute="height" multiplier="69:4" id="SFW-hF-fT1"/>
                         <constraint firstItem="lZE-u8-XR6" firstAttribute="centerX" secondItem="uYE-qA-sTM" secondAttribute="centerX" id="SeX-he-3VQ"/>
-                        <constraint firstAttribute="bottom" secondItem="wfw-oO-U2I" secondAttribute="bottom" constant="392" id="Z1e-1m-LYl"/>
-                        <constraint firstItem="lZE-u8-XR6" firstAttribute="top" secondItem="uYE-qA-sTM" secondAttribute="top" constant="20" id="iTf-Ls-QV5"/>
+                        <constraint firstItem="9iA-nH-fPZ" firstAttribute="centerX" secondItem="gvN-NP-u4n" secondAttribute="centerX" multiplier="0.98" id="XjZ-zf-zHN"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="centerX" secondItem="OLn-cx-ANo" secondAttribute="centerX" multiplier="0.98" id="a2s-qM-Xg4"/>
+                        <constraint firstItem="gvN-NP-u4n" firstAttribute="top" secondItem="I5v-C9-eYC" secondAttribute="bottom" constant="27" id="cPN-jD-aiD"/>
+                        <constraint firstItem="bzL-Ha-UR0" firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="width" id="eg3-g5-vPO"/>
+                        <constraint firstItem="gvN-NP-u4n" firstAttribute="width" secondItem="gvN-NP-u4n" secondAttribute="height" multiplier="69:4" id="hw8-ci-ekm"/>
+                        <constraint firstItem="lZE-u8-XR6" firstAttribute="top" secondItem="uYE-qA-sTM" secondAttribute="top" id="iTf-Ls-QV5"/>
+                        <constraint firstItem="OLn-cx-ANo" firstAttribute="width" secondItem="OLn-cx-ANo" secondAttribute="height" multiplier="69:4" id="igf-9e-nGW"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="width" secondItem="OLn-cx-ANo" secondAttribute="width" id="kDV-kd-9jJ"/>
+                        <constraint firstItem="9iA-nH-fPZ" firstAttribute="width" secondItem="9iA-nH-fPZ" secondAttribute="height" multiplier="115:62" id="kwx-b9-7Gz"/>
+                        <constraint firstItem="bzL-Ha-UR0" firstAttribute="centerX" secondItem="lZE-u8-XR6" secondAttribute="centerX" id="oVt-jp-j7Y"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="top" secondItem="OLn-cx-ANo" secondAttribute="bottom" constant="8" id="odq-Wp-EeS"/>
                         <constraint firstItem="wfw-oO-U2I" firstAttribute="top" secondItem="lZE-u8-XR6" secondAttribute="bottom" constant="8" id="r3g-3u-mnc"/>
+                        <constraint firstItem="OLn-cx-ANo" firstAttribute="width" secondItem="OLn-cx-ANo" secondAttribute="height" multiplier="69:4" id="sHx-RJ-Ob2"/>
+                        <constraint firstItem="bzL-Ha-UR0" firstAttribute="width" secondItem="bzL-Ha-UR0" secondAttribute="height" multiplier="69:4" id="uy7-5x-0Vq"/>
                         <constraint firstItem="lZE-u8-XR6" firstAttribute="width" secondItem="uYE-qA-sTM" secondAttribute="width" multiplier="0.92" id="v3F-uD-Ey1"/>
+                        <constraint firstItem="shF-rb-gc0" firstAttribute="width" secondItem="shF-rb-gc0" secondAttribute="height" multiplier="115:62" id="wTG-xK-DPR"/>
+                        <constraint firstItem="bzL-Ha-UR0" firstAttribute="top" secondItem="wfw-oO-U2I" secondAttribute="bottom" constant="28" id="zHX-Ou-utj"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -94,6 +215,8 @@
                 <constraint firstItem="Ez1-E0-Tmg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8xI-Nm-Pae"/>
                 <constraint firstItem="Ez1-E0-Tmg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9QF-cY-PRp"/>
                 <constraint firstItem="uYE-qA-sTM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KvL-AN-izx"/>
+                <constraint firstItem="OLn-cx-ANo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rol-6l-nEF"/>
+                <constraint firstItem="gvN-NP-u4n" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ez1-5F-99r"/>
                 <constraint firstAttribute="bottom" secondItem="uYE-qA-sTM" secondAttribute="bottom" id="rMx-Ex-Xaq"/>
                 <constraint firstItem="uYE-qA-sTM" firstAttribute="width" secondItem="Ez1-E0-Tmg" secondAttribute="width" id="vaB-TV-g8Y"/>
             </constraints>

@@ -54,6 +54,7 @@
         point = [self.parentView.datasource lineChartView:self.parentView pointReferToXAxisLabelAtIndex:idx];
         
         labelWidth = [self.parentView.calculator widthOfLabelOnXAxisAtIndex:idx];
+        NSLog(@"label%ld width:%.2f",idx, labelWidth);
         label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, labelWidth, labelHeight)];
         
         centerY = labelHeight / 2;
