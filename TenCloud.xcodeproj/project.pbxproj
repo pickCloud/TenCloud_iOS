@@ -104,6 +104,7 @@
 		A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */; };
 		A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */; };
 		A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE911FE1157800F37715 /* NSString+Extension.m */; };
+		A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE941FE11BE000F37715 /* TCServerDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +304,8 @@
 		A07DBE511FDFDDD600F37715 /* TCServerPerformanceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerPerformanceRequest.h; sourceTree = "<group>"; };
 		A07DBE901FE1157800F37715 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		A07DBE911FE1157800F37715 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		A07DBE931FE11BE000F37715 /* TCServerDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerDetailViewController.h; sourceTree = "<group>"; };
+		A07DBE941FE11BE000F37715 /* TCServerDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerDetailViewController.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -620,6 +623,8 @@
 				A025556A1FD7C85500D16D22 /* TCServerHomeViewController.h */,
 				A025556B1FD7C85500D16D22 /* TCServerHomeViewController.m */,
 				A025556C1FD7C85500D16D22 /* TCServerHomeViewController.xib */,
+				A07DBE931FE11BE000F37715 /* TCServerDetailViewController.h */,
+				A07DBE941FE11BE000F37715 /* TCServerDetailViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1606,6 +1611,7 @@
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
+				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,

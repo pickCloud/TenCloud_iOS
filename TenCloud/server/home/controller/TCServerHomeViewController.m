@@ -9,6 +9,7 @@
 #import "TCServerHomeViewController.h"
 #import "TCClusterRequest.h"
 #import "TCServerTableViewCell.h"
+#import "TCServerDetailViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 
 //for test
@@ -101,9 +102,15 @@
     TCServerInfoViewController *infoVC = [[TCServerInfoViewController alloc] initWithID:server.serverID];
     [self.navigationController pushViewController:infoVC animated:YES];
      */
+    
+    /*
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     TCServerMonitorViewController *monitorVC = [[TCServerMonitorViewController alloc] initWithID:server.serverID];
     [self.navigationController pushViewController:monitorVC animated:YES];
+     */
+    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithID:server.serverID name:server.name];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end
