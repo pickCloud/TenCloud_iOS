@@ -18,7 +18,27 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUw-fD-6SQ">
+                    <rect key="frame" x="130" y="313.5" width="115" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3MV-Ca-kcj"/>
+                        <constraint firstAttribute="width" constant="115" id="WAt-9T-Wem"/>
+                    </constraints>
+                    <state key="normal" title="退出账号">
+                        <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onLogout:" destination="-1" eventType="touchUpInside" id="XGa-qB-aM8"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nUw-fD-6SQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1vV-5b-JiE"/>
+                <constraint firstItem="nUw-fD-6SQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="X9D-Iu-PHG"/>
+            </constraints>
+            <point key="canvasLocation" x="77.5" y="73.5"/>
         </view>
     </objects>
 </document>
