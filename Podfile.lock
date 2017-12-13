@@ -18,6 +18,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.13.1)
   - MMProgressHUD (0.3.2)
+  - WYChart (0.3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - MJExtension (from `./LocalLibs/MJExtension/`)
   - MMProgressHUD (from `./LocalLibs/MMProgressHUD/`)
+  - WYChart (from `./LocalLibs/WYChart/`)
 
 EXTERNAL SOURCES:
   MagicalRecord:
@@ -33,6 +35,8 @@ EXTERNAL SOURCES:
     :path: ./LocalLibs/MJExtension/
   MMProgressHUD:
     :path: ./LocalLibs/MMProgressHUD/
+  WYChart:
+    :path: ./LocalLibs/WYChart/
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -40,7 +44,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: 41f2ccbdb65721c4dbfcb0b824d441644bbaaa0e
   MMProgressHUD: c83daddbbfb08f1021aec8965642a5778ad179dd
+  WYChart: 7523ef7395b4f4c8c88415bf0dd4f8d27a7757ce
 
-PODFILE CHECKSUM: 62832b5ba4dcf1dbc6f6493d26484a55b47539ad
+PODFILE CHECKSUM: 2ca6fe0a04bfc884c194ae22c8edb6fb90079a7f
 
 COCOAPODS: 1.3.1

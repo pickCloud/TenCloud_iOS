@@ -11,6 +11,7 @@ pod 'MBProgressHUD','~> 0.9.1'
 pod 'MMProgressHUD', :path => './LocalLibs/MMProgressHUD/'
 pod 'MagicalRecord', :path => './LocalLibs/MagicalRecord/'
 pod 'MJExtension', :path => './LocalLibs/MJExtension/'
+pod 'WYChart', :path => './LocalLibs/WYChart/'
 
   target 'TenCloudTests' do
     inherit! :search_paths

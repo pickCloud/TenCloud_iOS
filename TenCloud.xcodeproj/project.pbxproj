@@ -103,6 +103,7 @@
 		A07DBE4E1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE4B1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m */; };
 		A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */; };
 		A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */; };
+		A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE911FE1157800F37715 /* NSString+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +301,8 @@
 		A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerPerformance+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A07DBE501FDFDDD600F37715 /* TCServerPerformanceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerPerformanceRequest.m; sourceTree = "<group>"; };
 		A07DBE511FDFDDD600F37715 /* TCServerPerformanceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerPerformanceRequest.h; sourceTree = "<group>"; };
+		A07DBE901FE1157800F37715 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		A07DBE911FE1157800F37715 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -393,6 +396,7 @@
 				A02555321FD69D3000D16D22 /* PrefixHeader.pch */,
 				A02554D21FD67FD400D16D22 /* TenCloud */,
 				A02555081FD692FA00D16D22 /* vendor */,
+				A07DBE8D1FE1157800F37715 /* basic */,
 				A02554EE1FD67FD500D16D22 /* TenCloudTests */,
 				A02554F91FD67FD500D16D22 /* TenCloudUITests */,
 				A02554D11FD67FD400D16D22 /* Products */,
@@ -1217,6 +1221,31 @@
 			path = HMSegmentedControl;
 			sourceTree = "<group>";
 		};
+		A07DBE8D1FE1157800F37715 /* basic */ = {
+			isa = PBXGroup;
+			children = (
+				A07DBE8E1FE1157800F37715 /* extension */,
+			);
+			path = basic;
+			sourceTree = "<group>";
+		};
+		A07DBE8E1FE1157800F37715 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				A07DBE8F1FE1157800F37715 /* NSString */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		A07DBE8F1FE1157800F37715 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				A07DBE901FE1157800F37715 /* NSString+Extension.h */,
+				A07DBE911FE1157800F37715 /* NSString+Extension.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1586,6 +1615,7 @@
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
+				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
