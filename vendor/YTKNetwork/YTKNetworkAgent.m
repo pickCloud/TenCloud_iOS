@@ -227,7 +227,7 @@
             case YTKRequestPriorityDefault:
                 /*!!fall through*/
             default:
-                request.requestTask.priority = NSURLSessionTaskPriorityDefault;
+                //request.requestTask.priority = NSURLSessionTaskPriorityDefault;
                 break;
         }
     }

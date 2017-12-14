@@ -9,10 +9,11 @@
 #import "TCServerContainerTableViewController.h"
 #import "TCServerContainerListRequest.h"
 #import "TCServerContainerTableViewCell.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #define SERVER_CONTAINER_CELL_REUSE_ID    @"SERVER_CONTAINER_CELL_REUSE_ID"
 
-@interface TCServerContainerTableViewController ()
+@interface TCServerContainerTableViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, strong)   NSMutableArray  *containerArray;
 @property (nonatomic, weak)     IBOutlet    UITableView     *tableView;
@@ -38,20 +39,20 @@
     UINib *containerCellNib = [UINib nibWithNibName:@"TCServerContainerTableViewCell" bundle:nil];
     [_tableView registerNib:containerCellNib forCellReuseIdentifier:SERVER_CONTAINER_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetDelegate = self;
+    _tableView.emptyDataSetSource = self;
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
     TCServerContainerListRequest *request = [[TCServerContainerListRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(NSArray<NSArray *> *containerArray) {
-        NSLog(@"container array:%@",containerArray);
+        [weakSelf stopLoading];
         [weakSelf.containerArray removeAllObjects];
         [weakSelf.containerArray addObjectsFromArray:containerArray];
         [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
     } failure:^(NSString *message) {
-        NSLog(@"message:%@",message);
-        [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 
@@ -85,4 +86,26 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - DZNEmptyDataSetSource Methods
+/*
+ - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+ {
+ return [UIImage imageNamed:@"no_data"];
+ }
+ */
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"您还没创建容器哦" attributes:attributes];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
+}
 @end

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		06096DAA5E0F5E8430C95B9B /* libPods-TenCloudUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */; };
 		0BDDACEAD07CE2A7B0C43BE6 /* libPods-TenCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843340402D4E157C03304152 /* libPods-TenCloudTests.a */; };
-		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; };
+		2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA271FDD3777008328B0 /* MBProgressHUD+Add.m */; };
 		A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA2A1FDD3D9E008328B0 /* TCUserProfileRequest.m */; };
 		A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA2C1FDD7E8F008328B0 /* TCClusterRequest.m */; };
@@ -114,6 +114,7 @@
 		A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEA71FE200AE00F37715 /* TCForgetPasswordViewController.xib */; };
 		A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */; };
 		A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */; };
+		A07DBEB21FE2241A00F37715 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07DBEB11FE2241A00F37715 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +332,7 @@
 		A07DBEAB1FE2022B00F37715 /* TCResetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCResetPasswordRequest.h; sourceTree = "<group>"; };
 		A07DBEAE1FE210E800F37715 /* TCRoundCornerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRoundCornerButton.h; sourceTree = "<group>"; };
 		A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRoundCornerButton.m; sourceTree = "<group>"; };
+		A07DBEB11FE2241A00F37715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07DBEB21FE2241A00F37715 /* Foundation.framework in Frameworks */,
 				2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +384,7 @@
 		6C5D7663B6AA9293CBF57D89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBEB11FE2241A00F37715 /* Foundation.framework */,
 				D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */,
 				843340402D4E157C03304152 /* libPods-TenCloudTests.a */,
 				8C8E5B336B594A61F238A18D /* libPods-TenCloudUITests.a */,
