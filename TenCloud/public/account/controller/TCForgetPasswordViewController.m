@@ -1,12 +1,12 @@
 //
-//  TCRegisterViewController.m
+//  TCForgetPasswordViewController.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/14.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCRegisterViewController.h"
+#import "TCForgetPasswordViewController.h"
 #import "VHLNavigation.h"
 #import "GetCaptchaButton.h"
 #import "TCSpacingTextField.h"
@@ -15,8 +15,9 @@
 #import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
 #import "TCTabBarController.h"
+#import "TCResetPasswordRequest.h"
 
-@interface TCRegisterViewController ()
+@interface TCForgetPasswordViewController ()
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumberField;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -27,11 +28,11 @@
 - (IBAction) onRegisterButton:(id)sender;
 @end
 
-@implementation TCRegisterViewController
+@implementation TCForgetPasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"注册";
+    self.title = @"找回密码";
     [self vhl_setNavBarHidden:NO];
     [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
@@ -39,9 +40,9 @@
     _phoneNumberField.attributedPlaceholder = phonePlaceHolderStr;
     NSAttributedString *captchaPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入验证码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _captchaField.attributedPlaceholder = captchaPlaceHolderStr;
-    NSAttributedString *pwdPlaceHolderStr1 = [[NSAttributedString alloc] initWithString:@"密码最小长度为6位"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    NSAttributedString *pwdPlaceHolderStr1 = [[NSAttributedString alloc] initWithString:@"请输入新密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _passwordField.attributedPlaceholder = pwdPlaceHolderStr1;
-    NSAttributedString *pwdPlaceHolderStr2 = [[NSAttributedString alloc] initWithString:@"确认密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    NSAttributedString *pwdPlaceHolderStr2 = [[NSAttributedString alloc] initWithString:@"请再输入一遍"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _password2Field.attributedPlaceholder = pwdPlaceHolderStr2;
     
     _phoneNumberField.firstSpacingPosition = 3;
@@ -52,7 +53,6 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +63,7 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
+    NSLog(@"on tap blank area");
     [_phoneNumberField resignFirstResponder];
     [_captchaField resignFirstResponder];
     [_passwordField resignFirstResponder];
@@ -126,7 +127,26 @@
     [_passwordField resignFirstResponder];
     [_password2Field resignFirstResponder];
     
-    [MMProgressHUD showWithStatus:@"注册中"];
+    [MMProgressHUD showWithStatus:@"找回密码中"];
+    TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
+    [request startWithSuccess:^(NSString *token) {
+        [[TCLocalAccount shared] setToken:token];
+        TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
+        [request startWithSuccess:^(TCUser *user) {
+            user.token = token;
+            [[TCLocalAccount shared] loginSuccess:user];
+            TCTabBarController *tabBarController = [TCTabBarController new];
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+            [MMProgressHUD dismissWithSuccess:@"成功找回密码" title:nil afterDelay:1.32];
+        } failure:^(NSString *message) {
+            NSLog(@"msg:%@",message);
+            [MMProgressHUD dismissWithError:@"找回失败"];
+        }];
+    } failure:^(NSString *message) {
+        [MMProgressHUD dismissWithError:message];
+    }];
+    
+    /*
     TCRegisterRequest *request = [[TCRegisterRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
         [[TCLocalAccount shared] setToken:token];
@@ -144,6 +164,7 @@
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message];
     }];
+     */
     
 }
 

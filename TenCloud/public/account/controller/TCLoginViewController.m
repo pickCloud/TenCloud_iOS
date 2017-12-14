@@ -17,6 +17,7 @@
 #import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
 #import "TCRegisterViewController.h"
+#import "TCForgetPasswordViewController.h"
 #import "VHLNavigation.h"
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
@@ -273,6 +274,8 @@
 - (IBAction) onForgetPasswordButton:(id)sender
 {
     NSLog(@"忘记密码");
+    TCForgetPasswordViewController *forgetVC = [TCForgetPasswordViewController new];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
 #pragma mark - UIGestureRecognizerDelegate

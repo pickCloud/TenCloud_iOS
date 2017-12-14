@@ -110,6 +110,9 @@
 		A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */; };
 		A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEA11FE187B600F37715 /* TCRegisterViewController.m */; };
 		A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEA21FE187B600F37715 /* TCRegisterViewController.xib */; };
+		A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEA51FE200AE00F37715 /* TCForgetPasswordViewController.m */; };
+		A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEA71FE200AE00F37715 /* TCForgetPasswordViewController.xib */; };
+		A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +323,11 @@
 		A07DBEA01FE187B600F37715 /* TCRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRegisterViewController.h; sourceTree = "<group>"; };
 		A07DBEA11FE187B600F37715 /* TCRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRegisterViewController.m; sourceTree = "<group>"; };
 		A07DBEA21FE187B600F37715 /* TCRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCRegisterViewController.xib; sourceTree = "<group>"; };
+		A07DBEA51FE200AE00F37715 /* TCForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCForgetPasswordViewController.m; sourceTree = "<group>"; };
+		A07DBEA61FE200AE00F37715 /* TCForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCForgetPasswordViewController.h; sourceTree = "<group>"; };
+		A07DBEA71FE200AE00F37715 /* TCForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCResetPasswordRequest.m; sourceTree = "<group>"; };
+		A07DBEAB1FE2022B00F37715 /* TCResetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCResetPasswordRequest.h; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -531,6 +539,9 @@
 		A02555281FD6936700D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBEA61FE200AE00F37715 /* TCForgetPasswordViewController.h */,
+				A07DBEA51FE200AE00F37715 /* TCForgetPasswordViewController.m */,
+				A07DBEA71FE200AE00F37715 /* TCForgetPasswordViewController.xib */,
 				A02555AD1FD7F0C300D16D22 /* TCLoginViewController.h */,
 				A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */,
 				A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */,
@@ -557,6 +568,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBEAB1FE2022B00F37715 /* TCResetPasswordRequest.h */,
+				A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */,
 				A07DBE9E1FE1836000F37715 /* TCCaptchaLoginRequest.h */,
 				A07DBE9D1FE1836000F37715 /* TCCaptchaLoginRequest.m */,
 				A001FA291FDD3D9E008328B0 /* TCUserProfileRequest.h */,
@@ -1408,6 +1421,7 @@
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
+				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
@@ -1622,6 +1636,7 @@
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
+				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -1641,6 +1656,7 @@
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
+				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
