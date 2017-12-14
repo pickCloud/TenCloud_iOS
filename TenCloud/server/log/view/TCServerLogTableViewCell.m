@@ -36,6 +36,10 @@
 - (void) setLog:(TCServerLog*)log
 {
     _nameLabel.text = log.user;
+    if (log.user.length == 0)
+    {
+        _nameLabel.text = @" ";
+    }
     _timeLabel.text = log.created_time;
     NSString *operationStr = nil;
     if (log.operation == ServerLogOperationPowerOn)

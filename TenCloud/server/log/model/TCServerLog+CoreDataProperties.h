@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, ServerLogOperation){
     ServerLogOperationPowerOn   =   0,
+    ServerLogOperationPowerOff,
     ServerLogOperationRestart,
-    ServerLogOperationPowerOff
 };
 
 typedef NS_ENUM(NSInteger, ServerLogOperationStatus){
