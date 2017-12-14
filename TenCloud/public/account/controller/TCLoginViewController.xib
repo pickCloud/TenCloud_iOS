@@ -44,11 +44,11 @@
                         <constraint firstAttribute="width" secondItem="pru-i7-tDE" secondAttribute="height" multiplier="20:3" id="TYM-85-KIE"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-jL-jQP">
-                    <rect key="frame" x="31" y="249" width="312" height="134"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-jL-jQP">
+                    <rect key="frame" x="31" y="249" width="312" height="184"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-c9-f72" userLabel="View1">
-                            <rect key="frame" x="0.0" y="0.0" width="312" height="134"/>
+                            <rect key="frame" x="0.0" y="0.0" width="312" height="184"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="kTT-oA-gIn">
                                     <rect key="frame" x="0.0" y="0.0" width="45" height="49"/>
@@ -120,7 +120,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-uY-sEe" userLabel="View2">
-                            <rect key="frame" x="312" y="0.0" width="312" height="134"/>
+                            <rect key="frame" x="312" y="0.0" width="312" height="184"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="DQr-fA-p0f">
                                     <rect key="frame" x="0.0" y="0.0" width="45" height="49"/>
@@ -212,7 +212,7 @@
                         <constraint firstItem="GBI-c9-f72" firstAttribute="leading" secondItem="N7g-jL-jQP" secondAttribute="leading" id="Zef-tz-0RV"/>
                         <constraint firstItem="GBI-c9-f72" firstAttribute="top" secondItem="N7g-jL-jQP" secondAttribute="top" id="Zs2-CZ-CET"/>
                         <constraint firstAttribute="bottom" secondItem="GBI-c9-f72" secondAttribute="bottom" id="eTN-eY-OMP"/>
-                        <constraint firstAttribute="width" secondItem="N7g-jL-jQP" secondAttribute="height" multiplier="156:67" id="ea9-GP-yCx"/>
+                        <constraint firstAttribute="width" secondItem="N7g-jL-jQP" secondAttribute="height" multiplier="156:92" id="ea9-GP-yCx"/>
                         <constraint firstItem="GBI-c9-f72" firstAttribute="centerY" secondItem="N7g-jL-jQP" secondAttribute="centerY" id="hX2-ub-cfL"/>
                         <constraint firstItem="FJW-uY-sEe" firstAttribute="leading" secondItem="GBI-c9-f72" secondAttribute="trailing" id="sSs-5Y-yCN"/>
                         <constraint firstItem="FJW-uY-sEe" firstAttribute="height" secondItem="GBI-c9-f72" secondAttribute="height" id="wjX-st-Ivp"/>
@@ -281,7 +281,7 @@
                 <constraint firstItem="3MK-3Q-tFn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Xax-Gt-0L3"/>
                 <constraint firstItem="trV-aV-oID" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a97-jP-R28"/>
                 <constraint firstItem="N7g-jL-jQP" firstAttribute="top" secondItem="pru-i7-tDE" secondAttribute="bottom" id="cWM-ec-HT9"/>
-                <constraint firstItem="trV-aV-oID" firstAttribute="top" secondItem="N7g-jL-jQP" secondAttribute="bottom" constant="57" id="coL-sl-8wh"/>
+                <constraint firstItem="trV-aV-oID" firstAttribute="top" secondItem="N7g-jL-jQP" secondAttribute="bottom" constant="7" id="coL-sl-8wh"/>
                 <constraint firstItem="trV-aV-oID" firstAttribute="width" secondItem="N7g-jL-jQP" secondAttribute="width" id="cyZ-Ie-g2Z"/>
                 <constraint firstItem="pru-i7-tDE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fq0-HB-tVw"/>
                 <constraint firstItem="N7g-jL-jQP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.832" id="g2V-yG-oHP"/>

@@ -185,6 +185,8 @@
             [MBProgressHUD showError:@"请输入密码" toView:nil];
             return;
         }
+        [_phoneNumField resignFirstResponder];
+        [_passwordField resignFirstResponder];
         
         [MMProgressHUD showWithStatus:@"登录中"];
         TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNum password:password];
@@ -222,6 +224,8 @@
             [MBProgressHUD showError:@"请输入验证码" toView:nil];
             return;
         }
+        [_phoneNum2Field resignFirstResponder];
+        [_captchaField resignFirstResponder];
         
         [MMProgressHUD showWithStatus:@"登录中"];
         TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNum captcha:captcha];
