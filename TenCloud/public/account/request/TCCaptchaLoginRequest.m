@@ -53,6 +53,14 @@
         NSString *token = [dataDict objectForKey:@"token"];
         success ? success(token) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSNumber *resNumber = [request.responseJSONObject objectForKey:@"status"];
+        if (resNumber.integerValue == 10404)
+        {
+            NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+            NSString *token = [dataDict objectForKey:@"token"];
+            success ? success(token) : nil;
+            return ;
+        }
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
     }];
