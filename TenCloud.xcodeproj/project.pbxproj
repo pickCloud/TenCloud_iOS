@@ -115,6 +115,7 @@
 		A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */; };
 		A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */; };
 		A07DBEB21FE2241A00F37715 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07DBEB11FE2241A00F37715 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEB41FE2293D00F37715 /* TCServerInfoItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +334,8 @@
 		A07DBEAE1FE210E800F37715 /* TCRoundCornerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRoundCornerButton.h; sourceTree = "<group>"; };
 		A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRoundCornerButton.m; sourceTree = "<group>"; };
 		A07DBEB11FE2241A00F37715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A07DBEB31FE2293D00F37715 /* TCServerInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerInfoItem.h; sourceTree = "<group>"; };
+		A07DBEB41FE2293D00F37715 /* TCServerInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerInfoItem.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -715,6 +718,8 @@
 		A02555491FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A07DBEB31FE2293D00F37715 /* TCServerInfoItem.h */,
+				A07DBEB41FE2293D00F37715 /* TCServerInfoItem.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1660,6 +1665,7 @@
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
+				A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */,
 				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
 				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,

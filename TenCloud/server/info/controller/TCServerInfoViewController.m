@@ -11,12 +11,14 @@
 #import "TCServerConfig+CoreDataClass.h"
 #import "TCServerBasicInfo+CoreDataClass.h"
 #import "TCServerConfigTableViewCell.h"
+#import "TCServerInfoItem.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 
 @interface TCServerInfoViewController ()
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
-@property (nonatomic, strong)   NSMutableDictionary         *configDict;
+@property (nonatomic, strong)   NSMutableArray          *configArray;
+//@property (nonatomic, strong)   NSMutableDictionary         *configDict;
 @end
 
 @implementation TCServerInfoViewController
@@ -35,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _configDict = [NSMutableDictionary new];
+    _configArray = [NSMutableArray new];
     UINib *configCellNib = [UINib nibWithNibName:@"TCServerConfigTableViewCell" bundle:nil];
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
@@ -52,14 +54,19 @@
         NSString *ip = info.public_ip ? info.public_ip : @"";
         NSString *status = info.machine_status ? info.machine_status : @"";
         NSString *time = info.created_time ? info.created_time : @"";
-        [_configDict setObject:name forKey:@"名称"];
-        [_configDict setObject:clusterName forKey:@"服务器"];
-        [_configDict setObject:address forKey:@"地址"];
-        [_configDict setObject:ip forKey:@"IP"];
-        [_configDict setObject:status forKey:@"状态"];
-        [_configDict setObject:time forKey:@"添加时间"];
+        TCServerInfoItem *item1 = [[TCServerInfoItem alloc] initWithKey:@"名称" value:name];
+        TCServerInfoItem *item2 = [[TCServerInfoItem alloc] initWithKey:@"服务商" value:clusterName];
+        TCServerInfoItem *item3 = [[TCServerInfoItem alloc] initWithKey:@"地址" value:address];
+        TCServerInfoItem *item4 = [[TCServerInfoItem alloc] initWithKey:@"IP" value:ip];
+        TCServerInfoItem *item5 = [[TCServerInfoItem alloc] initWithKey:@"状态" value:status];
+        TCServerInfoItem *item6 = [[TCServerInfoItem alloc] initWithKey:@"添加时间" value:time];
+        [_configArray addObject:item1];
+        [_configArray addObject:item2];
+        [_configArray addObject:item3];
+        [_configArray addObject:item4];
+        [_configArray addObject:item5];
+        [_configArray addObject:item6];
         [weakSelf.tableView reloadData];
-        NSLog(@"info_config_dict:%@",_configDict);
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
@@ -78,14 +85,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _configDict.allKeys.count;
+    return _configArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCServerConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_CELL_REUSE_ID forIndexPath:indexPath];
-    NSString *key = [[_configDict allKeys] objectAtIndex:indexPath.row];
-    NSString *value = [_configDict valueForKey:key];
-    [cell setKey:key value:value];
+    TCServerInfoItem *infoItem = [_configArray objectAtIndex:indexPath.row];
+    [cell setKey:infoItem.key value:infoItem.value];
     return cell;
 }
 
