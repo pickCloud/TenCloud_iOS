@@ -25,6 +25,7 @@
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
     
+    [UIColor vhl_setDefaultNavBarTintColor:THEME_TINT_COLOR];
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];

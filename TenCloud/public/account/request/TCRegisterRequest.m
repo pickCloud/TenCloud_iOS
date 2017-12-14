@@ -28,11 +28,13 @@
     return self;
 }
 
-- (void) startWithSuccess:(void(^)(NSString *message))success
+- (void) startWithSuccess:(void(^)(NSString *token))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        success ? success(@"注册成功") : nil;
+        NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+        NSString *resToken = [dataDict objectForKey:@"token"];
+        success ? success(resToken) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;

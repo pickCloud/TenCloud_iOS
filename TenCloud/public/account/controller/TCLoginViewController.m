@@ -43,6 +43,7 @@
     [super viewDidLoad];
     
     [self vhl_setNavBarHidden:YES];
+    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     // Do any additional setup after loading the view from its nib.
     NSMutableArray  *segmentTitles = [NSMutableArray new];
