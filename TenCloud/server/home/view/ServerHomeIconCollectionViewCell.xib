@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG4-EG-rXw">
-                        <rect key="frame" x="76" y="24.5" width="28" height="17"/>
+                        <rect key="frame" x="76" y="25.5" width="24.5" height="15"/>
                         <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bG4-EG-rXw" secondAttribute="height" multiplier="25:15" id="ia6-Z6-z5I"/>
@@ -47,7 +47,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="NCd-di-fqm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5Mm-ld-0Pt"/>
-                <constraint firstItem="bG4-EG-rXw" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.2393" id="Axf-kn-Lm5"/>
+                <constraint firstItem="bG4-EG-rXw" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.21" id="Axf-kn-Lm5"/>
                 <constraint firstItem="bG4-EG-rXw" firstAttribute="centerY" secondItem="NCd-di-fqm" secondAttribute="centerY" multiplier="0.66" id="FD9-VY-zxr"/>
                 <constraint firstItem="Fy0-Fg-vKU" firstAttribute="centerX" secondItem="NCd-di-fqm" secondAttribute="centerX" id="Gzr-VN-laT"/>
                 <constraint firstItem="bG4-EG-rXw" firstAttribute="leading" secondItem="NCd-di-fqm" secondAttribute="trailing" constant="-2" id="Qft-Ab-bMW"/>

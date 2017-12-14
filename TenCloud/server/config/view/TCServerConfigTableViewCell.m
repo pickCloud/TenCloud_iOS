@@ -21,6 +21,10 @@
     // Initialization code
     [self.keyLabel setFont:TCFont(14)];
     [self.valueLabel setFont:TCFont(14)];
+    
+    UIView *selectedBgView = [[UIView alloc] init];
+    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.1];
+    self.selectedBackgroundView = selectedBgView;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

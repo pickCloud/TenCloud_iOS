@@ -29,6 +29,9 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *headerCollectionBgHeightConstraint;
+@property (nonatomic, weak) IBOutlet    UIView              *headerView;
+@property (nonatomic, weak) IBOutlet    UIView              *headerCollectionBgView;
 - (IBAction) onMoreButton:(id)sender;
 @end
 
@@ -39,6 +42,13 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器";
     _serverArray = [NSMutableArray new];
+    //_headerHeightConstraint.constant = TCSCALE(156);
+    _tableView.tintColor = [UIColor clearColor];
+    _headerView.backgroundColor = THEME_BACKGROUND_COLOR;
+    _headerCollectionBgView.backgroundColor = TABLE_CELL_BG_COLOR;
+    _headerCollectionBgHeightConstraint.constant = TCSCALE(120);
+    //[[UITableViewHeaderFooterView appearance] setTintColor:[UIColor purpleColor]];
+    
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
@@ -46,7 +56,8 @@
     UINib *homeCollectionNibCell = [UINib nibWithNibName:@"ServerHomeIconCollectionViewCell" bundle:nil];
     [_headerCollectionView registerNib:homeCollectionNibCell forCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID];
     UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
-    iconLayout.itemSize = CGSizeMake(TCSCALE(117), TCSCALE(100));
+    //iconLayout.itemSize = CGSizeMake(TCSCALE(117), TCSCALE(100));
+    iconLayout.itemSize = CGSizeMake(TCSCALE(116.8), TCSCALE(100));
     iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
     float iconX = 0;//_searchCourseButton.frame.origin.x;
@@ -60,6 +71,13 @@
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
+        NSLog(@"serverArray%d:%@",serverArray.count, serverArray);
+        NSLog(@"server count:%ld",weakSelf.serverArray.count);
+        for (int i = weakSelf.serverArray.count; i > 4; i--)
+        {
+            NSLog(@"删除%d",i);
+            [weakSelf.serverArray removeObjectAtIndex:0];
+        }
         [weakSelf.tableView reloadData];
         [weakSelf stopLoading];
     } failure:^(NSString *message) {
@@ -165,6 +183,9 @@
     if (indexPath.row == 0)
     {
         [self onMoreButton:nil];
+    }else
+    {
+        [MBProgressHUD showError:@"暂无此页面" toView:nil];
     }
 }
 
