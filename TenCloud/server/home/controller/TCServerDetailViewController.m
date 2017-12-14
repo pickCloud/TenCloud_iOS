@@ -70,8 +70,11 @@
     
     
     self.magicView.itemScale = 1.0;
-    self.magicView.headerHeight = 40;
-    self.magicView.navigationHeight = 40;
+    self.magicView.headerHeight = TCSCALE(44);//40;
+    self.magicView.navigationHeight = TCSCALE(44); //40;
+    
+    self.magicView.itemSpacing = TCSCALE(29.5);
+    //self.magicView.bounces = YES;
     //self.magicView.againstStatusBar = YES;
     //self.magicView.needPreloading = NO;
     self.magicView.bounces = YES;

@@ -24,6 +24,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.1803921568627451" green="0.20000000000000001" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="5bv-b1-aI3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="yFu-4Z-PUo"/>
                         <outlet property="delegate" destination="-1" id="hwb-w4-2oY"/>

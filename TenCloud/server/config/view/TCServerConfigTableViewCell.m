@@ -19,6 +19,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self.keyLabel setFont:TCFont(14)];
+    [self.valueLabel setFont:TCFont(14)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
