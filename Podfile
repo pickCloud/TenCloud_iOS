@@ -13,6 +13,7 @@ pod 'MagicalRecord', :path => './LocalLibs/MagicalRecord/'
 pod 'MJExtension', :path => './LocalLibs/MJExtension/'
 pod 'WYChart', :path => './LocalLibs/WYChart/'
 pod 'VTMagic','~> 1.2.4'
+pod 'DZNEmptyDataSet', '~> 1.8.1'
 
   target 'TenCloudTests' do
     inherit! :search_paths

@@ -9,10 +9,11 @@
 #import "TCServerLogTableViewController.h"
 #import "TCServerLogRequest.h"
 #import "TCServerLogTableViewCell.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #define SERVER_LOG_CELL_REUSE_ID    @"SERVER_LOG_CELL_REUSE_ID"
 
-@interface TCServerLogTableViewController ()
+@interface TCServerLogTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, strong)   NSMutableArray  *logArray;
 @property (nonatomic, weak)     IBOutlet    UITableView *tableView;
@@ -38,18 +39,21 @@
     UINib *logCellNib = [UINib nibWithNibName:@"TCServerLogTableViewCell" bundle:nil];
     [_tableView registerNib:logCellNib forCellReuseIdentifier:SERVER_LOG_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
     TCServerLogRequest *request = [[TCServerLogRequest alloc] initWithServerID:_serverID type:0];
     [request startWithSuccess:^(NSArray<TCServerLog *> *logArray) {
+        [weakSelf stopLoading];
         [weakSelf.logArray removeAllObjects];
         [weakSelf.logArray addObjectsFromArray:logArray];
         [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
+        NSLog(@"完成加载:%@",weakSelf.logArray);
     } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 
@@ -83,4 +87,29 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+
+#pragma mark - DZNEmptyDataSetSource Methods
+/*
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"no_data"];
+}
+ */
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSLog(@"title for empty ");
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"暂无日志" attributes:attributes];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    NSLog(@"should display empty");
+    return !self.isLoading;
+}
 @end
