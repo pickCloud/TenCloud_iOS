@@ -10,7 +10,9 @@
 #import "TCClusterRequest.h"
 #import "TCServerTableViewCell.h"
 #import "TCServerDetailViewController.h"
+#import "ServerHomeIconCollectionViewCell.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
+#define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
 //for test
 #import "TCServerLogTableViewController.h"
@@ -20,9 +22,13 @@
 #import "TCServerInfoViewController.h"
 #import "TCServerMonitorViewController.h"
 
+#define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
+
 @interface TCServerHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
+@property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
+- (IBAction) onMoreButton:(id)sender;
 @end
 
 @implementation TCServerHomeViewController
@@ -35,6 +41,17 @@
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
+    
+    UINib *homeCollectionNibCell = [UINib nibWithNibName:@"ServerHomeIconCollectionViewCell" bundle:nil];
+    [_headerCollectionView registerNib:homeCollectionNibCell forCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID];
+    UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
+    iconLayout.itemSize = CGSizeMake(TCSCALE(117), TCSCALE(100));
+    iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
+    iconLayout.minimumLineSpacing = TCSCALE(0.0);
+    float iconX = 0;//_searchCourseButton.frame.origin.x;
+    iconLayout.headerReferenceSize = CGSizeMake(iconX, iconX);
+    iconLayout.footerReferenceSize = CGSizeMake(iconX, iconX);
+    [_headerCollectionView setCollectionViewLayout:iconLayout];
     
     [self startLoading];
     __weak  __typeof(self)  weakSelf = self;
@@ -113,4 +130,41 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ServerHomeIconCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID forIndexPath:indexPath];
+    if (indexPath.row == 0)
+    {
+        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:5];
+    }else if(indexPath.row == 1)
+    {
+        [cell setTitle:@"安全警告" icon:@"server_home_alarm" messageNumber:10];
+    }else
+    {
+        [cell setTitle:@"缴费信息" icon:@"server_home_money" messageNumber:9];
+    }
+    return cell;
+}
+
+#pragma mark - CollectionView Delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select item:%d %d",(int)indexPath.section, (int)indexPath.row);
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
+- (IBAction) onMoreButton:(id)sender
+{
+    
+}
 @end

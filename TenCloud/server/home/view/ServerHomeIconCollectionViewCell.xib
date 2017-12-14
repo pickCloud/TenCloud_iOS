@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ServerHomeIconCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="117" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="117" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NCd-di-fqm">
+                        <rect key="frame" x="38" y="30" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="NCd-di-fqm" secondAttribute="height" multiplier="1:1" id="q1h-xy-pKj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器总数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy0-Fg-vKU">
+                        <rect key="frame" x="28" y="75" width="61.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG4-EG-rXw">
+                        <rect key="frame" x="76" y="24.5" width="28" height="17"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bG4-EG-rXw" secondAttribute="height" multiplier="25:15" id="ia6-Z6-z5I"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NCd-di-fqm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5Mm-ld-0Pt"/>
+                <constraint firstItem="bG4-EG-rXw" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.2393" id="Axf-kn-Lm5"/>
+                <constraint firstItem="bG4-EG-rXw" firstAttribute="centerY" secondItem="NCd-di-fqm" secondAttribute="centerY" multiplier="0.66" id="FD9-VY-zxr"/>
+                <constraint firstItem="Fy0-Fg-vKU" firstAttribute="centerX" secondItem="NCd-di-fqm" secondAttribute="centerX" id="Gzr-VN-laT"/>
+                <constraint firstItem="bG4-EG-rXw" firstAttribute="leading" secondItem="NCd-di-fqm" secondAttribute="trailing" constant="-2" id="Qft-Ab-bMW"/>
+                <constraint firstItem="NCd-di-fqm" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3419" id="dGv-3A-Z5A"/>
+                <constraint firstItem="Fy0-Fg-vKU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.64" id="iaF-DL-sBm"/>
+                <constraint firstItem="NCd-di-fqm" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="yjm-V2-LEv"/>
+            </constraints>
+            <size key="customSize" width="80" height="80"/>
+            <connections>
+                <outlet property="iconView" destination="NCd-di-fqm" id="3bD-x6-zDS"/>
+                <outlet property="messageNumLabel" destination="bG4-EG-rXw" id="mkE-cE-Gq2"/>
+                <outlet property="titleLabel" destination="Fy0-Fg-vKU" id="nar-Rw-bLJ"/>
+            </connections>
+            <point key="canvasLocation" x="48.5" y="88"/>
+        </collectionViewCell>
+    </objects>
+</document>
