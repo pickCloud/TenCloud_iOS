@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     _logArray = [NSMutableArray new];
     UINib *logCellNib = [UINib nibWithNibName:@"TCServerLogTableViewCell" bundle:nil];
     [_tableView registerNib:logCellNib forCellReuseIdentifier:SERVER_LOG_CELL_REUSE_ID];
@@ -50,7 +49,6 @@
         [weakSelf.logArray removeAllObjects];
         [weakSelf.logArray addObjectsFromArray:logArray];
         [weakSelf.tableView reloadData];
-        NSLog(@"完成加载:%@",weakSelf.logArray);
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
@@ -98,7 +96,6 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSLog(@"title for empty ");
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
@@ -109,7 +106,6 @@
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
 {
-    NSLog(@"should display empty");
     return !self.isLoading;
 }
 @end
