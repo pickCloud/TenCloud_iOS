@@ -221,13 +221,13 @@
                         <outlet property="delegate" destination="-1" id="3VW-72-Cz4"/>
                     </connections>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trV-aV-oID">
-                    <rect key="frame" x="31" y="440" width="312" height="46"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trV-aV-oID" customClass="TCRoundCornerButton">
+                    <rect key="frame" x="31" y="440" width="312" height="44"/>
                     <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="trV-aV-oID" secondAttribute="height" multiplier="156:23" id="gEv-Lf-qRB"/>
+                        <constraint firstAttribute="width" secondItem="trV-aV-oID" secondAttribute="height" multiplier="156:22" id="gEv-Lf-qRB"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -236,7 +236,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDx-5c-4Jr">
-                    <rect key="frame" x="31" y="489" width="85" height="30"/>
+                    <rect key="frame" x="31" y="487" width="85" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="uDx-5c-4Jr" secondAttribute="height" multiplier="17:6" id="6BE-7S-0CX"/>
                     </constraints>
@@ -248,7 +248,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvO-6E-r84">
-                    <rect key="frame" x="258" y="489" width="85" height="30"/>
+                    <rect key="frame" x="258" y="487" width="85" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="IvO-6E-r84" secondAttribute="height" multiplier="17:6" id="pHY-4b-VCI"/>
                     </constraints>

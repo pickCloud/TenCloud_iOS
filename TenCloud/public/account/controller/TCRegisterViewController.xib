@@ -203,7 +203,7 @@
                         <constraint firstItem="9Bu-2T-a7t" firstAttribute="centerY" secondItem="gqf-h5-d1f" secondAttribute="centerY" id="uaB-jx-EjY"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-0Y-qdM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-0Y-qdM" customClass="TCRoundCornerButton">
                     <rect key="frame" x="15" y="270" width="345" height="46"/>
                     <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

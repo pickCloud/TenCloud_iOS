@@ -58,9 +58,10 @@
     }];
     _segmentControl.selectionIndicatorHeight = 2.0f;
     _segmentControl.backgroundColor = [UIColor clearColor];
-    UIFont *titleFont = [UIFont systemFontOfSize:TCSCALE(15.0)];
-    _segmentControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor grayColor], NSFontAttributeName : titleFont };
-    UIFont *selectedFont = [UIFont boldSystemFontOfSize:TCSCALE(16.1)];
+    UIFont *titleFont = [UIFont systemFontOfSize:TCSCALE(14.0)];
+    _segmentControl.titleTextAttributes = @{NSForegroundColorAttributeName : THEME_TEXT_COLOR,
+                                            NSFontAttributeName : titleFont };
+    UIFont *selectedFont = [UIFont boldSystemFontOfSize:TCSCALE(14)];
     _segmentControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : THEME_TINT_COLOR, NSFontAttributeName : selectedFont };
     _segmentControl.selectionIndicatorColor = THEME_TINT_COLOR;
     _segmentControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
@@ -70,7 +71,7 @@
     _segmentControl.shouldAnimateUserSelection = YES;
     //_segmentControl.userInteractionEnabled = YES;
     
-    UIColor *placeHolderColor = [UIColor grayColor];
+    UIColor *placeHolderColor = THEME_PLACEHOLDER_COLOR2;
     NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"手机号"   attributes:@{NSForegroundColorAttributeName:placeHolderColor}];
     _phoneNumField.attributedPlaceholder = phonePlaceHolderStr;
     NSAttributedString *pwdPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"密码"   attributes:@{NSForegroundColorAttributeName:placeHolderColor}];
