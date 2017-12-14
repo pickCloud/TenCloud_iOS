@@ -40,6 +40,12 @@
     CGRect progressRect = totalRect;
     progressRect.size.width = progressWidth;
     NSLog(@"progress width:%.2f",progressWidth);
+    if (progress >= 0.8)
+    {
+        [_foreView setBackgroundColor:PROGRESS_DANGER_COLOR];
+    }else {
+        [_foreView setBackgroundColor:PROGRESS_NORMAL_COLOR];
+    }
     _foreView.frame = progressRect;
 }
 
