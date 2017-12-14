@@ -21,6 +21,7 @@
 #import "TCServerConfigViewController.h"
 #import "TCServerInfoViewController.h"
 #import "TCServerMonitorViewController.h"
+#import "TCServerListViewController.h"
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
@@ -161,10 +162,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item:%d %d",(int)indexPath.section, (int)indexPath.row);
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0)
+    {
+        [self onMoreButton:nil];
+    }
 }
 
 - (IBAction) onMoreButton:(id)sender
 {
-    
+    TCServerListViewController *listVC = [TCServerListViewController new];
+    [self.navigationController pushViewController:listVC animated:YES];
 }
 @end
