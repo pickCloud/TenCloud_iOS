@@ -96,6 +96,7 @@
     NSString *key = [[_configDict allKeys] objectAtIndex:indexPath.row];
     NSString *value = [_configDict valueForKey:key];
     [cell setKey:key value:value];
+    [cell setSelected:YES];
     return cell;
     /*
     TCServerLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_LOG_CELL_REUSE_ID forIndexPath:indexPath];

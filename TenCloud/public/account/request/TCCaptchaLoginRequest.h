@@ -13,13 +13,6 @@
 - (instancetype) initWithPhoneNumber:(NSString *)phoneNumber captcha:(NSString *)captcha;
 
 - (void) startWithSuccess:(void(^)(NSString *token))success
-                  failure:(void(^)(NSString *message))failure;
-
-/*
-+ (TCPasswordLoginRequest *)requestWithPhoneNumber:(NSString *)phoneNumber
-                                  password:(NSString *)password
-                                  success:(void(^)(NSString *token))success
-                                  failure:(void(^)(NSString *message))failure;
- */
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure;
 
 @end

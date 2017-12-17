@@ -122,6 +122,9 @@
 		A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */; };
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
 		A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */; };
+		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
+		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
+		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +355,11 @@
 		A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerListViewController.xib; sourceTree = "<group>"; };
 		A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerListViewController.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
+		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
+		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
+		A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordRequest.m; sourceTree = "<group>"; };
+		A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordRequest.h; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -564,6 +572,9 @@
 		A02555281FD6936700D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */,
+				A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */,
+				A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */,
 				A07DBEA61FE200AE00F37715 /* TCForgetPasswordViewController.h */,
 				A07DBEA51FE200AE00F37715 /* TCForgetPasswordViewController.m */,
 				A07DBEA71FE200AE00F37715 /* TCForgetPasswordViewController.xib */,
@@ -593,6 +604,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */,
+				A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */,
 				A07DBEAB1FE2022B00F37715 /* TCResetPasswordRequest.h */,
 				A07DBEAA1FE2022B00F37715 /* TCResetPasswordRequest.m */,
 				A07DBE9E1FE1836000F37715 /* TCCaptchaLoginRequest.h */,
@@ -1461,6 +1474,7 @@
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
+				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
@@ -1700,6 +1714,7 @@
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
+				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
 				A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */,
@@ -1723,6 +1738,7 @@
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
+				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
 				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,

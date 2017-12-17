@@ -27,6 +27,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIY-W5-OwV">
                         <rect key="frame" x="21" y="0.0" width="87" height="45"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="rIY-W5-OwV" secondAttribute="height" multiplier="29:15" id="DFw-OY-gcn"/>
                         </constraints>
@@ -36,6 +37,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿里云" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-X5-GV5">
                         <rect key="frame" x="110" y="0.0" width="200.5" height="44.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="H6X-X5-GV5" secondAttribute="height" multiplier="9:2" id="gbP-GX-LbD"/>
                         </constraints>
@@ -61,6 +63,7 @@
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0fD-fV-gG4"/>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8Ri-80-Rwk"/>
@@ -79,6 +82,7 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="keyLabel" destination="rIY-W5-OwV" id="4SO-NG-1m4"/>
                 <outlet property="valueLabel" destination="H6X-X5-GV5" id="GWF-ap-fyg"/>

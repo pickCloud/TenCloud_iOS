@@ -22,9 +22,12 @@
     [self.keyLabel setFont:TCFont(14)];
     [self.valueLabel setFont:TCFont(14)];
     
+
     UIView *selectedBgView = [[UIView alloc] init];
-    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.1];
+    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.02];
     self.selectedBackgroundView = selectedBgView;
+    
+    self.backgroundColor = TABLE_CELL_BG_COLOR;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

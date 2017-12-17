@@ -19,6 +19,8 @@
 #import "TCRegisterViewController.h"
 #import "TCForgetPasswordViewController.h"
 #import "VHLNavigation.h"
+#import "TCSetPasswordViewController.h"
+
 
 @interface TCLoginViewController ()<UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
@@ -243,8 +245,27 @@
                 NSLog(@"msg:%@",message);
                 [MMProgressHUD dismissWithError:@"登录失败"];
             }];
-        } failure:^(NSString *message) {
-            [MMProgressHUD dismissWithError:message];
+        } failure:^(NSString *message, NSInteger errorCode){
+            if (errorCode == 10404)
+            {
+                NSString *token = message;
+                [[TCLocalAccount shared] setToken:token];
+                TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
+                [request startWithSuccess:^(TCUser *user) {
+                    NSLog(@"user:%@",user);
+                    user.token = token;
+                    [[TCLocalAccount shared] loginSuccess:user];
+                    [MMProgressHUD dismiss];
+                    TCSetPasswordViewController *passwordVC = [TCSetPasswordViewController new];
+                    [self.navigationController pushViewController:passwordVC animated:YES];
+                } failure:^(NSString *message) {
+                    NSLog(@"msg:%@",message);
+                    [MMProgressHUD dismissWithError:message];
+                }];
+            }else
+            {
+                [MMProgressHUD dismissWithError:message];
+            }
         }];
     }
 }
@@ -278,7 +299,6 @@
 
 - (IBAction) onForgetPasswordButton:(id)sender
 {
-    NSLog(@"忘记密码");
     TCForgetPasswordViewController *forgetVC = [TCForgetPasswordViewController new];
     [self.navigationController pushViewController:forgetVC animated:YES];
 }
