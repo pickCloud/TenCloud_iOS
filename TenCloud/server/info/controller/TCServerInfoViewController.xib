@@ -6,11 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerInfoViewController">
             <connections>
+                <outlet property="footerView" destination="UUh-49-0G4" id="Q8Z-DI-WMI"/>
                 <outlet property="tableView" destination="8pd-0n-4p8" id="Mkh-Tr-rNy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,6 +46,49 @@
                 <constraint firstItem="8pd-0n-4p8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="cgf-Ya-1um"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="69.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="UUh-49-0G4">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-PO-26o" customClass="TCRoundCornerButton">
+                    <rect key="frame" x="15" y="20" width="345" height="46"/>
+                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BHf-PO-26o" secondAttribute="height" multiplier="15:2" id="PhD-UT-7OE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="重启">
+                        <color key="titleColor" red="0.13725490196078433" green="0.1529411765" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onRestartButton:" destination="-1" eventType="touchUpInside" id="Ovj-70-g8s"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URr-eu-uFQ" customClass="TCRoundCornerButton">
+                    <rect key="frame" x="15" y="83" width="345" height="46"/>
+                    <color key="backgroundColor" red="0.8901960784313725" green="0.61960784313725492" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="关机">
+                        <color key="titleColor" red="0.31372549019607843" green="0.12549019607843137" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onPowerOffButton:" destination="-1" eventType="touchUpInside" id="4Sw-PU-YQA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="BHf-PO-26o" firstAttribute="centerX" secondItem="UUh-49-0G4" secondAttribute="centerX" id="3y2-4a-0xZ"/>
+                <constraint firstItem="BHf-PO-26o" firstAttribute="top" secondItem="UUh-49-0G4" secondAttribute="top" constant="20" id="IxN-RK-pvJ"/>
+                <constraint firstItem="URr-eu-uFQ" firstAttribute="centerX" secondItem="UUh-49-0G4" secondAttribute="centerX" id="Lso-o0-fKy"/>
+                <constraint firstItem="URr-eu-uFQ" firstAttribute="height" secondItem="BHf-PO-26o" secondAttribute="height" id="dOx-AS-rfp"/>
+                <constraint firstItem="URr-eu-uFQ" firstAttribute="width" secondItem="BHf-PO-26o" secondAttribute="width" id="fh5-3C-AOh"/>
+                <constraint firstItem="URr-eu-uFQ" firstAttribute="top" secondItem="BHf-PO-26o" secondAttribute="bottom" constant="17" id="gBQ-SJ-Gye"/>
+                <constraint firstItem="BHf-PO-26o" firstAttribute="width" secondItem="UUh-49-0G4" secondAttribute="width" multiplier="0.92" id="wrY-2V-HrI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="31.5" y="557.5"/>
         </view>
     </objects>
 </document>

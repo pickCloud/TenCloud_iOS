@@ -17,8 +17,10 @@
 @interface TCServerInfoViewController ()
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
+@property (nonatomic, weak) IBOutlet    UIView          *footerView;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
-//@property (nonatomic, strong)   NSMutableDictionary         *configDict;
+- (IBAction) onRestartButton:(id)sender;
+- (IBAction) onPowerOffButton:(id)sender;
 @end
 
 @implementation TCServerInfoViewController
@@ -40,7 +42,7 @@
     _configArray = [NSMutableArray new];
     UINib *configCellNib = [UINib nibWithNibName:@"TCServerConfigTableViewCell" bundle:nil];
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
-    _tableView.tableFooterView = [UIView new];
+    _tableView.tableFooterView = _footerView;
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -103,4 +105,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - extension
+- (IBAction) onRestartButton:(id)sender
+{
+    NSLog(@"on reestart button");
+}
+
+- (IBAction) onPowerOffButton:(id)sender
+{
+    NSLog(@"on power off button");
+}
 @end
