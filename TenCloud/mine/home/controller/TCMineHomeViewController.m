@@ -9,8 +9,13 @@
 #import "TCMineHomeViewController.h"
 #import "TCLoginViewController.h"
 
+//tmp
+#import "TCSetSmsCountRequest.h"
+
 @interface TCMineHomeViewController ()
 - (IBAction) onLogout:(id)sender;
+- (IBAction) onSetSmsCount4:(id)sender;
+- (IBAction) onSetSmsCount0:(id)sender;
 @end
 
 @implementation TCMineHomeViewController
@@ -34,4 +39,23 @@
     [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
+- (IBAction) onSetSmsCount4:(id)sender
+{
+    TCSetSmsCountRequest *request = [[TCSetSmsCountRequest alloc] initWithCount:4];
+    [request startWithSuccess:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    } failure:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    }];
+}
+
+- (IBAction) onSetSmsCount0:(id)sender
+{
+    TCSetSmsCountRequest *request = [[TCSetSmsCountRequest alloc] initWithCount:0];
+    [request startWithSuccess:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    } failure:^(NSString *message) {
+        NSLog(@"msg:%@",message);
+    }];
+}
 @end

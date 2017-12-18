@@ -33,6 +33,7 @@
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
 		A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */; };
+		A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */; };
 		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
 		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
 		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
@@ -196,6 +197,8 @@
 		A00703791FE79A5000F232D7 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGeetestCaptchaRequest.m; sourceTree = "<group>"; };
 		A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGeetestCaptchaRequest.h; sourceTree = "<group>"; };
+		A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetSmsCountRequest.h; sourceTree = "<group>"; };
+		A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetSmsCountRequest.m; sourceTree = "<group>"; };
 		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -633,6 +636,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */,
+				A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */,
 				A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */,
 				A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */,
 				A00703741FE7988D00F232D7 /* TCGetGeetestDataRequest.h */,
@@ -1706,6 +1711,7 @@
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
+				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
