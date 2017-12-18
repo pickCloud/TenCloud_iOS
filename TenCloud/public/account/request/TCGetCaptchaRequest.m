@@ -25,13 +25,20 @@
 }
 
 - (void) startWithSuccess:(void(^)(NSString *token))success
-                  failure:(void(^)(NSString *message))failure
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success ? success(@"验证码已发送，请查收") : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSNumber *resNumber = [request.responseJSONObject objectForKey:@"status"];
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        if (resNumber.integerValue == 10404)
+        {
+            NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+            NSString *token = [dataDict objectForKey:@"token"];
+            message = token;
+        }
+        failure ? failure(message,resNumber.integerValue) : nil;
     }];
 }
 

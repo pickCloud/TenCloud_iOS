@@ -20,9 +20,15 @@
 #import "TCForgetPasswordViewController.h"
 #import "VHLNavigation.h"
 #import "TCSetPasswordViewController.h"
+#import "TCGetGeetestDataRequest.h"
+#import "TCGeetestCaptchaRequest.h"
+
+#import <GT3Captcha/GT3Captcha.h>
+#define api_1   @"http://47.94.18.22:18080/api/user/captcha"
+#define api_2   @"http://47.94.18.22:18080/api/user/sms"
 
 
-@interface TCLoginViewController ()<UIScrollViewDelegate>
+@interface TCLoginViewController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
 @property (nonatomic, weak) IBOutlet    HMSegmentedControl  *segmentControl;
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -31,6 +37,8 @@
 @property (nonatomic, weak) IBOutlet    GetCaptchaButton    *captchaButton;
 @property (nonatomic, weak) IBOutlet    UIScrollView        *scrollView;
 @property (nonatomic, assign)   NSInteger                   currentPageIndex;
+
+@property (nonatomic, strong)   GT3CaptchaButton            *gt3Button;
 - (void) loadPageAtIndex:(NSInteger)pageIndex;
 - (void) onTapBlankArea:(id)sender;
 - (void) loginSuccessWithToken:(NSString *)token;
@@ -101,6 +109,16 @@
     _phoneNum2Field.finishBlock = ^(TCSpacingTextField *textField) {
         [weakSelf.captchaField becomeFirstResponder];
     };
+    
+    
+    GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
+    captchaManager.delegate = self;
+    UIColor *maskColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    captchaManager.maskColor = maskColor;
+    _gt3Button = [[GT3CaptchaButton alloc] initWithFrame:CGRectZero captchaManager:captchaManager];
+    [_gt3Button startCaptcha];
+    [self.view addSubview:self.gt3Button];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +138,6 @@
     [super viewDidAppear:animated];
     
     CGSize contentSize = [_scrollView contentSize];
-    NSLog(@"content size:%.2f,%.2f",contentSize.width, contentSize.height);
     CGSize newSize = CGSizeMake(contentSize.width * 2, contentSize.height);
     [_scrollView setContentSize:newSize];
 }
@@ -246,6 +263,7 @@
                 [MMProgressHUD dismissWithError:@"登录失败"];
             }];
         } failure:^(NSString *message, NSInteger errorCode){
+            NSLog(@"message:%@ errorcode:%ld",message,errorCode);
             if (errorCode == 10404)
             {
                 NSString *token = message;
@@ -262,6 +280,14 @@
                     NSLog(@"msg:%@",message);
                     [MMProgressHUD dismissWithError:message];
                 }];
+            }else if(errorCode == 10405)
+            {
+                TCGetGeetestDataRequest *request = [TCGetGeetestDataRequest new];
+                [request startWithSuccess:^(NSString *gt, NSString *challenge) {
+                    NSLog(@"gt:%@ \nchal:%@",gt,challenge);
+                } failure:^(NSString *message) {
+                    NSLog(@"get geetest fail:%@",message);
+                }];
             }else
             {
                 [MMProgressHUD dismissWithError:message];
@@ -272,27 +298,47 @@
 
 - (IBAction) onGetCaptcha:(id)sender
 {
+    //[_gt3Button startCaptcha];
+    //return;
     if (_phoneNum2Field.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
         return;
     }
+    [_captchaField becomeFirstResponder];
     if (_captchaButton.fetchState == FetchCaptchaStateNone ||
         _captchaButton.fetchState == FetchCaptchaStateRefetch)
     {
-        [_captchaButton setFetchState:FetchCaptchaStateCountdown];
+        __weak __typeof(self) weakSelf = self;
         TCGetCaptchaRequest *request = [[TCGetCaptchaRequest alloc] initWithPhoneNumber:_phoneNum2Field.plainPhoneNum];
         [request startWithSuccess:^(NSString *message) {
             [MBProgressHUD showSuccess:@"短信验证码已发送，请注意查收" toView:nil];
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
+            [weakSelf.captchaButton setFetchState:FetchCaptchaStateCountdown];
+        } failure:^(NSString *message, NSInteger errorCode) {
+            if(errorCode == 10405)
+            {
+                /*
+                TCGetGeetestDataRequest *request = [TCGetGeetestDataRequest new];
+                [request startWithSuccess:^(NSString *gt, NSString *challenge) {
+                    NSLog(@"gt:%@ \nchal:%@",gt,challenge);
+                } failure:^(NSString *message) {
+                    NSLog(@"get geetest fail:%@",message);
+                }];
+                 */
+                NSLog(@"10405");
+                //[_gt3Button startCaptcha];
+                [weakSelf.captchaField resignFirstResponder];
+                [weakSelf.gt3Button startCaptcha];
+            }else
+            {
+                [MBProgressHUD showError:message toView:nil];
+            }
         }];
     }
 }
 
 - (IBAction) onRegisterButton:(id)sender
 {
-    NSLog(@"注册");
     TCRegisterViewController *registerVC = [TCRegisterViewController new];
     [self.navigationController pushViewController:registerVC animated:YES];
 }
@@ -306,7 +352,6 @@
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    //return !(self.inputing);
     NSString *touchClass = NSStringFromClass([touch.view class]);
     NSLog(@"touch class:%@",touchClass);
     if ([touchClass isEqualToString:@"HMScrollView"])
@@ -314,5 +359,85 @@
         return NO;
     }
     return YES;
+}
+
+
+#pragma mark - GT3CaptchaManagerDelegate
+#pragma MARK - GT3CaptchaManagerDelegate
+
+- (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
+    //处理验证中返回的错误
+    if (error.code == -999) {
+        // 请求被意外中断, 一般由用户进行取消操作导致, 可忽略错误
+    }
+    else if (error.code == -10) {
+        // 预判断时被封禁, 不会再进行图形验证
+    }
+    else if (error.code == -20) {
+        // 尝试过多
+    }
+    else {
+        // 网络问题或解析失败, 更多错误码参考开发文档
+    }
+    //[TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
+    [MBProgressHUD showError:error.localizedDescription toView:nil];
+}
+
+- (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
+    NSLog(@"User Did Close GTView.");
+}
+
+/*
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error decisionHandler:(void (^)(GT3SecondaryCaptchaPolicy))decisionHandler {
+    if (!error) {
+        //处理你的验证结果
+        NSLog(@"\nreceive sec data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        //成功请调用decisionHandler(GT3SecondaryCaptchaPolicyAllow)
+        decisionHandler(GT3SecondaryCaptchaPolicyAllow);
+        //失败请调用decisionHandler(GT3SecondaryCaptchaPolicyForbidden)
+        //decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
+        
+        NSString *phoneNumStr = _phoneNum2Field.plainPhoneNum;
+        TCGeetestCaptchaRequest *request = [[TCGeetestCaptchaRequest alloc] initWithPhoneNumber:phoneNumStr challenge:@"" validate:@"" seccode:@""];
+        [request startWithSuccess:^(NSString *message) {
+            NSLog(@"message:%@",message);
+        } failure:^(NSString *message, NSInteger errorCode) {
+            NSLog(@"fail msg:%@",message);
+        }];
+    }
+    else {
+        //二次验证发生错误
+        decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
+        //[TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
+        [MBProgressHUD showError:error.localizedDescription toView:nil];
+    }
+}
+ 
+- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendRequestAPI1:(NSURLRequest *)originalRequest withReplacedHandler:(void (^)(NSURLRequest *))replacedHandler {
+    NSMutableURLRequest *mRequest = [originalRequest mutableCopy];
+    NSString *newURL = [NSString stringWithFormat:@"%@?t=%.0f", originalRequest.URL.absoluteString, [[[NSDate alloc] init]timeIntervalSince1970]];
+    mRequest.URL = [NSURL URLWithString:newURL];
+    
+    replacedHandler(mRequest);
+}
+ */
+
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveCaptchaCode:(NSString *)code result:(NSDictionary *)result message:(NSString *)message {
+    __weak __typeof(self) weakSelf = self;
+    NSString *challenge = [result objectForKey:@"geetest_challenge"];
+    NSString *seccode = [result objectForKey:@"geetest_seccode"];
+    NSString *validate = [result objectForKey:@"geetest_validate"];
+    NSString *phoneNum = _phoneNum2Field.plainPhoneNum;
+    TCGeetestCaptchaRequest *request = [[TCGeetestCaptchaRequest alloc] initWithPhoneNumber:phoneNum challenge:challenge validate:validate seccode:seccode];
+    [request startWithSuccess:^(NSString *message) {
+        [weakSelf.captchaButton setFetchState:FetchCaptchaStateCountdown];
+        [MBProgressHUD showSuccess:@"验证码已发送，请查收" toView:nil];
+    } failure:^(NSString *message, NSInteger errorCode) {
+        [MBProgressHUD showError:message toView:nil];
+    }];
+}
+
+- (BOOL)shouldUseDefaultSecondaryValidate:(GT3CaptchaManager *)manager {
+    return NO;
 }
 @end

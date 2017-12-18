@@ -13,6 +13,6 @@
 - (instancetype) initWithPhoneNumber:(NSString *)phoneNumber;
 
 - (void) startWithSuccess:(void(^)(NSString *message))success
-                  failure:(void(^)(NSString *message))failure;
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure;
 
 @end

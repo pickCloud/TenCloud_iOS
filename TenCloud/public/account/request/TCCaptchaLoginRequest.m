@@ -30,10 +30,12 @@
                   failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"captcha login success:");
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
         NSString *token = [dataDict objectForKey:@"token"];
         success ? success(token) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"captcha login req__");
         NSNumber *resNumber = [request.responseJSONObject objectForKey:@"status"];
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         if (resNumber.integerValue == 10404)

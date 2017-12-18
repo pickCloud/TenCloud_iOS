@@ -88,7 +88,7 @@
         [request startWithSuccess:^(NSString *message) {
             [MBProgressHUD showSuccess:@"短信验证码已发送，请注意查收" toView:nil];
             [weakSelf.captchaField becomeFirstResponder];
-        } failure:^(NSString *message) {
+        } failure:^(NSString *message, NSInteger errorCode) {
             [MBProgressHUD showError:message toView:nil];
         }];
     }
