@@ -1,34 +1,35 @@
 //
-//  TCSetSmsCountRequest.m
+//  TCServerStatusRequest.m
 //
 //
 //  Created by huangdx on 2017/12/05.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCSetSmsCountRequest.h"
+#import "TCServerStatusRequest.h"
 
-@interface TCSetSmsCountRequest()
-@property (nonatomic, assign)   NSInteger   count;
+@interface TCServerStatusRequest()
+@property (nonatomic, strong)       NSString    *instanceID;
 @end
 
-@implementation TCSetSmsCountRequest
+@implementation TCServerStatusRequest
 
-- (instancetype) initWithCount:(NSInteger)count
+- (instancetype) initWithInstanceID:(NSString*)instanceID
 {
     self = [super init];
     if (self)
     {
-        _count = count;
+        _instanceID = instanceID;
     }
     return self;
 }
 
-- (void) startWithSuccess:(void(^)(NSString *message))success
+- (void) startWithSuccess:(void(^)(NSString *status))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        success ? success(@"修改成功"):nil;
+        NSString *status = [request.responseJSONObject objectForKey:@"data"];
+        success ? success(status) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
@@ -36,8 +37,8 @@
 }
 
 - (NSString *)requestUrl {
-    NSString *url = [NSString stringWithFormat:@"/api/tmp/user/sms/count/%ld",_count];
-    return url;
+    NSString *urlstr = [NSString stringWithFormat:@"/api/server/%@/status",_instanceID];
+    return urlstr;
 }
 
 - (YTKRequestMethod)requestMethod {

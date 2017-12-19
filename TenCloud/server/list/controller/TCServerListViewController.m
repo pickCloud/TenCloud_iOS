@@ -83,7 +83,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithID:server.serverID name:server.name];
+    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServer:server];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
