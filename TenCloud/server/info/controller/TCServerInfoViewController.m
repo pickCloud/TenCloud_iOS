@@ -12,12 +12,14 @@
 #import "TCServerBasicInfo+CoreDataClass.h"
 #import "TCServer+CoreDataClass.h"
 #import "TCServerConfigTableViewCell.h"
+#import "TCServerStateTableViewCell.h"
 #import "TCServerInfoItem.h"
 #import "TCServerStatusRequest.h"
 #import "TCRebootServerRequest.h"
 #import "TCStopServerRequest.h"
 #import "TCStartServerRequest.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
+#define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
 
 @interface TCServerInfoViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -47,6 +49,8 @@
     _configArray = [NSMutableArray new];
     UINib *configCellNib = [UINib nibWithNibName:@"TCServerConfigTableViewCell" bundle:nil];
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
+    UINib *stateCellNib = [UINib nibWithNibName:@"TCServerStateTableViewCell" bundle:nil];
+    [_tableView registerNib:stateCellNib forCellReuseIdentifier:SERVER_STATE_CELL_REUSE_ID];
     _tableView.tableFooterView = _footerView;
     
     [self startLoading];
@@ -66,7 +70,8 @@
         TCServerInfoItem *item2 = [[TCServerInfoItem alloc] initWithKey:@"服务商" value:clusterName];
         TCServerInfoItem *item3 = [[TCServerInfoItem alloc] initWithKey:@"地址" value:address];
         TCServerInfoItem *item4 = [[TCServerInfoItem alloc] initWithKey:@"IP" value:ip];
-        TCServerInfoItem *item5 = [[TCServerInfoItem alloc] initWithKey:@"状态" value:status];
+        TCServerInfoItem *item5 = [[TCServerInfoItem alloc] initWithKey:@"状态" value:status
+                                   type:TCInfoCellTypeStateLabel];
         TCServerInfoItem *item6 = [[TCServerInfoItem alloc] initWithKey:@"添加时间" value:time];
         [_configArray addObject:item1];
         [_configArray addObject:item2];
@@ -106,8 +111,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TCServerConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_CELL_REUSE_ID forIndexPath:indexPath];
     TCServerInfoItem *infoItem = [_configArray objectAtIndex:indexPath.row];
+    if (infoItem.cellType == TCInfoCellTypeStateLabel)
+    {
+        TCServerStateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_STATE_CELL_REUSE_ID forIndexPath:indexPath];
+        //[cell setKey:infoItem.key value:infoItem.value];
+        [cell setKey:infoItem.key value:@"已停止"];
+        return cell;
+    }
+    TCServerConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_CELL_REUSE_ID forIndexPath:indexPath];
+    
     [cell setKey:infoItem.key value:infoItem.value];
     return cell;
 }

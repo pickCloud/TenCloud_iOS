@@ -12,11 +12,17 @@
 
 - (instancetype) initWithKey:(NSString*)key value:(NSString*)value
 {
+    return [self initWithKey:key value:value type:TCInfoCellTypeNormal];
+}
+
+- (instancetype) initWithKey:(NSString*)key value:(NSString*)value type:(TCInfoCellType)type
+{
     self = [super init];
     if (self)
     {
         _key = key;
         _value = value;
+        _cellType = type;
     }
     return self;
 }

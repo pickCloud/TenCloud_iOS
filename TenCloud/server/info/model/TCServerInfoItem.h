@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, TCInfoCellType){
+    TCInfoCellTypeNormal   =   0,
+    TCInfoCellTypeStateLabel
+};
+
 @interface TCServerInfoItem : NSObject
 
 - (instancetype) initWithKey:(NSString*)key value:(NSString*)value;
+- (instancetype) initWithKey:(NSString*)key value:(NSString*)value type:(TCInfoCellType)type;
 
-@property (nonatomic, strong)   NSString    *key;
-@property (nonatomic, strong)   NSString    *value;
+@property (nonatomic, strong)   NSString        *key;
+@property (nonatomic, strong)   NSString        *value;
+@property (nonatomic, assign)   TCInfoCellType  cellType;
 
 @end
