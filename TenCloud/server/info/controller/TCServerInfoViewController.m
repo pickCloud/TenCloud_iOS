@@ -24,11 +24,15 @@
 @interface TCServerInfoViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UIView          *footerView;
+@property (nonatomic, weak) IBOutlet    UIView          *stopFooterView;
+@property (nonatomic, weak) IBOutlet    UIView          *rebootFooterView;
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
 @property (nonatomic, strong)   TCServer                *server;
 - (IBAction) onRestartButton:(id)sender;
 - (IBAction) onPowerOffButton:(id)sender;
+- (IBAction) onStartButton:(id)sender;
+- (IBAction) onDeleteButton:(id)sender;
 @end
 
 @implementation TCServerInfoViewController
@@ -51,7 +55,10 @@
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
     UINib *stateCellNib = [UINib nibWithNibName:@"TCServerStateTableViewCell" bundle:nil];
     [_tableView registerNib:stateCellNib forCellReuseIdentifier:SERVER_STATE_CELL_REUSE_ID];
-    _tableView.tableFooterView = _footerView;
+    //_tableView.tableFooterView = _footerView;
+    //_tableView.tableFooterView = _stopFooterView;
+    _tableView.tableFooterView = _rebootFooterView;
+    
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -136,6 +143,7 @@
 #pragma mark - extension
 - (IBAction) onRestartButton:(id)sender
 {
+    NSLog(@"on reboot button");
     /*
     NSLog(@"on reestart button");
     TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
@@ -144,23 +152,37 @@
     } failure:^(NSString *message) {
         
     }];
-     */
+     
     TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_server.serverID];
     [request startWithSuccess:^(NSString *status) {
         
     } failure:^(NSString *message) {
         
     }];
+     */
 }
 
 - (IBAction) onPowerOffButton:(id)sender
 {
     NSLog(@"on power off button");
+    /*
     TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
     [request startWithSuccess:^(NSString *status) {
         
     } failure:^(NSString *message) {
         
     }];
+     */
+    
+}
+
+- (IBAction) onStartButton:(id)sender
+{
+    NSLog(@"on start button");
+}
+
+- (IBAction) onDeleteButton:(id)sender
+{
+    NSLog(@"on delete button");
 }
 @end
