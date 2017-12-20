@@ -16,6 +16,7 @@
 @interface TCServerListViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
+- (void) onDeleteServerNotification:(NSNotification*)sender;
 @end
 
 @implementation TCServerListViewController
@@ -39,6 +40,11 @@
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onDeleteServerNotification:)
+                                                 name:NOTIFICATION_DEL_SERVER
+                                               object:nil];
+    
     [self startLoading];
     __weak  __typeof(self)  weakSelf = self;
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
@@ -51,6 +57,11 @@
         [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
     }];
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,4 +98,13 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+- (void) onDeleteServerNotification:(NSNotification*)sender
+{
+    TCServer *server = sender.object;
+    if (server)
+    {
+        [_serverArray removeObject:server];
+        [_tableView reloadData];
+    }
+}
 @end

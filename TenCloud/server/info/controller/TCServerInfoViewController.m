@@ -18,14 +18,15 @@
 #import "TCRebootServerRequest.h"
 #import "TCStopServerRequest.h"
 #import "TCStartServerRequest.h"
+#import "TCDeleteServerRequest.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
 
 @interface TCServerInfoViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
-@property (nonatomic, weak) IBOutlet    UIView          *footerView;
-@property (nonatomic, weak) IBOutlet    UIView          *stopFooterView;
-@property (nonatomic, weak) IBOutlet    UIView          *rebootFooterView;
+@property (nonatomic, strong) IBOutlet    UIView          *footerView;      //error when weak
+@property (nonatomic, strong) IBOutlet    UIView          *stopFooterView;
+@property (nonatomic, strong) IBOutlet    UIView          *rebootFooterView;
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
 @property (nonatomic, strong)   TCServer                *server;
@@ -33,6 +34,7 @@
 - (IBAction) onPowerOffButton:(id)sender;
 - (IBAction) onStartButton:(id)sender;
 - (IBAction) onDeleteButton:(id)sender;
+- (void) updateFooterViewWithStatus:(NSString*)status;
 @end
 
 @implementation TCServerInfoViewController
@@ -57,7 +59,7 @@
     [_tableView registerNib:stateCellNib forCellReuseIdentifier:SERVER_STATE_CELL_REUSE_ID];
     //_tableView.tableFooterView = _footerView;
     //_tableView.tableFooterView = _stopFooterView;
-    _tableView.tableFooterView = _rebootFooterView;
+    //_tableView.tableFooterView = _rebootFooterView;
     
     
     [self startLoading];
@@ -91,6 +93,7 @@
         TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
         [statusReq startWithSuccess:^(NSString *status) {
             NSLog(@"status:%@",status);
+            [weakSelf updateFooterViewWithStatus:status];
         } failure:^(NSString *message) {
             NSLog(@"message:%@",message);
         }];
@@ -183,6 +186,41 @@
 
 - (IBAction) onDeleteButton:(id)sender
 {
-    NSLog(@"on delete button");
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定删除这台服务器?"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_server.serverID];
+        [requst startWithSuccess:^(NSString *status) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
+            [self.navigationController popViewControllerAnimated:YES];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:deleteAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) updateFooterViewWithStatus:(NSString*)status
+{
+    if (status != nil)
+    {
+        if ([status containsString:@"已停止"])
+        {
+            self.tableView.tableFooterView = self.stopFooterView;
+            return;
+        }else if([status containsString:@"重启"])
+        {
+            self.tableView.tableFooterView = self.rebootFooterView;
+            return;
+        }
+    }
+    self.tableView.tableFooterView = self.footerView;
 }
 @end

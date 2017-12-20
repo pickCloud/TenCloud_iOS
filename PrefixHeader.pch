@@ -47,4 +47,6 @@
 #define SERVER_PROVIDER_MICROS      @"微软云"
 #define SERVER_PROVIDER_TENCENT     @"腾讯云"
 
+#define NOTIFICATION_DEL_SERVER     @"NOTIFICATION_DEL_SERVER"
+
 #endif /* PrefixHeader_pch */
