@@ -57,7 +57,7 @@
         p1 = [_parentView.datasource lineChartView:_parentView pointReferToXAxisLabelAtIndex:index-1];
         leftWidth = (p2.x - p1.x) / 2;
     } else {
-        leftWidth = _parentView.lineLeftMargin;
+        leftWidth = _parentView.frame.size.width / 20.0; //_parentView.lineLeftMargin;
     }
     
     p1 = [_parentView.datasource lineChartView:_parentView pointReferToXAxisLabelAtIndex:index];
@@ -65,8 +65,11 @@
         p2 = [_parentView.datasource lineChartView:_parentView pointReferToXAxisLabelAtIndex:index+1];
         rightWidth = (p2.x - p1.x) / 2;
     } else {
-        CGFloat rightAvaliableSpace = lastPoint.x - p1.x + _parentView.lineRightMargin;
-        rightWidth = leftWidth > rightAvaliableSpace ? rightAvaliableSpace : leftWidth;
+        //CGFloat rightAvaliableSpace = lastPoint.x - p1.x + _parentView.lineRightMargin;
+        //rightWidth = leftWidth > rightAvaliableSpace ? rightAvaliableSpace : leftWidth;
+        //NSLog(@"%ld rightAvailabele:%.2f",index, rightAvaliableSpace);
+        //NSLog(@"%ld right width:%.2f",index, rightWidth);
+        rightWidth = _parentView.frame.size.width / 20.0;
     }
     
     if (p1.index > 0 && p1.index < [self arrayContainedMostPoints].count - 1) {

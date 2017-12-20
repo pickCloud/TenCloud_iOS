@@ -237,6 +237,8 @@
         _yAxisView = [[WYLineChartCoordinateYAXisView alloc] init];
         _yAxisView.parentView = self;
         _yAxisView.backgroundColor = [UIColor clearColor];
+        
+        
         [self addSubview:_yAxisView];
     }
     
@@ -252,14 +254,22 @@
         _xAxisView = [[WYLineChartCoordinateXAXisView alloc] init];
         _xAxisView.parentView = self;
         _xAxisView.backgroundColor = [UIColor clearColor];
-        [_contentScrollView addSubview:_xAxisView];
+        
+        //[_contentScrollView addSubview:_xAxisView];
+        //modified
+        [self addSubview:_xAxisView];
     }
+    [self bringSubviewToFront:_contentScrollView];
     
     height = _calculator.xAxisLabelHeight + 2;
     y = CGRectGetHeight(self.bounds) - height;
-    x = 0;
+    //x = 0;
+    //modified
+    x = _calculator.yAxisViewWidth;
     width = _calculator.drawableAreaWidth;
+    
     frame = CGRectMake(x, y, width, height);
+    
     _xAxisView.frame = frame;
     [_xAxisView setNeedsDisplay];
 

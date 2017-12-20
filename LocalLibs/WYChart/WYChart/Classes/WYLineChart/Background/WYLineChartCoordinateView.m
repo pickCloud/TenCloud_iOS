@@ -60,9 +60,13 @@
         centerY = labelHeight / 2;
         
         if (point.index == 0) {
-            centerX = point.x + labelWidth/2 - self.parentView.lineLeftMargin;
+            //modified
+            //centerX = point.x + labelWidth/2 - self.parentView.lineLeftMargin;
+            centerX = point.x  - self.parentView.lineLeftMargin;
         } else if(point.index == [[self.parentView.calculator arrayContainedMostPoints] count] - 1) {
-            centerX = point.x - labelWidth/2 + self.parentView.lineLeftMargin;
+            //centerX = point.x - labelWidth/2 + self.parentView.lineLeftMargin;
+            //modified
+            centerX = point.x + self.parentView.lineLeftMargin;
         } else {
             centerX = point.x;
         }
@@ -72,20 +76,21 @@
         
         label.font = self.parentView.labelsFont;
         label.textColor = self.parentView.labelsColor;
-//        label.backgroundColor = [UIColor clearColor];
         label.text = [self.parentView.datasource lineChartView:self.parentView contentTextForXAxisLabelAtIndex:idx];
         
         NSTextAlignment alignment = NSTextAlignmentCenter;
         if (point.index == 0) {
             //leftest label
-            alignment = NSTextAlignmentJustified;
+            alignment = NSTextAlignmentCenter;//NSTextAlignmentJustified;
         } else if(point.index == [[self.parentView.calculator arrayContainedMostPoints] count] - 1) {
             //rightest label
-            alignment = NSTextAlignmentJustified;
+            //alignment = NSTextAlignmentCenter;//NSTextAlignmentJustified;
+            alignment = NSTextAlignmentLeft;
         }
         label.textAlignment = alignment;
         
         [self addSubview:label];
+        
     }
 }
 
@@ -130,7 +135,10 @@
     UILabel *label;
     UIView *flagLine;
     CGFloat centerX, centerY;
-    CGFloat labelWidth = self.parentView.calculator.yAxisLabelWidth - 10;
+    //CGFloat labelWidth = self.parentView.calculator.yAxisLabelWidth - 10;
+    //modified
+    CGFloat labelWidth = self.parentView.calculator.yAxisLabelWidth - 4;
+    
     CGFloat labelHeight = self.parentView.calculator.yAxisLabelHeight;
     
     centerX = labelWidth / 2;
@@ -150,7 +158,10 @@
         
         label.font = self.parentView.labelsFont;
         label.textColor = self.parentView.labelsColor;
-//        label.backgroundColor = [UIColor clearColor];
+
+        //modified
+        //label.backgroundColor = [UIColor magentaColor];
+        
         NSString *text;
         if ([self.parentView.datasource respondsToSelector:@selector(lineChartView:contentTextForYAxisLabelAtIndex:)]) {
             text = [self.parentView.datasource lineChartView:self.parentView contentTextForYAxisLabelAtIndex:idx];
@@ -164,8 +175,11 @@
         
         [self addSubview:label];
         
-        flagLine = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame)+7, centerY, 5, .8)];
+        //flagLine = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame)+7, centerY, 5, .8)];
+        flagLine = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame)+3, centerY, 4, .8)];
         flagLine.backgroundColor = self.parentView.axisColor;
+        
+        
         [self addSubview:flagLine];
     }
     

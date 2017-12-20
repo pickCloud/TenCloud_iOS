@@ -64,7 +64,8 @@
     _cpuChartView.backgroundColor = [UIColor clearColor];
     _cpuChartView.delegate = self;
     _cpuChartView.datasource = self;
-    //_cpuChartView.clipsToBounds = YES;
+    _cpuChartView.clipsToBounds = NO;
+    //_cpuChartView.backgroundColor = [UIColor magentaColor];
     
     _cpuChartView.lineLeftMargin = 0;
     _cpuChartView.lineRightMargin = 0;
@@ -409,7 +410,7 @@
             interval = (maxValue - minValue) / yPointNum;
         }
         CGFloat value = minValue + interval * index;
-        return [NSString stringWithFormat:@"%.01f",value];
+        return [NSString stringWithFormat:@"%.02f",value];
     }else if(chartView == _diskChartView)
     {
         CGFloat maxValue = [self.diskChartView.calculator maxValuePointsOfLinesPointSet:self.diskChartView.points].value;
@@ -421,7 +422,7 @@
             interval = (maxValue - minValue) / yPointNum;
         }
         CGFloat value = minValue + interval * index;
-        return [NSString stringWithFormat:@"%.01f",value];
+        return [NSString stringWithFormat:@"%.02f",value];
     }else if(chartView == _netChartView)
     {
         CGFloat maxValue = [self.netChartView.calculator maxValuePointsOfLinesPointSet:self.netChartView.points].value;
@@ -433,7 +434,7 @@
             interval = (maxValue - minValue) / yPointNum;
         }
         CGFloat value = minValue + interval * index;
-        return [NSString stringWithFormat:@"%.01f",value];
+        return [NSString stringWithFormat:@"%.02f",value];
     }
     CGFloat maxValue = [self.cpuChartView.calculator maxValuePointsOfLinesPointSet:self.cpuChartView.points].value;
     CGFloat minValue = [self.cpuChartView.calculator minValuePointsOfLinesPointSet:self.cpuChartView.points].value;
@@ -444,7 +445,7 @@
         interval = (maxValue - minValue) / yPointNum;
     }
     CGFloat value = minValue + interval * index;
-    return [NSString stringWithFormat:@"%.01f",value];
+    return [NSString stringWithFormat:@"%.02f",value];
 }
 
 - (CGFloat)lineChartView:(WYLineChartView *)chartView valueReferToYAxisLabelAtIndex:(NSInteger)index {
