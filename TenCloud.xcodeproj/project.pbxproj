@@ -78,6 +78,7 @@
 		A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */; };
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
 		A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */; };
+		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -288,6 +289,8 @@
 		A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerStateTableViewCell.xib; sourceTree = "<group>"; };
 		A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDeleteServerRequest.m; sourceTree = "<group>"; };
 		A06D12061FEA529C00722C76 /* TCDeleteServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeleteServerRequest.h; sourceTree = "<group>"; };
+		A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSearchRequest.h; sourceTree = "<group>"; };
+		A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerSearchRequest.m; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1097,6 +1100,8 @@
 		A02555631FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */,
+				A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */,
 				A001FA2D1FDD7E8F008328B0 /* TCClusterRequest.h */,
 				A001FA2C1FDD7E8F008328B0 /* TCClusterRequest.m */,
 			);
@@ -1811,6 +1816,7 @@
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
+				A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */,
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,

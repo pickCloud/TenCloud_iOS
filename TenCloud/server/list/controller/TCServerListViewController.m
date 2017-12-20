@@ -10,6 +10,7 @@
 #import "TCClusterRequest.h"
 #import "TCServerTableViewCell.h"
 #import "TCServerDetailViewController.h"
+#import "TCServerSearchRequest.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
 
@@ -67,6 +68,13 @@
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
+    }];
+    
+    TCServerSearchRequest *sReq = [[TCServerSearchRequest alloc] initWithServerName:@"翻墙" regionName:@"" providerName:@""];
+    [sReq startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        NSLog(@"search resu:%@",serverArray);
+    } failure:^(NSString *message) {
+        NSLog(@"search fail:%@",message);
     }];
 }
 
