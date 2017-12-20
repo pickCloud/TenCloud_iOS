@@ -15,9 +15,12 @@
 
 @interface TCServerListViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
+@property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 - (void) onDeleteServerNotification:(NSNotification*)sender;
 - (void) onAddServerButton:(id)sender;
+- (IBAction) onRefreshDataButton:(id)sender;
+- (IBAction) onFilterButton:(id)sender;
 @end
 
 @implementation TCServerListViewController
@@ -119,5 +122,15 @@
 - (void) onAddServerButton:(id)sender
 {
     NSLog(@"on add server");
+}
+
+- (IBAction) onRefreshDataButton:(id)sender
+{
+    NSLog(@"on refresh data button");
+}
+
+- (IBAction) onFilterButton:(id)sender
+{
+    NSLog(@"on filter button");
 }
 @end
