@@ -115,6 +115,24 @@
     NSString *networkSpeedStr = [NSString stringWithFormat:@"%ld/%ld",input,output];
     _networkSpeedLabel.text = networkSpeedStr;
     
+    NSString *statusStr = server.machine_status;
+    _statusLabel.text = server.machine_status;
+    if (statusStr && statusStr.length > 0)
+    {
+        if ([statusStr containsString:@"停止"])
+        {
+            _statusLabel.textColor = STATE_ALERT_COLOR;
+            _statusBackgroundView.backgroundColor = STATE_ALERT_BG_COLOR;
+        }else if([statusStr containsString:@"异常"])
+        {
+            _statusLabel.textColor = STATE_ERROR_COLOR;
+            _statusBackgroundView.backgroundColor = STATE_ERROR_BG_COLOR;
+        }else
+        {
+            _statusLabel.textColor = STATE_NORMAL_COLOR;
+            _statusBackgroundView.backgroundColor = STATE_NORMAL_BG_COLOR;
+        }
+    }
 }
 
 - (void) updateUI

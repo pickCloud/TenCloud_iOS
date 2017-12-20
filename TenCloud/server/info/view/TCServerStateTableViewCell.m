@@ -9,12 +9,7 @@
 #import "TCServerStateTableViewCell.h"
 #define BUTTON_FONT_SIZE        16.0
 
-#define STATE_NORMAL_COLOR  [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0]
-#define STATE_NORMAL_BG_COLOR  [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:0.3]
-#define STATE_ALERT_COLOR  [UIColor colorWithRed:239/255.0 green:154/255.0 blue:154/255.0 alpha:1.0]
-#define STATE_ALERT_BG_COLOR  [UIColor colorWithRed:239/255.0 green:154/255.0 blue:154/255.0 alpha:0.3]
-#define STATE_ERROR_COLOR  [UIColor colorWithRed:241/255.0 green:85/255.0 blue:50/255.0 alpha:1.0]
-#define STATE_ERROR_BG_COLOR  [UIColor colorWithRed:241/255.0 green:85/255.0 blue:50/255.0 alpha:0.3]
+
 
 
 @interface TCServerStateTableViewCell()
