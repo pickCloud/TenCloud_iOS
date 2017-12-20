@@ -29,6 +29,7 @@
         _serverName = name;
         _regionName = regionName;
         _providerName = providerName;
+        _serverName = _serverName != nil ? _serverName : @"";
     }
     return self;
 }

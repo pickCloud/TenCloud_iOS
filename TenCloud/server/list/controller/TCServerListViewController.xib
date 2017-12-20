@@ -42,7 +42,7 @@
                                                     <constraint firstAttribute="width" secondItem="cqr-tt-wK0" secondAttribute="height" multiplier="1:1" id="kcu-oD-1lX"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入名字搜索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-97-fe7">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入名字搜索" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-97-fe7">
                                                 <rect key="frame" x="29" y="0.0" width="181" height="30"/>
                                                 <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,6 +52,9 @@
                                                         <color key="value" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="-1" id="udV-E8-RAh"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.24705882352941178" green="0.27450980392156865" blue="0.33725490196078434" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,17 +73,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-QZ-wRR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-QZ-wRR">
                                         <rect key="frame" x="222" y="0.0" width="58" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kpu-QZ-wRR" secondAttribute="height" multiplier="29:22" id="61B-CM-Ll8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="刷新数据">
+                                        <state key="normal" title="取消">
                                             <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="onRefreshDataButton:" destination="-1" eventType="touchUpInside" id="gAh-0A-2Ff"/>
+                                            <action selector="onCancelSearch:" destination="-1" eventType="touchUpInside" id="DdQ-ZR-3nI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DU-ta-mYr">
@@ -133,6 +136,8 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="DI3-QA-vz9"/>
                         <outlet property="delegate" destination="-1" id="x2G-FS-MWZ"/>
+                        <outlet property="emptyDataSetDelegate" destination="-1" id="VrD-2u-drR"/>
+                        <outlet property="emptyDataSetSource" destination="-1" id="3wk-SM-TMz"/>
                     </connections>
                 </tableView>
             </subviews>
