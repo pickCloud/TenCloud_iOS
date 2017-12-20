@@ -21,6 +21,7 @@
 #import "TCDeleteServerRequest.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
+#define STATE_MAX_RETRY_TIMES           120
 
 @interface TCServerInfoViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -30,11 +31,14 @@
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
 @property (nonatomic, strong)   TCServer                *server;
+@property (nonatomic, assign)   NSInteger               retryTimes;
 - (IBAction) onRestartButton:(id)sender;
 - (IBAction) onPowerOffButton:(id)sender;
 - (IBAction) onStartButton:(id)sender;
 - (IBAction) onDeleteButton:(id)sender;
 - (void) updateFooterViewWithStatus:(NSString*)status;
+- (void) udpateStatusLabel:(NSString*)status;
+- (void) sendUpdateServerStateRequest;
 @end
 
 @implementation TCServerInfoViewController
@@ -45,6 +49,7 @@
     if (self)
     {
         _server = server;
+        _retryTimes = 0;
     }
     return self;
 }
@@ -60,7 +65,6 @@
     //_tableView.tableFooterView = _footerView;
     //_tableView.tableFooterView = _stopFooterView;
     //_tableView.tableFooterView = _rebootFooterView;
-    
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -101,8 +105,6 @@
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
-    
-    //TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_server.instance_name];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,8 +127,7 @@
     if (infoItem.cellType == TCInfoCellTypeStateLabel)
     {
         TCServerStateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_STATE_CELL_REUSE_ID forIndexPath:indexPath];
-        //[cell setKey:infoItem.key value:infoItem.value];
-        [cell setKey:infoItem.key value:@"已停止"];
+        [cell setKey:infoItem.key value:infoItem.value];
         return cell;
     }
     TCServerConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_CELL_REUSE_ID forIndexPath:indexPath];
@@ -146,42 +147,60 @@
 #pragma mark - extension
 - (IBAction) onRestartButton:(id)sender
 {
-    NSLog(@"on reboot button");
-    /*
-    NSLog(@"on reestart button");
-    TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
-    [request startWithSuccess:^(NSString *status) {
-        
-    } failure:^(NSString *message) {
-        
+    __weak __typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重启这台服务器?"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *restartAction = [UIAlertAction actionWithTitle:@"重启" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
+        [request startWithSuccess:^(NSString *status) {
+            [weakSelf sendUpdateServerStateRequest];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
     }];
-     
-    TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_server.serverID];
-    [request startWithSuccess:^(NSString *status) {
-        
-    } failure:^(NSString *message) {
-        
-    }];
-     */
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:restartAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction) onPowerOffButton:(id)sender
 {
     NSLog(@"on power off button");
-    /*
-    TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
-    [request startWithSuccess:^(NSString *status) {
-        
-    } failure:^(NSString *message) {
-        
+    __weak __typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定关闭这台服务器?"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *powerOffAction = [UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
+        [request startWithSuccess:^(NSString *status) {
+            [weakSelf sendUpdateServerStateRequest];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
     }];
-     */
     
+    [alertController addAction:cancelAction];
+    [alertController addAction:powerOffAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction) onStartButton:(id)sender
 {
-    NSLog(@"on start button");
+    __weak __typeof(self) weakSelf = self;
+    TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_server.serverID];
+    [request startWithSuccess:^(NSString *status) {
+        [weakSelf sendUpdateServerStateRequest];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (IBAction) onDeleteButton:(id)sender
@@ -219,8 +238,50 @@
         {
             self.tableView.tableFooterView = self.rebootFooterView;
             return;
+        }else if([status containsString:@"启动"])
+        {
+            self.tableView.tableFooterView = self.rebootFooterView;
+            return;
+        }else if([status containsString:@"停止"])
+        {
+            self.tableView.tableFooterView = self.rebootFooterView;
+            return;
         }
     }
     self.tableView.tableFooterView = self.footerView;
+}
+
+- (void) udpateStatusLabel:(NSString*)status
+{
+    NSIndexPath *path4 = [NSIndexPath indexPathForRow:4 inSection:0];
+    TCServerStateTableViewCell *stateCell = [_tableView cellForRowAtIndexPath:path4];
+    if (stateCell)
+    {
+        [stateCell setStateValue:status];
+    }
+}
+
+- (void) sendUpdateServerStateRequest
+{
+    __weak __typeof(self) weakSelf = self;
+    TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
+    [statusReq startWithSuccess:^(NSString *status) {
+        NSLog(@"status:%@",status);
+        weakSelf.retryTimes ++;
+        [weakSelf udpateStatusLabel:status];
+        [weakSelf updateFooterViewWithStatus:status];
+        if (weakSelf.retryTimes < STATE_MAX_RETRY_TIMES)
+        {
+            [weakSelf performSelector:@selector(sendUpdateServerStateRequest)
+                           withObject:nil
+                           afterDelay:1.0];
+        }
+    } failure:^(NSString *message) {
+        NSLog(@"message:%@",message);
+        weakSelf.retryTimes ++;
+        [weakSelf performSelector:@selector(sendUpdateServerStateRequest)
+                       withObject:nil
+                       afterDelay:1.5];
+    }];
 }
 @end
