@@ -29,7 +29,6 @@
 		A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA581FDEB29E008328B0 /* FOLoadingView.m */; };
 		A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A001FA591FDEB29E008328B0 /* FOLoadingView.xib */; };
 		A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */; };
-		A00703751FE7988D00F232D7 /* TCGetGeetestDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00703731FE7988D00F232D7 /* TCGetGeetestDataRequest.m */; };
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
 		A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */; };
@@ -197,8 +196,6 @@
 		A001FA591FDEB29E008328B0 /* FOLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FOLoadingView.xib; sourceTree = "<group>"; };
 		A001FA5A1FDEB29E008328B0 /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
-		A00703731FE7988D00F232D7 /* TCGetGeetestDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGetGeetestDataRequest.m; sourceTree = "<group>"; };
-		A00703741FE7988D00F232D7 /* TCGetGeetestDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGetGeetestDataRequest.h; sourceTree = "<group>"; };
 		A00703781FE79A5000F232D7 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
 		A00703791FE79A5000F232D7 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGeetestCaptchaRequest.m; sourceTree = "<group>"; };
@@ -657,8 +654,6 @@
 				A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */,
 				A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */,
 				A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */,
-				A00703741FE7988D00F232D7 /* TCGetGeetestDataRequest.h */,
-				A00703731FE7988D00F232D7 /* TCGetGeetestDataRequest.m */,
 				A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */,
 				A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */,
 				A07DBEAB1FE2022B00F37715 /* TCResetPasswordRequest.h */,
@@ -1758,7 +1753,6 @@
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
-				A00703751FE7988D00F232D7 /* TCGetGeetestDataRequest.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
