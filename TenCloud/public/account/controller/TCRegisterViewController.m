@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *password2Field;
 @property (nonatomic, weak) IBOutlet    GetCaptchaButton    *captchaButton;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onGetCaptchaButton:(id)sender;
 - (IBAction) onRegisterButton:(id)sender;
@@ -34,6 +35,11 @@
     self.title = @"注册";
     [self vhl_setNavBarHidden:NO];
     [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
+    
+    if (IS_iPhoneX)
+    {
+        _topConstraint.constant = 64+27;
+    }
     
     NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入手机号码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _phoneNumberField.attributedPlaceholder = phonePlaceHolderStr;
