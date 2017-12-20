@@ -62,7 +62,8 @@
             type = @"未知系统类型";
         }
         NSString *cpuStr = [NSString stringWithFormat:@"%ld",cpu];
-        NSString *memoryStr = [NSString stringWithFormat:@"%ld",memory];
+        CGFloat gigaByte = memory / 1024.0;
+        NSString *memoryStr = [NSString stringWithFormat:@"%gG",gigaByte];
         [_configDict setObject:os forKey:@"操作系统"];
         [_configDict setObject:type forKey:@"系统类型"];
         [_configDict setObject:cpuStr forKey:@"CPU"];
