@@ -33,6 +33,7 @@
 @property (nonatomic, weak) IBOutlet    UIView              *headerView;
 @property (nonatomic, weak) IBOutlet    UIView              *headerCollectionBgView;
 - (IBAction) onMoreButton:(id)sender;
+- (void) onMessageButton:(id)sender;
 @end
 
 @implementation TCServerHomeViewController
@@ -41,6 +42,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器";
+    UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
+    UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [msgButton setImage:messageIconImg forState:UIControlStateNormal];
+    [msgButton sizeToFit];
+    [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
+    self.navigationItem.rightBarButtonItem = messageItem;
+    
     _serverArray = [NSMutableArray new];
     //_headerHeightConstraint.constant = TCSCALE(156);
     _tableView.tintColor = [UIColor clearColor];
@@ -193,5 +202,10 @@
 {
     TCServerListViewController *listVC = [TCServerListViewController new];
     [self.navigationController pushViewController:listVC animated:YES];
+}
+
+- (void) onMessageButton:(id)sender
+{
+    [MBProgressHUD showError:@"暂无页面" toView:nil];
 }
 @end

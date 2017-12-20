@@ -20,7 +20,8 @@
 #import "UIViewController+LoadingView.h"
 #endif
 
-#define SERVER_URL_STRING       @"http://47.94.18.22:18080"
+#define SERVER_URL_STRING       @"https://c.10.com"
+//#define SERVER_URL_STRING       @"http://47.94.18.22:18080"
 //#define SERVER_URL_STRING       @"http://47.94.18.22:18010"
 //#define SERVER_URL_STRING       @"http://192.168.199.140:18010"
 #define GEETEST_API1       @"http://47.94.18.22:18080/api/user/captcha"

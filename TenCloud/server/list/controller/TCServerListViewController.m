@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 - (void) onDeleteServerNotification:(NSNotification*)sender;
+- (void) onAddServerButton:(id)sender;
 @end
 
 @implementation TCServerListViewController
@@ -35,6 +36,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器列表";
+    UIImage *addServerImg = [UIImage imageNamed:@"server_nav_add"];
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setImage:addServerImg forState:UIControlStateNormal];
+    [addButton sizeToFit];
+    [addButton addTarget:self action:@selector(onAddServerButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = addItem;
     _serverArray = [NSMutableArray new];
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
@@ -106,5 +114,10 @@
         [_serverArray removeObject:server];
         [_tableView reloadData];
     }
+}
+
+- (void) onAddServerButton:(id)sender
+{
+    NSLog(@"on add server");
 }
 @end
