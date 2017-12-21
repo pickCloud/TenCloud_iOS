@@ -211,12 +211,14 @@
     alertController.view.tintColor = [UIColor grayColor];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [MMProgressHUD showWithStatus:@"删除中"];
         TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_server.serverID];
         [requst startWithSuccess:^(NSString *status) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
             [self.navigationController popViewControllerAnimated:YES];
+            [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
         } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
+            [MMProgressHUD dismissWithError:message];
         }];
     }];
     
