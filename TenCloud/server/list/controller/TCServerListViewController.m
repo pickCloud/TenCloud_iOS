@@ -15,6 +15,10 @@
 #import "TCAddServerViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
+#import "TCClusterProvider+CoreDataClass.h"
+
+//test
+#import "TCClusterProviderRequest.h"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -191,6 +195,15 @@
 - (IBAction) onFilterButton:(id)sender
 {
     NSLog(@"on filter button");
+    TCClusterProviderRequest *request = [[TCClusterProviderRequest alloc] initWithClusterID:@"1"];
+    [request startWithSuccess:^(NSArray<TCClusterProvider*> *providerArray) {
+        NSLog(@"providers:%@",providerArray);
+        TCClusterProvider *provider1 = [providerArray objectAtIndex:0];
+        NSLog(@"provider:%@",provider1.provider);
+        NSLog(@"regions:%@",provider1.regions);
+    } failure:^(NSString *message) {
+        NSLog(@"message:%@",message);
+    }];
 }
 
 - (IBAction) onCancelSearch:(id)sender

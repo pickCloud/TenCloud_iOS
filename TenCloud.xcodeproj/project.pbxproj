@@ -81,6 +81,11 @@
 		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
 		A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */; };
 		A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */; };
+		A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */; };
+		A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */; };
+		A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12161FEB8CF200722C76 /* TCClusterProviderRequest.m */; };
+		A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12191FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m */; };
+		A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D121B1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -296,6 +301,15 @@
 		A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAddServerViewController.xib; sourceTree = "<group>"; };
 		A06D120C1FEB36BC00722C76 /* TCAddServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddServerViewController.h; sourceTree = "<group>"; };
 		A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddServerViewController.m; sourceTree = "<group>"; };
+		A06D12101FEB81F700722C76 /* TCServerFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerFilterViewController.h; sourceTree = "<group>"; };
+		A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerFilterViewController.m; sourceTree = "<group>"; };
+		A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerFilterViewController.xib; sourceTree = "<group>"; };
+		A06D12151FEB8CF200722C76 /* TCClusterProviderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCClusterProviderRequest.h; sourceTree = "<group>"; };
+		A06D12161FEB8CF200722C76 /* TCClusterProviderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCClusterProviderRequest.m; sourceTree = "<group>"; };
+		A06D12181FEB924F00722C76 /* TCClusterProvider+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCClusterProvider+CoreDataClass.h"; sourceTree = "<group>"; };
+		A06D12191FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCClusterProvider+CoreDataClass.m"; sourceTree = "<group>"; };
+		A06D121A1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCClusterProvider+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A06D121B1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCClusterProvider+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1074,6 +1088,9 @@
 				A07DBEC01FE27A3300F37715 /* TCServerListViewController.h */,
 				A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */,
 				A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */,
+				A06D12101FEB81F700722C76 /* TCServerFilterViewController.h */,
+				A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */,
+				A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1081,6 +1098,10 @@
 		A02555621FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A06D12181FEB924F00722C76 /* TCClusterProvider+CoreDataClass.h */,
+				A06D12191FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m */,
+				A06D121A1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.h */,
+				A06D121B1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m */,
 				A001FA471FDD8292008328B0 /* TCServer+CoreDataClass.h */,
 				A001FA481FDD8292008328B0 /* TCServer+CoreDataClass.m */,
 				A001FA491FDD8292008328B0 /* TCServer+CoreDataProperties.h */,
@@ -1108,6 +1129,8 @@
 		A02555631FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A06D12151FEB8CF200722C76 /* TCClusterProviderRequest.h */,
+				A06D12161FEB8CF200722C76 /* TCClusterProviderRequest.m */,
 				A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */,
 				A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */,
 				A001FA2D1FDD7E8F008328B0 /* TCClusterRequest.h */,
@@ -1564,6 +1587,7 @@
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
+				A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */,
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
@@ -1780,6 +1804,8 @@
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
+				A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */,
+				A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */,
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
@@ -1792,6 +1818,7 @@
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
+				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -1839,6 +1866,7 @@
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
+				A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
