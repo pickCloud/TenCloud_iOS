@@ -21,11 +21,13 @@
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 - (void) onDeleteServerNotification:(NSNotification*)sender;
+- (void) onAddServerNotification:(NSNotification*)sender;
 - (void) onAddServerButton:(id)sender;
 - (IBAction) onRefreshDataButton:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
 - (IBAction) onCancelSearch:(id)sender;
 - (void) doSearch:(NSString*)keyword;
+- (void) reloadServerList;
 @end
 
 @implementation TCServerListViewController
@@ -61,21 +63,13 @@
                                              selector:@selector(onDeleteServerNotification:)
                                                  name:NOTIFICATION_DEL_SERVER
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddServerNotification:)
+                                                 name:NOTIFICATION_ADD_SERVER
+                                               object:nil];
     
     [self startLoading];
-    __weak  __typeof(self)  weakSelf = self;
-    TCClusterRequest *request = [[TCClusterRequest alloc] init];
-    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        [weakSelf.serverArray removeAllObjects];
-        [weakSelf.serverArray addObjectsFromArray:serverArray];
-        [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-        [weakSelf stopLoading];
-    }];
-    
-
+    [self reloadServerList];
 }
 
 - (void) dealloc
@@ -177,6 +171,11 @@
     }
 }
 
+- (void) onAddServerNotification:(NSNotification*)sender
+{
+    [self reloadServerList];
+}
+
 - (void) onAddServerButton:(id)sender
 {
     NSLog(@"on add server");
@@ -210,6 +209,21 @@
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         NSLog(@"search fail:%@",message);
+    }];
+}
+
+- (void) reloadServerList
+{
+    __weak  __typeof(self)  weakSelf = self;
+    TCClusterRequest *request = [[TCClusterRequest alloc] init];
+    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf.serverArray removeAllObjects];
+        [weakSelf.serverArray addObjectsFromArray:serverArray];
+        [weakSelf.tableView reloadData];
+        [weakSelf stopLoading];
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+        [weakSelf stopLoading];
     }];
 }
 @end

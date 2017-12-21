@@ -56,5 +56,6 @@
 #define STATE_ERROR_BG_COLOR   [UIColor colorWithRed:241/255.0 green:85/255.0 blue:50/255.0 alpha:0.3]
 
 #define NOTIFICATION_DEL_SERVER     @"NOTIFICATION_DEL_SERVER"
+#define NOTIFICATION_ADD_SERVER     @"NOTIFICATION_ADD_SERVER"
 
 #endif /* PrefixHeader_pch */
