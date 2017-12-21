@@ -79,6 +79,8 @@
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
 		A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */; };
 		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
+		A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */; };
+		A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -291,6 +293,9 @@
 		A06D12061FEA529C00722C76 /* TCDeleteServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeleteServerRequest.h; sourceTree = "<group>"; };
 		A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSearchRequest.h; sourceTree = "<group>"; };
 		A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerSearchRequest.m; sourceTree = "<group>"; };
+		A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAddServerViewController.xib; sourceTree = "<group>"; };
+		A06D120C1FEB36BC00722C76 /* TCAddServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddServerViewController.h; sourceTree = "<group>"; };
+		A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddServerViewController.m; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -855,6 +860,9 @@
 		A025554D1FD7C82100D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A06D120C1FEB36BC00722C76 /* TCAddServerViewController.h */,
+				A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */,
+				A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1545,6 +1553,7 @@
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
+				A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */,
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
@@ -1761,6 +1770,7 @@
 				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
+				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,

@@ -12,6 +12,7 @@
 #import "TCServerDetailViewController.h"
 #import "TCServerSearchRequest.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCAddServerViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
 
@@ -179,6 +180,8 @@
 - (void) onAddServerButton:(id)sender
 {
     NSLog(@"on add server");
+    TCAddServerViewController *addVC = [TCAddServerViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 - (IBAction) onRefreshDataButton:(id)sender
