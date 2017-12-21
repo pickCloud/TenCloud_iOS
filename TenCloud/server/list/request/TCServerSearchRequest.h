@@ -12,8 +12,8 @@
 @interface TCServerSearchRequest : YTKRequest
 
 - (instancetype) initWithServerName:(NSString*)name
-                         regionName:(NSString*)regionName
-                       providerName:(NSString*)providerName;
+                            regions:(NSArray*)regions
+                          providers:(NSArray*)providers;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCServer*> *serverArray))success
                   failure:(void(^)(NSString *message))failure;

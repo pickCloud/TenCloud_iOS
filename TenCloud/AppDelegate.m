@@ -12,6 +12,7 @@
 #import "TCTabBarController.h"
 #import "VHLNavigation.h"
 #import "TCLoginViewController.h"
+#import "TCConfiguration.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
+    [[TCConfiguration shared] print];
     
     [UIColor vhl_setDefaultNavBarTintColor:THEME_TINT_COLOR];
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];

@@ -23,6 +23,10 @@
 #import "TCServerMonitorViewController.h"
 #import "TCServerListViewController.h"
 
+//test
+#import <MMDrawerController/MMDrawerController.h>
+#import "TCServerFilterViewController.h"
+
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
 @interface TCServerHomeViewController ()
@@ -200,8 +204,23 @@
 
 - (IBAction) onMoreButton:(id)sender
 {
+    
     TCServerListViewController *listVC = [TCServerListViewController new];
     [self.navigationController pushViewController:listVC animated:YES];
+     /*
+    TCServerFilterViewController *filterVC = [TCServerFilterViewController new];
+    TCServerListViewController *listVC = [TCServerListViewController new];
+    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:listVC rightDrawerViewController:filterVC];
+    [drawerController setShowsShadow:NO];
+    [drawerController setShouldStretchDrawer:NO];
+    [drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNone];
+    [drawerController setMaximumLeftDrawerWidth:TCSCALE(260)];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    drawerController.title = @"服务器列表";
+    drawerController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:drawerController animated:YES];
+    */
 }
 
 - (void) onMessageButton:(id)sender

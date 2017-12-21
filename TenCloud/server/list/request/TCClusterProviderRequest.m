@@ -48,4 +48,9 @@
     return YTKRequestMethodGET;
 }
 
+- (NSInteger)cacheTimeInSeconds
+{
+    return  NSIntegerMax;
+}
+
 @end

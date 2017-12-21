@@ -18,7 +18,8 @@
 #import "TCClusterProvider+CoreDataClass.h"
 
 //test
-#import "TCClusterProviderRequest.h"
+#import "TCSearchFilterViewController.h"
+//#import "TCConfiguration.h"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -26,11 +27,13 @@
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 - (void) onDeleteServerNotification:(NSNotification*)sender;
 - (void) onAddServerNotification:(NSNotification*)sender;
+- (void) onFilterSearchNotification:(NSNotification*)sender;
 - (void) onAddServerButton:(id)sender;
 - (IBAction) onRefreshDataButton:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
 - (IBAction) onCancelSearch:(id)sender;
-- (void) doSearch:(NSString*)keyword;
+- (void) doSearch:(NSString*)keyword provider:(NSArray<NSString*>*)providers
+           region:(NSArray<NSString*>*)regions;
 - (void) reloadServerList;
 @end
 
@@ -70,6 +73,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAddServerNotification:)
                                                  name:NOTIFICATION_ADD_SERVER
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onFilterSearchNotification:)
+                                                 name:NOTIFICATION_DO_SEARCH
                                                object:nil];
     
     [self startLoading];
@@ -134,7 +141,7 @@
         return NO;
     }
      */
-    [self doSearch:word];
+    [self doSearch:word provider:@[] region:@[]];
     [textField resignFirstResponder];
     return YES;
 }
@@ -180,6 +187,20 @@
     [self reloadServerList];
 }
 
+- (void) onFilterSearchNotification:(NSNotification*)sender
+{
+    NSLog(@"收到filter search通知");
+    NSDictionary *filterDict = sender.object;
+    NSArray *providers = [filterDict objectForKey:@"provider"];
+    NSArray *regions = [filterDict objectForKey:@"region"];
+    NSString *keyword = _keywordField.text;
+    if (keyword == nil)
+    {
+        keyword = @"";
+    }
+    [self doSearch:@"" provider:providers region:regions];
+}
+
 - (void) onAddServerButton:(id)sender
 {
     NSLog(@"on add server");
@@ -195,15 +216,11 @@
 - (IBAction) onFilterButton:(id)sender
 {
     NSLog(@"on filter button");
-    TCClusterProviderRequest *request = [[TCClusterProviderRequest alloc] initWithClusterID:@"1"];
-    [request startWithSuccess:^(NSArray<TCClusterProvider*> *providerArray) {
-        NSLog(@"providers:%@",providerArray);
-        TCClusterProvider *provider1 = [providerArray objectAtIndex:0];
-        NSLog(@"provider:%@",provider1.provider);
-        NSLog(@"regions:%@",provider1.regions);
-    } failure:^(NSString *message) {
-        NSLog(@"message:%@",message);
-    }];
+    TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
+    filterVC.providesPresentationContextTransitionStyle = YES;
+    filterVC.definesPresentationContext = YES;
+    filterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:filterVC animated:NO completion:nil];
 }
 
 - (IBAction) onCancelSearch:(id)sender
@@ -211,10 +228,25 @@
     [_keywordField resignFirstResponder];
 }
 
-- (void) doSearch:(NSString*)keyword
+- (void) doSearch:(NSString*)keyword provider:(NSArray<NSString*>*)providers
+           region:(NSArray<NSString*>*)regions
 {
+    /*
+    NSMutableString *providerStr = [NSMutableString new];
+    for (int i = 0; i < providers.count; i++) {
+        <#statements#>
+    }
+    NSMutableString *regionStr = [NSMutableString new];
+    [NSString string]
+     */
+    //NSString *providerStr = [providers mj_JSONString];
+    //NSString *regionsStr = [regions mj_JSONString];
+    //NSString *providerStr = [providers componentsJoinedByString:@","];
+    //NSString *regionsStr = [regions componentsJoinedByString:@","];
+    //NSLog(@"providerStr:%@",providerStr);
+    //NSLog(@"regionStr:%@",regionsStr);
     __weak __typeof(self) weakSelf = self;
-    TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regionName:@"" providerName:@""];
+    TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:regions providers:providers];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         NSLog(@"search resu:%@",serverArray);
         [weakSelf.serverArray removeAllObjects];

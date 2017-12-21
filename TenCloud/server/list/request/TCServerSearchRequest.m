@@ -12,23 +12,25 @@
 @interface TCServerSearchRequest()
 @property (nonatomic, assign)   NSInteger   clusterID;
 @property (nonatomic, strong)   NSString    *serverName;
-@property (nonatomic, strong)   NSString    *regionName;
-@property (nonatomic, strong)   NSString    *providerName;
+//@property (nonatomic, strong)   NSString    *regionName;
+//@property (nonatomic, strong)   NSString    *providerName;
+@property (nonatomic, strong)   NSArray     *regions;
+@property (nonatomic, strong)   NSArray     *providers;
 @end
 
 @implementation TCServerSearchRequest
 
 - (instancetype) initWithServerName:(NSString*)name
-                         regionName:(NSString*)regionName
-                       providerName:(NSString*)providerName
+                            regions:(NSArray*)regions
+                          providers:(NSArray*)providers
 {
     self = [super init];
     if (self)
     {
         _clusterID = 1;
         _serverName = name;
-        _regionName = regionName;
-        _providerName = providerName;
+        _regions = regions;
+        _providers = providers;
         _serverName = _serverName != nil ? _serverName : @"";
     }
     return self;
@@ -68,8 +70,8 @@
     return @{
              @"cluster_id":@(_clusterID),
              @"server_name":_serverName,
-             @"region_name":_regionName,
-             @"provider_name":_providerName
+             @"region_name":_regions,
+             @"provider_name":_providers
              };
 }
 @end
