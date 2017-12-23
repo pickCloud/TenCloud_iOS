@@ -9,6 +9,8 @@
 #import "TCLocalAccount.h"
 #import "TCUser+CoreDataClass.h"
 
+#define ACCOUNT_USERID      @"ACCOUNT_USERID"
+#define ACCOUNT_NAME        @"ACCOUNT_NAME"
 #define ACCOUNT_MOBILE      @"ACCOUNT_MOBILE"
 #define ACCOUNT_TOKEN       @"ACCOUNT_TOKEN"
 
@@ -54,6 +56,8 @@
     if (self = [super init])
     {
         mObserverArray = [NSMutableArray new];
+        self.userID = [aDecoder decodeIntegerForKey:ACCOUNT_USERID];
+        self.name = [aDecoder decodeObjectForKey:ACCOUNT_NAME];
         self.mobile = [aDecoder decodeObjectForKey:ACCOUNT_MOBILE];
         self.token = [aDecoder decodeObjectForKey:ACCOUNT_TOKEN];
     }
@@ -62,6 +66,8 @@
 
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
+    [aCoder encodeInteger:self.userID forKey:ACCOUNT_USERID];
+    [aCoder encodeObject:self.name forKey:ACCOUNT_NAME];
     [aCoder encodeObject:self.mobile forKey:ACCOUNT_MOBILE];
     [aCoder encodeObject:self.token forKey:ACCOUNT_TOKEN];
 }
@@ -93,6 +99,8 @@
 {
     NSLog(@"login success, prepare send notification");
     TCLocalAccount *account = [TCLocalAccount shared];
+    account.userID = user.userID;
+    account.name = user.name;
     account.mobile = user.mobile;
     account.token = user.token;
     [account save];
@@ -108,6 +116,7 @@
 - (void) logout
 {
     TCLocalAccount *account = [TCLocalAccount shared];
+    account.name = @"";
     account.mobile = @"";
     account.token = @"";
     [account save];

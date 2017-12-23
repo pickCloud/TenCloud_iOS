@@ -13,6 +13,9 @@
 #import "TCDiscoverHomeViewController.h"
 #import "TCMineHomeViewController.h"
 
+//test
+#import "TCPersonHomeViewController.h"
+
 @interface TCTabBarController ()
 
 @end
@@ -65,7 +68,8 @@
     discoverHomeNav.tabBarItem.title = @"发现";
     [self addChildViewController:discoverHomeNav];
     
-    TCMineHomeViewController *mineHomeVC = [TCMineHomeViewController new];
+    //TCMineHomeViewController *mineHomeVC = [TCMineHomeViewController new];
+    TCPersonHomeViewController *mineHomeVC = [TCPersonHomeViewController new];
     UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
     UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine_selected"];
     UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

@@ -150,6 +150,10 @@
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
+		A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */; };
+		A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */; };
+		A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */; };
+		A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +432,12 @@
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
 		A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordRequest.m; sourceTree = "<group>"; };
 		A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordRequest.h; sourceTree = "<group>"; };
+		A0C9A04E1FED5CEE00F94E9E /* TCPersonHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPersonHomeViewController.h; sourceTree = "<group>"; };
+		A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPersonHomeViewController.m; sourceTree = "<group>"; };
+		A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPersonHomeViewController.xib; sourceTree = "<group>"; };
+		A0C9A0531FED608500F94E9E /* TCIconTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCIconTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCIconTableViewCell.m; sourceTree = "<group>"; };
+		A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCIconTableViewCell.xib; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1546,6 +1556,9 @@
 		A03143461FED5655006F55EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A04E1FED5CEE00F94E9E /* TCPersonHomeViewController.h */,
+				A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */,
+				A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1567,6 +1580,9 @@
 		A03143491FED5655006F55EC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0531FED608500F94E9E /* TCIconTableViewCell.h */,
+				A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */,
+				A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2048,9 +2064,11 @@
 				A06D12221FEBA2F100722C76 /* TCSearchFilterViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
+				A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
+				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */,
@@ -2254,6 +2272,7 @@
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
+				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
 				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
@@ -2300,6 +2319,7 @@
 				A03385941FE8BB2000EC0EC8 /* TCStopServerRequest.m in Sources */,
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
+				A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,

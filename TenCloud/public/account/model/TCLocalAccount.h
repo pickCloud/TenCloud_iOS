@@ -18,6 +18,8 @@
 
 @interface TCLocalAccount : NSObject<NSCoding>
 
+@property (nonatomic, assign)   NSInteger   userID;
+@property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, strong)   NSString    *mobile;
 @property (nonatomic, strong)   NSString    *token;
 
