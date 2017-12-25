@@ -8,6 +8,8 @@
 
 #import "TCPersonHomeViewController.h"
 #import "TCIconTableViewCell.h"
+#import "TCCustomerServiceViewController.h"
+
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
@@ -99,6 +101,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            
+        }else if(indexPath.row == 1)
+        {
+            TCCustomerServiceViewController *serviceVC = [TCCustomerServiceViewController new];
+            [self.navigationController pushViewController:serviceVC animated:YES];
+        }
+    }else if(indexPath.section == 1)
+    {
+        
+    }
 }
 
 #pragma mark - extension

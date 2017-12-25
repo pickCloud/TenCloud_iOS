@@ -154,6 +154,8 @@
 		A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */; };
 		A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */; };
 		A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */; };
+		A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A05E1FF0A33F00F94E9E /* TCCustomerServiceViewController.m */; };
+		A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A05F1FF0A33F00F94E9E /* TCCustomerServiceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,6 +440,9 @@
 		A0C9A0531FED608500F94E9E /* TCIconTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCIconTableViewCell.h; sourceTree = "<group>"; };
 		A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCIconTableViewCell.m; sourceTree = "<group>"; };
 		A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCIconTableViewCell.xib; sourceTree = "<group>"; };
+		A0C9A05D1FF0A33F00F94E9E /* TCCustomerServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCustomerServiceViewController.h; sourceTree = "<group>"; };
+		A0C9A05E1FF0A33F00F94E9E /* TCCustomerServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCustomerServiceViewController.m; sourceTree = "<group>"; };
+		A0C9A05F1FF0A33F00F94E9E /* TCCustomerServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCCustomerServiceViewController.xib; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -749,6 +754,7 @@
 				A031435C1FED567C006F55EC /* template */,
 				A03143381FECDB06006F55EC /* person */,
 				A025558B1FD7E20C00D16D22 /* home */,
+				A0C9A0581FF0A32400F94E9E /* customerService */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1938,6 +1944,48 @@
 			path = button;
 			sourceTree = "<group>";
 		};
+		A0C9A0581FF0A32400F94E9E /* customerService */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0591FF0A32400F94E9E /* controller */,
+				A0C9A05A1FF0A32400F94E9E /* model */,
+				A0C9A05B1FF0A32400F94E9E /* request */,
+				A0C9A05C1FF0A32400F94E9E /* view */,
+			);
+			path = customerService;
+			sourceTree = "<group>";
+		};
+		A0C9A0591FF0A32400F94E9E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A05D1FF0A33F00F94E9E /* TCCustomerServiceViewController.h */,
+				A0C9A05E1FF0A33F00F94E9E /* TCCustomerServiceViewController.m */,
+				A0C9A05F1FF0A33F00F94E9E /* TCCustomerServiceViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0C9A05A1FF0A32400F94E9E /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0C9A05B1FF0A32400F94E9E /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0C9A05C1FF0A32400F94E9E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2083,6 +2131,7 @@
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
+				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
@@ -2335,6 +2384,7 @@
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
+				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
