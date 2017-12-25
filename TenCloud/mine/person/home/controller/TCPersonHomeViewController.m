@@ -9,6 +9,10 @@
 #import "TCPersonHomeViewController.h"
 #import "TCIconTableViewCell.h"
 #import "TCCustomerServiceViewController.h"
+#import "TCPersonProfileViewController.h"
+
+//tmp use
+#import "TCLoginViewController.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -20,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView     *certificatedImageView;
 - (IBAction) onProfilePage:(id)sender;
+- (void) onMessageButton:(id)sender;
 @end
 
 @implementation TCPersonHomeViewController
@@ -27,6 +32,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
+    
+    UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
+    UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [msgButton setImage:messageIconImg forState:UIControlStateNormal];
+    [msgButton sizeToFit];
+    [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
+    self.navigationItem.rightBarButtonItem = messageItem;
     
     UINib *cellNib = [UINib nibWithNibName:@"TCIconTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:PERSON_HOME_CELL_REUSE_ID];
@@ -83,12 +96,6 @@
         [cell setIcon:@"person_home_setting" title:@"设置" desc:@""];
     }
     return cell;
-    /*
-    TCServerLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_LOG_CELL_REUSE_ID forIndexPath:indexPath];
-    TCServerLog *log = [_logArray objectAtIndex:indexPath.row];
-    [cell setLog:log];
-    return cell;
-     */
 }
 
 
@@ -121,7 +128,17 @@
 #pragma mark - extension
 - (IBAction) onProfilePage:(id)sender
 {
-    NSLog(@"on profile page");
+    TCPersonProfileViewController *profileVC = [TCPersonProfileViewController new];
+    [self.navigationController pushViewController:profileVC animated:YES];
+}
+
+- (void) onMessageButton:(id)sender
+{
+    NSLog(@"on message button");
+    [[TCLocalAccount shared] logout];
+    TCLoginViewController *loginVC = [TCLoginViewController new];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
 @end

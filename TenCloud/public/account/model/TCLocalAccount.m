@@ -103,6 +103,12 @@
     account.name = user.name;
     account.mobile = user.mobile;
     account.token = user.token;
+    
+    if (!account.name || account.name.length == 0)
+    {
+        account.name = [NSString stringWithFormat:@"用户%lld",user.userID];
+    }
+    
     [account save];
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {

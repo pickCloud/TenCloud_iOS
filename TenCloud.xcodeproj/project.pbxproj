@@ -156,6 +156,15 @@
 		A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */; };
 		A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A05E1FF0A33F00F94E9E /* TCCustomerServiceViewController.m */; };
 		A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A05F1FF0A33F00F94E9E /* TCCustomerServiceViewController.xib */; };
+		A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0631FF0A57C00F94E9E /* TCPersonProfileViewController.m */; };
+		A0C9A0661FF0A57C00F94E9E /* TCPersonProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0641FF0A57C00F94E9E /* TCPersonProfileViewController.xib */; };
+		A0C9A0691FF0D07800F94E9E /* TCEditCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0681FF0D07800F94E9E /* TCEditCellData.m */; };
+		A0C9A06C1FF0D24200F94E9E /* TCEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A06B1FF0D24200F94E9E /* TCEditTableViewCell.m */; };
+		A0C9A0701FF0D47500F94E9E /* TCEditTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A06E1FF0D47500F94E9E /* TCEditTextTableViewCell.m */; };
+		A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A06F1FF0D47500F94E9E /* TCEditTextTableViewCell.xib */; };
+		A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0721FF0E94600F94E9E /* TCModifyTextViewController.xib */; };
+		A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0741FF0E94600F94E9E /* TCModifyTextViewController.m */; };
+		A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0771FF10A5400F94E9E /* TCModifyUserProfileRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -443,6 +452,21 @@
 		A0C9A05D1FF0A33F00F94E9E /* TCCustomerServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCustomerServiceViewController.h; sourceTree = "<group>"; };
 		A0C9A05E1FF0A33F00F94E9E /* TCCustomerServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCustomerServiceViewController.m; sourceTree = "<group>"; };
 		A0C9A05F1FF0A33F00F94E9E /* TCCustomerServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCCustomerServiceViewController.xib; sourceTree = "<group>"; };
+		A0C9A0621FF0A57C00F94E9E /* TCPersonProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPersonProfileViewController.h; sourceTree = "<group>"; };
+		A0C9A0631FF0A57C00F94E9E /* TCPersonProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPersonProfileViewController.m; sourceTree = "<group>"; };
+		A0C9A0641FF0A57C00F94E9E /* TCPersonProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPersonProfileViewController.xib; sourceTree = "<group>"; };
+		A0C9A0671FF0D07800F94E9E /* TCEditCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCEditCellData.h; sourceTree = "<group>"; };
+		A0C9A0681FF0D07800F94E9E /* TCEditCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCEditCellData.m; sourceTree = "<group>"; };
+		A0C9A06A1FF0D24200F94E9E /* TCEditTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCEditTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A06B1FF0D24200F94E9E /* TCEditTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCEditTableViewCell.m; sourceTree = "<group>"; };
+		A0C9A06D1FF0D47500F94E9E /* TCEditTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCEditTextTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A06E1FF0D47500F94E9E /* TCEditTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCEditTextTableViewCell.m; sourceTree = "<group>"; };
+		A0C9A06F1FF0D47500F94E9E /* TCEditTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCEditTextTableViewCell.xib; sourceTree = "<group>"; };
+		A0C9A0721FF0E94600F94E9E /* TCModifyTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCModifyTextViewController.xib; sourceTree = "<group>"; };
+		A0C9A0731FF0E94600F94E9E /* TCModifyTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyTextViewController.h; sourceTree = "<group>"; };
+		A0C9A0741FF0E94600F94E9E /* TCModifyTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyTextViewController.m; sourceTree = "<group>"; };
+		A0C9A0771FF10A5400F94E9E /* TCModifyUserProfileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyUserProfileRequest.m; sourceTree = "<group>"; };
+		A0C9A0781FF10A5500F94E9E /* TCModifyUserProfileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyUserProfileRequest.h; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1484,6 +1508,9 @@
 		A031433C1FED5655006F55EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0621FF0A57C00F94E9E /* TCPersonProfileViewController.h */,
+				A0C9A0631FF0A57C00F94E9E /* TCPersonProfileViewController.m */,
+				A0C9A0641FF0A57C00F94E9E /* TCPersonProfileViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1491,6 +1518,8 @@
 		A031433D1FED5655006F55EC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0671FF0D07800F94E9E /* TCEditCellData.h */,
+				A0C9A0681FF0D07800F94E9E /* TCEditCellData.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1498,6 +1527,8 @@
 		A031433E1FED5655006F55EC /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0781FF10A5500F94E9E /* TCModifyUserProfileRequest.h */,
+				A0C9A0771FF10A5400F94E9E /* TCModifyUserProfileRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1505,6 +1536,11 @@
 		A031433F1FED5655006F55EC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A06A1FF0D24200F94E9E /* TCEditTableViewCell.h */,
+				A0C9A06B1FF0D24200F94E9E /* TCEditTableViewCell.m */,
+				A0C9A06D1FF0D47500F94E9E /* TCEditTextTableViewCell.h */,
+				A0C9A06E1FF0D47500F94E9E /* TCEditTextTableViewCell.m */,
+				A0C9A06F1FF0D47500F94E9E /* TCEditTextTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1562,6 +1598,9 @@
 		A03143461FED5655006F55EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0731FF0E94600F94E9E /* TCModifyTextViewController.h */,
+				A0C9A0741FF0E94600F94E9E /* TCModifyTextViewController.m */,
+				A0C9A0721FF0E94600F94E9E /* TCModifyTextViewController.xib */,
 				A0C9A04E1FED5CEE00F94E9E /* TCPersonHomeViewController.h */,
 				A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */,
 				A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */,
@@ -2111,12 +2150,15 @@
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A06D12221FEBA2F100722C76 /* TCSearchFilterViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
+				A0C9A0661FF0A57C00F94E9E /* TCPersonProfileViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
+				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
+				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */,
@@ -2313,6 +2355,7 @@
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
+				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
@@ -2321,6 +2364,7 @@
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
+				A0C9A06C1FF0D24200F94E9E /* TCEditTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
@@ -2339,6 +2383,7 @@
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
+				A0C9A0691FF0D07800F94E9E /* TCEditCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
@@ -2368,6 +2413,8 @@
 				A03385941FE8BB2000EC0EC8 /* TCStopServerRequest.m in Sources */,
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
+				A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */,
+				A0C9A0701FF0D47500F94E9E /* TCEditTextTableViewCell.m in Sources */,
 				A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
@@ -2385,6 +2432,7 @@
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
+				A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
