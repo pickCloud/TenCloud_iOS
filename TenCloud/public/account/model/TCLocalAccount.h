@@ -22,6 +22,7 @@
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, strong)   NSString    *mobile;
 @property (nonatomic, strong)   NSString    *token;
+@property (nonatomic, strong)   NSString    *avatar;
 
 + (TCLocalAccount *) shared;
 

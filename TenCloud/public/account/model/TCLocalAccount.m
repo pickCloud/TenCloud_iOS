@@ -13,6 +13,7 @@
 #define ACCOUNT_NAME        @"ACCOUNT_NAME"
 #define ACCOUNT_MOBILE      @"ACCOUNT_MOBILE"
 #define ACCOUNT_TOKEN       @"ACCOUNT_TOKEN"
+#define ACCOUNT_AVATAR      @"ACCOUNT_AVATAR"
 
 @interface TCLocalAccount ()
 {
@@ -60,6 +61,7 @@
         self.name = [aDecoder decodeObjectForKey:ACCOUNT_NAME];
         self.mobile = [aDecoder decodeObjectForKey:ACCOUNT_MOBILE];
         self.token = [aDecoder decodeObjectForKey:ACCOUNT_TOKEN];
+        self.avatar = [aDecoder decodeObjectForKey:ACCOUNT_AVATAR];
     }
     return self;
 }
@@ -70,6 +72,7 @@
     [aCoder encodeObject:self.name forKey:ACCOUNT_NAME];
     [aCoder encodeObject:self.mobile forKey:ACCOUNT_MOBILE];
     [aCoder encodeObject:self.token forKey:ACCOUNT_TOKEN];
+    [aCoder encodeObject:self.avatar forKey:ACCOUNT_AVATAR];
 }
 
 - (void) addObserver:(id<TCLocalAccountDelegate>)obs
@@ -103,6 +106,7 @@
     account.name = user.name;
     account.mobile = user.mobile;
     account.token = user.token;
+    account.avatar = user.image_url;
     
     if (!account.name || account.name.length == 0)
     {
@@ -125,6 +129,7 @@
     account.name = @"";
     account.mobile = @"";
     account.token = @"";
+    account.avatar = @"";
     [account save];
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {

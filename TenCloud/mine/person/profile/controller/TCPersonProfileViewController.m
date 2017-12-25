@@ -8,6 +8,7 @@
 
 #import "TCPersonProfileViewController.h"
 #import "TCEditTextTableViewCell.h"
+#import "TCEditAvatarTableViewCell.h"
 #define PROFILE_CELL_EDIT_TEXT      @"PROFILE_CELL_EDIT_TEXT"
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
@@ -36,14 +37,22 @@
     
     _cellItemArray = [NSMutableArray new];
     TCEditCellData *data1 = [TCEditCellData new];
-    data1.title = @"姓名";
-    data1.editPageTitle = @"修改姓名";
-    data1.initialValue = [[TCLocalAccount shared] name];
+    data1.title = @"头像";
+    data1.initialValue = [[TCLocalAccount shared] avatar];
+    data1.type = EditCellTypeAvatar;
     [_cellItemArray addObject:data1];
+    
+    TCEditCellData *data2 = [TCEditCellData new];
+    data2.title = @"姓名";
+    data2.editPageTitle = @"修改姓名";
+    data2.initialValue = [[TCLocalAccount shared] name];
+    data2.type = EditCellTypeDate;
+    [_cellItemArray addObject:data2];
     
     UINib *textCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
     [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
-    
+    UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
+    [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
     self.tableView.tableFooterView = [UIView new];
     
 }
@@ -65,9 +74,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TCEditCellData *data = [_cellItemArray objectAtIndex:indexPath.row];
+    if (data.type == EditCellTypeAvatar)
+    {
+        TCEditAvatarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_AVATAR forIndexPath:indexPath];
+        cell.fatherViewController = self;
+        cell.data = data;
+        cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
+            
+        };
+        return cell;
+    }
     TCEditTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_TEXT forIndexPath:indexPath];
     cell.fatherViewController = self;
-    TCEditCellData *data = [_cellItemArray objectAtIndex:indexPath.row];
+    
     cell.data = data;
     cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
         

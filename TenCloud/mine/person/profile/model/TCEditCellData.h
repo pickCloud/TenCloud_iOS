@@ -12,8 +12,8 @@ typedef NS_ENUM(NSInteger, EditCellType) {
     EditCellTypeText    =   0,
     EditCellTypeDate,
     EditCellTypeGender,
-    EditCellAvatar,
-    EditCellIDCard
+    EditCellTypeAvatar,
+    EditCellTypeIDCard
 };
 
 @interface TCEditCellData : NSObject
