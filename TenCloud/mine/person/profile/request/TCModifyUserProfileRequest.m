@@ -15,7 +15,7 @@
 
 @implementation TCModifyUserProfileRequest
 
-- (instancetype) initWithKey:(NSString*)keyName value:(NSString*)value
+- (instancetype) initWithKey:(NSString*)keyName value:(id)value
 {
     self = [super init];
     if (self)

@@ -11,7 +11,7 @@
 @class TCServer;
 @interface TCModifyUserProfileRequest : YTKRequest
 
-- (instancetype) initWithKey:(NSString*)keyName value:(NSString*)value;
+- (instancetype) initWithKey:(NSString*)keyName value:(id)value;
 
 - (void) startWithSuccess:(void(^)(NSString *message))success
                   failure:(void(^)(NSString *message))failure;
