@@ -18,6 +18,7 @@ pod 'SocketRocket', '~> 0.5.1'
 pod 'MMDrawerController','~> 0.6.0'
 pod 'Qiniu', '~> 7.1.5'
 pod 'SDWebImage','~> 4.0.0'
+pod 'ActionSheetPicker-3.0', '~> 2.2.0'
 
   target 'TenCloudTests' do
     inherit! :search_paths
