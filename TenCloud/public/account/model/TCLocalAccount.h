@@ -34,6 +34,8 @@
 
 - (void) loginSuccess:(TCUser*)user;
 
+- (void) modified;
+
 - (void) logout;
 
 - (void) save;

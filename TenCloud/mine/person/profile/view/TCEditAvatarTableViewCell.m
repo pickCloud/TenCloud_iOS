@@ -17,6 +17,7 @@
 #import "TCModifyUserProfileRequest.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "TCUserProfileRequest.h"
+#import "TCUser+CoreDataClass.h"
 
 @interface  TCEditAvatarTableViewCell()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -141,7 +142,10 @@
                           [modifyReq startWithSuccess:^(NSString *message) {
                               TCUserProfileRequest *userReq = [TCUserProfileRequest new];
                               [userReq startWithSuccess:^(TCUser *user) {
-                                  [[TCLocalAccount shared] loginSuccess:user];
+                                  TCLocalAccount *account = [TCLocalAccount shared];
+                                  account.avatar = user.image_url;
+                                  [account save];
+                                  [account modified];
                                   [weakSelf.avatarView setImage:avatarImage];
                                   [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
                               } failure:^(NSString *message) {

@@ -123,6 +123,18 @@
     }
 }
 
+- (void) modified
+{
+    TCLocalAccount *account = [TCLocalAccount shared];
+    for (id<TCLocalAccountDelegate> obs in mObserverArray)
+    {
+        if ([obs respondsToSelector:@selector(accountModified:)])
+        {
+            [obs accountModified:account];
+        }
+    }
+}
+
 - (void) logout
 {
     TCLocalAccount *account = [TCLocalAccount shared];
