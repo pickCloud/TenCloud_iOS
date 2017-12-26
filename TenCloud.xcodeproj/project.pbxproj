@@ -141,8 +141,6 @@
 		A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */; };
 		A07DBEB21FE2241A00F37715 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07DBEB11FE2241A00F37715 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEB41FE2293D00F37715 /* TCServerInfoItem.m */; };
-		A07DBEB91FE25B3800F37715 /* TCServerHomeTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEB61FE25B3800F37715 /* TCServerHomeTableViewHeader.xib */; };
-		A07DBEBA1FE25B3800F37715 /* TCServerHomeTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEB71FE25B3800F37715 /* TCServerHomeTableViewHeader.m */; };
 		A07DBEBE1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEBC1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m */; };
 		A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */; };
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
@@ -452,9 +450,6 @@
 		A07DBEB11FE2241A00F37715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A07DBEB31FE2293D00F37715 /* TCServerInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerInfoItem.h; sourceTree = "<group>"; };
 		A07DBEB41FE2293D00F37715 /* TCServerInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerInfoItem.m; sourceTree = "<group>"; };
-		A07DBEB61FE25B3800F37715 /* TCServerHomeTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerHomeTableViewHeader.xib; sourceTree = "<group>"; };
-		A07DBEB71FE25B3800F37715 /* TCServerHomeTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerHomeTableViewHeader.m; sourceTree = "<group>"; };
-		A07DBEB81FE25B3800F37715 /* TCServerHomeTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerHomeTableViewHeader.h; sourceTree = "<group>"; };
 		A07DBEBB1FE2626000F37715 /* ServerHomeIconCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHomeIconCollectionViewCell.h; sourceTree = "<group>"; };
 		A07DBEBC1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHomeIconCollectionViewCell.m; sourceTree = "<group>"; };
 		A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServerHomeIconCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -925,9 +920,6 @@
 		A02555461FD7C82100D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A07DBEB81FE25B3800F37715 /* TCServerHomeTableViewHeader.h */,
-				A07DBEB71FE25B3800F37715 /* TCServerHomeTableViewHeader.m */,
-				A07DBEB61FE25B3800F37715 /* TCServerHomeTableViewHeader.xib */,
 				A07DBEBB1FE2626000F37715 /* ServerHomeIconCollectionViewCell.h */,
 				A07DBEBC1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m */,
 				A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */,
@@ -2341,7 +2333,6 @@
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
-				A07DBEB91FE25B3800F37715 /* TCServerHomeTableViewHeader.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
@@ -2574,7 +2565,6 @@
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
-				A07DBEBA1FE25B3800F37715 /* TCServerHomeTableViewHeader.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
