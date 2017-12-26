@@ -185,6 +185,8 @@
 		A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */; };
 		A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */; };
 		A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */; };
+		A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */; };
+		A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -525,6 +527,9 @@
 		A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCircleButton.m; sourceTree = "<group>"; };
 		A0C9A0B81FF2285A00F94E9E /* TCCircleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCircleImageView.h; sourceTree = "<group>"; };
 		A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCircleImageView.m; sourceTree = "<group>"; };
+		A0C9A0BB1FF250BD00F94E9E /* TCEditGenderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEditGenderTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEditGenderTableViewCell.m; sourceTree = "<group>"; };
+		A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCEditGenderTableViewCell.xib; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1598,6 +1603,9 @@
 		A031433F1FED5655006F55EC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0BB1FF250BD00F94E9E /* TCEditGenderTableViewCell.h */,
+				A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */,
+				A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */,
 				A0C9A07C1FF115FF00F94E9E /* TCEditAvatarTableViewCell.h */,
 				A0C9A07A1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m */,
 				A0C9A07B1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib */,
@@ -2311,6 +2319,7 @@
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
+				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
@@ -2628,6 +2637,7 @@
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
+				A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */,
 				A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,

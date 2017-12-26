@@ -24,6 +24,7 @@
 @property (nonatomic, strong)   NSString    *token;
 @property (nonatomic, strong)   NSString    *avatar;
 @property (nonatomic, strong)   NSString    *email;
+@property (nonatomic, assign)   NSInteger   gender;
 
 + (TCLocalAccount *) shared;
 

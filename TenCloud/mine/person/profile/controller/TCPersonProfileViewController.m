@@ -9,6 +9,7 @@
 #import "TCPersonProfileViewController.h"
 #import "TCEditTextTableViewCell.h"
 #import "TCEditAvatarTableViewCell.h"
+#import "TCEditGenderTableViewCell.h"
 #define PROFILE_CELL_EDIT_TEXT      @"PROFILE_CELL_EDIT_TEXT"
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
@@ -59,10 +60,19 @@
     data4.type = EditCellTypeText;
     [_cellItemArray addObject:data4];
     
+    TCEditCellData *data5 = [TCEditCellData new];
+    data5.title = @"性别";
+    data5.keyName = @"gender";
+    data5.initialValue = @(account.gender);
+    data5.type = EditCellTypeGender;
+    [_cellItemArray addObject:data5];
+    
     UINib *textCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
     [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
     UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
     [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
+    UINib *genderCellNib = [UINib nibWithNibName:@"TCEditGenderTableViewCell" bundle:nil];
+    [self.tableView registerNib:genderCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_GENDAR];
     self.tableView.tableFooterView = [UIView new];
     
 }
@@ -93,6 +103,12 @@
         cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
             
         };
+        return cell;
+    }else if(data.type == EditCellTypeGender)
+    {
+        TCEditGenderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_GENDAR forIndexPath:indexPath];
+        cell.fatherViewController = self;
+        cell.data = data;
         return cell;
     }
     

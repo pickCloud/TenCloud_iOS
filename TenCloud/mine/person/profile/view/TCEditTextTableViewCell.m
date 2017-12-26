@@ -31,7 +31,12 @@
 {
     [super setData:data];
     self.nameLabel.text = data.title;
-    self.descLabel.text = data.initialValue;
+    NSString *descText = data.initialValue;
+    if (descText == nil || descText.length == 0)
+    {
+        descText = @"未设置";
+    }
+    self.descLabel.text = descText;//data.initialValue;
 }
 
 - (IBAction) onButton:(id)sender
