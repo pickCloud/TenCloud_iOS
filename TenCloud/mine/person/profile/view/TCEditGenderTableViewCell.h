@@ -6,8 +6,8 @@
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCEditTableViewCell.h"
+#import "TCBasicTableViewCell.h"
 
-@interface TCEditGenderTableViewCell : TCEditTableViewCell
+@interface TCEditGenderTableViewCell : TCBasicTableViewCell
 
 @end

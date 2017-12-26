@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TCEditCellData.h"
 
-@class TCEditTableViewCell;
-typedef void (^TCCellValueChangedBlock)(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue);
+@class TCBasicTableViewCell;
+typedef void (^TCCellValueChangedBlock)(TCBasicTableViewCell *cell, NSInteger selectedIndex, id newValue);
 
-@interface TCEditTableViewCell : UITableViewCell
+@interface TCBasicTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) UIViewController        *fatherViewController;
 @property (nonatomic, strong)   TCEditCellData      *data;

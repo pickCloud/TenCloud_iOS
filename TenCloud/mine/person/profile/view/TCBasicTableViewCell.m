@@ -6,9 +6,9 @@
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCEditTableViewCell.h"
+#import "TCBasicTableViewCell.h"
 
-@implementation TCEditTableViewCell
+@implementation TCBasicTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

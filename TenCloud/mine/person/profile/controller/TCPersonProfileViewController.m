@@ -110,7 +110,7 @@
         TCEditAvatarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_AVATAR forIndexPath:indexPath];
         cell.fatherViewController = self;
         cell.data = data;
-        cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
+        cell.valueChangedBlock = ^(TCBasicTableViewCell *cell, NSInteger selectedIndex, id newValue) {
             
         };
         return cell;
@@ -132,7 +132,7 @@
     TCEditTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_TEXT forIndexPath:indexPath];
     cell.fatherViewController = self;
     cell.data = data;
-    cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
+    cell.valueChangedBlock = ^(TCBasicTableViewCell *cell, NSInteger selectedIndex, id newValue) {
         
     };
     return cell;
