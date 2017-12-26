@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="width" secondItem="7gv-DX-52Z" secondAttribute="height" multiplier="75:32" id="9nb-Tm-XCK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oee-jP-eIG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oee-jP-eIG" customClass="TCCircleButton">
                                 <rect key="frame" x="15" y="96" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oee-jP-eIG" secondAttribute="height" multiplier="1:1" id="kew-nf-OWX"/>

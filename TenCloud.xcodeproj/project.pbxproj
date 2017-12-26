@@ -183,6 +183,8 @@
 		A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0A01FF14B4E00F94E9E /* LICENSE.txt */; };
 		A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0A11FF14B4E00F94E9E /* readme.md */; };
 		A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */; };
+		A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */; };
+		A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -519,6 +521,10 @@
 		A0C9A0A11FF14B4E00F94E9E /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		A0C9A0B11FF1EF9200F94E9E /* TCUploadTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUploadTokenRequest.h; sourceTree = "<group>"; };
 		A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUploadTokenRequest.m; sourceTree = "<group>"; };
+		A0C9A0B41FF2281C00F94E9E /* TCCircleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCircleButton.h; sourceTree = "<group>"; };
+		A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCircleButton.m; sourceTree = "<group>"; };
+		A0C9A0B81FF2285A00F94E9E /* TCCircleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCircleImageView.h; sourceTree = "<group>"; };
+		A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCircleImageView.m; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1377,6 +1383,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0B71FF2284A00F94E9E /* imageView */,
 				A07DBEAD1FE210A200F37715 /* button */,
 				A07DBE961FE15B4A00F37715 /* textfield */,
 				A001FA521FDE54F0008328B0 /* progress */,
@@ -2037,6 +2044,8 @@
 			children = (
 				A07DBEAE1FE210E800F37715 /* TCRoundCornerButton.h */,
 				A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */,
+				A0C9A0B41FF2281C00F94E9E /* TCCircleButton.h */,
+				A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -2157,6 +2166,15 @@
 				A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */,
 			);
 			path = upload;
+			sourceTree = "<group>";
+		};
+		A0C9A0B71FF2284A00F94E9E /* imageView */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0B81FF2285A00F94E9E /* TCCircleImageView.h */,
+				A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */,
+			);
+			path = imageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2553,6 +2571,7 @@
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
+				A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */,
 				A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */,
 				A0C9A0A31FF14B4E00F94E9E /* UIImage+Enhancing.m in Sources */,
 				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
@@ -2596,6 +2615,7 @@
 				A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */,
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
+				A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A06D12261FEBA4E600722C76 /* TCSearchFilterCollectionCell.m in Sources */,
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,

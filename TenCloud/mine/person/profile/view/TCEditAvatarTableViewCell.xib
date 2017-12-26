@@ -54,7 +54,7 @@
                             <action selector="onButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EVo-fH-Tmf"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="qU7-E5-DPZ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="qU7-E5-DPZ" customClass="TCCircleImageView">
                         <rect key="frame" x="291" y="15" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qU7-E5-DPZ" secondAttribute="height" multiplier="1:1" id="rPx-yr-fQQ"/>
@@ -87,6 +87,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="avatarView" destination="qU7-E5-DPZ" id="zN2-YL-Aki"/>
                 <outlet property="descLabel" destination="Oty-D9-u6a" id="6Id-Oe-h5g"/>
                 <outlet property="nameLabel" destination="SOZ-Wh-RSG" id="iML-jT-s5l"/>
             </connections>
