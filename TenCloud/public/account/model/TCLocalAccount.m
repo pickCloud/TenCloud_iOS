@@ -14,6 +14,7 @@
 #define ACCOUNT_MOBILE      @"ACCOUNT_MOBILE"
 #define ACCOUNT_TOKEN       @"ACCOUNT_TOKEN"
 #define ACCOUNT_AVATAR      @"ACCOUNT_AVATAR"
+#define ACCOUNT_EMAIL       @"ACCOUNT_EMAIL"
 
 @interface TCLocalAccount ()
 {
@@ -62,6 +63,7 @@
         self.mobile = [aDecoder decodeObjectForKey:ACCOUNT_MOBILE];
         self.token = [aDecoder decodeObjectForKey:ACCOUNT_TOKEN];
         self.avatar = [aDecoder decodeObjectForKey:ACCOUNT_AVATAR];
+        self.email = [aDecoder decodeObjectForKey:ACCOUNT_EMAIL];
     }
     return self;
 }
@@ -73,6 +75,7 @@
     [aCoder encodeObject:self.mobile forKey:ACCOUNT_MOBILE];
     [aCoder encodeObject:self.token forKey:ACCOUNT_TOKEN];
     [aCoder encodeObject:self.avatar forKey:ACCOUNT_AVATAR];
+    [aCoder encodeObject:self.email forKey:ACCOUNT_EMAIL];
 }
 
 - (void) addObserver:(id<TCLocalAccountDelegate>)obs
@@ -93,9 +96,7 @@
 
 - (BOOL) isLogin
 {
-    NSLog(@"tloen:%@",self.token);
     return ((self.token != nil) && (self.token.length > 0));
-    //return YES;
 }
 
 - (void) loginSuccess:(TCUser*)user
@@ -107,13 +108,14 @@
     account.mobile = user.mobile;
     account.token = user.token;
     account.avatar = user.image_url;
+    account.email = user.email;
     
     if (!account.name || account.name.length == 0)
     {
         account.name = [NSString stringWithFormat:@"用户%lld",user.userID];
     }
-    
     [account save];
+    
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {
         if ([obs respondsToSelector:@selector(accountLoggedIn:)])
@@ -142,6 +144,7 @@
     account.mobile = @"";
     account.token = @"";
     account.avatar = @"";
+    account.email = @"";
     [account save];
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {

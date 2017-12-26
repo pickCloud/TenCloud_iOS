@@ -35,19 +35,29 @@
     [super viewDidLoad];
     self.title = @"个人资料";
     
+    TCLocalAccount *account = [TCLocalAccount shared];
     _cellItemArray = [NSMutableArray new];
     TCEditCellData *data1 = [TCEditCellData new];
     data1.title = @"头像";
-    data1.initialValue = [[TCLocalAccount shared] avatar];
+    data1.initialValue = account.avatar;
     data1.type = EditCellTypeAvatar;
     [_cellItemArray addObject:data1];
     
     TCEditCellData *data2 = [TCEditCellData new];
     data2.title = @"姓名";
     data2.editPageTitle = @"修改姓名";
-    data2.initialValue = [[TCLocalAccount shared] name];
+    data2.keyName = @"name";
+    data2.initialValue = account.name;
     data2.type = EditCellTypeDate;
     [_cellItemArray addObject:data2];
+    
+    TCEditCellData *data4 = [TCEditCellData new];
+    data4.title = @"邮箱";
+    data4.editPageTitle = @"修改邮箱";
+    data4.keyName = @"email";
+    data4.initialValue = account.email;
+    data4.type = EditCellTypeText;
+    [_cellItemArray addObject:data4];
     
     UINib *textCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
     [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
@@ -85,9 +95,9 @@
         };
         return cell;
     }
+    
     TCEditTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_TEXT forIndexPath:indexPath];
     cell.fatherViewController = self;
-    
     cell.data = data;
     cell.valueChangedBlock = ^(TCEditTableViewCell *cell, NSInteger selectedIndex, id newValue) {
         

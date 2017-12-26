@@ -66,7 +66,7 @@
     NSString *newValue = _textField.text;
     newValue = newValue ? newValue : @"";
     __weak __typeof(self) weakSelf = self;
-    TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:@"name" value:newValue];
+    TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
     [request startWithSuccess:^(NSString *message) {
         if (weakSelf.valueChangedBlock)
         {

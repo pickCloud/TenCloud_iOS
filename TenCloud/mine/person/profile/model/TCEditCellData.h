@@ -23,5 +23,6 @@ typedef NS_ENUM(NSInteger, EditCellType) {
 @property (nonatomic, strong)   NSString        *editPageTitle;
 @property (nonatomic, strong)   id              initialValue;
 @property (nonatomic, strong)   id              value;
+@property (nonatomic, strong)   NSString        *keyName;
 
 @end

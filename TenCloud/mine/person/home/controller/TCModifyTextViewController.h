@@ -15,6 +15,7 @@ typedef void (^TCModifyTextValueChangedBlock)(TCModifyTextViewController *vc, id
 @interface TCModifyTextViewController : TCViewController
 
 @property (nonatomic, strong)   NSString    *titleText;
+@property (nonatomic, strong)   NSString    *keyName;
 @property (nonatomic, strong)   NSString    *initialValue;
 @property (nonatomic, copy) TCModifyTextValueChangedBlock   valueChangedBlock;
 
