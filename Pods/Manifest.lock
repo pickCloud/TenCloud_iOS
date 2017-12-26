@@ -35,6 +35,9 @@ PODS:
   - Qiniu (7.1.8):
     - AFNetworking (~> 3)
     - HappyDNS (~> 0.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SocketRocket (0.5.1)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
@@ -50,6 +53,7 @@ DEPENDENCIES:
   - MMDrawerController (~> 0.6.0)
   - MMProgressHUD (from `./LocalLibs/MMProgressHUD/`)
   - Qiniu (~> 7.1.5)
+  - SDWebImage (~> 4.0.0)
   - SocketRocket (~> 0.5.1)
   - VTMagic (~> 1.2.4)
   - WYChart (from `./LocalLibs/WYChart/`)
@@ -74,10 +78,11 @@ SPEC CHECKSUMS:
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   MMProgressHUD: c83daddbbfb08f1021aec8965642a5778ad179dd
   Qiniu: 2f1b9d13904b6a7608a66a2d02c5b7b24575622a
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WYChart: 7523ef7395b4f4c8c88415bf0dd4f8d27a7757ce
 
-PODFILE CHECKSUM: f3412c9c51a7c41938096a44e8cbd173c99f29c5
+PODFILE CHECKSUM: d1f295973b598968b6a70c2968d7166cc191aec4
 
 COCOAPODS: 1.3.1
