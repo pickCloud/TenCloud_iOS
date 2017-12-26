@@ -1,5 +1,5 @@
 //
-//  TCEditCellData.h
+//  TCCellData.h
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/25.
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, TCCellType) {
     TCCellTypeEditIDCard
 };
 
-@interface TCEditCellData : NSObject
+@interface TCCellData : NSObject
 
 @property (nonatomic, assign)   TCCellType      type;
 @property (nonatomic, strong)   NSString        *title;

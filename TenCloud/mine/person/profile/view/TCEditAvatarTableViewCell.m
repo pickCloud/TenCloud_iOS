@@ -7,7 +7,7 @@
 //
 
 #import "TCEditAvatarTableViewCell.h"
-#import "TCEditCellData.h"
+#import "TCCellData.h"
 #import "LSActionSheet.h"
 #import "UIImage+Resizing.h"
 #import "VHLNavigation.h"
@@ -38,7 +38,7 @@
     // Configure the view for the selected state
 }
 
-- (void) setData:(TCEditCellData *)data
+- (void) setData:(TCCellData *)data
 {
     [super setData:data];
     self.nameLabel.text = data.title;

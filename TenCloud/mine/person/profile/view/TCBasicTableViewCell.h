@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TCEditCellData.h"
+#import "TCCellData.h"
 
 @class TCBasicTableViewCell;
 typedef void (^TCCellValueChangedBlock)(TCBasicTableViewCell *cell, NSInteger selectedIndex, id newValue);
@@ -15,7 +15,7 @@ typedef void (^TCCellValueChangedBlock)(TCBasicTableViewCell *cell, NSInteger se
 @interface TCBasicTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) UIViewController        *fatherViewController;
-@property (nonatomic, strong)   TCEditCellData      *data;
+@property (nonatomic, strong)   TCCellData          *data;
 @property (nonatomic, copy) TCCellValueChangedBlock valueChangedBlock;
 @property (nonatomic, weak)     IBOutlet            UILabel *nameLabel;
 @property (nonatomic, weak)     IBOutlet            UILabel *descLabel;

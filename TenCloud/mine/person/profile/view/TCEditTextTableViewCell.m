@@ -8,7 +8,7 @@
 
 #import "TCEditTextTableViewCell.h"
 #import "TCModifyTextViewController.h"
-#import "TCEditCellData.h"
+#import "TCCellData.h"
 
 @interface TCEditTextTableViewCell()
 - (IBAction) onButton:(id)sender;
@@ -27,7 +27,7 @@
     // Configure the view for the selected state
 }
 
-- (void) setData:(TCEditCellData *)data
+- (void) setData:(TCCellData *)data
 {
     [super setData:data];
     self.nameLabel.text = data.title;

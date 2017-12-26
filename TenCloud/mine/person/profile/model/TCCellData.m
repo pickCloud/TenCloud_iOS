@@ -1,14 +1,14 @@
 //
-//  TCEditCellData.m
+//  TCCellData.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/25.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCEditCellData.h"
+#import "TCCellData.h"
 
-@implementation TCEditCellData
+@implementation TCCellData
 
 - (void) setInitialValue:(id)initialValue
 {

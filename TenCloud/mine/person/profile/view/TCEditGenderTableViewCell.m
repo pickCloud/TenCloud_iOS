@@ -7,7 +7,7 @@
 //
 
 #import "TCEditGenderTableViewCell.h"
-#import "TCEditCellData.h"
+#import "TCCellData.h"
 #import <ActionSheetPicker-3.0/ActionSheetPicker.h>
 #import "TCModifyUserProfileRequest.h"
 
@@ -29,7 +29,7 @@
     // Configure the view for the selected state
 }
 
-- (void) setData:(TCEditCellData *)data
+- (void) setData:(TCCellData *)data
 {
     [super setData:data];
     self.nameLabel.text = data.title;
