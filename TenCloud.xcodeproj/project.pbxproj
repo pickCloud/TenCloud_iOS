@@ -167,6 +167,22 @@
 		A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0771FF10A5400F94E9E /* TCModifyUserProfileRequest.m */; };
 		A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A07A1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m */; };
 		A0C9A07E1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A07B1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib */; };
+		A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0811FF149C100F94E9E /* LSActionSheet.m */; };
+		A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0861FF14B4E00F94E9E /* UIImage+Blurring.m */; };
+		A0C9A0A31FF14B4E00F94E9E /* UIImage+Enhancing.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0881FF14B4E00F94E9E /* UIImage+Enhancing.m */; };
+		A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A08A1FF14B4E00F94E9E /* UIImage+Filtering.m */; };
+		A0C9A0A51FF14B4E00F94E9E /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A08C1FF14B4E00F94E9E /* UIImage+Masking.m */; };
+		A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A08E1FF14B4E00F94E9E /* UIImage+Reflection.m */; };
+		A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0901FF14B4E00F94E9E /* UIImage+Resizing.m */; };
+		A0C9A0A81FF14B4E00F94E9E /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0921FF14B4E00F94E9E /* UIImage+Rotating.m */; };
+		A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0941FF14B4E00F94E9E /* UIImage+Saving.m */; };
+		A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0961FF14B4E00F94E9E /* UIScrollView+Screenshot.m */; };
+		A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0981FF14B4E00F94E9E /* UIView+Screenshot.m */; };
+		A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A09B1FF14B4E00F94E9E /* NYXProgressiveImageView.m */; };
+		A0C9A0AD1FF14B4E00F94E9E /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A09E1FF14B4E00F94E9E /* NYXImagesHelper.m */; };
+		A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0A01FF14B4E00F94E9E /* LICENSE.txt */; };
+		A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0A11FF14B4E00F94E9E /* readme.md */; };
+		A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -472,6 +488,37 @@
 		A0C9A07A1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEditAvatarTableViewCell.m; sourceTree = "<group>"; };
 		A0C9A07B1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCEditAvatarTableViewCell.xib; sourceTree = "<group>"; };
 		A0C9A07C1FF115FF00F94E9E /* TCEditAvatarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEditAvatarTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A0801FF149C100F94E9E /* LSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSActionSheet.h; sourceTree = "<group>"; };
+		A0C9A0811FF149C100F94E9E /* LSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSActionSheet.m; sourceTree = "<group>"; };
+		A0C9A0851FF14B4E00F94E9E /* UIImage+Blurring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blurring.h"; sourceTree = "<group>"; };
+		A0C9A0861FF14B4E00F94E9E /* UIImage+Blurring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blurring.m"; sourceTree = "<group>"; };
+		A0C9A0871FF14B4E00F94E9E /* UIImage+Enhancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Enhancing.h"; sourceTree = "<group>"; };
+		A0C9A0881FF14B4E00F94E9E /* UIImage+Enhancing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Enhancing.m"; sourceTree = "<group>"; };
+		A0C9A0891FF14B4E00F94E9E /* UIImage+Filtering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
+		A0C9A08A1FF14B4E00F94E9E /* UIImage+Filtering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
+		A0C9A08B1FF14B4E00F94E9E /* UIImage+Masking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Masking.h"; sourceTree = "<group>"; };
+		A0C9A08C1FF14B4E00F94E9E /* UIImage+Masking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Masking.m"; sourceTree = "<group>"; };
+		A0C9A08D1FF14B4E00F94E9E /* UIImage+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Reflection.h"; sourceTree = "<group>"; };
+		A0C9A08E1FF14B4E00F94E9E /* UIImage+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Reflection.m"; sourceTree = "<group>"; };
+		A0C9A08F1FF14B4E00F94E9E /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizing.h"; sourceTree = "<group>"; };
+		A0C9A0901FF14B4E00F94E9E /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizing.m"; sourceTree = "<group>"; };
+		A0C9A0911FF14B4E00F94E9E /* UIImage+Rotating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotating.h"; sourceTree = "<group>"; };
+		A0C9A0921FF14B4E00F94E9E /* UIImage+Rotating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotating.m"; sourceTree = "<group>"; };
+		A0C9A0931FF14B4E00F94E9E /* UIImage+Saving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Saving.h"; sourceTree = "<group>"; };
+		A0C9A0941FF14B4E00F94E9E /* UIImage+Saving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Saving.m"; sourceTree = "<group>"; };
+		A0C9A0951FF14B4E00F94E9E /* UIScrollView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Screenshot.h"; sourceTree = "<group>"; };
+		A0C9A0961FF14B4E00F94E9E /* UIScrollView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Screenshot.m"; sourceTree = "<group>"; };
+		A0C9A0971FF14B4E00F94E9E /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		A0C9A0981FF14B4E00F94E9E /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
+		A0C9A09A1FF14B4E00F94E9E /* NYXProgressiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXProgressiveImageView.h; sourceTree = "<group>"; };
+		A0C9A09B1FF14B4E00F94E9E /* NYXProgressiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYXProgressiveImageView.m; sourceTree = "<group>"; };
+		A0C9A09D1FF14B4E00F94E9E /* NYXImagesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesHelper.h; sourceTree = "<group>"; };
+		A0C9A09E1FF14B4E00F94E9E /* NYXImagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYXImagesHelper.m; sourceTree = "<group>"; };
+		A0C9A09F1FF14B4E00F94E9E /* NYXImagesKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesKit.h; sourceTree = "<group>"; };
+		A0C9A0A01FF14B4E00F94E9E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		A0C9A0A11FF14B4E00F94E9E /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		A0C9A0B11FF1EF9200F94E9E /* TCUploadTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUploadTokenRequest.h; sourceTree = "<group>"; };
+		A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUploadTokenRequest.m; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -645,6 +692,8 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0831FF14B4E00F94E9E /* NYXImagesKit */,
+				A0C9A07F1FF149C100F94E9E /* LSActionSheet */,
 				A001FA251FDD3777008328B0 /* MBProgressHUD */,
 				A02555B81FDBD4B400D16D22 /* HMSegmentedControl */,
 				A02555821FD7DD8C00D16D22 /* VHLNavigation */,
@@ -682,6 +731,7 @@
 		A02555261FD6934700D16D22 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0B01FF1EE8900F94E9E /* upload */,
 				A025557D1FD7D69F00D16D22 /* ui */,
 				A02555791FD7CCCE00D16D22 /* tabbar */,
 				A02555271FD6936700D16D22 /* account */,
@@ -2033,6 +2083,82 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0C9A07F1FF149C100F94E9E /* LSActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0801FF149C100F94E9E /* LSActionSheet.h */,
+				A0C9A0811FF149C100F94E9E /* LSActionSheet.m */,
+			);
+			path = LSActionSheet;
+			sourceTree = "<group>";
+		};
+		A0C9A0831FF14B4E00F94E9E /* NYXImagesKit */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0841FF14B4E00F94E9E /* Categories */,
+				A0C9A0991FF14B4E00F94E9E /* Classes */,
+				A0C9A09C1FF14B4E00F94E9E /* Helper */,
+				A0C9A0A01FF14B4E00F94E9E /* LICENSE.txt */,
+				A0C9A0A11FF14B4E00F94E9E /* readme.md */,
+			);
+			path = NYXImagesKit;
+			sourceTree = "<group>";
+		};
+		A0C9A0841FF14B4E00F94E9E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0851FF14B4E00F94E9E /* UIImage+Blurring.h */,
+				A0C9A0861FF14B4E00F94E9E /* UIImage+Blurring.m */,
+				A0C9A0871FF14B4E00F94E9E /* UIImage+Enhancing.h */,
+				A0C9A0881FF14B4E00F94E9E /* UIImage+Enhancing.m */,
+				A0C9A0891FF14B4E00F94E9E /* UIImage+Filtering.h */,
+				A0C9A08A1FF14B4E00F94E9E /* UIImage+Filtering.m */,
+				A0C9A08B1FF14B4E00F94E9E /* UIImage+Masking.h */,
+				A0C9A08C1FF14B4E00F94E9E /* UIImage+Masking.m */,
+				A0C9A08D1FF14B4E00F94E9E /* UIImage+Reflection.h */,
+				A0C9A08E1FF14B4E00F94E9E /* UIImage+Reflection.m */,
+				A0C9A08F1FF14B4E00F94E9E /* UIImage+Resizing.h */,
+				A0C9A0901FF14B4E00F94E9E /* UIImage+Resizing.m */,
+				A0C9A0911FF14B4E00F94E9E /* UIImage+Rotating.h */,
+				A0C9A0921FF14B4E00F94E9E /* UIImage+Rotating.m */,
+				A0C9A0931FF14B4E00F94E9E /* UIImage+Saving.h */,
+				A0C9A0941FF14B4E00F94E9E /* UIImage+Saving.m */,
+				A0C9A0951FF14B4E00F94E9E /* UIScrollView+Screenshot.h */,
+				A0C9A0961FF14B4E00F94E9E /* UIScrollView+Screenshot.m */,
+				A0C9A0971FF14B4E00F94E9E /* UIView+Screenshot.h */,
+				A0C9A0981FF14B4E00F94E9E /* UIView+Screenshot.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A0C9A0991FF14B4E00F94E9E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A09A1FF14B4E00F94E9E /* NYXProgressiveImageView.h */,
+				A0C9A09B1FF14B4E00F94E9E /* NYXProgressiveImageView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A0C9A09C1FF14B4E00F94E9E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A09D1FF14B4E00F94E9E /* NYXImagesHelper.h */,
+				A0C9A09E1FF14B4E00F94E9E /* NYXImagesHelper.m */,
+				A0C9A09F1FF14B4E00F94E9E /* NYXImagesKit.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		A0C9A0B01FF1EE8900F94E9E /* upload */ = {
+			isa = PBXGroup;
+			children = (
+				A0C9A0B11FF1EF9200F94E9E /* TCUploadTokenRequest.h */,
+				A0C9A0B21FF1EF9200F94E9E /* TCUploadTokenRequest.m */,
+			);
+			path = upload;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2152,6 +2278,7 @@
 				A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */,
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
+				A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
 				A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */,
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
@@ -2163,6 +2290,7 @@
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
+				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
@@ -2362,6 +2490,7 @@
 				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
+				A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
@@ -2372,6 +2501,7 @@
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
+				A0C9A0A51FF14B4E00F94E9E /* UIImage+Masking.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCEditTableViewCell.m in Sources */,
@@ -2387,26 +2517,32 @@
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
+				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */,
+				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
 				A0C9A0691FF0D07800F94E9E /* TCEditCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
+				A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
 				A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */,
 				A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */,
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
+				A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
 				A07DBEBA1FE25B3800F37715 /* TCServerHomeTableViewHeader.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
+				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
+				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
@@ -2418,15 +2554,18 @@
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
 				A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */,
+				A0C9A0A31FF14B4E00F94E9E /* UIImage+Enhancing.m in Sources */,
 				A02555241FD6930800D16D22 /* YTKNetworkPrivate.m in Sources */,
 				A025551D1FD6930800D16D22 /* YTKBaseRequest.m in Sources */,
 				A03385941FE8BB2000EC0EC8 /* TCStopServerRequest.m in Sources */,
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
+				A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */,
 				A0C9A0701FF0D47500F94E9E /* TCEditTextTableViewCell.m in Sources */,
 				A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */,
 				A025551F1FD6930800D16D22 /* YTKBatchRequestAgent.m in Sources */,
+				A0C9A0AD1FF14B4E00F94E9E /* NYXImagesHelper.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
@@ -2435,10 +2574,12 @@
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
+				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
+				A0C9A0A81FF14B4E00F94E9E /* UIImage+Rotating.m in Sources */,
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
@@ -2458,6 +2599,7 @@
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A06D12261FEBA4E600722C76 /* TCSearchFilterCollectionCell.m in Sources */,
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
+				A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
 				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,
