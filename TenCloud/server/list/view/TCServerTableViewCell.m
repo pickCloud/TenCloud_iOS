@@ -44,7 +44,7 @@
     //self.backgroundColor = [UIColor clearColor];
     
     UIView *selectedBgView = [[UIView alloc] init];
-    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.02];
+    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.00];
     self.selectedBackgroundView = selectedBgView;
     
     self.bg2View.layer.cornerRadius = TCSCALE(2.0);
@@ -70,10 +70,17 @@
     [self updateUI];
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [super setHighlighted:highlighted animated:animated];
+    NSLog(@"highlighted:%d",highlighted);
+    [self updateUI];
+}
+
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    [self updateUI];
+    //[self updateUI];
 }
 
 - (void) setServer:(TCServer*)server
@@ -137,12 +144,25 @@
 
 - (void) updateUI
 {
+    /*
     if (self.selected)
     {
         self.bg2View.backgroundColor = [UIColor redColor]; //TABLE_CELL_BG_COLOR;
+        NSLog(@"变红");
     }else
     {
         self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
+        NSLog(@"不变红");
+    }
+     */
+    if (self.highlighted)
+    {
+        self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
+        NSLog(@"变红");
+    }else
+    {
+        self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
+        NSLog(@"不变红");
     }
 }
 

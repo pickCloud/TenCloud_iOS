@@ -127,7 +127,6 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     /*
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     TCServerLogTableViewController *logVC = [[TCServerLogTableViewController alloc] initWithID:server.serverID];
