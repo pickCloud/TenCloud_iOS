@@ -187,6 +187,8 @@
 		A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */; };
 		A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */; };
 		A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */; };
+		A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0C11FF25EBA00F94E9E /* TCEditDateTableViewCell.xib */; };
+		A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0C21FF25EBA00F94E9E /* TCEditDateTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,6 +532,9 @@
 		A0C9A0BB1FF250BD00F94E9E /* TCEditGenderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEditGenderTableViewCell.h; sourceTree = "<group>"; };
 		A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEditGenderTableViewCell.m; sourceTree = "<group>"; };
 		A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCEditGenderTableViewCell.xib; sourceTree = "<group>"; };
+		A0C9A0C01FF25EBA00F94E9E /* TCEditDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEditDateTableViewCell.h; sourceTree = "<group>"; };
+		A0C9A0C11FF25EBA00F94E9E /* TCEditDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCEditDateTableViewCell.xib; sourceTree = "<group>"; };
+		A0C9A0C21FF25EBA00F94E9E /* TCEditDateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEditDateTableViewCell.m; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1603,6 +1608,9 @@
 		A031433F1FED5655006F55EC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0C9A0C01FF25EBA00F94E9E /* TCEditDateTableViewCell.h */,
+				A0C9A0C21FF25EBA00F94E9E /* TCEditDateTableViewCell.m */,
+				A0C9A0C11FF25EBA00F94E9E /* TCEditDateTableViewCell.xib */,
 				A0C9A0BB1FF250BD00F94E9E /* TCEditGenderTableViewCell.h */,
 				A0C9A0BC1FF250BE00F94E9E /* TCEditGenderTableViewCell.m */,
 				A0C9A0BD1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib */,
@@ -2335,6 +2343,7 @@
 				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
 				A07DBEB91FE25B3800F37715 /* TCServerHomeTableViewHeader.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
+				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
@@ -2631,6 +2640,7 @@
 				A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
+				A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */,
 				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,

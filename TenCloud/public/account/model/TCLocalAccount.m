@@ -16,6 +16,7 @@
 #define ACCOUNT_AVATAR      @"ACCOUNT_AVATAR"
 #define ACCOUNT_EMAIL       @"ACCOUNT_EMAIL"
 #define ACCOUNT_GENDER      @"ACCOUNT_GENDER"
+#define ACCOUNT_BIRTHDAY    @"ACCOUNT_BIRTHDAY"
 
 @interface TCLocalAccount ()
 {
@@ -66,6 +67,7 @@
         self.avatar = [aDecoder decodeObjectForKey:ACCOUNT_AVATAR];
         self.email = [aDecoder decodeObjectForKey:ACCOUNT_EMAIL];
         self.gender = [aDecoder decodeIntegerForKey:ACCOUNT_GENDER];
+        self.birthday = [aDecoder decodeIntegerForKey:ACCOUNT_BIRTHDAY];
     }
     return self;
 }
@@ -79,6 +81,7 @@
     [aCoder encodeObject:self.avatar forKey:ACCOUNT_AVATAR];
     [aCoder encodeObject:self.email forKey:ACCOUNT_EMAIL];
     [aCoder encodeInteger:self.gender forKey:ACCOUNT_GENDER];
+    [aCoder encodeInteger:self.birthday forKey:ACCOUNT_BIRTHDAY];
 }
 
 - (void) addObserver:(id<TCLocalAccountDelegate>)obs
@@ -113,6 +116,7 @@
     account.avatar = user.image_url;
     account.email = user.email;
     account.gender = user.gender;
+    account.birthday = user.birthday;
     
     if (!account.name || account.name.length == 0)
     {
@@ -150,6 +154,7 @@
     account.avatar = @"";
     account.email = @"";
     account.gender = 0;
+    account.birthday = 0;
     [account save];
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {

@@ -25,6 +25,7 @@
 @property (nonatomic, strong)   NSString    *avatar;
 @property (nonatomic, strong)   NSString    *email;
 @property (nonatomic, assign)   NSInteger   gender;
+@property (nonatomic, assign)   NSInteger   birthday;
 
 + (TCLocalAccount *) shared;
 

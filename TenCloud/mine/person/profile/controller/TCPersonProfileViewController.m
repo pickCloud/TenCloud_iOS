@@ -10,6 +10,7 @@
 #import "TCEditTextTableViewCell.h"
 #import "TCEditAvatarTableViewCell.h"
 #import "TCEditGenderTableViewCell.h"
+#import "TCEditDateTableViewCell.h"
 #define PROFILE_CELL_EDIT_TEXT      @"PROFILE_CELL_EDIT_TEXT"
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
@@ -49,7 +50,7 @@
     data2.editPageTitle = @"修改姓名";
     data2.keyName = @"name";
     data2.initialValue = account.name;
-    data2.type = EditCellTypeDate;
+    data2.type = EditCellTypeText;
     [_cellItemArray addObject:data2];
     
     TCEditCellData *data4 = [TCEditCellData new];
@@ -67,12 +68,21 @@
     data5.type = EditCellTypeGender;
     [_cellItemArray addObject:data5];
     
+    TCEditCellData *data6 = [TCEditCellData new];
+    data6.title = @"生日";
+    data6.keyName = @"birthday";
+    data6.initialValue = @(account.birthday);
+    data6.type = EditCellTypeDate;
+    [_cellItemArray addObject:data6];
+    
     UINib *textCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
     [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
     UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
     [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
     UINib *genderCellNib = [UINib nibWithNibName:@"TCEditGenderTableViewCell" bundle:nil];
     [self.tableView registerNib:genderCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_GENDAR];
+    UINib *dateCellNib = [UINib nibWithNibName:@"TCEditDateTableViewCell" bundle:nil];
+    [self.tableView registerNib:dateCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_DATE];
     self.tableView.tableFooterView = [UIView new];
     
 }
@@ -107,6 +117,13 @@
     }else if(data.type == EditCellTypeGender)
     {
         TCEditGenderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_GENDAR forIndexPath:indexPath];
+        cell.fatherViewController = self;
+        cell.data = data;
+        return cell;
+    }else if(data.type == EditCellTypeDate)
+    {
+        TCEditDateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_DATE
+                                                                        forIndexPath:indexPath];
         cell.fatherViewController = self;
         cell.data = data;
         return cell;
