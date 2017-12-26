@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, EditCellType) {
-    EditCellTypeText    =   0,
-    EditCellTypeDate,
-    EditCellTypeGender,
-    EditCellTypeAvatar,
-    EditCellTypeIDCard
+typedef NS_ENUM(NSInteger, TCCellType) {
+    TCCellTypeEditText    =   0,
+    TCCellTypeEditDate,
+    TCCellTypeEditGender,
+    TCCellTypeEditAvatar,
+    TCCellTypeEditIDCard
 };
 
 @interface TCEditCellData : NSObject
 
-@property (nonatomic, assign)   EditCellType    type;
+@property (nonatomic, assign)   TCCellType      type;
 @property (nonatomic, strong)   NSString        *title;
 @property (nonatomic, strong)   NSString        *editPageTitle;
 @property (nonatomic, strong)   id              initialValue;
