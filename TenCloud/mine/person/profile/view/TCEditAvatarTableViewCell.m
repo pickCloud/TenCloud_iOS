@@ -11,6 +11,10 @@
 #import "LSActionSheet.h"
 #import "UIImage+Resizing.h"
 #import "VHLNavigation.h"
+#import "TCUploadTokenRequest.h"
+#import <Qiniu/QiniuSDK.h>
+#import "NSString+Extension.h"
+#import "TCModifyUserProfileRequest.h"
 
 @interface TCEditAvatarTableViewCell()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, weak) IBOutlet    UIImageView     *avatarView;
@@ -123,7 +127,27 @@
 
 - (void) setNewAvatarWithImage:(UIImage*)avatarImage
 {
-    
+    TCUploadTokenRequest *tokenReq = [TCUploadTokenRequest new];
+    [tokenReq startWithSuccess:^(NSString *token) {
+        QNUploadManager *uploadManager = [[QNUploadManager alloc] init];
+        QNUploadOption *opt =[[QNUploadOption alloc] initWithMime:@"jpg" progressHandler:nil params:nil checkCrc:YES cancellationSignal:nil];
+        NSData *jpgData = UIImageJPEGRepresentation(avatarImage, 0.8);
+        NSString *uuid = [NSString UUID];
+        [uploadManager putData:jpgData key:uuid token:token
+                      complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                          //NSString *imgURLStr = [NSString stringWithFormat:@"%@%@",token.url,key];
+                          __weak __typeof(self) weakSelf = self;
+                          TCModifyUserProfileRequest *modifyReq = [[TCModifyUserProfileRequest alloc] initWithKey:@"image_url" value:key];
+                          [modifyReq startWithSuccess:^(NSString *message) {
+                              NSLog(@"message:%@",message);
+                          } failure:^(NSString *message) {
+                              [MBProgressHUD showError:message toView:nil];
+                          }];
+                          
+                      } option:opt];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 @end
