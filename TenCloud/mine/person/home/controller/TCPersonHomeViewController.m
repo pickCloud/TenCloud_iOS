@@ -12,6 +12,7 @@
 #import "TCPersonProfileViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
+#import "TCMyCorpTableViewController.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -104,7 +105,8 @@
     {
         if (indexPath.row == 0)
         {
-            
+            TCMyCorpTableViewController *corpVC = [TCMyCorpTableViewController new];
+            [self.navigationController pushViewController:corpVC animated:YES];
         }else if(indexPath.row == 1)
         {
             TCCustomerServiceViewController *serviceVC = [TCCustomerServiceViewController new];
