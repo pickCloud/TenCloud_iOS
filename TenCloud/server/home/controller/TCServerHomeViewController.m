@@ -24,8 +24,8 @@
 #import "TCServerListViewController.h"
 
 //test
-#import <MMDrawerController/MMDrawerController.h>
-#import "TCServerFilterViewController.h"
+//#import <MMDrawerController/MMDrawerController.h>
+//#import "TCServerFilterViewController.h"
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 

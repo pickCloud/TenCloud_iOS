@@ -13,6 +13,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
 #import "TCMyCorpTableViewController.h"
+#import "TCCorpListRequest.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -23,8 +24,10 @@
 @property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView     *certificatedImageView;
+@property (nonatomic, strong)   NSMutableArray          *corpArray;
 - (IBAction) onProfilePage:(id)sender;
 - (void) onMessageButton:(id)sender;
+- (void) loadCorpArray;
 @end
 
 @implementation TCPersonHomeViewController
@@ -33,6 +36,8 @@
     [super viewDidLoad];
     self.title = @"我的";
     [[TCLocalAccount shared] addObserver:self];
+    _corpArray = [NSMutableArray new];
+    [self loadCorpArray];
     
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
     UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -129,6 +134,18 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
+}
+
+- (void) loadCorpArray
+{
+    __weak __typeof(self) weakSelf = self;
+    TCCorpListRequest *request = [TCCorpListRequest new];
+    [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
+        [weakSelf.corpArray removeAllObjects];
+        [weakSelf.corpArray addObjectsFromArray:corpArray];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (void) updateAccountInfo

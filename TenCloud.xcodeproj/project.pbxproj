@@ -165,6 +165,8 @@
 		A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B621FF3B1B200D1D58D /* TCAddCorpViewController.m */; };
 		A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B631FF3B1B200D1D58D /* TCAddCorpViewController.xib */; };
 		A0A86B691FF3B6BC00D1D58D /* TCAddCorpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B681FF3B6BC00D1D58D /* TCAddCorpRequest.m */; };
+		A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B6B1FF3DC5A00D1D58D /* TCSwitchAccountButton.m */; };
+		A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B6D1FF3DC7000D1D58D /* TCSwitchAccountButton.xib */; };
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
@@ -511,6 +513,9 @@
 		A0A86B641FF3B1B200D1D58D /* TCAddCorpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddCorpViewController.h; sourceTree = "<group>"; };
 		A0A86B671FF3B6BC00D1D58D /* TCAddCorpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddCorpRequest.h; sourceTree = "<group>"; };
 		A0A86B681FF3B6BC00D1D58D /* TCAddCorpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddCorpRequest.m; sourceTree = "<group>"; };
+		A0A86B6A1FF3DC5A00D1D58D /* TCSwitchAccountButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCSwitchAccountButton.h; sourceTree = "<group>"; };
+		A0A86B6B1FF3DC5A00D1D58D /* TCSwitchAccountButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCSwitchAccountButton.m; sourceTree = "<group>"; };
+		A0A86B6D1FF3DC7000D1D58D /* TCSwitchAccountButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCSwitchAccountButton.xib; sourceTree = "<group>"; };
 		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
 		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -1765,6 +1770,9 @@
 				A0C9A0531FED608500F94E9E /* TCIconTableViewCell.h */,
 				A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */,
 				A0C9A0551FED608500F94E9E /* TCIconTableViewCell.xib */,
+				A0A86B6A1FF3DC5A00D1D58D /* TCSwitchAccountButton.h */,
+				A0A86B6B1FF3DC5A00D1D58D /* TCSwitchAccountButton.m */,
+				A0A86B6D1FF3DC7000D1D58D /* TCSwitchAccountButton.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2704,6 +2712,7 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
+				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3004,6 +3013,7 @@
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
 				A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
+				A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
 				A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */,
 				A0A86B531FF3946200D1D58D /* TCCorp+CoreDataClass.m in Sources */,
