@@ -17,6 +17,7 @@
 #import "TCResetPasswordRequest.h"
 #import <GT3Captcha/GT3Captcha.h>
 #import "TCGeetestCaptchaRequest.h"
+#import "TCSuccessResultViewController.h"
 
 @interface TCModifyPasswordViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *oldPasswordField;
@@ -144,14 +145,26 @@
     [_password2Field resignFirstResponder];
     
     __weak __typeof(self) weakSelf = self;
-    [MMProgressHUD showWithStatus:@"修改密码中"];
+    //[MMProgressHUD showWithStatus:@"修改密码中"];
     NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
     TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:phoneNumStr password:_passwordField.text captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
         [[TCLocalAccount shared] setToken:token];
         [[TCLocalAccount shared] save];
-        [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
-        [weakSelf.navigationController popViewControllerAnimated:YES];
+        [MMProgressHUD dismiss];
+        //[MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+        //[weakSelf.navigationController popViewControllerAnimated:YES];
+        
+        TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"修改成功" desc:@"您的新密码已经生效"];
+        successVC.finishBlock = ^(UIViewController *viewController) {
+            [viewController.navigationController popViewControllerAnimated:YES];
+        };
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+        [newVCS removeLastObject];
+        [newVCS addObject:successVC];
+        [weakSelf.navigationController setViewControllers:newVCS];
+        
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message];
     }];

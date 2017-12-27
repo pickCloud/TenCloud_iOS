@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCFailResultViewController">
+            <connections>
+                <outlet property="button" destination="eWA-Y5-oHr" id="Od1-7A-xxB"/>
+                <outlet property="descLabel" destination="bZO-DQ-7Fd" id="nkj-dt-Hwi"/>
+                <outlet property="titleLabel" destination="jDN-Q6-Aaf" id="khJ-pK-Das"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_fail" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-1B-gvX">
+                    <rect key="frame" x="162" y="98.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3jP-1B-gvX" secondAttribute="height" multiplier="1:1" id="vRQ-aO-5My"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交失败" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDN-Q6-Aaf">
+                    <rect key="frame" x="153" y="176.5" width="69.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的资料已提交成功，请等待客服审核" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZO-DQ-7Fd">
+                    <rect key="frame" x="15" y="204.5" width="345" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="LZ6-nu-pzx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-Y5-oHr" customClass="TCRoundCornerButton">
+                    <rect key="frame" x="15" y="299" width="345" height="46"/>
+                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eWA-Y5-oHr" secondAttribute="height" multiplier="15:2" id="K3b-6a-KTS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="好的">
+                        <color key="titleColor" red="0.094117647060000004" green="0.1019607843" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButton:" destination="-1" eventType="touchUpInside" id="cFn-lx-7I4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.094117647058823528" green="0.10196078431372549" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eWA-Y5-oHr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="44M-0S-nc4"/>
+                <constraint firstItem="bZO-DQ-7Fd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="63z-ye-ceW"/>
+                <constraint firstItem="jDN-Q6-Aaf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.56" id="8s5-5n-9BT"/>
+                <constraint firstItem="eWA-Y5-oHr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.92" id="A8s-1V-fhA"/>
+                <constraint firstItem="bZO-DQ-7Fd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.92" id="F1h-uv-d8X"/>
+                <constraint firstItem="3jP-1B-gvX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.1333" id="ONg-uA-lCd"/>
+                <constraint firstItem="3jP-1B-gvX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.37" id="SRG-P5-Kxp"/>
+                <constraint firstItem="jDN-Q6-Aaf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gmS-Lf-ge2"/>
+                <constraint firstItem="3jP-1B-gvX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pfB-V4-6r6"/>
+                <constraint firstItem="eWA-Y5-oHr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.965" id="rP8-Cb-J9r"/>
+                <constraint firstItem="bZO-DQ-7Fd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.68" id="yFB-L1-MkD"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="result_fail" width="50" height="50"/>
+    </resources>
+</document>

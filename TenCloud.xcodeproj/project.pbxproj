@@ -151,6 +151,10 @@
 		A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */; };
 		A0A86B241FF3774500D1D58D /* TCModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B221FF3774500D1D58D /* TCModifyPasswordViewController.m */; };
 		A0A86B251FF3774500D1D58D /* TCModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B231FF3774500D1D58D /* TCModifyPasswordViewController.xib */; };
+		A0A86B2A1FF37F5900D1D58D /* TCSuccessResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B281FF37F5900D1D58D /* TCSuccessResultViewController.m */; };
+		A0A86B2B1FF37F5900D1D58D /* TCSuccessResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B291FF37F5900D1D58D /* TCSuccessResultViewController.xib */; };
+		A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B2D1FF3896C00D1D58D /* TCFailResultViewController.xib */; };
+		A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B2E1FF3896D00D1D58D /* TCFailResultViewController.m */; };
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
@@ -474,6 +478,12 @@
 		A0A86B211FF3774500D1D58D /* TCModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPasswordViewController.h; sourceTree = "<group>"; };
 		A0A86B221FF3774500D1D58D /* TCModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyPasswordViewController.m; sourceTree = "<group>"; };
 		A0A86B231FF3774500D1D58D /* TCModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCModifyPasswordViewController.xib; sourceTree = "<group>"; };
+		A0A86B271FF37F5900D1D58D /* TCSuccessResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCSuccessResultViewController.h; sourceTree = "<group>"; };
+		A0A86B281FF37F5900D1D58D /* TCSuccessResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCSuccessResultViewController.m; sourceTree = "<group>"; };
+		A0A86B291FF37F5900D1D58D /* TCSuccessResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCSuccessResultViewController.xib; sourceTree = "<group>"; };
+		A0A86B2C1FF3896C00D1D58D /* TCFailResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCFailResultViewController.h; sourceTree = "<group>"; };
+		A0A86B2D1FF3896C00D1D58D /* TCFailResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCFailResultViewController.xib; sourceTree = "<group>"; };
+		A0A86B2E1FF3896D00D1D58D /* TCFailResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCFailResultViewController.m; sourceTree = "<group>"; };
 		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
 		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -1408,6 +1418,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A0A86B261FF37F2600D1D58D /* result */,
 				A0C9A0B71FF2284A00F94E9E /* imageView */,
 				A07DBEAD1FE210A200F37715 /* button */,
 				A07DBE961FE15B4A00F37715 /* textfield */,
@@ -2146,6 +2157,19 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0A86B261FF37F2600D1D58D /* result */ = {
+			isa = PBXGroup;
+			children = (
+				A0A86B2C1FF3896C00D1D58D /* TCFailResultViewController.h */,
+				A0A86B2E1FF3896D00D1D58D /* TCFailResultViewController.m */,
+				A0A86B2D1FF3896C00D1D58D /* TCFailResultViewController.xib */,
+				A0A86B271FF37F5900D1D58D /* TCSuccessResultViewController.h */,
+				A0A86B281FF37F5900D1D58D /* TCSuccessResultViewController.m */,
+				A0A86B291FF37F5900D1D58D /* TCSuccessResultViewController.xib */,
+			);
+			path = result;
+			sourceTree = "<group>";
+		};
 		A0C9A0581FF0A32400F94E9E /* customerService */ = {
 			isa = PBXGroup;
 			children = (
@@ -2398,6 +2422,7 @@
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
 				A0C9A0CD1FF2A3F500F94E9E /* TCTextTableViewCell.xib in Resources */,
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
+				A0A86B2B1FF37F5900D1D58D /* TCSuccessResultViewController.xib in Resources */,
 				A0C9A07E1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib in Resources */,
 				A06D12221FEBA2F100722C76 /* TCSearchFilterViewController.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
@@ -2421,6 +2446,7 @@
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
+				A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */,
 				A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
@@ -2667,6 +2693,7 @@
 				A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
+				A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */,
 				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
@@ -2691,6 +2718,7 @@
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
+				A0A86B2A1FF37F5900D1D58D /* TCSuccessResultViewController.m in Sources */,
 				A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */,
 				A0C9A0CC1FF2A3F500F94E9E /* TCTextTableViewCell.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
