@@ -47,6 +47,16 @@
     _nameLabel.text = corp.company_name;
     _applyTimeLabel.text = corp.create_time;
     _reviewTimeLabel.text = corp.update_time;
+    if (corp.status == 1)
+    {
+        _statusLabel.text = @"审核通过";
+    }else if(corp.status == -1)
+    {
+        _statusLabel.text = @"审核拒绝";
+    }else
+    {
+        _statusLabel.text = @"审核中";
+    }
 }
 
 - (void) updateUI
