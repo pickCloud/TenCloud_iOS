@@ -26,6 +26,7 @@
 @property (nonatomic, strong)   NSString    *email;
 @property (nonatomic, assign)   NSInteger   gender;
 @property (nonatomic, assign)   NSInteger   birthday;
+@property (nonatomic, strong)   NSString    *createTime;
 
 + (TCLocalAccount *) shared;
 
@@ -40,6 +41,8 @@
 - (void) modified;
 
 - (void) logout;
+
+- (NSString *) hiddenMobile;
 
 - (void) save;
 @end

@@ -17,6 +17,7 @@
 #define ACCOUNT_EMAIL       @"ACCOUNT_EMAIL"
 #define ACCOUNT_GENDER      @"ACCOUNT_GENDER"
 #define ACCOUNT_BIRTHDAY    @"ACCOUNT_BIRTHDAY"
+#define ACCOUNT_CREATE_TIME @"ACCOUNT_CREATE_TIME"
 
 @interface TCLocalAccount ()
 {
@@ -68,6 +69,7 @@
         self.email = [aDecoder decodeObjectForKey:ACCOUNT_EMAIL];
         self.gender = [aDecoder decodeIntegerForKey:ACCOUNT_GENDER];
         self.birthday = [aDecoder decodeIntegerForKey:ACCOUNT_BIRTHDAY];
+        self.createTime = [aDecoder decodeObjectForKey:ACCOUNT_CREATE_TIME];
     }
     return self;
 }
@@ -82,6 +84,7 @@
     [aCoder encodeObject:self.email forKey:ACCOUNT_EMAIL];
     [aCoder encodeInteger:self.gender forKey:ACCOUNT_GENDER];
     [aCoder encodeInteger:self.birthday forKey:ACCOUNT_BIRTHDAY];
+    [aCoder encodeObject:self.createTime forKey:ACCOUNT_CREATE_TIME];
 }
 
 - (void) addObserver:(id<TCLocalAccountDelegate>)obs
@@ -117,6 +120,7 @@
     account.email = user.email;
     account.gender = user.gender;
     account.birthday = user.birthday;
+    account.createTime = user.create_time;
     
     if (!account.name || account.name.length == 0)
     {
@@ -145,6 +149,17 @@
     }
 }
 
+- (NSString *) hiddenMobile
+{
+    if (_mobile.length >= 11)
+    {
+        NSRange replaceRange = NSMakeRange(3, 4);
+        NSString *filteredPhone = [_mobile stringByReplacingCharactersInRange:replaceRange withString:@"****"];
+        return filteredPhone;
+    }
+    return _mobile;
+}
+
 - (void) logout
 {
     TCLocalAccount *account = [TCLocalAccount shared];
@@ -155,6 +170,7 @@
     account.email = @"";
     account.gender = 0;
     account.birthday = 0;
+    account.createTime = @"";
     [account save];
     for (id<TCLocalAccountDelegate> obs in mObserverArray)
     {

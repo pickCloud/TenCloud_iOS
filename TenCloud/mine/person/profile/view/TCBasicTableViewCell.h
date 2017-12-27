@@ -19,5 +19,6 @@ typedef void (^TCCellValueChangedBlock)(TCBasicTableViewCell *cell, NSInteger se
 @property (nonatomic, copy) TCCellValueChangedBlock valueChangedBlock;
 @property (nonatomic, weak)     IBOutlet            UILabel *nameLabel;
 @property (nonatomic, weak)     IBOutlet            UILabel *descLabel;
+@property (nonatomic, weak)     IBOutlet            UIImageView *detailView;
 
 @end

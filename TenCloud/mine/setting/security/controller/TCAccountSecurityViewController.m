@@ -1,48 +1,49 @@
 //
-//  TCSettingViewController.m
+//  TCAccountSecurityViewController.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/27.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCSettingViewController.h"
+#import "TCAccountSecurityViewController.h"
 #import "TCTextTableViewCell.h"
-#import "TCCellData.h"
-#import "TCLoginViewController.h"
-#define SETTING_TEXT_CELL_REUSE_ID  @"SETTING_TEXT_CELL_REUSE_ID"
+#define SECURITY_CELL_REUSE_ID       @"SECURITY_CELL_REUSE_ID"
 
-@interface TCSettingViewController ()
+@interface TCAccountSecurityViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
-@property (nonatomic, weak) IBOutlet    UIView          *footerView;
-@property (nonatomic, strong)   NSMutableArray          *cellItemArray;
-- (IBAction) onExitAccount:(id)sender;
+@property (nonatomic, strong)           NSMutableArray  *cellItemArray;
 @end
 
-@implementation TCSettingViewController
-
-- (instancetype) init
-{
-    self = [super init];
-    if (self)
-    {
-        self.hidesBottomBarWhenPushed = YES;
-    }
-    return self;
-}
+@implementation TCAccountSecurityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"设置";
+    self.title = @"账号安全";
     UINib *textCellNib = [UINib nibWithNibName:@"TCTextTableViewCell" bundle:nil];
-    [self.tableView registerNib:textCellNib forCellReuseIdentifier:SETTING_TEXT_CELL_REUSE_ID];
-    self.tableView.tableFooterView = _footerView;
+    [self.tableView registerNib:textCellNib forCellReuseIdentifier:SECURITY_CELL_REUSE_ID];
+    self.tableView.tableFooterView = [UIView new];
     
+    TCLocalAccount *account = [TCLocalAccount shared];
     _cellItemArray = [NSMutableArray new];
     TCCellData *data1 = [TCCellData new];
-    data1.title = @"账号安全";
+    data1.title = @"手机号码";
+    data1.initialValue = account.hiddenMobile;
     data1.type = TCCellTypeText;
     [_cellItemArray addObject:data1];
+    
+    TCCellData *data2 = [TCCellData new];
+    data2.title = @"注册时间";
+    data2.initialValue = account.createTime;
+    data2.type = TCCellTypeText;
+    data2.hideDetailView = YES;
+    [_cellItemArray addObject:data2];
+    
+    TCCellData *data3 = [TCCellData new];
+    data3.title = @"修改密码";
+    data3.type = TCCellTypeText;
+    [_cellItemArray addObject:data3];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,17 +51,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - extension
-- (IBAction) onExitAccount:(id)sender
-{
-    [[TCLocalAccount shared] logout];
-    TCLoginViewController *loginVC = [TCLoginViewController new];
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
-}
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -71,7 +63,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCCellData *data = [_cellItemArray objectAtIndex:indexPath.row];
-    TCTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SETTING_TEXT_CELL_REUSE_ID forIndexPath:indexPath];
+    TCTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SECURITY_CELL_REUSE_ID forIndexPath:indexPath];
     cell.fatherViewController = self;
     cell.data = data;
     return cell;

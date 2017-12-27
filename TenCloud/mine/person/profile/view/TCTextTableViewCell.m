@@ -36,6 +36,7 @@
         descText = @"未设置";
     }
     self.descLabel.text = descText;//data.initialValue;
+    [self.detailView setHidden:data.hideDetailView];
 }
 
 @end

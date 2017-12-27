@@ -145,8 +145,10 @@
 		A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */; };
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
 		A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */; };
-		A0A86B041FF3338A00D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B021FF3338A00D1D58D /* TCSettingViewController.m */; };
-		A0A86B051FF3338A00D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B031FF3338A00D1D58D /* TCSettingViewController.xib */; };
+		A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */; };
+		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
+		A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */; };
+		A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */; };
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
@@ -461,9 +463,12 @@
 		A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerListViewController.xib; sourceTree = "<group>"; };
 		A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerListViewController.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A0A86B011FF3338A00D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
-		A0A86B021FF3338A00D1D58D /* TCSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCSettingViewController.m; sourceTree = "<group>"; };
-		A0A86B031FF3338A00D1D58D /* TCSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCSettingViewController.xib; sourceTree = "<group>"; };
+		A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
+		A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingViewController.m; sourceTree = "<group>"; };
+		A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSettingViewController.xib; sourceTree = "<group>"; };
+		A0A86B121FF33FF500D1D58D /* TCAccountSecurityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAccountSecurityViewController.h; sourceTree = "<group>"; };
+		A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAccountSecurityViewController.m; sourceTree = "<group>"; };
+		A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAccountSecurityViewController.xib; sourceTree = "<group>"; };
 		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
 		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -1721,10 +1726,8 @@
 		A031434A1FED567B006F55EC /* setting */ = {
 			isa = PBXGroup;
 			children = (
-				A0C9A0C51FF2A3B200F94E9E /* controller */,
-				A0C9A0C61FF2A3B200F94E9E /* model */,
-				A0C9A0C81FF2A3B200F94E9E /* request */,
-				A0C9A0C71FF2A3B200F94E9E /* view */,
+				A0A86B061FF33FD400D1D58D /* home */,
+				A0A86B0B1FF33FD400D1D58D /* security */,
 			);
 			path = setting;
 			sourceTree = "<group>";
@@ -2075,6 +2078,66 @@
 			path = button;
 			sourceTree = "<group>";
 		};
+		A0A86B061FF33FD400D1D58D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A0A86B071FF33FD400D1D58D /* controller */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A0A86B071FF33FD400D1D58D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */,
+				A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */,
+				A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0A86B0B1FF33FD400D1D58D /* security */ = {
+			isa = PBXGroup;
+			children = (
+				A0A86B0C1FF33FD400D1D58D /* controller */,
+				A0A86B0D1FF33FD400D1D58D /* model */,
+				A0A86B0E1FF33FD400D1D58D /* request */,
+				A0A86B0F1FF33FD400D1D58D /* view */,
+			);
+			path = security;
+			sourceTree = "<group>";
+		};
+		A0A86B0C1FF33FD400D1D58D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A86B121FF33FF500D1D58D /* TCAccountSecurityViewController.h */,
+				A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */,
+				A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0A86B0D1FF33FD400D1D58D /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0A86B0E1FF33FD400D1D58D /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0A86B0F1FF33FD400D1D58D /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A0C9A0581FF0A32400F94E9E /* customerService */ = {
 			isa = PBXGroup;
 			children = (
@@ -2200,37 +2263,6 @@
 				A0C9A0B91FF2285A00F94E9E /* TCCircleImageView.m */,
 			);
 			path = imageView;
-			sourceTree = "<group>";
-		};
-		A0C9A0C51FF2A3B200F94E9E /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				A0A86B011FF3338A00D1D58D /* TCSettingViewController.h */,
-				A0A86B021FF3338A00D1D58D /* TCSettingViewController.m */,
-				A0A86B031FF3338A00D1D58D /* TCSettingViewController.xib */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		A0C9A0C61FF2A3B200F94E9E /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		A0C9A0C71FF2A3B200F94E9E /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		A0C9A0C81FF2A3B200F94E9E /* request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2380,6 +2412,7 @@
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
+				A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
@@ -2388,7 +2421,7 @@
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
-				A0A86B051FF3338A00D1D58D /* TCSettingViewController.xib in Resources */,
+				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2593,7 +2626,7 @@
 				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
-				A0A86B041FF3338A00D1D58D /* TCSettingViewController.m in Sources */,
+				A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */,
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
@@ -2622,6 +2655,7 @@
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
+				A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,

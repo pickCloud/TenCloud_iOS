@@ -66,6 +66,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="descLabel" destination="Oty-D9-u6a" id="6Id-Oe-h5g"/>
+                <outlet property="detailView" destination="0kl-h3-xFX" id="Ov5-Bk-RMf"/>
                 <outlet property="nameLabel" destination="SOZ-Wh-RSG" id="iML-jT-s5l"/>
             </connections>
             <point key="canvasLocation" x="10.5" y="71"/>

@@ -25,5 +25,6 @@ typedef NS_ENUM(NSInteger, TCCellType) {
 @property (nonatomic, strong)   id              initialValue;
 @property (nonatomic, strong)   id              value;
 @property (nonatomic, strong)   NSString        *keyName;
+@property (nonatomic, assign)   BOOL            hideDetailView;
 
 @end

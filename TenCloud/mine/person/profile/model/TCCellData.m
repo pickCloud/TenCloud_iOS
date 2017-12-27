@@ -9,6 +9,15 @@
 #import "TCCellData.h"
 
 @implementation TCCellData
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        _hideDetailView = NO;
+    }
+    return self;
+}
 
 - (void) setInitialValue:(id)initialValue
 {

@@ -134,14 +134,7 @@
     NSString *name = [[TCLocalAccount shared] name];
     _nameLabel.text = name;
     TCLocalAccount *account = [TCLocalAccount shared];
-    NSString *rawPhoneStr = account.mobile;
-    NSString *filteredPhone = rawPhoneStr;
-    if (rawPhoneStr.length >= 11)
-    {
-        NSRange replaceRange = NSMakeRange(3, 4);
-        filteredPhone = [rawPhoneStr stringByReplacingCharactersInRange:replaceRange withString:@"****"];
-    }
-    _phoneLabel.text = filteredPhone;
+    _phoneLabel.text = account.hiddenMobile;
     NSURL *avatarURL = [NSURL URLWithString:account.avatar];
     UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
     [_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
