@@ -11,6 +11,7 @@
 #import "TCCustomerServiceViewController.h"
 #import "TCPersonProfileViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
+#import "TCSettingViewController.h"
 
 //tmp use
 #import "TCLoginViewController.h"
@@ -114,7 +115,8 @@
         }
     }else if(indexPath.section == 1)
     {
-        
+        TCSettingViewController *settingVC = [TCSettingViewController new];
+        [self.navigationController pushViewController:settingVC animated:YES];
     }
 }
 

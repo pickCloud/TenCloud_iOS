@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, TCCellType) {
     TCCellTypeEditDate,
     TCCellTypeEditGender,
     TCCellTypeEditAvatar,
-    TCCellTypeEditIDCard
+    TCCellTypeEditIDCard,
+    TCCellTypeText,
 };
 
 @interface TCCellData : NSObject

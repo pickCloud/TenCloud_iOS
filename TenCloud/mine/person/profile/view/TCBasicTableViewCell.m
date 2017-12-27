@@ -13,12 +13,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    UIView *selectedBgView = [[UIView alloc] init];
+    selectedBgView.backgroundColor = [UIColor colorWithRed:29/255.0 green:32/255.0 blue:42/255.0 alpha:1];
+    self.selectedBackgroundView = selectedBgView;
 }
 
+/*
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
+ */
 
 @end

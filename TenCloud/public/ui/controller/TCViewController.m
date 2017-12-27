@@ -42,10 +42,12 @@
         
         button.imageEdgeInsets = UIEdgeInsetsZero;
          */
-        CGFloat btnOffset = TCSCALE(8);
-        button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
+        
+        //CGFloat btnOffset = TCSCALE(8);
+        //button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
         UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.leftBarButtonItem = backButtonItem;
+        
         /*
         UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         fixedButton.width = -15;
