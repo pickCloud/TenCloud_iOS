@@ -9,6 +9,7 @@
 #import "TCSettingViewController.h"
 #import "TCTextTableViewCell.h"
 #import "TCCellData.h"
+#import "TCLoginViewController.h"
 #define SETTING_TEXT_CELL_REUSE_ID  @"SETTING_TEXT_CELL_REUSE_ID"
 
 @interface TCSettingViewController ()
@@ -52,7 +53,10 @@
 #pragma mark - extension
 - (IBAction) onExitAccount:(id)sender
 {
-    NSLog(@"exit account");
+    [[TCLocalAccount shared] logout];
+    TCLoginViewController *loginVC = [TCLoginViewController new];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
 #pragma mark - Table view data source

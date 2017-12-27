@@ -13,9 +13,6 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
 
-//tmp use
-#import "TCLoginViewController.h"
-
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
@@ -130,10 +127,6 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
-    [[TCLocalAccount shared] logout];
-    TCLoginViewController *loginVC = [TCLoginViewController new];
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
 - (void) updateAccountInfo
