@@ -9,6 +9,7 @@
 #import "TCMyCorpTableViewController.h"
 #import "TCMyCorpTableViewCell.h"
 #import "TCCorpListRequest.h"
+#import "TCAddCorpViewController.h"
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
@@ -16,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
 - (void) onAddCorpButton:(id)sender;
+- (void) onAddCorpNotification;
 - (void) reloadCorpArray;
 @end
 
@@ -48,6 +50,10 @@
     [_tableView registerNib:cellNib forCellReuseIdentifier:MY_CORP_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddCorpNotification) name:NOTIFICATION_ADD_CORP
+                                               object:nil];
+    
     [self startLoading];
     [self reloadCorpArray];
 }
@@ -55,6 +61,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -136,6 +147,12 @@
 
 - (void) onAddCorpButton:(id)sender
 {
-    
+    TCAddCorpViewController *addVC = [TCAddCorpViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
+}
+
+- (void) onAddCorpNotification
+{
+    [self reloadCorpArray];
 }
 @end
