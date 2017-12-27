@@ -8,6 +8,7 @@
 
 #import "TCAccountSecurityViewController.h"
 #import "TCTextTableViewCell.h"
+#import "TCModifyPasswordViewController.h"
 #define SECURITY_CELL_REUSE_ID       @"SECURITY_CELL_REUSE_ID"
 
 @interface TCAccountSecurityViewController ()
@@ -81,6 +82,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 0)
+    {
+        TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
+        [self.navigationController pushViewController:modifyVC animated:YES];
+    }else if(indexPath.row == 2)
+    {
+        TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
+        [self.navigationController pushViewController:modifyVC animated:YES];
+    }
 }
 
 @end

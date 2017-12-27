@@ -149,6 +149,8 @@
 		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
 		A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */; };
 		A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */; };
+		A0A86B241FF3774500D1D58D /* TCModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B221FF3774500D1D58D /* TCModifyPasswordViewController.m */; };
+		A0A86B251FF3774500D1D58D /* TCModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B231FF3774500D1D58D /* TCModifyPasswordViewController.xib */; };
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
@@ -469,6 +471,9 @@
 		A0A86B121FF33FF500D1D58D /* TCAccountSecurityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAccountSecurityViewController.h; sourceTree = "<group>"; };
 		A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAccountSecurityViewController.m; sourceTree = "<group>"; };
 		A0A86B141FF33FF500D1D58D /* TCAccountSecurityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAccountSecurityViewController.xib; sourceTree = "<group>"; };
+		A0A86B211FF3774500D1D58D /* TCModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPasswordViewController.h; sourceTree = "<group>"; };
+		A0A86B221FF3774500D1D58D /* TCModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyPasswordViewController.m; sourceTree = "<group>"; };
+		A0A86B231FF3774500D1D58D /* TCModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
 		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -779,6 +784,9 @@
 		A02555281FD6936700D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0A86B211FF3774500D1D58D /* TCModifyPasswordViewController.h */,
+				A0A86B221FF3774500D1D58D /* TCModifyPasswordViewController.m */,
+				A0A86B231FF3774500D1D58D /* TCModifyPasswordViewController.xib */,
 				A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */,
 				A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */,
 				A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */,
@@ -2396,6 +2404,7 @@
 				A0C9A0661FF0A57C00F94E9E /* TCPersonProfileViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
 				A0C9A0571FED608500F94E9E /* TCIconTableViewCell.xib in Resources */,
+				A0A86B251FF3774500D1D58D /* TCModifyPasswordViewController.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
@@ -2721,6 +2730,7 @@
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
+				A0A86B241FF3774500D1D58D /* TCModifyPasswordViewController.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
 				A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */,
