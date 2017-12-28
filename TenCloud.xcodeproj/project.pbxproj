@@ -172,6 +172,11 @@
 		A0A86B7C1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B7A1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m */; };
 		A0A86B7D1FF47CE200D1D58D /* TCAccountMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B7B1FF47CE200D1D58D /* TCAccountMenuTableViewCell.xib */; };
 		A0A86B801FF48BAB00D1D58D /* TCCurrentCorp.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B7F1FF48BAB00D1D58D /* TCCurrentCorp.m */; };
+		A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B821FF49D0000D1D58D /* TCCorpHomeViewController.xib */; };
+		A0A86B851FF49D0000D1D58D /* TCCorpHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B831FF49D0000D1D58D /* TCCorpHomeViewController.m */; };
+		A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B871FF49F6B00D1D58D /* TCCorpProfileRequest.m */; };
+		A0A86B8C1FF4D6B600D1D58D /* TCCorpProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B891FF4D6B500D1D58D /* TCCorpProfileViewController.m */; };
+		A0A86B8D1FF4D6B600D1D58D /* TCCorpProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B8B1FF4D6B500D1D58D /* TCCorpProfileViewController.xib */; };
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
@@ -529,6 +534,14 @@
 		A0A86B7B1FF47CE200D1D58D /* TCAccountMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAccountMenuTableViewCell.xib; sourceTree = "<group>"; };
 		A0A86B7E1FF48BAB00D1D58D /* TCCurrentCorp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCurrentCorp.h; sourceTree = "<group>"; };
 		A0A86B7F1FF48BAB00D1D58D /* TCCurrentCorp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCurrentCorp.m; sourceTree = "<group>"; };
+		A0A86B811FF49D0000D1D58D /* TCCorpHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCorpHomeViewController.h; sourceTree = "<group>"; };
+		A0A86B821FF49D0000D1D58D /* TCCorpHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCorpHomeViewController.xib; sourceTree = "<group>"; };
+		A0A86B831FF49D0000D1D58D /* TCCorpHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCorpHomeViewController.m; sourceTree = "<group>"; };
+		A0A86B861FF49F6B00D1D58D /* TCCorpProfileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCorpProfileRequest.h; sourceTree = "<group>"; };
+		A0A86B871FF49F6B00D1D58D /* TCCorpProfileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCorpProfileRequest.m; sourceTree = "<group>"; };
+		A0A86B891FF4D6B500D1D58D /* TCCorpProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCorpProfileViewController.m; sourceTree = "<group>"; };
+		A0A86B8A1FF4D6B500D1D58D /* TCCorpProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCorpProfileViewController.h; sourceTree = "<group>"; };
+		A0A86B8B1FF4D6B500D1D58D /* TCCorpProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCorpProfileViewController.xib; sourceTree = "<group>"; };
 		A0A8F3D51FE626B00050F920 /* TCSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordViewController.h; sourceTree = "<group>"; };
 		A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordViewController.m; sourceTree = "<group>"; };
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -2335,6 +2348,9 @@
 		A0A86B3C1FF3926500D1D58D /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0A86B811FF49D0000D1D58D /* TCCorpHomeViewController.h */,
+				A0A86B831FF49D0000D1D58D /* TCCorpHomeViewController.m */,
+				A0A86B821FF49D0000D1D58D /* TCCorpHomeViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2413,6 +2429,9 @@
 		A0A86B461FF3926500D1D58D /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0A86B8A1FF4D6B500D1D58D /* TCCorpProfileViewController.h */,
+				A0A86B891FF4D6B500D1D58D /* TCCorpProfileViewController.m */,
+				A0A86B8B1FF4D6B500D1D58D /* TCCorpProfileViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2427,6 +2446,8 @@
 		A0A86B481FF3926500D1D58D /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0A86B861FF49F6B00D1D58D /* TCCorpProfileRequest.h */,
+				A0A86B871FF49F6B00D1D58D /* TCCorpProfileRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -2732,6 +2753,7 @@
 				A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
 				A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */,
+				A0A86B8D1FF4D6B600D1D58D /* TCCorpProfileViewController.xib in Resources */,
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
 				A0C9A0CD1FF2A3F500F94E9E /* TCTextTableViewCell.xib in Resources */,
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
@@ -2775,6 +2797,7 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
+				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
@@ -2958,10 +2981,12 @@
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
+				A0A86B8C1FF4D6B600D1D58D /* TCCorpProfileViewController.m in Sources */,
 				A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */,
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
+				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
@@ -3058,6 +3083,7 @@
 				A0C9A0A81FF14B4E00F94E9E /* UIImage+Rotating.m in Sources */,
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
+				A0A86B851FF49D0000D1D58D /* TCCorpHomeViewController.m in Sources */,
 				A0A86B771FF3EC0900D1D58D /* TCAccountMenuViewController.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
 				A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */,

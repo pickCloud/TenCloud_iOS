@@ -22,4 +22,6 @@
 
 + (NSString *) weekDayStringFromInteger:(NSInteger)dayInteger;
 
++ (NSString *) hiddenPhoneNumStr:(NSString*)phoneNumStr;
+
 @end

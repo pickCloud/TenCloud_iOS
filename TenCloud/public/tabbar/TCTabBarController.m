@@ -16,6 +16,8 @@
 //test
 #import "TCPersonHomeViewController.h"
 
+#import "TCCorpHomeViewController.h"
+
 @interface TCTabBarController ()
 
 @end
@@ -68,6 +70,7 @@
     discoverHomeNav.tabBarItem.title = @"发现";
     [self addChildViewController:discoverHomeNav];
     
+    /*
     //TCMineHomeViewController *mineHomeVC = [TCMineHomeViewController new];
     TCPersonHomeViewController *mineHomeVC = [TCPersonHomeViewController new];
     UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
@@ -77,7 +80,15 @@
     mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
     mineHomeNav.tabBarItem.title = @"我的";
     [self addChildViewController:mineHomeNav];
-    
+     */
+    TCCorpHomeViewController *mineHomeVC = [[TCCorpHomeViewController alloc] initWithCorpID:27];
+    UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
+    UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine_selected"];
+    UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mineHomeNav.tabBarItem.image = mineIcon;
+    mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
+    mineHomeNav.tabBarItem.title = @"我的";
+    [self addChildViewController:mineHomeNav];
 }
 
 - (void)didReceiveMemoryWarning {

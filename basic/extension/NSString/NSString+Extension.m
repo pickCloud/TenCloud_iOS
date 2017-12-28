@@ -97,4 +97,15 @@
     }
     return [NSString stringWithFormat:@"星期%@",dayString];
 }
+
++ (NSString *) hiddenPhoneNumStr:(NSString*)phoneNumStr
+{
+    if (phoneNumStr.length >= 11)
+    {
+        NSRange replaceRange = NSMakeRange(3, 4);
+        NSString *filteredPhone = [phoneNumStr stringByReplacingCharactersInRange:replaceRange withString:@"****"];
+        return filteredPhone;
+    }
+    return phoneNumStr;
+}
 @end

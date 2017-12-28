@@ -21,9 +21,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-Wh-RSG">
-                        <rect key="frame" x="16" y="0.0" width="37.5" height="80"/>
+                        <rect key="frame" x="16" y="0.0" width="75" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="SOZ-Wh-RSG" secondAttribute="height" multiplier="37:80" id="tZJ-BQ-pnU"/>
+                            <constraint firstAttribute="width" secondItem="SOZ-Wh-RSG" secondAttribute="height" multiplier="15:16" id="tHF-yG-b3C"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,7 @@
                     <constraint firstItem="SOZ-Wh-RSG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fW1-Kl-jyI"/>
                     <constraint firstAttribute="bottom" secondItem="9ae-bN-Yf2" secondAttribute="bottom" id="hBB-kE-vM7"/>
                     <constraint firstItem="0kl-h3-xFX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hmE-nv-gff"/>
-                    <constraint firstItem="SOZ-Wh-RSG" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="kvm-a5-kZx"/>
+                    <constraint firstItem="SOZ-Wh-RSG" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="kvm-a5-kZx"/>
                     <constraint firstItem="0kl-h3-xFX" firstAttribute="width" secondItem="0kl-h3-xFX" secondAttribute="height" multiplier="1:1" id="sv6-Km-uO8"/>
                     <constraint firstItem="XlX-Ur-sCE" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="zY5-Lc-AEe"/>
                 </constraints>
