@@ -9,8 +9,9 @@
 #import "TCSwitchAccountButton.h"
 
 @interface TCSwitchAccountButton()
-@property (nonatomic, weak) IBOutlet    UIView  *contentView;
-@property (nonatomic, weak) IBOutlet    UILabel *textLabel;
+@property (nonatomic, weak) IBOutlet    UIView      *contentView;
+@property (nonatomic, weak) IBOutlet    UILabel     *textLabel;
+@property (nonatomic, weak) IBOutlet    UIButton    *realButton;
 - (IBAction) onButton:(id)sender;
 @end
 
@@ -24,11 +25,22 @@
     _textLabel.font = TCFont(11.0);
 }
 
+/*
+- (void) addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
+{
+    [_realButton addTarget:target action:action forControlEvents:controlEvents];
+}
+ */
+
 - (IBAction) onButton:(id)sender
 {
     NSLog(@"优雅的按下3");
     self.checked = !_checked;
     [self setNeedsDisplay];
+    if (_touchedBlock)
+    {
+        _touchedBlock();
+    }
 }
 
 - (void) setChecked:(BOOL)checked

@@ -14,6 +14,9 @@
 #import "TCSettingViewController.h"
 #import "TCMyCorpTableViewController.h"
 #import "TCCorpListRequest.h"
+#import "TCAccountMenuViewController.h"
+#import "TCSwitchAccountButton.h"
+#import "TCCorp+CoreDataClass.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -25,7 +28,10 @@
 @property (nonatomic, weak) IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView     *certificatedImageView;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
+@property (nonatomic, weak) IBOutlet    TCSwitchAccountButton   *switchButton;
+
 - (IBAction) onProfilePage:(id)sender;
+- (IBAction) onSwitchAccountButton:(id)sender;
 - (void) onMessageButton:(id)sender;
 - (void) loadCorpArray;
 @end
@@ -50,6 +56,16 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCIconTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:PERSON_HOME_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
+    
+    __weak __typeof(self) weakSelf = self;
+    _switchButton.touchedBlock = ^{
+        NSLog(@"touchedddd:%@",weakSelf.corpArray);
+        TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:_corpArray buttonRect:weakSelf.switchButton.frame];
+        menuVC.providesPresentationContextTransitionStyle = YES;
+        menuVC.definesPresentationContext = YES;
+        menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [weakSelf presentViewController:menuVC animated:NO completion:nil];
+    };
     
     [self updateAccountInfo];
 }
@@ -131,6 +147,11 @@
     [self.navigationController pushViewController:profileVC animated:YES];
 }
 
+- (IBAction) onSwitchAccountButton:(id)sender
+{
+    NSLog(@"on switch account ");
+}
+
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
@@ -142,6 +163,9 @@
     TCCorpListRequest *request = [TCCorpListRequest new];
     [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
         [weakSelf.corpArray removeAllObjects];
+        TCCorp *me = [TCCorp MR_createEntity];
+        me.company_name = [[TCLocalAccount shared] name];
+        [weakSelf.corpArray addObject:me];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
     } failure:^(NSString *message) {
         

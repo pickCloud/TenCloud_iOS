@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ButtonTouchedBlock)();
+
 @interface TCSwitchAccountButton : UIButton
 
 @property (nonatomic, assign)   BOOL    checked;
+@property (nonatomic, copy) ButtonTouchedBlock  touchedBlock;
 
 @end

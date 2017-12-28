@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCSwitchAccountButton">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="xLb-YJ-AQJ"/>
+                <outlet property="realButton" destination="ctj-AN-Erj" id="6cf-Uc-8EV"/>
                 <outlet property="textLabel" destination="9t7-vI-fkX" id="cqf-Jf-tPG"/>
             </connections>
         </placeholder>

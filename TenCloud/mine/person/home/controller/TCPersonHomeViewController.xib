@@ -17,6 +17,7 @@
                 <outlet property="certificatedImageView" destination="xpp-HK-g61" id="0Co-uZ-TQ4"/>
                 <outlet property="nameLabel" destination="ABR-fK-uda" id="l1Y-ZQ-p1e"/>
                 <outlet property="phoneLabel" destination="EJ7-bL-c3J" id="GGO-PK-But"/>
+                <outlet property="switchButton" destination="Qda-SB-cA1" id="eq5-oa-Mhb"/>
                 <outlet property="tableView" destination="Il8-E8-4T7" id="dBU-M4-S9A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -74,11 +75,14 @@
                                     <action selector="onProfilePage:" destination="-1" eventType="touchUpInside" id="LzV-4r-t2R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-SB-cA1" customClass="TCSwitchAccountButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-SB-cA1" customClass="TCSwitchAccountButton">
                                 <rect key="frame" x="284" y="20" width="75" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qda-SB-cA1" secondAttribute="height" multiplier="15:4" id="ilF-b8-Tmj"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="onSwitchAccountButton:" destination="-1" eventType="touchUpInside" id="9Kh-wS-0h3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
