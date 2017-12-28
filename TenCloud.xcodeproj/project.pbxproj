@@ -33,6 +33,9 @@
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
 		A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */; };
 		A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */; };
+		A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */; };
+		A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A9BC21FF50EC500BD450D /* TCModifyPhoneViewController.m */; };
+		A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01A9BC31FF50EC500BD450D /* TCModifyPhoneViewController.xib */; };
 		A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A02554D41FD67FD400D16D22 /* AppDelegate.m */; };
 		A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02554DF1FD67FD400D16D22 /* Assets.xcassets */; };
 		A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02554E11FD67FD400D16D22 /* LaunchScreen.storyboard */; };
@@ -291,6 +294,11 @@
 		A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGeetestCaptchaRequest.h; sourceTree = "<group>"; };
 		A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetSmsCountRequest.h; sourceTree = "<group>"; };
 		A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetSmsCountRequest.m; sourceTree = "<group>"; };
+		A01A9BBC1FF50D7200BD450D /* TCResetPhoneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCResetPhoneRequest.h; sourceTree = "<group>"; };
+		A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCResetPhoneRequest.m; sourceTree = "<group>"; };
+		A01A9BC11FF50EC500BD450D /* TCModifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPhoneViewController.h; sourceTree = "<group>"; };
+		A01A9BC21FF50EC500BD450D /* TCModifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyPhoneViewController.m; sourceTree = "<group>"; };
+		A01A9BC31FF50EC500BD450D /* TCModifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCModifyPhoneViewController.xib; sourceTree = "<group>"; };
 		A02554D01FD67FD400D16D22 /* TenCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02554D31FD67FD400D16D22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A02554D41FD67FD400D16D22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -733,6 +741,48 @@
 			path = GT3Captcha;
 			sourceTree = "<group>";
 		};
+		A01A9BBF1FF50EC500BD450D /* modifyPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A01A9BC01FF50EC500BD450D /* controller */,
+				A01A9BC41FF50EC500BD450D /* model */,
+				A01A9BC51FF50EC500BD450D /* request */,
+				A01A9BC61FF50EC500BD450D /* view */,
+			);
+			path = modifyPhone;
+			sourceTree = "<group>";
+		};
+		A01A9BC01FF50EC500BD450D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A01A9BC11FF50EC500BD450D /* TCModifyPhoneViewController.h */,
+				A01A9BC21FF50EC500BD450D /* TCModifyPhoneViewController.m */,
+				A01A9BC31FF50EC500BD450D /* TCModifyPhoneViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A01A9BC41FF50EC500BD450D /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A01A9BC51FF50EC500BD450D /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A01A9BC61FF50EC500BD450D /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A02554C71FD67FD400D16D22 = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +946,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A01A9BBC1FF50D7200BD450D /* TCResetPhoneRequest.h */,
+				A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */,
 				A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */,
 				A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */,
 				A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */,
@@ -1818,6 +1870,7 @@
 		A031434A1FED567B006F55EC /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				A01A9BBF1FF50EC500BD450D /* modifyPhone */,
 				A0A86B061FF33FD400D1D58D /* home */,
 				A0A86B0B1FF33FD400D1D58D /* security */,
 			);
@@ -2814,6 +2867,7 @@
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
+				A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3046,6 +3100,7 @@
 				A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */,
 				A0A86B4D1FF3927E00D1D58D /* TCMyCorpTableViewController.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
+				A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
@@ -3091,6 +3146,7 @@
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
+				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,

@@ -9,6 +9,7 @@
 #import "TCAccountSecurityViewController.h"
 #import "TCTextTableViewCell.h"
 #import "TCModifyPasswordViewController.h"
+#import "TCModifyPhoneViewController.h"
 #define SECURITY_CELL_REUSE_ID       @"SECURITY_CELL_REUSE_ID"
 
 @interface TCAccountSecurityViewController ()
@@ -86,6 +87,8 @@
     {
         //TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
         //[self.navigationController pushViewController:modifyVC animated:YES];
+        TCModifyPhoneViewController *modifyVC = [TCModifyPhoneViewController new];
+        [self.navigationController pushViewController:modifyVC animated:YES];
     }else if(indexPath.row == 2)
     {
         TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
