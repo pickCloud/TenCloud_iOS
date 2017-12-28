@@ -10,10 +10,11 @@
 #import "TCMyCorpTableViewCell.h"
 #import "TCCorpListRequest.h"
 #import "TCAddCorpViewController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
-@interface TCMyCorpTableViewController ()
+@interface TCMyCorpTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
 - (void) onAddCorpButton:(id)sender;
@@ -49,6 +50,8 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCMyCorpTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:MY_CORP_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAddCorpNotification) name:NOTIFICATION_ADD_CORP
@@ -137,9 +140,9 @@
     [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
         NSLog(@"corp list:%@",corpArray);
         [weakSelf.corpArray removeAllObjects];
+        [weakSelf stopLoading];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
         [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
     } failure:^(NSString *message) {
         NSLog(@"my corp req failed:%@",message);
     }];
