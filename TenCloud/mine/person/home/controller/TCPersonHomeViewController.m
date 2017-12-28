@@ -124,7 +124,8 @@
     {
         if (indexPath.row == 0)
         {
-            [cell setIcon:@"person_home_corp" title:@"我的公司" desc:@"2家公司"];
+            NSString *corpDesc = [NSString stringWithFormat:@"%ld家公司",_corpArray.count - 1];
+            [cell setIcon:@"person_home_corp" title:@"我的公司" desc:corpDesc];
         }else
         {
             [cell setIcon:@"person_home_service" title:@"客户服务" desc:@""];
@@ -192,6 +193,7 @@
         me.company_name = [[TCLocalAccount shared] name];
         [weakSelf.corpArray addObject:me];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
+        [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         
     }];
