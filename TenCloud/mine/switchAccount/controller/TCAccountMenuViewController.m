@@ -9,6 +9,7 @@
 #import "TCAccountMenuViewController.h"
 #import "TCAccountMenuTableViewCell.h"
 #import "TCCorp+CoreDataClass.h"
+#import "TCListCorp+CoreDataClass.h"
 #import "TCCurrentCorp.h"
 
 #define ACCOUNT_MENU_CELL_ID    @"ACCOUNT_MENU_CELL_ID"
@@ -22,6 +23,7 @@
 //@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, strong)   NSArray             *corpArray;
 @property (nonatomic, assign)   CGRect              buttonRect;
+@property (nonatomic, assign)   NSInteger           preSelectedIndex;
 - (void) dismiss;
 @end
 
@@ -34,6 +36,7 @@
     {
         _corpArray = corpArray;
         _buttonRect = rect;
+        _preSelectedIndex = 0;
     }
     return self;
 }
@@ -127,11 +130,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
+    //TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
+    TCListCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     TCAccountMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ACCOUNT_MENU_CELL_ID forIndexPath:indexPath];
-    BOOL selected = [[TCCurrentCorp shared] isCurrent:corp];
+    //BOOL selected = [[TCCurrentCorp shared] isCurrent:corp];
+    BOOL selected = [[TCCurrentCorp shared] isSameWithID:corp.cid name:corp.company_name];
     [cell setName:corp.company_name];
     cell.selected = selected;
+    if (selected)
+    {
+        _preSelectedIndex = indexPath.row;
+    }
     return cell;
 }
 
@@ -147,12 +156,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cannot touched???");
-    TCCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
-    [[TCCurrentCorp shared] setName:curCorp.company_name];
+    if (_preSelectedIndex == indexPath.row)
+    {
+        [self dismiss];
+        return;
+    }
+    //TCCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
+    TCListCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
+    //[[TCCurrentCorp shared] setName:curCorp.company_name];
     [[TCCurrentCorp shared] setCid:curCorp.cid];
+    //[[TCCurrentCorp shared] setMobile:<#(NSString *)#>]
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
     [tableView reloadData];
+    
+    if (_selectBlock)
+    {
+        _selectBlock(self,indexPath.row);
+    }
+    
     [self dismiss];
     
 }

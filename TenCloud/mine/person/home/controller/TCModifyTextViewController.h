@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TCViewController.h"
+#import "TCCellData.h"
 
 @class TCModifyTextViewController;
 typedef void (^TCModifyTextValueChangedBlock)(TCModifyTextViewController *vc, id newValue);
@@ -17,6 +18,8 @@ typedef void (^TCModifyTextValueChangedBlock)(TCModifyTextViewController *vc, id
 @property (nonatomic, strong)   NSString    *titleText;
 @property (nonatomic, strong)   NSString    *keyName;
 @property (nonatomic, strong)   NSString    *initialValue;
+@property (nonatomic, assign)   TCApiType   apiType;
+@property (nonatomic, assign)   NSInteger   cid;
 @property (nonatomic, copy) TCModifyTextValueChangedBlock   valueChangedBlock;
 
 @end

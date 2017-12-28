@@ -10,6 +10,9 @@
 #import "TCIconTableViewCell.h"
 #import "TCCustomerServiceViewController.h"
 #import "TCCorpProfileViewController.h"
+#import "TCPersonHomeViewController.h"
+#import "TCCurrentCorp.h"
+#import "TCListCorp+CoreDataClass.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -23,7 +26,7 @@
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
-@interface TCCorpHomeViewController ()
+@interface TCCorpHomeViewController () <TCCurrentCorpDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UIButton        *avatarButton;
 @property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
@@ -57,13 +60,15 @@
     [super viewDidLoad];
     self.title = @"我的";
     _corpArray = [NSMutableArray new];
+    [[TCCurrentCorp shared] addObserver:self];
     [self startLoading];
     __weak  __typeof(self) weakSelf = self;
     TCCorpProfileRequest *profileReq = [[TCCorpProfileRequest alloc] initWithCorpID:_corpID];
     [profileReq startWithSuccess:^(TCCorp *corp) {
         weakSelf.corpInfo = corp;
-        NSLog(@"weak com:%@",weakSelf.corpInfo.company_name);
+        NSLog(@"weak com:%@",weakSelf.corpInfo.name);
         [weakSelf stopLoading];
+        [[TCCurrentCorp shared] setSelectedCorp:corp];
         [weakSelf updateCorpInfoUI];
     } failure:^(NSString *message) {
         
@@ -83,13 +88,39 @@
     [_tableView registerNib:cellNib forCellReuseIdentifier:PERSON_HOME_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
     
-    //__weak __typeof(self) weakSelf = self;
     _switchButton.touchedBlock = ^{
         NSLog(@"touchedddd:%@",weakSelf.corpArray);
         TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:_corpArray buttonRect:weakSelf.switchButton.frame];
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        menuVC.selectBlock = ^ (TCAccountMenuViewController *vc, NSInteger selectedIndex) {
+            NSLog(@"menu select %ld",selectedIndex);
+            if ( selectedIndex < weakSelf.corpArray.count)
+            {
+                [MMProgressHUD showWithStatus:@"切换账号中"];
+                TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
+                //NSLog(@"切换到企业账号%@ id%lld",selectedCorp.name, selectedCorp.cid);
+                //NSLog(@"comn:%@",selectedCorp.company_name);
+                UIViewController *homeVC = nil;
+                if (selectedIndex == 0)
+                {
+                    homeVC = [[TCPersonHomeViewController alloc] init];
+                }else
+                {
+                    homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
+                }
+                
+                NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+                NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                [newVCS removeLastObject];
+                [newVCS addObject:homeVC];
+                [weakSelf.navigationController setViewControllers:newVCS];
+                
+                [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+                
+            }
+        };
         [weakSelf presentViewController:menuVC animated:NO completion:nil];
     };
 
@@ -190,7 +221,7 @@
     TCCorpListRequest *request = [TCCorpListRequest new];
     [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
         [weakSelf.corpArray removeAllObjects];
-        TCCorp *me = [TCCorp MR_createEntity];
+        TCListCorp *me = [TCListCorp MR_createEntity];
         me.company_name = [[TCLocalAccount shared] name];
         [weakSelf.corpArray addObject:me];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
@@ -203,13 +234,19 @@
 {
     if (_corpInfo)
     {
-        _nameLabel.text = _corpInfo.name;
-        _phoneLabel.text = [NSString hiddenPhoneNumStr:_corpInfo.mobile];
+        _nameLabel.text = [[TCCurrentCorp shared] name];
+        NSString *mobile = [[TCCurrentCorp shared] mobile];
+        _phoneLabel.text = [NSString hiddenPhoneNumStr:mobile];
         //NSURL *avatarURL = [NSURL URLWithString:_corpInfo.];
         UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
-        //[_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
         [_avatarButton setImage:defaultAvatarImg forState:UIControlStateNormal];
     }
     
+}
+
+#pragma mark - TCCurrentCorpDelegate
+- (void) corpModified:(TCCurrentCorp*)corp
+{
+    [self updateCorpInfoUI];
 }
 @end

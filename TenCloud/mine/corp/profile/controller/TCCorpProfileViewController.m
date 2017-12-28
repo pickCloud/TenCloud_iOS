@@ -8,7 +8,7 @@
 
 #import "TCCorpProfileViewController.h"
 #import "TCCorp+CoreDataClass.h"
-
+#import "TCTextTableViewCell.h"
 #import "TCEditTextTableViewCell.h"
 #import "TCEditAvatarTableViewCell.h"
 #import "TCEditGenderTableViewCell.h"
@@ -17,6 +17,7 @@
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
 #define PROFILE_CELL_EDIT_DATE      @"PROFILE_CELL_EDIT_DATE"
+#define PROFILE_CELL_TEXT           @"PROFILE_CELL_TEXT"
 
 @interface TCCorpProfileViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -58,6 +59,8 @@
     data1.initialValue = @"";
     data1.type = TCCellTypeEditAvatar;
     data1.hideDetailView = YES;
+    data1.apiType = TCApiTypeUpdateCorp;
+    data1.cid = _corp.cid;
     [_cellItemArray addObject:data1];
     
     TCCellData *data2 = [TCCellData new];
@@ -66,6 +69,8 @@
     data2.keyName = @"name";
     data2.initialValue = _corp.name;
     data2.type = TCCellTypeEditText;
+    data2.apiType = TCApiTypeUpdateCorp;
+    data2.cid = _corp.cid;
     [_cellItemArray addObject:data2];
     
     TCCellData *data4 = [TCCellData new];
@@ -74,8 +79,26 @@
     data4.keyName = @"contact";
     data4.initialValue = _corp.contact;
     data4.type = TCCellTypeEditText;
+    data4.apiType = TCApiTypeUpdateCorp;
+    data4.cid = _corp.cid;
     [_cellItemArray addObject:data4];
     
+    TCCellData *data5 = [TCCellData new];
+    data5.title = @"联系方式";
+    data5.editPageTitle = @"修改联系方式";
+    data5.keyName = @"mobile";
+    data5.initialValue = _corp.mobile;
+    data5.type = TCCellTypeEditText;
+    data5.apiType = TCApiTypeUpdateCorp;
+    data5.cid = _corp.cid;
+    [_cellItemArray addObject:data5];
+    
+    TCCellData *data6 = [TCCellData new];
+    data6.title = @"注册时间";
+    data6.initialValue = _corp.create_time;
+    data6.type = TCCellTypeText;
+    data6.hideDetailView = YES;
+    [_cellItemArray addObject:data6];
     /*
     TCCellData *data5 = [TCCellData new];
     data5.title = @"性别";
@@ -92,14 +115,16 @@
     [_cellItemArray addObject:data6];
      */
     
-    UINib *textCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
-    [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
+    UINib *editTextCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
+    [self.tableView registerNib:editTextCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
     UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
     [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
     UINib *genderCellNib = [UINib nibWithNibName:@"TCEditGenderTableViewCell" bundle:nil];
     [self.tableView registerNib:genderCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_GENDAR];
     UINib *dateCellNib = [UINib nibWithNibName:@"TCEditDateTableViewCell" bundle:nil];
     [self.tableView registerNib:dateCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_DATE];
+    UINib *textCellNib = [UINib nibWithNibName:@"TCTextTableViewCell" bundle:nil];
+    [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_TEXT];
     self.tableView.tableFooterView = [UIView new];
     
 }
@@ -144,6 +169,12 @@
         cell.fatherViewController = self;
         cell.data = data;
         return cell;
+    }else if(data.type == TCCellTypeText)
+    {
+        TCTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_TEXT forIndexPath:indexPath];
+        cell.fatherViewController = self;
+        cell.data = data;
+        return cell;
     }
     
     TCEditTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_EDIT_TEXT forIndexPath:indexPath];
@@ -166,7 +197,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end

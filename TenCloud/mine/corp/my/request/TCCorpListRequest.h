@@ -9,12 +9,12 @@
 #import "YTKRequest.h"
 
 //@class TCClusterProvider;
-@class TCCorp;
+@class TCListCorp;
 @interface TCCorpListRequest : YTKRequest
 
 //- (instancetype) initWithClusterID:(NSString*)clusterID;
 
-- (void) startWithSuccess:(void(^)(NSArray<TCCorp*> *corpArray))success
+- (void) startWithSuccess:(void(^)(NSArray<TCListCorp*> *corpArray))success
                   failure:(void(^)(NSString *message))failure;
 
 @end

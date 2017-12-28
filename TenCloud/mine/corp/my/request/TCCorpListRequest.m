@@ -7,7 +7,8 @@
 //
 
 #import "TCCorpListRequest.h"
-#import "TCCorp+CoreDataClass.h"
+//#import "TCCorp+CoreDataClass.h"
+#import "TCListCorp+CoreDataClass.h"
 
 @interface TCCorpListRequest()
 //@property (nonatomic, strong)       NSString    *clusterID;
@@ -27,13 +28,13 @@
 }
  */
 
-- (void) startWithSuccess:(void(^)(NSArray<TCCorp*> *corpArray))success
+- (void) startWithSuccess:(void(^)(NSArray<TCListCorp*> *corpArray))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *arrayDict = [request.responseJSONObject objectForKey:@"data"];
         NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-        NSArray *resArray = [TCCorp mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+        NSArray *resArray = [TCListCorp mj_objectArrayWithKeyValuesArray:arrayDict context:context];
         success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];

@@ -51,6 +51,11 @@
 - (IBAction) onButton:(id)sender
 {
     NSLog(@"avatar button");
+    if (self.data.apiType == TCApiTypeUpdateCorp)
+    {
+        [MBProgressHUD showError:@"暂不支持企业图标更新" toView:nil];
+        return;
+    }
     NSArray *menuArray = [NSArray arrayWithObjects:@"相册",@"相机", nil];
     [LSActionSheet showWithTitle:nil destructiveTitle:nil otherTitles:menuArray block:^(int index) {
         switch (index) {

@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger, TCCellType) {
     TCCellTypeText,
 };
 
+typedef NS_ENUM(NSInteger, TCApiType) {
+    TCApiTypeDefault    =   0,
+    TCApiTypeUpdateCorp
+};
+
 @interface TCCellData : NSObject
 
 @property (nonatomic, assign)   TCCellType      type;
@@ -26,5 +31,8 @@ typedef NS_ENUM(NSInteger, TCCellType) {
 @property (nonatomic, strong)   id              value;
 @property (nonatomic, strong)   NSString        *keyName;
 @property (nonatomic, assign)   BOOL            hideDetailView;
+
+@property (nonatomic, assign)   TCApiType       apiType;
+@property (nonatomic, assign)   NSInteger       cid;
 
 @end

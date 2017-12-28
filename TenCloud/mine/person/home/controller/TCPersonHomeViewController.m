@@ -9,6 +9,10 @@
 #import "TCPersonHomeViewController.h"
 #import "TCIconTableViewCell.h"
 #import "TCCustomerServiceViewController.h"
+#import "TCCorpHomeViewController.h"
+#import "TCListCorp+CoreDataClass.h"
+#import "TCCurrentCorp.h"
+
 #import "TCPersonProfileViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -64,6 +68,27 @@
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        menuVC.selectBlock = ^ (TCAccountMenuViewController *vc, NSInteger selectedIndex) {
+            NSLog(@"menu select %ld",selectedIndex);
+            //NSInteger corpIndex = selectedIndex - 1;
+            if ( selectedIndex < weakSelf.corpArray.count)
+            {
+                [MMProgressHUD showWithStatus:@"切换账号中"];
+                TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
+                //NSLog(@"切换到企业账号%@ id%lld",selectedCorp.company_name, selectedCorp.cid);
+                //NSLog(@"comn:%@",selectedCorp.company_name);
+                TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
+                
+                NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+                NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                [newVCS removeLastObject];
+                [newVCS addObject:corpHome];
+                [weakSelf.navigationController setViewControllers:newVCS];
+                
+                [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+                
+            }
+        };
         [weakSelf presentViewController:menuVC animated:NO completion:nil];
     };
     
@@ -161,7 +186,7 @@
 {
     __weak __typeof(self) weakSelf = self;
     TCCorpListRequest *request = [TCCorpListRequest new];
-    [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
+    [request startWithSuccess:^(NSArray<TCListCorp *> *corpArray) {
         [weakSelf.corpArray removeAllObjects];
         TCCorp *me = [TCCorp MR_createEntity];
         me.company_name = [[TCLocalAccount shared] name];

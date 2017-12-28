@@ -16,6 +16,14 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCListCorp" representedClassName="TCListCorp" syncable="YES">
+        <attribute name="cid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_admin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCServer" representedClassName="TCServer" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cpu_content" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -129,5 +137,6 @@
         <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="105"/>
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCListCorp" positionX="0" positionY="144" width="128" height="135"/>
     </elements>
 </model>

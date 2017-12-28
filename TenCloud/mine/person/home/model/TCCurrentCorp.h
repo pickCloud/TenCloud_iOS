@@ -8,14 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+@class TCCurrentCorp;
 @class TCCorp;
+@protocol TCCurrentCorpDelegate <NSObject>
+- (void) corpModified:(TCCurrentCorp*)corp;
+@end
+
 @interface TCCurrentCorp : NSObject
 
 + (instancetype) shared;
 
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, assign)   NSInteger   cid;
+@property (nonatomic, strong)   NSString    *contact;
+@property (nonatomic, strong)   NSString    *mobile;
 
-- (BOOL) isCurrent:(TCCorp*)corp;
+
+//- (BOOL) isCurrent:(TCCorp*)corp;
+- (BOOL) isSameWithID:(NSInteger)cid name:(NSString*)corpName;
+
+- (void) setSelectedCorp:(TCCorp*)corp;
+
+- (void) addObserver:(id<TCCurrentCorpDelegate>)obs;
+
+- (void) removeObserver:(id<TCCurrentCorpDelegate>)obs;
+
+- (void) modified;
 
 @end

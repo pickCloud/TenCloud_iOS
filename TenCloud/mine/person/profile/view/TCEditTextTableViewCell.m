@@ -45,6 +45,8 @@
     modifyVC.titleText = self.data.editPageTitle;
     modifyVC.initialValue = self.data.initialValue;
     modifyVC.keyName = self.data.keyName;
+    modifyVC.apiType = self.data.apiType;
+    modifyVC.cid = self.data.cid;
     __weak __typeof(self) weakSelf = self;
     modifyVC.valueChangedBlock = ^(TCModifyTextViewController *vc, id newValue) {
         weakSelf.data.initialValue = newValue;

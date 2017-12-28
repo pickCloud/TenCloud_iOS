@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCAccountMenuViewController;
+typedef void (^TCAccountMenuSelectBlock)(TCAccountMenuViewController *vc, NSInteger selectedIndex);
+
 @interface TCAccountMenuViewController : UIViewController
 
 - (instancetype) initWithCorpArray:(NSArray*)corpArray buttonRect:(CGRect)rect;
+@property (nonatomic, copy) TCAccountMenuSelectBlock   selectBlock;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "TCModifyTextViewController.h"
 #import "TCModifyUserProfileRequest.h"
+#import "TCModifyCorpProfileRequest.h"
+#import "TCCurrentCorp.h"
 
 
 @interface TCModifyTextViewController ()<UIGestureRecognizerDelegate, UITextFieldDelegate>
@@ -66,16 +68,56 @@
     NSString *newValue = _textField.text;
     newValue = newValue ? newValue : @"";
     __weak __typeof(self) weakSelf = self;
-    TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
-    [request startWithSuccess:^(NSString *message) {
-        if (weakSelf.valueChangedBlock)
-        {
-            weakSelf.valueChangedBlock(weakSelf, newValue);
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-        }
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-    }];
+    if (_apiType == TCApiTypeUpdateCorp)
+    {
+        TCModifyCorpProfileRequest *request = [[TCModifyCorpProfileRequest alloc] initWithCid:_cid key:_keyName value:newValue];
+        [request startWithSuccess:^(NSString *message) {
+            if ([_keyName isEqualToString:@"name"])
+            {
+                [[TCCurrentCorp shared] setName:newValue];
+            }else if([_keyName isEqualToString:@"contact"])
+            {
+                [[TCCurrentCorp shared] setContact:newValue];
+            }else if([_keyName isEqualToString:@"mobile"])
+            {
+                [[TCCurrentCorp shared] setMobile:newValue];
+            }
+            [[TCCurrentCorp shared] modified];
+            
+            if (weakSelf.valueChangedBlock)
+            {
+                weakSelf.valueChangedBlock(weakSelf, newValue);
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+        
+        /*
+        TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
+        [request startWithSuccess:^(NSString *message) {
+            if (weakSelf.valueChangedBlock)
+            {
+                weakSelf.valueChangedBlock(weakSelf, newValue);
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+         */
+    }else
+    {
+        TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
+        [request startWithSuccess:^(NSString *message) {
+            if (weakSelf.valueChangedBlock)
+            {
+                weakSelf.valueChangedBlock(weakSelf, newValue);
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    }
 }
 
 #pragma mark - Text Field Delegate
