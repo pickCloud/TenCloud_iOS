@@ -44,6 +44,7 @@
     TCModifyTextViewController *modifyVC = [TCModifyTextViewController new];
     modifyVC.titleText = self.data.editPageTitle;
     modifyVC.initialValue = self.data.initialValue;
+    modifyVC.placeHolder = self.data.placeHolder;
     modifyVC.keyName = self.data.keyName;
     modifyVC.apiType = self.data.apiType;
     modifyVC.cid = self.data.cid;

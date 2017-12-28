@@ -40,7 +40,7 @@
     UIBarButtonItem *reviewButton = [[UIBarButtonItem alloc] initWithCustomView:textButton];
     self.navigationItem.rightBarButtonItem = reviewButton;
     
-    NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:_placeHolder   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _textField.attributedPlaceholder = phonePlaceHolderStr;
     _textField.text = _initialValue;
     

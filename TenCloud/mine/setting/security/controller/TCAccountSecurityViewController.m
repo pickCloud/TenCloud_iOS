@@ -84,8 +84,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.row == 0)
     {
-        TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
-        [self.navigationController pushViewController:modifyVC animated:YES];
+        //TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];
+        //[self.navigationController pushViewController:modifyVC animated:YES];
     }else if(indexPath.row == 2)
     {
         TCModifyPasswordViewController *modifyVC = [TCModifyPasswordViewController new];

@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, TCApiType) {
 @property (nonatomic, strong)   id              initialValue;
 @property (nonatomic, strong)   id              value;
 @property (nonatomic, strong)   NSString        *keyName;
+@property (nonatomic, strong)   NSString        *placeHolder;
 @property (nonatomic, assign)   BOOL            hideDetailView;
 
 @property (nonatomic, assign)   TCApiType       apiType;

@@ -48,6 +48,7 @@
     TCCellData *data2 = [TCCellData new];
     data2.title = @"姓名";
     data2.editPageTitle = @"修改姓名";
+    data2.placeHolder = @"请输入姓名";
     data2.keyName = @"name";
     data2.initialValue = account.name;
     data2.type = TCCellTypeEditText;
@@ -58,6 +59,7 @@
     data4.editPageTitle = @"修改邮箱";
     data4.keyName = @"email";
     data4.initialValue = account.email;
+    data4.placeHolder = @"请输入邮箱";
     data4.type = TCCellTypeEditText;
     [_cellItemArray addObject:data4];
     
