@@ -56,7 +56,15 @@
 
     CGRect oldRect = _menuTableView.frame;
     CGFloat newX = _buttonRect.origin.x + _buttonRect.size.width - oldRect.size.width;
-    CGFloat newY = _buttonRect.origin.y + _buttonRect.size.height + 8 + 64;
+    CGFloat newY = 0;
+    if (IS_iPhoneX)
+    {
+        newY = _buttonRect.origin.y + _buttonRect.size.height + 8 + 88;
+    }else
+    {
+        newY = _buttonRect.origin.y + _buttonRect.size.height + 8 + 64;
+    }
+    
     CGFloat height = _corpArray.count * 44;//TCSCALE(44);
     CGRect newRect = CGRectMake(newX, newY, oldRect.size.width, height);
     _menuTableView.frame = newRect;
