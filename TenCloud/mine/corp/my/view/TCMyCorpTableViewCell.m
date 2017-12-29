@@ -72,7 +72,7 @@
         _statusLabel.textColor = STATE_ERROR_COLOR;
     }else if(corp.status == 0)
     {
-        _statusLabel.text = @"审核中";
+        _statusLabel.text = @"待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;
     }else
     {

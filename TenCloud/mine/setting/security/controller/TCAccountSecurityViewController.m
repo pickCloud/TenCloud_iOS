@@ -35,8 +35,14 @@
     [_cellItemArray addObject:data1];
     
     TCCellData *data2 = [TCCellData new];
-    data2.title = @"注册时间";
-    data2.initialValue = account.createTime;
+    data2.title = @"创建时间";
+    NSString *createTime = account.createTime;
+    if (createTime && createTime.length > 11)
+    {
+        NSRange dateRange = NSMakeRange(0, 10);
+        createTime = [createTime substringWithRange:dateRange];
+    }
+    data2.initialValue = createTime;
     data2.type = TCCellTypeText;
     data2.hideDetailView = YES;
     [_cellItemArray addObject:data2];
@@ -44,6 +50,7 @@
     TCCellData *data3 = [TCCellData new];
     data3.title = @"修改密码";
     data3.type = TCCellTypeText;
+    data3.initialValue = @" ";
     [_cellItemArray addObject:data3];
     
 }
