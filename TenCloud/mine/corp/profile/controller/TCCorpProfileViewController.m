@@ -13,11 +13,13 @@
 #import "TCEditAvatarTableViewCell.h"
 #import "TCEditGenderTableViewCell.h"
 #import "TCEditDateTableViewCell.h"
+#import "TCCertificateTableViewCell.h"
 #define PROFILE_CELL_EDIT_TEXT      @"PROFILE_CELL_EDIT_TEXT"
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
 #define PROFILE_CELL_EDIT_DATE      @"PROFILE_CELL_EDIT_DATE"
 #define PROFILE_CELL_TEXT           @"PROFILE_CELL_TEXT"
+#define PROFILE_CELL_CERTIFICATE    @"PROFILE_CELL_CERTIFICATE"
 
 @interface TCCorpProfileViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -94,11 +96,18 @@
     [_cellItemArray addObject:data5];
     
     TCCellData *data6 = [TCCellData new];
-    data6.title = @"注册时间";
+    data6.title = @"创建时间";
     data6.initialValue = _corp.create_time;
     data6.type = TCCellTypeText;
     data6.hideDetailView = YES;
     [_cellItemArray addObject:data6];
+    
+    TCCellData *data7 = [TCCellData new];
+    data7.title = @"是否认证";
+    data7.initialValue = @"未认证";
+    data7.type = TCCellTypeCertificate;
+    [_cellItemArray addObject:data7];
+    
     /*
     TCCellData *data5 = [TCCellData new];
     data5.title = @"性别";
@@ -125,6 +134,8 @@
     [self.tableView registerNib:dateCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_DATE];
     UINib *textCellNib = [UINib nibWithNibName:@"TCTextTableViewCell" bundle:nil];
     [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_TEXT];
+    UINib *certificateCellNib = [UINib nibWithNibName:@"TCCertificateTableViewCell" bundle:nil];
+    [self.tableView registerNib:certificateCellNib forCellReuseIdentifier:PROFILE_CELL_CERTIFICATE];
     self.tableView.tableFooterView = [UIView new];
     
 }
@@ -172,6 +183,12 @@
     }else if(data.type == TCCellTypeText)
     {
         TCTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_TEXT forIndexPath:indexPath];
+        cell.fatherViewController = self;
+        cell.data = data;
+        return cell;
+    }else if(data.type == TCCellTypeCertificate)
+    {
+        TCCertificateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROFILE_CELL_CERTIFICATE forIndexPath:indexPath];
         cell.fatherViewController = self;
         cell.data = data;
         return cell;

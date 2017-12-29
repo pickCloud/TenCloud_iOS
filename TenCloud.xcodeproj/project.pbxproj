@@ -80,6 +80,8 @@
 		A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385951FE8BD9C00EC0EC8 /* TCStartServerRequest.m */; };
 		A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */; };
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
+		A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */; };
+		A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */; };
 		A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */; };
 		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
 		A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */; };
@@ -382,6 +384,9 @@
 		A03385981FE8E3C500EC0EC8 /* TCServerStateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerStateTableViewCell.h; sourceTree = "<group>"; };
 		A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerStateTableViewCell.m; sourceTree = "<group>"; };
 		A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerStateTableViewCell.xib; sourceTree = "<group>"; };
+		A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCertificateTableViewCell.h; sourceTree = "<group>"; };
+		A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCertificateTableViewCell.m; sourceTree = "<group>"; };
+		A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCertificateTableViewCell.xib; sourceTree = "<group>"; };
 		A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDeleteServerRequest.m; sourceTree = "<group>"; };
 		A06D12061FEA529C00722C76 /* TCDeleteServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeleteServerRequest.h; sourceTree = "<group>"; };
 		A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSearchRequest.h; sourceTree = "<group>"; };
@@ -2523,6 +2528,9 @@
 		A0A86B491FF3926500D1D58D /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */,
+				A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */,
+				A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2866,6 +2874,7 @@
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
+				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
@@ -3191,6 +3200,7 @@
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
 				A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */,
+				A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */,
 				A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,
