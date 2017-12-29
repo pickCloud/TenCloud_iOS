@@ -11,6 +11,8 @@
 #import "TCCorpListRequest.h"
 #import "TCAddCorpViewController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCCorpHomeViewController.h"
+#import "TCListCorp+CoreDataClass.h"
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
@@ -100,11 +102,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServer:server];
-    [self.navigationController pushViewController:detailVC animated:YES];
-     */
+    __weak __typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业账号?"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *switchAction = [UIAlertAction actionWithTitle:@"切换" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [MMProgressHUD showWithStatus:@"切换账号中"];
+        TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:indexPath.row];
+        UIViewController *homeVC = nil;
+        homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
+        NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+        [newVCS removeAllObjects];
+        [newVCS addObject:homeVC];
+        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+        [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:switchAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

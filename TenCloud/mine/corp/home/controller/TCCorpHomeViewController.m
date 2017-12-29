@@ -100,8 +100,6 @@
             {
                 [MMProgressHUD showWithStatus:@"切换账号中"];
                 TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
-                //NSLog(@"切换到企业账号%@ id%lld",selectedCorp.name, selectedCorp.cid);
-                //NSLog(@"comn:%@",selectedCorp.company_name);
                 UIViewController *homeVC = nil;
                 if (selectedIndex == 0)
                 {
