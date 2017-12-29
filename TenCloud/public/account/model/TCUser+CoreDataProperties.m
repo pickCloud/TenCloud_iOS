@@ -15,6 +15,13 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCUser"];
 }
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"userID":@"id"
+             };
+}
+
 @dynamic birthday;
 @dynamic create_time;
 @dynamic email;

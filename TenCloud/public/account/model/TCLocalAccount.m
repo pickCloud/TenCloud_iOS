@@ -121,7 +121,7 @@
     account.gender = user.gender;
     account.birthday = user.birthday;
     account.createTime = user.create_time;
-    
+    NSLog(@"user id:%ld",user.userID);
     if (!account.name || account.name.length == 0)
     {
         account.name = [NSString stringWithFormat:@"用户%lld",user.userID];
