@@ -38,7 +38,7 @@
     self.view.backgroundColor = THEME_BACKGROUND_COLOR;
     //self.edgesForExtendedLayout = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
     
-    if (self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count >= 1) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         [button addTarget:self action:@selector(popAction) forControlEvents:UIControlEventTouchDown];
@@ -60,8 +60,11 @@
          
          button.imageEdgeInsets = UIEdgeInsetsZero;
          */
+        CGFloat btnOffset = TCSCALE(16);
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
         UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.leftBarButtonItem = backButtonItem;
+        //self.navigationItem.backBarButtonItem = nil;
         //self.navigationItem.backBarButtonItem = backButtonItem;
         
         //self.navigationController.interactivePopGestureRecognizer.delegate = self;

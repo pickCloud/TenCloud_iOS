@@ -31,6 +31,7 @@
         //[button setBackgroundColor:[UIColor redColor]];
         
         /*
+         //deprecated
         if (button.bounds.size.width < 40) {
             CGFloat width = 40 / button.bounds.size.height * button.bounds.size.width;
             button.bounds = CGRectMake(0, 0, width, 40);
@@ -43,12 +44,24 @@
         button.imageEdgeInsets = UIEdgeInsetsZero;
          */
         
-        //CGFloat btnOffset = TCSCALE(8);
-        //button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
+        
+        CGFloat btnOffset = TCSCALE(18);
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
         UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.leftBarButtonItem = backButtonItem;
         
         /*
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        self.navigationController.navigationBar.tintColor =
+        [UIColor colorWithRed:0.99 green:0.50 blue:0.09 alpha:1.00];
+        //主要是以下两个图片设置
+        self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"public_back"];
+        //self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"public_back"];
+        self.navigationItem.backBarButtonItem = backItem;
+        */
+        
+        /*
+        //deprecated
         UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         fixedButton.width = -15;
         //self.navigationItem.leftBarButtonItems = @[fixedButton, backButtonItem];

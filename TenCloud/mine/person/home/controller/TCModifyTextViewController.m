@@ -40,7 +40,12 @@
     UIBarButtonItem *reviewButton = [[UIBarButtonItem alloc] initWithCustomView:textButton];
     self.navigationItem.rightBarButtonItem = reviewButton;
     
-    NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:_placeHolder   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    NSString *placeHolder = _placeHolder;
+    if (placeHolder == nil || placeHolder.length == 0)
+    {
+        placeHolder = @"请输入名称";
+    }
+    NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:placeHolder   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _textField.attributedPlaceholder = phonePlaceHolderStr;
     _textField.text = _initialValue;
     
@@ -92,23 +97,21 @@
         } failure:^(NSString *message) {
             [MBProgressHUD showError:message toView:nil];
         }];
-        
-        /*
-        TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
-        [request startWithSuccess:^(NSString *message) {
-            if (weakSelf.valueChangedBlock)
-            {
-                weakSelf.valueChangedBlock(weakSelf, newValue);
-                [weakSelf.navigationController popViewControllerAnimated:YES];
-            }
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
-        }];
-         */
     }else
     {
         TCModifyUserProfileRequest *request = [[TCModifyUserProfileRequest alloc] initWithKey:_keyName value:newValue];
         [request startWithSuccess:^(NSString *message) {
+            if ([_keyName isEqualToString:@"name"])
+            {
+                [[TCLocalAccount shared] setName:newValue];
+                [[TCLocalAccount shared] save];
+                [[TCLocalAccount shared] modified];
+            }
+            if ([_keyName isEqualToString:@"email"])
+            {
+                [[TCLocalAccount shared] setEmail:newValue];
+                [[TCLocalAccount shared] save];
+            }
             if (weakSelf.valueChangedBlock)
             {
                 weakSelf.valueChangedBlock(weakSelf, newValue);

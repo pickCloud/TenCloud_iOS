@@ -32,6 +32,18 @@
     [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];
+    
+    /*
+     //disappear at iPhoneX
+    UIImage *backButtonImage = [[UIImage imageNamed:@"public_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 40, 0, 0)
+                                                                                           resizingMode:UIImageResizingModeTile];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage
+                                                      forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    //参考自定义文字部分
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin)
+                                                         forBarMetrics:UIBarMetricsDefault];
+     */
 
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -47,6 +59,22 @@
     }
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
+    
+    //set navigationbar back button
+    /*
+     //fail here
+    UIImage *backBtnImg = [UIImage imageNamed:@"public_back"];
+    [[UINavigationBar appearance] setBackIndicatorImage:backBtnImg];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backBtnImg];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
+    if(@available(iOS 11, *)) {
+        [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor clearColor]} forState:UIControlStateNormal];
+        [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor clearColor]} forState:UIControlStateHighlighted];
+        
+    } else {
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-60, -60) forBarMetrics:UIBarMetricsDefault];
+    }
+     */
     
     return YES;
 }
