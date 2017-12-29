@@ -13,7 +13,7 @@
 - (instancetype) initWithName:(NSString *)name contact:(NSString *)contact
                       phone:(NSString *)phone;
 
-- (void) startWithSuccess:(void(^)(NSString *message))success
+- (void) startWithSuccess:(void(^)(NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure;
 
 @end

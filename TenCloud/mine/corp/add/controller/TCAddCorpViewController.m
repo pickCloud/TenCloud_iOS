@@ -12,6 +12,7 @@
 #import "TCSpacingTextField.h"
 #import "TCAddCorpRequest.h"
 #import "TCSuccessResultViewController.h"
+#import "TCCorpHomeViewController.h"
 
 @interface TCAddCorpViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -98,13 +99,20 @@
     __weak __typeof(self) weakSelf = self;
     [MMProgressHUD showWithStatus:@"添加中..."];
     TCAddCorpRequest *request = [[TCAddCorpRequest alloc] initWithName:_nameField.text contact:_contactField.text phone:_phoneField.plainPhoneNum];
-    [request startWithSuccess:^(NSString *message) {
+    [request startWithSuccess:^(NSInteger cid) {
         [MMProgressHUD dismiss];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_CORP object:nil];
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"创建成功" desc:@"恭喜您成为公司管理员"];
         successVC.buttonTitle = @"查看我的企业";
         successVC.finishBlock = ^(UIViewController *viewController) {
-            [viewController.navigationController popViewControllerAnimated:YES];
+            [MMProgressHUD showWithStatus:@"切换账号中"];
+            TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+            NSArray *oldVCS = weakSelf.navigationController.viewControllers;
+            NSMutableArray *vcs = [NSMutableArray arrayWithArray:oldVCS];
+            [vcs removeAllObjects];
+            [vcs addObject:corpHome];
+            [viewController.navigationController setViewControllers:vcs animated:YES];
+            [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
         };
         NSArray *viewControllers = self.navigationController.viewControllers;
         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];

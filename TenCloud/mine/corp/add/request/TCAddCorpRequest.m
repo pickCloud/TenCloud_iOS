@@ -29,13 +29,18 @@
     return self;
 }
 
-- (void) startWithSuccess:(void(^)(NSString *message))success
+- (void) startWithSuccess:(void(^)(NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+        NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+        if (dataDict)
+        {
+            NSNumber *cidNum = [dataDict objectForKey:@"cid"];
+            success ? success (cidNum.integerValue) : nil;
+        }
         //NSString *resToken = [dataDict objectForKey:@"token"];
-        success ? success(@"添加成功") : nil;
+        //success ? success(@"添加成功") : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
@@ -54,7 +59,8 @@
 {
     return @{@"name":_name,
              @"contact":_contact,
-             @"mobile":_phone
+             @"mobile":_phone,
+             @"cid":@(0)
              };
 }
 
