@@ -45,17 +45,39 @@
 - (void) setCorp:(TCCorp*)corp
 {
     _nameLabel.text = corp.company_name;
-    _applyTimeLabel.text = corp.create_time;
-    _reviewTimeLabel.text = corp.update_time;
+    NSRange dateRange = NSMakeRange(0, 11);
+    if (corp.create_time && corp.create_time.length > 0)
+    {
+        NSString *createDate = [corp.create_time substringWithRange:dateRange];
+        //NSString *createDateStr = [NSString stringWithFormat:@"创建时间 %@",createDate];
+        NSString *createDateStr = [NSString stringWithFormat:@"创建时间  %@",createDate];
+        _applyTimeLabel.text = createDateStr;
+    }
+    if (corp.update_time && corp.update_time.length > 0)
+    {
+        NSString *reviewDate = [corp.update_time substringWithRange:dateRange];
+        NSString *reviewDateStr = [NSString stringWithFormat:@"审核时间  %@",reviewDate];
+        _reviewTimeLabel.text = reviewDateStr;
+    }
+    //_applyTimeLabel.text = corp.create_time;
+    //_reviewTimeLabel.text = corp.update_time;
+    
     if (corp.status == 1)
     {
         _statusLabel.text = @"审核通过";
+        _statusLabel.textColor = STATE_PASS_COLOR;
     }else if(corp.status == -1)
     {
-        _statusLabel.text = @"审核拒绝";
-    }else
+        _statusLabel.text = @"未通过审核";
+        _statusLabel.textColor = STATE_ERROR_COLOR;
+    }else if(corp.status == 0)
     {
         _statusLabel.text = @"审核中";
+        _statusLabel.textColor = THEME_TINT_COLOR;
+    }else
+    {
+        _statusLabel.text = @"初创建";
+        _statusLabel.textColor = THEME_TINT_COLOR;
     }
 }
 
