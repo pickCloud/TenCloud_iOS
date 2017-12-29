@@ -8,13 +8,15 @@
 
 #import "TCMyCorpTableViewCell.h"
 #import "TCCorp+CoreDataClass.h"
+#import "TCStaffLabel.h"
 
 @interface TCMyCorpTableViewCell()
-@property (nonatomic, weak) IBOutlet    UIView      *bgView;
-@property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
-@property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
-@property (nonatomic, weak) IBOutlet    UILabel     *applyTimeLabel;
-@property (nonatomic, weak) IBOutlet    UILabel     *reviewTimeLabel;
+@property (nonatomic, weak) IBOutlet    UIView          *bgView;
+@property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *statusLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *applyTimeLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *reviewTimeLabel;
+@property (nonatomic, weak) IBOutlet    TCStaffLabel    *staffLabel;
 - (void) updateUI;
 @end
 
@@ -78,6 +80,13 @@
     {
         _statusLabel.text = @"初创建";
         _statusLabel.textColor = THEME_TINT_COLOR;
+    }
+    if (corp.is_admin == true)
+    {
+        _staffLabel.type = TCStaffTypeAdmin;
+    }else
+    {
+        _staffLabel.type = TCStaffTypeStaff;
     }
 }
 

@@ -52,10 +52,18 @@
                                 <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 管理员 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmU-fy-QY6" customClass="TCStaffLabel">
+                                <rect key="frame" x="161" y="18.5" width="37" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="guc-DT-p2A" firstAttribute="centerY" secondItem="igP-iC-9N7" secondAttribute="centerY" multiplier="0.75" id="0Hh-A9-6cD"/>
+                            <constraint firstItem="nmU-fy-QY6" firstAttribute="centerY" secondItem="guc-DT-p2A" secondAttribute="centerY" id="3Hm-iO-3w6"/>
+                            <constraint firstItem="nmU-fy-QY6" firstAttribute="leading" secondItem="guc-DT-p2A" secondAttribute="trailing" constant="8" id="8Hr-UJ-tPn"/>
                             <constraint firstItem="UGS-el-d6k" firstAttribute="centerY" secondItem="b2Q-wt-ZEn" secondAttribute="centerY" id="OhI-j2-KmM"/>
                             <constraint firstItem="qmY-mA-Y1D" firstAttribute="centerY" secondItem="guc-DT-p2A" secondAttribute="centerY" id="R4E-C6-zal"/>
                             <constraint firstItem="guc-DT-p2A" firstAttribute="leading" secondItem="igP-iC-9N7" secondAttribute="leading" constant="17" id="SdM-ti-eMY"/>
@@ -81,6 +89,7 @@
                 <outlet property="bgView" destination="igP-iC-9N7" id="8ph-CS-IZ0"/>
                 <outlet property="nameLabel" destination="guc-DT-p2A" id="Ca3-7q-0qM"/>
                 <outlet property="reviewTimeLabel" destination="UGS-el-d6k" id="hWI-Dk-ZJ0"/>
+                <outlet property="staffLabel" destination="nmU-fy-QY6" id="iCg-Uk-zjf"/>
                 <outlet property="statusLabel" destination="qmY-mA-Y1D" id="FKu-vx-tOl"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="73"/>

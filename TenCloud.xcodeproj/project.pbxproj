@@ -82,6 +82,7 @@
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
 		A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */; };
 		A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */; };
+		A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */; };
 		A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */; };
 		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
 		A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */; };
@@ -387,6 +388,8 @@
 		A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCertificateTableViewCell.h; sourceTree = "<group>"; };
 		A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCertificateTableViewCell.m; sourceTree = "<group>"; };
 		A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCertificateTableViewCell.xib; sourceTree = "<group>"; };
+		A069EF2B1FF63E6B00C126CD /* TCStaffLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffLabel.h; sourceTree = "<group>"; };
+		A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffLabel.m; sourceTree = "<group>"; };
 		A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDeleteServerRequest.m; sourceTree = "<group>"; };
 		A06D12061FEA529C00722C76 /* TCDeleteServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeleteServerRequest.h; sourceTree = "<group>"; };
 		A06D12081FEAB2A600722C76 /* TCServerSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSearchRequest.h; sourceTree = "<group>"; };
@@ -2401,6 +2404,8 @@
 				A0A86B5D1FF398EF00D1D58D /* TCMyCorpTableViewCell.h */,
 				A0A86B5E1FF398EF00D1D58D /* TCMyCorpTableViewCell.m */,
 				A0A86B5F1FF398EF00D1D58D /* TCMyCorpTableViewCell.xib */,
+				A069EF2B1FF63E6B00C126CD /* TCStaffLabel.h */,
+				A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3101,6 +3106,7 @@
 				A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
+				A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */,
 				A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */,
 				A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */,
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
