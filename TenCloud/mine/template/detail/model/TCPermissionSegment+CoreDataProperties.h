@@ -1,5 +1,5 @@
 //
-//  TCTemplateSection+CoreDataProperties.h
+//  TCPermissionSegment+CoreDataProperties.h
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
@@ -7,14 +7,14 @@
 //
 //
 
-#import "TCTemplateSection+CoreDataClass.h"
+#import "TCPermissionSegment+CoreDataClass.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TCTemplateSection (CoreDataProperties)
+@interface TCPermissionSegment (CoreDataProperties)
 
-+ (NSFetchRequest<TCTemplateSection *> *)fetchRequest;
++ (NSFetchRequest<TCPermissionSegment *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, retain) NSObject *data;

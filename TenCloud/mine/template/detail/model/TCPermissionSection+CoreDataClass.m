@@ -1,5 +1,5 @@
 //
-//  TCTemplateSection+CoreDataClass.m
+//  TCPermissionSection+CoreDataClass.m
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
@@ -7,8 +7,8 @@
 //
 //
 
-#import "TCTemplateSection+CoreDataClass.h"
+#import "TCPermissionSection+CoreDataClass.h"
 
-@implementation TCTemplateSection
+@implementation TCPermissionSection
 
 @end

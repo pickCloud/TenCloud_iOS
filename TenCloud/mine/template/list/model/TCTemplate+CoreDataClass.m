@@ -1,5 +1,5 @@
 //
-//  TCTemplateChunk+CoreDataClass.m
+//  TCTemplate+CoreDataClass.m
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
@@ -7,8 +7,8 @@
 //
 //
 
-#import "TCTemplateChunk+CoreDataClass.h"
+#import "TCTemplate+CoreDataClass.h"
 
-@implementation TCTemplateChunk
+@implementation TCTemplate
 
 @end

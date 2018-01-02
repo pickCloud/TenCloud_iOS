@@ -1,5 +1,5 @@
 //
-//  TCTemplateSegment+CoreDataClass.h
+//  TCPermissionSegment+CoreDataClass.h
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
@@ -14,10 +14,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TCTemplateSegment : NSManagedObject
+@interface TCPermissionSegment : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "TCTemplateSegment+CoreDataProperties.h"
+#import "TCPermissionSegment+CoreDataProperties.h"

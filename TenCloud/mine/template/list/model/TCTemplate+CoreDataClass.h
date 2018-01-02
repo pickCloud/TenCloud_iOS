@@ -1,5 +1,5 @@
 //
-//  TCTemplateChunk+CoreDataClass.h
+//  TCTemplate+CoreDataClass.h
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
@@ -10,14 +10,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSObject;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TCTemplateChunk : NSManagedObject
+@interface TCTemplate : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "TCTemplateChunk+CoreDataProperties.h"
+#import "TCTemplate+CoreDataProperties.h"

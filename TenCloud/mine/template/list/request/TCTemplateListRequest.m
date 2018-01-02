@@ -1,21 +1,19 @@
 //
-//  TCRawTemplateRequest.m
+//  TCTemplateListRequest.m
 //
 //
 //  Created by huangdx on 2017/12/05.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCRawTemplateRequest.h"
-//#import "TCCorp+CoreDataClass.h"
-//#import "TCTemplateSegment+CoreDataClass.h"
-#import "TCPermissionSegment+CoreDataClass.h"
+#import "TCTemplateListRequest.h"
+#import "TCTemplate+CoreDataClass.h"
 
-@interface TCRawTemplateRequest()
+@interface TCTemplateListRequest()
 @property (nonatomic, assign)   NSInteger     corpID;
 @end
 
-@implementation TCRawTemplateRequest
+@implementation TCTemplateListRequest
 
 - (instancetype) initWithCorpID:(NSInteger)cid
 {
@@ -27,16 +25,17 @@
     return self;
 }
 
-- (void) startWithSuccess:(void(^)(NSArray<TCPermissionSegment *> *segArray))success
+- (void) startWithSuccess:(void(^)(NSArray<TCTemplate *> *templateArray))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSArray *dataArray = [request.responseJSONObject objectForKey:@"data"];
+        NSLog(@"dta array:%@",dataArray);
         if (dataArray)
         {
             NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-            NSArray *segmentArray = [TCPermissionSegment mj_objectArrayWithKeyValuesArray:dataArray context:context];
-            success ? success (segmentArray) : nil;
+            NSArray *tmplArray = [TCTemplate mj_objectArrayWithKeyValuesArray:dataArray context:context];
+            success ? success (tmplArray) : nil;
         }
         /*
         if (corpDictArray && corpDictArray.count >= 1)
@@ -54,7 +53,7 @@
 }
 
 - (NSString *)requestUrl {
-    NSString *url = [NSString stringWithFormat:@"/api/permission/resource/%ld",_corpID];
+    NSString *url = [NSString stringWithFormat:@"/api/permission/template/list/%ld",_corpID];
     return url;
 }
 

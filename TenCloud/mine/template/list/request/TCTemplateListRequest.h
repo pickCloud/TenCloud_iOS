@@ -1,5 +1,5 @@
 //
-//  TCRawTemplateRequest.h
+//  TCTemplateListRequest.h
 //  功能:获取权限模版详细配置数据
 //
 //  Created by huangdx on 2017/12/05.
@@ -8,12 +8,12 @@
 
 #import "YTKRequest.h"
 
-@class TCPermissionSegment;
-@interface TCRawTemplateRequest : YTKRequest
+@class TCTemplate;
+@interface TCTemplateListRequest : YTKRequest
 
 - (instancetype) initWithCorpID:(NSInteger)cid;
 
-- (void) startWithSuccess:(void(^)(NSArray<TCPermissionSegment *> *segArray))success
+- (void) startWithSuccess:(void(^)(NSArray<TCTemplate *> *templateArray))success
                   failure:(void(^)(NSString *message))failure;
 
 @end
