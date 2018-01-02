@@ -14,6 +14,7 @@
 #import "TCCurrentCorp.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "TCTemplateTableViewController.h"
+#import "TCEmptyTemplate.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -70,6 +71,7 @@
         NSLog(@"weak com:%@",weakSelf.corpInfo.name);
         [weakSelf stopLoading];
         [[TCCurrentCorp shared] setSelectedCorp:corp];
+        [[TCEmptyTemplate shared] print];
         [weakSelf updateCorpInfoUI];
     } failure:^(NSString *message) {
         

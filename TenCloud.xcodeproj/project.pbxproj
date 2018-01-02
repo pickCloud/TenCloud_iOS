@@ -51,6 +51,7 @@
 		A019A7441FFB6A6900216660 /* TCTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A7411FFB6A6900216660 /* TCTemplateTableViewCell.xib */; };
 		A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7451FFB818600216660 /* TCAddTemplateViewController.m */; };
 		A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A7461FFB818600216660 /* TCAddTemplateViewController.xib */; };
+		A019A74C1FFB976B00216660 /* TCEmptyTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A74B1FFB976B00216660 /* TCEmptyTemplate.m */; };
 		A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */; };
 		A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A9BC21FF50EC500BD450D /* TCModifyPhoneViewController.m */; };
 		A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01A9BC31FF50EC500BD450D /* TCModifyPhoneViewController.xib */; };
@@ -348,6 +349,8 @@
 		A019A7451FFB818600216660 /* TCAddTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddTemplateViewController.m; sourceTree = "<group>"; };
 		A019A7461FFB818600216660 /* TCAddTemplateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAddTemplateViewController.xib; sourceTree = "<group>"; };
 		A019A7471FFB818700216660 /* TCAddTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddTemplateViewController.h; sourceTree = "<group>"; };
+		A019A74A1FFB976B00216660 /* TCEmptyTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEmptyTemplate.h; sourceTree = "<group>"; };
+		A019A74B1FFB976B00216660 /* TCEmptyTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEmptyTemplate.m; sourceTree = "<group>"; };
 		A01A9BBC1FF50D7200BD450D /* TCResetPhoneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCResetPhoneRequest.h; sourceTree = "<group>"; };
 		A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCResetPhoneRequest.m; sourceTree = "<group>"; };
 		A01A9BC11FF50EC500BD450D /* TCModifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPhoneViewController.h; sourceTree = "<group>"; };
@@ -824,6 +827,8 @@
 		A019A7021FFB302D00216660 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A019A74A1FFB976B00216660 /* TCEmptyTemplate.h */,
+				A019A74B1FFB976B00216660 /* TCEmptyTemplate.m */,
 				A019A7281FFB627C00216660 /* TCTemplate+CoreDataClass.h */,
 				A019A7291FFB627C00216660 /* TCTemplate+CoreDataClass.m */,
 				A019A72A1FFB627C00216660 /* TCTemplate+CoreDataProperties.h */,
@@ -3219,6 +3224,7 @@
 				A0A86B9B1FF4F52D00D1D58D /* TCListCorp+CoreDataProperties.m in Sources */,
 				A0A86B541FF3946200D1D58D /* TCCorp+CoreDataProperties.m in Sources */,
 				A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */,
+				A019A74C1FFB976B00216660 /* TCEmptyTemplate.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */,
