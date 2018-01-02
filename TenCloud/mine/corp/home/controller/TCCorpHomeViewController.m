@@ -13,6 +13,7 @@
 #import "TCPersonHomeViewController.h"
 #import "TCCurrentCorp.h"
 #import "TCListCorp+CoreDataClass.h"
+#import "TCTemplateTableViewController.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -184,6 +185,10 @@
         if (indexPath.row == 0)
         {
             
+        }else if(indexPath.row == 1)
+        {
+            TCTemplateTableViewController *templateVC = [TCTemplateTableViewController new];
+            [self.navigationController pushViewController:templateVC animated:YES];
         }else if(indexPath.row == 2)
         {
             TCCustomerServiceViewController *serviceVC = [TCCustomerServiceViewController new];

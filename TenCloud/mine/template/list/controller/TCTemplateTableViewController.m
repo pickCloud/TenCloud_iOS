@@ -1,0 +1,58 @@
+//
+//  TCTemplateTableViewController.m
+//  TenCloud
+//
+//  Created by huangdx on 2018/1/2.
+//  Copyright © 2018年 10.com. All rights reserved.
+//
+
+#import "TCTemplateTableViewController.h"
+
+#import "TCCurrentCorp.h"
+#import "TCRawTemplateRequest.h"
+
+@interface TCTemplateTableViewController ()
+
+@end
+
+@implementation TCTemplateTableViewController
+
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"权限模版管理";
+    
+    NSInteger cid = [[TCCurrentCorp shared] cid];
+    TCRawTemplateRequest *request = [[TCRawTemplateRequest alloc] initWithCorpID:cid];
+    [request startWithSuccess:^(NSArray<TCTemplateSegment*> *segArray) {
+        NSLog(@"seg array:%@",segArray);
+    } failure:^(NSString *message) {
+        
+    }];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
