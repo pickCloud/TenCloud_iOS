@@ -12,6 +12,7 @@
 #import "TCResourceHomeViewController.h"
 #import "TCDiscoverHomeViewController.h"
 #import "TCMineHomeViewController.h"
+#import "TCCurrentCorp.h"
 
 //test
 #import "TCPersonHomeViewController.h"
@@ -71,8 +72,16 @@
     [self addChildViewController:discoverHomeNav];
     
     
-    //TCMineHomeViewController *mineHomeVC = [TCMineHomeViewController new];
-    TCPersonHomeViewController *mineHomeVC = [TCPersonHomeViewController new];
+    UIViewController *mineHomeVC = nil;
+    TCCurrentCorp *corp = [TCCurrentCorp shared];
+    if (corp && corp.exist)
+    {
+        mineHomeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corp.cid];
+        
+    }else
+    {
+        mineHomeVC = [TCPersonHomeViewController new];
+    }
     UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
     UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine_selected"];
     UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -80,16 +89,6 @@
     mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
     mineHomeNav.tabBarItem.title = @"我的";
     [self addChildViewController:mineHomeNav];
-     /*
-    TCCorpHomeViewController *mineHomeVC = [[TCCorpHomeViewController alloc] initWithCorpID:27];
-    UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
-    UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine_selected"];
-    UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    mineHomeNav.tabBarItem.image = mineIcon;
-    mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
-    mineHomeNav.tabBarItem.title = @"我的";
-    [self addChildViewController:mineHomeNav];
-     */
 }
 
 - (void)didReceiveMemoryWarning {

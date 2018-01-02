@@ -14,7 +14,7 @@
 - (void) corpModified:(TCCurrentCorp*)corp;
 @end
 
-@interface TCCurrentCorp : NSObject
+@interface TCCurrentCorp : NSObject <NSCoding>
 
 + (instancetype) shared;
 
@@ -33,6 +33,10 @@
 
 - (void) removeObserver:(id<TCCurrentCorpDelegate>)obs;
 
+- (BOOL) exist;
+
 - (void) modified;
+
+- (void) save;
 
 @end

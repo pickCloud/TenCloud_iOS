@@ -45,6 +45,8 @@
         }
         [self sendProviderConfigurationRequest];
         
+        
+        
     }
     return self;
 }
@@ -52,7 +54,6 @@
 - (void) sendProviderConfigurationRequest
 {
     __weak __typeof(self) weakSelf = self;
-    NSLog(@"发送请求pr");
     TCClusterProviderRequest *requst = [[TCClusterProviderRequest alloc] initWithClusterID:@"1"];
     [requst startWithSuccess:^(NSArray<TCClusterProvider *> *aProviderArray) {
         weakSelf.needRetry = NO;
@@ -67,22 +68,6 @@
                        withObject:nil afterDelay:1.5];
         }
     }];
-    
-    /*
-    [YEConfigurationRequest requestWithSuccess:^(NSDictionary *dataDict) {
-        NSLog(@"获取conf dict2:%@",dataDict);
-        weakSelf.needRetry = NO;
-        [self parseDictionaryData:dataDict];
-    } failure:^(NSString *message) {
-        NSLog(@"get conf failed message:%@",message);
-        if (weakSelf.needRetry)
-        {
-            //[self sendConfigurationRequest];
-            NSLog(@"等待重试");
-            [self performSelector:@selector(sendConfigurationRequest) withObject:nil afterDelay:1.5];
-        }
-    }];
-     */
 }
 
 - (void) parseDictionaryData:(NSDictionary*)dict
