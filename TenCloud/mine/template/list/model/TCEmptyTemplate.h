@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class TCClusterProvider;
+//@class TCClusterProvider;
 @interface TCEmptyTemplate : NSObject
 
 + (instancetype) shared;

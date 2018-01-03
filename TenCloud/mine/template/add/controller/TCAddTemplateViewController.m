@@ -12,6 +12,8 @@
 #import "TCAddCorpRequest.h"
 #import "TCSuccessResultViewController.h"
 #import "TCCorpHomeViewController.h"
+#import "TCPermissionDetailViewController.h"
+#import "TCEditingTemplate.h"
 
 @interface TCAddTemplateViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -42,7 +44,7 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-    
+    [[TCEditingTemplate shared] reset];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,5 +109,8 @@
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
     NSLog(@"on edit permission template");
+    TCPermissionDetailViewController *detailVC = [TCPermissionDetailViewController new];
+    //[self.navigationController pushViewController:detailVC animated:YES];
+    [self presentViewController:detailVC animated:YES completion:nil];
 }
 @end

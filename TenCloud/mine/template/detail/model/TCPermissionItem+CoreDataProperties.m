@@ -2,7 +2,7 @@
 //  TCPermissionItem+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/2.
+//  Created by huangdx on 2018/1/3.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -15,8 +15,9 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCPermissionItem"];
 }
 
-@dynamic permID;
-@dynamic name;
 @dynamic group;
+@dynamic name;
+@dynamic permID;
+@dynamic fatherItem;
 
 @end

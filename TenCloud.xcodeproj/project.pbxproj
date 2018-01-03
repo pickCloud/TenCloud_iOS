@@ -36,17 +36,11 @@
 		A019A7071FFB313F00216660 /* TCRawTemplateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7061FFB313F00216660 /* TCRawTemplateRequest.m */; };
 		A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */; };
 		A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */; };
-		A019A71D1FFB595700216660 /* TCPermissionItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A70E1FFB595700216660 /* TCPermissionItem+CoreDataClass.m */; };
-		A019A71E1FFB595700216660 /* TCPermissionItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7101FFB595700216660 /* TCPermissionItem+CoreDataProperties.m */; };
 		A019A7271FFB5F6300216660 /* TCTemplateListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7251FFB5F6300216660 /* TCTemplateListRequest.m */; };
 		A019A72C1FFB627C00216660 /* TCTemplate+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7291FFB627C00216660 /* TCTemplate+CoreDataClass.m */; };
 		A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A72B1FFB627C00216660 /* TCTemplate+CoreDataProperties.m */; };
 		A019A73A1FFB630800216660 /* TCPermissionSegment+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A72F1FFB630800216660 /* TCPermissionSegment+CoreDataClass.m */; };
 		A019A73B1FFB630800216660 /* TCPermissionSegment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7311FFB630800216660 /* TCPermissionSegment+CoreDataProperties.m */; };
-		A019A73C1FFB630800216660 /* TCPermissionSection+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7331FFB630800216660 /* TCPermissionSection+CoreDataClass.m */; };
-		A019A73D1FFB630800216660 /* TCPermissionSection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7351FFB630800216660 /* TCPermissionSection+CoreDataProperties.m */; };
-		A019A73E1FFB630800216660 /* TCPermissionChunk+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7371FFB630800216660 /* TCPermissionChunk+CoreDataClass.m */; };
-		A019A73F1FFB630800216660 /* TCPermissionChunk+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7391FFB630800216660 /* TCPermissionChunk+CoreDataProperties.m */; };
 		A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7401FFB6A6900216660 /* TCTemplateTableViewCell.m */; };
 		A019A7441FFB6A6900216660 /* TCTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A7411FFB6A6900216660 /* TCTemplateTableViewCell.xib */; };
 		A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7451FFB818600216660 /* TCAddTemplateViewController.m */; };
@@ -93,6 +87,25 @@
 		A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */; };
 		A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */; };
 		A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */; };
+		A031B5C41FFBCFAF00B4F448 /* TCPermissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5C21FFBCFAF00B4F448 /* TCPermissionDetailViewController.m */; };
+		A031B5C51FFBCFAF00B4F448 /* TCPermissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A031B5C31FFBCFAF00B4F448 /* TCPermissionDetailViewController.xib */; };
+		A031B5C91FFBDB4100B4F448 /* TCPermissionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5C71FFBDB4100B4F448 /* TCPermissionTableViewController.m */; };
+		A031B5CA1FFBDB4100B4F448 /* TCPermissionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A031B5C81FFBDB4100B4F448 /* TCPermissionTableViewController.xib */; };
+		A031B5D41FFC2FA600B4F448 /* TCPermissionFoldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A031B5D11FFC2FA500B4F448 /* TCPermissionFoldCell.xib */; };
+		A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5D31FFC2FA600B4F448 /* TCPermissionFoldCell.m */; };
+		A031B5D81FFC322300B4F448 /* TCEditingTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5D71FFC322300B4F448 /* TCEditingTemplate.m */; };
+		A031B5DC1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5DA1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m */; };
+		A031B5DD1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A031B5DB1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib */; };
+		A031B5E21FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5DF1FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m */; };
+		A031B5E31FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5E11FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m */; };
+		A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A031B5E41FFC673500B4F448 /* TCPermissionItemCell.xib */; };
+		A031B5E81FFC673600B4F448 /* TCPermissionItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5E51FFC673500B4F448 /* TCPermissionItemCell.m */; };
+		A031B5F31FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5F01FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m */; };
+		A031B5F41FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5F21FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m */; };
+		A031B5F91FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5F61FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.m */; };
+		A031B5FA1FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5F81FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m */; };
+		A031B5FF1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5FC1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m */; };
+		A031B6001FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5FE1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m */; };
 		A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033858C1FE8A70700EC0EC8 /* TCServerStatusRequest.m */; };
 		A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385901FE8B60800EC0EC8 /* TCRebootServerRequest.m */; };
 		A03385941FE8BB2000EC0EC8 /* TCStopServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385921FE8BB2000EC0EC8 /* TCStopServerRequest.m */; };
@@ -321,10 +334,6 @@
 		A019A7081FFB31E100216660 /* TCTemplateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewController.h; sourceTree = "<group>"; };
 		A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTemplateTableViewController.m; sourceTree = "<group>"; };
 		A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTemplateTableViewController.xib; sourceTree = "<group>"; };
-		A019A70D1FFB595700216660 /* TCPermissionItem+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionItem+CoreDataClass.h"; sourceTree = "<group>"; };
-		A019A70E1FFB595700216660 /* TCPermissionItem+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataClass.m"; sourceTree = "<group>"; };
-		A019A70F1FFB595700216660 /* TCPermissionItem+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionItem+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A019A7101FFB595700216660 /* TCPermissionItem+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A019A7251FFB5F6300216660 /* TCTemplateListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTemplateListRequest.m; sourceTree = "<group>"; };
 		A019A7261FFB5F6300216660 /* TCTemplateListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTemplateListRequest.h; sourceTree = "<group>"; };
 		A019A7281FFB627C00216660 /* TCTemplate+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCTemplate+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -335,14 +344,6 @@
 		A019A72F1FFB630800216660 /* TCPermissionSegment+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSegment+CoreDataClass.m"; sourceTree = "<group>"; };
 		A019A7301FFB630800216660 /* TCPermissionSegment+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionSegment+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A019A7311FFB630800216660 /* TCPermissionSegment+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSegment+CoreDataProperties.m"; sourceTree = "<group>"; };
-		A019A7321FFB630800216660 /* TCPermissionSection+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionSection+CoreDataClass.h"; sourceTree = "<group>"; };
-		A019A7331FFB630800216660 /* TCPermissionSection+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSection+CoreDataClass.m"; sourceTree = "<group>"; };
-		A019A7341FFB630800216660 /* TCPermissionSection+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionSection+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A019A7351FFB630800216660 /* TCPermissionSection+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSection+CoreDataProperties.m"; sourceTree = "<group>"; };
-		A019A7361FFB630800216660 /* TCPermissionChunk+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionChunk+CoreDataClass.h"; sourceTree = "<group>"; };
-		A019A7371FFB630800216660 /* TCPermissionChunk+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionChunk+CoreDataClass.m"; sourceTree = "<group>"; };
-		A019A7381FFB630800216660 /* TCPermissionChunk+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionChunk+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A019A7391FFB630800216660 /* TCPermissionChunk+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionChunk+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A019A7401FFB6A6900216660 /* TCTemplateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTemplateTableViewCell.m; sourceTree = "<group>"; };
 		A019A7411FFB6A6900216660 /* TCTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCTemplateTableViewCell.xib; sourceTree = "<group>"; };
 		A019A7421FFB6A6900216660 /* TCTemplateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewCell.h; sourceTree = "<group>"; };
@@ -428,6 +429,39 @@
 		A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLoginViewController.xib; sourceTree = "<group>"; };
 		A02555B91FDBD4B400D16D22 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		A031B5C11FFBCFAF00B4F448 /* TCPermissionDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPermissionDetailViewController.h; sourceTree = "<group>"; };
+		A031B5C21FFBCFAF00B4F448 /* TCPermissionDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPermissionDetailViewController.m; sourceTree = "<group>"; };
+		A031B5C31FFBCFAF00B4F448 /* TCPermissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPermissionDetailViewController.xib; sourceTree = "<group>"; };
+		A031B5C61FFBDB4100B4F448 /* TCPermissionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPermissionTableViewController.h; sourceTree = "<group>"; };
+		A031B5C71FFBDB4100B4F448 /* TCPermissionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPermissionTableViewController.m; sourceTree = "<group>"; };
+		A031B5C81FFBDB4100B4F448 /* TCPermissionTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPermissionTableViewController.xib; sourceTree = "<group>"; };
+		A031B5D11FFC2FA500B4F448 /* TCPermissionFoldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCPermissionFoldCell.xib; sourceTree = "<group>"; };
+		A031B5D21FFC2FA500B4F448 /* TCPermissionFoldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPermissionFoldCell.h; sourceTree = "<group>"; };
+		A031B5D31FFC2FA600B4F448 /* TCPermissionFoldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPermissionFoldCell.m; sourceTree = "<group>"; };
+		A031B5D61FFC322300B4F448 /* TCEditingTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCEditingTemplate.h; sourceTree = "<group>"; };
+		A031B5D71FFC322300B4F448 /* TCEditingTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCEditingTemplate.m; sourceTree = "<group>"; };
+		A031B5D91FFC532100B4F448 /* TCPermissionSectionHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPermissionSectionHeaderCell.h; sourceTree = "<group>"; };
+		A031B5DA1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPermissionSectionHeaderCell.m; sourceTree = "<group>"; };
+		A031B5DB1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPermissionSectionHeaderCell.xib; sourceTree = "<group>"; };
+		A031B5DE1FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionChunk+CoreDataClass.h"; sourceTree = "<group>"; };
+		A031B5DF1FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionChunk+CoreDataClass.m"; sourceTree = "<group>"; };
+		A031B5E01FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionChunk+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A031B5E11FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionChunk+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A031B5E41FFC673500B4F448 /* TCPermissionItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCPermissionItemCell.xib; sourceTree = "<group>"; };
+		A031B5E51FFC673500B4F448 /* TCPermissionItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPermissionItemCell.m; sourceTree = "<group>"; };
+		A031B5E61FFC673500B4F448 /* TCPermissionItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPermissionItemCell.h; sourceTree = "<group>"; };
+		A031B5EF1FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionSection+CoreDataClass.h"; sourceTree = "<group>"; };
+		A031B5F01FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSection+CoreDataClass.m"; sourceTree = "<group>"; };
+		A031B5F11FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionSection+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A031B5F21FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionSection+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A031B5F51FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionObject+CoreDataClass.h"; sourceTree = "<group>"; };
+		A031B5F61FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionObject+CoreDataClass.m"; sourceTree = "<group>"; };
+		A031B5F71FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionObject+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A031B5F81FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionObject+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A031B5FB1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionItem+CoreDataClass.h"; sourceTree = "<group>"; };
+		A031B5FC1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataClass.m"; sourceTree = "<group>"; };
+		A031B5FD1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A031B5FE1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A033858C1FE8A70700EC0EC8 /* TCServerStatusRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerStatusRequest.m; sourceTree = "<group>"; };
 		A033858D1FE8A70700EC0EC8 /* TCServerStatusRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerStatusRequest.h; sourceTree = "<group>"; };
 		A033858F1FE8B60800EC0EC8 /* TCRebootServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRebootServerRequest.h; sourceTree = "<group>"; };
@@ -2198,6 +2232,12 @@
 		A03143631FED567C006F55EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A031B5C11FFBCFAF00B4F448 /* TCPermissionDetailViewController.h */,
+				A031B5C21FFBCFAF00B4F448 /* TCPermissionDetailViewController.m */,
+				A031B5C31FFBCFAF00B4F448 /* TCPermissionDetailViewController.xib */,
+				A031B5C61FFBDB4100B4F448 /* TCPermissionTableViewController.h */,
+				A031B5C71FFBDB4100B4F448 /* TCPermissionTableViewController.m */,
+				A031B5C81FFBDB4100B4F448 /* TCPermissionTableViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2205,22 +2245,28 @@
 		A03143641FED567C006F55EC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A031B5FB1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.h */,
+				A031B5FC1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m */,
+				A031B5FD1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.h */,
+				A031B5FE1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m */,
+				A031B5F51FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.h */,
+				A031B5F61FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.m */,
+				A031B5F71FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.h */,
+				A031B5F81FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m */,
+				A031B5EF1FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.h */,
+				A031B5F01FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m */,
+				A031B5F11FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.h */,
+				A031B5F21FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m */,
+				A031B5DE1FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.h */,
+				A031B5DF1FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m */,
+				A031B5E01FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.h */,
+				A031B5E11FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m */,
 				A019A72E1FFB630800216660 /* TCPermissionSegment+CoreDataClass.h */,
 				A019A72F1FFB630800216660 /* TCPermissionSegment+CoreDataClass.m */,
 				A019A7301FFB630800216660 /* TCPermissionSegment+CoreDataProperties.h */,
 				A019A7311FFB630800216660 /* TCPermissionSegment+CoreDataProperties.m */,
-				A019A7321FFB630800216660 /* TCPermissionSection+CoreDataClass.h */,
-				A019A7331FFB630800216660 /* TCPermissionSection+CoreDataClass.m */,
-				A019A7341FFB630800216660 /* TCPermissionSection+CoreDataProperties.h */,
-				A019A7351FFB630800216660 /* TCPermissionSection+CoreDataProperties.m */,
-				A019A7361FFB630800216660 /* TCPermissionChunk+CoreDataClass.h */,
-				A019A7371FFB630800216660 /* TCPermissionChunk+CoreDataClass.m */,
-				A019A7381FFB630800216660 /* TCPermissionChunk+CoreDataProperties.h */,
-				A019A7391FFB630800216660 /* TCPermissionChunk+CoreDataProperties.m */,
-				A019A70D1FFB595700216660 /* TCPermissionItem+CoreDataClass.h */,
-				A019A70E1FFB595700216660 /* TCPermissionItem+CoreDataClass.m */,
-				A019A70F1FFB595700216660 /* TCPermissionItem+CoreDataProperties.h */,
-				A019A7101FFB595700216660 /* TCPermissionItem+CoreDataProperties.m */,
+				A031B5D61FFC322300B4F448 /* TCEditingTemplate.h */,
+				A031B5D71FFC322300B4F448 /* TCEditingTemplate.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2237,6 +2283,15 @@
 		A03143661FED567C006F55EC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A031B5E61FFC673500B4F448 /* TCPermissionItemCell.h */,
+				A031B5E51FFC673500B4F448 /* TCPermissionItemCell.m */,
+				A031B5E41FFC673500B4F448 /* TCPermissionItemCell.xib */,
+				A031B5D21FFC2FA500B4F448 /* TCPermissionFoldCell.h */,
+				A031B5D31FFC2FA600B4F448 /* TCPermissionFoldCell.m */,
+				A031B5D11FFC2FA500B4F448 /* TCPermissionFoldCell.xib */,
+				A031B5D91FFC532100B4F448 /* TCPermissionSectionHeaderCell.h */,
+				A031B5DA1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m */,
+				A031B5DB1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2940,11 +2995,14 @@
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
+				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
+				A031B5C51FFBCFAF00B4F448 /* TCPermissionDetailViewController.xib in Resources */,
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
+				A031B5D41FFC2FA600B4F448 /* TCPermissionFoldCell.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */,
@@ -2963,7 +3021,9 @@
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
 				A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */,
+				A031B5CA1FFBDB4100B4F448 /* TCPermissionTableViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
+				A031B5DD1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib in Resources */,
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A0A86B4E1FF3927E00D1D58D /* TCMyCorpTableViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
@@ -3153,7 +3213,6 @@
 				A019A72C1FFB627C00216660 /* TCTemplate+CoreDataClass.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
-				A019A71E1FFB595700216660 /* TCPermissionItem+CoreDataProperties.m in Sources */,
 				A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */,
 				A019A7071FFB313F00216660 /* TCRawTemplateRequest.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
@@ -3171,12 +3230,14 @@
 				A0C9A0A51FF14B4E00F94E9E /* UIImage+Masking.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A0A86B7C1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m in Sources */,
+				A031B5DC1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
 				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
+				A031B5F31FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m in Sources */,
 				A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */,
 				A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
@@ -3212,22 +3273,26 @@
 				A0A86B4D1FF3927E00D1D58D /* TCMyCorpTableViewController.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
 				A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */,
+				A031B5F41FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
-				A019A73E1FFB630800216660 /* TCPermissionChunk+CoreDataClass.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
+				A031B5E31FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
 				A0A86B9B1FF4F52D00D1D58D /* TCListCorp+CoreDataProperties.m in Sources */,
+				A031B5F91FFC762F00B4F448 /* TCPermissionObject+CoreDataClass.m in Sources */,
 				A0A86B541FF3946200D1D58D /* TCCorp+CoreDataProperties.m in Sources */,
 				A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */,
+				A031B5C41FFBCFAF00B4F448 /* TCPermissionDetailViewController.m in Sources */,
 				A019A74C1FFB976B00216660 /* TCEmptyTemplate.m in Sources */,
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */,
+				A031B5C91FFBDB4100B4F448 /* TCPermissionTableViewController.m in Sources */,
 				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
@@ -3252,6 +3317,7 @@
 				A0C9A0AD1FF14B4E00F94E9E /* NYXImagesHelper.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
+				A031B5D81FFC322300B4F448 /* TCEditingTemplate.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
 				A0A86B2A1FF37F5900D1D58D /* TCSuccessResultViewController.m in Sources */,
@@ -3261,8 +3327,10 @@
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
+				A031B5E21FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
+				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
 				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
@@ -3276,23 +3344,25 @@
 				A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */,
 				A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */,
 				A019A73B1FFB630800216660 /* TCPermissionSegment+CoreDataProperties.m in Sources */,
+				A031B6001FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
+				A031B5FA1FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m in Sources */,
 				A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,
+				A031B5E81FFC673600B4F448 /* TCPermissionItemCell.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A07DBEBE1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m in Sources */,
-				A019A71D1FFB595700216660 /* TCPermissionItem+CoreDataClass.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
 				A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */,
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
+				A031B5FF1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m in Sources */,
 				A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */,
-				A019A73D1FFB630800216660 /* TCPermissionSection+CoreDataProperties.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A06D12261FEBA4E600722C76 /* TCSearchFilterCollectionCell.m in Sources */,
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
@@ -3308,13 +3378,11 @@
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
 				A019A7271FFB5F6300216660 /* TCTemplateListRequest.m in Sources */,
-				A019A73C1FFB630800216660 /* TCPermissionSection+CoreDataClass.m in Sources */,
 				A0A86B241FF3774500D1D58D /* TCModifyPasswordViewController.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
 				A0C9A0BE1FF250BE00F94E9E /* TCEditGenderTableViewCell.m in Sources */,
 				A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */,
-				A019A73F1FFB630800216660 /* TCPermissionChunk+CoreDataProperties.m in Sources */,
 				A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,

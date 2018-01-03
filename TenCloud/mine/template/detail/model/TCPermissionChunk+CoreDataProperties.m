@@ -2,7 +2,7 @@
 //  TCPermissionChunk+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/2.
+//  Created by huangdx on 2018/1/3.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -15,7 +15,14 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCPermissionChunk"];
 }
 
-@dynamic name;
++ (NSDictionary *) mj_objectClassInArray
+{
+    return @{
+             @"data" : @"TCPermissionItem"
+             };
+}
+
 @dynamic data;
+@dynamic name;
 
 @end

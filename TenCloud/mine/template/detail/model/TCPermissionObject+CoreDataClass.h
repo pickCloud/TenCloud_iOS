@@ -1,5 +1,5 @@
 //
-//  TCPermissionSection+CoreDataClass.h
+//  TCPermissionObject+CoreDataClass.h
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/3.
@@ -8,16 +8,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TCPermissionObject+CoreDataClass.h"
-
-@class NSObject;
+#import <CoreData/CoreData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TCPermissionSection : TCPermissionObject
+@interface TCPermissionObject : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "TCPermissionSection+CoreDataProperties.h"
+#import "TCPermissionObject+CoreDataProperties.h"
