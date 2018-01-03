@@ -44,8 +44,45 @@
 - (void) setTemplate:(TCTemplate*)tmpl
 {
     _nameLabel.text = tmpl.name;
-    NSInteger funcPermNum = 10;
-    NSInteger dataPermNum = 10;
+    NSInteger funcPermNum = 0;
+    NSInteger dataPermNum = 0;
+    NSString *permissionStr = tmpl.permissions;
+    if (permissionStr && permissionStr.length > 0)
+    {
+        NSArray *permissionIDArray = [permissionStr componentsSeparatedByString:@","];
+        if (permissionIDArray)
+        {
+            funcPermNum = permissionIDArray.count;
+        }
+    }
+    NSString *projPermissionStr = tmpl.access_projects;
+    if (projPermissionStr && projPermissionStr.length > 0)
+    {
+        NSArray *projPermissionIDArray = [projPermissionStr componentsSeparatedByString:@","];
+        if (projPermissionIDArray)
+        {
+            dataPermNum += projPermissionIDArray.count;
+        }
+    }
+    NSString *serverPermissionStr = tmpl.access_servers;
+    if (serverPermissionStr && serverPermissionStr.length > 0)
+    {
+        NSArray *serverPermissionIDArray = [serverPermissionStr componentsSeparatedByString:@","];
+        if (serverPermissionIDArray)
+        {
+            dataPermNum += serverPermissionIDArray.count;
+        }
+    }
+    NSString *filePermissionStr = tmpl.access_filehub;
+    if (filePermissionStr && filePermissionStr.length > 0)
+    {
+        NSArray *filePermissionIDArray = [filePermissionStr componentsSeparatedByString:@","];
+        if (filePermissionIDArray)
+        {
+            dataPermNum += filePermissionIDArray.count;
+        }
+    }
+    
     NSString *descStr = [NSString stringWithFormat:@"功能权限 %ld 项  数据权限 %ld 项 ",funcPermNum,dataPermNum];
     _descLabel.text = descStr;
 }
