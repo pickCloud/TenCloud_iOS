@@ -180,16 +180,15 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 }
 
 - (NSDictionary *)requestHeaderFieldValueDictionary {
-    //return nil;
     NSString *token = [[TCLocalAccount shared] token];
     if (token == nil)
     {
         token = @"";
     }
-    return [NSDictionary dictionaryWithObjectsAndKeys:token,@"Authorization", nil];
-    /*
-    return [NSDictionary dictionaryWithObjectsAndKeys:@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MTI5MDA5NDAsInN1YiI6MTYsImV4cCI6MTUxMzUwNTc0MH0.lDvhgtn1bZLrRaN0PSNqQcUIbuVJ6P5BDqCi_tp6mc4",@"Authorization", nil];
-     */
+    NSInteger cid = [[TCCurrentCorp shared] cid];
+    NSString *cidStr = [NSString stringWithFormat:@"%ld",cid];
+    return [NSDictionary dictionaryWithObjectsAndKeys:token,@"Authorization",
+            cidStr,@"Cid", nil];
 }
 
 - (NSURLRequest *)buildCustomUrlRequest {

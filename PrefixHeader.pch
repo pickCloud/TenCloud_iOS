@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #ifdef __OBJC__
 #import "TCLocalAccount.h"
+#import "TCCurrentCorp.h"
 #import "MBProgressHUD+Add.h"
 #import <MMProgressHUD/MMProgressHUD.h>
 #import <MagicalRecord/MagicalRecord.h>
