@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *templateArray;
 - (void) onAddTemplateButton:(id)sender;
+- (void) onAddTemplateNotification;
 - (void) reloadTemplateArray;
 @end
 
@@ -50,6 +51,11 @@
     [_tableView registerNib:cellNib forCellReuseIdentifier:TEMPLATE_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddTemplateNotification)
+                                                 name:NOTIFICATION_ADD_TEMPLATE
+                                               object:nil];
+    
     [self startLoading];
     [self reloadTemplateArray];
 }
@@ -57,6 +63,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -74,11 +85,6 @@
     TCTemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMPLATE_CELL_REUSE_ID forIndexPath:indexPath];
     TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
     [cell setTemplate:template];
-    /*
-    TCMyCorpTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_CORP_CELL_REUSE_ID forIndexPath:indexPath];
-    TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
-    [cell setCorp:corp];
-     */
     return cell;
 }
 
@@ -97,6 +103,11 @@
 {
     TCAddTemplateViewController *addVC = [TCAddTemplateViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
+}
+
+- (void) onAddTemplateNotification
+{
+    [self reloadTemplateArray];
 }
 
 - (void) reloadTemplateArray

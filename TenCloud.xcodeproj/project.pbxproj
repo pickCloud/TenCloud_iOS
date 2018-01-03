@@ -106,6 +106,7 @@
 		A031B5FA1FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5F81FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m */; };
 		A031B5FF1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5FC1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m */; };
 		A031B6001FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B5FE1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m */; };
+		A031B6031FFD189400B4F448 /* TCAddTemplateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A031B6011FFD189400B4F448 /* TCAddTemplateRequest.m */; };
 		A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033858C1FE8A70700EC0EC8 /* TCServerStatusRequest.m */; };
 		A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385901FE8B60800EC0EC8 /* TCRebootServerRequest.m */; };
 		A03385941FE8BB2000EC0EC8 /* TCStopServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385921FE8BB2000EC0EC8 /* TCStopServerRequest.m */; };
@@ -462,6 +463,8 @@
 		A031B5FC1FFC83B900B4F448 /* TCPermissionItem+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataClass.m"; sourceTree = "<group>"; };
 		A031B5FD1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPermissionItem+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A031B5FE1FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A031B6011FFD189400B4F448 /* TCAddTemplateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddTemplateRequest.m; sourceTree = "<group>"; };
+		A031B6021FFD189400B4F448 /* TCAddTemplateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddTemplateRequest.h; sourceTree = "<group>"; };
 		A033858C1FE8A70700EC0EC8 /* TCServerStatusRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerStatusRequest.m; sourceTree = "<group>"; };
 		A033858D1FE8A70700EC0EC8 /* TCServerStatusRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerStatusRequest.h; sourceTree = "<group>"; };
 		A033858F1FE8B60800EC0EC8 /* TCRebootServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRebootServerRequest.h; sourceTree = "<group>"; };
@@ -2207,6 +2210,8 @@
 		A03143601FED567C006F55EC /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A031B6021FFD189400B4F448 /* TCAddTemplateRequest.h */,
+				A031B6011FFD189400B4F448 /* TCAddTemplateRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -3310,6 +3315,7 @@
 				A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */,
 				A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
+				A031B6031FFD189400B4F448 /* TCAddTemplateRequest.m in Sources */,
 				A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */,
 				A0C9A0701FF0D47500F94E9E /* TCEditTextTableViewCell.m in Sources */,
 				A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */,

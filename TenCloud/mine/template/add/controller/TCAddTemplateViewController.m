@@ -14,6 +14,8 @@
 #import "TCCorpHomeViewController.h"
 #import "TCPermissionDetailViewController.h"
 #import "TCEditingTemplate.h"
+#import "TCAddTemplateRequest.h"
+#import "TCSuccessResultViewController.h"
 
 @interface TCAddTemplateViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -83,33 +85,25 @@
     [_nameField resignFirstResponder];
     
     TCEditingTemplate *tmpl = [TCEditingTemplate shared];
-    NSLog(@"per ids:%@",tmpl.permissionIDArray);
-    NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
-    NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
-    NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
-    //NSArray *permissionIDArray = tmpl.permissionIDArray;
-    //NSArray *serverPermissionIDArray = [[TCEditingTemplate shared] serverPermissionArray];
-    //NSArray *projPermissionIDArray = [[TCEditingTemplate shared] projectPermissionArray];
-    //NSArray *filePermissionIDArray = [[TCEditingTemplate ]]
+    //NSLog(@"per ids:%@",tmpl.permissionIDArray);
+    //NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
+    //NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
+    //NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
     
-    /*
     __weak __typeof(self) weakSelf = self;
-    [MMProgressHUD showWithStatus:@"添加中..."];
-    TCAddCorpRequest *request = [[TCAddCorpRequest alloc] initWithName:_nameField.text contact:_contactField.text phone:@""];
-    [request startWithSuccess:^(NSInteger cid) {
-        [MMProgressHUD dismiss];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_CORP object:nil];
-        TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"创建成功" desc:@"恭喜您成为公司管理员"];
-        successVC.buttonTitle = @"查看我的企业";
+    TCAddTemplateRequest *request = nil;
+    request = [[TCAddTemplateRequest alloc] initWithName:_nameField.text
+                                             permissions:tmpl.permissionIDArray
+                                       serverPermissions:tmpl.serverPermissionIDArray
+                                      projectPermissions:tmpl.projectPermissionIDArray
+                                         filePermissions:tmpl.filePermissionIDArray];
+    [request startWithSuccess:^(NSString *message) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_TEMPLATE object:nil];
+        NSString *desc = [NSString stringWithFormat:@"权限模版 %@ 新增成功",weakSelf.nameField.text];
+        TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"新增成功" desc:desc];
+        successVC.buttonTitle = @"查看模版列表";
         successVC.finishBlock = ^(UIViewController *viewController) {
-            [MMProgressHUD showWithStatus:@"切换账号中"];
-            TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
-            NSArray *oldVCS = weakSelf.navigationController.viewControllers;
-            NSMutableArray *vcs = [NSMutableArray arrayWithArray:oldVCS];
-            [vcs removeAllObjects];
-            [vcs addObject:corpHome];
-            [viewController.navigationController setViewControllers:vcs animated:YES];
-            [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+            [viewController.navigationController popViewControllerAnimated:YES];
         };
         NSArray *viewControllers = self.navigationController.viewControllers;
         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
@@ -118,9 +112,9 @@
         [weakSelf.navigationController setViewControllers:newVCS];
         
     } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:message];
+        [MBProgressHUD showError:message toView:nil];
     }];
-     */
+    
 }
 
 - (IBAction) onEditPermissionTemplate:(id)sender
