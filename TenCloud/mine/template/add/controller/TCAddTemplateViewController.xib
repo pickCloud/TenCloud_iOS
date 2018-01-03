@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCAddTemplateViewController">
             <connections>
                 <outlet property="nameField" destination="9rM-X1-cqn" id="t7O-6R-i2m"/>
+                <outlet property="permissionDescLabel" destination="ND2-Ve-LCz" id="FeH-aN-d6H"/>
                 <outlet property="topConstraint" destination="Arn-7c-69l" id="4NR-Iu-2NO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

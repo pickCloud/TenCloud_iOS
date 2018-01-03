@@ -16,4 +16,16 @@
 
 @property (nonatomic, strong)   NSMutableArray  *permissionSegArray;
 
+- (NSInteger) funcPermissionAmount;
+
+- (NSInteger) dataPermissionAmount;
+
+- (NSArray *)permissionIDArray;
+
+- (NSArray *)serverPermissionArray;
+
+- (NSArray *)projectPermissionArray;
+
+- (NSArray *)filePermissionArray;
+
 @end

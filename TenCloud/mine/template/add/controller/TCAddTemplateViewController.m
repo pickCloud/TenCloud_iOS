@@ -17,10 +17,12 @@
 
 @interface TCAddTemplateViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
+@property (nonatomic, weak) IBOutlet    UILabel             *permissionDescLabel;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAddButton:(id)sender;
 - (IBAction) onEditPermissionTemplate:(id)sender;
+- (void) updatePermissionDescLabel;
 @end
 
 @implementation TCAddTemplateViewController
@@ -47,6 +49,12 @@
     [[TCEditingTemplate shared] reset];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updatePermissionDescLabel];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -66,7 +74,6 @@
 
 - (IBAction) onAddButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_nameField.text.length == 0)
     {
         [MBProgressHUD showError:@"请输入模版名称" toView:nil];
@@ -74,6 +81,8 @@
     }
     
     [_nameField resignFirstResponder];
+    
+    
     
     /*
     __weak __typeof(self) weakSelf = self;
@@ -112,5 +121,19 @@
     TCPermissionDetailViewController *detailVC = [TCPermissionDetailViewController new];
     //[self.navigationController pushViewController:detailVC animated:YES];
     [self presentViewController:detailVC animated:YES completion:nil];
+}
+
+- (void) updatePermissionDescLabel
+{
+    NSInteger funcAmount = [[TCEditingTemplate shared] funcPermissionAmount];
+    NSInteger dataAmount = [[TCEditingTemplate shared] dataPermissionAmount];
+    if (funcAmount == 0 && dataAmount == 0)
+    {
+        [_permissionDescLabel setText:@"未选择"];
+    }else
+    {
+        NSString *desc = [NSString stringWithFormat:@"功能权限 %ld 项  数据权限 %ld 项",funcAmount,dataAmount];
+        _permissionDescLabel.text = desc;
+    }
 }
 @end

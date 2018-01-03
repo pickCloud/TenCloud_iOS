@@ -60,4 +60,114 @@
     }
 }
 
+- (NSInteger) funcPermissionAmount
+{
+    NSInteger amount = 0;
+    if (_permissionSegArray.count > 0)
+    {
+        TCPermissionSegment *seg = _permissionSegArray.firstObject;
+        for (TCPermissionSection *sec in seg.data)
+        {
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        amount ++;
+                    }
+                }
+            }
+        }
+    }
+    return amount;
+}
+
+- (NSInteger) dataPermissionAmount
+{
+    NSInteger amount = 0;
+    if (_permissionSegArray.count > 1)
+    {
+        TCPermissionSegment *seg = [_permissionSegArray objectAtIndex:1];
+        for (TCPermissionSection *sec in seg.data)
+        {
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        amount ++;
+                    }
+                }
+            }
+        }
+    }
+    return amount;
+}
+
+- (NSArray *)permissionIDArray
+{
+    NSMutableArray *perArray = [NSMutableArray new];
+    if (_permissionSegArray.count > 0)
+    {
+        TCPermissionSegment *seg = _permissionSegArray.firstObject;
+        for (TCPermissionSection *sec in seg.data)
+        {
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
+                    }
+                }
+            }
+        }
+    }
+    return perArray;
+}
+
+- (NSArray *)serverPermissionArray
+{
+    NSMutableArray *perArray = [NSMutableArray new];
+    if (_permissionSegArray.count > 1)
+    {
+        TCPermissionSegment *dataSeg = [_permissionSegArray objectAtIndex:1];
+        
+        
+        
+        /*
+        for (TCPermissionSection *sec in dataSeg.data)
+        {
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        
+                    }
+                }
+            }
+        }
+         */
+    }
+    return perArray;
+}
+
+- (NSArray *)projectPermissionArray
+{
+    NSMutableArray *perArray = [NSMutableArray new];
+    
+    return perArray;
+}
+
+- (NSArray *)filePermissionArray
+{
+    NSMutableArray *perArray = [NSMutableArray new];
+    
+    return perArray;
+}
 @end
