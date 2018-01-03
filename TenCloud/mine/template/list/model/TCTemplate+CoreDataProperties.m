@@ -15,6 +15,11 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCTemplate"];
 }
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"tid":@"id"};
+}
+
 @dynamic tid;
 @dynamic type;
 @dynamic cid;

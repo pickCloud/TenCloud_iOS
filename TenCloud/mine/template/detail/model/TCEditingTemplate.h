@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class TCTemplate;
 @interface TCEditingTemplate : NSObject
 
 + (instancetype) shared;
 
 - (void) reset;
+
+- (void) setTemplate:(TCTemplate*)tmpl;
 
 @property (nonatomic, strong)   NSMutableArray  *permissionSegArray;
 

@@ -11,6 +11,7 @@
 #import "TCCurrentCorp.h"
 #import "TCTemplateListRequest.h"
 #import "TCAddTemplateViewController.h"
+#import "TCModifyTemplateViewController.h"
 
 #define TEMPLATE_CELL_REUSE_ID      @"TEMPLATE_CELL_REUSE_ID"
 
@@ -95,6 +96,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
+    TCModifyTemplateViewController *modifyVC = [[TCModifyTemplateViewController alloc] initWithTemplate:tmpl];
+    [self.navigationController pushViewController:modifyVC animated:YES];
 }
 
 

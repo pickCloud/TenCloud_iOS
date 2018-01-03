@@ -1,35 +1,43 @@
 //
-//  TCAddTemplateViewController.m
+//  TCModifyTemplateViewController.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/14.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCAddTemplateViewController.h"
+#import "TCModifyTemplateViewController.h"
 #import "VHLNavigation.h"
-//#import "TCUser+CoreDataClass.h"
-
 #import "TCPermissionDetailViewController.h"
-#import "TCEditingTemplate.h"
-#import "TCAddTemplateRequest.h"
 #import "TCSuccessResultViewController.h"
+#import "TCTemplate+CoreDataClass.h"
+#import "TCEditingTemplate.h"
 
-@interface TCAddTemplateViewController ()<UIGestureRecognizerDelegate>
+@interface TCModifyTemplateViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
 @property (nonatomic, weak) IBOutlet    UILabel             *permissionDescLabel;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
+@property (nonatomic, strong)   TCTemplate                  *mTemplate;
 - (void) onTapBlankArea:(id)sender;
-- (IBAction) onAddButton:(id)sender;
 - (IBAction) onEditPermissionTemplate:(id)sender;
 - (void) updatePermissionDescLabel;
 @end
 
-@implementation TCAddTemplateViewController
+@implementation TCModifyTemplateViewController
+
+- (instancetype) initWithTemplate:(TCTemplate*)tmpl
+{
+    self = [super init];
+    if (self)
+    {
+        _mTemplate = tmpl;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"新增权限模版";
+    self.title = @"修改权限模版";
     //[self vhl_setNavBarHidden:NO];
     [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
@@ -47,6 +55,7 @@
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
     [[TCEditingTemplate shared] reset];
+    [[TCEditingTemplate shared] setTemplate:_mTemplate];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -72,59 +81,16 @@
     [_nameField resignFirstResponder];
 }
 
-- (IBAction) onAddButton:(id)sender
-{
-    if (_nameField.text.length == 0)
-    {
-        [MBProgressHUD showError:@"请输入模版名称" toView:nil];
-        return;
-    }
-    
-    [_nameField resignFirstResponder];
-    
-    TCEditingTemplate *tmpl = [TCEditingTemplate shared];
-    //NSLog(@"per ids:%@",tmpl.permissionIDArray);
-    //NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
-    //NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
-    //NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
-    
-    __weak __typeof(self) weakSelf = self;
-    TCAddTemplateRequest *request = nil;
-    request = [[TCAddTemplateRequest alloc] initWithName:_nameField.text
-                                             permissions:tmpl.permissionIDArray
-                                       serverPermissions:tmpl.serverPermissionIDArray
-                                      projectPermissions:tmpl.projectPermissionIDArray
-                                         filePermissions:tmpl.filePermissionIDArray];
-    [request startWithSuccess:^(NSString *message) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_TEMPLATE object:nil];
-        NSString *desc = [NSString stringWithFormat:@"权限模版 %@ 新增成功",weakSelf.nameField.text];
-        TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"新增成功" desc:desc];
-        successVC.buttonTitle = @"查看模版列表";
-        successVC.finishBlock = ^(UIViewController *viewController) {
-            [viewController.navigationController popViewControllerAnimated:YES];
-        };
-        NSArray *viewControllers = self.navigationController.viewControllers;
-        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-        [newVCS removeLastObject];
-        [newVCS addObject:successVC];
-        [weakSelf.navigationController setViewControllers:newVCS];
-        
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-    }];
-    
-}
-
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
     NSLog(@"on edit permission template");
     TCPermissionDetailViewController *detailVC = [TCPermissionDetailViewController new];
-    //[self.navigationController pushViewController:detailVC animated:YES];
     [self presentViewController:detailVC animated:YES completion:nil];
 }
 
 - (void) updatePermissionDescLabel
 {
+    
     NSInteger funcAmount = [[TCEditingTemplate shared] funcPermissionAmount];
     NSInteger dataAmount = [[TCEditingTemplate shared] dataPermissionAmount];
     if (funcAmount == 0 && dataAmount == 0)
