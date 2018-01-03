@@ -15,9 +15,10 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCPermissionItem"];
 }
 
+@dynamic fatherItem;
 @dynamic group;
 @dynamic name;
 @dynamic permID;
-@dynamic fatherItem;
+@dynamic filename;
 
 @end

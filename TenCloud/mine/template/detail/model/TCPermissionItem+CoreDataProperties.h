@@ -17,10 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<TCPermissionItem *> *)fetchRequest;
 
+@property (nullable, nonatomic, retain) TCPermissionChunk *fatherItem;
 @property (nonatomic) int64_t group;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nonatomic) int64_t permID;
-@property (nullable, nonatomic, retain) TCPermissionChunk *fatherItem;
+@property (nullable, nonatomic, copy) NSString *filename;
 
 @end
 

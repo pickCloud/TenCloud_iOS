@@ -48,12 +48,13 @@
         {
             for (TCPermissionChunk *chunk in sec.data)
             {
-                //chunk.hidden = NO;
                 for (TCPermissionItem *item in chunk.data)
                 {
-                    //item.hidden = NO;
-                    //item.fatherItem = chunk;
                     [item setFatherItem:chunk];
+                    if ([sec.name isEqualToString:@"文件"])
+                    {
+                        item.name = item.filename;
+                    }
                 }
             }
         }
@@ -135,24 +136,20 @@
     if (_permissionSegArray.count > 1)
     {
         TCPermissionSegment *dataSeg = [_permissionSegArray objectAtIndex:1];
-        
-        
-        
-        /*
-        for (TCPermissionSection *sec in dataSeg.data)
+        if (dataSeg.data.count > 2)
         {
+            TCPermissionSection *sec = [dataSeg.data objectAtIndex:2];
             for (TCPermissionChunk * chunk in sec.data)
             {
                 for (TCPermissionItem * item in chunk.data)
                 {
                     if (item.selected)
                     {
-                        
+                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
                     }
                 }
             }
         }
-         */
     }
     return perArray;
 }
@@ -160,14 +157,48 @@
 - (NSArray *)projectPermissionArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
-    
+    if (_permissionSegArray.count > 1)
+    {
+        TCPermissionSegment *dataSeg = [_permissionSegArray objectAtIndex:1];
+        if (dataSeg.data.count > 1)
+        {
+            TCPermissionSection *sec = [dataSeg.data objectAtIndex:1];
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
+                    }
+                }
+            }
+        }
+    }
     return perArray;
 }
 
 - (NSArray *)filePermissionArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
-    
+    if (_permissionSegArray.count > 1)
+    {
+        TCPermissionSegment *dataSeg = [_permissionSegArray objectAtIndex:1];
+        if (dataSeg.data.count > 1)
+        {
+            TCPermissionSection *sec = [dataSeg.data objectAtIndex:0];
+            for (TCPermissionChunk * chunk in sec.data)
+            {
+                for (TCPermissionItem * item in chunk.data)
+                {
+                    if (item.selected)
+                    {
+                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
+                    }
+                }
+            }
+        }
+    }
     return perArray;
 }
 @end

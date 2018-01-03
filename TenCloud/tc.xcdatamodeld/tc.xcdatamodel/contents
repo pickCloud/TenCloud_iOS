@@ -30,6 +30,7 @@
     </entity>
     <entity name="TCPermissionItem" representedClassName="TCPermissionItem" parentEntity="TCPermissionObject" syncable="YES">
         <attribute name="fatherItem" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="group" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="permID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -162,7 +163,8 @@
         <element name="TCCorp" positionX="-9" positionY="135" width="128" height="195"/>
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="135"/>
         <element name="TCPermissionChunk" positionX="0" positionY="144" width="128" height="75"/>
-        <element name="TCPermissionItem" positionX="18" positionY="162" width="128" height="105"/>
+        <element name="TCPermissionItem" positionX="18" positionY="162" width="128" height="120"/>
+        <element name="TCPermissionObject" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCPermissionSection" positionX="9" positionY="153" width="128" height="75"/>
         <element name="TCPermissionSegment" positionX="-9" positionY="135" width="128" height="75"/>
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
@@ -180,6 +182,5 @@
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCPermissionObject" positionX="-9" positionY="135" width="128" height="120"/>
     </elements>
 </model>
