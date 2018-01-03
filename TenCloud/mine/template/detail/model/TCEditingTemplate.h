@@ -22,10 +22,10 @@
 
 - (NSArray *)permissionIDArray;
 
-- (NSArray *)serverPermissionArray;
+- (NSArray *)serverPermissionIDArray;
 
-- (NSArray *)projectPermissionArray;
+- (NSArray *)projectPermissionIDArray;
 
-- (NSArray *)filePermissionArray;
+- (NSArray *)filePermissionIDArray;
 
 @end

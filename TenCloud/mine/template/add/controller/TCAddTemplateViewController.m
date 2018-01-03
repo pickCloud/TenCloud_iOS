@@ -82,7 +82,15 @@
     
     [_nameField resignFirstResponder];
     
-    
+    TCEditingTemplate *tmpl = [TCEditingTemplate shared];
+    NSLog(@"per ids:%@",tmpl.permissionIDArray);
+    NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
+    NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
+    NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
+    //NSArray *permissionIDArray = tmpl.permissionIDArray;
+    //NSArray *serverPermissionIDArray = [[TCEditingTemplate shared] serverPermissionArray];
+    //NSArray *projPermissionIDArray = [[TCEditingTemplate shared] projectPermissionArray];
+    //NSArray *filePermissionIDArray = [[TCEditingTemplate ]]
     
     /*
     __weak __typeof(self) weakSelf = self;

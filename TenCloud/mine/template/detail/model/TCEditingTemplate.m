@@ -130,7 +130,7 @@
     return perArray;
 }
 
-- (NSArray *)serverPermissionArray
+- (NSArray *)serverPermissionIDArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionSegArray.count > 1)
@@ -154,7 +154,7 @@
     return perArray;
 }
 
-- (NSArray *)projectPermissionArray
+- (NSArray *)projectPermissionIDArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionSegArray.count > 1)
@@ -178,7 +178,7 @@
     return perArray;
 }
 
-- (NSArray *)filePermissionArray
+- (NSArray *)filePermissionIDArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionSegArray.count > 1)

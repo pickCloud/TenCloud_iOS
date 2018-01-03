@@ -15,6 +15,13 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"TCPermissionItem"];
 }
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"permID":@"id"
+             };
+}
+
 @dynamic fatherItem;
 @dynamic group;
 @dynamic name;
