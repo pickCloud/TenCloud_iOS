@@ -15,6 +15,7 @@
 #import "TCListCorp+CoreDataClass.h"
 #import "TCTemplateTableViewController.h"
 #import "TCEmptyTemplate.h"
+#import "TCStaffTableViewController.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -186,7 +187,8 @@
     {
         if (indexPath.row == 0)
         {
-            
+            TCStaffTableViewController *staffVC = [TCStaffTableViewController new];
+            [self.navigationController pushViewController:staffVC animated:YES];
         }else if(indexPath.row == 1)
         {
             TCTemplateTableViewController *templateVC = [TCTemplateTableViewController new];

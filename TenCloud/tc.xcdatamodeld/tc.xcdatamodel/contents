@@ -134,6 +134,17 @@
     <entity name="TCServerSystemInfo" representedClassName="TCServerSystemInfo" syncable="YES">
         <attribute name="config" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
+    <entity name="TCStaff" representedClassName="TCStaff" syncable="YES">
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_admin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="staffID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCTemplate" representedClassName="TCTemplate" syncable="YES">
         <attribute name="access_filehub" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="access_projects" optional="YES" attributeType="String" syncable="YES"/>
@@ -182,5 +193,6 @@
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCStaff" positionX="0" positionY="144" width="128" height="180"/>
     </elements>
 </model>
