@@ -156,7 +156,7 @@
     {
         if (indexPath.row == 0)
         {
-            [cell setIcon:@"corp_home_staff" title:@"员工管理" desc:@"2家公司"];
+            [cell setIcon:@"corp_home_staff" title:@"员工管理" desc:@""];
         }else if(indexPath.row == 1)
         {
             [cell setIcon:@"corp_home_template" title:@"权限模版管理" desc:@""];
