@@ -26,7 +26,7 @@
     // Initialization code
     
     UIView *selectedBgView = [[UIView alloc] init];
-    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.1];
+    selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.05];
     self.selectedBackgroundView = selectedBgView;
 }
 
