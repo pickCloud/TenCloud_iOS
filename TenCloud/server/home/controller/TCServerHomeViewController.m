@@ -40,6 +40,8 @@
 @property (nonatomic, weak) IBOutlet    UIView              *headerCollectionBgView;
 - (IBAction) onMoreButton:(id)sender;
 - (void) onMessageButton:(id)sender;
+- (void) onNotificationChangeCorp;
+- (void) reloadServerList;
 @end
 
 @implementation TCServerHomeViewController
@@ -83,29 +85,21 @@
     [_headerCollectionView setCollectionViewLayout:iconLayout];
     
     [self startLoading];
-    __weak  __typeof(self)  weakSelf = self;
-    TCClusterRequest *request = [[TCClusterRequest alloc] init];
-    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        [weakSelf stopLoading];
-        [weakSelf.serverArray removeAllObjects];
-        [weakSelf.serverArray addObjectsFromArray:serverArray];
-        NSLog(@"serverArray%d:%@",serverArray.count, serverArray);
-        NSLog(@"server count:%ld",weakSelf.serverArray.count);
-        for (int i = weakSelf.serverArray.count; i > 4; i--)
-        {
-            NSLog(@"删除%d",i);
-            [weakSelf.serverArray removeObjectAtIndex:0];
-        }
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-        [weakSelf stopLoading];
-    }];
+    [self reloadServerList];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onNotificationChangeCorp)
+                                                 name:NOTIFICATION_CORP_CHANGE
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -229,6 +223,33 @@
 - (void) onMessageButton:(id)sender
 {
     [MBProgressHUD showError:@"暂无页面" toView:nil];
+}
+
+- (void) onNotificationChangeCorp
+{
+    [self reloadServerList];
+}
+
+- (void) reloadServerList
+{
+    __weak  __typeof(self)  weakSelf = self;
+    TCClusterRequest *request = [[TCClusterRequest alloc] init];
+    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf stopLoading];
+        [weakSelf.serverArray removeAllObjects];
+        [weakSelf.serverArray addObjectsFromArray:serverArray];
+        NSLog(@"serverArray%d:%@",serverArray.count, serverArray);
+        NSLog(@"server count:%ld",weakSelf.serverArray.count);
+        for (int i = weakSelf.serverArray.count; i > 4; i--)
+        {
+            NSLog(@"删除%d",i);
+            [weakSelf.serverArray removeObjectAtIndex:0];
+        }
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+        [weakSelf stopLoading];
+    }];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods

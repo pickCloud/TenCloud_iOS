@@ -173,6 +173,7 @@
     TCListCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
     //[[TCCurrentCorp shared] setName:curCorp.company_name];
     [[TCCurrentCorp shared] setCid:curCorp.cid];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CORP_CHANGE object:nil];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
     [tableView reloadData];
