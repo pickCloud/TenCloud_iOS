@@ -112,9 +112,17 @@
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
     NSLog(@"on edit permission template");
+    __weak __typeof(self) weakSelf = self;
     TCPermissionViewController *perVC = [TCPermissionViewController new];
     perVC.state = PermissionVCStateEdit;
     perVC.tmpl = _mTemplate;
+    perVC.modifiedBlock = ^(TCPermissionViewController *vc) {
+        TCEditingTemplate *editingTmpl = [TCEditingTemplate shared];
+        weakSelf.mTemplate.access_filehub = editingTmpl.filePermissionIDString;
+        weakSelf.mTemplate.access_servers = editingTmpl.serverPermissionIDString;
+        weakSelf.mTemplate.access_projects = editingTmpl.projectPermissionIDString;
+        weakSelf.mTemplate.permissions = editingTmpl.permissionIDString;
+    };
     [self presentViewController:perVC animated:YES completion:nil];
 }
 

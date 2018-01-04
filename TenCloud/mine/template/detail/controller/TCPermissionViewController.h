@@ -13,10 +13,13 @@ typedef NS_ENUM(NSInteger, PermissionVCState){
     PermissionVCStateEdit,                   //编辑状态
 };
 
+@class TCPermissionViewController;
+typedef void (^TCPermissionModifiedBlock)(TCPermissionViewController *vc);
+
 @class TCTemplate;
 @interface TCPermissionViewController : TCViewController
 
 @property (nonatomic, assign)   PermissionVCState   state;
 @property (nonatomic, strong)   TCTemplate          *tmpl;
-
+@property (nonatomic, copy)     TCPermissionModifiedBlock   modifiedBlock;
 @end

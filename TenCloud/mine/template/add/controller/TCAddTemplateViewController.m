@@ -90,6 +90,7 @@
     
     __weak __typeof(self) weakSelf = self;
     TCAddTemplateRequest *request = nil;
+    [MMProgressHUD showWithStatus:@"新增模版中"];
     request = [[TCAddTemplateRequest alloc] initWithName:_nameField.text
                                              permissions:tmpl.permissionIDArray
                                        serverPermissions:tmpl.serverPermissionIDArray
@@ -97,6 +98,7 @@
                                          filePermissions:tmpl.filePermissionIDArray];
     [request startWithSuccess:^(NSString *message) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_TEMPLATE object:nil];
+        /*
         NSString *desc = [NSString stringWithFormat:@"权限模版 %@ 新增成功",weakSelf.nameField.text];
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"新增成功" desc:desc];
         successVC.buttonTitle = @"查看模版列表";
@@ -108,7 +110,9 @@
         [newVCS removeLastObject];
         [newVCS addObject:successVC];
         [weakSelf.navigationController setViewControllers:newVCS];
-        
+         */
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        [MMProgressHUD dismissWithSuccess:@"新增成功" title:nil afterDelay:1.32];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];

@@ -25,10 +25,18 @@
 
 - (NSArray *)permissionIDArray;
 
+- (NSString *)permissionIDString;
+
 - (NSArray *)serverPermissionIDArray;
+
+- (NSString *)serverPermissionIDString;
 
 - (NSArray *)projectPermissionIDArray;
 
+- (NSString *)projectPermissionIDString;
+
 - (NSArray *)filePermissionIDArray;
+
+- (NSString *)filePermissionIDString;
 
 @end

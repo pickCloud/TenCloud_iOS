@@ -78,6 +78,10 @@
         req.filePermissionArray = tmpl.filePermissionIDArray;
         req.serverPermissionArray = tmpl.serverPermissionIDArray;
         [req startWithSuccess:^(NSString *message) {
+            if (weakSelf.modifiedBlock)
+            {
+                weakSelf.modifiedBlock(weakSelf);
+            }
             [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         } failure:^(NSString *message) {

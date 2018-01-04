@@ -290,6 +290,30 @@
     return perArray;
 }
 
+- (NSString *)permissionIDString
+{
+    NSArray *array = [self permissionIDArray];
+    return [array componentsJoinedByString:@","];
+}
+
+- (NSString *)serverPermissionIDString
+{
+    NSArray *array = [self serverPermissionIDArray];
+    return [array componentsJoinedByString:@","];
+}
+
+- (NSString *)projectPermissionIDString
+{
+    NSArray *array = [self projectPermissionIDArray];
+    return [array componentsJoinedByString:@","];
+}
+
+- (NSString *)filePermissionIDString
+{
+    NSArray *array = [self filePermissionIDArray];
+    return [array componentsJoinedByString:@","];
+}
+
 - (NSArray *)serverPermissionIDArray
 {
     NSMutableArray *perArray = [NSMutableArray new];
