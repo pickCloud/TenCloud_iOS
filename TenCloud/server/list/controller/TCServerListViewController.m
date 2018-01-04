@@ -160,7 +160,7 @@
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"无搜索结果" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"未查询到服务器记录" attributes:attributes];
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
@@ -262,10 +262,10 @@
     __weak  __typeof(self)  weakSelf = self;
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf stopLoading];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];

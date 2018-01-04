@@ -11,6 +11,8 @@
 #import "TCServerTableViewCell.h"
 #import "TCServerDetailViewController.h"
 #import "ServerHomeIconCollectionViewCell.h"
+#import "TCAddServerViewController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -29,7 +31,7 @@
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
-@interface TCServerHomeViewController ()
+@interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
@@ -65,6 +67,8 @@
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
+    _tableView.emptyDataSetDelegate = self;
+    _tableView.emptyDataSetSource = self;
     
     UINib *homeCollectionNibCell = [UINib nibWithNibName:@"ServerHomeIconCollectionViewCell" bundle:nil];
     [_headerCollectionView registerNib:homeCollectionNibCell forCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID];
@@ -82,6 +86,7 @@
     __weak  __typeof(self)  weakSelf = self;
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf stopLoading];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         NSLog(@"serverArray%d:%@",serverArray.count, serverArray);
@@ -92,7 +97,6 @@
             [weakSelf.serverArray removeObjectAtIndex:0];
         }
         [weakSelf.tableView reloadData];
-        [weakSelf stopLoading];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
@@ -225,5 +229,35 @@
 - (void) onMessageButton:(id)sender
 {
     [MBProgressHUD showError:@"暂无页面" toView:nil];
+}
+
+#pragma mark - DZNEmptyDataSetSource Methods
+/*
+ - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+ {
+ return [UIImage imageNamed:@"no_data"];
+ }
+ */
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"暂无服务器,点击添加" attributes:attributes];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
+}
+
+- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView
+{
+    //[self onAddTemplateButton:nil];
+    TCAddServerViewController *addVC = [TCAddServerViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 @end
