@@ -62,14 +62,7 @@
     [params setObject:mobile forKey:@"mobile"];
     [params setObject:_value forKey:_key];
     [params setObject:@(_cid) forKey:@"cid"];
+    [params setObject:@"1" forKey:@"image_url"];
     return params;
-    /*
-    if ([@"name" isEqualToString:_key])
-    {
-        
-    }
-    return @{@"cid":@(_cid),
-             _key : _value};
-     */
 }
 @end

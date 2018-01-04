@@ -97,7 +97,13 @@
     
     TCCellData *data6 = [TCCellData new];
     data6.title = @"创建时间";
-    data6.initialValue = _corp.create_time;
+    NSString *createTime = _corp.create_time;
+    if (createTime && createTime.length > 11)
+    {
+        NSRange dateRange = NSMakeRange(0, 10);
+        createTime = [createTime substringWithRange:dateRange];
+    }
+    data6.initialValue = createTime;
     data6.type = TCCellTypeText;
     data6.hideDetailView = YES;
     [_cellItemArray addObject:data6];

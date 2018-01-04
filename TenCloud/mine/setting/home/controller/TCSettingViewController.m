@@ -42,6 +42,7 @@
     _cellItemArray = [NSMutableArray new];
     TCCellData *data1 = [TCCellData new];
     data1.title = @"账号安全";
+    data1.initialValue = @" ";
     data1.type = TCCellTypeText;
     [_cellItemArray addObject:data1];
 }
