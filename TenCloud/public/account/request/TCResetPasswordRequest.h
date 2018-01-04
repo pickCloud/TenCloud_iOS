@@ -10,7 +10,14 @@
 
 @interface TCResetPasswordRequest : YTKRequest
 
-- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber password:(NSString *)password captcha:(NSString *)captcha;
+- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber
+                            password:(NSString *)password
+                             captcha:(NSString *)captcha;
+
+- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber
+                            password:(NSString *)password
+                         oldPassword:(NSString *)oldPassword
+                             captcha:(NSString *)captcha;
 
 - (void) startWithSuccess:(void(^)(NSString *token))success
                   failure:(void(^)(NSString *message))failure;

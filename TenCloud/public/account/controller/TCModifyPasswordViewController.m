@@ -145,9 +145,13 @@
     [_password2Field resignFirstResponder];
     
     __weak __typeof(self) weakSelf = self;
-    //[MMProgressHUD showWithStatus:@"修改密码中"];
+    [MMProgressHUD showWithStatus:@"修改密码中"];
     NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
-    TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:phoneNumStr password:_passwordField.text captcha:_captchaField.text];
+    TCResetPasswordRequest *request = nil;
+    request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:phoneNumStr
+                                                         password:_passwordField.text
+                                                      oldPassword:_oldPasswordField.text
+                                                          captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
         [[TCLocalAccount shared] setToken:token];
         [[TCLocalAccount shared] save];
@@ -166,7 +170,7 @@
         [weakSelf.navigationController setViewControllers:newVCS];
         
     } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:message];
+        [MMProgressHUD dismissWithError:message afterDelay:1.32];
     }];
 }
 

@@ -11,18 +11,37 @@
 @interface TCResetPasswordRequest()
 @property (nonatomic, strong)   NSString    *phoneNumber;
 @property (nonatomic, strong)   NSString    *password;
+@property (nonatomic, strong)   NSString    *oldPassword;
 @property (nonatomic, strong)   NSString    *captcha;
 @end
 
 @implementation TCResetPasswordRequest
 
-- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber password:(NSString *)password captcha:(NSString *)captcha
+- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber
+                            password:(NSString *)password
+                             captcha:(NSString *)captcha
 {
     self = [super init];
     if (self)
     {
         _phoneNumber = phoneNumber;
         _password = password;
+        _captcha = captcha;
+    }
+    return self;
+}
+
+- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber
+                            password:(NSString *)password
+                         oldPassword:(NSString *)oldPassword
+                             captcha:(NSString *)captcha
+{
+    self = [super init];
+    if (self)
+    {
+        _phoneNumber = phoneNumber;
+        _password = password;
+        _oldPassword = oldPassword;
         _captcha = captcha;
     }
     return self;
@@ -51,6 +70,14 @@
 
 - (id)requestArgument
 {
+    if (_oldPassword && _oldPassword.length > 0)
+    {
+        return @{@"mobile":_phoneNumber,
+                 @"new_password":_password,
+                 @"old_password":_oldPassword,
+                 @"auth_code":_captcha
+                 };
+    }
     return @{@"mobile":_phoneNumber,
              @"new_password":_password,
              @"auth_code":_captcha
