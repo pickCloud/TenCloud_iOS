@@ -14,10 +14,11 @@
 #import "TCModifyTemplateViewController.h"
 #import "TCDeleteTemplateRequest.h"
 #import "TCTemplate+CoreDataClass.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #define TEMPLATE_CELL_REUSE_ID      @"TEMPLATE_CELL_REUSE_ID"
 
-@interface TCTemplateTableViewController ()
+@interface TCTemplateTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *templateArray;
 - (void) onAddTemplateButton:(id)sender;
@@ -54,6 +55,8 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCTemplateTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:TEMPLATE_CELL_REUSE_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onReloadTemplateNotification)
@@ -163,4 +166,27 @@
     }];
 }
 
+
+#pragma mark - DZNEmptyDataSetSource Methods
+/*
+ - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+ {
+ return [UIImage imageNamed:@"no_data"];
+ }
+ */
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"暂无模版" attributes:attributes];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
+}
 @end
