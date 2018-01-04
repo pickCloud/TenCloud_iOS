@@ -83,13 +83,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-SB-cA1" customClass="TCSwitchAccountButton">
-                                <rect key="frame" x="284" y="20" width="75" height="20"/>
+                                <rect key="frame" x="276.5" y="20" width="82.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qda-SB-cA1" secondAttribute="height" multiplier="15:4" id="ilF-b8-Tmj"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="onSwitchAccountButton:" destination="-1" eventType="touchUpInside" id="9Kh-wS-0h3"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,7 +117,7 @@
                             <constraint firstItem="EJ7-bL-c3J" firstAttribute="leading" secondItem="jjA-eS-2hT" secondAttribute="trailing" constant="8" id="rbZ-Ot-l55"/>
                             <constraint firstItem="EJ7-bL-c3J" firstAttribute="top" secondItem="ABR-fK-uda" secondAttribute="bottom" constant="6" id="vi9-oR-V1U"/>
                             <constraint firstItem="Qda-SB-cA1" firstAttribute="top" secondItem="Jxj-A0-uEK" secondAttribute="top" constant="20" id="vmo-4U-NCr"/>
-                            <constraint firstItem="Qda-SB-cA1" firstAttribute="width" secondItem="Jxj-A0-uEK" secondAttribute="width" multiplier="0.2" id="zKG-Ax-rsb"/>
+                            <constraint firstItem="Qda-SB-cA1" firstAttribute="width" secondItem="Jxj-A0-uEK" secondAttribute="width" multiplier="0.22" id="zKG-Ax-rsb"/>
                         </constraints>
                     </view>
                     <connections>

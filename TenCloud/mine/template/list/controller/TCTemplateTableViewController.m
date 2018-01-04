@@ -25,6 +25,7 @@
 - (void) onReloadTemplateNotification;
 - (void) onUpdateTemplateUINotification;
 - (void) reloadTemplateArray;
+- (void) deleteTemplateAtIndexPath:(NSIndexPath*)path;
 @end
 
 @implementation TCTemplateTableViewController
@@ -120,16 +121,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
-        __weak __typeof(self) weakSelf = self;
-        TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
-        [delReq startWithSuccess:^(NSString *message) {
-            [weakSelf.templateArray removeObjectAtIndex:indexPath.row];
-            NSArray *paths = [NSArray arrayWithObject:indexPath];
-            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
-        }];
+        [self deleteTemplateAtIndexPath:indexPath];
     }
 }
 
@@ -164,6 +156,34 @@
     } failure:^(NSString *message) {
         
     }];
+}
+
+- (void) deleteTemplateAtIndexPath:(NSIndexPath*)path
+{
+    TCTemplate *tmpl = [_templateArray objectAtIndex:path.row];
+    __weak __typeof(self) weakSelf = self;
+    NSString *tip = [NSString stringWithFormat:@"确定删除 %@ 模版?",tmpl.name];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:tip
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
+        [delReq startWithSuccess:^(NSString *message) {
+            [weakSelf.templateArray removeObjectAtIndex:path.row];
+            NSArray *paths = [NSArray arrayWithObject:path];
+            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:deleteAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

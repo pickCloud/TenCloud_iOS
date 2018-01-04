@@ -98,7 +98,7 @@
 {
     __weak __typeof(self) weakSelf = self;
     [self.view layoutIfNeeded];
-    [UIView animateKeyframesWithDuration:POPUP_TIME delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
+    [UIView animateKeyframesWithDuration:0.24 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
         
         weakSelf.darkBackgroundView.alpha = 0.0;
         [weakSelf.view layoutIfNeeded];
