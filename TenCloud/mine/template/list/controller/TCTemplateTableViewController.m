@@ -189,4 +189,14 @@
 {
     return !self.isLoading;
 }
+
+- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView
+{
+    [self onAddTemplateButton:nil];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
+{
+    [self onAddTemplateButton:nil];
+}
 @end
