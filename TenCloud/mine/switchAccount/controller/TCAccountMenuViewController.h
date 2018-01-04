@@ -1,6 +1,6 @@
 //
 //  TCAccountMenuViewController.h
-//  切换账号下拉菜单
+//  切换身份下拉菜单
 //
 //  Created by huangdx on 2017/12/21.
 //  Copyright © 2017年 10.com. All rights reserved.

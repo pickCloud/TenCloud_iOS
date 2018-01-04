@@ -115,7 +115,7 @@
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *switchAction = [UIAlertAction actionWithTitle:@"切换" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            [MMProgressHUD showWithStatus:@"切换账号中"];
+            [MMProgressHUD showWithStatus:@"切换身份中"];
             UIViewController *homeVC = nil;
             homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
             NSArray *viewControllers = weakSelf.navigationController.viewControllers;

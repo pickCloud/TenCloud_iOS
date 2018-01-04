@@ -101,7 +101,7 @@
             NSLog(@"menu select %ld",selectedIndex);
             if ( selectedIndex < weakSelf.corpArray.count)
             {
-                [MMProgressHUD showWithStatus:@"切换账号中"];
+                [MMProgressHUD showWithStatus:@"切换身份中"];
                 TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
                 UIViewController *homeVC = nil;
                 if (selectedIndex == 0)

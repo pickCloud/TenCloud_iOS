@@ -105,7 +105,7 @@
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"创建成功" desc:@"恭喜您成为公司管理员"];
         successVC.buttonTitle = @"查看我的企业";
         successVC.finishBlock = ^(UIViewController *viewController) {
-            [MMProgressHUD showWithStatus:@"切换账号中"];
+            [MMProgressHUD showWithStatus:@"切换身份中"];
             TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
             NSArray *oldVCS = weakSelf.navigationController.viewControllers;
             NSMutableArray *vcs = [NSMutableArray arrayWithArray:oldVCS];

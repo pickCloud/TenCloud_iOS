@@ -73,7 +73,7 @@
             //NSInteger corpIndex = selectedIndex - 1;
             if ( selectedIndex < weakSelf.corpArray.count)
             {
-                [MMProgressHUD showWithStatus:@"切换账号中"];
+                [MMProgressHUD showWithStatus:@"切换身份中"];
                 TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
                 //NSLog(@"切换到企业账号%@ id%lld",selectedCorp.company_name, selectedCorp.cid);
                 //NSLog(@"comn:%@",selectedCorp.company_name);
