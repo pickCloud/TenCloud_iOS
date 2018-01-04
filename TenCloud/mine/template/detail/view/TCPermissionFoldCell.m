@@ -60,10 +60,12 @@
     {
         UIImage *selectedImage = [UIImage imageNamed:@"template_checked"];
         [_checkButton setImage:selectedImage forState:UIControlStateNormal];
+        _nameLabel.textColor = THEME_TINT_COLOR;
     }else
     {
         UIImage *unselectedImage = [UIImage imageNamed:@"template_unchecked"];
         [_checkButton setImage:unselectedImage forState:UIControlStateNormal];
+        _nameLabel.textColor = THEME_TEXT_COLOR;
     }
 }
 
