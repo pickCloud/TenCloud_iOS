@@ -109,6 +109,10 @@
                 if (selectedIndex == 0)
                 {
                     homeVC = [[TCPersonHomeViewController alloc] init];
+                    [[TCCurrentCorp shared] setCid:0];
+                    NSString *localName = [[TCLocalAccount shared] name];
+                    [[TCCurrentCorp shared] setName:localName];
+                    [[TCCurrentCorp shared] save];
                 }else
                 {
                     homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
@@ -231,6 +235,7 @@
         [weakSelf.corpArray removeAllObjects];
         TCListCorp *me = [TCListCorp MR_createEntity];
         me.company_name = [[TCLocalAccount shared] name];
+        me.cid = 0;
         [weakSelf.corpArray addObject:me];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
     } failure:^(NSString *message) {

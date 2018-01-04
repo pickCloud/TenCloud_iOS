@@ -173,7 +173,6 @@
     TCListCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
     //[[TCCurrentCorp shared] setName:curCorp.company_name];
     [[TCCurrentCorp shared] setCid:curCorp.cid];
-    //[[TCCurrentCorp shared] setMobile:<#(NSString *)#>]
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
     [tableView reloadData];
