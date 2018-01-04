@@ -1,25 +1,28 @@
 //
-//  TCPermissionDetailViewController.m
+//  TCPermissionViewController.m
 //  TenCloud
 //
 //  Created by huangdx on 2018/1/2.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 
-#import "TCPermissionDetailViewController.h"
+#import "TCPermissionViewController.h"
 #import "TCPermissionTableViewController.h"
 #import "TCEditingTemplate.h"
 #import "TCPermissionSegment+CoreDataClass.h"
 #import <VTMagic/VTMagic.h>
+#import "TCModifyPermissionRequest.h"
+#import "TCTemplate+CoreDataClass.h"
 
-@interface TCPermissionDetailViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
+@interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
 @property (nonatomic, strong)   VTMagicController           *magicController;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topHeightConstraint;
+@property (nonatomic, weak) IBOutlet    UILabel             *titleLabel;
 - (IBAction) onCloseButton:(id)sender;
 - (IBAction) onConfirmButton:(id)sender;
 @end
 
-@implementation TCPermissionDetailViewController
+@implementation TCPermissionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +30,14 @@
     if (IS_iPhoneX)
     {
         _topHeightConstraint.constant = 64+27;
+    }
+    
+    if (_state == PermissionVCStateNew)
+    {
+        self.titleLabel.text = @"模版权限选择";
+    }else
+    {
+        self.titleLabel.text = @"修改模版权限";
     }
     
     [self addChildViewController:self.magicController];
@@ -54,6 +65,26 @@
 
 - (IBAction) onConfirmButton:(id)sender
 {
+    if (_state == PermissionVCStateEdit)
+    {
+        __weak __typeof(self) weakSelf = self;
+        [MMProgressHUD showWithStatus:@"修改权限中"];
+        TCEditingTemplate *tmpl = [TCEditingTemplate shared];
+        TCModifyPermissionRequest *req = [TCModifyPermissionRequest new];
+        req.templateID = _tmpl.tid;
+        req.name = _tmpl.name;
+        req.funcPermissionArray = tmpl.permissionIDArray;
+        req.projectPermissionArray = tmpl.projectPermissionIDArray;
+        req.filePermissionArray = tmpl.filePermissionIDArray;
+        req.serverPermissionArray = tmpl.serverPermissionIDArray;
+        [req startWithSuccess:^(NSString *message) {
+            [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(NSString *message) {
+            [MMProgressHUD dismissWithError:message afterDelay:1.32];
+        }];
+        return;
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -63,7 +94,7 @@
     {
         _magicController = [[VTMagicController alloc] init];
         _magicController.magicView.itemScale = 1.0;
-        _magicController.magicView.headerHeight = 0;//TCSCALE(44);
+        _magicController.magicView.headerHeight = 0;
         _magicController.magicView.navigationHeight = TCSCALE(44);
         
         _magicController.magicView.itemSpacing = TCSCALE(29.5);
@@ -110,18 +141,6 @@
     UIViewController *controller = nil;
     TCPermissionSegment *seg = [[[TCEditingTemplate shared] permissionSegArray] objectAtIndex:pageIndex];
     controller = [[TCPermissionTableViewController alloc] initWithPermissionSegment:seg];
-    /*
-    if (pageIndex == 0)
-    {
-        //controller = [[TCServerMonitorViewController alloc] initWithID:_server.serverID];
-        
-        controller = [TCPermissionTableViewController alloc] initWithPermissionSegment:<#(TCPermissionSegment *)#>;
-    }else if (pageIndex == 1)
-    {
-        controller = [TCPermissionTableViewController new];
-        //controller = [[TCServerInfoViewController alloc] initWithServer:_server];
-    }
-     */
     return controller;
 }
 

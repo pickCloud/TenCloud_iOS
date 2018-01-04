@@ -210,8 +210,6 @@
         }
     }
     return obj;
-    //TCPermissionChunk *chunk0 = [pSection.data objectAtIndex:indexPath.row];
-    
 }
 
 @end

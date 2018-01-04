@@ -8,7 +8,7 @@
 
 #import "TCModifyTemplateViewController.h"
 #import "VHLNavigation.h"
-#import "TCPermissionDetailViewController.h"
+#import "TCPermissionViewController.h"
 #import "TCSuccessResultViewController.h"
 #import "TCTemplate+CoreDataClass.h"
 #import "TCEditingTemplate.h"
@@ -112,8 +112,10 @@
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
     NSLog(@"on edit permission template");
-    TCPermissionDetailViewController *detailVC = [TCPermissionDetailViewController new];
-    [self presentViewController:detailVC animated:YES completion:nil];
+    TCPermissionViewController *perVC = [TCPermissionViewController new];
+    perVC.state = PermissionVCStateEdit;
+    perVC.tmpl = _mTemplate;
+    [self presentViewController:perVC animated:YES completion:nil];
 }
 
 - (void) updatePermissionDescLabel

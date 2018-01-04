@@ -10,8 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCPermissionDetailViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCPermissionViewController">
             <connections>
+                <outlet property="titleLabel" destination="5uz-aa-drm" id="liU-lQ-dY9"/>
                 <outlet property="topHeightConstraint" destination="da1-JS-Flc" id="bD6-Q8-weo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
