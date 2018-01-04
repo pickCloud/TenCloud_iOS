@@ -99,7 +99,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_TEMPLATE         object:nil];
     };
     modifyVC.requestBlock = ^(TCModifyTextViewController *vc, NSString *newValue) {
-        //[vc modifyRequestResult:YES message:@"修改成功"];
         TCRenameTemplateRequest *request = [[TCRenameTemplateRequest alloc] initWithTemplateID:_mTemplate.tid name:newValue];
         [request startWithSuccess:^(NSString *message) {
             [vc modifyRequestResult:YES message:@"修改成功"];

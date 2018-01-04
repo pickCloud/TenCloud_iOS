@@ -12,6 +12,8 @@
 #import "TCTemplateListRequest.h"
 #import "TCAddTemplateViewController.h"
 #import "TCModifyTemplateViewController.h"
+#import "TCDeleteTemplateRequest.h"
+#import "TCTemplate+CoreDataClass.h"
 
 #define TEMPLATE_CELL_REUSE_ID      @"TEMPLATE_CELL_REUSE_ID"
 
@@ -104,6 +106,28 @@
     TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
     TCModifyTemplateViewController *modifyVC = [[TCModifyTemplateViewController alloc] initWithTemplate:tmpl];
     [self.navigationController pushViewController:modifyVC animated:YES];
+}
+
+- (BOOL) tableView:(UITableView*)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void) tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
+        __weak __typeof(self) weakSelf = self;
+        TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
+        [delReq startWithSuccess:^(NSString *message) {
+            [weakSelf.templateArray removeObjectAtIndex:indexPath.row];
+            NSArray *paths = [NSArray arrayWithObject:indexPath];
+            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    }
 }
 
 
