@@ -203,6 +203,22 @@
             }
         }
     }
+    
+    for (TCPermissionSegment * seg in _permissionSegArray)
+    {
+        for (TCPermissionSection *sec in seg.data)
+        {
+            for (TCPermissionChunk *chunk in sec.data)
+            {
+                BOOL tmpSelected = YES;
+                for (TCPermissionItem *item in chunk.data)
+                {
+                    tmpSelected &= item.selected;
+                }
+                chunk.selected = tmpSelected;
+            }
+        }
+    }
 }
 
 - (NSInteger) funcPermissionAmount
