@@ -61,6 +61,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) modifyRequestResult:(BOOL)isSuccess message:(NSString*)msg
+{
+    if (isSuccess)
+    {
+        if (_valueChangedBlock)
+        {
+            NSString *newValue = _textField.text;
+            newValue = newValue ? newValue : @"";
+            _valueChangedBlock(self, newValue);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }else
+    {
+        [MBProgressHUD showError:msg toView:nil];
+    }
+}
+
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
@@ -73,6 +90,13 @@
     NSString *newValue = _textField.text;
     newValue = newValue ? newValue : @"";
     __weak __typeof(self) weakSelf = self;
+    
+    if (_requestBlock)
+    {
+        _requestBlock(self, newValue);
+        return;
+    }
+    
     if (_apiType == TCApiTypeUpdateCorp)
     {
         TCModifyCorpProfileRequest *request = [[TCModifyCorpProfileRequest alloc] initWithCid:_cid key:_keyName value:newValue];
@@ -130,4 +154,5 @@
     [self onConfirmButton:nil];
     return YES;
 }
+
 @end

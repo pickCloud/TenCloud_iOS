@@ -12,13 +12,17 @@
 #import "TCSuccessResultViewController.h"
 #import "TCTemplate+CoreDataClass.h"
 #import "TCEditingTemplate.h"
+#import "TCModifyTextViewController.h"
+#import "TCRenameTemplateRequest.h"
 
 @interface TCModifyTemplateViewController ()<UIGestureRecognizerDelegate>
-@property (nonatomic, weak) IBOutlet    UITextField         *nameField;
+//@property (nonatomic, weak) IBOutlet    UITextField         *nameField;
+@property (nonatomic, weak) IBOutlet    UILabel             *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *permissionDescLabel;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, strong)   TCTemplate                  *mTemplate;
 - (void) onTapBlankArea:(id)sender;
+- (IBAction) onModifyTemplateName:(id)sender;
 - (IBAction) onEditPermissionTemplate:(id)sender;
 - (void) updatePermissionDescLabel;
 @end
@@ -47,8 +51,9 @@
     }
     
     
-    NSAttributedString *namePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入新增模版的名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    _nameField.attributedPlaceholder = namePlaceHolderStr;
+    //NSAttributedString *namePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入新增模版的名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    //_nameField.attributedPlaceholder = namePlaceHolderStr;
+    _nameLabel.text = _mTemplate.name;
     
     UITapGestureRecognizer  *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                   action:@selector(onTapBlankArea:)];
@@ -78,7 +83,31 @@
 - (void) onTapBlankArea:(id)sender
 {
     NSLog(@"on tap blank area");
-    [_nameField resignFirstResponder];
+    //[_nameField resignFirstResponder];
+}
+
+- (IBAction) onModifyTemplateName:(id)sender
+{
+    __weak __typeof(self) weakSelf = self;
+    TCModifyTextViewController *modifyVC = [TCModifyTextViewController new];
+    modifyVC.titleText = @"修改模版名称";
+    modifyVC.initialValue = _mTemplate.name;
+    modifyVC.placeHolder = @"模版名称";
+    modifyVC.valueChangedBlock = ^(TCModifyTextViewController *vc, id newValue) {
+        weakSelf.mTemplate.name = newValue;
+        weakSelf.nameLabel.text = newValue;
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_TEMPLATE         object:nil];
+    };
+    modifyVC.requestBlock = ^(TCModifyTextViewController *vc, NSString *newValue) {
+        //[vc modifyRequestResult:YES message:@"修改成功"];
+        TCRenameTemplateRequest *request = [[TCRenameTemplateRequest alloc] initWithTemplateID:_mTemplate.tid name:newValue];
+        [request startWithSuccess:^(NSString *message) {
+            [vc modifyRequestResult:YES message:@"修改成功"];
+        } failure:^(NSString *message) {
+            [vc modifyRequestResult:NO message:message];
+        }];
+    };
+    [self.navigationController pushViewController:modifyVC animated:YES];
 }
 
 - (IBAction) onEditPermissionTemplate:(id)sender

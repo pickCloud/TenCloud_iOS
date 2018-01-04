@@ -19,7 +19,8 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *templateArray;
 - (void) onAddTemplateButton:(id)sender;
-- (void) onAddTemplateNotification;
+- (void) onReloadTemplateNotification;
+- (void) onUpdateTemplateUINotification;
 - (void) reloadTemplateArray;
 @end
 
@@ -53,8 +54,12 @@
     _tableView.tableFooterView = [UIView new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onAddTemplateNotification)
+                                             selector:@selector(onReloadTemplateNotification)
                                                  name:NOTIFICATION_ADD_TEMPLATE
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUpdateTemplateUINotification)
+                                                 name:NOTIFICATION_MODIFY_TEMPLATE
                                                object:nil];
     
     [self startLoading];
@@ -109,9 +114,14 @@
     [self.navigationController pushViewController:addVC animated:YES];
 }
 
-- (void) onAddTemplateNotification
+- (void) onReloadTemplateNotification
 {
     [self reloadTemplateArray];
+}
+
+- (void) onUpdateTemplateUINotification
+{
+    [self.tableView reloadData];
 }
 
 - (void) reloadTemplateArray

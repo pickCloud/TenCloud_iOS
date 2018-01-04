@@ -12,6 +12,7 @@
 
 @class TCModifyTextViewController;
 typedef void (^TCModifyTextValueChangedBlock)(TCModifyTextViewController *vc, id newValue);
+typedef void (^TCModifyTextRequestBlock)(TCModifyTextViewController *vc, NSString *newValue);
 
 @interface TCModifyTextViewController : TCViewController
 
@@ -22,5 +23,8 @@ typedef void (^TCModifyTextValueChangedBlock)(TCModifyTextViewController *vc, id
 @property (nonatomic, assign)   TCApiType   apiType;
 @property (nonatomic, assign)   NSInteger   cid;
 @property (nonatomic, copy) TCModifyTextValueChangedBlock   valueChangedBlock;
+@property (nonatomic, copy) TCModifyTextRequestBlock        requestBlock;
+
+- (void) modifyRequestResult:(BOOL)isSuccess message:(NSString*)msg;
 
 @end
