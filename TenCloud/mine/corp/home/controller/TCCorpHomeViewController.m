@@ -33,6 +33,7 @@
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UIButton        *avatarButton;
 @property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
+@property (nonatomic, weak) IBOutlet    UILabel         *contactLabel;
 @property (nonatomic, weak) IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView     *certificatedImageView;
 @property (nonatomic, assign)   NSInteger               corpID;
@@ -243,6 +244,7 @@
     {
         _nameLabel.text = [[TCCurrentCorp shared] name];
         NSString *mobile = [[TCCurrentCorp shared] mobile];
+        _contactLabel.text = [[TCCurrentCorp shared] contact];
         _phoneLabel.text = [NSString hiddenPhoneNumStr:mobile];
         //NSURL *avatarURL = [NSURL URLWithString:_corpInfo.];
         UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];

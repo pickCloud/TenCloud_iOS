@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="avatarButton" destination="oee-jP-eIG" id="Qlp-5a-zEN"/>
                 <outlet property="certificatedImageView" destination="xpp-HK-g61" id="0Co-uZ-TQ4"/>
+                <outlet property="contactLabel" destination="jjA-eS-2hT" id="Knq-HD-0ap"/>
                 <outlet property="nameLabel" destination="ABR-fK-uda" id="l1Y-ZQ-p1e"/>
                 <outlet property="phoneLabel" destination="EJ7-bL-c3J" id="GGO-PK-But"/>
                 <outlet property="switchButton" destination="Qda-SB-cA1" id="eq5-oa-Mhb"/>
@@ -48,20 +49,26 @@
                                 </constraints>
                                 <state key="normal" image="default_avatar"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-fK-uda">
-                                <rect key="frame" x="80" y="101.5" width="33" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-fK-uda">
+                                <rect key="frame" x="80" y="101.5" width="65.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="133****0001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ7-bL-c3J">
-                                <rect key="frame" x="80" y="127" width="71" height="14"/>
+                                <rect key="frame" x="125" y="127" width="71" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjA-eS-2hT">
+                                <rect key="frame" x="80" y="127" width="37" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_id_uncertificated" translatesAutoresizingMaskIntoConstraints="NO" id="xpp-HK-g61">
-                                <rect key="frame" x="121" y="104.5" width="12" height="12"/>
+                                <rect key="frame" x="153.5" y="104.5" width="12" height="12"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_detail" translatesAutoresizingMaskIntoConstraints="NO" id="5g9-3i-Cl5">
                                 <rect key="frame" x="347" y="115" width="12" height="12"/>
@@ -105,10 +112,12 @@
                             <constraint firstItem="xpp-HK-g61" firstAttribute="leading" secondItem="ABR-fK-uda" secondAttribute="trailing" constant="8" id="h3M-8D-116"/>
                             <constraint firstItem="7gv-DX-52Z" firstAttribute="width" secondItem="Jxj-A0-uEK" secondAttribute="width" id="h9e-b3-u6v"/>
                             <constraint firstItem="7gv-DX-52Z" firstAttribute="top" secondItem="Jxj-A0-uEK" secondAttribute="top" id="k5q-ha-fWh"/>
+                            <constraint firstItem="jjA-eS-2hT" firstAttribute="leading" secondItem="ABR-fK-uda" secondAttribute="leading" id="kdI-Yq-Tvn"/>
+                            <constraint firstItem="jjA-eS-2hT" firstAttribute="top" secondItem="ABR-fK-uda" secondAttribute="bottom" constant="6" id="lY4-rc-Ve2"/>
                             <constraint firstAttribute="trailing" secondItem="5g9-3i-Cl5" secondAttribute="trailing" constant="16" id="ma3-Fx-PuC"/>
                             <constraint firstItem="7gv-DX-52Z" firstAttribute="centerX" secondItem="Jxj-A0-uEK" secondAttribute="centerX" id="px3-Py-DHU"/>
                             <constraint firstItem="a2C-s0-yQX" firstAttribute="centerX" secondItem="Jxj-A0-uEK" secondAttribute="centerX" id="qAy-2n-ewM"/>
-                            <constraint firstItem="EJ7-bL-c3J" firstAttribute="leading" secondItem="ABR-fK-uda" secondAttribute="leading" id="qWh-2w-gLI"/>
+                            <constraint firstItem="EJ7-bL-c3J" firstAttribute="leading" secondItem="jjA-eS-2hT" secondAttribute="trailing" constant="8" id="rbZ-Ot-l55"/>
                             <constraint firstItem="EJ7-bL-c3J" firstAttribute="top" secondItem="ABR-fK-uda" secondAttribute="bottom" constant="6" id="vi9-oR-V1U"/>
                             <constraint firstItem="Qda-SB-cA1" firstAttribute="top" secondItem="Jxj-A0-uEK" secondAttribute="top" constant="20" id="vmo-4U-NCr"/>
                             <constraint firstItem="Qda-SB-cA1" firstAttribute="width" secondItem="Jxj-A0-uEK" secondAttribute="width" multiplier="0.2" id="zKG-Ax-rsb"/>
