@@ -203,6 +203,9 @@
 		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
 		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
 		A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */; };
+		A0A0B5BB2002728100EA8512 /* TCButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B92002728100EA8512 /* TCButtonTableViewCell.m */; };
+		A0A0B5BC2002728100EA8512 /* TCButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5BA2002728100EA8512 /* TCButtonTableViewCell.xib */; };
+		A0A0B5BF200276F900EA8512 /* TCProfileButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5BE200276F900EA8512 /* TCProfileButtonData.m */; };
 		A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */; };
 		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
 		A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */; };
@@ -656,6 +659,11 @@
 		A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileTableViewCell.m; sourceTree = "<group>"; };
 		A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCStaffProfileTableViewCell.xib; sourceTree = "<group>"; };
 		A0A0B5B520025C1E00EA8512 /* TCStaffProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileTableViewCell.h; sourceTree = "<group>"; };
+		A0A0B5B82002728100EA8512 /* TCButtonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCButtonTableViewCell.h; sourceTree = "<group>"; };
+		A0A0B5B92002728100EA8512 /* TCButtonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCButtonTableViewCell.m; sourceTree = "<group>"; };
+		A0A0B5BA2002728100EA8512 /* TCButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCButtonTableViewCell.xib; sourceTree = "<group>"; };
+		A0A0B5BD200276F900EA8512 /* TCProfileButtonData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCProfileButtonData.h; sourceTree = "<group>"; };
+		A0A0B5BE200276F900EA8512 /* TCProfileButtonData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCProfileButtonData.m; sourceTree = "<group>"; };
 		A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
 		A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingViewController.m; sourceTree = "<group>"; };
 		A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSettingViewController.xib; sourceTree = "<group>"; };
@@ -2489,6 +2497,8 @@
 		A0A0B5AB2002278600EA8512 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0B5BD200276F900EA8512 /* TCProfileButtonData.h */,
+				A0A0B5BE200276F900EA8512 /* TCProfileButtonData.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2506,6 +2516,9 @@
 				A0A0B5B520025C1E00EA8512 /* TCStaffProfileTableViewCell.h */,
 				A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */,
 				A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */,
+				A0A0B5B82002728100EA8512 /* TCButtonTableViewCell.h */,
+				A0A0B5B92002728100EA8512 /* TCButtonTableViewCell.m */,
+				A0A0B5BA2002728100EA8512 /* TCButtonTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3200,6 +3213,7 @@
 				A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */,
 				A0A86B781FF3EC0900D1D58D /* TCAccountMenuViewController.xib in Resources */,
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
+				A0A0B5BC2002728100EA8512 /* TCButtonTableViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
 				A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */,
@@ -3446,6 +3460,7 @@
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */,
+				A0A0B5BB2002728100EA8512 /* TCButtonTableViewCell.m in Sources */,
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
@@ -3553,6 +3568,7 @@
 				A031B6001FFC83B900B4F448 /* TCPermissionItem+CoreDataProperties.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
+				A0A0B5BF200276F900EA8512 /* TCProfileButtonData.m in Sources */,
 				A031B5FA1FFC762F00B4F448 /* TCPermissionObject+CoreDataProperties.m in Sources */,
 				A031B6071FFD265600B4F448 /* TCModifyTemplateViewController.m in Sources */,
 				A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */,

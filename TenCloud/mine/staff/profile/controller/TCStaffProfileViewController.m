@@ -12,16 +12,21 @@
 #import "TCServerInfoItem.h"
 #import "TCStaff+CoreDataClass.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "TCButtonTableViewCell.h"
+#import "TCProfileButtonData.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
+#define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
 
 @interface TCStaffProfileViewController ()
 @property (nonatomic, strong)   TCStaff         *staff;
 @property (nonatomic, strong)   NSMutableArray  *rowDataArray;
+@property (nonatomic, strong)   NSMutableArray  *buttonDataArray;
 @property (nonatomic, weak)     IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak)     IBOutlet    UIImageView     *avatarView;
 @property (nonatomic, weak)     IBOutlet    UILabel         *nameLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel         *phoneLabel;
+@property (nonatomic, weak)     IBOutlet    UITableView     *buttonTableView;
 @end
 
 @implementation TCStaffProfileViewController
@@ -40,10 +45,23 @@
     [super viewDidLoad];
     self.title = @"员工详情";
     
+    _buttonDataArray = [NSMutableArray new];
+    TCProfileButtonData *data1 = [TCProfileButtonData new];
+    data1.title = @"允许加入";
+    data1.color = THEME_TINT_COLOR;
+    [_buttonDataArray addObject:data1];
+    TCProfileButtonData *data2 = [TCProfileButtonData new];
+    data2.title = @"拒绝加入";
+    data2.color = STATE_ALERT_COLOR;
+    [_buttonDataArray addObject:data2];
+    
+    UINib *buttonCellNib = [UINib nibWithNibName:@"TCButtonTableViewCell" bundle:nil];
+    [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:STAFF_BUTTON_CELL_ID];
+    
     _rowDataArray = [NSMutableArray new];
     UINib *cellNib = [UINib nibWithNibName:@"TCStaffProfileTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:STAFF_PROFILE_CELL_ID];
-    _tableView.tableFooterView = [UIView new];
+    _tableView.tableFooterView = _buttonTableView;
     
     TCServerInfoItem *item1 = [TCServerInfoItem new];
     item1.key = @"申请时间";
@@ -101,10 +119,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_buttonTableView == tableView)
+    {
+        return _buttonDataArray.count;
+    }
     return _rowDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == _buttonTableView)
+    {
+        TCProfileButtonData *btnData = [_buttonDataArray objectAtIndex:indexPath.row];
+        TCButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:STAFF_BUTTON_CELL_ID forIndexPath:indexPath];
+        [cell setData:btnData];
+        return cell;
+    }
     TCServerInfoItem *infoItem = [_rowDataArray objectAtIndex:indexPath.row];
     TCStaffProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:STAFF_PROFILE_CELL_ID forIndexPath:indexPath];
     [cell setKey:infoItem.key value:infoItem.value];

@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCStaffProfileViewController">
             <connections>
                 <outlet property="avatarView" destination="wtO-hc-B62" id="gXN-ak-IHb"/>
+                <outlet property="buttonTableView" destination="h6S-cN-Xf9" id="7wl-9V-FaH"/>
                 <outlet property="nameLabel" destination="Hjy-wX-bJg" id="b4N-1m-Veb"/>
                 <outlet property="phoneLabel" destination="TOs-et-Ve4" id="M1o-aP-1nE"/>
                 <outlet property="tableView" destination="1pP-GZ-k7n" id="RAh-Ju-kzc"/>
@@ -106,6 +107,22 @@
             </constraints>
             <point key="canvasLocation" x="32.5" y="90.5"/>
         </view>
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h6S-cN-Xf9">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <view key="tableHeaderView" contentMode="scaleToFill" id="KHx-FD-mm6">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="12"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Knb-E4-42B"/>
+                <outlet property="delegate" destination="-1" id="bPw-bg-oLI"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="606.5"/>
+        </tableView>
     </objects>
     <resources>
         <image name="default_avatar" width="50" height="50"/>

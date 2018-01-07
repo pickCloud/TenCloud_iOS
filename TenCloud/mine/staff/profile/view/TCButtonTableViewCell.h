@@ -1,0 +1,18 @@
+//
+//  TCButtonTableViewCell.h
+//  TenCloud
+//
+//  Created by huangdx on 2018/1/7.
+//  Copyright © 2018年 10.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "TCProfileButtonData.h"
+
+@interface TCButtonTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) IBOutlet    UIButton    *button;
+
+- (void) setData:(TCProfileButtonData*)data;
+
+@end
