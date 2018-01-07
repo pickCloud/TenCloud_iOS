@@ -212,10 +212,6 @@
 - (TCPermissionNode *) dataForIndexPath:(NSIndexPath*)indexPath
 {
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:indexPath.section];
-    if (indexPath.row == 0)
-    {
-    //return sectionNode;
-    }
     return [sectionNode subNodeAtIndex:indexPath.row];
 }
 

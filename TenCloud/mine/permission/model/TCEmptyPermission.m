@@ -7,8 +7,6 @@
 //
 
 #import "TCEmptyPermission.h"
-//#import "TCRawTemplateRequest.h"
-//#import "TCPermissionSegment+CoreDataClass.h"
 #import "TCEmptyPermissionRequest.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCCurrentCorp.h"
@@ -48,18 +46,6 @@
             _needRetry = YES;
         }
         
-        /*
-        TCRawTemplateRequest *req = [[TCRawTemplateRequest alloc] initWithCorpID:corpID];
-        if ([req loadCacheWithError:nil])
-        {
-            NSDictionary *dataDict = [req.responseJSONObject objectForKey:@"data"];
-            [self parseDictionaryData:dataDict];
-        }else
-        {
-            _needRetry = YES;
-        }
-         */
-        
         [self sendEmptyTemplateRequest];
     }
     return self;
@@ -80,19 +66,6 @@
             [self performSelector:@selector(sendEmptyTemplateRequest) withObject:nil afterDelay:1.5];
         }
     }];
-    /*
-    TCRawTemplateRequest *req = [[TCRawTemplateRequest alloc] initWithCorpID:corpID];
-    [req startWithSuccess:^(NSArray<TCPermissionSegment *> *segArray) {
-        weakSelf.needRetry = NO;
-        [weakSelf.templateArray removeAllObjects];
-        [weakSelf.templateArray addObjectsFromArray:segArray];
-    } failure:^(NSString *message) {
-        if (weakSelf.needRetry)
-        {
-            [self performSelector:@selector(sendEmptyTemplateRequest) withObject:nil afterDelay:1.5];
-        }
-    }];
-     */
 }
 
 - (void) parseDictionaryData:(NSDictionary*)dict

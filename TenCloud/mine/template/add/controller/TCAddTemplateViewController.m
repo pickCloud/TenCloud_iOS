@@ -83,10 +83,10 @@
     [_nameField resignFirstResponder];
     
     TCEditingPermission *tmpl = [TCEditingPermission shared];
-    //NSLog(@"per ids:%@",tmpl.permissionIDArray);
-    //NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
-    //NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
-    //NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
+    NSLog(@"per ids:%@",tmpl.permissionIDArray);
+    NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
+    NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
+    NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
     
     __weak __typeof(self) weakSelf = self;
     TCAddTemplateRequest *request = nil;

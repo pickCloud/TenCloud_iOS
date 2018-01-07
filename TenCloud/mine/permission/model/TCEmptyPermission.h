@@ -15,7 +15,6 @@
 
 - (void) print;
 
-//@property (nonatomic, strong)   NSMutableArray  *templateArray;
 @property (nonatomic, strong)   NSMutableArray  *permissionArray;
 
 @end

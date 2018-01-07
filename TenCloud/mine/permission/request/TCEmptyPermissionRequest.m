@@ -7,7 +7,6 @@
 //
 
 #import "TCEmptyPermissionRequest.h"
-//#import "TCPermissionSegment+CoreDataClass.h"
 #import "TCPermissionNode+CoreDataClass.h"
 
 @interface TCEmptyPermissionRequest()
@@ -34,7 +33,6 @@
         if (dataArray)
         {
             NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-            //NSArray *segmentArray = [TCPermissionSegment mj_objectArrayWithKeyValuesArray:dataArray context:context];
             NSArray *resArray = [TCPermissionNode mj_objectArrayWithKeyValuesArray:dataArray context:context];
             success ? success (resArray) : nil;
         }

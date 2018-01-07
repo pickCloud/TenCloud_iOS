@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) updateSubNodesAfterFatherNodeChanged;
 
+- (NSArray*)selectedSubNodeIDArray;
+
 @property (nonatomic) int64_t permID;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *filename;

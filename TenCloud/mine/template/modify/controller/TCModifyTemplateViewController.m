@@ -9,9 +9,13 @@
 #import "TCModifyTemplateViewController.h"
 #import "VHLNavigation.h"
 #import "TCPermissionViewController.h"
-#import "TCSuccessResultViewController.h"
+#import "TCEditingPermission.h"
+
+//#import "TCSuccessResultViewController.h"
 #import "TCTemplate+CoreDataClass.h"
-#import "TCEditingTemplate.h"
+
+
+//#import "TCEditingTemplate.h"
 #import "TCModifyTextViewController.h"
 #import "TCRenameTemplateRequest.h"
 
@@ -59,8 +63,10 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-    [[TCEditingTemplate shared] reset];
-    [[TCEditingTemplate shared] setTemplate:_mTemplate];
+    //[[TCEditingTemplate shared] reset];
+    //[[TCEditingTemplate shared] setTemplate:_mTemplate];
+    [[TCEditingPermission shared] reset];
+    [[TCEditingPermission shared] setTemplate:_mTemplate];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -117,11 +123,16 @@
     perVC.state = PermissionVCStateEdit;
     perVC.tmpl = _mTemplate;
     perVC.modifiedBlock = ^(TCPermissionViewController *vc) {
-        TCEditingTemplate *editingTmpl = [TCEditingTemplate shared];
-        weakSelf.mTemplate.access_filehub = editingTmpl.filePermissionIDString;
-        weakSelf.mTemplate.access_servers = editingTmpl.serverPermissionIDString;
-        weakSelf.mTemplate.access_projects = editingTmpl.projectPermissionIDString;
-        weakSelf.mTemplate.permissions = editingTmpl.permissionIDString;
+        //TCEditingTemplate *editingTmpl = [TCEditingTemplate shared];
+        //weakSelf.mTemplate.access_filehub = editingTmpl.filePermissionIDString;
+        //weakSelf.mTemplate.access_servers = editingTmpl.serverPermissionIDString;
+        //weakSelf.mTemplate.access_projects = editingTmpl.projectPermissionIDString;
+        //weakSelf.mTemplate.permissions = editingTmpl.permissionIDString;
+        TCEditingPermission *perm = [TCEditingPermission shared];
+        weakSelf.mTemplate.access_filehub = perm.filePermissionIDString;
+        weakSelf.mTemplate.access_servers = perm.serverPermissionIDString;
+        weakSelf.mTemplate.access_projects = perm.projectPermissionIDString;
+        weakSelf.mTemplate.permissions = perm.permissionIDString;
     };
     [self presentViewController:perVC animated:YES completion:nil];
 }
@@ -129,8 +140,10 @@
 - (void) updatePermissionDescLabel
 {
     
-    NSInteger funcAmount = [[TCEditingTemplate shared] funcPermissionAmount];
-    NSInteger dataAmount = [[TCEditingTemplate shared] dataPermissionAmount];
+    //NSInteger funcAmount = [[TCEditingTemplate shared] funcPermissionAmount];
+    //NSInteger dataAmount = [[TCEditingTemplate shared] dataPermissionAmount];
+    NSInteger funcAmount = [[TCEditingPermission shared] funcPermissionAmount];
+    NSInteger dataAmount = [[TCEditingPermission shared] dataPermissionAmount];
     if (funcAmount == 0 && dataAmount == 0)
     {
         [_permissionDescLabel setText:@"未选择"];

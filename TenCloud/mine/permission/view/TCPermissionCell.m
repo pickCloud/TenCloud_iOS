@@ -7,12 +7,10 @@
 //
 
 #import "TCPermissionCell.h"
-//#import "TCPermissionChunk+CoreDataClass.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
 @interface TCPermissionCell()
-//@property (nonatomic, weak) TCPermissionChunk       *chunk;
 @property (nonatomic, weak) TCPermissionNode        *mNode;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
@@ -36,28 +34,6 @@
 
     // Configure the view for the selected state
 }
-
-/*
-- (void) setData:(TCCellData *)data
-{
-    [super setData:data];
-    self.nameLabel.text = data.title;
-    NSString *descText = data.initialValue;
-    if (descText == nil || descText.length == 0)
-    {
-        descText = @"未设置";
-    }
-    self.descLabel.text = descText;//data.initialValue;
-}
- */
-/*
-- (void) setChunk:(TCPermissionChunk*)chunk
-{
-    _nameLabel.text = chunk.name;
-    _chunk = chunk;
-    [self updateCheckButtonUI];
-}
- */
 
 - (void) setNode:(TCPermissionNode *)node
 {
@@ -101,12 +77,6 @@
     self.mNode.selected = !self.mNode.selected;
     [self updateCheckButtonUI];
     
-    /*
-    if (_selectBlock)
-    {
-        _selectBlock(self, self.chunk.selected);
-    }
-     */
     if (self.selectBlock)
     {
         self.selectBlock(self, self.mNode.selected);

@@ -22,6 +22,13 @@
              };
 }
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"permID":@"id"
+             };
+}
+
 - (NSInteger) subNodeAmount
 {
     NSInteger amount = 0;
@@ -114,7 +121,6 @@
         for (TCPermissionNode *subNode in fatherNode.data)
         {
             newValue &= subNode.selected;
-            NSLog(@"node name:%@ s:%d",subNode.name,subNode.selected);
         }
         fatherNode.selected = newValue;
         [self.fatherNode updateFatherNodeAfterSubNodeChanged];
@@ -132,15 +138,27 @@
         }
     }
 }
-/*
-- (TCPermissionNode *) subNodeWithIndex:(NSInteger)currentIndex
+
+- (NSArray*)selectedSubNodeIDArray
 {
-    for (TCPermissionNode *subNode in self.data)
+    NSMutableArray *nodes = [NSMutableArray new];
+    for (TCPermissionNode *node in self.data)
     {
-        
+        if (node.selected)
+        {
+            if (node.permID > 0)
+            {
+                [nodes addObject:@(node.permID)];
+            }
+        }
+        NSArray *subArray = [node selectedSubNodeIDArray];
+        if (subArray && subArray.count > 0)
+        {
+            [nodes addObjectsFromArray:subArray];
+        }
     }
+    return nodes;
 }
- */
 
 @dynamic permID;
 @dynamic name;

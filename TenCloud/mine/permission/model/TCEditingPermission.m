@@ -9,12 +9,6 @@
 #import "TCEditingPermission.h"
 #import "TCEmptyPermission.h"
 #import "TCPermissionNode+CoreDataClass.h"
-
-#import "TCEmptyTemplate.h"
-#import "TCPermissionSegment+CoreDataClass.h"
-#import "TCPermissionSection+CoreDataClass.h"
-#import "TCPermissionChunk+CoreDataClass.h"
-#import "TCPermissionItem+CoreDataClass.h"
 #import "TCTemplate+CoreDataClass.h"
 
 @implementation TCEditingPermission
@@ -39,71 +33,16 @@
     return self;
 }
 
-/*
 - (void) reset
 {
     [_permissionArray removeAllObjects];
-    NSArray *emptyArray = [[TCEmptyTemplate shared] templateArray];
-    NSLog(@"emptyArray:%@",emptyArray);
-    [_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
-    NSLog(@"_perSegArray:%@",_permissionArray);
-    
-
-    for (TCPermissionSegment * seg in _permissionArray)
-    {
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk *chunk in sec.data)
-            {
-                for (TCPermissionItem *item in chunk.data)
-                {
-                    [item setFatherItem:chunk];
-                    if ([sec.name isEqualToString:@"文件"])
-                    {
-                        item.name = item.filename;
-                    }
-                }
-            }
-        }
-    }
-}
- */
-- (void) reset
-{
-    [_permissionArray removeAllObjects];
-    //NSArray *emptyArray = [[TCEmptyTemplate shared] templateArray];
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
     [_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
-    //NSLog(@"_perSegArray:%@",_permissionArray);
     
     for (TCPermissionNode * subNode in _permissionArray)
     {
         [self resetPermissionNode:subNode];
     }
-    /*
-    for (TCPermissionSegment * seg in _permissionArray)
-    {
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk *chunk in sec.data)
-            {
-                chunk.fold = NO;
-                chunk.selected = NO;
-                chunk.hidden = NO;
-                for (TCPermissionItem *item in chunk.data)
-                {
-                    [item setFatherItem:chunk];
-                    item.selected = NO;
-                    item.hidden = NO;
-                    if ([sec.name isEqualToString:@"文件"])
-                    {
-                        item.name = item.filename;
-                    }
-                }
-            }
-        }
-    }
-     */
 }
 
 - (void) resetPermissionNode:(TCPermissionNode *)node
@@ -161,25 +100,6 @@
             {
                 TCPermissionNode *funNode = _permissionArray.firstObject;
                 [self setPermissionNodeSelected:funNode withID:pIDNum.integerValue];
-                
-                //
-                /*
-                TCPermissionSegment *seg = _permissionArray.firstObject;
-                for (TCPermissionSection *sec in seg.data)
-                {
-                    for (TCPermissionChunk * chunk in sec.data)
-                    {
-                        for (TCPermissionItem * item in chunk.data)
-                        {
-                            if (item.permID == pIDNum.integerValue)
-                            {
-                                item.selected = YES;
-                            }
-                        }
-                    }
-                }
-                 */
-                
             }
         }
     }
@@ -193,23 +113,11 @@
             for (NSNumber *pIDNum in serverPerIDArray)
             {
                 TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
-                [self setPermissionNodeSelected:dataNode withID:pIDNum.integerValue];
-                /*
-                TCPermissionSegment *seg = [_permissionArray objectAtIndex:1];
-                for (TCPermissionSection *sec in seg.data)
+                if (dataNode.data.count > 2)
                 {
-                    for (TCPermissionChunk * chunk in sec.data)
-                    {
-                        for (TCPermissionItem * item in chunk.data)
-                        {
-                            if (item.permID == pIDNum.integerValue)
-                            {
-                                item.selected = YES;
-                            }
-                        }
-                    }
+                    TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
+                    [self setPermissionNodeSelected:serverNode withID:pIDNum.integerValue];
                 }
-                 */
             }
         }
     }
@@ -223,23 +131,11 @@
             for (NSNumber *pIDNum in projPerIDArray)
             {
                 TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
-                [self setPermissionNodeSelected:dataNode withID:pIDNum.integerValue];
-                /*
-                TCPermissionSegment *seg = [_permissionArray objectAtIndex:1];
-                for (TCPermissionSection *sec in seg.data)
+                if (dataNode.data.count > 2)
                 {
-                    for (TCPermissionChunk * chunk in sec.data)
-                    {
-                        for (TCPermissionItem * item in chunk.data)
-                        {
-                            if (item.permID == pIDNum.integerValue)
-                            {
-                                item.selected = YES;
-                            }
-                        }
-                    }
+                    TCPermissionNode *projectNode = [dataNode.data objectAtIndex:1];
+                    [self setPermissionNodeSelected:projectNode withID:pIDNum.integerValue];
                 }
-                 */
             }
         }
     }
@@ -253,23 +149,11 @@
             for (NSNumber *pIDNum in filePerIDArray)
             {
                 TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
-                [self setPermissionNodeSelected:dataNode withID:pIDNum.integerValue];
-                /*
-                TCPermissionSegment *seg = [_permissionArray objectAtIndex:1];
-                for (TCPermissionSection *sec in seg.data)
+                if (dataNode.data.count > 1) 
                 {
-                    for (TCPermissionChunk * chunk in sec.data)
-                    {
-                        for (TCPermissionItem * item in chunk.data)
-                        {
-                            if (item.permID == pIDNum.integerValue)
-                            {
-                                item.selected = YES;
-                            }
-                        }
-                    }
+                    TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
+                    [self setPermissionNodeSelected:fileNode withID:pIDNum.integerValue];
                 }
-                 */
             }
         }
     }
@@ -279,92 +163,29 @@
     {
         [self selectNodeIfAllSubNodesSelected:subNode];
     }
-    /*
-    for (TCPermissionSegment * seg in _permissionArray)
-    {
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk *chunk in sec.data)
-            {
-                BOOL tmpSelected = YES;
-                for (TCPermissionItem *item in chunk.data)
-                {
-                    tmpSelected &= item.selected;
-                }
-                chunk.selected = tmpSelected;
-            }
-        }
-    }
-     */
 }
 
 - (NSInteger) funcPermissionAmount
 {
     NSInteger amount = 0;
-    if (_permissionArray.count > 0)
-    {
-        TCPermissionSegment *seg = _permissionArray.firstObject;
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        amount ++;
-                    }
-                }
-            }
-        }
-    }
+    TCPermissionNode *funcNode = _permissionArray.firstObject;
+    amount = [funcNode selectedSubNodeIDArray].count;
     return amount;
 }
 
 - (NSInteger) dataPermissionAmount
 {
     NSInteger amount = 0;
-    if (_permissionArray.count > 1)
-    {
-        TCPermissionSegment *seg = [_permissionArray objectAtIndex:1];
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        amount ++;
-                    }
-                }
-            }
-        }
-    }
+    TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
+    amount = [dataNode selectedSubNodeIDArray].count;
     return amount;
 }
 
 - (NSArray *)permissionIDArray
 {
-    NSMutableArray *perArray = [NSMutableArray new];
-    if (_permissionArray.count > 0)
-    {
-        TCPermissionSegment *seg = _permissionArray.firstObject;
-        for (TCPermissionSection *sec in seg.data)
-        {
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
-                    }
-                }
-            }
-        }
-    }
-    return perArray;
+    TCPermissionNode *permNode = _permissionArray.firstObject;
+    NSArray *resArray = [permNode selectedSubNodeIDArray];
+    return resArray;
 }
 
 - (NSString *)permissionIDString
@@ -393,73 +214,43 @@
 
 - (NSArray *)serverPermissionIDArray
 {
-    NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionArray.count > 1)
     {
-        TCPermissionSegment *dataSeg = [_permissionArray objectAtIndex:1];
-        if (dataSeg.data.count > 2)
+        TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
+        if (dataNode.data.count > 2)
         {
-            TCPermissionSection *sec = [dataSeg.data objectAtIndex:2];
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
-                    }
-                }
-            }
+            TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
+            return [serverNode selectedSubNodeIDArray];
         }
     }
-    return perArray;
+    return [NSMutableArray new];
 }
 
 - (NSArray *)projectPermissionIDArray
 {
-    NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionArray.count > 1)
     {
-        TCPermissionSegment *dataSeg = [_permissionArray objectAtIndex:1];
-        if (dataSeg.data.count > 1)
+        TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
+        if (dataNode.data.count > 2)
         {
-            TCPermissionSection *sec = [dataSeg.data objectAtIndex:1];
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
-                    }
-                }
-            }
+            TCPermissionNode *projectNode = [dataNode.data objectAtIndex:1];
+            return [projectNode selectedSubNodeIDArray];
         }
     }
-    return perArray;
+    return [NSMutableArray new];
 }
 
 - (NSArray *)filePermissionIDArray
 {
-    NSMutableArray *perArray = [NSMutableArray new];
     if (_permissionArray.count > 1)
     {
-        TCPermissionSegment *dataSeg = [_permissionArray objectAtIndex:1];
-        if (dataSeg.data.count > 1)
+        TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
+        if (dataNode.data.count > 2)
         {
-            TCPermissionSection *sec = [dataSeg.data objectAtIndex:0];
-            for (TCPermissionChunk * chunk in sec.data)
-            {
-                for (TCPermissionItem * item in chunk.data)
-                {
-                    if (item.selected)
-                    {
-                        [perArray addObject:[NSNumber numberWithInteger:item.permID]];
-                    }
-                }
-            }
+            TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
+            return [fileNode selectedSubNodeIDArray];
         }
     }
-    return perArray;
+    return [NSMutableArray new];
 }
 @end
