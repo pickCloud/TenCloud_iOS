@@ -50,10 +50,13 @@
 
 - (TCPermissionNode*) subNodeAtIndex:(NSInteger)index
 {
-    //TCPermissionNode *resultNode = nil;
     NSInteger tmpIndex = 0;
     for (TCPermissionNode *sub1 in self.data)
     {
+        if (sub1.hidden)
+        {
+            continue;
+        }
         if (tmpIndex == index)
         {
             return sub1;
@@ -61,6 +64,10 @@
         tmpIndex += 1;
         for (TCPermissionNode *sub2 in sub1.data)
         {
+            if (sub2.hidden)
+            {
+                continue;
+            }
             if (tmpIndex == index)
             {
                 return sub2;
@@ -68,6 +75,10 @@
             tmpIndex += 1;
             for (TCPermissionNode *sub3 in sub2.data)
             {
+                if (sub3.hidden)
+                {
+                    continue;
+                }
                 if (tmpIndex == index)
                 {
                     return sub3;
@@ -75,6 +86,10 @@
                 tmpIndex += 1;
                 for (TCPermissionNode *sub4 in sub3.data)
                 {
+                    if (sub4.hidden)
+                    {
+                        continue;
+                    }
                     if (tmpIndex == index)
                     {
                         return sub4;
@@ -87,20 +102,6 @@
         }
         
     }
-    /*
-    NSInteger tmpIndex = 0;
-    for (TCPermissionNode *subnode in self.data)
-    {
-        if (tmpIndex == index)
-        {
-            resultNode = subnode;
-            break;
-        }
-        [subnode subNodeAtIndex:tmpIndex];
-        tmpIndex += 1;
-    }
-    return resultNode;
-    */
     return nil;
 }
 
