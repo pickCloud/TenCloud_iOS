@@ -55,10 +55,22 @@
 #pragma mark - extension
 - (IBAction) onExitAccount:(id)sender
 {
-    [[TCLocalAccount shared] logout];
-    TCLoginViewController *loginVC = [TCLoginViewController new];
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+    UIAlertController *alertController = nil;
+    alertController = [UIAlertController alertControllerWithTitle:@"确定退出账号?"
+                                                          message:nil
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [UIColor grayColor];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *exitAction = [UIAlertAction actionWithTitle:@"退出账号" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[TCLocalAccount shared] logout];
+        TCLoginViewController *loginVC = [TCLoginViewController new];
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:exitAction];
+    [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
