@@ -199,6 +199,10 @@
 		A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */; };
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
 		A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */; };
+		A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */; };
+		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
+		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
+		A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */; };
 		A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */; };
 		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
 		A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */; };
@@ -646,6 +650,12 @@
 		A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerListViewController.xib; sourceTree = "<group>"; };
 		A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerListViewController.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileViewController.h; sourceTree = "<group>"; };
+		A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileViewController.m; sourceTree = "<group>"; };
+		A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCStaffProfileViewController.xib; sourceTree = "<group>"; };
+		A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileTableViewCell.m; sourceTree = "<group>"; };
+		A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCStaffProfileTableViewCell.xib; sourceTree = "<group>"; };
+		A0A0B5B520025C1E00EA8512 /* TCStaffProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileTableViewCell.h; sourceTree = "<group>"; };
 		A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
 		A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingViewController.m; sourceTree = "<group>"; };
 		A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSettingViewController.xib; sourceTree = "<group>"; };
@@ -2100,6 +2110,7 @@
 		A031434C1FED567C006F55EC /* staff */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0B5A92002278600EA8512 /* profile */,
 				A031B6141FFE0FE000B4F448 /* list */,
 				A031434D1FED567C006F55EC /* detail */,
 				A03143571FED567C006F55EC /* invite */,
@@ -2452,6 +2463,51 @@
 				A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */,
 			);
 			path = button;
+			sourceTree = "<group>";
+		};
+		A0A0B5A92002278600EA8512 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0B5AA2002278600EA8512 /* controller */,
+				A0A0B5AB2002278600EA8512 /* model */,
+				A0A0B5AC2002278600EA8512 /* request */,
+				A0A0B5AD2002278600EA8512 /* view */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		A0A0B5AA2002278600EA8512 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */,
+				A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */,
+				A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0A0B5AB2002278600EA8512 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0A0B5AC2002278600EA8512 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0A0B5AD2002278600EA8512 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0B5B520025C1E00EA8512 /* TCStaffProfileTableViewCell.h */,
+				A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */,
+				A0A0B5B420025C1E00EA8512 /* TCStaffProfileTableViewCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		A0A86B061FF33FD400D1D58D /* home */ = {
@@ -3104,6 +3160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */,
+				A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */,
 				A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */,
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
@@ -3145,6 +3202,7 @@
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
+				A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */,
 				A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */,
 				A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */,
 				A02CA8772001B2A300BD00C5 /* TCPermissionTableViewController.xib in Resources */,
@@ -3355,6 +3413,7 @@
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
+				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
 				A0A86B8C1FF4D6B600D1D58D /* TCCorpProfileViewController.m in Sources */,
 				A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */,
@@ -3474,6 +3533,7 @@
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
 				A031B5E21FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
+				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,

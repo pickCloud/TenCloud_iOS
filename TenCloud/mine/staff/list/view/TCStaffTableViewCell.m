@@ -44,11 +44,11 @@
     NSURL *avatarURL = [NSURL URLWithString:staff.image_url];
     UIImage *defaultAvatar = [UIImage imageNamed:@"default_avatar"];
     [_avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatar];
-    if (staff.status == -1)
+    if (staff.status == STAFF_STATUS_REJECT)
     {
         _statusLabel.text = @"审核不通过";
         _statusLabel.textColor = STATE_ALERT_COLOR;
-    }else if(staff.status == 0)
+    }else if(staff.status == STAFF_STATUS_PENDING)
     {
         _statusLabel.text = @"待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;

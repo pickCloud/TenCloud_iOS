@@ -9,6 +9,7 @@
 #import "TCStaffTableViewController.h"
 #import "TCStaffListRequest.h"
 #import "TCStaffTableViewCell.h"
+#import "TCStaffProfileViewController.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -101,6 +102,9 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    TCStaff *staff = [_staffArray objectAtIndex:indexPath.row];
+    TCStaffProfileViewController *profileVC = [[TCStaffProfileViewController alloc] initWithStaff:staff];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 
