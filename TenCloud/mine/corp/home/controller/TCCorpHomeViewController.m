@@ -14,7 +14,8 @@
 #import "TCCurrentCorp.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "TCTemplateTableViewController.h"
-#import "TCEmptyTemplate.h"
+//#import "TCEmptyTemplate.h"
+#import "TCEmptyPermission.h"
 #import "TCStaffTableViewController.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
@@ -73,7 +74,8 @@
         NSLog(@"weak com:%@",weakSelf.corpInfo.name);
         [weakSelf stopLoading];
         [[TCCurrentCorp shared] setSelectedCorp:corp];
-        [[TCEmptyTemplate shared] print];
+        //[[TCEmptyTemplate shared] print];
+        [[TCEmptyPermission shared] print];
         [weakSelf updateCorpInfoUI];
     } failure:^(NSString *message) {
         

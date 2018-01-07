@@ -8,10 +8,10 @@
 
 #import "TCAddTemplateViewController.h"
 #import "VHLNavigation.h"
-//#import "TCUser+CoreDataClass.h"
 
 #import "TCPermissionViewController.h"
-#import "TCEditingTemplate.h"
+//#import "TCEditingTemplate.h"
+#import "TCEditingPermission.h"
 #import "TCAddTemplateRequest.h"
 #import "TCSuccessResultViewController.h"
 
@@ -46,7 +46,7 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-    [[TCEditingTemplate shared] reset];
+    [[TCEditingPermission shared] reset];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -82,7 +82,7 @@
     
     [_nameField resignFirstResponder];
     
-    TCEditingTemplate *tmpl = [TCEditingTemplate shared];
+    TCEditingPermission *tmpl = [TCEditingPermission shared];
     //NSLog(@"per ids:%@",tmpl.permissionIDArray);
     //NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
     //NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
@@ -129,8 +129,8 @@
 
 - (void) updatePermissionDescLabel
 {
-    NSInteger funcAmount = [[TCEditingTemplate shared] funcPermissionAmount];
-    NSInteger dataAmount = [[TCEditingTemplate shared] dataPermissionAmount];
+    NSInteger funcAmount = [[TCEditingPermission shared] funcPermissionAmount];
+    NSInteger dataAmount = [[TCEditingPermission shared] dataPermissionAmount];
     if (funcAmount == 0 && dataAmount == 0)
     {
         [_permissionDescLabel setText:@"未选择"];

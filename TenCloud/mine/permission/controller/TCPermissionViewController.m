@@ -8,8 +8,8 @@
 
 #import "TCPermissionViewController.h"
 #import "TCPermissionTableViewController.h"
-#import "TCEditingTemplate.h"
-#import "TCPermissionSegment+CoreDataClass.h"
+#import "TCPermissionNode+CoreDataClass.h"
+#import "TCEditingPermission.h"
 #import <VTMagic/VTMagic.h>
 #import "TCModifyPermissionRequest.h"
 #import "TCTemplate+CoreDataClass.h"
@@ -69,14 +69,14 @@
     {
         __weak __typeof(self) weakSelf = self;
         [MMProgressHUD showWithStatus:@"修改权限中"];
-        TCEditingTemplate *tmpl = [TCEditingTemplate shared];
+        TCEditingPermission *perm = [TCEditingPermission shared];
         TCModifyPermissionRequest *req = [TCModifyPermissionRequest new];
         req.templateID = _tmpl.tid;
         req.name = _tmpl.name;
-        req.funcPermissionArray = tmpl.permissionIDArray;
-        req.projectPermissionArray = tmpl.projectPermissionIDArray;
-        req.filePermissionArray = tmpl.filePermissionIDArray;
-        req.serverPermissionArray = tmpl.serverPermissionIDArray;
+        req.funcPermissionArray = perm.permissionIDArray;
+        req.projectPermissionArray = perm.projectPermissionIDArray;
+        req.filePermissionArray = perm.filePermissionIDArray;
+        req.serverPermissionArray = perm.serverPermissionIDArray;
         [req startWithSuccess:^(NSString *message) {
             if (weakSelf.modifiedBlock)
             {
@@ -119,11 +119,11 @@
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
     NSMutableArray *titleList = [NSMutableArray array];
-    TCEditingTemplate *editingTemplate = [TCEditingTemplate shared];
-    NSArray *segmentArray = editingTemplate.permissionSegArray;
-    for (TCPermissionSegment *seg in segmentArray)
+    TCEditingPermission *editingPermission = [TCEditingPermission shared];
+    NSArray *nodeArray = editingPermission.permissionArray;
+    for (TCPermissionNode *node in nodeArray)
     {
-        [titleList addObject:seg.name];
+        [titleList addObject:node.name];
     }
     return titleList;
 }
@@ -143,8 +143,8 @@
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *controller = nil;
-    TCPermissionSegment *seg = [[[TCEditingTemplate shared] permissionSegArray] objectAtIndex:pageIndex];
-    controller = [[TCPermissionTableViewController alloc] initWithPermissionSegment:seg];
+    TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
+    controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node];
     return controller;
 }
 

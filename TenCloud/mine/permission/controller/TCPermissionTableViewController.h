@@ -6,12 +6,12 @@
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 
-//#import <UIKit/UIKit.h>
 #import "TCViewController.h"
 
-@class TCPermissionSegment;
+
+@class TCPermissionNode;
 @interface TCPermissionTableViewController : TCViewController
 
-- (id) initWithPermissionSegment:(TCPermissionSegment*)segment;
+- (id) initWithPermissionNode:(TCPermissionNode*)node;
 
 @end

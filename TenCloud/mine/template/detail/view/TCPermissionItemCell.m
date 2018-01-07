@@ -7,11 +7,13 @@
 //
 
 #import "TCPermissionItemCell.h"
-#import "TCPermissionItem+CoreDataClass.h"
+//#import "TCPermissionItem+CoreDataClass.h"
+#import "TCPermissionNode+CoreDataClass.h"
 
 
 @interface TCPermissionItemCell()
-@property (nonatomic, weak) TCPermissionItem        *item;
+//@property (nonatomic, weak) TCPermissionItem        *item;
+@property (nonatomic, weak) TCPermissionNode        *node;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
 - (IBAction) onSelectButton:(id)sender;
@@ -30,28 +32,44 @@
 
     // Configure the view for the selected state
 }
- 
+
+/*
 - (void) setItem:(TCPermissionItem*)item
 {
     _nameLabel.text = item.name;
     _item = item;
     [self updateSelectButtonUI];
 }
+ */
+- (void) setNode:(TCPermissionNode *)node
+{
+    _nameLabel.text = node.name;
+    _node = node;
+    [self updateSelectButtonUI];
+}
 
 - (IBAction) onSelectButton:(id)sender
 {
     NSLog(@"select button");
+    /*
     self.item.selected = !self.item.selected;
     [self updateSelectButtonUI];
     if (_selectBlock)
     {
         _selectBlock(self, self.item.selected);
     }
+     */
+    self.node.selected = !self.node.selected;
+    [self updateSelectButtonUI];
+    if (_selectBlock)
+    {
+        _selectBlock(self, self.node.selected);
+    }
 }
 
 - (void) updateSelectButtonUI
 {
-    if (self.item.selected)
+    if (self.node.selected)
     {
         UIImage *selectedImage = [UIImage imageNamed:@"template_checked"];
         [_checkButton setImage:selectedImage forState:UIControlStateNormal];

@@ -1,29 +1,30 @@
 //
-//  TCPermissionFoldCell.m
+//  TCPermissionCell.m
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/25.
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import "TCPermissionFoldCell.h"
+#import "TCPermissionCell.h"
 //#import "TCPermissionChunk+CoreDataClass.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
-@interface TCPermissionFoldCell()
+@interface TCPermissionCell()
 //@property (nonatomic, weak) TCPermissionChunk       *chunk;
-@property (nonatomic, weak) TCPermissionNode        *node;
+@property (nonatomic, weak) TCPermissionNode        *mNode;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
 @property (nonatomic, weak) IBOutlet    UIImageView    *arrowView;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *leftConstraint;
 @property (nonatomic, assign)   BOOL                arrowAnimating;
 - (IBAction) onSelectButton:(id)sender;
 - (IBAction) onFoldButton:(id)sender;
 - (void) updateCheckButtonUI;
 @end
 
-@implementation TCPermissionFoldCell
+@implementation TCPermissionCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -60,14 +61,28 @@
 
 - (void) setNode:(TCPermissionNode *)node
 {
-    _nameLabel.text = node.name;
-    _node = node;
+    _mNode = node;
+    if (node.name)
+    {
+        _nameLabel.text = node.name;
+    }else
+    {
+        _nameLabel.text = node.filename;
+    }
+    _leftConstraint.constant = _mNode.depth * 25;
+    if (_mNode.data && _mNode.data.count > 0)
+    {
+        _arrowView.hidden = NO;
+    }else
+    {
+        _arrowView.hidden = YES;
+    }
     [self updateCheckButtonUI];
 }
 
 - (void) updateCheckButtonUI
 {
-    if (self.node.selected)
+    if (self.mNode.selected)
     {
         UIImage *selectedImage = [UIImage imageNamed:@"template_checked"];
         [_checkButton setImage:selectedImage forState:UIControlStateNormal];
@@ -83,7 +98,7 @@
 - (IBAction) onSelectButton:(id)sender
 {
     NSLog(@"select button");
-    self.node.selected = !self.node.selected;
+    self.mNode.selected = !self.mNode.selected;
     [self updateCheckButtonUI];
     
     /*
@@ -94,7 +109,7 @@
      */
     if (self.selectBlock)
     {
-        self.selectBlock(self, self.node.selected);
+        self.selectBlock(self, self.mNode.selected);
     }
 }
 
@@ -125,13 +140,13 @@
     {
         _arrowAnimating = YES;
         __weak __typeof(self) weakSelf = self;
-        if (self.node.fold)
+        if (self.mNode.fold)
         {
             [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction |UIViewAnimationOptionCurveLinear animations:^{
                 weakSelf.arrowView.transform = CGAffineTransformIdentity;
             } completion:^(BOOL finished) {
                 weakSelf.arrowAnimating = NO;
-                weakSelf.node.fold = NO;
+                weakSelf.mNode.fold = NO;
             }];
         }else
         {
@@ -139,12 +154,12 @@
                 weakSelf.arrowView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(180.0f));
             } completion:^(BOOL finished) {
                 weakSelf.arrowAnimating = NO;
-                weakSelf.node.fold = YES;
+                weakSelf.mNode.fold = YES;
             }];
         }
         if (_foldBlock)
         {
-            _foldBlock(self,!self.node.fold);
+            _foldBlock(self,!self.mNode.fold);
         }
     }
 }
