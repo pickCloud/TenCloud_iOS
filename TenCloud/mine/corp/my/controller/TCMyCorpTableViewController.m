@@ -105,6 +105,9 @@
     if (selectedCorp.status == -1)
     {
         [MBProgressHUD showError:@"暂无未通过处理页面" toView:nil];
+    }else if(selectedCorp.status == 2)
+    {
+        
     }else
     {
         __weak __typeof(self) weakSelf = self;

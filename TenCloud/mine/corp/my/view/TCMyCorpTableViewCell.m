@@ -70,7 +70,7 @@
         _statusLabel.textColor = STATE_PASS_COLOR;
     }else if(corp.status == -1)
     {
-        _statusLabel.text = @"未通过审核";
+        _statusLabel.text = @"审核不通过";
         _statusLabel.textColor = STATE_ERROR_COLOR;
     }else if(corp.status == 0)
     {
