@@ -263,6 +263,10 @@
 #pragma mark - TCCurrentCorpDelegate
 - (void) corpModified:(TCCurrentCorp*)corp
 {
+    _corpInfo.name = corp.name;
+    _corpInfo.contact = corp.contact;
+    _corpInfo.mobile = corp.mobile;
+    _corpInfo.cid = corp.cid;
     [self updateCorpInfoUI];
 }
 @end
