@@ -45,7 +45,7 @@
     {
         _nameLabel.text = node.filename;
     }
-    _leftConstraint.constant = _mNode.depth * 25;
+    _leftConstraint.constant = 18 + (_mNode.depth - 2) * 25;
     if (_mNode.data && _mNode.data.count > 0)
     {
         _arrowView.hidden = NO;
