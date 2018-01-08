@@ -11,7 +11,7 @@
 typedef NS_ENUM(NSInteger, PermissionVCState){
     PermissionVCStateNew   =    0,           //新增状态
     PermissionVCStateEdit,                   //编辑状态
-    PermissionVCStateView,                   //查看状态
+    PermissionVCPreviewPermission,           //查看状态
     PermissionVCModifyUserPermission         //修改用户权限
 };
 

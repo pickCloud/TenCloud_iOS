@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t permID;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *filename;
-@property (nullable, nonatomic, retain) NSArray<TCPermissionNode*> *data;
+@property (nullable, nonatomic, retain) NSMutableArray<TCPermissionNode*> *data;
 @property (nonatomic) int64_t depth;
 @property (nonatomic) BOOL fold;
 @property (nonatomic) BOOL selected;

@@ -36,7 +36,7 @@
     if (_state == PermissionVCStateNew)
     {
         self.titleLabel.text = @"模版权限选择";
-    }else if(_state == PermissionVCStateView)
+    }else if(_state == PermissionVCPreviewPermission)
     {
         self.titleLabel.text = @"查看权限";
     }else
@@ -70,10 +70,10 @@
 - (IBAction) onConfirmButton:(id)sender
 {
     __weak __typeof(self) weakSelf = self;
-    [MMProgressHUD showWithStatus:@"修改权限中"];
     TCEditingPermission *perm = [TCEditingPermission shared];
     if (_state == PermissionVCStateEdit)
     {
+        [MMProgressHUD showWithStatus:@"修改权限中"];
         TCModifyPermissionRequest *req = [TCModifyPermissionRequest new];
         req.templateID = _tmpl.tid;
         req.name = _tmpl.name;
@@ -94,6 +94,7 @@
         return;
     }else if(_state == PermissionVCModifyUserPermission)
     {
+        [MMProgressHUD showWithStatus:@"修改权限中"];
         TCModifyUserPermissionRequest *req = [TCModifyUserPermissionRequest new];
         req.userID = _userID;
         req.funcPermissionArray = perm.permissionIDArray;

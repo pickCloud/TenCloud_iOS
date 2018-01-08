@@ -202,6 +202,21 @@
             if (type == TCProfileButtonViewPermission)
             {
                 NSLog(@"查看权限");
+                [[TCEditingPermission shared] reset];
+                [[TCEditingPermission shared] setTemplate:_userTemplate];
+                [[TCEditingPermission shared] readyForPreview];
+                TCPermissionViewController *perVC = [TCPermissionViewController new];
+                perVC.userID = _staff.uid;
+                perVC.state = PermissionVCPreviewPermission;
+                perVC.tmpl = _userTemplate;
+                perVC.modifiedBlock = ^(TCPermissionViewController *vc) {
+                    //TCEditingPermission *perm = [TCEditingPermission shared];
+                    //weakSelf.userTemplate.access_servers = perm.serverPermissionIDString;
+                    //weakSelf.userTemplate.access_filehub = perm.filePermissionIDString;
+                    //weakSelf.userTemplate.access_projects = perm.projectPermissionIDString;
+                    //weakSelf.userTemplate.permissions = perm.permissionIDString;
+                };
+                [self presentViewController:perVC animated:YES completion:nil];
             }else if(type == TCProfileButtonSetPermission)
             {
                 NSLog(@"设置权限");

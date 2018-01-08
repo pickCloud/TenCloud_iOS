@@ -66,7 +66,7 @@
     __weak __typeof(self) weakSelf = self;
     TCPermissionNode *node = [self dataForIndexPath:indexPath];
     TCPermissionCell *cell = [tableView dequeueReusableCellWithIdentifier:PERMISSION_CELL_ID forIndexPath:indexPath];
-    cell.editable = (_state != PermissionVCStateView);
+    cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
         [node updateFatherNodeAfterSubNodeChanged];

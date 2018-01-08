@@ -17,6 +17,8 @@
 
 - (void) setTemplate:(TCTemplate*)tmpl;
 
+- (void) readyForPreview;
+
 @property (nonatomic, strong)   NSMutableArray  *permissionArray;
 
 - (NSInteger) funcPermissionAmount;

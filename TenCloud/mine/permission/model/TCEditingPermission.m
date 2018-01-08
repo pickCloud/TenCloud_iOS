@@ -165,6 +165,108 @@
     }
 }
 
+- (void) removeNodeIfAllSubNodesUnselected:(TCPermissionNode *)node
+{
+    /*
+    for (TCPermissionNode *subNode in node.data)
+    {
+        if (subNode.data.count > 0)
+        {
+            [self removeNodeIfAllSubNodesUnselected:subNode];
+        }else
+        {
+            if (subNode.depth > 1)
+            {
+                if (!subNode.selected)
+                {
+                    [node.data removeObject:subNode];
+                }
+            }
+        }
+    }
+     */
+    int i = (int)node.data.count - 1;
+    for (; i >= 0; i--)
+    {
+        TCPermissionNode *subNode = [node.data objectAtIndex:i];
+        if (subNode.data.count > 0)
+        {
+            [self removeNodeIfAllSubNodesUnselected:subNode];
+        }else
+        {
+            //if (subNode.depth > 1)
+            {
+                if (!subNode.selected)
+                {
+                    [node.data removeObject:subNode];
+                }
+            }
+        }
+    }
+    if (node.data.count == 0)
+    {
+        [node.fatherNode.data removeObject:node];
+    }else
+    {
+        node.selected = YES;
+    }
+}
+
+
+/*
+- (void) removeNodeIfAllSubNodesUnselected:(TCPermissionNode *)node
+{
+    NSLog(@"node %@ select:%d depth:%lld",node.name,node.selected,node.depth);
+    BOOL nodeSelected = NO;
+    for (TCPermissionNode * subNode in node.data)
+    {
+        BOOL subNodeSelect = subNode.selected;
+        if (subNode.data.count > 0)
+        {
+            [self removeNodeIfAllSubNodesUnselected:subNode];
+        }else
+        {
+            [self removeNodeIfAllSubNodesUnselected:subNode];
+        }
+        nodeSelected = nodeSelected || subNodeSelect;
+    }
+    if (node.depth > 1)
+    {
+        if (node.data == nil || node.data.count == 0)
+        {
+            if (!node.selected)
+            {
+                if (node.fatherNode && node.fatherNode.data.count > 0)
+                {
+                    [node.fatherNode.data removeObject:node];
+                }
+                NSLog(@"remove node %@",node.name);
+            }
+        }else
+        {
+            if (!nodeSelected)
+            {
+                if (node.fatherNode && node.fatherNode.data.count > 0)
+                {
+                    [node.fatherNode.data removeObject:node];
+                }
+                NSLog(@"remove node %@",node.name);
+            }
+        }
+    }
+
+    //node.selected = allSelected;
+}
+ */
+
+- (void) readyForPreview
+{
+    for (TCPermissionNode *subNode in _permissionArray)
+    {
+        [self removeNodeIfAllSubNodesUnselected:subNode];
+    }
+}
+
 - (NSInteger) funcPermissionAmount
 {
     NSInteger amount = 0;
