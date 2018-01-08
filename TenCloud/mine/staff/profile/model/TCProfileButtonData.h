@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, TCProfileButtonType){
+    TCProfileButtonViewPermission   =   0,
+    TCProfileButtonSetPermission,
+    TCProfileButtonAllowJoin,
+    TCProfileButtonRejectJoin,
+    TCProfileButtonRemove,
+};
+
 @interface TCProfileButtonData : NSObject
 
-@property (nonatomic, strong)   NSString    *title;
-@property (nonatomic, strong)   UIColor     *color;
-@property (nonatomic, assign)   NSInteger   buttonIndex;
+@property (nonatomic, strong)   NSString            *title;
+@property (nonatomic, strong)   UIColor             *color;
+@property (nonatomic, assign)   NSInteger           buttonIndex;
+@property (nonatomic, assign)   TCProfileButtonType type;
 
 @end

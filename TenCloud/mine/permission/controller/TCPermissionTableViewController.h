@@ -7,11 +7,11 @@
 //
 
 #import "TCViewController.h"
-
+#import "TCPermissionViewController.h"
 
 @class TCPermissionNode;
 @interface TCPermissionTableViewController : TCViewController
 
-- (id) initWithPermissionNode:(TCPermissionNode*)node;
+- (id) initWithPermissionNode:(TCPermissionNode*)node state:(PermissionVCState)state;
 
 @end

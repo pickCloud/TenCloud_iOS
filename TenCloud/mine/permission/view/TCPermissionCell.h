@@ -15,7 +15,7 @@ typedef void (^TCPermissionCellSelectBlock)(TCPermissionCell *cell, BOOL selecte
 @interface TCPermissionCell : UITableViewCell
 
 - (void) setNode:(TCPermissionNode *)node;
-
+@property (nonatomic, assign)   BOOL                        editable;
 @property (nonatomic, copy) TCPermissionCellFoldBlock       foldBlock;
 @property (nonatomic, copy) TCPermissionCellSelectBlock     selectBlock;
 

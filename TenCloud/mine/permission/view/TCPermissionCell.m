@@ -74,6 +74,10 @@
 - (IBAction) onSelectButton:(id)sender
 {
     NSLog(@"select button");
+    if (!_editable)
+    {
+        return;
+    }
     self.mNode.selected = !self.mNode.selected;
     [self updateCheckButtonUI];
     

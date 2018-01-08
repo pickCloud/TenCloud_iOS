@@ -10,7 +10,7 @@
 #import "TCProfileButtonData.h"
 
 @class TCButtonTableViewCell;
-typedef void (^TCButtonCellTouchedBlock)(TCButtonTableViewCell *cell, NSInteger cellIndex);
+typedef void (^TCButtonCellTouchedBlock)(TCButtonTableViewCell *cell, NSInteger cellIndex, TCProfileButtonType type);
 
 @interface TCButtonTableViewCell : UITableViewCell
 

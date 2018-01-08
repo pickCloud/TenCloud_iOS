@@ -16,17 +16,19 @@
 @interface TCPermissionTableViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak)  TCPermissionNode           *permissionNode;
+@property (nonatomic, assign) PermissionVCState         state;
 - (TCPermissionNode *) dataForIndexPath:(NSIndexPath*)indexPath;
 @end
 
 @implementation TCPermissionTableViewController
 
-- (id) initWithPermissionNode:(TCPermissionNode*)node
+- (id) initWithPermissionNode:(TCPermissionNode*)node state:(PermissionVCState)state
 {
     self = [super init];
     if (self)
     {
         _permissionNode = node;
+        _state = state;
     }
     return self;
 }
@@ -64,6 +66,7 @@
     __weak __typeof(self) weakSelf = self;
     TCPermissionNode *node = [self dataForIndexPath:indexPath];
     TCPermissionCell *cell = [tableView dequeueReusableCellWithIdentifier:PERMISSION_CELL_ID forIndexPath:indexPath];
+    cell.editable = (_state != PermissionVCStateView);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
         [node updateFatherNodeAfterSubNodeChanged];

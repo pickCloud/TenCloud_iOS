@@ -12,6 +12,7 @@
 #import "TCEditingPermission.h"
 #import <VTMagic/VTMagic.h>
 #import "TCModifyPermissionRequest.h"
+#import "TCModifyUserPermissionRequest.h"
 #import "TCTemplate+CoreDataClass.h"
 
 @interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
@@ -35,6 +36,9 @@
     if (_state == PermissionVCStateNew)
     {
         self.titleLabel.text = @"模版权限选择";
+    }else if(_state == PermissionVCStateView)
+    {
+        self.titleLabel.text = @"查看权限";
     }else
     {
         self.titleLabel.text = @"修改模版权限";
@@ -65,14 +69,33 @@
 
 - (IBAction) onConfirmButton:(id)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    [MMProgressHUD showWithStatus:@"修改权限中"];
+    TCEditingPermission *perm = [TCEditingPermission shared];
     if (_state == PermissionVCStateEdit)
     {
-        __weak __typeof(self) weakSelf = self;
-        [MMProgressHUD showWithStatus:@"修改权限中"];
-        TCEditingPermission *perm = [TCEditingPermission shared];
         TCModifyPermissionRequest *req = [TCModifyPermissionRequest new];
         req.templateID = _tmpl.tid;
         req.name = _tmpl.name;
+        req.funcPermissionArray = perm.permissionIDArray;
+        req.projectPermissionArray = perm.projectPermissionIDArray;
+        req.filePermissionArray = perm.filePermissionIDArray;
+        req.serverPermissionArray = perm.serverPermissionIDArray;
+        [req startWithSuccess:^(NSString *message) {
+            if (weakSelf.modifiedBlock)
+            {
+                weakSelf.modifiedBlock(weakSelf);
+            }
+            [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(NSString *message) {
+            [MMProgressHUD dismissWithError:message afterDelay:1.32];
+        }];
+        return;
+    }else if(_state == PermissionVCModifyUserPermission)
+    {
+        TCModifyUserPermissionRequest *req = [TCModifyUserPermissionRequest new];
+        req.userID = _userID;
         req.funcPermissionArray = perm.permissionIDArray;
         req.projectPermissionArray = perm.projectPermissionIDArray;
         req.filePermissionArray = perm.filePermissionIDArray;
@@ -144,7 +167,7 @@
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *controller = nil;
     TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
-    controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node];
+    controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
     return controller;
 }
 

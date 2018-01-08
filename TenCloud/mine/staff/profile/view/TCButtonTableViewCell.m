@@ -39,7 +39,7 @@
     NSLog(@"on button");
     if (_touchedBlock)
     {
-        _touchedBlock(self, _data.buttonIndex);
+        _touchedBlock(self, _data.buttonIndex, _data.type);
     }
     
 }

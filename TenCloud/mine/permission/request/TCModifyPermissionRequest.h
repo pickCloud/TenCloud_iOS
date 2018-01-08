@@ -10,12 +10,6 @@
 
 @interface TCModifyPermissionRequest : YTKRequest
 
-//- (instancetype) initWithTemplateID:(NSInteger)tid
-//                               name:(NSString*)name
-//                funcPermissionArray:(NSArray*)funcPerArray
-//              serverPermissionArray:(NSArray*)serverPerArray
-//             projectPermissionArray:(NSArray*)projPerArray
-//                filePermissionArray:(NSArray*)filePerArray;
 @property (nonatomic, assign)   NSInteger   templateID;
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, strong)   NSArray     *funcPermissionArray;
