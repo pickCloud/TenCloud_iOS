@@ -10,10 +10,11 @@
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCPermissionCell.h"
 #import "TCPermissionSectionHeaderCell.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define PERMISSION_HEADER_CELL_ID   @"PERMISSION_HEADER_CELL_ID"
 #define PERMISSION_CELL_ID          @"PERMISSION_CELL_ID"
 
-@interface TCPermissionTableViewController ()
+@interface TCPermissionTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak)  TCPermissionNode           *permissionNode;
 @property (nonatomic, assign) PermissionVCState         state;
@@ -40,6 +41,8 @@
     [_tableView registerNib:headerCellNib forCellReuseIdentifier:PERMISSION_HEADER_CELL_ID];
     UINib *cellNib = [UINib nibWithNibName:@"TCPermissionCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:PERMISSION_CELL_ID];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     _tableView.tableFooterView = [UIView new];
 }
 
@@ -216,6 +219,29 @@
 {
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:indexPath.section];
     return [sectionNode subNodeAtIndex:indexPath.row];
+}
+
+#pragma mark - DZNEmptyDataSetSource Methods
+/*
+ - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+ {
+ return [UIImage imageNamed:@"no_data"];
+ }
+ */
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"暂无权限" attributes:attributes];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
 }
 
 @end
