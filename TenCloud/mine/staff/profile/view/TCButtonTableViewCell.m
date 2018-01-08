@@ -7,6 +7,11 @@
 //
 
 #import "TCButtonTableViewCell.h"
+@interface TCButtonTableViewCell ()
+@property (nonatomic, weak) IBOutlet    UIButton    *button;
+@property (nonatomic, weak)     TCProfileButtonData *data;
+- (IBAction) onButton:(id)sender;
+@end
 
 @implementation TCButtonTableViewCell
 
@@ -24,7 +29,18 @@
 
 - (void) setData:(TCProfileButtonData*)data
 {
+    _data = data;
     [_button setTitle:data.title forState:UIControlStateNormal];
     [_button setBackgroundColor:data.color];
+}
+
+- (IBAction) onButton:(id)sender
+{
+    NSLog(@"on button");
+    if (_touchedBlock)
+    {
+        _touchedBlock(self, _data.buttonIndex);
+    }
+    
 }
 @end

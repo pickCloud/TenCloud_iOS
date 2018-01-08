@@ -7,7 +7,6 @@
 //
 
 #import "TCStaffProfileViewController.h"
-//#import "TCServerConfigTableViewCell.h"
 #import "TCStaffProfileTableViewCell.h"
 #import "TCServerInfoItem.h"
 #import "TCStaff+CoreDataClass.h"
@@ -46,14 +45,51 @@
     self.title = @"员工详情";
     
     _buttonDataArray = [NSMutableArray new];
-    TCProfileButtonData *data1 = [TCProfileButtonData new];
-    data1.title = @"允许加入";
-    data1.color = THEME_TINT_COLOR;
-    [_buttonDataArray addObject:data1];
-    TCProfileButtonData *data2 = [TCProfileButtonData new];
-    data2.title = @"拒绝加入";
-    data2.color = STATE_ALERT_COLOR;
-    [_buttonDataArray addObject:data2];
+    if ([[TCCurrentCorp shared] isAdmin])
+    {
+        if (_staff.status == STAFF_STATUS_PENDING)
+        {
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"允许加入";
+            data1.color = THEME_TINT_COLOR;
+            [_buttonDataArray addObject:data1];
+            TCProfileButtonData *data2 = [TCProfileButtonData new];
+            data2.title = @"拒绝加入";
+            data2.color = STATE_ALERT_COLOR;
+            [_buttonDataArray addObject:data2];
+        }else if(_staff.status == STAFF_STATUS_REJECT)
+        {
+            
+        }else
+        {
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"设置权限";
+            data1.color = THEME_TINT_COLOR;
+            [_buttonDataArray addObject:data1];
+            
+            TCProfileButtonData *data2 = [TCProfileButtonData new];
+            data2.title = @"接触关系";
+            data2.color = STATE_ALERT_COLOR;
+            [_buttonDataArray addObject:data2];
+        }
+    }else
+    {
+        if (_staff.status == STAFF_STATUS_PENDING)
+        {
+            
+        }else if(_staff.status == STAFF_STATUS_REJECT)
+        {
+            
+        }else
+        {
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"查看权限";
+            data1.color = THEME_TINT_COLOR;
+            [_buttonDataArray addObject:data1];
+        }
+    }
+    
+
     
     UINib *buttonCellNib = [UINib nibWithNibName:@"TCButtonTableViewCell" bundle:nil];
     [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:STAFF_BUTTON_CELL_ID];
@@ -131,7 +167,11 @@
     {
         TCProfileButtonData *btnData = [_buttonDataArray objectAtIndex:indexPath.row];
         TCButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:STAFF_BUTTON_CELL_ID forIndexPath:indexPath];
+        btnData.buttonIndex = indexPath.row;
         [cell setData:btnData];
+        cell.touchedBlock = ^(TCButtonTableViewCell *cell, NSInteger cellIndex) {
+            NSLog(@"cell button %ld touched",cellIndex);
+        };
         return cell;
     }
     TCServerInfoItem *infoItem = [_rowDataArray objectAtIndex:indexPath.row];

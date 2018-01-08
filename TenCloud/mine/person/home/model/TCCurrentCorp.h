@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, assign)   NSInteger   cid;
+@property (nonatomic, assign)   BOOL        isAdmin;
 @property (nonatomic, strong)   NSString    *contact;
 @property (nonatomic, strong)   NSString    *mobile;
 

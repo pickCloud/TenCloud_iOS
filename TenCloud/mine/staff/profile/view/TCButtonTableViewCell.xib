@@ -29,6 +29,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="tintColor" red="0.18823529410000001" green="0.20784313730000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" title="名称"/>
+                        <connections>
+                            <action selector="onButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JQ0-6d-ECv"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

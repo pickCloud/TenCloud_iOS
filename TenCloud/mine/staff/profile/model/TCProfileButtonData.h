@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong)   NSString    *title;
 @property (nonatomic, strong)   UIColor     *color;
+@property (nonatomic, assign)   NSInteger   buttonIndex;
 
 @end

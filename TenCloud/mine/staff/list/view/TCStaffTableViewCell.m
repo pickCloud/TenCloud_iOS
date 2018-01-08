@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView *avatarView;
+
 @end
 
 @implementation TCStaffTableViewCell
@@ -62,5 +63,6 @@
         _statusLabel.textColor = THEME_TEXT_COLOR;
     }
 }
+
 
 @end

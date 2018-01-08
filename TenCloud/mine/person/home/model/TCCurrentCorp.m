@@ -14,6 +14,7 @@
 #define CORP_CID        @"CORP_CID"
 #define CORP_MOBILE     @"CORP_MOBILE"
 #define CORP_CONTACT    @"CORP_CONTACT"
+#define CORP_IS_ADMIN   @"CORP_IS_ADMIN"
 
 @interface TCCurrentCorp ()
 {
@@ -62,6 +63,7 @@
         self.mobile = [aDecoder decodeObjectForKey:CORP_MOBILE];
         self.cid = [aDecoder decodeIntegerForKey:CORP_CID];
         self.contact = [aDecoder decodeObjectForKey:CORP_CONTACT];
+        self.isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
     }
     return self;
 }
@@ -72,6 +74,7 @@
     [aCoder encodeObject:self.name forKey:CORP_NAME];
     [aCoder encodeObject:self.mobile forKey:CORP_MOBILE];
     [aCoder encodeObject:self.contact forKey:CORP_CONTACT];
+    [aCoder encodeBool:self.isAdmin forKey:CORP_IS_ADMIN];
 }
 
 //- (BOOL) isCurrent:(TCCorp*)corp
@@ -99,6 +102,7 @@
     _mobile = corp.mobile;
     _cid = corp.cid;
     _contact = corp.contact;
+    _isAdmin = corp.is_admin;
     [self save];
 }
 

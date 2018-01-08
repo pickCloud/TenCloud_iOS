@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TCProfileButtonData.h"
 
+@class TCButtonTableViewCell;
+typedef void (^TCButtonCellTouchedBlock)(TCButtonTableViewCell *cell, NSInteger cellIndex);
+
 @interface TCButtonTableViewCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet    UIButton    *button;
+@property (nonatomic, copy) TCButtonCellTouchedBlock    touchedBlock;
 
 - (void) setData:(TCProfileButtonData*)data;
 
