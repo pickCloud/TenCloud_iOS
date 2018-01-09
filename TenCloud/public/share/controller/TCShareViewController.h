@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define NOTIFICATION_TEACHER_SEARCH_RESULT @"NOTIFICATION_TEACHER_SEARCH_RESULT"
 
 @interface TCShareViewController : UIViewController
 

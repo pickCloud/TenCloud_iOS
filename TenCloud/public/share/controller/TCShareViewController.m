@@ -8,19 +8,14 @@
 
 #import "TCShareViewController.h"
 
-#define SELECT_GRADE_CELL_REUSE_ID      @"SELECT_GRADE_CELL_REUSE_ID"
-#define SELECT_COURSE_CELL_REUSE_ID     @"SELECT_COURSE_CELL_REUSE_ID"
-
-
-
 @interface TCShareViewController ()
 @property (nonatomic, weak) IBOutlet    UIView      *darkBackgroundView;
 @property (nonatomic, weak) IBOutlet    UIView      *contentView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *contentViewBottomConstraint;
-@property (nonatomic, weak) IBOutlet    UIButton    *confirmButton;
-@property (nonatomic, weak) IBOutlet    UICollectionView    *gradeCollectionView;
-@property (nonatomic, weak) IBOutlet    UICollectionView    *courseCollectionView;
-- (IBAction) onConfirmButton:(id)sender;
+- (IBAction) onCancelButton:(id)sender;
+- (IBAction) onMessageButton:(id)sender;
+- (IBAction) onQQButton:(id)sender;
+- (IBAction) onWeixinButton:(id)sender;
 - (void) dismiss;
 @end
 
@@ -42,12 +37,6 @@
 {
     [super viewDidAppear:animated];
     [self showContentView];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    CGFloat btnCornerRadius = _confirmButton.frame.size.height/2.0;
-    _confirmButton.layer.cornerRadius = btnCornerRadius;
 }
 
 
@@ -75,6 +64,26 @@
 - (IBAction) onConfirmButton:(id)sender
 {
     [self dismiss];
+}
+
+- (IBAction) onCancelButton:(id)sender
+{
+    [self dismiss];
+}
+
+- (IBAction) onMessageButton:(id)sender
+{
+    NSLog(@"on message button");
+}
+
+- (IBAction) onQQButton:(id)sender
+{
+    NSLog(@"on qq button ");
+}
+
+- (IBAction) onWeixinButton:(id)sender
+{
+    NSLog(@"on weixin button");
 }
 
 - (void) onTapGesture:(id)sender
