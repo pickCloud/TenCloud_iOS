@@ -28,7 +28,8 @@
 #import "NSString+Extension.h"
 
 
-#import "TCJoinSettingViewController.h"
+//#import "TCJoinSettingViewController.h"
+#import "TCInviteStaffViewController.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -231,8 +232,10 @@
 {
     NSLog(@"on message button");
     
-    TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
-    [self.navigationController pushViewController:joinVC animated:YES];
+    //TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
+    //[self.navigationController pushViewController:joinVC animated:YES];
+    TCInviteStaffViewController *inviteVC = [TCInviteStaffViewController new];
+    [self.navigationController pushViewController:inviteVC animated:YES];
     
 }
 

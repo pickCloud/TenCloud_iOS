@@ -253,6 +253,8 @@
 		A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362FB2004553D0033C99C /* TCJoinSettingTableViewCell.m */; };
 		A0C362FE2004553D0033C99C /* TCJoinSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C362FC2004553D0033C99C /* TCJoinSettingTableViewCell.xib */; };
 		A0C363012004BBDB0033C99C /* TCSetJoinSettingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362FF2004BBDA0033C99C /* TCSetJoinSettingRequest.m */; };
+		A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C363032004C1990033C99C /* TCInviteStaffViewController.m */; };
+		A0C363062004C1990033C99C /* TCInviteStaffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C363042004C1990033C99C /* TCInviteStaffViewController.xib */; };
 		A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */; };
 		A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */; };
 		A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */; };
@@ -751,6 +753,9 @@
 		A0C362FC2004553D0033C99C /* TCJoinSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCJoinSettingTableViewCell.xib; sourceTree = "<group>"; };
 		A0C362FF2004BBDA0033C99C /* TCSetJoinSettingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetJoinSettingRequest.m; sourceTree = "<group>"; };
 		A0C363002004BBDB0033C99C /* TCSetJoinSettingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetJoinSettingRequest.h; sourceTree = "<group>"; };
+		A0C363022004C1990033C99C /* TCInviteStaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCInviteStaffViewController.h; sourceTree = "<group>"; };
+		A0C363032004C1990033C99C /* TCInviteStaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCInviteStaffViewController.m; sourceTree = "<group>"; };
+		A0C363042004C1990033C99C /* TCInviteStaffViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCInviteStaffViewController.xib; sourceTree = "<group>"; };
 		A0C9A04E1FED5CEE00F94E9E /* TCPersonHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPersonHomeViewController.h; sourceTree = "<group>"; };
 		A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPersonHomeViewController.m; sourceTree = "<group>"; };
 		A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPersonHomeViewController.xib; sourceTree = "<group>"; };
@@ -2205,6 +2210,9 @@
 		A03143581FED567C006F55EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0C363022004C1990033C99C /* TCInviteStaffViewController.h */,
+				A0C363032004C1990033C99C /* TCInviteStaffViewController.m */,
+				A0C363042004C1990033C99C /* TCInviteStaffViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -3284,6 +3292,7 @@
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
 				A0C362FE2004553D0033C99C /* TCJoinSettingTableViewCell.xib in Resources */,
+				A0C363062004C1990033C99C /* TCInviteStaffViewController.xib in Resources */,
 				A02CA86F2000F23F00BD00C5 /* TCPermissionCell.xib in Resources */,
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
@@ -3630,6 +3639,7 @@
 				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
 				A031B5E21FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m in Sources */,
+				A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
