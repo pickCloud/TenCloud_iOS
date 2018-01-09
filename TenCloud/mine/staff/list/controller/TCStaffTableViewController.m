@@ -10,6 +10,7 @@
 #import "TCStaffListRequest.h"
 #import "TCStaffTableViewCell.h"
 #import "TCStaffProfileViewController.h"
+#import "TCJoinSettingViewController.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -74,7 +75,8 @@
 #pragma mark - extension
 - (void) onAddButton:(id)sender
 {
-    
+    TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
+    [self.navigationController pushViewController:joinVC animated:YES];
 }
 
 

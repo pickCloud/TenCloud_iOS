@@ -28,6 +28,9 @@
 #import "NSString+Extension.h"
 
 
+#import "TCJoinSettingViewController.h"
+
+
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
 @interface TCCorpHomeViewController () <TCCurrentCorpDelegate>
@@ -227,6 +230,10 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
+    
+    TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
+    [self.navigationController pushViewController:joinVC animated:YES];
+    
 }
 
 - (void) loadCorpArray
