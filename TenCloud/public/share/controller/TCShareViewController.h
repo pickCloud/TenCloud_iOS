@@ -1,0 +1,17 @@
+//
+//  TCShareViewController.h
+//
+//
+//  Created by huangdx on 2017/10/21.
+//  Copyright © 2017年 ye.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#define NOTIFICATION_TEACHER_SEARCH_RESULT @"NOTIFICATION_TEACHER_SEARCH_RESULT"
+
+@interface TCShareViewController : UIViewController
+
+- (void) showContentView;
+
+@end

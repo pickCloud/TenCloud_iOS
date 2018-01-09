@@ -8,6 +8,7 @@
 
 #import "TCInviteStaffViewController.h"
 #import "TCJoinSettingViewController.h"
+#import "TCShareViewController.h"
 
 @interface TCInviteStaffViewController ()
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
@@ -58,5 +59,12 @@
 - (IBAction) onInviteButton:(id)sender
 {
     NSLog(@"响应邀请");
+    
+    TCShareViewController *selectVC = [[TCShareViewController alloc] init];
+    //selectVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;//UIModalTransitionStyleCrossDissolve;
+    selectVC.providesPresentationContextTransitionStyle = YES;
+    selectVC.definesPresentationContext = YES;
+    selectVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:selectVC animated:NO completion:nil];
 }
 @end

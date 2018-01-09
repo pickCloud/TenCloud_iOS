@@ -255,6 +255,8 @@
 		A0C363012004BBDB0033C99C /* TCSetJoinSettingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362FF2004BBDA0033C99C /* TCSetJoinSettingRequest.m */; };
 		A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C363032004C1990033C99C /* TCInviteStaffViewController.m */; };
 		A0C363062004C1990033C99C /* TCInviteStaffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C363042004C1990033C99C /* TCInviteStaffViewController.xib */; };
+		A0C3630E2004D27D0033C99C /* TCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C3630C2004D27D0033C99C /* TCShareViewController.m */; };
+		A0C3630F2004D27D0033C99C /* TCShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C3630D2004D27D0033C99C /* TCShareViewController.xib */; };
 		A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */; };
 		A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */; };
 		A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0541FED608500F94E9E /* TCIconTableViewCell.m */; };
@@ -756,6 +758,9 @@
 		A0C363022004C1990033C99C /* TCInviteStaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCInviteStaffViewController.h; sourceTree = "<group>"; };
 		A0C363032004C1990033C99C /* TCInviteStaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCInviteStaffViewController.m; sourceTree = "<group>"; };
 		A0C363042004C1990033C99C /* TCInviteStaffViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCInviteStaffViewController.xib; sourceTree = "<group>"; };
+		A0C3630B2004D27D0033C99C /* TCShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShareViewController.h; sourceTree = "<group>"; };
+		A0C3630C2004D27D0033C99C /* TCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShareViewController.m; sourceTree = "<group>"; };
+		A0C3630D2004D27D0033C99C /* TCShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCShareViewController.xib; sourceTree = "<group>"; };
 		A0C9A04E1FED5CEE00F94E9E /* TCPersonHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPersonHomeViewController.h; sourceTree = "<group>"; };
 		A0C9A04F1FED5CEE00F94E9E /* TCPersonHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPersonHomeViewController.m; sourceTree = "<group>"; };
 		A0C9A0501FED5CEE00F94E9E /* TCPersonHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCPersonHomeViewController.xib; sourceTree = "<group>"; };
@@ -1144,6 +1149,7 @@
 		A02555261FD6934700D16D22 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				A0C363072004D1DC0033C99C /* share */,
 				A0C9A0B01FF1EE8900F94E9E /* upload */,
 				A025557D1FD7D69F00D16D22 /* ui */,
 				A02555791FD7CCCE00D16D22 /* tabbar */,
@@ -2955,6 +2961,40 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0C363072004D1DC0033C99C /* share */ = {
+			isa = PBXGroup;
+			children = (
+				A0C363082004D1DC0033C99C /* controller */,
+				A0C363092004D1DC0033C99C /* model */,
+				A0C3630A2004D1DC0033C99C /* view */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
+		A0C363082004D1DC0033C99C /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0C3630B2004D27D0033C99C /* TCShareViewController.h */,
+				A0C3630C2004D27D0033C99C /* TCShareViewController.m */,
+				A0C3630D2004D27D0033C99C /* TCShareViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0C363092004D1DC0033C99C /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0C3630A2004D1DC0033C99C /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A0C9A0581FF0A32400F94E9E /* customerService */ = {
 			isa = PBXGroup;
 			children = (
@@ -3287,6 +3327,7 @@
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
+				A0C3630F2004D27D0033C99C /* TCShareViewController.xib in Resources */,
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
@@ -3692,6 +3733,7 @@
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
+				A0C3630E2004D27D0033C99C /* TCShareViewController.m in Sources */,
 				A0C363012004BBDB0033C99C /* TCSetJoinSettingRequest.m in Sources */,
 				A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */,
 				A0A86B9A1FF4F52D00D1D58D /* TCListCorp+CoreDataClass.m in Sources */,
