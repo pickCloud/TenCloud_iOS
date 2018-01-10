@@ -11,11 +11,13 @@
 #import "TCStaffTableViewCell.h"
 #import "TCStaffProfileViewController.h"
 #import "TCJoinSettingViewController.h"
+#import "FEPopupMenuController.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *staffArray;
+@property (nonatomic, strong)   FEPopupMenuController   *menuController;
 - (void) onAddButton:(id)sender;
 - (void) reloadStaffArray;
 @end
@@ -44,6 +46,27 @@
     [addButton addTarget:self action:@selector(onAddButton:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = addItem;
+    
+    __weak __typeof(self) weakSelf = self;
+    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"设置个人加入条件" iconImage:nil action:^{
+        TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
+        [weakSelf.navigationController pushViewController:joinVC animated:YES];
+    }];
+    item1.titleColor = THEME_TEXT_COLOR;
+    FEPopupMenuItem *item2 = [[FEPopupMenuItem alloc] initWithTitle:@"邀请员工" iconImage:nil action:^{
+        NSLog(@"selected item1...");
+    }];
+    item2.titleColor = THEME_TEXT_COLOR;
+    FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
+        NSLog(@"selected item1...");
+    }];
+    item3.titleColor = THEME_TEXT_COLOR;
+    self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item1,item2,item3]];
+    self.menuController.isShowArrow = NO;
+    self.menuController.contentViewWidth = 180;
+    self.menuController.contentViewBackgroundColor = THEME_NAVBAR_TITLE_COLOR;
+    self.menuController.itemSeparatorLineColor = TABLE_CELL_BG_COLOR;
+    self.menuController.contentViewCornerRadius = TCSCALE(4.0);
     
     UINib *cellNib = [UINib nibWithNibName:@"TCStaffTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:STAFF_CELL_ID];
@@ -75,8 +98,11 @@
 #pragma mark - extension
 - (void) onAddButton:(id)sender
 {
-    TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
-    [self.navigationController pushViewController:joinVC animated:YES];
+    CGRect navBarRect = self.navigationController.navigationBar.frame;
+    CGFloat posY = navBarRect.origin.y + navBarRect.size.height;
+    CGFloat posX = navBarRect.size.width - self.menuController.contentViewWidth - 20;
+    CGPoint pos = CGPointMake(posX, posY);
+    [self.menuController showInViewController:self atPosition:pos];
 }
 
 
