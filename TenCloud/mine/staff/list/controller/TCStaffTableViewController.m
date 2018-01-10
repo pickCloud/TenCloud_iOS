@@ -12,6 +12,7 @@
 #import "TCStaffProfileViewController.h"
 #import "TCJoinSettingViewController.h"
 #import "FEPopupMenuController.h"
+#import "TCInviteStaffViewController.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -54,7 +55,8 @@
     }];
     item1.titleColor = THEME_TEXT_COLOR;
     FEPopupMenuItem *item2 = [[FEPopupMenuItem alloc] initWithTitle:@"邀请员工" iconImage:nil action:^{
-        NSLog(@"selected item1...");
+        TCInviteStaffViewController *inviteVC = [TCInviteStaffViewController new];
+        [weakSelf.navigationController pushViewController:inviteVC animated:YES];
     }];
     item2.titleColor = THEME_TEXT_COLOR;
     FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
