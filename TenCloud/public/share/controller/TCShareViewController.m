@@ -7,8 +7,11 @@
 //
 
 #import "TCShareViewController.h"
+#import <MessageUI/MessageUI.h>
+#import "TCShareManager.h"
 
-@interface TCShareViewController ()
+@interface TCShareViewController () <MFMessageComposeViewControllerDelegate>
+@property (nonatomic, strong)   MFMessageComposeViewController  *messageVC;
 @property (nonatomic, weak) IBOutlet    UIView      *darkBackgroundView;
 @property (nonatomic, weak) IBOutlet    UIView      *contentView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *contentViewBottomConstraint;
@@ -23,10 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"分享";
     // Do any additional setup after loading the view from its nib.
     self.darkBackgroundView.alpha = 0.0;
     self.contentViewBottomConstraint.constant = -kScreenHeight;
     
+    _messageVC = [[MFMessageComposeViewController alloc] init];
+    _messageVC.messageComposeDelegate = self;
+    //[[[[_messageVC viewControllers] lastObject] navigationItem] setTitle:@"返回"];
+    //[[[[[picker viewControllers] lastObject] navigationItem] rightBarButtonItem] setTitle:@"返回"];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
     [self.darkBackgroundView addGestureRecognizer:tapGesture];
@@ -74,16 +82,41 @@
 - (IBAction) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
+    //MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
+    //vc.body = @"测试";
+    //vc.messageComposeDelegate = self;
+    //vc.navigationBar.tintColor = [UIColor blackColor];
+    //[self presentViewController:vc animated:YES completion:nil];
+    _messageVC.body = @"测试";
+    [self presentViewController:_messageVC animated:YES completion:nil];
 }
 
 - (IBAction) onQQButton:(id)sender
 {
     NSLog(@"on qq button ");
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *iconPath = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    UIImage *icon = [UIImage imageNamed:iconPath];
+    [[TCShareManager sharedManager] shareWithSharedType:TCShareTypeQQ
+                                                  image:icon
+                                                    url:@"http://baidu.com"
+                                                content:@"测试分享zzz"
+                                             controller:self];
+    [self dismiss];
 }
 
 - (IBAction) onWeixinButton:(id)sender
 {
     NSLog(@"on weixin button");
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *iconPath = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    UIImage *icon = [UIImage imageNamed:iconPath];
+    [[TCShareManager sharedManager] shareWithSharedType:TCShareTypeWechat
+                                                  image:icon
+                                                    url:@"http://baidu.com"
+                                                content:@"测试分享zzz"
+                                             controller:self];
+    [self dismiss];
 }
 
 - (void) onTapGesture:(id)sender
@@ -105,6 +138,21 @@
             [weakSelf dismissViewControllerAnimated:NO completion:nil];
         }
     }];
+}
+
+#pragma mark - MFMessageComposeViewDelegate
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    if (result == MessageComposeResultCancelled)
+    {
+        [MBProgressHUD showError:@"取消发送" toView:nil];
+    }else if(result == MessageComposeResultSent)
+    {
+        [MBProgressHUD showError:@"分享成功" toView:nil];
+    }else {
+        [MBProgressHUD showError:@"分享失败" toView:nil];
+    }
 }
 
 @end

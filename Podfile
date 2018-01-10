@@ -20,6 +20,7 @@ pod 'MMDrawerController','~> 0.6.0'
 pod 'Qiniu', '~> 7.1.5'
 pod 'SDWebImage','~> 4.0.0'
 pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+pod 'UMengSocialCOM','~> 5.2.1'
 
   target 'TenCloudTests' do
     inherit! :search_paths

@@ -198,6 +198,7 @@
 		A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */; };
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
 		A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */; };
+		A0884A2720066932004F5010 /* TCShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0884A2520066932004F5010 /* TCShareManager.m */; };
 		A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */; };
 		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
 		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
@@ -663,6 +664,8 @@
 		A07DBEC01FE27A3300F37715 /* TCServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerListViewController.h; sourceTree = "<group>"; };
 		A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerListViewController.xib; sourceTree = "<group>"; };
 		A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerListViewController.m; sourceTree = "<group>"; };
+		A0884A2520066932004F5010 /* TCShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShareManager.m; sourceTree = "<group>"; };
+		A0884A2620066932004F5010 /* TCShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShareManager.h; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileViewController.h; sourceTree = "<group>"; };
 		A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileViewController.m; sourceTree = "<group>"; };
@@ -2984,6 +2987,8 @@
 		A0C363092004D1DC0033C99C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0884A2620066932004F5010 /* TCShareManager.h */,
+				A0884A2520066932004F5010 /* TCShareManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -3466,7 +3471,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FEPopupMenuController/FEPopupResource.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FEPopupMenuController/FEPopupResource.bundle,
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/UMSocialSDKResourcesNew.bundle",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.bundle",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSCommentDetailController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSCommentInputController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSCommentInputControlleriPad.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMShareEditViewController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMShareEditViewControlleriPad.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSLoginViewController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSnsAccountViewController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/SocialSDKXib/UMSShareListController.xib",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/en.lproj",
+				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/zh-Hans.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -3634,6 +3652,7 @@
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */,
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
+				A0884A2720066932004F5010 /* TCShareManager.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
 				A0A86B9B1FF4F52D00D1D58D /* TCListCorp+CoreDataProperties.m in Sources */,
@@ -3841,6 +3860,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3896,6 +3916,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3920,6 +3941,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KE698WAK7T;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks/GT3Captcha",
@@ -3943,6 +3965,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KE698WAK7T;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks/GT3Captcha",

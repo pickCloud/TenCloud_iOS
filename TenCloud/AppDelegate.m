@@ -13,6 +13,7 @@
 #import "VHLNavigation.h"
 #import "TCLoginViewController.h"
 #import "TCConfiguration.h"
+#import "TCShareManager.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,7 @@
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
     [[TCConfiguration shared] print];
+    [[TCShareManager sharedManager] registerAllPlatForms];
     
     [UIColor vhl_setDefaultNavBarTintColor:THEME_NAVBAR_TITLE_COLOR];
     [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
