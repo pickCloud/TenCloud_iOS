@@ -244,6 +244,7 @@
 		A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3D61FE626B00050F920 /* TCSetPasswordViewController.m */; };
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
+		A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7140A2006E50A00BE9FCA /* TCGetInviteURLRequest.m */; };
 		A0C362E320031F6E0033C99C /* TCUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */; };
 		A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E520035E920033C99C /* TCModifyPermissionRequest.m */; };
 		A0C362E920035EE10033C99C /* TCModifyUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E820035EE10033C99C /* TCModifyUserPermissionRequest.m */; };
@@ -740,6 +741,8 @@
 		A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSetPasswordViewController.xib; sourceTree = "<group>"; };
 		A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetPasswordRequest.m; sourceTree = "<group>"; };
 		A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordRequest.h; sourceTree = "<group>"; };
+		A0B7140A2006E50A00BE9FCA /* TCGetInviteURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGetInviteURLRequest.m; sourceTree = "<group>"; };
+		A0B7140B2006E50A00BE9FCA /* TCGetInviteURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGetInviteURLRequest.h; sourceTree = "<group>"; };
 		A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUserPermissionRequest.m; sourceTree = "<group>"; };
 		A0C362E220031F6E0033C99C /* TCUserPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUserPermissionRequest.h; sourceTree = "<group>"; };
 		A0C362E420035E920033C99C /* TCModifyPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPermissionRequest.h; sourceTree = "<group>"; };
@@ -2236,6 +2239,8 @@
 		A031435A1FED567C006F55EC /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0B7140B2006E50A00BE9FCA /* TCGetInviteURLRequest.h */,
+				A0B7140A2006E50A00BE9FCA /* TCGetInviteURLRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -3570,6 +3575,7 @@
 			files = (
 				A06D12211FEBA2F100722C76 /* TCSearchFilterViewController.m in Sources */,
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
+				A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */,
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
