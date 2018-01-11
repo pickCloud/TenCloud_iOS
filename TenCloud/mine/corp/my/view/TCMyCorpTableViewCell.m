@@ -78,7 +78,7 @@
         _statusLabel.textColor = THEME_TINT_COLOR;
     }else
     {
-        _statusLabel.text = @"初创建";
+        _statusLabel.text = @"创建人";
         _statusLabel.textColor = THEME_TINT_COLOR;
     }
     if (corp.is_admin == true)

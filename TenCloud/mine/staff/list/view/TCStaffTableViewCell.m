@@ -55,7 +55,7 @@
         _statusLabel.textColor = THEME_TINT_COLOR;
     }else if(staff.status == 2)
     {
-        _statusLabel.text = @"创始人";
+        _statusLabel.text = @"创建人";
         _statusLabel.textColor = THEME_TINT_COLOR;
     }else
     {
