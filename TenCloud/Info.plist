@@ -110,6 +110,16 @@
 				<string>shurufaiOSID</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tencloud</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencloud</string>
+			</array>
+		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

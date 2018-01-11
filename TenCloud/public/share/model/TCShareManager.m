@@ -33,9 +33,9 @@ static TCShareManager *_singleton = nil;
     [UMSocialData setAppKey:@"57cfeda567e58e275c00102d"];
     //设置微信AppId、appSecret，分享url
     [UMSocialData openLog:YES];
-    [UMSocialWechatHandler setWXAppId:@"wxc01464912319f82e" appSecret:@"a899820621ce623d835c4caf9381762d" url:@"http://www.jianshu.com/users/3930920b505b/latest_articles"];
+    [UMSocialWechatHandler setWXAppId:@"wxc01464912319f82e" appSecret:@"a899820621ce623d835c4caf9381762d" url:@"http://c.10.com"];
     //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
-    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.jianshu.com/users/3930920b505b/latest_articles"];
+    [UMSocialQQHandler setQQWithAppId:@"1106665152" appKey:@"slhcMjf52PvQoMnO" url:@"http://c.10.com"];
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3921700954"
                                               secret:@"04b48b094faeb16683c32669824ebdad"
@@ -50,7 +50,7 @@ static TCShareManager *_singleton = nil;
     switch (shareType) {
         case TCShareTypeWechatPengyouquan: {
             if (![WXApi isWXAppInstalled]) {
-//                [MBProgressHUD showMessage:@"微信没有安装,请先安装微信" toView:controller.view];
+                [self showTip:@"未安装微信，请先安装"];
                 return ;
             }
 //            [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
@@ -64,7 +64,7 @@ static TCShareManager *_singleton = nil;
         } break;
         case TCShareTypeWechat: {
             if (![WXApi isWXAppInstalled]) {
-//                [MBProgressHUD showMessage:@"微信没有安装,请先安装微信" toView:controller.view];
+                [self showTip:@"未安装微信，请先安装"];
                 return ;
             }
             [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
@@ -91,7 +91,7 @@ static TCShareManager *_singleton = nil;
         } break;
         case TCShareTypeQQ: {
             if (![TencentApiInterface isTencentAppInstall:kIphoneQQ]) {
-//                [MBProgressHUD showMessage:@"QQ没有安装,请先安装QQ" toView:controller.view];
+                [self showTip:@"未安装QQ,请先安装"];
                 return ;
             }
             [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
@@ -105,7 +105,7 @@ static TCShareManager *_singleton = nil;
         } break;
         case TCShareTypeQZone: {
             if (![TencentApiInterface isTencentAppInstall:kIphoneQQ]) {
-//                [MBProgressHUD showMessage:@"QQ没有安装,请先安装QQ" toView:controller.view];
+                [self showTip:@"未安装QQ,请先安装"];
                 return ;
             }
             [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
@@ -121,6 +121,18 @@ static TCShareManager *_singleton = nil;
             break;
     }
     image = nil;
+}
+
+- (void) showTip:(NSString*)tip
+{
+    UIAlertController *alertController = nil;
+    alertController = [UIAlertController alertControllerWithTitle:@"提示"
+                                                          message:tip
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    UIViewController *rootVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [rootVC presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)shareSucceed {
