@@ -16,13 +16,19 @@
 #import "TCChangeAdminViewController.h"
 #import "TCStaffSearchRequest.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "MKDropdownMenu.h"
+#import "ShapeSelectView.h"
+#import "ShapeView.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
-<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
+<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, weak) IBOutlet    UIView          *keyboradPanel;
+@property (nonatomic, weak) IBOutlet    MKDropdownMenu  *statusMenu;
+@property (nonatomic, strong)   NSArray                 *statusMenuOptions;
+@property (nonatomic, assign)   NSInteger               statusSelectedIndex;
 @property (nonatomic, strong)   NSMutableArray          *staffArray;
 @property (nonatomic, strong)   FEPopupMenuController   *menuController;
 - (void) onAddButton:(id)sender;
@@ -108,6 +114,27 @@
     newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
     [self.view addSubview:_keyboradPanel];
     _keyboradPanel.frame = newRect;
+    
+    _statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核不通过", nil];
+    _statusSelectedIndex = 0;
+    //self.statusMenu.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1.0] CGColor];
+    //self.statusMenu.layer.borderWidth = 0.5;
+    
+    UIColor *selectedBackgroundColor = [UIColor colorWithRed:0.91 green:0.92 blue:0.94 alpha:1.0];
+    UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
+    self.statusMenu.selectedComponentBackgroundColor = dropDownBgColor;
+    self.statusMenu.dropdownBackgroundColor = dropDownBgColor;
+    self.statusMenu.dropdownShowsTopRowSeparator = YES;
+    self.statusMenu.dropdownShowsBottomRowSeparator = NO;
+    self.statusMenu.dropdownShowsBorder = NO;
+    self.statusMenu.backgroundDimmingOpacity = 0.5;//0.05;
+    self.statusMenu.componentTextAlignment = NSTextAlignmentLeft;
+    self.statusMenu.dropdownCornerRadius = TCSCALE(4.0);
+    self.statusMenu.rowSeparatorColor = THEME_BACKGROUND_COLOR;
+    
+    UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
+    self.statusMenu.disclosureIndicatorImage = disclosureImg;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,9 +171,19 @@
     }];
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [_keywordField resignFirstResponder];
+    [_statusMenu closeAllComponentsAnimated:YES];
+    [super viewWillDisappear:animated];
+}
+
+
 #pragma mark - extension
 - (void) onAddButton:(id)sender
 {
+    [_keywordField resignFirstResponder];
+    
     CGRect navBarRect = self.navigationController.navigationBar.frame;
     CGFloat posY = navBarRect.origin.y + navBarRect.size.height;
     CGFloat posX = navBarRect.size.width - self.menuController.contentViewWidth - 20;
@@ -262,5 +299,129 @@
 - (IBAction) onCloseKeyboard:(id)sender
 {
     [_keywordField resignFirstResponder];
+}
+
+
+#pragma mark - MKDropdownMenuDataSource
+
+- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu {
+    return 1;
+}
+
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return _statusMenuOptions.count;
+}
+
+#pragma mark - MKDropdownMenuDelegate
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
+    //return 0; // use default row height
+    return TCSCALE(32);
+}
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu widthForComponent:(NSInteger)component {
+    return MAX(dropdownMenu.bounds.size.width/3, 125);
+    //return 0; // use automatic width
+}
+
+- (BOOL)dropdownMenu:(MKDropdownMenu *)dropdownMenu shouldUseFullRowWidthForComponent:(NSInteger)component {
+    return NO;
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
+    return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
+                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
+                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
+    return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
+                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
+                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
+    
+}
+
+- (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    ShapeSelectView *shapeSelectView = (ShapeSelectView *)view;
+    if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
+        shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
+    }
+    //shapeSelectView.shapeView.sidesCount = row + 2;
+    NSString *statusStr = self.statusMenuOptions[row];
+    shapeSelectView.textLabel.text = statusStr;//self.statusMenuOptions[row];
+    shapeSelectView.selected = _statusSelectedIndex == row;
+    /*
+    if ([statusStr isEqualToString:@"审核通过"])
+    {
+        shapeSelectView.selected = YES;
+    }else
+    {
+        shapeSelectView.selected = NO;
+    }
+     */
+    //shapeSelectView.selected = 0;
+    return shapeSelectView;
+    /*
+    switch (component) {
+        case DropdownComponentShape: {
+
+        }
+        case 2: {
+            LineWidthSelectView *lineWidthSelectView = (LineWidthSelectView *)view;
+            if (lineWidthSelectView == nil || ![lineWidthSelectView isKindOfClass:[LineWidthSelectView class]]) {
+                lineWidthSelectView = [LineWidthSelectView new];
+                lineWidthSelectView.backgroundColor = [UIColor clearColor];
+            }
+            lineWidthSelectView.lineColor = self.view.tintColor;
+            lineWidthSelectView.lineWidth = row * 2 + 1;
+            return lineWidthSelectView;
+        }
+        default:
+            return nil;
+    }
+     */
+}
+
+- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self colorForRow:row];
+    /*
+    if (component == DropdownComponentColor) {
+        
+    }
+    return nil;
+     */
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    //self.shapeView.sidesCount = row + 2;
+    _statusSelectedIndex = row;
+    [dropdownMenu reloadComponent:component];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+    /*
+    switch (component) {
+        case DropdownComponentShape:
+
+            break;
+        case DropdownComponentColor:
+            self.shapeView.fillColor = [self colorForRow:row];
+            break;
+        case DropdownComponentLineWidth:
+            self.shapeView.lineWidth = row * 2 + 1;
+            break;
+        default:
+            break;
+    }
+     */
+}
+
+- (UIColor *)colorForRow:(NSInteger)row {
+    return DROPDOWN_CELL_BG_COLOR;
+    /*
+    return [UIColor colorWithHue:(CGFloat)row/[self.statusMenuOptions numberOfRowsInComponent:0]
+                      saturation:1.0
+                      brightness:1.0
+                           alpha:1.0];
+     */
 }
 @end

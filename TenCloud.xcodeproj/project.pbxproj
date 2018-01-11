@@ -128,6 +128,10 @@
 		A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */; };
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
 		A04539B620073A2B00402D1A /* TCStaffSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539B420073A2B00402D1A /* TCStaffSearchRequest.m */; };
+		A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539B920074F2200402D1A /* MKDropdownMenu.m */; };
+		A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04539BB2007514900402D1A /* ShapeSelectView.xib */; };
+		A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539BD2007514900402D1A /* ShapeSelectView.m */; };
+		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
 		A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */; };
 		A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */; };
 		A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */; };
@@ -549,6 +553,13 @@
 		A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerStateTableViewCell.xib; sourceTree = "<group>"; };
 		A04539B420073A2B00402D1A /* TCStaffSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCStaffSearchRequest.m; sourceTree = "<group>"; };
 		A04539B520073A2B00402D1A /* TCStaffSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffSearchRequest.h; sourceTree = "<group>"; };
+		A04539B820074F2200402D1A /* MKDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDropdownMenu.h; sourceTree = "<group>"; };
+		A04539B920074F2200402D1A /* MKDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDropdownMenu.m; sourceTree = "<group>"; };
+		A04539BB2007514900402D1A /* ShapeSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShapeSelectView.xib; sourceTree = "<group>"; };
+		A04539BC2007514900402D1A /* ShapeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeSelectView.h; sourceTree = "<group>"; };
+		A04539BD2007514900402D1A /* ShapeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeSelectView.m; sourceTree = "<group>"; };
+		A04539C02007523000402D1A /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
+		A04539C12007523000402D1A /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
 		A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCertificateTableViewCell.h; sourceTree = "<group>"; };
 		A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCertificateTableViewCell.m; sourceTree = "<group>"; };
 		A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCertificateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1132,6 +1143,7 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A04539B720074F2200402D1A /* MKDropdownMenu */,
 				A0C9A0831FF14B4E00F94E9E /* NYXImagesKit */,
 				A0C9A07F1FF149C100F94E9E /* LSActionSheet */,
 				A001FA251FDD3777008328B0 /* MBProgressHUD */,
@@ -2486,11 +2498,25 @@
 		A031B6181FFE0FE000B4F448 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A04539C12007523000402D1A /* ShapeView.h */,
+				A04539C02007523000402D1A /* ShapeView.m */,
+				A04539BC2007514900402D1A /* ShapeSelectView.h */,
+				A04539BD2007514900402D1A /* ShapeSelectView.m */,
+				A04539BB2007514900402D1A /* ShapeSelectView.xib */,
 				A031B6291FFE259000B4F448 /* TCStaffTableViewCell.h */,
 				A031B6271FFE259000B4F448 /* TCStaffTableViewCell.m */,
 				A031B6281FFE259000B4F448 /* TCStaffTableViewCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		A04539B720074F2200402D1A /* MKDropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A04539B820074F2200402D1A /* MKDropdownMenu.h */,
+				A04539B920074F2200402D1A /* MKDropdownMenu.m */,
+			);
+			path = MKDropdownMenu;
 			sourceTree = "<group>";
 		};
 		A07DBE8D1FE1157800F37715 /* basic */ = {
@@ -3387,6 +3413,7 @@
 				A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */,
 				A0A86B8D1FF4D6B600D1D58D /* TCCorpProfileViewController.xib in Resources */,
 				A07DBE491FDFD5D300F37715 /* TCServerMonitorViewController.xib in Resources */,
+				A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */,
 				A0C9A0CD1FF2A3F500F94E9E /* TCTextTableViewCell.xib in Resources */,
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A0A86B2B1FF37F5900D1D58D /* TCSuccessResultViewController.xib in Resources */,
@@ -3644,6 +3671,7 @@
 				A06D12211FEBA2F100722C76 /* TCSearchFilterViewController.m in Sources */,
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
 				A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */,
+				A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */,
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
@@ -3674,6 +3702,7 @@
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
+				A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
 				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
@@ -3721,6 +3750,7 @@
 				A031B5F41FFC71F000B4F448 /* TCPermissionSection+CoreDataProperties.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
+				A04539C22007523000402D1A /* ShapeView.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A031B5E31FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m in Sources */,

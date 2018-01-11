@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="keyboradPanel" destination="7gm-K2-nvj" id="mEN-hN-N2p"/>
                 <outlet property="keywordField" destination="mCv-nI-RSS" id="8Pq-Lb-BO0"/>
+                <outlet property="statusMenu" destination="Mx4-1N-o3q" id="lk8-Bu-C1K"/>
                 <outlet property="tableView" destination="Asl-EV-dpS" id="SUw-Q4-L1K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,12 +32,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx4-1N-o3q">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx4-1N-o3q" customClass="MKDropdownMenu">
                                 <rect key="frame" x="15" y="7" width="120" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mx4-1N-o3q" secondAttribute="height" multiplier="4:1" id="Yms-ax-Wke"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="ifo-te-GT7"/>
+                                    <outlet property="delegate" destination="-1" id="E0Q-Mb-e4W"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irP-DB-TNX">
                                 <rect key="frame" x="143" y="7" width="218" height="30"/>
