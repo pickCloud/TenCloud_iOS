@@ -245,6 +245,11 @@
 		A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A8F3D71FE626B00050F920 /* TCSetPasswordViewController.xib */; };
 		A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8F3DF1FE6B3AD0050F920 /* TCSetPasswordRequest.m */; };
 		A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7140A2006E50A00BE9FCA /* TCGetInviteURLRequest.m */; };
+		A0B7141A2006F30600BE9FCA /* TCChangeAdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B714182006F30600BE9FCA /* TCChangeAdminViewController.xib */; };
+		A0B7141B2006F30600BE9FCA /* TCChangeAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B714192006F30600BE9FCA /* TCChangeAdminViewController.m */; };
+		A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */; };
+		A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */; };
+		A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */; };
 		A0C362E320031F6E0033C99C /* TCUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */; };
 		A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E520035E920033C99C /* TCModifyPermissionRequest.m */; };
 		A0C362E920035EE10033C99C /* TCModifyUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E820035EE10033C99C /* TCModifyUserPermissionRequest.m */; };
@@ -743,6 +748,14 @@
 		A0A8F3E01FE6B3AD0050F920 /* TCSetPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetPasswordRequest.h; sourceTree = "<group>"; };
 		A0B7140A2006E50A00BE9FCA /* TCGetInviteURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGetInviteURLRequest.m; sourceTree = "<group>"; };
 		A0B7140B2006E50A00BE9FCA /* TCGetInviteURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGetInviteURLRequest.h; sourceTree = "<group>"; };
+		A0B714172006F30600BE9FCA /* TCChangeAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCChangeAdminViewController.h; sourceTree = "<group>"; };
+		A0B714182006F30600BE9FCA /* TCChangeAdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCChangeAdminViewController.xib; sourceTree = "<group>"; };
+		A0B714192006F30600BE9FCA /* TCChangeAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCChangeAdminViewController.m; sourceTree = "<group>"; };
+		A0B7141C2006FF4200BE9FCA /* TCChangeAdminTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCChangeAdminTableViewCell.h; sourceTree = "<group>"; };
+		A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCChangeAdminTableViewCell.m; sourceTree = "<group>"; };
+		A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCChangeAdminTableViewCell.xib; sourceTree = "<group>"; };
+		A0B7142120070BBD00BE9FCA /* TCSetAdminRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetAdminRequest.h; sourceTree = "<group>"; };
+		A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetAdminRequest.m; sourceTree = "<group>"; };
 		A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUserPermissionRequest.m; sourceTree = "<group>"; };
 		A0C362E220031F6E0033C99C /* TCUserPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUserPermissionRequest.h; sourceTree = "<group>"; };
 		A0C362E420035E920033C99C /* TCModifyPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPermissionRequest.h; sourceTree = "<group>"; };
@@ -2153,6 +2166,7 @@
 				A0A86B3B1FF3926500D1D58D /* home */,
 				A0A86B361FF3926500D1D58D /* my */,
 				A0A86B451FF3926500D1D58D /* profile */,
+				A0B7140D2006EF5400BE9FCA /* changeAdmin */,
 			);
 			path = corp;
 			sourceTree = "<group>";
@@ -2918,6 +2932,53 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0B7140D2006EF5400BE9FCA /* changeAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				A0B7140E2006EF5400BE9FCA /* controller */,
+				A0B7140F2006EF5400BE9FCA /* model */,
+				A0B714102006EF5400BE9FCA /* request */,
+				A0B714112006EF5400BE9FCA /* view */,
+			);
+			path = changeAdmin;
+			sourceTree = "<group>";
+		};
+		A0B7140E2006EF5400BE9FCA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0B714172006F30600BE9FCA /* TCChangeAdminViewController.h */,
+				A0B714192006F30600BE9FCA /* TCChangeAdminViewController.m */,
+				A0B714182006F30600BE9FCA /* TCChangeAdminViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0B7140F2006EF5400BE9FCA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0B714102006EF5400BE9FCA /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A0B7142120070BBD00BE9FCA /* TCSetAdminRequest.h */,
+				A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0B714112006EF5400BE9FCA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A0B7141C2006FF4200BE9FCA /* TCChangeAdminTableViewCell.h */,
+				A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */,
+				A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A0C362EA200443170033C99C /* join */ = {
 			isa = PBXGroup;
 			children = (
@@ -3348,6 +3409,7 @@
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
 				A031B5D41FFC2FA600B4F448 /* TCPermissionFoldCell.xib in Resources */,
+				A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
 				A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */,
@@ -3380,6 +3442,7 @@
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
+				A0B7141A2006F30600BE9FCA /* TCChangeAdminViewController.xib in Resources */,
 				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
@@ -3634,6 +3697,7 @@
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
 				A0C9A0691FF0D07800F94E9E /* TCCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
+				A0B7141B2006F30600BE9FCA /* TCChangeAdminViewController.m in Sources */,
 				A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
@@ -3715,6 +3779,7 @@
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
+				A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */,
 				A0C362F1200443AE0033C99C /* TCJoinSettingRequest.m in Sources */,
 				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
@@ -3758,6 +3823,7 @@
 				A06D12261FEBA4E600722C76 /* TCSearchFilterCollectionCell.m in Sources */,
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
 				A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */,
+				A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,

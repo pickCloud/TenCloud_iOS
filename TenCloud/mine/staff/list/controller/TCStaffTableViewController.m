@@ -13,6 +13,7 @@
 #import "TCJoinSettingViewController.h"
 #import "FEPopupMenuController.h"
 #import "TCInviteStaffViewController.h"
+#import "TCChangeAdminViewController.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -40,7 +41,7 @@
     self.title = @"员工列表";
     _staffArray = [NSMutableArray new];
     
-    UIImage *addServerImg = [UIImage imageNamed:@"corp_nav_add"];
+    UIImage *addServerImg = [UIImage imageNamed:@"navbar_add"];
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButton setImage:addServerImg forState:UIControlStateNormal];
     [addButton sizeToFit];
@@ -60,7 +61,13 @@
     }];
     item2.titleColor = THEME_TEXT_COLOR;
     FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
-        NSLog(@"selected item1...");
+        TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
+        changeVC.staffArray = weakSelf.staffArray;
+        //[changeVC.staffArray addObjectsFromArray:weakSelf.staffArray];
+        NSLog(@"vc staffs:%@",changeVC.staffArray);
+        [self presentViewController:changeVC animated:YES completion:^{
+            
+        }];
     }];
     item3.titleColor = THEME_TEXT_COLOR;
     self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item1,item2,item3]];
