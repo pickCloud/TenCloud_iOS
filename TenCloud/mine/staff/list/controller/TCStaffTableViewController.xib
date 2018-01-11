@@ -6,11 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCStaffTableViewController">
             <connections>
+                <outlet property="keyboradPanel" destination="7gm-K2-nvj" id="mEN-hN-N2p"/>
+                <outlet property="keywordField" destination="mCv-nI-RSS" id="8Pq-Lb-BO0"/>
                 <outlet property="tableView" destination="Asl-EV-dpS" id="SUw-Q4-L1K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,13 +31,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mx4-1N-o3q">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx4-1N-o3q">
                                 <rect key="frame" x="15" y="7" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mx4-1N-o3q" secondAttribute="height" multiplier="4:1" id="Yms-ax-Wke"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irP-DB-TNX">
+                                <rect key="frame" x="143" y="7" width="218" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server_search" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-tt-HOY">
+                                        <rect key="frame" x="4" y="5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iQ2-tt-HOY" secondAttribute="height" multiplier="1:1" id="h2h-zx-eeg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入名字或手机号搜索" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mCv-nI-RSS">
+                                        <rect key="frame" x="26" y="0.0" width="192" height="30"/>
+                                        <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.34901960784313724" green="0.38823529411764707" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="-1" id="Yzo-C1-Uvb"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="iQ2-tt-HOY" firstAttribute="leading" secondItem="irP-DB-TNX" secondAttribute="leading" constant="4" id="0sD-xK-kg9"/>
+                                    <constraint firstItem="mCv-nI-RSS" firstAttribute="width" secondItem="irP-DB-TNX" secondAttribute="width" multiplier="0.8807" id="8hf-Hj-nwU"/>
+                                    <constraint firstItem="mCv-nI-RSS" firstAttribute="centerY" secondItem="irP-DB-TNX" secondAttribute="centerY" id="Fer-n7-71I"/>
+                                    <constraint firstItem="mCv-nI-RSS" firstAttribute="leading" secondItem="iQ2-tt-HOY" secondAttribute="trailing" constant="2" id="bmH-ph-L3W"/>
+                                    <constraint firstItem="iQ2-tt-HOY" firstAttribute="centerY" secondItem="irP-DB-TNX" secondAttribute="centerY" id="mvo-cI-afn"/>
+                                    <constraint firstItem="iQ2-tt-HOY" firstAttribute="width" secondItem="irP-DB-TNX" secondAttribute="width" multiplier="0.0917" id="nYP-jv-IFB"/>
+                                    <constraint firstItem="mCv-nI-RSS" firstAttribute="height" secondItem="irP-DB-TNX" secondAttribute="height" id="r4t-4l-nNS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.12549019607843137" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mx4-1N-o3q" firstAttribute="width" secondItem="NUU-If-AdT" secondAttribute="width" multiplier="0.32" id="3ae-xW-KYa"/>
+                            <constraint firstItem="Mx4-1N-o3q" firstAttribute="leading" secondItem="NUU-If-AdT" secondAttribute="leading" constant="15" id="ASw-fg-uab"/>
+                            <constraint firstItem="irP-DB-TNX" firstAttribute="leading" secondItem="Mx4-1N-o3q" secondAttribute="trailing" constant="8" id="CTV-RE-Vru"/>
+                            <constraint firstItem="Mx4-1N-o3q" firstAttribute="top" secondItem="NUU-If-AdT" secondAttribute="top" constant="7" id="e6i-nz-9vC"/>
+                            <constraint firstItem="irP-DB-TNX" firstAttribute="width" secondItem="NUU-If-AdT" secondAttribute="width" multiplier="0.58133" id="miy-v8-gbw"/>
+                            <constraint firstItem="irP-DB-TNX" firstAttribute="height" secondItem="Mx4-1N-o3q" secondAttribute="height" id="p5z-Bl-pOI"/>
+                            <constraint firstItem="irP-DB-TNX" firstAttribute="centerY" secondItem="Mx4-1N-o3q" secondAttribute="centerY" id="qaT-Pn-h4d"/>
+                            <constraint firstAttribute="bottom" secondItem="Mx4-1N-o3q" secondAttribute="bottom" constant="7" id="xNA-Ua-e4h"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="kp1-SL-TdU"/>
@@ -50,5 +106,35 @@
             </constraints>
             <point key="canvasLocation" x="34.5" y="106.5"/>
         </view>
+        <view contentMode="scaleToFill" id="7gm-K2-nvj">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWr-c4-AUL">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="xWr-c4-AUL" secondAttribute="height" multiplier="7:3" id="ZZN-mN-kwo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="收起键盘">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onCloseKeyboard:" destination="-1" eventType="touchUpInside" id="Ugn-kj-Vhn"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="xWr-c4-AUL" firstAttribute="top" secondItem="7gm-K2-nvj" secondAttribute="top" id="Hra-9I-fWM"/>
+                <constraint firstItem="xWr-c4-AUL" firstAttribute="width" secondItem="7gm-K2-nvj" secondAttribute="width" id="JRb-Zb-mQo"/>
+                <constraint firstItem="xWr-c4-AUL" firstAttribute="centerX" secondItem="7gm-K2-nvj" secondAttribute="centerX" id="LES-wd-Rjh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="13.5" y="577"/>
+        </view>
     </objects>
+    <resources>
+        <image name="server_search" width="20" height="20"/>
+    </resources>
 </document>

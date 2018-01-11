@@ -14,14 +14,23 @@
 #import "FEPopupMenuController.h"
 #import "TCInviteStaffViewController.h"
 #import "TCChangeAdminViewController.h"
+#import "TCStaffSearchRequest.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
+<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
+@property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
+@property (nonatomic, weak) IBOutlet    UIView          *keyboradPanel;
 @property (nonatomic, strong)   NSMutableArray          *staffArray;
 @property (nonatomic, strong)   FEPopupMenuController   *menuController;
 - (void) onAddButton:(id)sender;
 - (void) reloadStaffArray;
+- (void) doSearchWithKeyword:(NSString*)keyword;
+- (void) onShowKeyboard:(NSNotification*)notification;
+- (void) onHideKeyboard:(NSNotification*)notification;
+- (IBAction) onCloseKeyboard:(id)sender;
 @end
 
 @implementation TCStaffTableViewController
@@ -80,9 +89,25 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCStaffTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:STAFF_CELL_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     [self startLoading];
     [self reloadStaffArray];
+    NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
+                       name:UIKeyboardWillShowNotification object:nil];
+    [notiCenter addObserver:self selector:@selector(onHideKeyboard:)
+                       name:UIKeyboardWillHideNotification object:nil];
+    
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    [self.view addSubview:_keyboradPanel];
+    _keyboradPanel.frame = newRect;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +122,21 @@
     [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
         [weakSelf.staffArray removeAllObjects];
         [weakSelf stopLoading];
+        [weakSelf.staffArray addObjectsFromArray:staffArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        
+    }];
+}
+
+- (void) doSearchWithKeyword:(NSString*)keyword
+{
+    __weak __typeof(self) weakSelf = self;
+    TCStaffSearchRequest *req = [TCStaffSearchRequest new];
+    req.keyword = keyword;
+    req.status = 0;
+    [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
+        [weakSelf.staffArray removeAllObjects];
         [weakSelf.staffArray addObjectsFromArray:staffArray];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
@@ -158,7 +198,7 @@
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"无员工记录" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"无搜索结果" attributes:attributes];
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
@@ -166,5 +206,61 @@
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
 {
     return !self.isLoading;
+}
+
+
+#pragma mark - Text Field Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"word:%@",textField.text);
+    NSString *word = textField.text;
+    [self doSearchWithKeyword:word];
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (void) onShowKeyboard:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyboardHeight = CGRectGetHeight([aValue CGRectValue]);
+    
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height - keyboardHeight - newRect.size.height + TCSCALE(10);
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        weakSelf.keyboradPanel.frame = newRect;
+    }];
+}
+
+
+- (void) onHideKeyboard:(NSNotification*)notification
+{
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.9
+                     animations:^{
+                         weakSelf.keyboradPanel.frame = newRect;
+                     }];
+    if (_keywordField.text.length == 0)
+    {
+        [self reloadStaffArray];
+    }
+}
+
+- (IBAction) onCloseKeyboard:(id)sender
+{
+    [_keywordField resignFirstResponder];
 }
 @end
