@@ -25,6 +25,7 @@
 #import "YTKNetworkConfig.h"
 #import "YTKNetworkPrivate.h"
 #import <pthread/pthread.h>
+#import "TCLoginViewController.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
@@ -371,6 +372,7 @@
         
         //custom: process authorized access here
         NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        NSLog(@"status_num:%ld",statusNum.integerValue);
         if (statusNum)
         {
             if (statusNum.integerValue == 0)
@@ -381,10 +383,6 @@
                 }
             }else
             {
-                if (statusNum.integerValue == 1)
-                {
-                    
-                }
                 if (request.failureCompletionBlock)
                 {
                     request.failureCompletionBlock(request);
@@ -448,6 +446,14 @@
         [request toggleAccessoriesWillStopCallBack];
         [request requestFailedFilter];
 
+        NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        if (statusNum.integerValue == 1)
+        {
+            TCLoginViewController *loginVC = [TCLoginViewController new];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+        }
+        
         if (request.delegate != nil) {
             [request.delegate requestFailed:request];
         }
