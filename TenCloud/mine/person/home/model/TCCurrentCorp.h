@@ -38,6 +38,8 @@
 
 - (void) modified;
 
+- (void) reset;
+
 - (void) save;
 
 @end

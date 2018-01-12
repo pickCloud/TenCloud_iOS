@@ -381,6 +381,10 @@
                 }
             }else
             {
+                if (statusNum.integerValue == 1)
+                {
+                    
+                }
                 if (request.failureCompletionBlock)
                 {
                     request.failureCompletionBlock(request);

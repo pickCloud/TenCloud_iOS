@@ -140,6 +140,16 @@
     }
 }
 
+- (void) reset
+{
+    _name = @"";
+    _mobile = @"";
+    _cid = 0;
+    _contact = @"";
+    _isAdmin = 0;
+    [self save];
+}
+
 - (void) save
 {
     NSMutableData *data = [[NSMutableData alloc] init];

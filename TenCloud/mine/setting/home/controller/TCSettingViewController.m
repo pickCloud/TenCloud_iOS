@@ -63,6 +63,7 @@
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *exitAction = [UIAlertAction actionWithTitle:@"退出账号" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[TCLocalAccount shared] logout];
+        [[TCCurrentCorp shared] reset];
         TCLoginViewController *loginVC = [TCLoginViewController new];
         UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
