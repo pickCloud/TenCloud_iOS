@@ -13,6 +13,8 @@
 
 + (instancetype) shared;
 
+- (void) reset;
+
 - (void) print;
 
 @property (nonatomic, strong)   NSMutableArray  *permissionArray;

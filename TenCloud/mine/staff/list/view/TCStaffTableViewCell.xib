@@ -39,6 +39,15 @@
                         <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxb-E4-ycC" customClass="TCStaffLabel">
+                        <rect key="frame" x="97" y="13.5" width="34" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Cxb-E4-ycC" secondAttribute="height" multiplier="37:14" id="shO-Iq-Lb2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="Tc0-8N-wCT">
                         <rect key="frame" x="59" y="33" width="12" height="12"/>
                         <constraints>
@@ -66,6 +75,7 @@
                     <constraint firstAttribute="trailing" secondItem="K63-yM-Ldc" secondAttribute="trailing" constant="18" id="O7B-bt-Z9z"/>
                     <constraint firstItem="oE5-EX-w3B" firstAttribute="centerY" secondItem="Tc0-8N-wCT" secondAttribute="centerY" id="OI1-cI-GtJ"/>
                     <constraint firstItem="K63-yM-Ldc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PDx-Sp-hWs"/>
+                    <constraint firstItem="Cxb-E4-ycC" firstAttribute="centerY" secondItem="p5S-Ow-Vag" secondAttribute="centerY" id="PP3-9C-d6n"/>
                     <constraint firstItem="Tc0-8N-wCT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.032" id="W8q-kb-Ajn"/>
                     <constraint firstItem="Tc0-8N-wCT" firstAttribute="leading" secondItem="p5S-Ow-Vag" secondAttribute="leading" id="Ypa-C4-Uwz"/>
                     <constraint firstItem="oE5-EX-w3B" firstAttribute="leading" secondItem="Tc0-8N-wCT" secondAttribute="trailing" constant="5" id="b5g-3e-mb7"/>
@@ -76,11 +86,14 @@
                     <constraint firstItem="Roj-2Y-XZc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="t6p-6k-lwZ"/>
                     <constraint firstItem="p5S-Ow-Vag" firstAttribute="centerY" secondItem="Roj-2Y-XZc" secondAttribute="centerY" multiplier="0.72" id="ue3-Ut-v6W"/>
                     <constraint firstItem="Roj-2Y-XZc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="wmY-LP-NDF"/>
+                    <constraint firstItem="Cxb-E4-ycC" firstAttribute="leading" secondItem="p5S-Ow-Vag" secondAttribute="trailing" constant="9" id="yDE-aW-CTC"/>
                     <constraint firstAttribute="bottom" secondItem="RfX-aM-MDA" secondAttribute="bottom" id="z08-zz-lfF"/>
+                    <constraint firstItem="Cxb-E4-ycC" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.089" id="ziX-Lh-DAQ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="adminLabel" destination="Cxb-E4-ycC" id="80i-no-vZM"/>
                 <outlet property="avatarView" destination="Roj-2Y-XZc" id="65c-uf-wIj"/>
                 <outlet property="nameLabel" destination="p5S-Ow-Vag" id="7Rq-9e-XKF"/>
                 <outlet property="phoneLabel" destination="oE5-EX-w3B" id="Gpe-WI-2Eq"/>

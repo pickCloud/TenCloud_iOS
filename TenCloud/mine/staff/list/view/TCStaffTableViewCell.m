@@ -10,6 +10,7 @@
 #import "TCStaff+CoreDataClass.h"
 #import "NSString+Extension.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "TCStaffLabel.h"
 
 
 @interface TCStaffTableViewCell()
@@ -17,6 +18,8 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *phoneLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView *avatarView;
+@property (nonatomic, weak) IBOutlet    TCStaffLabel    *adminLabel;
+
 
 @end
 
@@ -29,6 +32,7 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.05];
     self.selectedBackgroundView = selectedBgView;
+    [_adminLabel setType:TCStaffTypeAdmin];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -61,6 +65,13 @@
     {
         _statusLabel.text = @"审核通过";
         _statusLabel.textColor = THEME_TEXT_COLOR;
+    }
+    if (staff.is_admin)
+    {
+        [_adminLabel setHidden:NO];
+    }else
+    {
+        [_adminLabel setHidden:YES];
     }
 }
 

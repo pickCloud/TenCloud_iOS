@@ -36,8 +36,21 @@
 - (void) reset
 {
     [_permissionArray removeAllObjects];
+    [[TCEmptyPermission shared] reset];
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    [_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
+    [_permissionArray addObjectsFromArray:emptyArray];
+
+    
+    /*
+    //[_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
+    //[_permissionArray addObjectsFromArray:[emptyArray copy]];
+    for (TCPermissionNode *tmpNode in emptyArray)
+    {
+        [_permissionArray addObject:[tmpNode copy]];
+        //[_permissionArray addObject:[tmpNode mutableCopy]];
+        //[_permissionArray addObject:tmpNode];
+    }
+     */
     
     for (TCPermissionNode * subNode in _permissionArray)
     {

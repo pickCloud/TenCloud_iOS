@@ -19,7 +19,8 @@
 
 - (void) readyForPreview;
 
-@property (nonatomic, strong)   NSMutableArray  *permissionArray;
+//@property (nonatomic, strong)   NSMutableArray  *permissionArray;
+@property (nonatomic, copy) NSMutableArray      *permissionArray;
 
 - (NSInteger) funcPermissionAmount;
 

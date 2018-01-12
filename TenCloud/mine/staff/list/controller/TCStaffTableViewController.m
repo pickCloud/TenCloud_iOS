@@ -33,7 +33,7 @@
 @property (nonatomic, strong)   FEPopupMenuController   *menuController;
 - (void) onAddButton:(id)sender;
 - (void) reloadStaffArray;
-- (void) doSearchWithKeyword:(NSString*)keyword;
+- (void) doSearchWithKeyword:(NSString*)keyword withStaus:(NSInteger)status;
 - (void) onShowKeyboard:(NSNotification*)notification;
 - (void) onHideKeyboard:(NSNotification*)notification;
 - (IBAction) onCloseKeyboard:(id)sender;
@@ -144,6 +144,7 @@
 
 - (void) reloadStaffArray
 {
+    /*
     __weak  __typeof(self) weakSelf = self;
     TCStaffListRequest *req = [[TCStaffListRequest alloc] init];
     [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
@@ -154,14 +155,40 @@
     } failure:^(NSString *message) {
         
     }];
+     */
+    __weak  __typeof(self) weakSelf = self;
+    TCStaffSearchRequest *req = [TCStaffSearchRequest new];
+    //req.keyword = keyword;
+    //req.status = status;
+    [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
+        [weakSelf.staffArray removeAllObjects];
+        [weakSelf stopLoading];
+        [weakSelf.staffArray addObjectsFromArray:staffArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
-- (void) doSearchWithKeyword:(NSString*)keyword
+- (void) doSearchWithKeyword:(NSString*)keyword withStaus:(NSInteger)statusIndex
 {
+    NSInteger status = -100;
+    if (_statusSelectedIndex == 1)
+    {
+        status = 2;
+    }else if(_statusSelectedIndex == 2)
+    {
+        status = 3;
+    }else if(_statusSelectedIndex == 3)
+    {
+        status = 1;
+    }
     __weak __typeof(self) weakSelf = self;
+    
+    
     TCStaffSearchRequest *req = [TCStaffSearchRequest new];
     req.keyword = keyword;
-    req.status = 0;
+    req.status = status;
     [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
         [weakSelf.staffArray removeAllObjects];
         [weakSelf.staffArray addObjectsFromArray:staffArray];
@@ -251,7 +278,7 @@
 {
     NSLog(@"word:%@",textField.text);
     NSString *word = textField.text;
-    [self doSearchWithKeyword:word];
+    [self doSearchWithKeyword:word withStaus:_statusSelectedIndex];
     [textField resignFirstResponder];
     return YES;
 }
@@ -398,6 +425,7 @@
     _statusSelectedIndex = row;
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
+    [self doSearchWithKeyword:_keywordField.text withStaus:_statusSelectedIndex];
     /*
     switch (component) {
         case DropdownComponentShape:

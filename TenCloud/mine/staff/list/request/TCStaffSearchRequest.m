@@ -71,6 +71,14 @@
 
 - (id)requestArgument
 {
+    if (_keyword == nil)
+    {
+        _keyword = @"";
+    }
+    if (_status == -100)
+    {
+        return @{@"employee_name":_keyword};
+    }
     return @{
              @"employee_name":_keyword,
              @"status":@(_status)

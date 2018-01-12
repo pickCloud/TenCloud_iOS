@@ -70,6 +70,7 @@
 
 - (void) parseDictionaryData:(NSDictionary*)dict
 {
+    NSLog(@"parse dicionar data");
     [_permissionArray removeAllObjects];
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     NSArray *templateObjArray = [TCPermissionNode mj_objectArrayWithKeyValuesArray:dict context:context];
@@ -82,5 +83,21 @@
 - (void) print
 {
     
+}
+
+- (void) reset
+{
+    NSInteger corpID = [[TCCurrentCorp shared] cid];
+    TCEmptyPermissionRequest *req = [[TCEmptyPermissionRequest alloc] initWithCorpID:corpID];
+    NSLog(@"empty permission reset 9999");
+    if ([req loadCacheWithError:nil])
+    {
+        NSLog(@"haha1");
+        NSDictionary *dataDict = [req.responseJSONObject objectForKey:@"data"];
+        [self parseDictionaryData:dataDict];
+    }else
+    {
+        NSLog(@"haha2");
+    }
 }
 @end
