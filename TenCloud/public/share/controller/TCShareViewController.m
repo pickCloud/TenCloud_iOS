@@ -41,6 +41,15 @@
 
 }
 
+- (void) setContent:(NSString *)content
+{
+    _content = content;
+    if (_content && _content.length > 0)
+    {
+        [[UIPasteboard generalPasteboard] setString:_content];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
