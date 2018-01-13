@@ -210,6 +210,7 @@
 - (void) onAddButton:(id)sender
 {
     [_keywordField resignFirstResponder];
+    [_statusMenu closeAllComponentsAnimated:YES];
     
     CGRect navBarRect = self.navigationController.navigationBar.frame;
     CGFloat posY = navBarRect.origin.y + navBarRect.size.height;
@@ -300,6 +301,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         weakSelf.keyboradPanel.frame = newRect;
     }];
+    [_statusMenu closeAllComponentsAnimated:YES];
 }
 
 
@@ -422,6 +424,7 @@
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     //self.shapeView.sidesCount = row + 2;
+    [_keywordField resignFirstResponder];
     _statusSelectedIndex = row;
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
