@@ -108,4 +108,34 @@
     }
     return phoneNumStr;
 }
+
++ (NSString*)urlDecode:(NSString*)str
+{
+    NSString *decodedString=(__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)str, CFSTR(""), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    
+    return decodedString;
+}
+
++ (NSDictionary *) paramDictFromURLQueryString:(NSString*)str
+{
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    NSArray *strArray = [str componentsSeparatedByString:@"&"];
+    if (strArray && strArray.count > 0)
+    {
+        for (NSString *keyValueStr in strArray)
+        {
+            if (keyValueStr && keyValueStr.length > 0)
+            {
+                NSArray *nameArray = [keyValueStr componentsSeparatedByString:@"="];
+                if (nameArray && nameArray.count ==2)
+                {
+                    NSString *keyStr = nameArray.firstObject;
+                    NSString *valueStr = [nameArray objectAtIndex:1];
+                    [dict setObject:valueStr forKey:keyStr];
+                }
+            }
+        }
+    }
+    return dict;
+}
 @end

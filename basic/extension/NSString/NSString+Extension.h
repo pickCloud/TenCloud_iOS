@@ -24,4 +24,8 @@
 
 + (NSString *) hiddenPhoneNumStr:(NSString*)phoneNumStr;
 
++ (NSString*)urlDecode:(NSString*)str;
+
++ (NSDictionary *) paramDictFromURLQueryString:(NSString*)str;
+
 @end

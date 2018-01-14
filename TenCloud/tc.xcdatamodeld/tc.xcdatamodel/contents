@@ -16,6 +16,12 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCInviteInfo" representedClassName="TCInviteInfo" syncable="YES">
+        <attribute name="cid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contact" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="setting" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCListCorp" representedClassName="TCListCorp" syncable="YES">
         <attribute name="cid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -186,6 +192,7 @@
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="135"/>
         <element name="TCPermissionChunk" positionX="0" positionY="144" width="128" height="75"/>
         <element name="TCPermissionItem" positionX="18" positionY="162" width="128" height="120"/>
+        <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="180"/>
         <element name="TCPermissionObject" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCPermissionSection" positionX="9" positionY="153" width="128" height="75"/>
         <element name="TCPermissionSegment" positionX="-9" positionY="135" width="128" height="75"/>
@@ -205,6 +212,6 @@
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="180"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="180"/>
+        <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
     </elements>
 </model>

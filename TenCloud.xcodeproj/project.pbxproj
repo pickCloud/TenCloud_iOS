@@ -33,6 +33,11 @@
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
 		A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */; };
 		A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */; };
+		A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF71200A03F300EFADF6 /* TCInviteLoginViewController.m */; };
+		A00AFF74200A03F300EFADF6 /* TCInviteLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF72200A03F300EFADF6 /* TCInviteLoginViewController.xib */; };
+		A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF76200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m */; };
+		A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF78200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m */; };
+		A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */; };
 		A019A7071FFB313F00216660 /* TCRawTemplateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7061FFB313F00216660 /* TCRawTemplateRequest.m */; };
 		A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */; };
 		A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */; };
@@ -381,6 +386,15 @@
 		A007037D1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGeetestCaptchaRequest.h; sourceTree = "<group>"; };
 		A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetSmsCountRequest.h; sourceTree = "<group>"; };
 		A00703801FE8183900F232D7 /* TCSetSmsCountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetSmsCountRequest.m; sourceTree = "<group>"; };
+		A00AFF70200A03F300EFADF6 /* TCInviteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteLoginViewController.h; sourceTree = "<group>"; };
+		A00AFF71200A03F300EFADF6 /* TCInviteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteLoginViewController.m; sourceTree = "<group>"; };
+		A00AFF72200A03F300EFADF6 /* TCInviteLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteLoginViewController.xib; sourceTree = "<group>"; };
+		A00AFF75200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCInviteInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A00AFF76200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCInviteInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A00AFF77200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCInviteInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A00AFF78200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCInviteInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A00AFF7C200BAB9000EFADF6 /* TCInviteInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteInfoRequest.h; sourceTree = "<group>"; };
+		A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteInfoRequest.m; sourceTree = "<group>"; };
 		A019A7051FFB313E00216660 /* TCRawTemplateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRawTemplateRequest.h; sourceTree = "<group>"; };
 		A019A7061FFB313F00216660 /* TCRawTemplateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRawTemplateRequest.m; sourceTree = "<group>"; };
 		A019A7081FFB31E100216660 /* TCTemplateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewController.h; sourceTree = "<group>"; };
@@ -977,6 +991,15 @@
 				A00703791FE79A5000F232D7 /* GT3Captcha.framework */,
 			);
 			path = GT3Captcha;
+			sourceTree = "<group>";
+		};
+		A00AFF7B200BAB9000EFADF6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A00AFF7C200BAB9000EFADF6 /* TCInviteInfoRequest.h */,
+				A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */,
+			);
+			path = request;
 			sourceTree = "<group>";
 		};
 		A019A7001FFB302D00216660 /* list */ = {
@@ -2575,8 +2598,8 @@
 			children = (
 				A04539CD200886F800402D1A /* controller */,
 				A04539CE200886F800402D1A /* model */,
-				A04539CF200886F800402D1A /* result */,
 				A04539D0200886F800402D1A /* view */,
+				A00AFF7B200BAB9000EFADF6 /* request */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -2584,6 +2607,9 @@
 		A04539CD200886F800402D1A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF70200A03F300EFADF6 /* TCInviteLoginViewController.h */,
+				A00AFF71200A03F300EFADF6 /* TCInviteLoginViewController.m */,
+				A00AFF72200A03F300EFADF6 /* TCInviteLoginViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2591,15 +2617,12 @@
 		A04539CE200886F800402D1A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF75200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.h */,
+				A00AFF76200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m */,
+				A00AFF77200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.h */,
+				A00AFF78200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A04539CF200886F800402D1A /* result */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = result;
 			sourceTree = "<group>";
 		};
 		A04539D0200886F800402D1A /* view */ = {
@@ -3641,6 +3664,7 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
+				A00AFF74200A03F300EFADF6 /* TCInviteLoginViewController.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
 				A0B7141A2006F30600BE9FCA /* TCChangeAdminViewController.xib in Resources */,
 				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
@@ -3843,6 +3867,7 @@
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
+				A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */,
 				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
 				A019A72C1FFB627C00216660 /* TCTemplate+CoreDataClass.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
@@ -3922,9 +3947,11 @@
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A031B5E31FFC602100B4F448 /* TCPermissionChunk+CoreDataProperties.m in Sources */,
+				A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */,
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
+				A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */,
 				A0884A2720066932004F5010 /* TCShareManager.m in Sources */,
 				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
@@ -4008,6 +4035,7 @@
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A031B60B1FFDB48400B4F448 /* TCRenameTemplateRequest.m in Sources */,
+				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,
 				A031B5E81FFC673600B4F448 /* TCPermissionItemCell.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,

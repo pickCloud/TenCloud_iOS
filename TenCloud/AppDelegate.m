@@ -14,6 +14,8 @@
 #import "TCLoginViewController.h"
 #import "TCConfiguration.h"
 #import "TCShareManager.h"
+#import "NSString+Extension.h"
+#import "TCInviteLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -50,6 +52,9 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenRect];
+    
+    /*
+     //normal code
     UIViewController *rootVC = nil;
     if ([[TCLocalAccount shared] isLogin])
     {
@@ -61,6 +66,15 @@
     }
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
+     */
+    
+
+    //test code
+    TCInviteLoginViewController *loginVC = [TCInviteLoginViewController new];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    self.window.rootViewController = loginNav;
+    [self.window makeKeyAndVisible];
+
     
     //set navigationbar back button
     /*
@@ -78,9 +92,40 @@
     }
      */
     
+    //nice code
+    NSString *invokePath = @"tencloud://invite?code=1234abc";
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:invokePath];
+    NSMutableDictionary *queryDict = [NSMutableDictionary dictionary];
+    NSArray *queryItems = urlComponents.queryItems;
+    for (NSURLQueryItem *queryItem in queryItems)
+    {
+        [queryDict setObject:queryItem.value forKey:queryItem.name];
+    }
+    
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    NSString *hostName = url.host;
+    NSDictionary *paramDict = [NSString paramDictFromURLQueryString:url.query];
+    if ([hostName isEqualToString:@"invite"])
+    {
+        if (paramDict)
+        {
+            NSString *code = [paramDict objectForKey:@"code"];
+            NSLog(@"invite code is:%@",code);
+            TCInviteLoginViewController *loginVC = [TCInviteLoginViewController new];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            self.window.rootViewController = loginNav;
+        }
+    }
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
