@@ -25,6 +25,7 @@
 @property (nonatomic, weak) IBOutlet    UITextField         *password1Field;
 @property (nonatomic, weak) IBOutlet    UITextField         *password2Field;
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
+@property (nonatomic, weak) IBOutlet    UIView              *idCardPanel;
 @property (nonatomic, weak) IBOutlet    UITextField         *idCardField;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *widthConstraint;
@@ -32,6 +33,7 @@
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onConfirmJoinButton:(id)sender;
 - (void) sendCompleteInviteRequest;
+- (BOOL) isIDCardNeeded;
 @end
 
 @implementation TCInviteProfileViewController
@@ -87,6 +89,8 @@
         _widthConstraint.constant = 0;
     }
     
+    BOOL hideIDCardPanel = ![self isIDCardNeeded];
+    [_idCardPanel setHidden:hideIDCardPanel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,12 +138,17 @@
         [MBProgressHUD showError:@"请输入姓名" toView:nil];
         return;
     }
+    
     NSString *idCardStr = _idCardField.text;
-    if (!idCardStr || idCardStr.length == 0)
+    if ([self isIDCardNeeded])
     {
-        [MBProgressHUD showError:@"请输入身份证号" toView:nil];
-        return;
+        if (!idCardStr || idCardStr.length == 0)
+        {
+            [MBProgressHUD showError:@"请输入身份证号" toView:nil];
+            return;
+        }
     }
+
     [_password1Field resignFirstResponder];
     [_password2Field resignFirstResponder];
     [_nameField resignFirstResponder];
@@ -170,6 +179,19 @@
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message afterDelay:1.32];
     }];
+}
+
+- (BOOL) isIDCardNeeded
+{
+    if (_joinSetting && _joinSetting.length > 0)
+    {
+        NSArray *settingArray = [_joinSetting componentsSeparatedByString:@","];
+        if ([settingArray containsObject:@"id_card"])
+        {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCInviteProfileViewController">
             <connections>
                 <outlet property="idCardField" destination="jxL-77-kyr" id="U0j-eE-b74"/>
+                <outlet property="idCardPanel" destination="6fk-FE-yLL" id="E2a-im-4Sx"/>
                 <outlet property="nameField" destination="cKK-U7-LwN" id="wIU-vN-RT0"/>
                 <outlet property="password1Field" destination="9rM-X1-cqn" id="JMX-mK-40T"/>
                 <outlet property="password1Panel" destination="Ufh-De-YIU" id="QJX-Sh-bIR"/>
