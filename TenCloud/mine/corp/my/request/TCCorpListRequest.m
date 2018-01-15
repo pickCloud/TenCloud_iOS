@@ -43,7 +43,7 @@
 }
 
 - (NSString *)requestUrl {
-    return @"/api/companies/list/4";
+    return @"/api/companies/list/7";
 }
 
 - (YTKRequestMethod)requestMethod {

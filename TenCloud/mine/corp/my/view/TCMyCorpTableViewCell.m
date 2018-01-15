@@ -64,21 +64,25 @@
     //_applyTimeLabel.text = corp.create_time;
     //_reviewTimeLabel.text = corp.update_time;
     
-    if (corp.status == 1)
+    if (corp.status == 3)
     {
         _statusLabel.text = @"审核通过";
         _statusLabel.textColor = STATE_PASS_COLOR;
-    }else if(corp.status == -1)
+    }else if(corp.status == 1)
     {
         _statusLabel.text = @"审核不通过";
         _statusLabel.textColor = STATE_ERROR_COLOR;
-    }else if(corp.status == 0)
+    }else if(corp.status == 2)
     {
         _statusLabel.text = @"待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;
-    }else
+    }else if(corp.status == 4)
     {
         _statusLabel.text = @"创建人";
+        _statusLabel.textColor = THEME_TINT_COLOR;
+    }else if(corp.status == 5)
+    {
+        _statusLabel.text = @"等待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;
     }
     if (corp.is_admin == true)

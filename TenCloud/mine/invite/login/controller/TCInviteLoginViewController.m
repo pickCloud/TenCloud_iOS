@@ -20,6 +20,8 @@
 #import "TCInviteInfoRequest.h"
 #import "TCInviteInfo+CoreDataClass.h"
 #import "TCCaptchaLoginRequest.h"
+#import "TCInviteProfileViewController.h"
+#import "TCAcceptInviteRequest.h"
 
 
 @interface TCInviteLoginViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
@@ -37,6 +39,7 @@
 - (IBAction) onGetCaptchaButton:(id)sender;
 - (IBAction) onConfirmJoinButton:(id)sender;
 - (void) updateInviteInfoUI;
+- (void) loginWithToken:(NSString*)token;
 @end
 
 @implementation TCInviteLoginViewController
@@ -163,25 +166,36 @@
     [_phoneNumberField resignFirstResponder];
     [_captchaField resignFirstResponder];
     
+    __weak __typeof(self) weakSelf = self;
     [MMProgressHUD showWithStatus:@"加入中"];
     TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNumStr captcha:_captchaField.text];
     [loginReq startWithSuccess:^(NSString *token) {
-        [[TCLocalAccount shared] setToken:token];
-        TCUserProfileRequest *profileReq = [[TCUserProfileRequest alloc] init];
-        [profileReq startWithSuccess:^(TCUser *user) {
-            user.token = token;
-            [[TCLocalAccount shared] loginSuccess:user];
-            NSLog(@"登录成功ok");
-            
-        } failure:^(NSString *message) {
-            [MMProgressHUD dismissWithError:@"加入失败，请稍后再试" afterDelay:1.32];
-        }];
+        [weakSelf loginWithToken:token];
     } failure:^(NSString *message, NSInteger errorCode) {
         if (errorCode == 10404)
         {
-            
+            NSString *token = message;
+            [weakSelf loginWithToken:token];
+            /*
+            [[TCLocalAccount shared] setToken:token];
+            TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
+            [request startWithSuccess:^(TCUser *user) {
+                NSLog(@"user:%@",user);
+                user.token = token;
+                [[TCLocalAccount shared] loginSuccess:user];
+                [MMProgressHUD dismiss];
+                
+                TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:YES phoneNumber:user.mobile];
+                [self.navigationController pushViewController:profileVC animated:YES];
+            } failure:^(NSString *message) {
+                NSLog(@"msg:%@",message);
+                [MMProgressHUD dismissWithError:message];
+            }];
+            */
+        }else
+        {
+            [MMProgressHUD dismissWithError:message];
         }
-        [MMProgressHUD dismissWithError:message];
     }];
     /*
     [MMProgressHUD showWithStatus:@"找回密码中"];
@@ -247,6 +261,27 @@
     }
 }
 
+- (void) loginWithToken:(NSString*)token
+{
+    __weak __typeof(self) weakSelf = self;
+    [[TCLocalAccount shared] setToken:token];
+    TCUserProfileRequest *profileReq = [[TCUserProfileRequest alloc] init];
+    [profileReq startWithSuccess:^(TCUser *user) {
+        user.token = token;
+        [[TCLocalAccount shared] loginSuccess:user];
+        
+        TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
+        [acceptReq startWithSuccess:^(NSString *message) {
+            [MMProgressHUD dismiss];
+            TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:YES phoneNumber:user.mobile];
+            [weakSelf.navigationController pushViewController:profileVC animated:YES];
+        } failure:^(NSString *message) {
+            [MMProgressHUD dismissWithError:message afterDelay:1.32];
+        }];
+    } failure:^(NSString *message) {
+        [MMProgressHUD dismissWithError:@"加入失败，请稍后再试" afterDelay:1.32];
+    }];
+}
 
 #pragma mark - GT3CaptchaManagerDelegate
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {

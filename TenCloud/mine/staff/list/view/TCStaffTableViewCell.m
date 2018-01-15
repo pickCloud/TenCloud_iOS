@@ -57,13 +57,17 @@
     {
         _statusLabel.text = @"待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;
-    }else if(staff.status == 2)
+    }else if(staff.status == STAFF_STATUS_FOUNDER)
     {
         _statusLabel.text = @"创建人";
         _statusLabel.textColor = THEME_TINT_COLOR;
-    }else
+    }else if(staff.status == STAFF_STATUS_PASS)
     {
         _statusLabel.text = @"审核通过";
+        _statusLabel.textColor = THEME_TEXT_COLOR;
+    }else if(staff.status == STAFF_STATUS_WAITING)
+    {
+        _statusLabel.text = @"待加入";
         _statusLabel.textColor = THEME_TEXT_COLOR;
     }
     if (staff.is_admin)

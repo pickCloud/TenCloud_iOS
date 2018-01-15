@@ -72,8 +72,10 @@
 #define NOTIFICATION_MODIFY_TEMPLATE    @"NOTIFICATION_MODIFY_TEMPLATE"
 #define NOTIFICATION_CORP_CHANGE        @"NOTIFICATION_CORP_CHANGE"
 
-#define STAFF_STATUS_PASS               1
-#define STAFF_STATUS_REJECT             -1
-#define STAFF_STATUS_PENDING            0
+#define STAFF_STATUS_PASS               3
+#define STAFF_STATUS_REJECT             1
+#define STAFF_STATUS_PENDING            2
+#define STAFF_STATUS_FOUNDER            4
+#define STAFF_STATUS_WAITING            5
 
 #endif /* PrefixHeader_pch */

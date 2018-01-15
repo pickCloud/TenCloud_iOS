@@ -12,7 +12,7 @@
 #import "TCInviteInfo+CoreDataClass.h"
 #import "TCInviteSuccessViewController.h"
 #import "TCCompleteInviteRequest.h"
-
+#import "TCSetPasswordRequest.h"
 
 
 @interface TCInviteProfileViewController ()<UIGestureRecognizerDelegate>
@@ -31,6 +31,7 @@
 @property (nonatomic, strong)   TCInviteInfo                *inviteInfo;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onConfirmJoinButton:(id)sender;
+- (void) sendCompleteInviteRequest;
 @end
 
 @implementation TCInviteProfileViewController
@@ -62,6 +63,8 @@
     {
         _topConstraint.constant = 64+27;
     }
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    _widthConstraint.constant = screenRect.size.width;
     
     NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _password1Field.attributedPlaceholder = phonePlaceHolderStr;
@@ -143,6 +146,17 @@
     [_idCardField resignFirstResponder];
     
     [MMProgressHUD showWithStatus:@"提交中"];
+    __weak __typeof(self) weakSelf = self;
+    TCSetPasswordRequest *pwdReq = [[TCSetPasswordRequest alloc] initWithPassword:_password1Field.text];
+    [pwdReq startWithSuccess:^(NSString *message) {
+        [weakSelf sendCompleteInviteRequest];
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+    }];
+}
+
+- (void) sendCompleteInviteRequest
+{
     __weak __typeof(self) weakSelf = self;
     TCCompleteInviteRequest *req = [TCCompleteInviteRequest new];
     req.code = _code;
