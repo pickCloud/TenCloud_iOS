@@ -16,6 +16,7 @@
 #import "TCShareManager.h"
 #import "NSString+Extension.h"
 #import "TCInviteLoginViewController.h"
+#import "TCAcceptInviteViewController.h"
 
 @interface AppDelegate ()
 
@@ -53,7 +54,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenRect];
     
-    /*
+
      //normal code
     UIViewController *rootVC = nil;
     if ([[TCLocalAccount shared] isLogin])
@@ -66,15 +67,24 @@
     }
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
-     */
     
-
-    //test code
-    TCInviteLoginViewController *loginVC = [TCInviteLoginViewController new];
+    /*
+    //test code1
+    TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:@"b73d340"];
     UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
     self.window.rootViewController = loginNav;
     [self.window makeKeyAndVisible];
-
+     */
+    
+    /*
+    //test code
+    TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:@"22525ad"];
+    //TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:@"b73d340"];
+    
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:acceptVC];
+    self.window.rootViewController = loginNav;
+    [self.window makeKeyAndVisible];
+    */
     
     //set navigationbar back button
     /*
@@ -119,9 +129,19 @@
         {
             NSString *code = [paramDict objectForKey:@"code"];
             NSLog(@"invite code is:%@",code);
-            TCInviteLoginViewController *loginVC = [TCInviteLoginViewController new];
-            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            self.window.rootViewController = loginNav;
+            if ([[TCLocalAccount shared] isLogin])
+            {
+                TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:code];
+                UINavigationController *acceptNav = [[UINavigationController alloc] initWithRootViewController:acceptVC];
+                self.window.rootViewController = acceptNav;
+                [self.window makeKeyAndVisible];
+            }else
+            {
+                TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:code];
+                UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                self.window.rootViewController = loginNav;
+                [self.window makeKeyAndVisible];
+            }
         }
     }
     return YES;

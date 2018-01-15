@@ -38,6 +38,14 @@
 		A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF76200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m */; };
 		A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF78200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m */; };
 		A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */; };
+		A00AFF82200C4B6600EFADF6 /* TCInviteProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF80200C4B6600EFADF6 /* TCInviteProfileViewController.xib */; };
+		A00AFF83200C4B6600EFADF6 /* TCInviteProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF81200C4B6600EFADF6 /* TCInviteProfileViewController.m */; };
+		A00AFF87200C4E1100EFADF6 /* TCAcceptInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF84200C4E1100EFADF6 /* TCAcceptInviteViewController.xib */; };
+		A00AFF88200C4E1100EFADF6 /* TCAcceptInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF86200C4E1100EFADF6 /* TCAcceptInviteViewController.m */; };
+		A00AFF8C200C772200EFADF6 /* TCAcceptInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF8B200C772200EFADF6 /* TCAcceptInviteRequest.m */; };
+		A00AFF90200C90F000EFADF6 /* TCInviteSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */; };
+		A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */; };
+		A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */; };
 		A019A7071FFB313F00216660 /* TCRawTemplateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7061FFB313F00216660 /* TCRawTemplateRequest.m */; };
 		A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */; };
 		A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */; };
@@ -395,6 +403,19 @@
 		A00AFF78200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCInviteInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A00AFF7C200BAB9000EFADF6 /* TCInviteInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteInfoRequest.h; sourceTree = "<group>"; };
 		A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteInfoRequest.m; sourceTree = "<group>"; };
+		A00AFF7F200C4B6600EFADF6 /* TCInviteProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteProfileViewController.h; sourceTree = "<group>"; };
+		A00AFF80200C4B6600EFADF6 /* TCInviteProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteProfileViewController.xib; sourceTree = "<group>"; };
+		A00AFF81200C4B6600EFADF6 /* TCInviteProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteProfileViewController.m; sourceTree = "<group>"; };
+		A00AFF84200C4E1100EFADF6 /* TCAcceptInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAcceptInviteViewController.xib; sourceTree = "<group>"; };
+		A00AFF85200C4E1100EFADF6 /* TCAcceptInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAcceptInviteViewController.h; sourceTree = "<group>"; };
+		A00AFF86200C4E1100EFADF6 /* TCAcceptInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAcceptInviteViewController.m; sourceTree = "<group>"; };
+		A00AFF8A200C772200EFADF6 /* TCAcceptInviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAcceptInviteRequest.h; sourceTree = "<group>"; };
+		A00AFF8B200C772200EFADF6 /* TCAcceptInviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAcceptInviteRequest.m; sourceTree = "<group>"; };
+		A00AFF8D200C90F000EFADF6 /* TCInviteSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteSuccessViewController.h; sourceTree = "<group>"; };
+		A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteSuccessViewController.m; sourceTree = "<group>"; };
+		A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteSuccessViewController.xib; sourceTree = "<group>"; };
+		A00AFF93200CA39C00EFADF6 /* TCCompleteInviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCompleteInviteRequest.h; sourceTree = "<group>"; };
+		A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCompleteInviteRequest.m; sourceTree = "<group>"; };
 		A019A7051FFB313E00216660 /* TCRawTemplateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRawTemplateRequest.h; sourceTree = "<group>"; };
 		A019A7061FFB313F00216660 /* TCRawTemplateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRawTemplateRequest.m; sourceTree = "<group>"; };
 		A019A7081FFB31E100216660 /* TCTemplateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewController.h; sourceTree = "<group>"; };
@@ -998,6 +1019,24 @@
 			children = (
 				A00AFF7C200BAB9000EFADF6 /* TCInviteInfoRequest.h */,
 				A00AFF7D200BAB9000EFADF6 /* TCInviteInfoRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A00AFF89200C772200EFADF6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A00AFF8A200C772200EFADF6 /* TCAcceptInviteRequest.h */,
+				A00AFF8B200C772200EFADF6 /* TCAcceptInviteRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A00AFF92200CA39C00EFADF6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A00AFF93200CA39C00EFADF6 /* TCCompleteInviteRequest.h */,
+				A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -2557,9 +2596,9 @@
 		A04539C7200886F800402D1A /* accept */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF89200C772200EFADF6 /* request */,
 				A04539C8200886F800402D1A /* controller */,
 				A04539C9200886F800402D1A /* model */,
-				A04539CA200886F800402D1A /* result */,
 				A04539CB200886F800402D1A /* view */,
 			);
 			path = accept;
@@ -2568,6 +2607,9 @@
 		A04539C8200886F800402D1A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF85200C4E1100EFADF6 /* TCAcceptInviteViewController.h */,
+				A00AFF86200C4E1100EFADF6 /* TCAcceptInviteViewController.m */,
+				A00AFF84200C4E1100EFADF6 /* TCAcceptInviteViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2577,13 +2619,6 @@
 			children = (
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A04539CA200886F800402D1A /* result */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = result;
 			sourceTree = "<group>";
 		};
 		A04539CB200886F800402D1A /* view */ = {
@@ -2637,8 +2672,8 @@
 			children = (
 				A04539D2200886F800402D1A /* controller */,
 				A04539D3200886F800402D1A /* model */,
-				A04539D4200886F800402D1A /* result */,
 				A04539D5200886F800402D1A /* view */,
+				A00AFF92200CA39C00EFADF6 /* request */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -2646,6 +2681,9 @@
 		A04539D2200886F800402D1A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF7F200C4B6600EFADF6 /* TCInviteProfileViewController.h */,
+				A00AFF81200C4B6600EFADF6 /* TCInviteProfileViewController.m */,
+				A00AFF80200C4B6600EFADF6 /* TCInviteProfileViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2655,13 +2693,6 @@
 			children = (
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A04539D4200886F800402D1A /* result */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = result;
 			sourceTree = "<group>";
 		};
 		A04539D5200886F800402D1A /* view */ = {
@@ -2676,7 +2707,6 @@
 			children = (
 				A04539D7200886F800402D1A /* controller */,
 				A04539D8200886F800402D1A /* model */,
-				A04539D9200886F800402D1A /* result */,
 				A04539DA200886F800402D1A /* view */,
 			);
 			path = result;
@@ -2685,6 +2715,9 @@
 		A04539D7200886F800402D1A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A00AFF8D200C90F000EFADF6 /* TCInviteSuccessViewController.h */,
+				A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */,
+				A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2694,13 +2727,6 @@
 			children = (
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A04539D9200886F800402D1A /* result */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = result;
 			sourceTree = "<group>";
 		};
 		A04539DA200886F800402D1A /* view */ = {
@@ -3600,6 +3626,7 @@
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */,
+				A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */,
 				A001FA511FDE1A55008328B0 /* TCServerTableViewCell.xib in Resources */,
 				A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */,
 				A0A86B8D1FF4D6B600D1D58D /* TCCorpProfileViewController.xib in Resources */,
@@ -3618,6 +3645,7 @@
 				A031B61D1FFE0FF400B4F448 /* TCStaffTableViewController.xib in Resources */,
 				A0A86B251FF3774500D1D58D /* TCModifyPasswordViewController.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
+				A00AFF82200C4B6600EFADF6 /* TCInviteProfileViewController.xib in Resources */,
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
@@ -3631,6 +3659,7 @@
 				A02CA86F2000F23F00BD00C5 /* TCPermissionCell.xib in Resources */,
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
+				A00AFF87200C4E1100EFADF6 /* TCAcceptInviteViewController.xib in Resources */,
 				A031B5D41FFC2FA600B4F448 /* TCPermissionFoldCell.xib in Resources */,
 				A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
@@ -3861,6 +3890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06D12211FEBA2F100722C76 /* TCSearchFilterViewController.m in Sources */,
+				A00AFF83200C4B6600EFADF6 /* TCInviteProfileViewController.m in Sources */,
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
 				A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */,
 				A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */,
@@ -3901,6 +3931,7 @@
 				A07DBE261FDFA8B800F37715 /* TCServerSystemInfo+CoreDataClass.m in Sources */,
 				A031B5F31FFC71F000B4F448 /* TCPermissionSection+CoreDataClass.m in Sources */,
 				A0EF3BA320007CE500D227BC /* TCEmptyPermissionRequest.m in Sources */,
+				A00AFF90200C90F000EFADF6 /* TCInviteSuccessViewController.m in Sources */,
 				A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */,
 				A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
@@ -4037,11 +4068,13 @@
 				A031B60B1FFDB48400B4F448 /* TCRenameTemplateRequest.m in Sources */,
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,
+				A00AFF8C200C772200EFADF6 /* TCAcceptInviteRequest.m in Sources */,
 				A031B5E81FFC673600B4F448 /* TCPermissionItemCell.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A07DBEBE1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */,
+				A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
 				A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */,
@@ -4069,6 +4102,7 @@
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
+				A00AFF88200C4E1100EFADF6 /* TCAcceptInviteViewController.m in Sources */,
 				A019A7271FFB5F6300216660 /* TCTemplateListRequest.m in Sources */,
 				A0A86B241FF3774500D1D58D /* TCModifyPasswordViewController.m in Sources */,
 				A031B62A1FFE259000B4F448 /* TCStaffTableViewCell.m in Sources */,

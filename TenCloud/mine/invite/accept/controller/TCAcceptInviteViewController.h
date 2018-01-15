@@ -1,5 +1,5 @@
 //
-//  TCInviteLoginViewController.h
+//  TCAcceptInviteViewController.h
 //  TenCloud
 //
 //  Created by huangdx on 2017/12/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TCViewController.h"
 
-@interface TCInviteLoginViewController : TCViewController
+@interface TCAcceptInviteViewController : TCViewController
 
 - (instancetype) initWithCode:(NSString*)code;
 

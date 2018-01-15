@@ -19,12 +19,15 @@
 #import "TCGeetestCaptchaRequest.h"
 #import "TCInviteInfoRequest.h"
 #import "TCInviteInfo+CoreDataClass.h"
+#import "TCCaptchaLoginRequest.h"
+
 
 @interface TCInviteLoginViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumberField;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
 @property (nonatomic, weak) IBOutlet    GetCaptchaButton    *captchaButton;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
+@property (nonatomic, strong)           NSString            *code;
 @property (nonatomic, strong)           GT3CaptchaButton    *gt3Button;
 @property (nonatomic, weak) IBOutlet    UILabel             *row1Label;
 @property (nonatomic, weak) IBOutlet    UILabel             *row2Label;
@@ -32,11 +35,21 @@
 @property (nonatomic, strong)   TCInviteInfo                *inviteInfo;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onGetCaptchaButton:(id)sender;
-- (IBAction) onRegisterButton:(id)sender;
+- (IBAction) onConfirmJoinButton:(id)sender;
 - (void) updateInviteInfoUI;
 @end
 
 @implementation TCInviteLoginViewController
+
+- (instancetype) initWithCode:(NSString*)code
+{
+    self = [super init];
+    if (self)
+    {
+        _code = code;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,7 +87,7 @@
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
-    TCInviteInfoRequest *req = [[TCInviteInfoRequest alloc] initWithCode:@"22525ad"];
+    TCInviteInfoRequest *req = [[TCInviteInfoRequest alloc] initWithCode:_code];
     [req startWithSuccess:^(TCInviteInfo *info) {
         NSLog(@"info_comp:%@",info.company_name);
         NSLog(@"info_contact:%@",info.contact);
@@ -132,10 +145,11 @@
     }
 }
 
-- (IBAction) onRegisterButton:(id)sender
+- (IBAction) onConfirmJoinButton:(id)sender
 {
     NSLog(@"on register button");
-    if (_phoneNumberField.plainPhoneNum.length == 0)
+    NSString *phoneNumStr = _phoneNumberField.plainPhoneNum;
+    if (phoneNumStr.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
         return;
@@ -149,6 +163,26 @@
     [_phoneNumberField resignFirstResponder];
     [_captchaField resignFirstResponder];
     
+    [MMProgressHUD showWithStatus:@"加入中"];
+    TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNumStr captcha:_captchaField.text];
+    [loginReq startWithSuccess:^(NSString *token) {
+        [[TCLocalAccount shared] setToken:token];
+        TCUserProfileRequest *profileReq = [[TCUserProfileRequest alloc] init];
+        [profileReq startWithSuccess:^(TCUser *user) {
+            user.token = token;
+            [[TCLocalAccount shared] loginSuccess:user];
+            NSLog(@"登录成功ok");
+            
+        } failure:^(NSString *message) {
+            [MMProgressHUD dismissWithError:@"加入失败，请稍后再试" afterDelay:1.32];
+        }];
+    } failure:^(NSString *message, NSInteger errorCode) {
+        if (errorCode == 10404)
+        {
+            
+        }
+        [MMProgressHUD dismissWithError:message];
+    }];
     /*
     [MMProgressHUD showWithStatus:@"找回密码中"];
     TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
