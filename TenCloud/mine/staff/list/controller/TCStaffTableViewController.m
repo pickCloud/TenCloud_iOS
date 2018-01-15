@@ -19,6 +19,7 @@
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
 #import "ShapeView.h"
+#import "TCStaff+CoreDataClass.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -135,6 +136,16 @@
     UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
     self.statusMenu.disclosureIndicatorImage = disclosureImg;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadStaffArray)
+                                                 name:NOTIFICATION_REMOVE_STAFF
+                                               object:nil];
+    
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,6 +176,16 @@
         [weakSelf stopLoading];
         [weakSelf.staffArray addObjectsFromArray:staffArray];
         [weakSelf.tableView reloadData];
+        
+        //judge if current user is admin
+        NSInteger localUserID = [[TCLocalAccount shared] userID];
+        for (TCStaff *tmpStaff in staffArray)
+        {
+            if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
+            {
+                [[TCCurrentCorp shared] setIsAdmin:YES];
+            }
+        }
     } failure:^(NSString *message) {
         
     }];
@@ -203,6 +224,12 @@
     [_keywordField resignFirstResponder];
     [_statusMenu closeAllComponentsAnimated:YES];
     [super viewWillDisappear:animated];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 

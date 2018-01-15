@@ -17,6 +17,9 @@
 #import "TCPermissionViewController.h"
 #import "TCEditingPermission.h"
 #import "TCTemplate+CoreDataClass.h"
+#import "TCAcceptJoinRequest.h"
+#import "TCRejectJoinRequest.h"
+#import "TCRemoveStaffRequest.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
@@ -31,6 +34,7 @@
 @property (nonatomic, weak)     IBOutlet    UILabel         *nameLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak)     IBOutlet    UITableView     *buttonTableView;
+- (void) updateUI;
 @end
 
 @implementation TCStaffProfileViewController
@@ -50,61 +54,7 @@
     self.title = @"员工详情";
     
     _buttonDataArray = [NSMutableArray new];
-    if ([[TCCurrentCorp shared] isAdmin])
-    {
-        if (_staff.status == STAFF_STATUS_PENDING)
-        {
-            TCProfileButtonData *data1 = [TCProfileButtonData new];
-            data1.title = @"允许加入";
-            data1.color = THEME_TINT_COLOR;
-            data1.type = TCProfileButtonAllowJoin;
-            [_buttonDataArray addObject:data1];
-            TCProfileButtonData *data2 = [TCProfileButtonData new];
-            data2.title = @"拒绝加入";
-            data2.color = STATE_ALERT_COLOR;
-            data2.type = TCProfileButtonRejectJoin;
-            [_buttonDataArray addObject:data2];
-        }else if(_staff.status == STAFF_STATUS_REJECT)
-        {
-            
-        }else
-        {
-            TCProfileButtonData *data1 = [TCProfileButtonData new];
-            data1.title = @"设置权限";
-            data1.color = THEME_TINT_COLOR;
-            data1.type = TCProfileButtonSetPermission;
-            [_buttonDataArray addObject:data1];
-            
-            TCProfileButtonData *data2 = [TCProfileButtonData new];
-            data2.title = @"解除关系";
-            data2.color = STATE_ALERT_COLOR;
-            data2.type = TCProfileButtonRemove;
-            [_buttonDataArray addObject:data2];
-        }
-    }else
-    {
-        if (_staff.status == STAFF_STATUS_PENDING)
-        {
-            
-        }else if(_staff.status == STAFF_STATUS_REJECT)
-        {
-            
-        }else
-        {
-            TCProfileButtonData *data1 = [TCProfileButtonData new];
-            data1.title = @"查看权限";
-            data1.color = THEME_TINT_COLOR;
-            data1.type = TCProfileButtonViewPermission;
-            [_buttonDataArray addObject:data1];
-        }
-    }
-    TCProfileButtonData *data11 = [TCProfileButtonData new];
-    data11.title = @"设置权限";
-    data11.color = THEME_TINT_COLOR;
-    data11.type = TCProfileButtonSetPermission;
-    [_buttonDataArray addObject:data11];
-    
-
+    //if (_staff.is_admin)
     
     UINib *buttonCellNib = [UINib nibWithNibName:@"TCButtonTableViewCell" bundle:nil];
     [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:STAFF_BUTTON_CELL_ID];
@@ -150,6 +100,8 @@
     }
     [_rowDataArray addObject:item4];
     [self.tableView reloadData];
+    
+    [self updateUI];
     
     _nameLabel.text = _staff.name;
     NSURL *avatarURL = [NSURL URLWithString:_staff.image_url];
@@ -236,13 +188,35 @@
                 [self presentViewController:perVC animated:YES completion:nil];
             }else if(type == TCProfileButtonAllowJoin)
             {
-                NSLog(@"允许加入");
+                TCAcceptJoinRequest *acceptReq = [TCAcceptJoinRequest new];
+                acceptReq.staffID = _staff.staffID;
+                [acceptReq startWithSuccess:^(NSString *message) {
+                    weakSelf.staff.status = STAFF_STATUS_PASS;
+                    [weakSelf updateUI];
+                } failure:^(NSString *message) {
+                    [MBProgressHUD showError:message toView:nil];
+                }];
             }else if(type == TCProfileButtonRejectJoin)
             {
-                NSLog(@"拒绝加入");
-            }else
+                TCRejectJoinRequest *rejectReq = [TCRejectJoinRequest new];
+                rejectReq.staffID = _staff.staffID;
+                [rejectReq startWithSuccess:^(NSString *message) {
+                    weakSelf.staff.status = STAFF_STATUS_REJECT;
+                    [weakSelf updateUI];
+                } failure:^(NSString *message) {
+                    [MBProgressHUD showError:message toView:nil];
+                }];
+            }else if(type == TCProfileButtonRemoveStaff)
             {
-                NSLog(@"其他");
+                TCRemoveStaffRequest *removeReq = [TCRemoveStaffRequest new];
+                removeReq.staffID = _staff.staffID;
+                [removeReq startWithSuccess:^(NSString *message) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_REMOVE_STAFF object:nil];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.32];
+                } failure:^(NSString *message) {
+                    [MBProgressHUD showError:message toView:nil];
+                }];
             }
         };
         return cell;
@@ -261,4 +235,92 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+
+#pragma mark - extension
+- (void) updateUI
+{
+    [_buttonDataArray removeAllObjects];
+    if ([[TCCurrentCorp shared] isAdmin])
+    {
+        if (_staff.status == STAFF_STATUS_PENDING)
+        {
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"允许加入";
+            data1.color = THEME_TINT_COLOR;
+            data1.type = TCProfileButtonAllowJoin;
+            [_buttonDataArray addObject:data1];
+            TCProfileButtonData *data2 = [TCProfileButtonData new];
+            data2.title = @"拒绝加入";
+            data2.color = STATE_ALERT_COLOR;
+            data2.type = TCProfileButtonRejectJoin;
+            [_buttonDataArray addObject:data2];
+        }else if(_staff.status == STAFF_STATUS_REJECT)
+        {
+            
+        }else if(_staff.status == STAFF_STATUS_PASS)
+        {
+            TCProfileButtonData *data0 = [TCProfileButtonData new];
+            data0.title = @"查看权限";
+            data0.color = THEME_TINT_COLOR;
+            data0.type = TCProfileButtonViewPermission;
+            [_buttonDataArray addObject:data0];
+            
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"设置权限";
+            data1.color = THEME_TINT_COLOR;
+            data1.type = TCProfileButtonSetPermission;
+            [_buttonDataArray addObject:data1];
+            
+            TCProfileButtonData *data2 = [TCProfileButtonData new];
+            data2.title = @"解除关系";
+            data2.color = STATE_ALERT_COLOR;
+            data2.type = TCProfileButtonRemoveStaff;
+            [_buttonDataArray addObject:data2];
+        }else if(_staff.status == STAFF_STATUS_FOUNDER)
+        {
+            TCProfileButtonData *data0 = [TCProfileButtonData new];
+            data0.title = @"查看权限";
+            data0.color = THEME_TINT_COLOR;
+            data0.type = TCProfileButtonViewPermission;
+            [_buttonDataArray addObject:data0];
+        }
+    }else
+    {
+        if (_staff.status == STAFF_STATUS_PENDING)
+        {
+            
+        }else if(_staff.status == STAFF_STATUS_REJECT)
+        {
+            
+        }else if(_staff.status == STAFF_STATUS_PASS)
+        {
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"查看权限";
+            data1.color = THEME_TINT_COLOR;
+            data1.type = TCProfileButtonViewPermission;
+            [_buttonDataArray addObject:data1];
+        }
+    }
+    
+    TCServerInfoItem *statusItem = [_rowDataArray objectAtIndex:2];
+    //statusItem.value =
+    if (_staff.status == STAFF_STATUS_REJECT)
+    {
+        statusItem.value = @"审核不通过";
+    }else if(_staff.status == STAFF_STATUS_PENDING)
+    {
+        statusItem.value = @"待审核";
+    }else if(_staff.status == STAFF_STATUS_PASS)
+    {
+        statusItem.value = @"审核通过";
+    }else if(_staff.status == STAFF_STATUS_FOUNDER)
+    {
+        statusItem.value = @"创建人";
+    }else if(_staff.status == STAFF_STATUS_WAITING)
+    {
+        statusItem.value = @"待加入";
+    }
+    [self.tableView reloadData];
+    [self.buttonTableView reloadData];
+}
 @end
