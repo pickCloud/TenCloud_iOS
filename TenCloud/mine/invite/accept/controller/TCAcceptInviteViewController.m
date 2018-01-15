@@ -49,7 +49,7 @@
     
     if (IS_iPhoneX)
     {
-        _topConstraint.constant = 64+27;
+        _topConstraint.constant = 64+25;
     }
     
     

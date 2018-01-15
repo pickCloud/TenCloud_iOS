@@ -20,6 +20,7 @@
                 <outlet property="password1Panel" destination="Ufh-De-YIU" id="QJX-Sh-bIR"/>
                 <outlet property="password2Field" destination="Ja7-gJ-THR" id="M6O-Jz-AfC"/>
                 <outlet property="password2Panel" destination="DVY-1u-N9e" id="6PQ-tD-ZFL"/>
+                <outlet property="topConstraint" destination="BtJ-R7-aT9" id="axP-c8-zsf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="widthConstraint" destination="Ksn-o1-lAQ" id="0oW-3n-6ig"/>
             </connections>

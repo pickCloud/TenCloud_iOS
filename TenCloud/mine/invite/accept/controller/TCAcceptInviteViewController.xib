@@ -16,6 +16,7 @@
                 <outlet property="row1Label" destination="TM5-hS-n7z" id="uAQ-e8-ttI"/>
                 <outlet property="row2Label" destination="97G-14-Q7d" id="9zB-ua-Dg9"/>
                 <outlet property="row3Label" destination="9PJ-dg-hRV" id="fXj-oc-ztx"/>
+                <outlet property="topConstraint" destination="BtJ-R7-aT9" id="snA-hI-Rqh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,32 +35,32 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHg-Pc-vzM">
-                            <rect key="frame" x="50" y="32" width="275" height="10"/>
+                            <rect key="frame" x="50" y="31" width="275" height="10"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="5LO-No-5fG"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理员xxx 邀请你加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM5-hS-n7z">
-                            <rect key="frame" x="50" y="32" width="294.5" height="17"/>
+                            <rect key="frame" x="50" y="31" width="294.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97G-14-Q7d">
-                            <rect key="frame" x="50" y="57" width="294.5" height="17"/>
+                            <rect key="frame" x="50" y="56" width="294.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请先完善以下资料:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PJ-dg-hRV">
-                            <rect key="frame" x="50" y="82" width="294.5" height="17"/>
+                            <rect key="frame" x="50" y="81" width="294.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invite_login_warnning" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-pB-dF0">
-                            <rect key="frame" x="26" y="32" width="16" height="16"/>
+                            <rect key="frame" x="26" y="31" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Gpg-pB-dF0" secondAttribute="height" multiplier="1:1" id="6aO-Lh-AgI"/>
                             </constraints>
@@ -70,7 +71,7 @@
                         <constraint firstItem="97G-14-Q7d" firstAttribute="top" secondItem="TM5-hS-n7z" secondAttribute="bottom" constant="8" id="1XR-9P-j84"/>
                         <constraint firstItem="7vr-Jp-gqw" firstAttribute="centerX" secondItem="yJ0-K4-yFW" secondAttribute="centerX" id="1pv-oJ-h9l"/>
                         <constraint firstItem="TM5-hS-n7z" firstAttribute="leading" secondItem="MHg-Pc-vzM" secondAttribute="leading" id="BZS-y6-rAm"/>
-                        <constraint firstItem="MHg-Pc-vzM" firstAttribute="centerY" secondItem="yJ0-K4-yFW" secondAttribute="centerY" multiplier="0.825" id="Cve-Tq-dr9"/>
+                        <constraint firstItem="MHg-Pc-vzM" firstAttribute="centerY" secondItem="yJ0-K4-yFW" secondAttribute="centerY" multiplier="0.8" id="Cve-Tq-dr9"/>
                         <constraint firstItem="MHg-Pc-vzM" firstAttribute="centerX" secondItem="yJ0-K4-yFW" secondAttribute="centerX" id="JvE-ZW-PG0"/>
                         <constraint firstItem="MHg-Pc-vzM" firstAttribute="width" secondItem="yJ0-K4-yFW" secondAttribute="width" multiplier="0.73333" id="MOg-Tu-DHk"/>
                         <constraint firstAttribute="bottom" secondItem="7vr-Jp-gqw" secondAttribute="bottom" id="O6Z-xp-yVE"/>

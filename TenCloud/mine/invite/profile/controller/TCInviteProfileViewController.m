@@ -63,7 +63,7 @@
     
     if (IS_iPhoneX)
     {
-        _topConstraint.constant = 64+27;
+        _topConstraint.constant = 64+25;
     }
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     _widthConstraint.constant = screenRect.size.width;

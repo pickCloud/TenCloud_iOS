@@ -63,7 +63,7 @@
     
     if (IS_iPhoneX)
     {
-        _topConstraint.constant = 64+27;
+        _topConstraint.constant = 64+25;
     }
     
     NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入手机号码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];

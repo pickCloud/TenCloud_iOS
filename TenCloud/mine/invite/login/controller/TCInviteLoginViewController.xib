@@ -19,6 +19,7 @@
                 <outlet property="row1Label" destination="TM5-hS-n7z" id="uAQ-e8-ttI"/>
                 <outlet property="row2Label" destination="97G-14-Q7d" id="9zB-ua-Dg9"/>
                 <outlet property="row3Label" destination="9PJ-dg-hRV" id="fXj-oc-ztx"/>
+                <outlet property="topConstraint" destination="BtJ-R7-aT9" id="fW3-RQ-cFF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
