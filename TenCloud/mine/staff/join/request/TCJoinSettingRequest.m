@@ -20,9 +20,14 @@
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        NSString *settingStr = [dataDict objectForKey:@"setting"];
-        NSArray *settingArray = [settingStr componentsSeparatedByString:@","];
-        success ? success(settingArray) : nil;
+        if (dataDict && ![dataDict isKindOfClass:[NSNull class]])
+        {
+            NSString *settingStr = [dataDict objectForKey:@"setting"];
+            NSArray *settingArray = [settingStr componentsSeparatedByString:@","];
+            success ? success(settingArray) : nil;
+            return ;
+        }
+        success ? success(nil) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;

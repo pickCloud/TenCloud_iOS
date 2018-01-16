@@ -117,8 +117,15 @@
     [joinSettingReq startWithSuccess:^(NSArray<NSString *> *settingArray) {
         [weakSelf stopLoading];
         [weakSelf.joinSettingArray removeAllObjects];
-        [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
-        NSLog(@"josin settings:%@",weakSelf.joinSettingArray);
+        if (settingArray)
+        {
+            [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
+            NSLog(@"josin settings:%@",weakSelf.joinSettingArray);
+        }else
+        {
+            NSLog(@"join settings null");
+        }
+        
         NSMutableArray *keyArray = [NSMutableArray new];
         if ([settingArray containsObject:@"mobile"])
         {
