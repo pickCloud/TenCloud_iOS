@@ -88,6 +88,9 @@
     
     BOOL hideIDCardPanel = ![self isIDCardNeeded];
     [_idCardPanel setHidden:hideIDCardPanel];
+    
+    NSString *userName = [[TCLocalAccount shared] name];
+    _nameField.text = userName;
 }
 
 - (void)didReceiveMemoryWarning {
