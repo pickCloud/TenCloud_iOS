@@ -67,6 +67,8 @@ static TCShareManager *_singleton = nil;
                 [self showTip:@"未安装微信，请先安装"];
                 return ;
             }
+        
+            /*
             [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
             UMSocialUrlResource *resource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:url];
             [[UMSocialDataService defaultDataService] postSNSWithTypes:@[UMShareToWechatTimeline] content:content image:image location:nil urlResource:resource presentedController:controller completion:^(UMSocialResponseEntity *response){
@@ -75,6 +77,15 @@ static TCShareManager *_singleton = nil;
                     NSLog(@"分享成功！");
                 }
             }];
+             */
+            UMSocialUrlResource *resource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:url];
+            [[UMSocialDataService defaultDataService] postSNSWithTypes:@[UMShareToWechatSession] content:content image:image location:nil urlResource:resource presentedController:controller completion:^(UMSocialResponseEntity *response){
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    [self shareSucceed];
+                    NSLog(@"分享成功！");
+                }
+            }];
+            
         }  break;
         case TCShareTypeWeibo: {
             if (![WeiboSDK isWeiboAppInstalled]) {
@@ -94,7 +105,7 @@ static TCShareManager *_singleton = nil;
                 [self showTip:@"未安装QQ,请先安装"];
                 return ;
             }
-            [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+            //[UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
             UMSocialUrlResource *resource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:url];
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:content image:image location:nil urlResource:resource presentedController:controller completion:^(UMSocialResponseEntity *response){
                 if (response.responseCode == UMSResponseCodeSuccess) {

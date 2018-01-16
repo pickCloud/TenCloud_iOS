@@ -97,7 +97,11 @@
 {
     NSLog(@"响应邀请");
     TCShareViewController *shareVC = [[TCShareViewController alloc] init];
-    shareVC.content = _inviteURLStr;
+    NSString *inviterName = [[TCLocalAccount shared] name];
+    NSString *companyName = [[TCCurrentCorp shared] name];
+    NSString *inviteText = [NSString stringWithFormat:@"%@ 邀请您加入%@ 点击链接加入 %@",inviterName, companyName, _inviteURLStr];
+    shareVC.content = inviteText;
+    shareVC.urlString = _inviteURLStr;
     NSLog(@"share.content:%@",shareVC.content);
     //selectVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;//UIModalTransitionStyleCrossDissolve;
     shareVC.providesPresentationContextTransitionStyle = YES;

@@ -12,6 +12,7 @@
 @interface TCShareViewController : UIViewController
 
 @property (nonatomic, strong)   NSString    *content;
+@property (nonatomic, strong)   NSString    *urlString;
 - (void) showContentView;
 
 @end

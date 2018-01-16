@@ -96,7 +96,7 @@
     //vc.messageComposeDelegate = self;
     //vc.navigationBar.tintColor = [UIColor blackColor];
     //[self presentViewController:vc animated:YES completion:nil];
-    _messageVC.body = @"测试";
+    _messageVC.body = _content;
     [self presentViewController:_messageVC animated:YES completion:nil];
 }
 
@@ -108,8 +108,8 @@
     UIImage *icon = [UIImage imageNamed:iconPath];
     [[TCShareManager sharedManager] shareWithSharedType:TCShareTypeQQ
                                                   image:icon
-                                                    url:@"http://baidu.com"
-                                                content:@"测试分享zzz"
+                                                    url:_urlString
+                                                content:_content
                                              controller:self];
     [self dismiss];
 }
@@ -122,8 +122,8 @@
     UIImage *icon = [UIImage imageNamed:iconPath];
     [[TCShareManager sharedManager] shareWithSharedType:TCShareTypeWechat
                                                   image:icon
-                                                    url:@"http://baidu.com"
-                                                content:@"测试分享zzz"
+                                                    url:_urlString
+                                                content:_content
                                              controller:self];
     [self dismiss];
 }
