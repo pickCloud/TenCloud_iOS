@@ -135,6 +135,8 @@
     TCSetJoinSettingRequest *req = [TCSetJoinSettingRequest new];
     req.setting = selectedKeyStr;
     [req startWithSuccess:^(NSString *message) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CHANGE_JOIN_SETTING
+                                                            object:nil];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];

@@ -20,6 +20,7 @@
 #import "TCAcceptJoinRequest.h"
 #import "TCRejectJoinRequest.h"
 #import "TCRemoveStaffRequest.h"
+#import "TCChangeAdminViewController.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
@@ -120,6 +121,16 @@
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUI)
+                                                 name:NOTIFICATION_CHANGE_ADMIN
+                                               object:nil];
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -217,6 +228,15 @@
                 } failure:^(NSString *message) {
                     [MBProgressHUD showError:message toView:nil];
                 }];
+            }else if(type == TCProfileButtonChangeAdmin)
+            {
+                TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
+                changeVC.currentStaff = _staff;
+                //changeVC.staffArray = self.staffArray;
+                //NSLog(@"vc staffs:%@",changeVC.staffArray);
+                [self presentViewController:changeVC animated:YES completion:^{
+                    
+                }];
             }
         };
         return cell;
@@ -242,7 +262,20 @@
     [_buttonDataArray removeAllObjects];
     if ([[TCCurrentCorp shared] isAdmin])
     {
-        if (_staff.status == STAFF_STATUS_PENDING)
+        if (_staff.is_admin)
+        {
+            TCProfileButtonData *data0 = [TCProfileButtonData new];
+            data0.title = @"查看权限";
+            data0.color = THEME_TINT_COLOR;
+            data0.type = TCProfileButtonViewPermission;
+            [_buttonDataArray addObject:data0];
+            
+            TCProfileButtonData *data1 = [TCProfileButtonData new];
+            data1.title = @"更换管理员";
+            data1.color = THEME_TINT_COLOR;
+            data1.type = TCProfileButtonChangeAdmin;
+            [_buttonDataArray addObject:data1];
+        }else if (_staff.status == STAFF_STATUS_PENDING)
         {
             TCProfileButtonData *data1 = [TCProfileButtonData new];
             data1.title = @"允许加入";

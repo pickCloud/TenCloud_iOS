@@ -117,6 +117,7 @@
     _keyboradPanel.frame = newRect;
     
     _statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核不通过", nil];
+    //_statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核拒绝", nil];
     _statusSelectedIndex = 0;
     //self.statusMenu.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1.0] CGColor];
     //self.statusMenu.layer.borderWidth = 0.5;
@@ -139,6 +140,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadStaffArray)
                                                  name:NOTIFICATION_REMOVE_STAFF
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadStaffArray)
+                                                 name:NOTIFICATION_CHANGE_ADMIN
                                                object:nil];
     
 }
@@ -391,6 +396,12 @@
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
+    NSLog(@"statusMenuOptions:%@",self.statusMenuOptions);
+    for (NSString *opt in self.statusMenuOptions)
+    {
+        NSLog(@"opt:%@",opt);
+    }
+    NSLog(@"seelI:%ld",_statusSelectedIndex);
     return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
                                                         NSForegroundColorAttributeName: THEME_TEXT_COLOR}];

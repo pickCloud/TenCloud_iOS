@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *keyNameLabel;
 - (IBAction) onSettingButton:(id)sender;
 - (IBAction) onInviteButton:(id)sender;
+- (void) reloadJoinSetting;
 @end
 
 @implementation TCInviteStaffViewController
@@ -50,67 +51,25 @@
     _joinSettingArray = [NSMutableArray new];
     
     [self startLoading];
+    [self reloadJoinSetting];
+
     __weak __typeof(self) weakSelf = self;
-    
-    /*
-    TCJoinSettingRequest *settingReq = [TCJoinSettingRequest new];
-    [settingReq setSuccessCompletionBlock:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        NSString *settingStr = [dataDict objectForKey:@"setting"];
-        NSArray *settingArray = [settingStr componentsSeparatedByString:@","];
-        NSLog(@"setting:%@",settingArray);
-        [weakSelf.joinSettingArray removeAllObjects];
-        [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
-    }];
-    
-    TCGetInviteURLRequest *inviteURLReq = [TCGetInviteURLRequest new];
-    NSMutableArray *reqArray = [NSMutableArray new];
-    [reqArray addObject:settingReq];
-    [reqArray addObject:inviteURLReq];
-    YTKBatchRequest *batchReq = [[YTKBatchRequest alloc] initWithRequestArray:reqArray];
-    [batchReq startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
-        [weakSelf stopLoading];
-        NSLog(@"invite_url:%@",weakSelf.inviteURLStr);
-        NSLog(@"join setting:%@",weakSelf.joinSettingArray);
-    } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
-        [MBProgressHUD showError:@"获取数据失败" toView:nil];
-    }];
-     */
-    
-    TCJoinSettingRequest *joinSettingReq = [TCJoinSettingRequest new];
-    [joinSettingReq startWithSuccess:^(NSArray<NSString *> *settingArray) {
-        [weakSelf stopLoading];
-        [weakSelf.joinSettingArray removeAllObjects];
-        [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
-        NSLog(@"josin settings:%@",weakSelf.joinSettingArray);
-        //NSMutableString *keyStr = [NSMutableString new];
-        NSMutableArray *keyArray = [NSMutableArray new];
-        if ([settingArray containsObject:@"mobile"])
-        {
-            [keyArray addObject:@"手机号"];
-        }
-        if ([settingArray containsObject:@"name"])
-        {
-            [keyArray addObject:@"姓名"];
-        }
-        if ([settingArray containsObject:@"id_card"])
-        {
-            [keyArray addObject:@"身份证号"];
-        }
-        NSString *rawKeyStr = [keyArray componentsJoinedByString:@"、"];
-        NSString *resKeyStr = [NSString stringWithFormat:@"%@，",rawKeyStr];
-        weakSelf.keyNameLabel.text = resKeyStr;
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
-    
      TCGetInviteURLRequest *inviteURLReq = [TCGetInviteURLRequest new];
      [inviteURLReq startWithSuccess:^(NSString *urlStr) {
          weakSelf.inviteURLStr = urlStr;
      } failure:^(NSString *message) {
          //[MBProgressHUD showError:message toView:nil];
      }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadJoinSetting)
+                                                 name:NOTIFICATION_CHANGE_JOIN_SETTING
+                                               object:nil];
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,5 +104,36 @@
     shareVC.definesPresentationContext = YES;
     shareVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:shareVC animated:NO completion:nil];
+}
+
+- (void) reloadJoinSetting
+{
+    __weak __typeof(self) weakSelf = self;
+    TCJoinSettingRequest *joinSettingReq = [TCJoinSettingRequest new];
+    [joinSettingReq startWithSuccess:^(NSArray<NSString *> *settingArray) {
+        [weakSelf stopLoading];
+        [weakSelf.joinSettingArray removeAllObjects];
+        [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
+        NSLog(@"josin settings:%@",weakSelf.joinSettingArray);
+        NSMutableArray *keyArray = [NSMutableArray new];
+        if ([settingArray containsObject:@"mobile"])
+        {
+            [keyArray addObject:@"手机号"];
+        }
+        if ([settingArray containsObject:@"name"])
+        {
+            [keyArray addObject:@"姓名"];
+        }
+        if ([settingArray containsObject:@"id_card"])
+        {
+            [keyArray addObject:@"身份证号"];
+        }
+        NSString *rawKeyStr = [keyArray componentsJoinedByString:@"、"];
+        NSString *resKeyStr = [NSString stringWithFormat:@"%@，",rawKeyStr];
+        weakSelf.keyNameLabel.text = resKeyStr;
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
 }
 @end

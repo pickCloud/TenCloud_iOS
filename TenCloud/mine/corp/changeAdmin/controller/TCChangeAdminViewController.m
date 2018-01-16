@@ -37,6 +37,9 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCChangeAdminTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:CHANGE_ADMIN_CELL_ID];
     _tableView.tableFooterView = [UIView new];
+    
+    [self startLoading];
+    [self reloadStaffArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +57,7 @@
 - (IBAction) onConfirmButton:(id)sender
 {
     __weak __typeof(self) weakSelf = self;
-
+    
 }
 
 - (void) reloadStaffArray
@@ -71,6 +74,7 @@
         //[weakSelf.staffArray removeAllObjects];
         //[weakSelf.staffArray addObjectsFromArray:staffArray];
         weakSelf.staffArray = staffArray;
+        [weakSelf stopLoading];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         
@@ -89,12 +93,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    TCStaffTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:STAFF_CELL_ID forIndexPath:indexPath];
-    TCStaff *staff = [_staffArray objectAtIndex:indexPath.row];
-    [cell setStaff:staff];
-    return cell;
-     */
     TCChangeAdminTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CHANGE_ADMIN_CELL_ID forIndexPath:indexPath];
     TCStaff *staff = [_staffArray objectAtIndex:indexPath.row];
     [cell setStaff:staff];
@@ -121,11 +119,10 @@
             TCSetAdminRequest *setReq = [TCSetAdminRequest new];
             setReq.uid = staff.uid;
             [setReq startWithSuccess:^(NSString *message) {
-                //[weakSelf reloadStaffArray];
                 TCStaffListRequest *req = [[TCStaffListRequest alloc] init];
                 [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
-                    //[weakSelf.staffArray removeAllObjects];
-                    //[weakSelf.staffArray addObjectsFromArray:staffArray];
+                    weakSelf.currentStaff.is_admin = NO;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CHANGE_ADMIN object:nil];
                     weakSelf.staffArray = staffArray;
                     [weakSelf.tableView reloadData];
                     [MMProgressHUD dismissWithSuccess:@"更换成功" title:nil afterDelay:1.32];
@@ -142,10 +139,6 @@
         [alertController presentationController];
         [self presentViewController:alertController animated:YES completion:nil];
     }
-    /*
-    TCStaffProfileViewController *profileVC = [[TCStaffProfileViewController alloc] initWithStaff:staff];
-    [self.navigationController pushViewController:profileVC animated:YES];
-     */
 }
 
 

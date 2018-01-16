@@ -33,6 +33,7 @@
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.05];
     self.selectedBackgroundView = selectedBgView;
     [_adminLabel setType:TCStaffTypeAdmin];
+    _adminLabel.font = TCFont(9.09);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

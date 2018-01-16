@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, TCProfileButtonType){
     TCProfileButtonAllowJoin,
     TCProfileButtonRejectJoin,
     TCProfileButtonRemoveStaff,
+    TCProfileButtonChangeAdmin
 };
 
 @interface TCProfileButtonData : NSObject
