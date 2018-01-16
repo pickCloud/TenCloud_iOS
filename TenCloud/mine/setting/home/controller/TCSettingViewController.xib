@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="footerView" destination="mJX-dm-QRp" id="l6R-RI-wsW"/>
                 <outlet property="tableView" destination="eWv-YY-mvq" id="Qlo-ZH-7bw"/>
+                <outlet property="versionLabel" destination="q8S-ho-bqr" id="30i-Yz-hO5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,11 +31,19 @@
                         <outlet property="delegate" destination="-1" id="9VT-WJ-Y35"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8S-ho-bqr">
+                    <rect key="frame" x="171.5" y="645" width="31" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.34509803919999998" green="0.38431372549999998" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="eWv-YY-mvq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="36H-6r-nnu"/>
+                <constraint firstItem="q8S-ho-bqr" firstAttribute="centerX" secondItem="eWv-YY-mvq" secondAttribute="centerX" id="3lX-xx-oBo"/>
                 <constraint firstItem="eWv-YY-mvq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="ZEx-89-RqZ"/>
+                <constraint firstItem="q8S-ho-bqr" firstAttribute="bottom" secondItem="eWv-YY-mvq" secondAttribute="bottom" constant="-10" id="e8E-uh-Yw5"/>
                 <constraint firstItem="eWv-YY-mvq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jrV-fu-mk6"/>
                 <constraint firstItem="eWv-YY-mvq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uWo-hs-Qyr"/>
             </constraints>

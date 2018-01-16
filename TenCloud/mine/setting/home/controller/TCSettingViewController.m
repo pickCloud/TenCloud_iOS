@@ -16,6 +16,7 @@
 @interface TCSettingViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UIView          *footerView;
+@property (nonatomic, weak) IBOutlet    UILabel         *versionLabel;
 @property (nonatomic, strong)   NSMutableArray          *cellItemArray;
 - (IBAction) onExitAccount:(id)sender;
 @end
@@ -45,6 +46,11 @@
     data1.initialValue = @" ";
     data1.type = TCCellTypeText;
     [_cellItemArray addObject:data1];
+    
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *version = [infoDictionary objectForKey:@"CFBundleVersion"];
+    _versionLabel.text = version;
 }
 
 - (void)didReceiveMemoryWarning {
