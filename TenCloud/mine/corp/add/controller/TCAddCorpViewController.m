@@ -7,7 +7,6 @@
 //
 
 #import "TCAddCorpViewController.h"
-#import "VHLNavigation.h"
 #import "TCUser+CoreDataClass.h"
 #import "TCSpacingTextField.h"
 #import "TCAddCorpRequest.h"
@@ -28,8 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加新企业";
-    //[self vhl_setNavBarHidden:NO];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     if (IS_iPhoneX)
     {

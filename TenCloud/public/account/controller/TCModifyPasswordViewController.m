@@ -7,7 +7,6 @@
 //
 
 #import "TCModifyPasswordViewController.h"
-#import "VHLNavigation.h"
 #import "GetCaptchaButton.h"
 //#import "TCSpacingTextField.h"
 #import "TCGetCaptchaRequest.h"
@@ -37,8 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"修改密码";
-    //[self vhl_setNavBarHidden:NO];
-    //[self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     if (IS_iPhoneX)
     {

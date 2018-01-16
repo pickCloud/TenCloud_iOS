@@ -7,7 +7,6 @@
 //
 
 #import "TCInviteLoginViewController.h"
-#import "VHLNavigation.h"
 #import "GetCaptchaButton.h"
 #import "TCSpacingTextField.h"
 #import "TCGetCaptchaRequest.h"
@@ -57,8 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"完善资料";
-    [self vhl_setNavBarHidden:NO];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     _row3Label.font = TCFont(14);
     
     if (IS_iPhoneX)

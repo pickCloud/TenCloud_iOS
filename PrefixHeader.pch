@@ -19,6 +19,7 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import <MJExtension/MJExtension.h>
 #import "UIViewController+LoadingView.h"
+#import "WRNavigationBar.h"
 #endif
 
 //正式服务器

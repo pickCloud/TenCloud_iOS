@@ -7,7 +7,6 @@
 //
 
 #import "TCSetPasswordViewController.h"
-#import "VHLNavigation.h"
 #import "TCUser+CoreDataClass.h"
 #import "TCTabBarController.h"
 #import "TCSetPasswordRequest.h"
@@ -24,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"完善资料";
-    [self vhl_setNavBarHidden:NO];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     NSAttributedString *pwdPlaceHolderStr1 = [[NSAttributedString alloc] initWithString:@"请输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _passwordField.attributedPlaceholder = pwdPlaceHolderStr1;

@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"资源";
+    [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
 }
 
 - (void)didReceiveMemoryWarning {

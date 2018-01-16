@@ -7,8 +7,6 @@
 //
 
 #import "TCAddTemplateViewController.h"
-#import "VHLNavigation.h"
-
 #import "TCPermissionViewController.h"
 //#import "TCEditingTemplate.h"
 #import "TCEditingPermission.h"
@@ -31,7 +29,6 @@
     [super viewDidLoad];
     self.title = @"新增权限模版";
     //[self vhl_setNavBarHidden:NO];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     if (IS_iPhoneX)
     {

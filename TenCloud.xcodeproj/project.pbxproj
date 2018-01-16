@@ -87,7 +87,6 @@
 		A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555761FD7CBB400D16D22 /* TCProjectHomeViewController.xib */; };
 		A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A025557B1FD7CCF400D16D22 /* TCTabBarController.m */; };
 		A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555801FD7D6C200D16D22 /* TCViewController.m */; };
-		A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555841FD7DD8C00D16D22 /* VHLNavigation.m */; };
 		A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555961FD7E24A00D16D22 /* TCResourceHomeViewController.m */; };
 		A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */; };
 		A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */; };
@@ -330,6 +329,8 @@
 		A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9920007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m */; };
 		A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9E20007C8200D227BC /* TCEmptyPermission.m */; };
 		A0EF3BA320007CE500D227BC /* TCEmptyPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3BA220007CE500D227BC /* TCEmptyPermissionRequest.m */; };
+		A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */; };
+		A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,8 +498,6 @@
 		A025557B1FD7CCF400D16D22 /* TCTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTabBarController.m; sourceTree = "<group>"; };
 		A025557F1FD7D6C200D16D22 /* TCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
 		A02555801FD7D6C200D16D22 /* TCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCViewController.m; sourceTree = "<group>"; };
-		A02555831FD7DD8C00D16D22 /* VHLNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHLNavigation.h; sourceTree = "<group>"; };
-		A02555841FD7DD8C00D16D22 /* VHLNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLNavigation.m; sourceTree = "<group>"; };
 		A02555951FD7E24A00D16D22 /* TCResourceHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCResourceHomeViewController.h; sourceTree = "<group>"; };
 		A02555961FD7E24A00D16D22 /* TCResourceHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCResourceHomeViewController.m; sourceTree = "<group>"; };
 		A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCResourceHomeViewController.xib; sourceTree = "<group>"; };
@@ -917,6 +916,10 @@
 		A0EF3B9F20007C8200D227BC /* TCEmptyPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEmptyPermission.h; sourceTree = "<group>"; };
 		A0EF3BA120007CE500D227BC /* TCEmptyPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEmptyPermissionRequest.h; sourceTree = "<group>"; };
 		A0EF3BA220007CE500D227BC /* TCEmptyPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEmptyPermissionRequest.m; sourceTree = "<group>"; };
+		A0F6BD83200DFB2000843ECF /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
+		A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
+		A0F6BD85200DFB2000843ECF /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
+		A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1214,12 +1217,12 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A0F6BD82200DFB2000843ECF /* WRNavigationBar */,
 				A04539B720074F2200402D1A /* MKDropdownMenu */,
 				A0C9A0831FF14B4E00F94E9E /* NYXImagesKit */,
 				A0C9A07F1FF149C100F94E9E /* LSActionSheet */,
 				A001FA251FDD3777008328B0 /* MBProgressHUD */,
 				A02555B81FDBD4B400D16D22 /* HMSegmentedControl */,
-				A02555821FD7DD8C00D16D22 /* VHLNavigation */,
 				A02555091FD6930800D16D22 /* YTKNetwork */,
 			);
 			path = vendor;
@@ -1924,15 +1927,6 @@
 				A02555801FD7D6C200D16D22 /* TCViewController.m */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		A02555821FD7DD8C00D16D22 /* VHLNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				A02555831FD7DD8C00D16D22 /* VHLNavigation.h */,
-				A02555841FD7DD8C00D16D22 /* VHLNavigation.m */,
-			);
-			path = VHLNavigation;
 			sourceTree = "<group>";
 		};
 		A02555861FD7E20300D16D22 /* home */ = {
@@ -3520,6 +3514,17 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0F6BD82200DFB2000843ECF /* WRNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				A0F6BD83200DFB2000843ECF /* WRCustomNavigationBar.h */,
+				A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */,
+				A0F6BD85200DFB2000843ECF /* WRNavigationBar.h */,
+				A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */,
+			);
+			path = WRNavigationBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3962,6 +3967,7 @@
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
+				A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
 				A0A86B691FF3B6BC00D1D58D /* TCAddCorpRequest.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
@@ -4047,7 +4053,6 @@
 				A0C9A0CC1FF2A3F500F94E9E /* TCTextTableViewCell.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
-				A02555851FD7DD8C00D16D22 /* VHLNavigation.m in Sources */,
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
 				A031B5E21FFC602100B4F448 /* TCPermissionChunk+CoreDataClass.m in Sources */,
 				A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */,
@@ -4131,6 +4136,7 @@
 				A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */,
 				A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */,
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
+				A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */,
 				A0C362F92004504A0033C99C /* TCJoinSettingItem.m in Sources */,
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,

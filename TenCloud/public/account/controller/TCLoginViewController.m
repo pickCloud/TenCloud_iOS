@@ -18,7 +18,6 @@
 #import "TCUser+CoreDataClass.h"
 #import "TCRegisterViewController.h"
 #import "TCForgetPasswordViewController.h"
-#import "VHLNavigation.h"
 #import "TCSetPasswordViewController.h"
 #import "TCGeetestCaptchaRequest.h"
 #import <GT3Captcha/GT3Captcha.h>
@@ -48,9 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self vhl_setNavBarHidden:YES];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarBarTintColor:[UIColor clearColor]];
     
     // Do any additional setup after loading the view from its nib.
     NSMutableArray  *segmentTitles = [NSMutableArray new];

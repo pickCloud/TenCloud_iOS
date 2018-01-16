@@ -50,6 +50,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器";
+    [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
     UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [msgButton setImage:messageIconImg forState:UIControlStateNormal];

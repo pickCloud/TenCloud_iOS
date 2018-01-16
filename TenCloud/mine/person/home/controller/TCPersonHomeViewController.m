@@ -45,6 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
+    [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     [[TCLocalAccount shared] addObserver:self];
     _corpArray = [NSMutableArray new];
     [self loadCorpArray];

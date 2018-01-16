@@ -10,7 +10,6 @@
 #import "YTKNetworkConfig.h"
 #import <AFNetworking/AFNetworking.h>
 #import "TCTabBarController.h"
-#import "VHLNavigation.h"
 #import "TCLoginViewController.h"
 #import "TCConfiguration.h"
 #import "TCShareManager.h"
@@ -32,9 +31,6 @@
     [[TCConfiguration shared] print];
     [[TCShareManager sharedManager] registerAllPlatForms];
     
-    [UIColor vhl_setDefaultNavBarTintColor:THEME_NAVBAR_TITLE_COLOR];
-    [UIColor vhl_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
-    [UIColor vhl_setDefaultNavBackgroundColor:THEME_TINT_COLOR];
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];
     
@@ -66,6 +62,12 @@
         rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
     }
     self.window.rootViewController = rootVC;
+    
+    NSLog(@"sssss111");
+    [WRNavigationBar wr_setDefaultNavBarBarTintColor:THEME_TINT_COLOR];
+    [WRNavigationBar wr_setDefaultNavBarTintColor:THEME_NAVBAR_TITLE_COLOR];
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
+    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleDefault];
     [self.window makeKeyAndVisible];
     
     /*
@@ -129,6 +131,7 @@
         {
             NSString *code = [paramDict objectForKey:@"code"];
             NSLog(@"invite code is:%@",code);
+            NSLog(@"sssss112");
             if ([[TCLocalAccount shared] isLogin])
             {
                 TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:code];

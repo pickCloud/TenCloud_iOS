@@ -10,7 +10,6 @@
 #import "TCCellData.h"
 #import "LSActionSheet.h"
 #import "UIImage+Resizing.h"
-#import "VHLNavigation.h"
 #import "TCUploadTokenRequest.h"
 #import <Qiniu/QiniuSDK.h>
 #import "NSString+Extension.h"

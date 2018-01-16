@@ -7,7 +7,6 @@
 //
 
 #import "TCAddServerViewController.h"
-#import "VHLNavigation.h"
 #import "TCUser+CoreDataClass.h"
 #import <SocketRocket.h>
 
@@ -30,8 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加主机";
-    [self vhl_setNavBarHidden:NO];
-    [self vhl_setNavBarTintColor:THEME_TINT_COLOR];
     
     if (IS_iPhoneX)
     {
