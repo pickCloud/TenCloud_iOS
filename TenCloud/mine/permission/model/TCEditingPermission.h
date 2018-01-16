@@ -15,6 +15,8 @@
 
 - (void) reset;
 
+- (void) resetForAdmin;
+
 - (void) setTemplate:(TCTemplate*)tmpl;
 
 - (void) readyForPreview;

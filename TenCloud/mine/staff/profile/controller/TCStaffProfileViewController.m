@@ -165,9 +165,23 @@
             if (type == TCProfileButtonViewPermission)
             {
                 NSLog(@"查看权限");
+                /*
+                if ([[TCCurrentCorp shared] isAdmin])
+                {
+                    NSLog(@"for admin");
+                    [[TCEditingPermission shared] resetForAdmin];
+                }else
+                {
+                    NSLog(@"not for admin");
+                    [[TCEditingPermission shared] reset];
+                    [[TCEditingPermission shared] setTemplate:_userTemplate];
+                    [[TCEditingPermission shared] readyForPreview];
+                }
+                 */
                 [[TCEditingPermission shared] reset];
                 [[TCEditingPermission shared] setTemplate:_userTemplate];
                 [[TCEditingPermission shared] readyForPreview];
+                
                 TCPermissionViewController *perVC = [TCPermissionViewController new];
                 perVC.userID = _staff.uid;
                 perVC.state = PermissionVCPreviewPermission;

@@ -58,6 +58,32 @@
     }
 }
 
+- (void) resetForAdmin
+{
+    [_permissionArray removeAllObjects];
+    [[TCEmptyPermission shared] reset];
+    NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
+    [_permissionArray addObjectsFromArray:emptyArray];
+    
+    for (TCPermissionNode * subNode in _permissionArray)
+    {
+        [self resetPermissionNodeForAdmin:subNode];
+    }
+}
+
+- (void) resetPermissionNodeForAdmin:(TCPermissionNode *)node
+{
+    for (TCPermissionNode *subNode in node.data)
+    {
+        subNode.fold = NO;
+        subNode.selected = YES;
+        subNode.hidden = NO;
+        subNode.depth = node.depth + 1;
+        subNode.fatherNode = node;
+        [self resetPermissionNode:subNode];
+    }
+}
+
 - (void) resetPermissionNode:(TCPermissionNode *)node
 {
     for (TCPermissionNode *subNode in node.data)
