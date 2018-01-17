@@ -49,7 +49,7 @@
             [_updateTimer invalidate];
             _updateTimer = nil;
         }
-        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
         //[self fetchMessageCount];
         [self performSelector:@selector(fetchMessageCount) withObject:nil afterDelay:0.6];
     }
@@ -87,7 +87,6 @@
     if (obs)
     {
         [mObserverArray addObject:obs];
-        NSLog(@"add obs arry:%@",mObserverArray);
     }
 }
 
