@@ -8,6 +8,7 @@
 
 #import "TCMessageViewController.h"
 #import "TCMessageTableViewController.h"
+#import "TCMessageManager.h"
 
 @interface TCMessageViewController ()
 
@@ -81,6 +82,7 @@
     //[self configSeparatorView];
     
     [self.magicView reloadData];
+    [[TCMessageManager shared] clearMessageCount];
 }
 
 - (void)didReceiveMemoryWarning {

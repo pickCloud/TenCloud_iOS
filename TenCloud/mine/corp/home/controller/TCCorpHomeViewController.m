@@ -28,6 +28,7 @@
 #import "NSString+Extension.h"
 
 #import "UIView+MGBadgeView.h"
+#import "TCMessageManager.h"
 
 //#import "TCMessageTableViewController.h"
 #import "TCMessageViewController.h"
@@ -36,7 +37,7 @@
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
-@interface TCCorpHomeViewController () <TCCurrentCorpDelegate>
+@interface TCCorpHomeViewController () <TCCurrentCorpDelegate,TCMessageManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UIButton        *avatarButton;
 @property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
@@ -46,6 +47,7 @@
 @property (nonatomic, assign)   NSInteger               corpID;
 @property (nonatomic, strong)   TCCorp                  *corpInfo;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
+@property (nonatomic, strong)   UIButton                *messageButton;
 @property (nonatomic, weak) IBOutlet    TCSwitchAccountButton   *switchButton;
 
 - (IBAction) onProfilePage:(id)sender;
@@ -92,18 +94,19 @@
     [self loadCorpArray];
     
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
-    UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [msgButton setImage:messageIconImg forState:UIControlStateNormal];
-    [msgButton sizeToFit];
-    [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_messageButton setImage:messageIconImg forState:UIControlStateNormal];
+    [_messageButton sizeToFit];
+    [_messageButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
     
-    [msgButton.badgeView setBadgeValue:2];
-    [msgButton.badgeView setOutlineWidth:0.0];
-    [msgButton.badgeView setBadgeColor:[UIColor redColor]];
-    [msgButton.badgeView setMinDiameter:5.0];
-    [msgButton.badgeView setPosition:MGBadgePositionTopRight];
+    NSInteger msgCount = [[TCMessageManager shared] count];
+    [_messageButton.badgeView setBadgeValue:msgCount];
+    [_messageButton.badgeView setOutlineWidth:0.0];
+    [_messageButton.badgeView setBadgeColor:[UIColor redColor]];
+    [_messageButton.badgeView setMinDiameter:6.0];
+    [_messageButton.badgeView setPosition:MGBadgePositionTopRight];
     
-    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
+    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
     self.navigationItem.rightBarButtonItem = messageItem;
     
     UINib *cellNib = [UINib nibWithNibName:@"TCIconTableViewCell" bundle:nil];
@@ -147,7 +150,8 @@
         };
         [weakSelf presentViewController:menuVC animated:NO completion:nil];
     };
-
+    
+    [[TCMessageManager shared] addObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,7 +161,7 @@
 
 - (void) dealloc
 {
-    
+    [[TCMessageManager shared] removeObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -287,5 +291,12 @@
     _corpInfo.mobile = corp.mobile;
     _corpInfo.cid = corp.cid;
     [self updateCorpInfoUI];
+}
+
+#pragma mark - TCMessageManagerDelegate
+- (void) messageCountChanged:(NSInteger)count
+{
+    NSLog(@"se msg btn badge:%ld",count);
+    _messageButton.badgeView.badgeValue = count;
 }
 @end

@@ -16,6 +16,7 @@
 #import "NSString+Extension.h"
 #import "TCInviteLoginViewController.h"
 #import "TCAcceptInviteViewController.h"
+#import "TCMessageManager.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +31,7 @@
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
     [[TCConfiguration shared] print];
     [[TCShareManager sharedManager] registerAllPlatForms];
+    [[TCMessageManager shared] start];
     
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];

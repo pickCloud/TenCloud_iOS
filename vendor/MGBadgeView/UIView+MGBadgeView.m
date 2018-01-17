@@ -11,7 +11,7 @@
 
 @implementation MGBadgeView
 
-static float const kMGBadgeViewInnerSpaceFromBorder = 0.5;//3.0;
+static float const kMGBadgeViewInnerSpaceFromBorder = 1.0;//3.0;
 static int const kMGBadgeViewTag = 9876;
 
 #define BADGE_SIDE_OFFSET kMGBadgeViewInnerSpaceFromBorder + _outlineWidth

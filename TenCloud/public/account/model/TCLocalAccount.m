@@ -8,6 +8,7 @@
 
 #import "TCLocalAccount.h"
 #import "TCUser+CoreDataClass.h"
+#import "TCMessageManager.h"
 
 #define ACCOUNT_USERID      @"ACCOUNT_USERID"
 #define ACCOUNT_NAME        @"ACCOUNT_NAME"
@@ -135,6 +136,8 @@
             [obs accountLoggedIn:account];
         }
     }
+    
+    [[TCMessageManager shared] start];
 }
 
 - (void) modified
@@ -179,6 +182,7 @@
             [obs accountLogout:account];
         }
     }
+    [[TCMessageManager shared] stop];
 }
 
 - (void) save
