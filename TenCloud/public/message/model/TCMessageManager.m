@@ -75,7 +75,6 @@
     __weak __typeof(self) weakSelf = self;
     TCMessageCountRequest *countReq = [TCMessageCountRequest new];
     [countReq startWithSuccess:^(NSInteger count) {
-        count = 2;
         weakSelf.count = count;
         [weakSelf sendMessageCount:count];
     } failure:^(NSString *message) {
