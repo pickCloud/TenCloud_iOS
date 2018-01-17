@@ -29,6 +29,7 @@
 
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
+#import "TCStaffListRequest.h"
 
 //#import "TCMessageTableViewController.h"
 #import "TCMessageViewController.h"
@@ -48,6 +49,7 @@
 @property (nonatomic, strong)   TCCorp                  *corpInfo;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
 @property (nonatomic, strong)   UIButton                *messageButton;
+@property (nonatomic, assign)   NSInteger               staffCount;
 @property (nonatomic, weak) IBOutlet    TCSwitchAccountButton   *switchButton;
 
 - (IBAction) onProfilePage:(id)sender;
@@ -72,6 +74,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
+    _staffCount = 0;
     [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     _corpArray = [NSMutableArray new];
@@ -152,6 +155,13 @@
     };
     
     [[TCMessageManager shared] addObserver:self];
+    TCStaffListRequest *staffReq = [TCStaffListRequest new];
+    [staffReq startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
+        _staffCount = staffArray.count;
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,7 +193,8 @@
     {
         if (indexPath.row == 0)
         {
-            [cell setIcon:@"corp_home_staff" title:@"员工管理" desc:@""];
+            NSString *staffCountStr = [NSString stringWithFormat:@"%ld个员工",_staffCount];
+            [cell setIcon:@"corp_home_staff" title:@"员工管理" desc:staffCountStr];
         }else if(indexPath.row == 1)
         {
             [cell setIcon:@"corp_home_template" title:@"权限模版管理" desc:@""];
