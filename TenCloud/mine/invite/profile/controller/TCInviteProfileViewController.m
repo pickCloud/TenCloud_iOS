@@ -155,13 +155,19 @@
     [_idCardField resignFirstResponder];
     
     [MMProgressHUD showWithStatus:@"提交中"];
-    __weak __typeof(self) weakSelf = self;
-    TCSetPasswordRequest *pwdReq = [[TCSetPasswordRequest alloc] initWithPassword:_password1Field.text];
-    [pwdReq startWithSuccess:^(NSString *message) {
-        [weakSelf sendCompleteInviteRequest];
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-    }];
+    if (_shouldSetPassword)
+    {
+        __weak __typeof(self) weakSelf = self;
+        TCSetPasswordRequest *pwdReq = [[TCSetPasswordRequest alloc] initWithPassword:_password1Field.text];
+        [pwdReq startWithSuccess:^(NSString *message) {
+            [weakSelf sendCompleteInviteRequest];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    }else
+    {
+        [self sendCompleteInviteRequest];
+    }
 }
 
 - (void) sendCompleteInviteRequest

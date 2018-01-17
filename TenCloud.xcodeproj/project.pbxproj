@@ -151,6 +151,7 @@
 		A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A067D89B200F264600160913 /* TCMessageViewController.xib */; };
 		A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89F200F438700160913 /* TCMessageListRequest.m */; };
 		A067D8A4200F4A7600160913 /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D8A3200F4A7600160913 /* UIView+MGBadgeView.m */; };
+		A067D8A7200F591F00160913 /* TCMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D8A6200F591F00160913 /* TCMessageManager.m */; };
 		A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */; };
 		A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */; };
 		A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */; };
@@ -622,6 +623,8 @@
 		A067D89F200F438700160913 /* TCMessageListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMessageListRequest.m; sourceTree = "<group>"; };
 		A067D8A2200F4A7600160913 /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		A067D8A3200F4A7600160913 /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
+		A067D8A5200F591F00160913 /* TCMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMessageManager.h; sourceTree = "<group>"; };
+		A067D8A6200F591F00160913 /* TCMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMessageManager.m; sourceTree = "<group>"; };
 		A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCertificateTableViewCell.h; sourceTree = "<group>"; };
 		A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCertificateTableViewCell.m; sourceTree = "<group>"; };
 		A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCertificateTableViewCell.xib; sourceTree = "<group>"; };
@@ -3521,6 +3524,8 @@
 		A0D58814200E479200104ED9 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A067D8A5200F591F00160913 /* TCMessageManager.h */,
+				A067D8A6200F591F00160913 /* TCMessageManager.m */,
 				A0D58822200E536600104ED9 /* TCMessage+CoreDataClass.h */,
 				A0D58823200E536600104ED9 /* TCMessage+CoreDataClass.m */,
 				A0D58824200E536600104ED9 /* TCMessage+CoreDataProperties.h */,
@@ -4066,6 +4071,7 @@
 				A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */,
 				A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */,
 				A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */,
+				A067D8A7200F591F00160913 /* TCMessageManager.m in Sources */,
 				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
 				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
