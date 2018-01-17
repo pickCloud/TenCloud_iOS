@@ -21,6 +21,7 @@ typedef void (^TCModifyTextRequestBlock)(TCModifyTextViewController *vc, NSStrin
 @property (nonatomic, strong)   NSString    *initialValue;
 @property (nonatomic, strong)   NSString    *placeHolder;
 @property (nonatomic, assign)   TCApiType   apiType;
+@property (nonatomic, assign)   TCCellType  cellType;
 @property (nonatomic, assign)   NSInteger   cid;
 @property (nonatomic, copy) TCModifyTextValueChangedBlock   valueChangedBlock;
 @property (nonatomic, copy) TCModifyTextRequestBlock        requestBlock;

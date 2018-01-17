@@ -10,6 +10,7 @@
 #import "TCModifyUserProfileRequest.h"
 #import "TCModifyCorpProfileRequest.h"
 #import "TCCurrentCorp.h"
+#import "NSString+Addition.h"
 
 
 @interface TCModifyTextViewController ()<UIGestureRecognizerDelegate, UITextFieldDelegate>
@@ -90,6 +91,15 @@
     NSString *newValue = _textField.text;
     newValue = newValue ? newValue : @"";
     __weak __typeof(self) weakSelf = self;
+    
+    if (_cellType == TCCellTypeEditEmail)
+    {
+        if (![newValue isEmailWithString:newValue])
+        {
+            [MBProgressHUD showError:@"邮箱格式不正确" toView:nil];
+            return;
+        }
+    }
     
     if (_requestBlock)
     {

@@ -340,6 +340,7 @@
 		A0D5882C200ED62C00104ED9 /* TCMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D5882A200ED62C00104ED9 /* TCMessageTableViewCell.xib */; };
 		A0DC9D77200F9E2C0061A015 /* TCJoinCorpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D75200F9E2C0061A015 /* TCJoinCorpViewController.m */; };
 		A0DC9D78200F9E2C0061A015 /* TCJoinCorpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DC9D76200F9E2C0061A015 /* TCJoinCorpViewController.xib */; };
+		A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */; };
 		A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */; };
 		A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9920007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m */; };
 		A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9E20007C8200D227BC /* TCEmptyPermission.m */; };
@@ -949,6 +950,8 @@
 		A0DC9D74200F9E2C0061A015 /* TCJoinCorpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCJoinCorpViewController.h; sourceTree = "<group>"; };
 		A0DC9D75200F9E2C0061A015 /* TCJoinCorpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCJoinCorpViewController.m; sourceTree = "<group>"; };
 		A0DC9D76200F9E2C0061A015 /* TCJoinCorpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCJoinCorpViewController.xib; sourceTree = "<group>"; };
+		A0DC9D79200FA70C0061A015 /* NSString+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addition.h"; sourceTree = "<group>"; };
+		A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addition.m"; sourceTree = "<group>"; };
 		A0EF3B9620007C4A00D227BC /* TCPermissionNode+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataClass.h"; sourceTree = "<group>"; };
 		A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionNode+CoreDataClass.m"; sourceTree = "<group>"; };
 		A0EF3B9820007C4A00D227BC /* TCPermissionNode+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -2811,6 +2814,8 @@
 		A07DBE8F1FE1157800F37715 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				A0DC9D79200FA70C0061A015 /* NSString+Addition.h */,
+				A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */,
 				A07DBE901FE1157800F37715 /* NSString+Extension.h */,
 				A07DBE911FE1157800F37715 /* NSString+Extension.m */,
 			);
@@ -4200,6 +4205,7 @@
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
+				A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */,
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,

@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, TCCellType) {
     TCCellTypeEditText    =   0,
+    TCCellTypeEditEmail,
     TCCellTypeEditDate,
     TCCellTypeEditGender,
     TCCellTypeEditAvatar,

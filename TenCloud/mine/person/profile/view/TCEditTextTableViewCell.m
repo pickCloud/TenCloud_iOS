@@ -46,6 +46,7 @@
     modifyVC.initialValue = self.data.initialValue;
     modifyVC.placeHolder = self.data.placeHolder;
     modifyVC.keyName = self.data.keyName;
+    modifyVC.cellType = self.data.type;
     modifyVC.apiType = self.data.apiType;
     modifyVC.cid = self.data.cid;
     __weak __typeof(self) weakSelf = self;

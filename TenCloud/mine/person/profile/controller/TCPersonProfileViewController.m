@@ -60,7 +60,7 @@
     data4.keyName = @"email";
     data4.initialValue = account.email;
     data4.placeHolder = @"请输入邮箱";
-    data4.type = TCCellTypeEditText;
+    data4.type = TCCellTypeEditEmail;
     [_cellItemArray addObject:data4];
     
     TCCellData *data5 = [TCCellData new];
