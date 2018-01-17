@@ -140,7 +140,14 @@
     {
         if (indexPath.row == 0)
         {
-            NSString *corpDesc = [NSString stringWithFormat:@"%ld家公司",_corpArray.count - 1];
+            NSString *corpDesc = nil;
+            if (_corpArray.count <= 0)
+            {
+                corpDesc = @"";
+            }else
+            {
+                corpDesc = [NSString stringWithFormat:@"%ld家公司",_corpArray.count - 1];
+            }
             [cell setIcon:@"person_home_corp" title:@"我的公司" desc:corpDesc];
         }else
         {
