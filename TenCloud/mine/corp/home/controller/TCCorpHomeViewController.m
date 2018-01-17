@@ -28,6 +28,9 @@
 #import "NSString+Extension.h"
 
 
+#import "TCMessageTableViewController.h"
+
+
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
 
@@ -230,6 +233,8 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    [self.navigationController pushViewController:msgVC animated:YES];
 }
 
 - (void) loadCorpArray

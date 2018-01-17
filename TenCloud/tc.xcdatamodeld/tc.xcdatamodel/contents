@@ -30,6 +30,17 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCMessage" representedClassName="TCMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="messageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sub_mode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCPermissionChunk" representedClassName="TCPermissionChunk" parentEntity="TCPermissionObject" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -189,6 +200,7 @@
     <elements>
         <element name="TCClusterProvider" positionX="-9" positionY="135" width="128" height="75"/>
         <element name="TCCorp" positionX="-9" positionY="135" width="128" height="195"/>
+        <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="135"/>
         <element name="TCPermissionChunk" positionX="0" positionY="144" width="128" height="75"/>
         <element name="TCPermissionItem" positionX="18" positionY="162" width="128" height="120"/>
@@ -212,6 +224,6 @@
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="180"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
+        <element name="TCMessage" positionX="-9" positionY="135" width="128" height="180"/>
     </elements>
 </model>

@@ -104,7 +104,7 @@
         _inviteInfo.contact == nil ||
         _inviteInfo.contact.length == 0)
     {
-        _row1Label.text = @"无效的邀请链接";
+        _row1Label.text = @"邀请链接已过期，请联系管理员重新邀请";
         _row2Label.text = @"";
         return;
     }
