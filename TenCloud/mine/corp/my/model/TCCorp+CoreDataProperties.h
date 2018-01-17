@@ -2,8 +2,8 @@
 //  TCCorp+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/28.
-//  Copyright © 2017年 10.com. All rights reserved.
+//  Created by huangdx on 2018/1/17.
+//  Copyright © 2018年 10.com. All rights reserved.
 //
 //
 
@@ -23,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *desc;
 @property (nonatomic) int16_t is_admin;
 @property (nullable, nonatomic, copy) NSString *mobile;
+@property (nullable, nonatomic, copy) NSString *name;
 @property (nonatomic) int16_t status;
 @property (nullable, nonatomic, copy) NSString *update_time;
-@property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *image_url;
 
 @end
 

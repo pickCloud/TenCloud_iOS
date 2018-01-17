@@ -60,9 +60,10 @@
     [params setObject:name forKey:@"name"];
     [params setObject:contact forKey:@"contact"];
     [params setObject:mobile forKey:@"mobile"];
+    [params setObject:@"1" forKey:@"image_url"];
     [params setObject:_value forKey:_key];
     [params setObject:@(_cid) forKey:@"cid"];
-    [params setObject:@"1" forKey:@"image_url"];
+    //[params setObject:_value forKey:@"image_url"];
     return params;
 }
 @end

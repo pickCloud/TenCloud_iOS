@@ -287,9 +287,9 @@
         NSString *mobile = [[TCCurrentCorp shared] mobile];
         _contactLabel.text = [[TCCurrentCorp shared] contact];
         _phoneLabel.text = [NSString hiddenPhoneNumStr:mobile];
-        //NSURL *avatarURL = [NSURL URLWithString:_corpInfo.];
+        NSURL *avatarURL = [NSURL URLWithString:_corpInfo.image_url];
         UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
-        [_avatarButton setImage:defaultAvatarImg forState:UIControlStateNormal];
+        [_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
     }
     
 }
@@ -301,6 +301,7 @@
     _corpInfo.contact = corp.contact;
     _corpInfo.mobile = corp.mobile;
     _corpInfo.cid = corp.cid;
+    _corpInfo.image_url = corp.image_url;
     [self updateCorpInfoUI];
 }
 

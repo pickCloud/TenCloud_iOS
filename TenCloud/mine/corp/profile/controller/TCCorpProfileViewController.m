@@ -58,7 +58,7 @@
     _cellItemArray = [NSMutableArray new];
     TCCellData *data1 = [TCCellData new];
     data1.title = @"LOGO";
-    data1.initialValue = @"";
+    data1.initialValue = _corp.image_url;
     data1.type = TCCellTypeEditAvatar;
     data1.hideDetailView = YES;
     data1.apiType = TCApiTypeUpdateCorp;

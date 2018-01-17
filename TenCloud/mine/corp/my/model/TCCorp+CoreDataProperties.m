@@ -2,8 +2,8 @@
 //  TCCorp+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/28.
-//  Copyright © 2017年 10.com. All rights reserved.
+//  Created by huangdx on 2018/1/17.
+//  Copyright © 2018年 10.com. All rights reserved.
 //
 //
 
@@ -29,8 +29,9 @@
 @dynamic desc;
 @dynamic is_admin;
 @dynamic mobile;
+@dynamic name;
 @dynamic status;
 @dynamic update_time;
-@dynamic name;
+@dynamic image_url;
 
 @end

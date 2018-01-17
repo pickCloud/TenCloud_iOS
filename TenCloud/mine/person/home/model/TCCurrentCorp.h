@@ -23,6 +23,7 @@
 @property (nonatomic, assign)   BOOL        isAdmin;
 @property (nonatomic, strong)   NSString    *contact;
 @property (nonatomic, strong)   NSString    *mobile;
+@property (nonatomic, strong)   NSString    *image_url;
 
 
 //- (BOOL) isCurrent:(TCCorp*)corp;

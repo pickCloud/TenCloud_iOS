@@ -17,6 +17,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
+#import "TCModifyCorpProfileRequest.h"
+#import "TCCorpProfileRequest.h"
+#import "TCCorp+CoreDataClass.h"
 
 @interface  TCEditAvatarTableViewCell()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -49,12 +52,6 @@
 
 - (IBAction) onButton:(id)sender
 {
-    NSLog(@"avatar button");
-    if (self.data.apiType == TCApiTypeUpdateCorp)
-    {
-        [MBProgressHUD showError:@"暂不支持企业图标更新" toView:nil];
-        return;
-    }
     NSArray *menuArray = [NSArray arrayWithObjects:@"相册",@"相机", nil];
     [LSActionSheet showWithTitle:nil destructiveTitle:nil otherTitles:menuArray block:^(int index) {
         switch (index) {
@@ -142,23 +139,43 @@
         NSString *uuid = [NSString UUID];
         [uploadManager putData:jpgData key:uuid token:token
                       complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-                          TCModifyUserProfileRequest *modifyReq = [[TCModifyUserProfileRequest alloc] initWithKey:@"image_url" value:key];
-                          [modifyReq startWithSuccess:^(NSString *message) {
-                              TCUserProfileRequest *userReq = [TCUserProfileRequest new];
-                              [userReq startWithSuccess:^(TCUser *user) {
-                                  TCLocalAccount *account = [TCLocalAccount shared];
-                                  account.avatar = user.image_url;
-                                  [account save];
-                                  [account modified];
-                                  [weakSelf.avatarView setImage:avatarImage];
-                                  [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+                          if (self.data.apiType == TCApiTypeDefault)
+                          {
+                              TCModifyUserProfileRequest *modifyReq = [[TCModifyUserProfileRequest alloc] initWithKey:@"image_url" value:key];
+                              [modifyReq startWithSuccess:^(NSString *message) {
+                                  TCUserProfileRequest *userReq = [TCUserProfileRequest new];
+                                  [userReq startWithSuccess:^(TCUser *user) {
+                                      TCLocalAccount *account = [TCLocalAccount shared];
+                                      account.avatar = user.image_url;
+                                      [account save];
+                                      [account modified];
+                                      [weakSelf.avatarView setImage:avatarImage];
+                                      [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+                                  } failure:^(NSString *message) {
+                                      [MMProgressHUD dismissWithError:message];
+                                  }];
                               } failure:^(NSString *message) {
                                   [MMProgressHUD dismissWithError:message];
                               }];
-                          } failure:^(NSString *message) {
-                              [MMProgressHUD dismissWithError:message];
-                          }];
-                          
+                          }else if(self.data.apiType == TCApiTypeUpdateCorp)
+                          {
+                              TCCurrentCorp *corp = [TCCurrentCorp shared];
+                              TCModifyCorpProfileRequest *modifyReq = [[TCModifyCorpProfileRequest alloc] initWithCid:corp.cid key:@"image_url" value:key];
+                              [modifyReq startWithSuccess:^(NSString *message) {
+                                  TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:corp.cid];
+                                  [corpReq startWithSuccess:^(TCCorp *corp) {
+                                      [[TCCurrentCorp shared] setImage_url:corp.image_url];
+                                      [[TCCurrentCorp shared] modified];
+                                      [weakSelf.avatarView setImage:avatarImage];
+                                      [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
+                                  } failure:^(NSString *message) {
+                                      [MMProgressHUD dismissWithError:message];
+                                  }];
+
+                              } failure:^(NSString *message) {
+                                  [MMProgressHUD dismissWithError:message];
+                              }];
+                          }
                       } option:opt];
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message];
