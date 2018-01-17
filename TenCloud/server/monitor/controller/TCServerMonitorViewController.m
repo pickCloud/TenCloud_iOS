@@ -163,7 +163,10 @@
      */
     
     NSInteger endTime = [[NSDate date] timeIntervalSince1970];
-    NSInteger startTime = endTime - 3600;
+    //NSInteger startTime = endTime - 3600;
+    //NSInteger startTime = endTime - 86400;  //24hour
+    //NSInteger startTime = endTime - 604800;   //one week
+    NSInteger startTime = endTime - 18144000;   //one month
     __weak __typeof(self) weakSelf = self;
     TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
     [request startWithSuccess:^(TCServerPerformance *performance) {
