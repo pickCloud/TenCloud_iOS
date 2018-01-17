@@ -27,6 +27,7 @@
 #import "TCCorpProfileRequest.h"
 #import "NSString+Extension.h"
 
+#import "UIView+MGBadgeView.h"
 
 //#import "TCMessageTableViewController.h"
 #import "TCMessageViewController.h"
@@ -95,6 +96,13 @@
     [msgButton setImage:messageIconImg forState:UIControlStateNormal];
     [msgButton sizeToFit];
     [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [msgButton.badgeView setBadgeValue:2];
+    [msgButton.badgeView setOutlineWidth:0.0];
+    [msgButton.badgeView setBadgeColor:[UIColor redColor]];
+    [msgButton.badgeView setMinDiameter:5.0];
+    [msgButton.badgeView setPosition:MGBadgePositionTopRight];
+    
     UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
     self.navigationItem.rightBarButtonItem = messageItem;
     
