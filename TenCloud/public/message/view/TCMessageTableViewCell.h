@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCMessageTableViewCell;
 @class TCMessage;
+typedef void (^TCMessageTableViewCellActionBlock)(TCMessageTableViewCell *cell, TCMessage *message);
 @interface TCMessageTableViewCell : UITableViewCell
+
+@property (nonatomic, copy) TCMessageTableViewCellActionBlock   actionBlock;
 
 - (void) setMessage:(TCMessage*)message;
 

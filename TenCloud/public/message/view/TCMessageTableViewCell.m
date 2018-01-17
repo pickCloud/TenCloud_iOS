@@ -10,6 +10,7 @@
 #import "TCMessage+CoreDataClass.h"
 
 @interface TCMessageTableViewCell()
+@property (nonatomic, strong)   TCMessage           *message;
 @property (nonatomic, weak) IBOutlet    UILabel     *operationLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *contentLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *actionButton;
@@ -34,6 +35,7 @@
 
 - (void) setMessage:(TCMessage*)message
 {
+    _message = message;
     NSString *operation = nil;
     if (message.mode == 1)
     {
@@ -114,5 +116,10 @@
 - (IBAction) onActionButton:(id)sender
 {
     NSLog(@" on action buttton");
+    if (_actionBlock)
+    {
+        _actionBlock(self,_message);
+    }
+    
 }
 @end

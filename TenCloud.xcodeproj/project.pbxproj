@@ -147,6 +147,9 @@
 		A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04539BB2007514900402D1A /* ShapeSelectView.xib */; };
 		A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539BD2007514900402D1A /* ShapeSelectView.m */; };
 		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
+		A067D89C200F264600160913 /* TCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89A200F264600160913 /* TCMessageViewController.m */; };
+		A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A067D89B200F264600160913 /* TCMessageViewController.xib */; };
+		A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89F200F438700160913 /* TCMessageListRequest.m */; };
 		A069EF291FF5E9F000C126CD /* TCCertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */; };
 		A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */; };
 		A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A069EF2C1FF63E6B00C126CD /* TCStaffLabel.m */; };
@@ -611,6 +614,11 @@
 		A04539BD2007514900402D1A /* ShapeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeSelectView.m; sourceTree = "<group>"; };
 		A04539C02007523000402D1A /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
 		A04539C12007523000402D1A /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
+		A067D899200F264600160913 /* TCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMessageViewController.h; sourceTree = "<group>"; };
+		A067D89A200F264600160913 /* TCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMessageViewController.m; sourceTree = "<group>"; };
+		A067D89B200F264600160913 /* TCMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMessageViewController.xib; sourceTree = "<group>"; };
+		A067D89E200F438700160913 /* TCMessageListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMessageListRequest.h; sourceTree = "<group>"; };
+		A067D89F200F438700160913 /* TCMessageListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMessageListRequest.m; sourceTree = "<group>"; };
 		A069EF261FF5E9EF00C126CD /* TCCertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCertificateTableViewCell.h; sourceTree = "<group>"; };
 		A069EF271FF5E9EF00C126CD /* TCCertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCertificateTableViewCell.m; sourceTree = "<group>"; };
 		A069EF281FF5E9F000C126CD /* TCCertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCCertificateTableViewCell.xib; sourceTree = "<group>"; };
@@ -3487,6 +3495,9 @@
 		A0D58813200E479200104ED9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A067D899200F264600160913 /* TCMessageViewController.h */,
+				A067D89A200F264600160913 /* TCMessageViewController.m */,
+				A067D89B200F264600160913 /* TCMessageViewController.xib */,
 				A0D5881A200E4B3700104ED9 /* TCMessageTableViewController.h */,
 				A0D5881B200E4B3700104ED9 /* TCMessageTableViewController.m */,
 				A0D5881C200E4B3700104ED9 /* TCMessageTableViewController.xib */,
@@ -3508,6 +3519,8 @@
 		A0D58815200E479200104ED9 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A067D89E200F438700160913 /* TCMessageListRequest.h */,
+				A067D89F200F438700160913 /* TCMessageListRequest.m */,
 				A0D5881F200E4DF100104ED9 /* TCSearchMessageRequest.h */,
 				A0D58820200E4DF100104ED9 /* TCSearchMessageRequest.m */,
 				A0D58818200E482E00104ED9 /* TCMessageCountRequest.h */,
@@ -3791,6 +3804,7 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
+				A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */,
 				A00AFF74200A03F300EFADF6 /* TCInviteLoginViewController.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
 				A0B7141A2006F30600BE9FCA /* TCChangeAdminViewController.xib in Resources */,
@@ -4035,6 +4049,7 @@
 				A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */,
 				A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
+				A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */,
 				A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */,
 				A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */,
 				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
@@ -4066,6 +4081,7 @@
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A0D58819200E482E00104ED9 /* TCMessageCountRequest.m in Sources */,
 				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
+				A067D89C200F264600160913 /* TCMessageViewController.m in Sources */,
 				A0A86B951FF4EFB100D1D58D /* TCModifyCorpProfileRequest.m in Sources */,
 				A019A73A1FFB630800216660 /* TCPermissionSegment+CoreDataClass.m in Sources */,
 				A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */,

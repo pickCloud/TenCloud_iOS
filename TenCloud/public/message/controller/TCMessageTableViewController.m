@@ -10,9 +10,13 @@
 #import "TCSearchMessageRequest.h"
 #import "TCMessageTableViewCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCMessage+CoreDataClass.h"
+#import "TCCorpHomeViewController.h"
+#import "TCMessageListRequest.h"
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
 @interface TCMessageTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
+@property (nonatomic, assign)           NSInteger       status;
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *messageArray;
 @end
@@ -24,6 +28,17 @@
     self = [super init];
     if (self)
     {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+- (instancetype) initWithStatus:(NSInteger)status
+{
+    self = [super init];
+    if (self)
+    {
+        _status = status;
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -42,12 +57,27 @@
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
+    /*
     TCSearchMessageRequest *searchReq = [TCSearchMessageRequest new];
-    searchReq.status = 0;
+    searchReq.status = _status;
     searchReq.mode = 1;
     searchReq.keywords = @"";
     [searchReq startWithSuccess:^(NSArray<TCMessage*> *messageArray) {
-        //NSLog(@"messageArray:%@",messageArray);
+        if (messageArray)
+        {
+            [weakSelf.messageArray addObjectsFromArray:messageArray];
+        }
+        [weakSelf stopLoading];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
+     */
+    TCMessageListRequest *listReq = [TCMessageListRequest new];
+    listReq.status = _status;
+    listReq.page = 0;
+    [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
         if (messageArray)
         {
             [weakSelf.messageArray addObjectsFromArray:messageArray];
@@ -79,13 +109,31 @@
     TCMessage *message = [_messageArray objectAtIndex:indexPath.row];
     TCMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MESSAGE_CELL_ID forIndexPath:indexPath];
     [cell setMessage:message];
+    cell.actionBlock = ^(TCMessageTableViewCell *cell, TCMessage *message) {
+        NSString *companyStr = message.tip;
+        if (companyStr && companyStr.length > 0)
+        {
+            NSArray *cidArray = [companyStr componentsSeparatedByString:@":"];
+            if (cidArray)
+            {
+                NSString *cidStr = cidArray.firstObject;
+                NSInteger cid = cidStr.integerValue;
+                if ([[TCCurrentCorp shared] cid] == cid)
+                {
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }else
+                {
+                    TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+                    NSArray *viewControllers = self.navigationController.viewControllers;
+                    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                    [newVCS removeLastObject];
+                    [newVCS addObject:homeVC];
+                    [self.navigationController setViewControllers:newVCS animated:YES];
+                }
+            }
+        }
+    };
     return cell;
-    /*
-    TCServerContainerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONTAINER_CELL_REUSE_ID forIndexPath:indexPath];
-    NSArray *strArray = [_containerArray objectAtIndex:indexPath.row];
-    [cell setContainer:strArray];
-    return cell;
-     */
 }
 
 

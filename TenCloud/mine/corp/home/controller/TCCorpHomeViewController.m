@@ -28,7 +28,8 @@
 #import "NSString+Extension.h"
 
 
-#import "TCMessageTableViewController.h"
+//#import "TCMessageTableViewController.h"
+#import "TCMessageViewController.h"
 
 
 
@@ -233,7 +234,9 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
-    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    //TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    //[self.navigationController pushViewController:msgVC animated:YES];
+    TCMessageViewController *msgVC = [TCMessageViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
 
