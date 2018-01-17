@@ -10,15 +10,18 @@
 #import "TCMyCorpTableViewCell.h"
 #import "TCCorpListRequest.h"
 #import "TCAddCorpViewController.h"
+#import "TCJoinCorpViewController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCCorpHomeViewController.h"
 #import "TCListCorp+CoreDataClass.h"
+#import "FEPopupMenuController.h"
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
 @interface TCMyCorpTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
+@property (nonatomic, strong)   FEPopupMenuController   *menuController;
 - (void) onAddCorpButton:(id)sender;
 - (void) onAddCorpNotification;
 - (void) reloadCorpArray;
@@ -61,6 +64,24 @@
     
     [self startLoading];
     [self reloadCorpArray];
+    
+    __weak __typeof(self) weakSelf = self;
+    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"添加企业" iconImage:nil action:^{
+        TCAddCorpViewController *addVC = [TCAddCorpViewController new];
+        [weakSelf.navigationController pushViewController:addVC animated:YES];
+    }];
+    item1.titleColor = THEME_TEXT_COLOR;
+    FEPopupMenuItem *item2 = [[FEPopupMenuItem alloc] initWithTitle:@"加入已有企业" iconImage:nil action:^{
+        TCJoinCorpViewController *joinVC = [TCJoinCorpViewController new];
+        [weakSelf.navigationController pushViewController:joinVC animated:YES];
+    }];
+    item2.titleColor = THEME_TEXT_COLOR;
+    self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item1,item2]];
+    self.menuController.isShowArrow = NO;
+    self.menuController.contentViewWidth = 180;
+    self.menuController.contentViewBackgroundColor = THEME_NAVBAR_TITLE_COLOR;
+    self.menuController.itemSeparatorLineColor = TABLE_CELL_BG_COLOR;
+    self.menuController.contentViewCornerRadius = TCSCALE(4.0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,8 +200,11 @@
 
 - (void) onAddCorpButton:(id)sender
 {
-    TCAddCorpViewController *addVC = [TCAddCorpViewController new];
-    [self.navigationController pushViewController:addVC animated:YES];
+    CGRect navBarRect = self.navigationController.navigationBar.frame;
+    CGFloat posY = navBarRect.origin.y + navBarRect.size.height;
+    CGFloat posX = navBarRect.size.width - self.menuController.contentViewWidth - 20;
+    CGPoint pos = CGPointMake(posX, posY);
+    [self.menuController showInViewController:self atPosition:pos];
 }
 
 - (void) onAddCorpNotification

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCJoinCorpViewController">
+            <connections>
+                <outlet property="topConstraint" destination="bj7-bR-ys9" id="f7l-hW-ceY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-rb-0XS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
+                    <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前仅支持由公司管理员邀请加入:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usp-zn-gsh">
+                    <rect key="frame" x="24" y="112" width="218.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-RQ-jg9">
+                    <rect key="frame" x="24" y="137" width="57.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invite_flow" translatesAutoresizingMaskIntoConstraints="NO" id="3Ua-jt-RSk">
+                    <rect key="frame" x="0.0" y="154" width="375" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3Ua-jt-RSk" secondAttribute="height" multiplier="75:32" id="jkJ-6T-dLj"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.090196078431372548" green="0.10196078431372549" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cdM-rb-0XS" firstAttribute="bottom" secondItem="3Ua-jt-RSk" secondAttribute="bottom" id="9b3-EX-ZqX"/>
+                <constraint firstItem="usp-zn-gsh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="ELM-eN-k6K"/>
+                <constraint firstItem="cdM-rb-0XS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="KlR-BA-BCo"/>
+                <constraint firstItem="cdM-rb-0XS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SPT-FG-oly"/>
+                <constraint firstItem="3Ua-jt-RSk" firstAttribute="top" secondItem="a5r-RQ-jg9" secondAttribute="bottom" id="Y5E-fD-FoC"/>
+                <constraint firstItem="a5r-RQ-jg9" firstAttribute="top" secondItem="usp-zn-gsh" secondAttribute="bottom" constant="8" id="abB-Q3-8mT"/>
+                <constraint firstItem="usp-zn-gsh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="112" id="bj7-bR-ys9"/>
+                <constraint firstItem="3Ua-jt-RSk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sdf-QZ-eVl"/>
+                <constraint firstItem="a5r-RQ-jg9" firstAttribute="leading" secondItem="usp-zn-gsh" secondAttribute="leading" id="uSR-4c-sEM"/>
+                <constraint firstItem="3Ua-jt-RSk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="veZ-oT-GzH"/>
+                <constraint firstItem="cdM-rb-0XS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wVe-0n-hRz"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="invite_flow" width="375" height="160"/>
+    </resources>
+</document>
