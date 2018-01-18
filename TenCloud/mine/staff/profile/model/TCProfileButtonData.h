@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, TCProfileButtonType){
-    TCProfileButtonViewPermission   =   0,
-    TCProfileButtonSetPermission,
-    TCProfileButtonAllowJoin,
-    TCProfileButtonRejectJoin,
-    TCProfileButtonRemoveStaff,
-    TCProfileButtonChangeAdmin
+    TCProfileButtonViewPermission   =   0,  //查看权限
+    TCProfileButtonSetPermission,           //设置权限
+    TCProfileButtonAllowJoin,               //允许加入
+    TCProfileButtonRejectJoin,              //拒绝加入
+    TCProfileButtonRemoveStaff,             //解除关系
+    TCProfileButtonChangeAdmin,             //更换管理员
+    TCProfileButtonLeaveCorp                //离开企业
 };
 
 @interface TCProfileButtonData : NSObject

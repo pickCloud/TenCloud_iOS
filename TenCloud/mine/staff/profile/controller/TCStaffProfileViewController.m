@@ -251,6 +251,9 @@
                 [self presentViewController:changeVC animated:YES completion:^{
                     
                 }];
+            }else if(type == TCProfileButtonLeaveCorp)
+            {
+                
             }
         };
         return cell;
@@ -346,6 +349,12 @@
             data1.color = THEME_TINT_COLOR;
             data1.type = TCProfileButtonViewPermission;
             [_buttonDataArray addObject:data1];
+            
+            TCProfileButtonData *data2 = [TCProfileButtonData new];
+            data2.title = @"离开企业";
+            data2.color = THEME_TINT_COLOR;
+            data2.type = TCProfileButtonLeaveCorp;
+            [_buttonDataArray addObject:data2];
         }
     }
     
