@@ -21,6 +21,8 @@
 #import "TCRejectJoinRequest.h"
 #import "TCRemoveStaffRequest.h"
 #import "TCChangeAdminViewController.h"
+#import "TCLeaveCorpRequest.h"
+#import "TCPersonHomeViewController.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
@@ -253,7 +255,26 @@
                 }];
             }else if(type == TCProfileButtonLeaveCorp)
             {
-                
+                [MMProgressHUD showWithStatus:@"离开企业中"];
+                TCLeaveCorpRequest *leaveReq = [TCLeaveCorpRequest new];
+                leaveReq.staffID = _staff.staffID;
+                [leaveReq startWithSuccess:^(NSString *message) {
+                    TCPersonHomeViewController *homeVC = nil;
+                    homeVC = [[TCPersonHomeViewController alloc] init];
+                    //[[TCCurrentCorp shared] setCid:0];
+                    [[TCCurrentCorp shared] reset];
+                    //NSString *localName = [[TCLocalAccount shared] name];
+                    //[[TCCurrentCorp shared] setName:localName];
+                    //[[TCCurrentCorp shared] save];
+                    NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+                    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                    [newVCS removeAllObjects];
+                    [newVCS addObject:homeVC];
+                    [weakSelf.navigationController setViewControllers:newVCS];
+                    [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+                } failure:^(NSString *message) {
+                    [MMProgressHUD dismissWithError:message afterDelay:1.32];
+                }];
             }
         };
         return cell;

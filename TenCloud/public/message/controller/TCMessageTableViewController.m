@@ -126,7 +126,7 @@
                     TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
                     NSArray *viewControllers = self.navigationController.viewControllers;
                     NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-                    [newVCS removeLastObject];
+                    [newVCS removeAllObjects];
                     [newVCS addObject:homeVC];
                     [self.navigationController setViewControllers:newVCS animated:YES];
                 }

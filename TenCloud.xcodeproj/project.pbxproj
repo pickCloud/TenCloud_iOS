@@ -341,6 +341,7 @@
 		A0DC9D77200F9E2C0061A015 /* TCJoinCorpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D75200F9E2C0061A015 /* TCJoinCorpViewController.m */; };
 		A0DC9D78200F9E2C0061A015 /* TCJoinCorpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DC9D76200F9E2C0061A015 /* TCJoinCorpViewController.xib */; };
 		A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */; };
+		A0DC9D7E201042450061A015 /* TCLeaveCorpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D7C201042450061A015 /* TCLeaveCorpRequest.m */; };
 		A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */; };
 		A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9920007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m */; };
 		A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9E20007C8200D227BC /* TCEmptyPermission.m */; };
@@ -952,6 +953,8 @@
 		A0DC9D76200F9E2C0061A015 /* TCJoinCorpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCJoinCorpViewController.xib; sourceTree = "<group>"; };
 		A0DC9D79200FA70C0061A015 /* NSString+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addition.h"; sourceTree = "<group>"; };
 		A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addition.m"; sourceTree = "<group>"; };
+		A0DC9D7C201042450061A015 /* TCLeaveCorpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLeaveCorpRequest.m; sourceTree = "<group>"; };
+		A0DC9D7D201042450061A015 /* TCLeaveCorpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLeaveCorpRequest.h; sourceTree = "<group>"; };
 		A0EF3B9620007C4A00D227BC /* TCPermissionNode+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataClass.h"; sourceTree = "<group>"; };
 		A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionNode+CoreDataClass.m"; sourceTree = "<group>"; };
 		A0EF3B9820007C4A00D227BC /* TCPermissionNode+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -2875,6 +2878,8 @@
 		A0A0B5AC2002278600EA8512 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0DC9D7D201042450061A015 /* TCLeaveCorpRequest.h */,
+				A0DC9D7C201042450061A015 /* TCLeaveCorpRequest.m */,
 				A033AD44200CEED700FFD2BF /* TCRemoveStaffRequest.h */,
 				A033AD43200CEED700FFD2BF /* TCRemoveStaffRequest.m */,
 				A033AD41200CEC8700FFD2BF /* TCRejectJoinRequest.h */,
@@ -4281,6 +4286,7 @@
 				A031B62A1FFE259000B4F448 /* TCStaffTableViewCell.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A0D58827200E536600104ED9 /* TCMessage+CoreDataProperties.m in Sources */,
+				A0DC9D7E201042450061A015 /* TCLeaveCorpRequest.m in Sources */,
 				A0C362E320031F6E0033C99C /* TCUserPermissionRequest.m in Sources */,
 				A0D58821200E4DF100104ED9 /* TCSearchMessageRequest.m in Sources */,
 				A07DBDEA1FDED96200F37715 /* TCServerLogRequest.m in Sources */,
