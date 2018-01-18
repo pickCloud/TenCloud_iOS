@@ -371,11 +371,15 @@
             data1.type = TCProfileButtonViewPermission;
             [_buttonDataArray addObject:data1];
             
-            TCProfileButtonData *data2 = [TCProfileButtonData new];
-            data2.title = @"离开企业";
-            data2.color = THEME_TINT_COLOR;
-            data2.type = TCProfileButtonLeaveCorp;
-            [_buttonDataArray addObject:data2];
+            NSInteger uid = [[TCLocalAccount shared] userID];
+            if (_staff.uid == uid)
+            {
+                TCProfileButtonData *data2 = [TCProfileButtonData new];
+                data2.title = @"离开企业";
+                data2.color = THEME_TINT_COLOR;
+                data2.type = TCProfileButtonLeaveCorp;
+                [_buttonDataArray addObject:data2];
+            }
         }
     }
     
