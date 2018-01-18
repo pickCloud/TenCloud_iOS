@@ -168,6 +168,7 @@
     //NSInteger startTime = endTime - 604800;   //one week
     NSInteger startTime = endTime - 18144000;   //one month
     __weak __typeof(self) weakSelf = self;
+    [self startLoading];
     TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
     [request startWithSuccess:^(TCServerPerformance *performance) {
         NSLog(@"perfor:%@",performance);
@@ -232,8 +233,11 @@
         [_netOutputPoints addObjectsFromArray:outputPointArray];
         weakSelf.netChartView.points = [NSArray arrayWithArray:_netOutputPoints];
         [weakSelf.netChartView updateGraph];
+        [weakSelf stopLoading];
     } failure:^(NSString *message) {
         NSLog(@"message:%@",message);
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 
