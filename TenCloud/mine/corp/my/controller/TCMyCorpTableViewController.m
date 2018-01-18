@@ -131,7 +131,7 @@
     }else if(selectedCorp.status == 2)
     {
         
-    }else if(selectedCorp.status == 5)
+    }else if(selectedCorp.status == 5 || selectedCorp.status == 1)
     {
         NSLog(@"select corp code:%@",selectedCorp.code);
         NSString *inviteCode = selectedCorp.code;
