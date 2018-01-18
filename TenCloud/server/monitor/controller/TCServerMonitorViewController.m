@@ -222,15 +222,25 @@
         //重新计算网络points
         [_netOutputPoints removeAllObjects];
         NSMutableArray *rawNetOutputPoints = [NSMutableArray new];
+        NSMutableArray *rawNetInputPoints = [NSMutableArray new];
         for (int i = 0; i < performance.net.count; i++)
         {
             TCServerNet *net = [performance.net objectAtIndex:i];
             [rawNetOutputPoints addObject:@(net.output)];
+            [rawNetInputPoints addObject:@(net.input)];
         }
         NSMutableArray *outputPointArray = [NSMutableArray array];
         NSArray *tmpNetOutputPoints = [WYLineChartPoint pointsFromValueArray:rawNetOutputPoints];
         [outputPointArray addObject:tmpNetOutputPoints];
+        //NSMutableArray *inputPointArray = [NSMutableArray array];
+        NSArray *tmpNetInputPoints = [WYLineChartPoint pointsFromValueArray:rawNetInputPoints];
+        //[inputPointArray addObject:tmpNetInputPoints];
+        [outputPointArray addObject:tmpNetInputPoints];
         [_netOutputPoints addObjectsFromArray:outputPointArray];
+        //[_netOutputPoints addObject:outputPointArray];
+        //[_netOutputPoints addObject:inputPointArray];
+        
+        
         weakSelf.netChartView.points = [NSArray arrayWithArray:_netOutputPoints];
         [weakSelf.netChartView updateGraph];
         [weakSelf stopLoading];
@@ -521,8 +531,14 @@
         lineColor = [UIColor colorWithRed:216/255.f green:91/255.f blue:98/255.f alpha:1.0];
     }else if(chartView == _netChartView)
     {
+        if (index == 0)
+        {
+            lineColor = [UIColor colorWithRed:151/255.f green:186/255.f blue:147/255.f alpha:1.0];
+        }else
+        {
+            lineColor = [UIColor colorWithRed:216/255.f green:91/255.f blue:98/255.f alpha:1.0];
+        }
         //lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
-        lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
     }else
     {
         lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
