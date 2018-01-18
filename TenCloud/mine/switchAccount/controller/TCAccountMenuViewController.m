@@ -65,7 +65,11 @@
         newY = _buttonRect.origin.y + _buttonRect.size.height + 8 + 64;
     }
     
-    CGFloat height = _corpArray.count * 44;//TCSCALE(44);
+    CGFloat height = _corpArray.count * 45;//TCSCALE(44);
+    if (height > 10*45)
+    {
+        height = 10*45;
+    }
     CGRect newRect = CGRectMake(newX, newY, oldRect.size.width, height);
     _menuTableView.frame = newRect;
     
