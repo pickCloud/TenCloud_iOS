@@ -76,7 +76,7 @@
         [weakSelf.navigationController pushViewController:joinVC animated:YES];
     }];
     item2.titleColor = THEME_TEXT_COLOR;
-    self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item1,item2]];
+    self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item2,item1]];
     self.menuController.isShowArrow = NO;
     self.menuController.contentViewWidth = 180;
     self.menuController.contentViewBackgroundColor = THEME_NAVBAR_TITLE_COLOR;
