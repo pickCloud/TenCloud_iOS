@@ -136,6 +136,7 @@
             NSString *code = [paramDict objectForKey:@"code"];
             NSLog(@"invite code is:%@",code);
             NSLog(@"sssss112");
+            [[TCMessageManager shared] clearAllObserver];
             if ([[TCLocalAccount shared] isLogin])
             {
                 TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:code];

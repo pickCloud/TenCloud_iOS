@@ -98,11 +98,16 @@
     }
 }
 
+- (void) clearAllObserver
+{
+    [mObserverArray removeAllObjects];
+}
+
 - (void) sendMessageCount:(NSInteger)count
 {
     for (id<TCMessageManagerDelegate> obs in mObserverArray)
     {
-        if ([obs respondsToSelector:@selector(messageCountChanged:)])
+        if (obs && [obs respondsToSelector:@selector(messageCountChanged:)])
         {
             [obs messageCountChanged:count];
         }

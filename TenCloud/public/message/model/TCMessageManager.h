@@ -28,4 +28,6 @@
 
 - (void) removeObserver:(id<TCMessageManagerDelegate>)obs;
 
+- (void) clearAllObserver;
+
 @end
