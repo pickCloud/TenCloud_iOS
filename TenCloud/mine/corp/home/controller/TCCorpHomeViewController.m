@@ -91,7 +91,8 @@
         [[TCEmptyPermission shared] print];
         [weakSelf updateCorpInfoUI];
     } failure:^(NSString *message) {
-        
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
     
     [self loadCorpArray];

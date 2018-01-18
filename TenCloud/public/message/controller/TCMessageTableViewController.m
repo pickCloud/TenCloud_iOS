@@ -13,6 +13,11 @@
 #import "TCMessage+CoreDataClass.h"
 #import "TCCorpHomeViewController.h"
 #import "TCMessageListRequest.h"
+#import "TCCorpProfileRequest.h"
+#import "TCStaffTableViewController.h"
+
+#import "TCAcceptInviteViewController.h"
+#import "TCInviteLoginViewController.h"
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
 @interface TCMessageTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -109,6 +114,7 @@
     TCMessage *message = [_messageArray objectAtIndex:indexPath.row];
     TCMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MESSAGE_CELL_ID forIndexPath:indexPath];
     [cell setMessage:message];
+    __weak __typeof(self) weakSelf = self;
     cell.actionBlock = ^(TCMessageTableViewCell *cell, TCMessage *message) {
         NSString *companyStr = message.tip;
         if (companyStr && companyStr.length > 0)
@@ -117,19 +123,69 @@
             if (cidArray)
             {
                 NSString *cidStr = cidArray.firstObject;
-                NSInteger cid = cidStr.integerValue;
-                if ([[TCCurrentCorp shared] cid] == cid)
+                NSString *codeStr = nil;
+                if (cidArray.count > 1)
                 {
-                    [self.navigationController popToRootViewControllerAnimated:YES];
-                }else
-                {
-                    TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
-                    NSArray *viewControllers = self.navigationController.viewControllers;
-                    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-                    [newVCS removeAllObjects];
-                    [newVCS addObject:homeVC];
-                    [self.navigationController setViewControllers:newVCS animated:YES];
+                    codeStr = [cidArray objectAtIndex:1];
                 }
+                NSInteger cid = cidStr.integerValue;
+                
+                TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:cid];
+                [corpReq startWithSuccess:^(TCCorp *corp) {
+                    /*
+                    if ([[TCCurrentCorp shared] cid] == cid)
+                    {
+                        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+                    }else
+                    {
+                        TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+                        NSArray *viewControllers = self.navigationController.viewControllers;
+                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                        [newVCS removeAllObjects];
+                        [newVCS addObject:homeVC];
+                        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+                    }
+                     */
+
+                    if (message.sub_mode == 0)
+                    {
+                        NSArray *viewControllers = self.navigationController.viewControllers;
+                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                        [newVCS removeAllObjects];
+                        TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+                        [newVCS addObject:homeVC];
+                        TCStaffTableViewController *staffVC = [TCStaffTableViewController new];
+                        [newVCS addObject:staffVC];
+                        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+                    }else if(message.sub_mode == 1)
+                    {
+                        /*
+                        NSString *urlStr = [NSString stringWithFormat:@"tencloud://invite?code=%@",codeStr];
+                        NSURL *jumpURL = [NSURL URLWithString:urlStr];
+                        [[UIApplication sharedApplication] openURL:jumpURL];
+                         */
+                        if ([[TCLocalAccount shared] isLogin])
+                        {
+                            TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:codeStr];
+                            [weakSelf.navigationController pushViewController:acceptVC animated:YES];
+                        }else
+                        {
+                            TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
+                            [weakSelf.navigationController pushViewController:loginVC animated:YES];
+                        }
+                    }else
+                    {
+                        NSArray *viewControllers = self.navigationController.viewControllers;
+                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                        [newVCS removeAllObjects];
+                        TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+                        [newVCS addObject:homeVC];
+                        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+                    }
+                    
+                } failure:^(NSString *message) {
+                    [MBProgressHUD showError:@"消息已失效，不能跳转" toView:nil];
+                }];
             }
         }
     };

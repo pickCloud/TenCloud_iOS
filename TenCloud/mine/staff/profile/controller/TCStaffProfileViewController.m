@@ -345,7 +345,7 @@
             [_buttonDataArray addObject:data1];
             
             TCProfileButtonData *data2 = [TCProfileButtonData new];
-            data2.title = @"解除关系";
+            data2.title = @"踢出企业";
             data2.color = STATE_ALERT_COLOR;
             data2.type = TCProfileButtonRemoveStaff;
             [_buttonDataArray addObject:data2];
