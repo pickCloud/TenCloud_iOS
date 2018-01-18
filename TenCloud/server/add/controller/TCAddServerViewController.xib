@@ -131,7 +131,7 @@
                             <rect key="frame" x="98" y="0.0" width="277" height="44"/>
                             <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.14117647059999999" green="0.1529411765" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
