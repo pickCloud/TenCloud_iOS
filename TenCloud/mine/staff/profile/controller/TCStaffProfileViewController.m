@@ -167,8 +167,9 @@
             if (type == TCProfileButtonViewPermission)
             {
                 NSLog(@"查看权限");
-                /*
-                if ([[TCCurrentCorp shared] isAdmin])
+                
+                if (_staff.is_admin)
+                //if ([[TCCurrentCorp shared] isAdmin])
                 {
                     NSLog(@"for admin");
                     [[TCEditingPermission shared] resetForAdmin];
@@ -179,10 +180,11 @@
                     [[TCEditingPermission shared] setTemplate:_userTemplate];
                     [[TCEditingPermission shared] readyForPreview];
                 }
-                 */
+                /*
                 [[TCEditingPermission shared] reset];
                 [[TCEditingPermission shared] setTemplate:_userTemplate];
                 [[TCEditingPermission shared] readyForPreview];
+                */
                 
                 TCPermissionViewController *perVC = [TCPermissionViewController new];
                 perVC.userID = _staff.uid;
@@ -384,7 +386,6 @@
     }
     
     TCServerInfoItem *statusItem = [_rowDataArray objectAtIndex:2];
-    //statusItem.value =
     if (_staff.status == STAFF_STATUS_REJECT)
     {
         statusItem.value = @"审核不通过";

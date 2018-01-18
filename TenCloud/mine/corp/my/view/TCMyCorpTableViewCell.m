@@ -82,7 +82,7 @@
         _statusLabel.textColor = THEME_TINT_COLOR;
     }else if(corp.status == 5)
     {
-        _statusLabel.text = @"等待审核";
+        _statusLabel.text = @"待加入";//@"等待审核";
         _statusLabel.textColor = THEME_TINT_COLOR;
     }
     if (corp.is_admin == true)

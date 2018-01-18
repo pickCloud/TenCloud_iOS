@@ -228,7 +228,7 @@
                                 NSFontAttributeName : textFont };
     NSDictionary *grayAttr = @{NSForegroundColorAttributeName : THEME_TEXT_COLOR,
                                 NSFontAttributeName : textFont };
-    NSString *str1 = [NSString stringWithFormat:@"管理员%@",_inviteInfo.contact];
+    NSString *str1 = [NSString stringWithFormat:@"%@",_inviteInfo.contact];
     NSMutableAttributedString *tmp1 = nil;
     tmp1 = [[NSMutableAttributedString alloc] initWithString:str1 attributes:greenAttr];
     NSString *str2 = @" 邀请你加入 ";
