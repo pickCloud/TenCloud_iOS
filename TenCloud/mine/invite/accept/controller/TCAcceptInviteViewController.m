@@ -92,7 +92,7 @@
         TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:NO phoneNumber:phoneNum];;
         [self.navigationController pushViewController:profileVC animated:YES];
     } failure:^(NSString *message) {
-        
+        [MBProgressHUD showError:message toView:nil];
     }];
 
 }
