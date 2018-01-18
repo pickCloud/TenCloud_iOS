@@ -2,8 +2,8 @@
 //  TCListCorp+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/28.
-//  Copyright © 2017年 10.com. All rights reserved.
+//  Created by huangdx on 2018/1/18.
+//  Copyright © 2018年 10.com. All rights reserved.
 //
 //
 
@@ -18,10 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) int64_t cid;
 @property (nullable, nonatomic, copy) NSString *company_name;
-@property (nonatomic) int16_t status;
 @property (nullable, nonatomic, copy) NSString *create_time;
-@property (nullable, nonatomic, copy) NSString *update_time;
 @property (nonatomic) int16_t is_admin;
+@property (nonatomic) int16_t status;
+@property (nullable, nonatomic, copy) NSString *update_time;
+@property (nullable, nonatomic, copy) NSString *code;
 
 @end
 

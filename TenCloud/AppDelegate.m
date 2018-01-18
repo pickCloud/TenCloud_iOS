@@ -107,6 +107,7 @@
      */
     
     //nice code
+    /*
     NSString *invokePath = @"tencloud://invite?code=1234abc";
     NSURLComponents *urlComponents = [NSURLComponents componentsWithString:invokePath];
     NSMutableDictionary *queryDict = [NSMutableDictionary dictionary];
@@ -115,6 +116,7 @@
     {
         [queryDict setObject:queryItem.value forKey:queryItem.name];
     }
+     */
     
     return YES;
 }

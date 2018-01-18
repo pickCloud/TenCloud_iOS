@@ -15,6 +15,8 @@
 #import "TCCorpHomeViewController.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "FEPopupMenuController.h"
+#import "TCAcceptInviteViewController.h"
+#import "TCInviteLoginViewController.h"
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
@@ -129,6 +131,19 @@
     }else if(selectedCorp.status == 2)
     {
         
+    }else if(selectedCorp.status == 5)
+    {
+        NSLog(@"select corp code:%@",selectedCorp.code);
+        NSString *inviteCode = selectedCorp.code;
+        if ([[TCLocalAccount shared] isLogin])
+        {
+            TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
+            [self.navigationController pushViewController:acceptVC animated:YES];
+        }else
+        {
+            TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
     }else
     {
         __weak __typeof(self) weakSelf = self;

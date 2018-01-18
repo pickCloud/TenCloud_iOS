@@ -25,6 +25,7 @@
     </entity>
     <entity name="TCListCorp" representedClassName="TCListCorp" syncable="YES">
         <attribute name="cid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="is_admin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -202,7 +203,7 @@
         <element name="TCClusterProvider" positionX="-9" positionY="135" width="128" height="75"/>
         <element name="TCCorp" positionX="-9" positionY="135" width="128" height="210"/>
         <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
-        <element name="TCListCorp" positionX="0" positionY="144" width="128" height="135"/>
+        <element name="TCListCorp" positionX="0" positionY="144" width="128" height="150"/>
         <element name="TCMessage" positionX="-9" positionY="135" width="128" height="180"/>
         <element name="TCPermissionChunk" positionX="0" positionY="144" width="128" height="75"/>
         <element name="TCPermissionItem" positionX="18" positionY="162" width="128" height="120"/>
