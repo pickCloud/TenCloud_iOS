@@ -11,22 +11,21 @@
 #import "TCListCorp+CoreDataClass.h"
 
 @interface TCCorpListRequest()
-//@property (nonatomic, strong)       NSString    *clusterID;
+@property (nonatomic, assign)       NSInteger       status;
 @end
 
 @implementation TCCorpListRequest
 
-/*
-- (instancetype) initWithClusterID:(NSString*)clusterID
+
+- (instancetype) initWithStatus:(NSInteger)status
 {
     self = [super init];
     if (self)
     {
-        _clusterID = clusterID;
+        _status = status;
     }
     return self;
 }
- */
 
 - (void) startWithSuccess:(void(^)(NSArray<TCListCorp*> *corpArray))success
                   failure:(void(^)(NSString *message))failure
@@ -43,7 +42,9 @@
 }
 
 - (NSString *)requestUrl {
-    return @"/api/companies/list/7";
+    //return @"/api/companies/list/7";
+    NSString *url = [NSString stringWithFormat:@"/api/companies/list/%ld",_status];
+    return url;
 }
 
 - (YTKRequestMethod)requestMethod {

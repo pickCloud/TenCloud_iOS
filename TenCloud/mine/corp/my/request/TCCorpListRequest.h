@@ -12,7 +12,7 @@
 @class TCListCorp;
 @interface TCCorpListRequest : YTKRequest
 
-//- (instancetype) initWithClusterID:(NSString*)clusterID;
+- (instancetype) initWithStatus:(NSInteger)status;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCListCorp*> *corpArray))success
                   failure:(void(^)(NSString *message))failure;

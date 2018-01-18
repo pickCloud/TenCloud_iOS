@@ -186,7 +186,7 @@
 - (void) reloadCorpArray
 {
     __weak __typeof(self) weakSelf = self;
-    TCCorpListRequest   *request = [[TCCorpListRequest alloc] init];
+    TCCorpListRequest   *request = [[TCCorpListRequest alloc] initWithStatus:7];
     [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
         NSLog(@"corp list:%@",corpArray);
         [weakSelf.corpArray removeAllObjects];

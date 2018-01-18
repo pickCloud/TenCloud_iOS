@@ -78,7 +78,15 @@
     __weak __typeof(self) weakSelf = self;
     _switchButton.touchedBlock = ^{
         NSLog(@"touchedddd:%@",weakSelf.corpArray);
-        TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:_corpArray buttonRect:weakSelf.switchButton.frame];
+        NSMutableArray *passedCorpArray = [NSMutableArray new];
+        for (TCListCorp * tmpCorp in weakSelf.corpArray)
+        {
+            if (tmpCorp.status == 3 || tmpCorp.status == 4 || tmpCorp.cid == 0)
+            {
+                [passedCorpArray addObject:tmpCorp];
+            }
+        }
+        TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:passedCorpArray buttonRect:weakSelf.switchButton.frame];
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -211,7 +219,7 @@
 - (void) loadCorpArray
 {
     __weak __typeof(self) weakSelf = self;
-    TCCorpListRequest *request = [TCCorpListRequest new];
+    TCCorpListRequest *request = [[TCCorpListRequest alloc] initWithStatus:7];
     [request startWithSuccess:^(NSArray<TCListCorp *> *corpArray) {
         [weakSelf.corpArray removeAllObjects];
         TCCorp *me = [TCCorp MR_createEntity];
