@@ -38,7 +38,7 @@
 - (IBAction) onGetCaptchaButton:(id)sender;
 - (IBAction) onConfirmJoinButton:(id)sender;
 - (void) updateInviteInfoUI;
-- (void) loginWithToken:(NSString*)token;
+- (void) loginWithToken:(NSString*)token shouldSetPassword:(BOOL)shouldSet;
 @end
 
 @implementation TCInviteLoginViewController
@@ -168,12 +168,12 @@
     [MMProgressHUD showWithStatus:@"加入中"];
     TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNumStr captcha:_captchaField.text];
     [loginReq startWithSuccess:^(NSString *token) {
-        [weakSelf loginWithToken:token];
+        [weakSelf loginWithToken:token shouldSetPassword:NO];
     } failure:^(NSString *message, NSInteger errorCode) {
         if (errorCode == 10404)
         {
             NSString *token = message;
-            [weakSelf loginWithToken:token];
+            [weakSelf loginWithToken:token shouldSetPassword:YES];
             /*
             [[TCLocalAccount shared] setToken:token];
             TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
@@ -259,7 +259,7 @@
     }
 }
 
-- (void) loginWithToken:(NSString*)token
+- (void) loginWithToken:(NSString*)token shouldSetPassword:(BOOL)shouldSet
 {
     __weak __typeof(self) weakSelf = self;
     [[TCLocalAccount shared] setToken:token];
@@ -271,7 +271,7 @@
         TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
         [acceptReq startWithSuccess:^(NSString *message) {
             [MMProgressHUD dismiss];
-            TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:YES phoneNumber:user.mobile];
+            TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:shouldSet phoneNumber:user.mobile];
             [weakSelf.navigationController pushViewController:profileVC animated:YES];
         } failure:^(NSString *message) {
             [MMProgressHUD dismissWithError:message afterDelay:1.32];

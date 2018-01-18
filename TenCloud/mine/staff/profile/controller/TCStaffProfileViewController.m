@@ -310,11 +310,15 @@
             data0.type = TCProfileButtonViewPermission;
             [_buttonDataArray addObject:data0];
             
-            TCProfileButtonData *data1 = [TCProfileButtonData new];
-            data1.title = @"更换管理员";
-            data1.color = THEME_TINT_COLOR;
-            data1.type = TCProfileButtonChangeAdmin;
-            [_buttonDataArray addObject:data1];
+            NSInteger uid = [[TCLocalAccount shared] userID];
+            if (_staff.uid == uid)
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"更换管理员";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCProfileButtonChangeAdmin;
+                [_buttonDataArray addObject:data1];
+            }
         }else if (_staff.status == STAFF_STATUS_PENDING)
         {
             TCProfileButtonData *data1 = [TCProfileButtonData new];

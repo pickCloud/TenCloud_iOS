@@ -89,7 +89,7 @@
 {
     NSInteger corpID = [[TCCurrentCorp shared] cid];
     TCEmptyPermissionRequest *req = [[TCEmptyPermissionRequest alloc] initWithCorpID:corpID];
-    NSLog(@"empty permission reset 9999");
+    NSLog(@"empty permission reset 9999:%ld",corpID);
     if ([req loadCacheWithError:nil])
     {
         NSLog(@"haha1");
