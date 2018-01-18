@@ -56,7 +56,7 @@
 
 - (IBAction) onConfirmButton:(id)sender
 {
-    __weak __typeof(self) weakSelf = self;
+    //__weak __typeof(self) weakSelf = self;
     
 }
 
@@ -65,15 +65,17 @@
     __weak  __typeof(self) weakSelf = self;
     TCStaffListRequest *req = [[TCStaffListRequest alloc] init];
     [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
-        //[weakSelf.staffArray removeAllObjects];
-        //[weakSelf stopLoading];
-        //[weakSelf.staffArray addObjectsFromArray:staffArray];
-        //[weakSelf.tableView reloadData];
-        //[weakSelf.staffArray removeA]
-        
-        //[weakSelf.staffArray removeAllObjects];
-        //[weakSelf.staffArray addObjectsFromArray:staffArray];
-        weakSelf.staffArray = staffArray;
+        NSMutableArray *validStaffArray = [NSMutableArray new];
+        for (TCStaff *tmpStaff in staffArray)
+        {
+            if (tmpStaff.status == STAFF_STATUS_PASS ||
+                tmpStaff.status == STAFF_STATUS_FOUNDER)
+            {
+                [validStaffArray addObject:tmpStaff];
+            }
+        }
+        weakSelf.staffArray = validStaffArray;
+        //weakSelf.staffArray = staffArray;
         [weakSelf stopLoading];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
@@ -123,7 +125,17 @@
                 [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
                     weakSelf.currentStaff.is_admin = NO;
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CHANGE_ADMIN object:nil];
-                    weakSelf.staffArray = staffArray;
+                    //weakSelf.staffArray = staffArray;
+                    NSMutableArray *validStaffArray = [NSMutableArray new];
+                    for (TCStaff *tmpStaff in staffArray)
+                    {
+                        if (tmpStaff.status == STAFF_STATUS_PASS ||
+                            tmpStaff.status == STAFF_STATUS_FOUNDER)
+                        {
+                            [validStaffArray addObject:tmpStaff];
+                        }
+                    }
+                    weakSelf.staffArray = validStaffArray;
                     [weakSelf.tableView reloadData];
                     [MMProgressHUD dismissWithSuccess:@"更换成功" title:nil afterDelay:1.32];
                 } failure:^(NSString *message) {
