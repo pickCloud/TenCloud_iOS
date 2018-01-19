@@ -60,7 +60,7 @@
                         <constraint firstAttribute="width" secondItem="7Km-oC-Sxb" secondAttribute="height" multiplier="375:44" id="cBf-TA-k6B"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="退出账号">
+                    <state key="normal" title="退出登录">
                         <color key="titleColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>

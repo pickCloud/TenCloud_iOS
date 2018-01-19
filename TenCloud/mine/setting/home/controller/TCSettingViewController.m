@@ -62,12 +62,12 @@
 - (IBAction) onExitAccount:(id)sender
 {
     UIAlertController *alertController = nil;
-    alertController = [UIAlertController alertControllerWithTitle:@"确定退出账号?"
+    alertController = [UIAlertController alertControllerWithTitle:@"确定退出登录?"
                                                           message:nil
                                                    preferredStyle:UIAlertControllerStyleAlert];
     alertController.view.tintColor = [UIColor grayColor];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *exitAction = [UIAlertAction actionWithTitle:@"退出账号" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *exitAction = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[TCLocalAccount shared] logout];
         [[TCCurrentCorp shared] reset];
         TCLoginViewController *loginVC = [TCLoginViewController new];
