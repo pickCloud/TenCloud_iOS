@@ -109,6 +109,21 @@
     return ((self.token != nil) && (self.token.length > 0));
 }
 
+- (BOOL) isNameSetted
+{
+    BOOL isSetted = _name.length > 0;
+    return isSetted;
+}
+
+- (NSString*) name
+{
+    if (![self isNameSetted])
+    {
+        return _mobile;
+    }
+    return _name;
+}
+
 - (void) loginSuccess:(TCUser*)user
 {
     NSLog(@"login success, prepare send notification");
@@ -123,11 +138,12 @@
     account.birthday = user.birthday;
     account.createTime = user.create_time;
     //NSLog(@"user id:%ld",user.userID);
+    /*
     if (!account.name || account.name.length == 0)
     {
-        //account.name = [NSString stringWithFormat:@"用户%lld",user.userID];
         account.name = [NSString stringWithFormat:@"%@",user.mobile];
     }
+     */
     [account save];
     
     for (id<TCLocalAccountDelegate> obs in mObserverArray)

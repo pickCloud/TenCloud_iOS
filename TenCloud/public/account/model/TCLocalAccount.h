@@ -36,6 +36,8 @@
 
 - (BOOL) isLogin;
 
+- (BOOL) isNameSetted;
+
 - (void) loginSuccess:(TCUser*)user;
 
 - (void) modified;
