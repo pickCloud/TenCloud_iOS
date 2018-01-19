@@ -304,11 +304,13 @@
     {
         if (_staff.is_admin)
         {
+            /*
             TCProfileButtonData *data0 = [TCProfileButtonData new];
             data0.title = @"查看权限";
             data0.color = THEME_TINT_COLOR;
             data0.type = TCProfileButtonViewPermission;
             [_buttonDataArray addObject:data0];
+            */
             
             NSInteger uid = [[TCLocalAccount shared] userID];
             if (_staff.uid == uid)

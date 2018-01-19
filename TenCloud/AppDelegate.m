@@ -65,7 +65,6 @@
     }
     self.window.rootViewController = rootVC;
     
-    NSLog(@"sssss111");
     [WRNavigationBar wr_setDefaultNavBarBarTintColor:THEME_TINT_COLOR];
     [WRNavigationBar wr_setDefaultNavBarTintColor:THEME_NAVBAR_TITLE_COLOR];
     [WRNavigationBar wr_setDefaultNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
