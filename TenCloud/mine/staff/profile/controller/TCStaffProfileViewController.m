@@ -257,17 +257,30 @@
                 }];
             }else if(type == TCProfileButtonLeaveCorp)
             {
+                
+                NSString *tip = [NSString stringWithFormat:@"确定离开该企业?"];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:tip
+                                                                                         message:nil
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                alertController.view.tintColor = [UIColor grayColor];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"离开" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    NSLog(@"离开o");
+                }];
+                
+                [alertController addAction:cancelAction];
+                [alertController addAction:deleteAction];
+                [alertController presentationController];
+                [self presentViewController:alertController animated:YES completion:nil];
+                return ;
+                
                 [MMProgressHUD showWithStatus:@"离开企业中"];
                 TCLeaveCorpRequest *leaveReq = [TCLeaveCorpRequest new];
                 leaveReq.staffID = _staff.staffID;
                 [leaveReq startWithSuccess:^(NSString *message) {
                     TCPersonHomeViewController *homeVC = nil;
                     homeVC = [[TCPersonHomeViewController alloc] init];
-                    //[[TCCurrentCorp shared] setCid:0];
                     [[TCCurrentCorp shared] reset];
-                    //NSString *localName = [[TCLocalAccount shared] name];
-                    //[[TCCurrentCorp shared] setName:localName];
-                    //[[TCCurrentCorp shared] save];
                     NSArray *viewControllers = weakSelf.navigationController.viewControllers;
                     NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
                     [newVCS removeAllObjects];
@@ -371,13 +384,17 @@
         }else if(_staff.status == STAFF_STATUS_REJECT)
         {
             
-        }else if(_staff.status == STAFF_STATUS_PASS)
+        }else if(_staff.status == STAFF_STATUS_PASS ||
+                 _staff.status == STAFF_STATUS_FOUNDER)
         {
-            TCProfileButtonData *data1 = [TCProfileButtonData new];
-            data1.title = @"查看权限";
-            data1.color = THEME_TINT_COLOR;
-            data1.type = TCProfileButtonViewPermission;
-            [_buttonDataArray addObject:data1];
+            if (!_staff.is_admin)
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"查看权限";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCProfileButtonViewPermission;
+                [_buttonDataArray addObject:data1];
+            }
             
             NSInteger uid = [[TCLocalAccount shared] userID];
             if (_staff.uid == uid)
