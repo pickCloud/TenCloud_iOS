@@ -59,6 +59,10 @@
     {
         NSString *reviewDate = [corp.update_time substringWithRange:dateRange];
         NSString *reviewDateStr = [NSString stringWithFormat:@"审核时间  %@",reviewDate];
+        if (corp.status == 5)
+        {
+            reviewDateStr = @"";
+        }
         _reviewTimeLabel.text = reviewDateStr;
     }
     //_applyTimeLabel.text = corp.create_time;
