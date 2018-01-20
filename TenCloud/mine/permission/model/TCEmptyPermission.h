@@ -13,7 +13,7 @@
 
 + (instancetype) shared;
 
-- (void) reset;
+//- (void) reset;
 
 - (void) print;
 

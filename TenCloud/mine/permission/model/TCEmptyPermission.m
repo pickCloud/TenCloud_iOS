@@ -11,6 +11,8 @@
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCCurrentCorp.h"
 
+//#import "NSManagedObject+Clone.h"
+
 @interface TCEmptyPermission()
 - (void) sendEmptyTemplateRequest;
 @property (nonatomic, assign)   BOOL                needRetry;
@@ -60,6 +62,32 @@
         weakSelf.needRetry = NO;
         [weakSelf.permissionArray removeAllObjects];
         [weakSelf.permissionArray addObjectsFromArray:nodeArray];
+        
+        /*
+        if (nodeArray.count > 0)
+        {
+            TCPermissionNode *rawNode = nodeArray.firstObject;
+            NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
+            //TCPermissionNode *newNode = (TCPermissionNode*)[TCManagedObjectCloner clone:rawNode inContext:moc];
+            
+            TCPermissionNode *newNode = (TCPermissionNode*)[rawNode cloneInContext:moc exludeEntities:@[]];
+            //TCPermissionNode *newNode = (TCPermissionNode*)[TCPermissionNode cloneI]
+            
+            //NSLog(@"rawNode:%@",rawNode);
+            //NSLog(@"rawNode_name:%@",rawNode.name);
+            //NSLog(@"array%ld",rawNode.data.count);
+            //NSLog(@"1firstNode:%@",rawNode.data.firstObject);
+            //NSLog(@"newNode:%@",newNode);
+            //NSLog(@"newNode_name:%@",newNode.name);
+            //NSLog(@"array%ld",newNode.data.count);
+            //NSLog(@"2firstNode:%@",newNode.data.firstObject);
+            
+            //NSLog(@"start print raw node");
+            //[rawNode print];
+            //NSLog(@"start print new node");
+            //[newNode print];
+        }
+         */
     } failure:^(NSString *message) {
         if (weakSelf.needRetry)
         {
@@ -85,6 +113,7 @@
     
 }
 
+/*
 - (void) reset
 {
     NSInteger corpID = [[TCCurrentCorp shared] cid];
@@ -100,4 +129,5 @@
         NSLog(@"haha2");
     }
 }
+ */
 @end

@@ -10,6 +10,7 @@
 #import "TCEmptyPermission.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCTemplate+CoreDataClass.h"
+#import "NSManagedObject+Clone.h"
 
 @implementation TCEditingPermission
 
@@ -36,10 +37,21 @@
 - (void) reset
 {
     [_permissionArray removeAllObjects];
-    [[TCEmptyPermission shared] reset];
+    //raw
+    //[[TCEmptyPermission shared] reset];
+    //NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
+    //[_permissionArray addObjectsFromArray:emptyArray];
+    
+    //new
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    [_permissionArray addObjectsFromArray:emptyArray];
-
+    //NSMutableArray *newEmptyArray = [NSMutableArray new];
+    for (TCPermissionNode *tmpNode in emptyArray)
+    {
+        NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
+        TCPermissionNode *newNode = (TCPermissionNode*)[tmpNode cloneInContext:moc exludeEntities:nil];
+        [_permissionArray addObject:newNode];
+    }
+    //[_permissionArray addObjectsFromArray:<#(nonnull NSArray *)#>]
     
     /*
     //[_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
@@ -61,9 +73,16 @@
 - (void) resetForAdmin
 {
     [_permissionArray removeAllObjects];
-    [[TCEmptyPermission shared] reset];
+    //[[TCEmptyPermission shared] reset];
+    //NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
+    //[_permissionArray addObjectsFromArray:emptyArray];
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    [_permissionArray addObjectsFromArray:emptyArray];
+    for (TCPermissionNode *tmpNode in emptyArray)
+    {
+        NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
+        TCPermissionNode *newNode = (TCPermissionNode*)[tmpNode cloneInContext:moc exludeEntities:nil];
+        [_permissionArray addObject:newNode];
+    }
     
     for (TCPermissionNode * subNode in _permissionArray)
     {

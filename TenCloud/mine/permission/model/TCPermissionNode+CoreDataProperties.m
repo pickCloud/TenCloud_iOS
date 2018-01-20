@@ -160,6 +160,20 @@
     return nodes;
 }
 
+- (void) print
+{
+    NSMutableString *blankStr = [NSMutableString new];
+    for (int i = 0; i < self.depth; i++)
+    {
+        [blankStr appendString:@"  "];
+    }
+    NSLog(@"%@%@ %p",blankStr,self.name,self);
+    for (TCPermissionNode *node in self.data)
+    {
+        [node print];
+    }
+}
+
 @dynamic permID;
 @dynamic name;
 @dynamic filename;
