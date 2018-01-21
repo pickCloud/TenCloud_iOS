@@ -377,6 +377,15 @@
             data0.color = THEME_TINT_COLOR;
             data0.type = TCProfileButtonViewPermission;
             [_buttonDataArray addObject:data0];
+            
+            if (!_staff.is_admin)
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"设置权限";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCProfileButtonSetPermission;
+                [_buttonDataArray addObject:data1];
+            }
         }
     }else
     {
