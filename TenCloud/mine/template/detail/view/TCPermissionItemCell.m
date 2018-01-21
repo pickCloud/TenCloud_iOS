@@ -7,12 +7,10 @@
 //
 
 #import "TCPermissionItemCell.h"
-//#import "TCPermissionItem+CoreDataClass.h"
 #import "TCPermissionNode+CoreDataClass.h"
 
 
 @interface TCPermissionItemCell()
-//@property (nonatomic, weak) TCPermissionItem        *item;
 @property (nonatomic, weak) TCPermissionNode        *node;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
@@ -33,14 +31,6 @@
     // Configure the view for the selected state
 }
 
-/*
-- (void) setItem:(TCPermissionItem*)item
-{
-    _nameLabel.text = item.name;
-    _item = item;
-    [self updateSelectButtonUI];
-}
- */
 - (void) setNode:(TCPermissionNode *)node
 {
     _nameLabel.text = node.name;

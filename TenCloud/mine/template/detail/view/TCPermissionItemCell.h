@@ -9,11 +9,9 @@
 @class TCPermissionItemCell;
 typedef void (^TCPermissionCellSelectBlock)(TCPermissionItemCell *cell, BOOL selected);
 
-//@class TCPermissionItem;
 @class TCPermissionNode;
 @interface TCPermissionItemCell : UITableViewCell
 
-//- (void) setItem:(TCPermissionItem*)item;
 - (void) setNode:(TCPermissionNode*)node;
 
 @property (nonatomic, copy) TCPermissionCellSelectBlock selectBlock;
