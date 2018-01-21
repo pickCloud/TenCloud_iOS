@@ -8,7 +8,6 @@
 
 #import "TCAddTemplateViewController.h"
 #import "TCPermissionViewController.h"
-//#import "TCEditingTemplate.h"
 #import "TCEditingPermission.h"
 #import "TCAddTemplateRequest.h"
 #import "TCSuccessResultViewController.h"

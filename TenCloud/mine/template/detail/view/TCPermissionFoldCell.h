@@ -10,10 +10,8 @@
 typedef void (^TCPermissionCellFoldBlock)(TCPermissionFoldCell *cell, BOOL fold);
 #import "TCPermissionItemCell.h"
 
-@class TCPermissionChunk;
 @interface TCPermissionFoldCell : TCPermissionItemCell
 
-//- (void) setChunk:(TCPermissionChunk*)chunk;
 - (void) setNode:(TCPermissionNode *)node;
 
 @property (nonatomic, copy) TCPermissionCellFoldBlock foldBlock;

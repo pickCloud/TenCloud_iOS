@@ -7,12 +7,10 @@
 //
 
 #import "TCPermissionFoldCell.h"
-//#import "TCPermissionChunk+CoreDataClass.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
 @interface TCPermissionFoldCell()
-//@property (nonatomic, weak) TCPermissionChunk       *chunk;
 @property (nonatomic, weak) TCPermissionNode        *node;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
@@ -47,14 +45,6 @@
         descText = @"未设置";
     }
     self.descLabel.text = descText;//data.initialValue;
-}
- */
-/*
-- (void) setChunk:(TCPermissionChunk*)chunk
-{
-    _nameLabel.text = chunk.name;
-    _chunk = chunk;
-    [self updateCheckButtonUI];
 }
  */
 

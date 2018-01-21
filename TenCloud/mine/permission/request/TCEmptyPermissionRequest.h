@@ -8,7 +8,6 @@
 
 #import "YTKRequest.h"
 
-//@class TCPermissionSegment;
 @class TCPermissionNode;
 @interface TCEmptyPermissionRequest : YTKRequest
 
