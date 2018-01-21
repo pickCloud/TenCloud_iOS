@@ -13,6 +13,8 @@
 
 - (instancetype) initWithCorpID:(NSInteger)cid;
 
+- (TCCorp *) resultCorp;
+
 - (void) startWithSuccess:(void(^)(TCCorp *corp))success
                   failure:(void(^)(NSString *message))failure;
 

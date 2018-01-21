@@ -9,6 +9,7 @@
 #import "TCCurrentCorp.h"
 #import "TCCorp+CoreDataClass.h"
 #import "TCListCorp+CoreDataClass.h"
+#import "TCTemplate+CoreDataClass.h"
 
 #define CORP_NAME       @"CORP_NAME"
 #define CORP_CID        @"CORP_CID"
@@ -16,6 +17,8 @@
 #define CORP_CONTACT    @"CORP_CONTACT"
 #define CORP_IS_ADMIN   @"CORP_IS_ADMIN"
 #define CORP_IMAGE_URL  @"CORP_IMAGE_URL"
+#define CORP_FUNC_PERMISSON     @"CORP_FUNC_PERMISSON"
+#define CORP_SERVER_PERMISSION  @"CORP_SERVER_PERMISSION"
 
 @interface TCCurrentCorp ()
 {
@@ -66,6 +69,8 @@
         self.contact = [aDecoder decodeObjectForKey:CORP_CONTACT];
         self.isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
         self.image_url = [aDecoder decodeObjectForKey:CORP_IMAGE_URL];
+        self.funcPermissionArray = [aDecoder decodeObjectForKey:CORP_FUNC_PERMISSON];
+        self.serverPermissionArray = [aDecoder decodeObjectForKey:CORP_SERVER_PERMISSION];
     }
     return self;
 }
@@ -78,6 +83,8 @@
     [aCoder encodeObject:self.contact forKey:CORP_CONTACT];
     [aCoder encodeBool:self.isAdmin forKey:CORP_IS_ADMIN];
     [aCoder encodeObject:self.image_url forKey:CORP_IMAGE_URL];
+    [aCoder encodeObject:self.funcPermissionArray forKey:CORP_FUNC_PERMISSON];
+    [aCoder encodeObject:self.serverPermissionArray forKey:CORP_SERVER_PERMISSION];
 }
 
 //- (BOOL) isCurrent:(TCCorp*)corp
@@ -109,6 +116,29 @@
     [self save];
 }
 
+- (void) setPermissions:(TCTemplate*)aTemplate
+{
+    NSString *funcStr = aTemplate.permissions;
+    if (funcStr && funcStr.length > 0)
+    {
+        NSArray *funcArray = [funcStr componentsSeparatedByString:@","];
+        _funcPermissionArray = funcArray;
+    }else
+    {
+        _funcPermissionArray = [NSArray new];
+    }
+    NSString *serverStr = aTemplate.access_servers;
+    if (serverStr && serverStr.length > 0)
+    {
+        NSArray *serverArray = [serverStr componentsSeparatedByString:@","];
+        _serverPermissionArray = serverArray;
+    }else
+    {
+        _serverPermissionArray = [NSArray new];
+    }
+    [self save];
+}
+
 - (void) setIsAdmin:(BOOL)isAdmin
 {
     _isAdmin = isAdmin;
@@ -135,6 +165,16 @@
 {
     BOOL isExist = self.cid > 0;
     return isExist;
+}
+
+- (BOOL) havePermissionForFunc:(NSInteger)funcID
+{
+    NSString *funcIDStr = [NSString stringWithFormat:@"%ld",funcID];
+    if ([_funcPermissionArray containsObject:funcIDStr])
+    {
+        return YES;
+    }
+    return NO;
 }
 
 - (void) modified
@@ -170,5 +210,21 @@
     if([data writeToFile:fileName atomically:YES]){
         NSLog(@"归档成功");
     }
+}
+
+- (void) print
+{
+    NSLog(@"prints");
+    NSLog(@"funcs:%@",_funcPermissionArray);
+    BOOL isFuncExist = [_funcPermissionArray containsObject:@"5"];
+    if (isFuncExist)
+    {
+        NSLog(@"fucn 5 exist");
+    }else
+    {
+        NSLog(@"fucn 5 not exist");
+    }
+    
+    NSLog(@"servers:%@",_serverPermissionArray);
 }
 @end

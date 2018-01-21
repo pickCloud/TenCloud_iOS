@@ -29,19 +29,26 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSArray *corpDictArray = [request.responseJSONObject objectForKey:@"data"];
-        NSLog(@"corp array:%@",corpDictArray);
-        if (corpDictArray && corpDictArray.count >= 1)
-        {
-            NSDictionary *corpDict = corpDictArray.firstObject;
-            NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-            TCCorp *corp = [TCCorp mj_objectWithKeyValues:corpDict context:context];
-            success ? success(corp) : nil;
-        }
+        TCCorp *corp = [self resultCorp];
+        success ? success(corp) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
     }];
+}
+
+- (TCCorp *) resultCorp
+{
+    NSArray *corpDictArray = [self.responseJSONObject objectForKey:@"data"];
+    NSLog(@"corp array:%@",corpDictArray);
+    if (corpDictArray && corpDictArray.count >= 1)
+    {
+        NSDictionary *corpDict = corpDictArray.firstObject;
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+        TCCorp *corp = [TCCorp mj_objectWithKeyValues:corpDict context:context];
+        return corp;
+    }
+    return nil;
 }
 
 - (NSString *)requestUrl {

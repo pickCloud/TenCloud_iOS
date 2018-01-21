@@ -10,6 +10,7 @@
 
 @class TCCurrentCorp;
 @class TCCorp;
+@class TCTemplate;
 @protocol TCCurrentCorpDelegate <NSObject>
 - (void) corpModified:(TCCurrentCorp*)corp;
 @end
@@ -25,11 +26,16 @@
 @property (nonatomic, strong)   NSString    *mobile;
 @property (nonatomic, strong)   NSString    *image_url;
 
+@property (nonatomic, strong)   NSArray     *funcPermissionArray;
+@property (nonatomic, strong)   NSArray     *serverPermissionArray;
+
 
 //- (BOOL) isCurrent:(TCCorp*)corp;
 - (BOOL) isSameWithID:(NSInteger)cid name:(NSString*)corpName;
 
 - (void) setSelectedCorp:(TCCorp*)corp;
+
+- (void) setPermissions:(TCTemplate*)aTemplate;
 
 - (void) addObserver:(id<TCCurrentCorpDelegate>)obs;
 
@@ -37,10 +43,14 @@
 
 - (BOOL) exist;
 
+- (BOOL) havePermissionForFunc:(NSInteger)funcID;
+
 - (void) modified;
 
 - (void) reset;
 
 - (void) save;
+
+- (void) print;
 
 @end

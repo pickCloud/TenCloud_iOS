@@ -82,4 +82,24 @@
 #define STAFF_STATUS_FOUNDER            4
 #define STAFF_STATUS_WAITING            5
 
+
+//function id
+//企业资料
+#define FUNC_ID_MODIFY_CORP             3   //修改企业信息
+#define FUNC_ID_CERTFICATE_CORP         15  //认证企业
+//权限模版管理
+#define FUNC_ID_ADD_TEMPLATE            4   //新增权限模版
+#define FUNC_ID_MODIFY_TEMPLATE         20  //修改权限模版
+#define FUNC_ID_DEL_TEMPLATE            21  //删除权限模版
+//员工管理
+#define FUNC_ID_STAFF_IDCARD            16  //查看员工身份证信息
+#define FUNC_ID_REVIEW_STAFF            17  //审核员工
+#define FUNC_ID_INVITE_STAFF            26  //邀请新员工
+//云服务器
+#define FUNC_ID_ADD_SERVER              22  //添加主机
+#define FUNC_ID_DEL_SERVER              23  //删除主机
+#define FUNC_ID_START_SERVER            24  //开机关机
+#define FUNC_ID_MODIFY_SERVER           25  //修改主机信息
+
+
 #endif /* PrefixHeader_pch */

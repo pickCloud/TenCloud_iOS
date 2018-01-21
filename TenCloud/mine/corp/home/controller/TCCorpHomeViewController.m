@@ -16,6 +16,7 @@
 #import "TCTemplateTableViewController.h"
 #import "TCEmptyPermission.h"
 #import "TCStaffTableViewController.h"
+#import "YTKBatchRequest.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -25,13 +26,13 @@
 #import "TCCorp+CoreDataClass.h"
 #import "TCCorpProfileRequest.h"
 #import "NSString+Extension.h"
+#import "TCUserPermissionRequest.h"
 
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
 #import "TCStaffListRequest.h"
-
-//#import "TCMessageTableViewController.h"
 #import "TCMessageViewController.h"
+
 
 
 
@@ -78,6 +79,7 @@
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     _corpArray = [NSMutableArray new];
     [[TCCurrentCorp shared] addObserver:self];
+    /*
     [self startLoading];
     __weak  __typeof(self) weakSelf = self;
     TCCorpProfileRequest *profileReq = [[TCCorpProfileRequest alloc] initWithCorpID:_corpID];
@@ -91,6 +93,41 @@
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
+    }];
+     */
+    [self startLoading];
+    __weak __typeof(self) weakSelf = self;
+    NSInteger userID = [[TCLocalAccount shared] userID];
+    TCCorpProfileRequest *profileReq = [[TCCorpProfileRequest alloc] initWithCorpID:_corpID];
+    TCUserPermissionRequest *permissionReq = [[TCUserPermissionRequest alloc] init];
+    permissionReq.userID = userID;
+    permissionReq.corpID = _corpID;
+    NSArray *reqArray = [NSArray arrayWithObjects:profileReq,permissionReq, nil];
+    YTKBatchRequest *batchReq = [[YTKBatchRequest alloc] initWithRequestArray:reqArray];
+    [batchReq startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
+        NSArray *requestArray = batchRequest.requestArray;
+        TCCorpProfileRequest *req0 = requestArray[0];
+        TCCorp *corp = [req0 resultCorp];
+        if (corp)
+        {
+            weakSelf.corpInfo = corp;
+            [[TCCurrentCorp shared] setSelectedCorp:corp];
+            [weakSelf updateCorpInfoUI];
+        }
+        [[TCEmptyPermission shared] print];
+        
+        TCUserPermissionRequest *req1 = requestArray[1];
+        TCTemplate *resultTemplate = [req1 resultTemplate];
+        if (resultTemplate)
+        {
+            [[TCCurrentCorp shared] setPermissions:resultTemplate];
+            [[TCCurrentCorp shared] print];
+        }
+        [weakSelf stopLoading];
+        
+    } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:@"获取数据失败" toView:nil];
     }];
     
     [self loadCorpArray];
@@ -264,8 +301,6 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
-    //TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
-    //[self.navigationController pushViewController:msgVC animated:YES];
     TCMessageViewController *msgVC = [TCMessageViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }

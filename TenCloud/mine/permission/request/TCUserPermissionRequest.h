@@ -15,6 +15,9 @@
 @property (nonatomic, assign)   NSInteger     corpID;
 @property (nonatomic, assign)   NSInteger     userID;
 //- (instancetype) initWithCorpID:(NSInteger)cid userID:(NSInteger)uid;
+@property (nonatomic, strong)   TCTemplate      *resultTemplate;
+
+- (TCTemplate *) resultTemplate;
 
 - (void) startWithSuccess:(void(^)(TCTemplate *tmpl))success
                   failure:(void(^)(NSString *message))failure;
