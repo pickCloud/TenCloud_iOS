@@ -27,7 +27,7 @@
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
 
-@interface TCStaffProfileViewController ()
+@interface TCStaffProfileViewController ()<TCCurrentCorpDelegate>
 @property (nonatomic, strong)   TCStaff         *staff;
 @property (nonatomic, strong)   TCTemplate      *userTemplate;
 @property (nonatomic, strong)   NSMutableArray  *rowDataArray;
@@ -128,10 +128,12 @@
                                              selector:@selector(updateUI)
                                                  name:NOTIFICATION_CHANGE_ADMIN
                                                object:nil];
+    [[TCCurrentCorp shared] addObserver:self];
 }
 
 - (void) dealloc
 {
+    [[TCCurrentCorp shared] removeObserver:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -401,7 +403,7 @@
             {
                 TCProfileButtonData *data2 = [TCProfileButtonData new];
                 data2.title = @"离开企业";
-                data2.color = THEME_TINT_COLOR;
+                data2.color = STATE_ALERT_COLOR;
                 data2.type = TCProfileButtonLeaveCorp;
                 [_buttonDataArray addObject:data2];
             }
@@ -427,5 +429,12 @@
     }
     [self.tableView reloadData];
     [self.buttonTableView reloadData];
+}
+
+
+#pragma mark - TCCurrentCorpDelegate
+- (void) corpModified:(TCCurrentCorp*)corp
+{
+    [self updateUI];
 }
 @end

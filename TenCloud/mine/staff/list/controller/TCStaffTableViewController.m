@@ -183,14 +183,18 @@
         [weakSelf.tableView reloadData];
         
         //judge if current user is admin
+        BOOL isAdmin = NO;
         NSInteger localUserID = [[TCLocalAccount shared] userID];
         for (TCStaff *tmpStaff in staffArray)
         {
             if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
             {
-                [[TCCurrentCorp shared] setIsAdmin:YES];
+                //[[TCCurrentCorp shared] setIsAdmin:YES];
+                isAdmin = YES;
+                break;
             }
         }
+        [[TCCurrentCorp shared] setIsAdmin:isAdmin];
     } failure:^(NSString *message) {
         
     }];

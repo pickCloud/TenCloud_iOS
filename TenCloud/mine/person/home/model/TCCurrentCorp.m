@@ -109,6 +109,12 @@
     [self save];
 }
 
+- (void) setIsAdmin:(BOOL)isAdmin
+{
+    _isAdmin = isAdmin;
+    [self modified];
+}
+
 - (void) addObserver:(id<TCCurrentCorpDelegate>)obs
 {
     if (obs)
@@ -133,12 +139,11 @@
 
 - (void) modified
 {
-    TCCurrentCorp *curp = [TCCurrentCorp shared];
     for (id<TCCurrentCorpDelegate> obs in mObserverArray)
     {
-        if ([obs respondsToSelector:@selector(corpModified:)])
+        if (obs && [obs respondsToSelector:@selector(corpModified:)])
         {
-            [obs corpModified:curp];
+            [obs corpModified:self];
         }
     }
 }
