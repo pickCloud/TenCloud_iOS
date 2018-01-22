@@ -22,6 +22,8 @@
 - (IBAction) onSettingButton:(id)sender;
 - (IBAction) onInviteButton:(id)sender;
 - (void) reloadJoinSetting;
+- (void) reloadInviteSetting;
+- (void) reloadSetting;
 @end
 
 @implementation TCInviteStaffViewController
@@ -52,17 +54,10 @@
     
     [self startLoading];
     [self reloadJoinSetting];
-
-    __weak __typeof(self) weakSelf = self;
-     TCGetInviteURLRequest *inviteURLReq = [TCGetInviteURLRequest new];
-     [inviteURLReq startWithSuccess:^(NSString *urlStr) {
-         weakSelf.inviteURLStr = urlStr;
-     } failure:^(NSString *message) {
-         //[MBProgressHUD showError:message toView:nil];
-     }];
+    [self reloadInviteSetting];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadJoinSetting)
+                                             selector:@selector(reloadSetting)
                                                  name:NOTIFICATION_CHANGE_JOIN_SETTING
                                                object:nil];
 }
@@ -146,5 +141,22 @@
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
+}
+
+- (void) reloadInviteSetting
+{
+    __weak __typeof(self) weakSelf = self;
+    TCGetInviteURLRequest *inviteURLReq = [TCGetInviteURLRequest new];
+    [inviteURLReq startWithSuccess:^(NSString *urlStr) {
+        weakSelf.inviteURLStr = urlStr;
+    } failure:^(NSString *message) {
+        //[MBProgressHUD showError:message toView:nil];
+    }];
+}
+
+- (void) reloadSetting
+{
+    [self reloadJoinSetting];
+    [self reloadInviteSetting];
 }
 @end

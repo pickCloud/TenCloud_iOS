@@ -15,6 +15,16 @@
 
 @implementation TCGetInviteURLRequest
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.ignoreCache = YES;
+    }
+    return self;
+}
+
 - (void) startWithSuccess:(void(^)(NSString *urlStr))success
                   failure:(void(^)(NSString *message))failure
 {
