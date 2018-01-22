@@ -20,14 +20,20 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSDictionary *arrayDict = [request.responseJSONObject objectForKey:@"data"];
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-        NSArray *resArray = [TCStaff mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+        NSArray *resArray = [self resultStaffArray];
         success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
     }];
+}
+
+- (NSArray<TCStaff*> *)resultStaffArray
+{
+    NSDictionary *arrayDict = [self.responseJSONObject objectForKey:@"data"];
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    NSArray *resArray = [TCStaff mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+    return resArray;
 }
 
 - (NSString *)requestUrl {

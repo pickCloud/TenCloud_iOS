@@ -35,6 +35,13 @@
     [super setData:data];
     self.nameLabel.text = data.title;
     [self updateDateLabel];
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+    }else
+    {
+        [self.detailView setHidden:YES];
+    }
 }
 
 - (void) updateDateLabel
@@ -52,6 +59,10 @@
 
 - (IBAction) onButton:(id)sender
 {
+    if (!self.data.editable)
+    {
+        return;
+    }
     NSNumber *dateNum = self.data.initialValue;
     NSDate *birthDate = nil;
     if (dateNum.integerValue <= 0)

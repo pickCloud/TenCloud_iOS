@@ -76,7 +76,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="descLabel" destination="Oty-D9-u6a" id="6Id-Oe-h5g"/>
+                <outlet property="detailView" destination="0kl-h3-xFX" id="NBu-V3-bR4"/>
                 <outlet property="nameLabel" destination="SOZ-Wh-RSG" id="iML-jT-s5l"/>
+                <outlet property="trailingConstraint" destination="a4U-1h-Tfq" id="8IP-8K-VyV"/>
             </connections>
             <point key="canvasLocation" x="10.5" y="71"/>
         </tableViewCell>

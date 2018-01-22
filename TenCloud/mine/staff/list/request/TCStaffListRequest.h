@@ -12,6 +12,8 @@
 @class TCStaff;
 @interface TCStaffListRequest : YTKRequest
 
+- (NSArray<TCStaff*> *)resultStaffArray;
+
 - (void) startWithSuccess:(void(^)(NSArray<TCStaff *> *staffArray))success
                   failure:(void(^)(NSString *message))failure;
 

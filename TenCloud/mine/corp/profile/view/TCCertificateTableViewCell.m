@@ -11,6 +11,7 @@
 #import "TCCellData.h"
 
 @interface TCCertificateTableViewCell()
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint      *trailingConstraint;
 - (IBAction) onButton:(id)sender;
 @end
 
@@ -37,6 +38,16 @@
         descText = @"未认证";
     }
     self.descLabel.text = descText;//data.initialValue;
+    [self.detailView setHidden:!self.data.editable];
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+        _trailingConstraint.constant = 12;
+    }else
+    {
+        [self.detailView setHidden:YES];
+        _trailingConstraint.constant = -6;
+    }
 }
 
 - (IBAction) onButton:(id)sender

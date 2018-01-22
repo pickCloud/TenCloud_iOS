@@ -17,6 +17,7 @@
 #import "TCEmptyPermission.h"
 #import "TCStaffTableViewController.h"
 #import "YTKBatchRequest.h"
+#import "TCStaff+CoreDataClass.h"
 
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -102,7 +103,8 @@
     TCUserPermissionRequest *permissionReq = [[TCUserPermissionRequest alloc] init];
     permissionReq.userID = userID;
     permissionReq.corpID = _corpID;
-    NSArray *reqArray = [NSArray arrayWithObjects:profileReq,permissionReq, nil];
+    TCStaffListRequest *staffReq = [TCStaffListRequest new];
+    NSArray *reqArray = [NSArray arrayWithObjects:profileReq,permissionReq,staffReq, nil];
     YTKBatchRequest *batchReq = [[YTKBatchRequest alloc] initWithRequestArray:reqArray];
     [batchReq startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
         NSArray *requestArray = batchRequest.requestArray;
@@ -123,6 +125,27 @@
             [[TCCurrentCorp shared] setPermissions:resultTemplate];
             [[TCCurrentCorp shared] print];
         }
+        
+        TCStaffListRequest *req2 = requestArray[2];
+        NSArray<TCStaff*> *staffArray = [req2 resultStaffArray];
+        if (staffArray)
+        {
+            _staffCount = staffArray.count;
+            //judge if current user is admin
+            BOOL isAdmin = NO;
+            NSInteger localUserID = [[TCLocalAccount shared] userID];
+            for (TCStaff *tmpStaff in staffArray)
+            {
+                if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
+                {
+                    isAdmin = YES;
+                    break;
+                }
+            }
+            [[TCCurrentCorp shared] setIsAdmin:isAdmin];
+            [weakSelf.tableView reloadData];
+        }
+        
         [weakSelf stopLoading];
         
     } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
@@ -199,13 +222,30 @@
     };
     
     [[TCMessageManager shared] addObserver:self];
-    TCStaffListRequest *staffReq = [TCStaffListRequest new];
+    
+    /*
     [staffReq startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
         _staffCount = staffArray.count;
+        
+        //judge if current user is admin
+        BOOL isAdmin = NO;
+        NSInteger localUserID = [[TCLocalAccount shared] userID];
+        for (TCStaff *tmpStaff in staffArray)
+        {
+            if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
+            {
+                //[[TCCurrentCorp shared] setIsAdmin:YES];
+                isAdmin = YES;
+                break;
+            }
+        }
+        [[TCCurrentCorp shared] setIsAdmin:isAdmin];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         
     }];
+    */
+
 }
 
 - (void)didReceiveMemoryWarning {

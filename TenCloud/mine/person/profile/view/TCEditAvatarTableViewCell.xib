@@ -89,7 +89,9 @@
             <connections>
                 <outlet property="avatarView" destination="qU7-E5-DPZ" id="zN2-YL-Aki"/>
                 <outlet property="descLabel" destination="Oty-D9-u6a" id="6Id-Oe-h5g"/>
+                <outlet property="detailView" destination="0kl-h3-xFX" id="Odx-OU-Oex"/>
                 <outlet property="nameLabel" destination="SOZ-Wh-RSG" id="iML-jT-s5l"/>
+                <outlet property="trailingConstraint" destination="Qlx-xY-VWL" id="VxY-5B-plF"/>
             </connections>
             <point key="canvasLocation" x="10.5" y="90"/>
         </tableViewCell>

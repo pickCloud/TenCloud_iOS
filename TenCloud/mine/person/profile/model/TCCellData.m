@@ -15,6 +15,7 @@
     if (self)
     {
         _hideDetailView = NO;
+        _editable = YES;
     }
     return self;
 }

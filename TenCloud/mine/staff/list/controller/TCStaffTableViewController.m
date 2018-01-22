@@ -37,6 +37,7 @@
 - (void) doSearchWithKeyword:(NSString*)keyword withStaus:(NSInteger)status;
 - (void) onShowKeyboard:(NSNotification*)notification;
 - (void) onHideKeyboard:(NSNotification*)notification;
+- (void) updateDropDownMenu;
 - (IBAction) onCloseKeyboard:(id)sender;
 @end
 
@@ -56,42 +57,6 @@
     [super viewDidLoad];
     self.title = @"员工列表";
     _staffArray = [NSMutableArray new];
-    
-    UIImage *addServerImg = [UIImage imageNamed:@"navbar_add"];
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:addServerImg forState:UIControlStateNormal];
-    [addButton sizeToFit];
-    [addButton addTarget:self action:@selector(onAddButton:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = addItem;
-    
-    __weak __typeof(self) weakSelf = self;
-    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"设置个人加入条件" iconImage:nil action:^{
-        TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
-        [weakSelf.navigationController pushViewController:joinVC animated:YES];
-    }];
-    item1.titleColor = THEME_TEXT_COLOR;
-    FEPopupMenuItem *item2 = [[FEPopupMenuItem alloc] initWithTitle:@"邀请员工" iconImage:nil action:^{
-        TCInviteStaffViewController *inviteVC = [TCInviteStaffViewController new];
-        [weakSelf.navigationController pushViewController:inviteVC animated:YES];
-    }];
-    item2.titleColor = THEME_TEXT_COLOR;
-    FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
-        TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
-        changeVC.staffArray = weakSelf.staffArray;
-        //[changeVC.staffArray addObjectsFromArray:weakSelf.staffArray];
-        NSLog(@"vc staffs:%@",changeVC.staffArray);
-        [self presentViewController:changeVC animated:YES completion:^{
-            
-        }];
-    }];
-    item3.titleColor = THEME_TEXT_COLOR;
-    self.menuController = [[FEPopupMenuController alloc] initWithItems:@[item1,item2,item3]];
-    self.menuController.isShowArrow = NO;
-    self.menuController.contentViewWidth = 180;
-    self.menuController.contentViewBackgroundColor = THEME_NAVBAR_TITLE_COLOR;
-    self.menuController.itemSeparatorLineColor = TABLE_CELL_BG_COLOR;
-    self.menuController.contentViewCornerRadius = TCSCALE(4.0);
     
     UINib *cellNib = [UINib nibWithNibName:@"TCStaffTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:STAFF_CELL_ID];
@@ -189,12 +154,12 @@
         {
             if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
             {
-                //[[TCCurrentCorp shared] setIsAdmin:YES];
                 isAdmin = YES;
                 break;
             }
         }
         [[TCCurrentCorp shared] setIsAdmin:isAdmin];
+        [weakSelf updateDropDownMenu];
     } failure:^(NSString *message) {
         
     }];
@@ -358,6 +323,67 @@
     if (_keywordField.text.length == 0)
     {
         [self reloadStaffArray];
+    }
+}
+
+- (void) updateDropDownMenu
+{
+    if (self.menuController)
+    {
+        self.menuController = nil;
+    }
+    __weak __typeof(self) weakSelf = self;
+    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"设置个人加入条件" iconImage:nil action:^{
+        TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
+        [weakSelf.navigationController pushViewController:joinVC animated:YES];
+    }];
+    item1.titleColor = THEME_TEXT_COLOR;
+    FEPopupMenuItem *item2 = [[FEPopupMenuItem alloc] initWithTitle:@"邀请员工" iconImage:nil action:^{
+        TCInviteStaffViewController *inviteVC = [TCInviteStaffViewController new];
+        [weakSelf.navigationController pushViewController:inviteVC animated:YES];
+    }];
+    item2.titleColor = THEME_TEXT_COLOR;
+    FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
+        TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
+        changeVC.staffArray = weakSelf.staffArray;
+        //[changeVC.staffArray addObjectsFromArray:weakSelf.staffArray];
+        NSLog(@"vc staffs:%@",changeVC.staffArray);
+        [self presentViewController:changeVC animated:YES completion:^{
+            
+        }];
+    }];
+    item3.titleColor = THEME_TEXT_COLOR;
+    NSMutableArray *items = [NSMutableArray new];
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    if ( currentCorp.isAdmin ||
+         [currentCorp havePermissionForFunc:FUNC_ID_INVITE_STAFF] )
+    {
+        [items addObject:item1];
+        [items addObject:item2];
+    }
+    if (currentCorp.isAdmin)
+    {
+        [items addObject:item3];
+    }
+    if (items.count > 0)
+    {
+        UIImage *addServerImg = [UIImage imageNamed:@"navbar_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addServerImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+        
+        self.menuController = [[FEPopupMenuController alloc] initWithItems:items];
+        self.menuController.isShowArrow = NO;
+        self.menuController.contentViewWidth = 180;
+        self.menuController.contentViewBackgroundColor = THEME_NAVBAR_TITLE_COLOR;
+        self.menuController.itemSeparatorLineColor = TABLE_CELL_BG_COLOR;
+        self.menuController.contentViewCornerRadius = TCSCALE(4.0);
+    }else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
     }
 }
 

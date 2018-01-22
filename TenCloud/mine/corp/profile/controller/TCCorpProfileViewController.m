@@ -55,6 +55,10 @@
     self.title = @"企业资料";
     
     //TCLocalAccount *account = [TCLocalAccount shared];
+    BOOL editPermission = [[TCCurrentCorp shared] havePermissionForFunc:FUNC_ID_MODIFY_CORP];
+    BOOL editable = [[TCCurrentCorp shared] isAdmin] || editPermission;
+    NSLog(@"editable:%ld isAdmin:%ld",editable, [[TCCurrentCorp shared] isAdmin]);
+    
     _cellItemArray = [NSMutableArray new];
     TCCellData *data1 = [TCCellData new];
     data1.title = @"LOGO";
@@ -63,6 +67,7 @@
     data1.hideDetailView = YES;
     data1.apiType = TCApiTypeUpdateCorp;
     data1.cid = _corp.cid;
+    data1.editable = editable;
     [_cellItemArray addObject:data1];
     
     TCCellData *data2 = [TCCellData new];
@@ -73,6 +78,7 @@
     data2.type = TCCellTypeEditText;
     data2.apiType = TCApiTypeUpdateCorp;
     data2.cid = _corp.cid;
+    data2.editable = editable;
     [_cellItemArray addObject:data2];
     
     TCCellData *data4 = [TCCellData new];
@@ -83,6 +89,7 @@
     data4.type = TCCellTypeEditText;
     data4.apiType = TCApiTypeUpdateCorp;
     data4.cid = _corp.cid;
+    data4.editable = editable;
     [_cellItemArray addObject:data4];
     
     TCCellData *data5 = [TCCellData new];
@@ -93,6 +100,7 @@
     data5.type = TCCellTypeEditText;
     data5.apiType = TCApiTypeUpdateCorp;
     data5.cid = _corp.cid;
+    data5.editable = editable;
     [_cellItemArray addObject:data5];
     
     TCCellData *data6 = [TCCellData new];
@@ -106,12 +114,14 @@
     data6.initialValue = createTime;
     data6.type = TCCellTypeText;
     data6.hideDetailView = YES;
+    data6.editable = editable;
     [_cellItemArray addObject:data6];
     
     TCCellData *data7 = [TCCellData new];
     data7.title = @"是否认证";
     data7.initialValue = @"未认证";
     data7.type = TCCellTypeCertificate;
+    data7.editable = editable;
     [_cellItemArray addObject:data7];
     
     /*

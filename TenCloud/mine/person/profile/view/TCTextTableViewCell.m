@@ -10,7 +10,7 @@
 #import "TCCellData.h"
 
 @interface TCTextTableViewCell()
-
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint      *trailingConstraint;
 @end
 
 @implementation TCTextTableViewCell
@@ -37,6 +37,15 @@
     }
     self.descLabel.text = descText;//data.initialValue;
     [self.detailView setHidden:data.hideDetailView];
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+        _trailingConstraint.constant = 12;
+    }else
+    {
+        [self.detailView setHidden:YES];
+        _trailingConstraint.constant = -6;
+    }
 }
 
 @end

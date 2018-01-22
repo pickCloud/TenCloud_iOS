@@ -11,6 +11,7 @@
 #import "TCCellData.h"
 
 @interface TCEditTextTableViewCell()
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint      *trailingConstraint;
 - (IBAction) onButton:(id)sender;
 @end
 
@@ -37,10 +38,23 @@
         descText = @"未设置";
     }
     self.descLabel.text = descText;//data.initialValue;
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+        _trailingConstraint.constant = 12;
+    }else
+    {
+        [self.detailView setHidden:YES];
+        _trailingConstraint.constant = -6;
+    }
 }
 
 - (IBAction) onButton:(id)sender
 {
+    if (!self.data.editable)
+    {
+        return;
+    }
     TCModifyTextViewController *modifyVC = [TCModifyTextViewController new];
     modifyVC.titleText = self.data.editPageTitle;
     modifyVC.initialValue = self.data.initialValue;

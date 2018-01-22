@@ -23,6 +23,7 @@
 
 @interface  TCEditAvatarTableViewCell()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint      *trailingConstraint;
 @property (nonatomic, weak) IBOutlet    UIImageView     *avatarView;
 - (IBAction) onButton:(id)sender;
 @end
@@ -48,10 +49,32 @@
     NSURL *avatarURL = [NSURL URLWithString:data.initialValue];
     UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
     [self.avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatarImg];
+    /*
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+    }else
+    {
+        [self.detailView setHidden:YES];
+    }
+     */
+    if (self.data.editable)
+    {
+        [self.detailView setHidden:NO];
+        _trailingConstraint.constant = 12;
+    }else
+    {
+        [self.detailView setHidden:YES];
+        _trailingConstraint.constant = -6;
+    }
 }
 
 - (IBAction) onButton:(id)sender
 {
+    if (!self.data.editable)
+    {
+        return;
+    }
     NSArray *menuArray = [NSArray arrayWithObjects:@"相册",@"相机", nil];
     [LSActionSheet showWithTitle:nil destructiveTitle:nil otherTitles:menuArray block:^(int index) {
         switch (index) {

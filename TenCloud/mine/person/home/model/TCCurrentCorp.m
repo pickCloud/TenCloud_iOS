@@ -136,6 +136,10 @@
     {
         _serverPermissionArray = [NSArray new];
     }
+    if (_isAdmin)
+    {
+        
+    }
     [self save];
 }
 

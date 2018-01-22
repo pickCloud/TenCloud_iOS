@@ -68,6 +68,7 @@
                 <outlet property="descLabel" destination="Oty-D9-u6a" id="6Id-Oe-h5g"/>
                 <outlet property="detailView" destination="0kl-h3-xFX" id="Ov5-Bk-RMf"/>
                 <outlet property="nameLabel" destination="SOZ-Wh-RSG" id="iML-jT-s5l"/>
+                <outlet property="trailingConstraint" destination="8H6-kb-W33" id="MNE-PU-uQD"/>
             </connections>
             <point key="canvasLocation" x="10.5" y="71"/>
         </tableViewCell>
