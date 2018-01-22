@@ -15,6 +15,8 @@
 #import "TCDeleteTemplateRequest.h"
 #import "TCTemplate+CoreDataClass.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCEditingPermission.h"
+#import "TCPermissionViewController.h"
 
 #define TEMPLATE_CELL_REUSE_ID      @"TEMPLATE_CELL_REUSE_ID"
 
@@ -119,13 +121,31 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
-    TCModifyTemplateViewController *modifyVC = [[TCModifyTemplateViewController alloc] initWithTemplate:tmpl];
-    [self.navigationController pushViewController:modifyVC animated:YES];
+    
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_TEMPLATE] )
+    {
+        TCModifyTemplateViewController *modifyVC = [[TCModifyTemplateViewController alloc] initWithTemplate:tmpl];
+        [self.navigationController pushViewController:modifyVC animated:YES];
+    }else
+    {
+        [[TCEditingPermission shared] reset];
+        [[TCEditingPermission shared] setTemplate:tmpl];
+        [[TCEditingPermission shared] readyForPreview];
+        TCPermissionViewController *perVC = [TCPermissionViewController new];
+        perVC.state = PermissionVCPreviewPermission;
+        perVC.tmpl = tmpl;
+        [self presentViewController:perVC animated:YES completion:nil];
+    }
 }
 
 - (BOOL) tableView:(UITableView*)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    return YES;
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canDelete = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_DEL_TEMPLATE];
+    return canDelete;
 }
 
 - (void) tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
