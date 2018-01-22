@@ -80,6 +80,8 @@
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     _corpArray = [NSMutableArray new];
     [[TCCurrentCorp shared] addObserver:self];
+    
+    
     /*
     [self startLoading];
     __weak  __typeof(self) weakSelf = self;

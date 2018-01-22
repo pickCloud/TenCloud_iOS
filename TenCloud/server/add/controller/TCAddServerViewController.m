@@ -50,6 +50,12 @@
     [self.view addGestureRecognizer:tapGesture];
     
     [self connectWebSocket];
+    
+    //test data
+    //_serverNameField.text = @"测试机";
+    //_ipField.text = @"119.29.239.17";
+    //_userNameField.text = @"ubuntu";
+    //_passwordField.text = @"Sqsm3334545";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,7 +123,11 @@
 
 - (void) connectWebSocket
 {
-    NSURL *newURL = [NSURL URLWithString:@"https://c.10.com/api/server/new"];
+    //NSURL *newURL = [NSURL URLWithString:@"https://c.10.com/api/server/new"];
+    NSInteger cid = [[TCCurrentCorp shared] cid];
+    NSString *token = [[TCLocalAccount shared] token];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?Cid=%ld&Authorization=%@",ADD_SERVER_URL, cid,token];
+    NSURL *newURL = [NSURL URLWithString:urlStr];
     NSURLRequest *newRequest = [NSURLRequest requestWithURL:newURL];
     self.socket = [[SRWebSocket alloc] initWithURLRequest:newRequest];
     self.socket.delegate = self;
@@ -168,8 +178,8 @@
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     
     if (webSocket == self.socket) {
-        //NSLog(@"************************** socket连接断开************************** ");
-        //NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
+        NSLog(@"************************** socket连接断开************************** ");
+        NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
         [self closeWebSocket];
         [self connectWebSocket];
         //[MMProgressHUD dismiss];
@@ -196,7 +206,7 @@
             [MMProgressHUD dismissWithSuccess:@"添加成功" title:nil afterDelay:1.5];
         }else
         {
-            [MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
+            //[MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
         }
     }
 }
