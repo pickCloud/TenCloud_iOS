@@ -45,13 +45,18 @@
     self.title = @"权限模版管理";
     _templateArray = [NSMutableArray new];
     
-    UIImage *addTmplImg = [UIImage imageNamed:@"template_add"];
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:addTmplImg forState:UIControlStateNormal];
-    [addButton sizeToFit];
-    [addButton addTarget:self action:@selector(onAddTemplateButton:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = addItem;
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_ADD_TEMPLATE] )
+    {
+        UIImage *addTmplImg = [UIImage imageNamed:@"template_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addTmplImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddTemplateButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+    }
     
     UINib *cellNib = [UINib nibWithNibName:@"TCTemplateTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:TEMPLATE_CELL_REUSE_ID];
