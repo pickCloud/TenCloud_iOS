@@ -189,7 +189,7 @@
                 */
                 
                 TCPermissionViewController *perVC = [TCPermissionViewController new];
-                perVC.userID = _staff.uid;
+                perVC.userID = (NSInteger)_staff.uid;
                 perVC.state = PermissionVCPreviewPermission;
                 perVC.tmpl = _userTemplate;
                 perVC.modifiedBlock = ^(TCPermissionViewController *vc) {

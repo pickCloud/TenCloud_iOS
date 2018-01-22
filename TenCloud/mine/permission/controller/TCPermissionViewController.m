@@ -75,7 +75,7 @@
     {
         [MMProgressHUD showWithStatus:@"修改权限中"];
         TCModifyPermissionRequest *req = [TCModifyPermissionRequest new];
-        req.templateID = _tmpl.tid;
+        req.templateID = (NSInteger)_tmpl.tid;
         req.name = _tmpl.name;
         req.funcPermissionArray = perm.permissionIDArray;
         req.projectPermissionArray = perm.projectPermissionIDArray;

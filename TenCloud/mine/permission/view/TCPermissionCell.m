@@ -45,7 +45,6 @@
     {
         _nameLabel.text = node.filename;
     }
-    _leftConstraint.constant = 18 + (_mNode.depth - 2) * 25;
     if (_mNode.data && _mNode.data.count > 0)
     {
         _arrowView.hidden = NO;
@@ -54,11 +53,20 @@
         _arrowView.hidden = YES;
     }
     [self updateCheckButtonUI];
+    if (_editable)
+    {
+        [_checkButton setHidden:NO];
+        _leftConstraint.constant = 18 + (_mNode.depth - 2) * 23;
+    }else
+    {
+        [_checkButton setHidden:YES];
+        _leftConstraint.constant = -4 + (_mNode.depth - 2) * 23;
+    }
 }
 
 - (void) updateCheckButtonUI
 {
-    if (self.mNode.selected)
+    if (self.mNode.selected && _editable)
     {
         UIImage *selectedImage = [UIImage imageNamed:@"template_checked"];
         [_checkButton setImage:selectedImage forState:UIControlStateNormal];
