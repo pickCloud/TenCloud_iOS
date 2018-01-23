@@ -140,7 +140,7 @@
     __weak  __typeof(self) weakSelf = self;
     TCStaffSearchRequest *req = [TCStaffSearchRequest new];
     //req.keyword = keyword;
-    //req.status = status;
+    req.status = _statusSelectedIndex;
     [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
         [weakSelf.staffArray removeAllObjects];
         [weakSelf stopLoading];
@@ -278,8 +278,8 @@
 #pragma mark - Text Field Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"word:%@",textField.text);
     NSString *word = textField.text;
+    NSLog(@"word:%@ sIndex:%ld",textField.text,_statusSelectedIndex);
     [self doSearchWithKeyword:word withStaus:_statusSelectedIndex];
     [textField resignFirstResponder];
     return YES;
@@ -322,7 +322,7 @@
                      }];
     if (_keywordField.text.length == 0)
     {
-        [self reloadStaffArray];
+        //[self reloadStaffArray];
     }
 }
 
