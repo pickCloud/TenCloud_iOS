@@ -162,7 +162,17 @@
         
     } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
         [weakSelf stopLoading];
-        [MBProgressHUD showError:@"获取数据失败" toView:nil];
+        //[MBProgressHUD showError:@"获取数据失败" toView:nil];
+        TCPersonHomeViewController *personVC = [[TCPersonHomeViewController alloc] init];
+        [[TCCurrentCorp shared] setCid:0];
+        NSString *localName = [[TCLocalAccount shared] name];
+        [[TCCurrentCorp shared] setName:localName];
+        [[TCCurrentCorp shared] save];
+        NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+        [newVCS removeLastObject];
+        [newVCS addObject:personVC];
+        [weakSelf.navigationController setViewControllers:newVCS];
     }];
     
     //[self loadCorpArray];

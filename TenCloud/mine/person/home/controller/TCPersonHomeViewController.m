@@ -101,8 +101,6 @@
             {
                 [MMProgressHUD showWithStatus:@"切换身份中"];
                 TCListCorp *selectedCorp = [weakSelf.passedCorpArray objectAtIndex:selectedIndex];
-                //NSLog(@"切换到企业账号%@ id%lld",selectedCorp.company_name, selectedCorp.cid);
-                //NSLog(@"comn:%@",selectedCorp.company_name);
                 TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
                 
                 NSArray *viewControllers = weakSelf.navigationController.viewControllers;

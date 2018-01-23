@@ -147,7 +147,7 @@
     }else
     {
         __weak __typeof(self) weakSelf = self;
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业账号?"
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业身份?"
                                                                                  message:nil
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         alertController.view.tintColor = [UIColor grayColor];
@@ -155,6 +155,7 @@
         UIAlertAction *switchAction = [UIAlertAction actionWithTitle:@"切换" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [MMProgressHUD showWithStatus:@"切换身份中"];
+            [[TCCurrentCorp shared] setCid:selectedCorp.cid];
             UIViewController *homeVC = nil;
             homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
             NSArray *viewControllers = weakSelf.navigationController.viewControllers;
