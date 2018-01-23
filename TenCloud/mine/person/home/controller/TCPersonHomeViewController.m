@@ -53,6 +53,7 @@
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     [[TCLocalAccount shared] addObserver:self];
     _corpArray = [NSMutableArray new];
+    [self startLoading];
     [self loadCorpArray];
     
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
@@ -219,16 +220,18 @@
 - (void) loadCorpArray
 {
     __weak __typeof(self) weakSelf = self;
-    TCCorpListRequest *request = [[TCCorpListRequest alloc] initWithStatus:7];
+    TCCorpListRequest *request = [[TCCorpListRequest alloc] initWithStatus:6];
     [request startWithSuccess:^(NSArray<TCListCorp *> *corpArray) {
         [weakSelf.corpArray removeAllObjects];
         TCCorp *me = [TCCorp MR_createEntity];
         me.company_name = [[TCLocalAccount shared] name];
         [weakSelf.corpArray addObject:me];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
+        [weakSelf stopLoading];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
-        
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 

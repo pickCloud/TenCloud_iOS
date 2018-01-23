@@ -23,7 +23,7 @@
     if (self)
     {
         _status = status;
-        self.ignoreCache = YES;
+        //self.ignoreCache = YES;
     }
     return self;
 }
@@ -32,14 +32,20 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSDictionary *arrayDict = [request.responseJSONObject objectForKey:@"data"];
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-        NSArray *resArray = [TCListCorp mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+        NSArray *resArray = [self resultCorpArray];
         success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
     }];
+}
+
+- (NSArray<TCListCorp*> *)resultCorpArray
+{
+    NSDictionary *arrayDict = [self.responseJSONObject objectForKey:@"data"];
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    NSArray *resArray = [TCListCorp mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+    return resArray;
 }
 
 - (NSString *)requestUrl {

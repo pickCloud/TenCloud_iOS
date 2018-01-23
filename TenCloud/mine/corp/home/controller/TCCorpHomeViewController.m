@@ -45,6 +45,7 @@
 @property (nonatomic, assign)   NSInteger               corpID;
 @property (nonatomic, strong)   TCCorp                  *corpInfo;
 @property (nonatomic, strong)   NSMutableArray          *corpArray;
+@property (nonatomic, strong)   NSMutableArray          *passedCorpArray;
 @property (nonatomic, strong)   UIButton                *messageButton;
 @property (nonatomic, assign)   NSInteger               staffCount;
 @property (nonatomic, weak) IBOutlet    TCSwitchAccountButton   *switchButton;
@@ -76,7 +77,7 @@
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     _corpArray = [NSMutableArray new];
     [[TCCurrentCorp shared] addObserver:self];
-    
+    _passedCorpArray = [NSMutableArray new];
     
     /*
     [self startLoading];
@@ -102,7 +103,8 @@
     permissionReq.userID = userID;
     permissionReq.corpID = _corpID;
     TCStaffListRequest *staffReq = [TCStaffListRequest new];
-    NSArray *reqArray = [NSArray arrayWithObjects:profileReq,permissionReq,staffReq, nil];
+    TCCorpListRequest *corpListReq = [[TCCorpListRequest alloc] initWithStatus:7];
+    NSArray *reqArray = [NSArray arrayWithObjects:profileReq,permissionReq,staffReq,corpListReq, nil];
     YTKBatchRequest *batchReq = [[YTKBatchRequest alloc] initWithRequestArray:reqArray];
     [batchReq startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
         NSArray *requestArray = batchRequest.requestArray;
@@ -144,6 +146,18 @@
             [weakSelf.tableView reloadData];
         }
         
+        TCCorpListRequest *req3 = requestArray[3];
+        NSArray<TCListCorp*> *bCorpArray = [req3 resultCorpArray];
+        if (bCorpArray)
+        {
+            [weakSelf.corpArray removeAllObjects];
+            TCListCorp *me = [TCListCorp MR_createEntity];
+            me.company_name = [[TCLocalAccount shared] name];
+            me.cid = 0;
+            [weakSelf.corpArray addObject:me];
+            [weakSelf.corpArray addObjectsFromArray:bCorpArray];
+        }
+        
         [weakSelf stopLoading];
         
     } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
@@ -151,7 +165,7 @@
         [MBProgressHUD showError:@"获取数据失败" toView:nil];
     }];
     
-    [self loadCorpArray];
+    //[self loadCorpArray];
     
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
     _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -175,15 +189,16 @@
     
     _switchButton.touchedBlock = ^{
         NSLog(@"touchedddd:%@",weakSelf.corpArray);
-        NSMutableArray *passedCorpArray = [NSMutableArray new];
+        //NSMutableArray *passedCorpArray = [NSMutableArray new];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)
         {
             if (tmpCorp.status == 3 || tmpCorp.status == 4 || tmpCorp.cid == 0)
             {
-                [passedCorpArray addObject:tmpCorp];
+                //[passedCorpArray addObject:tmpCorp];
+                [weakSelf.passedCorpArray addObject:tmpCorp];
             }
         }
-        TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:passedCorpArray buttonRect:weakSelf.switchButton.frame];
+        TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:weakSelf.passedCorpArray buttonRect:weakSelf.switchButton.frame];
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -192,7 +207,7 @@
             if ( selectedIndex < weakSelf.corpArray.count)
             {
                 [MMProgressHUD showWithStatus:@"切换身份中"];
-                TCListCorp *selectedCorp = [weakSelf.corpArray objectAtIndex:selectedIndex];
+                TCListCorp *selectedCorp = [weakSelf.passedCorpArray objectAtIndex:selectedIndex];
                 UIViewController *homeVC = nil;
                 if (selectedIndex == 0)
                 {

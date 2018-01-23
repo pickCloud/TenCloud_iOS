@@ -14,6 +14,8 @@
 
 - (instancetype) initWithStatus:(NSInteger)status;
 
+- (NSArray<TCListCorp*> *)resultCorpArray;
+
 - (void) startWithSuccess:(void(^)(NSArray<TCListCorp*> *corpArray))success
                   failure:(void(^)(NSString *message))failure;
 
