@@ -110,11 +110,6 @@
     TCMyCorpTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_CORP_CELL_REUSE_ID forIndexPath:indexPath];
     TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     [cell setCorp:corp];
-    /*
-    TCServerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CELL_REUSE_ID forIndexPath:indexPath];
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    [cell setServer:server];
-     */
     return cell;
 }
 
@@ -124,6 +119,7 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    __weak __typeof(self) weakSelf = self;
     TCListCorp *selectedCorp = [self.corpArray objectAtIndex:indexPath.row];
     if (selectedCorp.status == -1)
     {
@@ -134,19 +130,33 @@
     }else if(selectedCorp.status == 5 || selectedCorp.status == 1)
     {
         NSLog(@"select corp code:%@",selectedCorp.code);
-        NSString *inviteCode = selectedCorp.code;
-        if ([[TCLocalAccount shared] isLogin])
-        {
-            TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
-            [self.navigationController pushViewController:acceptVC animated:YES];
-        }else
-        {
-            TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
-            [self.navigationController pushViewController:loginVC animated:YES];
-        }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重新申请?"
+                                                                                 message:nil
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        alertController.view.tintColor = [UIColor grayColor];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *applyAction = [UIAlertAction actionWithTitle:@"重新申请" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            NSString *inviteCode = selectedCorp.code;
+            if ([[TCLocalAccount shared] isLogin])
+            {
+                TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
+                [weakSelf.navigationController pushViewController:acceptVC animated:YES];
+            }else
+            {
+                TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
+                [weakSelf.navigationController pushViewController:loginVC animated:YES];
+            }
+            
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:applyAction];
+        [alertController presentationController];
+        [self presentViewController:alertController animated:YES completion:nil];
     }else
     {
-        __weak __typeof(self) weakSelf = self;
+
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业身份?"
                                                                                  message:nil
                                                                           preferredStyle:UIAlertControllerStyleAlert];
