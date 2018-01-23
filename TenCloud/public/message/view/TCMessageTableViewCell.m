@@ -43,9 +43,15 @@
     }else if(message.mode == 2)
     {
         operation = @"企业改变信息";
-    }else
+    }else if(message.mode == 3)
     {
         operation = @"退出企业";
+    }else if(message.mode == 4)
+    {
+        operation = @"添加主机";
+    }else if(message.mode == 5)
+    {
+        operation = @"构建镜像";
     }
     NSString *operationStr = [NSString stringWithFormat:@"%@ %@",operation,message.update_time];
     _operationLabel.text = operationStr;
@@ -62,6 +68,9 @@
     }else if(message.sub_mode == 3)
     {
         [_actionButton setTitle:@"马上查看" forState:UIControlStateNormal];
+    }else if(message.sub_mode == 4)
+    {
+        [_actionButton setTitle:@"查看项目" forState:UIControlStateNormal];
     }
     
     NSMutableAttributedString *resultStr = [NSMutableAttributedString new];

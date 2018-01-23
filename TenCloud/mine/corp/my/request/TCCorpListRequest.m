@@ -23,6 +23,7 @@
     if (self)
     {
         _status = status;
+        self.ignoreCache = YES;
     }
     return self;
 }
@@ -42,7 +43,6 @@
 }
 
 - (NSString *)requestUrl {
-    //return @"/api/companies/list/7";
     NSString *url = [NSString stringWithFormat:@"/api/companies/list/%ld",_status];
     return url;
 }

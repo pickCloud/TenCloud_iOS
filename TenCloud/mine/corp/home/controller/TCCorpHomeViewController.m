@@ -18,7 +18,6 @@
 #import "TCStaffTableViewController.h"
 #import "YTKBatchRequest.h"
 #import "TCStaff+CoreDataClass.h"
-
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
 #import "TCCorpListRequest.h"
@@ -28,13 +27,10 @@
 #import "TCCorpProfileRequest.h"
 #import "NSString+Extension.h"
 #import "TCUserPermissionRequest.h"
-
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
 #import "TCStaffListRequest.h"
 #import "TCMessageViewController.h"
-
-
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"

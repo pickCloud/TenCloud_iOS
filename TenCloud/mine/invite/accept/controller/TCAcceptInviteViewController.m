@@ -94,7 +94,6 @@
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];
-
 }
 
 - (void) updateInviteInfoUI
