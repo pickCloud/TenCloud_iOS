@@ -16,6 +16,11 @@
 #import "WeiboSDK.h"
 #import <TencentOpenAPI/TencentApiInterface.h>
 
+#define WECHAT_APP_ID       @"wxc01464912319f82e"
+#define WECHAT_APP_SECRET   @"a899820621ce623d835c4caf9381762d"
+#define QQ_APP_ID           @"1106665152"
+#define QQ_APP_KEY          @"slhcMjf52PvQoMnO"
+
 static TCShareManager *_singleton = nil;
 
 @implementation TCShareManager
@@ -33,9 +38,12 @@ static TCShareManager *_singleton = nil;
     [UMSocialData setAppKey:@"57cfeda567e58e275c00102d"];
     //设置微信AppId、appSecret，分享url
     [UMSocialData openLog:YES];
-    [UMSocialWechatHandler setWXAppId:@"wxc01464912319f82e" appSecret:@"a899820621ce623d835c4caf9381762d" url:@"http://c.10.com"];
-    //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
-    [UMSocialQQHandler setQQWithAppId:@"1106665152" appKey:@"slhcMjf52PvQoMnO" url:@"http://c.10.com"];
+//    [UMSocialWechatHandler setWXAppId:@"wxc01464912319f82e" appSecret:@"a899820621ce623d835c4caf9381762d" url:@"http://c.10.com"];
+//    [UMSocialQQHandler setQQWithAppId:@"1106665152" appKey:@"slhcMjf52PvQoMnO" url:@"http://c.10.com"];
+    [UMSocialWechatHandler setWXAppId:WECHAT_APP_ID appSecret:WECHAT_APP_SECRET
+                                  url:@"http://c.10.com"];
+    [UMSocialQQHandler setQQWithAppId:QQ_APP_ID appKey:QQ_APP_KEY
+                                  url:@"http://c.10.com"];
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3921700954"
                                               secret:@"04b48b094faeb16683c32669824ebdad"
@@ -78,6 +86,8 @@ static TCShareManager *_singleton = nil;
                 }
             }];
              */
+            [UMSocialWechatHandler setWXAppId:WECHAT_APP_ID appSecret:WECHAT_APP_SECRET
+                                          url:url];
             UMSocialUrlResource *resource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:url];
             [[UMSocialDataService defaultDataService] postSNSWithTypes:@[UMShareToWechatSession] content:content image:image location:nil urlResource:resource presentedController:controller completion:^(UMSocialResponseEntity *response){
                 if (response.responseCode == UMSResponseCodeSuccess) {
@@ -106,6 +116,8 @@ static TCShareManager *_singleton = nil;
                 return ;
             }
             //[UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+            [UMSocialQQHandler setQQWithAppId:QQ_APP_ID appKey:QQ_APP_KEY
+                                          url:url];
             UMSocialUrlResource *resource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:url];
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:content image:image location:nil urlResource:resource presentedController:controller completion:^(UMSocialResponseEntity *response){
                 if (response.responseCode == UMSResponseCodeSuccess) {
