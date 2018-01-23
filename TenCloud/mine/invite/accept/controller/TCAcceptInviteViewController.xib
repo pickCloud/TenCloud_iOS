@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCAcceptInviteViewController">
             <connections>
+                <outlet property="inviteButton" destination="h6E-0Y-qdM" id="j3A-sW-PDY"/>
                 <outlet property="row1Label" destination="TM5-hS-n7z" id="uAQ-e8-ttI"/>
                 <outlet property="row2Label" destination="97G-14-Q7d" id="9zB-ua-Dg9"/>
                 <outlet property="row3Label" destination="9PJ-dg-hRV" id="fXj-oc-ztx"/>

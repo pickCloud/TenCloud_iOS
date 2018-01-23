@@ -33,6 +33,9 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *row1Label;
 @property (nonatomic, weak) IBOutlet    UILabel             *row2Label;
 @property (nonatomic, weak) IBOutlet    UILabel             *row3Label;
+@property (nonatomic, weak) IBOutlet    UIButton            *inviteButton;
+@property (nonatomic, weak) IBOutlet    UIView              *phonePanel;
+@property (nonatomic, weak) IBOutlet    UIView              *captchaPanel;
 @property (nonatomic, strong)   TCInviteInfo                *inviteInfo;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onGetCaptchaButton:(id)sender;
@@ -149,6 +152,10 @@
 - (IBAction) onConfirmJoinButton:(id)sender
 {
     NSLog(@"on register button");
+    if ([self isInviteInfoInvalid])
+    {
+        return;
+    }
     NSString *phoneNumStr = _phoneNumberField.plainPhoneNum;
     if (phoneNumStr.length == 0)
     {
@@ -217,8 +224,27 @@
      */
 }
 
+- (BOOL) isInviteInfoInvalid
+{
+    BOOL isValid = _inviteInfo.company_name == nil ||
+    _inviteInfo.company_name.length == 0 ||
+    _inviteInfo.contact == nil ||
+    _inviteInfo.contact.length == 0;
+    return isValid;
+}
+
 - (void) updateInviteInfoUI
 {
+    if ([self isInviteInfoInvalid])
+    {
+        _row1Label.text = @"邀请链接已过期，请联系管理员重新邀请";
+        _row2Label.text = @"";
+        _row3Label.text = @"";
+        _phonePanel.hidden = YES;
+        _captchaPanel.hidden = YES;
+        _inviteButton.alpha = 0.2;
+        return;
+    }
     CGRect row1Rect = _row1Label.frame;
     NSLog(@"row1Rect:%.2f, %.2f, %.2f, %.2f",row1Rect.origin.x, row1Rect.origin.y, row1Rect.size.width,
           row1Rect.size.height);

@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *row1Label;
 @property (nonatomic, weak) IBOutlet    UILabel             *row2Label;
 @property (nonatomic, weak) IBOutlet    UILabel             *row3Label;
+@property (nonatomic, weak) IBOutlet    UIButton            *inviteButton;
 @property (nonatomic, strong)   NSString                    *code;
 @property (nonatomic, strong)   TCInviteInfo                *inviteInfo;
 - (void) onTapBlankArea:(id)sender;
@@ -86,6 +87,10 @@
 - (IBAction) onAcceptInviteButton:(id)sender
 {
     NSLog(@"on accept invite button");
+    if ([self isInviteInfoInvalid])
+    {
+        return;
+    }
     NSString *phoneNum = [[TCLocalAccount shared] mobile];
     TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
     [acceptReq startWithSuccess:^(NSString *message) {
@@ -96,15 +101,22 @@
     }];
 }
 
+- (BOOL) isInviteInfoInvalid
+{
+    BOOL isValid = _inviteInfo.company_name == nil ||
+    _inviteInfo.company_name.length == 0 ||
+    _inviteInfo.contact == nil ||
+    _inviteInfo.contact.length == 0;
+    return isValid;
+}
+
 - (void) updateInviteInfoUI
 {
-    if (_inviteInfo.company_name == nil ||
-        _inviteInfo.company_name.length == 0 ||
-        _inviteInfo.contact == nil ||
-        _inviteInfo.contact.length == 0)
+    if ([self isInviteInfoInvalid])
     {
         _row1Label.text = @"邀请链接已过期，请联系管理员重新邀请";
         _row2Label.text = @"";
+        _inviteButton.alpha = 0.2;
         return;
     }
     

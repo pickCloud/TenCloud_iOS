@@ -15,7 +15,10 @@
             <connections>
                 <outlet property="captchaButton" destination="vyC-yE-RAb" id="rLa-XY-yjZ"/>
                 <outlet property="captchaField" destination="Ja7-gJ-THR" id="cbO-YI-qkm"/>
+                <outlet property="captchaPanel" destination="DVY-1u-N9e" id="aO1-Nd-kkR"/>
+                <outlet property="inviteButton" destination="h6E-0Y-qdM" id="Zgh-9x-5px"/>
                 <outlet property="phoneNumberField" destination="9rM-X1-cqn" id="9n1-oi-dHT"/>
+                <outlet property="phonePanel" destination="Ufh-De-YIU" id="KNQ-3g-5bb"/>
                 <outlet property="row1Label" destination="TM5-hS-n7z" id="uAQ-e8-ttI"/>
                 <outlet property="row2Label" destination="97G-14-Q7d" id="9zB-ua-Dg9"/>
                 <outlet property="row3Label" destination="9PJ-dg-hRV" id="fXj-oc-ztx"/>
