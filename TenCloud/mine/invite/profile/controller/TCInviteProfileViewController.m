@@ -19,6 +19,7 @@
 @property (nonatomic, strong)           NSString            *joinSetting;
 @property (nonatomic, assign)           BOOL                shouldSetPassword;
 @property (nonatomic, strong)           NSString            *phoneNumber;
+@property (nonatomic, weak) IBOutlet    UITextField         *phoneNumField;
 @property (nonatomic, weak) IBOutlet    UIView              *password1Panel;
 @property (nonatomic, weak) IBOutlet    UIView              *password2Panel;
 @property (nonatomic, weak) IBOutlet    UITextField         *password1Field;
@@ -65,6 +66,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     _widthConstraint.constant = screenRect.size.width;
     
+    _phoneNumField.text = _phoneNumber;
     NSAttributedString *phonePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
     _password1Field.attributedPlaceholder = phonePlaceHolderStr;
     NSAttributedString *captchaPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请再次输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
