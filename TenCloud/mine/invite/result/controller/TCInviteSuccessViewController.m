@@ -8,6 +8,8 @@
 
 #import "TCInviteSuccessViewController.h"
 #import "TCTabBarController.h"
+#import "TCPersonHomeViewController.h"
+#import "TCMyCorpTableViewController.h"
 
 @interface TCInviteSuccessViewController ()
 @property (nonatomic, strong)   NSString    *titleText;
@@ -69,6 +71,20 @@
     TCTabBarController *tabBarController = [TCTabBarController new];
     [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
     [tabBarController setSelectedIndex:4];
+    
+    UINavigationController *mineNav = [[tabBarController viewControllers] objectAtIndex:4];
+    TCMyCorpTableViewController *myCorpVC = [TCMyCorpTableViewController new];
+    TCPersonHomeViewController *personVC = [[TCPersonHomeViewController alloc] init];
+    [[TCCurrentCorp shared] setCid:0];
+    NSString *localName = [[TCLocalAccount shared] name];
+    [[TCCurrentCorp shared] setName:localName];
+    [[TCCurrentCorp shared] save];
+    NSArray *viewControllers = mineNav.viewControllers;
+    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+    [newVCS removeLastObject];
+    [newVCS addObject:personVC];
+    [newVCS addObject:myCorpVC];
+    [mineNav setViewControllers:newVCS];
 }
 
 @end
