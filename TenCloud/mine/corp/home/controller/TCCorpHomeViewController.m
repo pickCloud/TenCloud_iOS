@@ -190,6 +190,7 @@
     _switchButton.touchedBlock = ^{
         NSLog(@"touchedddd:%@",weakSelf.corpArray);
         //NSMutableArray *passedCorpArray = [NSMutableArray new];
+        [weakSelf.passedCorpArray removeAllObjects];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)
         {
             if (tmpCorp.status == 3 || tmpCorp.status == 4 || tmpCorp.cid == 0)

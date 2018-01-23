@@ -35,7 +35,7 @@
     [_cellItemArray addObject:data1];
     
     TCCellData *data2 = [TCCellData new];
-    data2.title = @"创建时间";
+    data2.title = @"添加时间";
     NSString *createTime = account.createTime;
     if (createTime && createTime.length > 11)
     {
