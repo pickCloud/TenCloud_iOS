@@ -52,14 +52,22 @@
     {
         NSString *createDate = [corp.create_time substringWithRange:dateRange];
         //NSString *createDateStr = [NSString stringWithFormat:@"创建时间 %@",createDate];
-        NSString *createDateStr = [NSString stringWithFormat:@"创建时间  %@",createDate];
+        NSString *createDateStr = nil;
+        if (corp.status == 4)
+        {
+            createDateStr = [NSString stringWithFormat:@"创建时间  %@",createDate];
+        }else
+        {
+            createDateStr = [NSString stringWithFormat:@"申请时间  %@",createDate];
+        }
         _applyTimeLabel.text = createDateStr;
     }
     if (corp.update_time && corp.update_time.length > 0)
     {
         NSString *reviewDate = [corp.update_time substringWithRange:dateRange];
         NSString *reviewDateStr = [NSString stringWithFormat:@"审核时间  %@",reviewDate];
-        if (corp.status == 5)
+        if (corp.status == 5 ||
+            corp.status == 2)
         {
             reviewDateStr = @"";
         }
