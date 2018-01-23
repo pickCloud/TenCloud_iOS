@@ -267,31 +267,29 @@
                 alertController.view.tintColor = [UIColor grayColor];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
                 UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"离开" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                    NSLog(@"离开o");
+                    [MMProgressHUD showWithStatus:@"离开企业中"];
+                    TCLeaveCorpRequest *leaveReq = [TCLeaveCorpRequest new];
+                    leaveReq.staffID = _staff.staffID;
+                    [leaveReq startWithSuccess:^(NSString *message) {
+                        TCPersonHomeViewController *homeVC = nil;
+                        homeVC = [[TCPersonHomeViewController alloc] init];
+                        [[TCCurrentCorp shared] reset];
+                        NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+                        [newVCS removeAllObjects];
+                        [newVCS addObject:homeVC];
+                        [weakSelf.navigationController setViewControllers:newVCS];
+                        [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+                    } failure:^(NSString *message) {
+                        [MMProgressHUD dismissWithError:message afterDelay:1.32];
+                    }];
                 }];
                 
                 [alertController addAction:cancelAction];
                 [alertController addAction:deleteAction];
                 [alertController presentationController];
                 [self presentViewController:alertController animated:YES completion:nil];
-                return ;
-                
-                [MMProgressHUD showWithStatus:@"离开企业中"];
-                TCLeaveCorpRequest *leaveReq = [TCLeaveCorpRequest new];
-                leaveReq.staffID = _staff.staffID;
-                [leaveReq startWithSuccess:^(NSString *message) {
-                    TCPersonHomeViewController *homeVC = nil;
-                    homeVC = [[TCPersonHomeViewController alloc] init];
-                    [[TCCurrentCorp shared] reset];
-                    NSArray *viewControllers = weakSelf.navigationController.viewControllers;
-                    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-                    [newVCS removeAllObjects];
-                    [newVCS addObject:homeVC];
-                    [weakSelf.navigationController setViewControllers:newVCS];
-                    [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
-                } failure:^(NSString *message) {
-                    [MMProgressHUD dismissWithError:message afterDelay:1.32];
-                }];
+                //return ;
             }
         };
         return cell;
