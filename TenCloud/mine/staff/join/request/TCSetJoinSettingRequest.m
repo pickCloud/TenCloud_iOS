@@ -14,6 +14,16 @@
 
 @implementation TCSetJoinSettingRequest
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.ignoreCache = YES;
+    }
+    return self;
+}
+
 
 - (void) startWithSuccess:(void(^)(NSString *message))success
                   failure:(void(^)(NSString *message))failure
