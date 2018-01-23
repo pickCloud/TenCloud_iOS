@@ -67,6 +67,29 @@
     [_tableView registerNib:cellNib forCellReuseIdentifier:STAFF_PROFILE_CELL_ID];
     _tableView.tableFooterView = _buttonTableView;
     
+    TCServerInfoItem *item0 = [TCServerInfoItem new];
+    item0.key = @"身份证号码";
+    BOOL idCardPermission = [[TCCurrentCorp shared] havePermissionForFunc:FUNC_ID_STAFF_IDCARD];
+    BOOL visable = [[TCCurrentCorp shared] isAdmin] || idCardPermission;
+    NSString *idCardStr = _staff.id_card;
+    if (idCardStr == nil || idCardStr.length == 0)
+    {
+        idCardStr = @"无";
+    }
+    if (!visable)
+    {
+        if (idCardStr && idCardStr.length >= 18)
+        {
+            NSRange preRange = NSMakeRange(0, 5);
+            NSString *preStr = [idCardStr substringWithRange:preRange];
+            NSRange endRange = NSMakeRange(idCardStr.length - 4, 3);
+            NSString *endStr = [idCardStr substringWithRange:endRange];
+            idCardStr = [NSString stringWithFormat:@"%@**********%@",preStr,endStr];
+        }
+    }
+    item0.value = idCardStr;
+    [_rowDataArray addObject:item0];
+    
     TCServerInfoItem *item1 = [TCServerInfoItem new];
     item1.key = @"申请时间";
     NSString *createTime = _staff.create_time;

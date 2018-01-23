@@ -2,7 +2,7 @@
 //  TCStaff+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/4.
+//  Created by huangdx on 2018/1/23.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -22,14 +22,15 @@
              };
 }
 
-@dynamic is_admin;
-@dynamic uid;
-@dynamic update_time;
 @dynamic create_time;
 @dynamic image_url;
+@dynamic is_admin;
 @dynamic mobile;
 @dynamic name;
 @dynamic staffID;
 @dynamic status;
+@dynamic uid;
+@dynamic update_time;
+@dynamic id_card;
 
 @end
