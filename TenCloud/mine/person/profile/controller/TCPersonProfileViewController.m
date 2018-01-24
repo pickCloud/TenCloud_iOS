@@ -50,7 +50,15 @@
     data2.editPageTitle = @"修改姓名";
     data2.placeHolder = @"请输入姓名";
     data2.keyName = @"name";
-    data2.initialValue = account.name;
+    if (account.isNameSetted)
+    {
+        NSLog(@"is name setted");
+        data2.initialValue = account.name;
+    }else
+    {
+        NSLog(@"name not setted");
+    }
+    //data2.initialValue = account.name;
     data2.type = TCCellTypeEditText;
     [_cellItemArray addObject:data2];
     

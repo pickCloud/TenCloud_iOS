@@ -245,6 +245,13 @@
     NSURL *avatarURL = [NSURL URLWithString:account.avatar];
     UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
     [_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
+    
+    if (_corpArray.count > 0)
+    {
+        TCCorp *firstCorp = _corpArray.firstObject;
+        [firstCorp setName:[[TCLocalAccount shared] name]];
+        [firstCorp setCompany_name:[[TCLocalAccount shared] name]];
+    }
 }
 
 #pragma mark - Account Delegate

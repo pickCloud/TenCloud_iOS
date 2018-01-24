@@ -112,6 +112,7 @@
 - (BOOL) isNameSetted
 {
     BOOL isSetted = _name.length > 0;
+    NSLog(@"_name:%@",_name);
     return isSetted;
 }
 
