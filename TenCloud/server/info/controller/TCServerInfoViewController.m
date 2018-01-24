@@ -153,7 +153,7 @@
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     alertController.view.tintColor = [UIColor grayColor];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *restartAction = [UIAlertAction actionWithTitle:@"重启" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *restartAction = [UIAlertAction actionWithTitle:@"重启" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
         [request startWithSuccess:^(NSString *status) {
             [weakSelf sendUpdateServerStateRequest];
