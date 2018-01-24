@@ -101,6 +101,12 @@
         }
     }
     
+    if ([newValue isEqualToString:self.initialValue])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    
     if (_requestBlock)
     {
         _requestBlock(self, newValue);
