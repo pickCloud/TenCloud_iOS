@@ -159,6 +159,8 @@
 		A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D122C1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m */; };
 		A073F9B02018113200AB03DA /* TCServerConfigItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9AF2018113200AB03DA /* TCServerConfigItem.m */; };
 		A073F9B320185ED500AB03DA /* TCTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9B220185ED500AB03DA /* TCTagLabel.m */; };
+		A073F9BF2018C0B300AB03DA /* TCTextRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9BD2018C0B300AB03DA /* TCTextRefreshAutoFooter.m */; };
+		A073F9C02018C0B300AB03DA /* TCTextRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9BE2018C0B300AB03DA /* TCTextRefreshHeader.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -628,6 +630,10 @@
 		A073F9AF2018113200AB03DA /* TCServerConfigItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerConfigItem.m; sourceTree = "<group>"; };
 		A073F9B120185ED500AB03DA /* TCTagLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTagLabel.h; sourceTree = "<group>"; };
 		A073F9B220185ED500AB03DA /* TCTagLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTagLabel.m; sourceTree = "<group>"; };
+		A073F9BB2018C0B200AB03DA /* TCTextRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTextRefreshAutoFooter.h; sourceTree = "<group>"; };
+		A073F9BC2018C0B200AB03DA /* TCTextRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTextRefreshHeader.h; sourceTree = "<group>"; };
+		A073F9BD2018C0B300AB03DA /* TCTextRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTextRefreshAutoFooter.m; sourceTree = "<group>"; };
+		A073F9BE2018C0B300AB03DA /* TCTextRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTextRefreshHeader.m; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1930,6 +1936,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A073F9B42018C08D00AB03DA /* refresh */,
 				A0A86B261FF37F2600D1D58D /* result */,
 				A0C9A0B71FF2284A00F94E9E /* imageView */,
 				A07DBEAD1FE210A200F37715 /* button */,
@@ -2744,6 +2751,17 @@
 				A067D8A3200F4A7600160913 /* UIView+MGBadgeView.m */,
 			);
 			path = MGBadgeView;
+			sourceTree = "<group>";
+		};
+		A073F9B42018C08D00AB03DA /* refresh */ = {
+			isa = PBXGroup;
+			children = (
+				A073F9BB2018C0B200AB03DA /* TCTextRefreshAutoFooter.h */,
+				A073F9BD2018C0B300AB03DA /* TCTextRefreshAutoFooter.m */,
+				A073F9BC2018C0B200AB03DA /* TCTextRefreshHeader.h */,
+				A073F9BE2018C0B300AB03DA /* TCTextRefreshHeader.m */,
+			);
+			path = refresh;
 			sourceTree = "<group>";
 		};
 		A07DBE8D1FE1157800F37715 /* basic */ = {
@@ -3915,7 +3933,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FEPopupMenuController/FEPopupResource.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FEPopupMenuController/FEPopupResource.bundle,
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_5.2.1/UMSocialSDKResourcesNew.bundle",
 				"${PODS_ROOT}/UMengSocialCOM/Umeng_SDK_Social_iOS_ARM64_5.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle",
@@ -4080,6 +4098,7 @@
 				A0A86B691FF3B6BC00D1D58D /* TCAddCorpRequest.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
+				A073F9BF2018C0B300AB03DA /* TCTextRefreshAutoFooter.m in Sources */,
 				A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */,
 				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
@@ -4192,6 +4211,7 @@
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A031B60B1FFDB48400B4F448 /* TCRenameTemplateRequest.m in Sources */,
+				A073F9C02018C0B300AB03DA /* TCTextRefreshHeader.m in Sources */,
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,
 				A00AFF8C200C772200EFADF6 /* TCAcceptInviteRequest.m in Sources */,

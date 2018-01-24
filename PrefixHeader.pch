@@ -20,6 +20,7 @@
 #import <MJExtension/MJExtension.h>
 #import "UIViewController+LoadingView.h"
 #import "WRNavigationBar.h"
+#import <MJRefresh/MJRefresh.h>
 #endif
 
 //正式服务器

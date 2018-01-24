@@ -80,7 +80,6 @@
     
     __weak __typeof(self) weakSelf = self;
     _switchButton.touchedBlock = ^{
-        NSLog(@"touchedddd:%@",weakSelf.corpArray);
         //NSMutableArray *passedCorpArray = [NSMutableArray new];
         [weakSelf.passedCorpArray removeAllObjects];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)

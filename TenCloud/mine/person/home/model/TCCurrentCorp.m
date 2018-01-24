@@ -90,7 +90,12 @@
 //- (BOOL) isCurrent:(TCCorp*)corp
 - (BOOL) isSameWithID:(NSInteger)cid name:(NSString*)corpName
 {
+    NSLog(@"is same with %ld corpName:%@ _name:%@ _cid:%ld",cid,corpName,_name,_cid);
     if (cid == 0 && _name == nil)
+    {
+        return YES;
+    }
+    if (cid == 0 && _name != nil && _name.length == 0)
     {
         return YES;
     }

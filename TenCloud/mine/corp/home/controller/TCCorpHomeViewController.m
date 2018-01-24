@@ -198,7 +198,6 @@
     _tableView.tableFooterView = [UIView new];
     
     _switchButton.touchedBlock = ^{
-        NSLog(@"touchedddd:%@",weakSelf.corpArray);
         //NSMutableArray *passedCorpArray = [NSMutableArray new];
         [weakSelf.passedCorpArray removeAllObjects];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)

@@ -15,6 +15,8 @@
 #import "TCMessageListRequest.h"
 #import "TCCorpProfileRequest.h"
 #import "TCStaffTableViewController.h"
+#import "TCMessageListRequest.h"
+#import "TCTextRefreshAutoFooter.h"
 
 #import "TCAcceptInviteViewController.h"
 #import "TCInviteLoginViewController.h"
@@ -30,6 +32,7 @@
 @property (nonatomic, strong)   NSMutableArray          *messageArray;
 @property (nonatomic, assign)   NSInteger               pageIndex;
 - (void) reloadMessages;
+- (void) loadMoreMessages;
 @end
 
 @implementation TCMessageTableViewController
@@ -87,6 +90,11 @@
     }];
      */
     [self reloadMessages];
+    
+    TCTextRefreshAutoFooter *footer = [TCTextRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreMessages)];
+    footer.automaticallyRefresh = YES;
+    footer.automaticallyHidden = YES;
+    self.tableView.mj_footer = footer;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -239,6 +247,7 @@
     [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
         if (messageArray)
         {
+            [weakSelf.messageArray removeAllObjects];
             [weakSelf.messageArray addObjectsFromArray:messageArray];
         }
         [weakSelf stopLoading];
@@ -246,6 +255,28 @@
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
+    }];
+}
+
+- (void) loadMoreMessages
+{
+    __weak __typeof(self) weakSelf = self;
+    TCMessageListRequest *listReq = [TCMessageListRequest new];
+    listReq.status = _status;
+    listReq.page = _pageIndex + 1;
+    [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
+        [self.tableView.mj_footer endRefreshing];
+        if (messageArray.count)
+        {
+            [self.messageArray addObjectsFromArray:messageArray];
+            self.pageIndex ++;
+        }else
+        {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSString *message) {
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 @end
