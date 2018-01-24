@@ -123,8 +123,10 @@
     TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
     
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
-    if ( currentCorp.isAdmin ||
-        [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_TEMPLATE] )
+    BOOL havePermission = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_TEMPLATE];
+    BOOL editable = tmpl.type != 0;
+    if ( havePermission && editable )
     {
         TCModifyTemplateViewController *modifyVC = [[TCModifyTemplateViewController alloc] initWithTemplate:tmpl];
         [self.navigationController pushViewController:modifyVC animated:YES];
