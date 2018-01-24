@@ -235,6 +235,7 @@
 - (void) reloadServerList
 {
     __weak  __typeof(self)  weakSelf = self;
+    NSLog(@" reload server list");
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
@@ -249,8 +250,8 @@
         }
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 

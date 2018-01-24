@@ -212,6 +212,16 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     return (statusCode >= 200 && statusCode <= 299);
 }
 
+- (NSString *)errorMessaage
+{
+    if (self.error.code == -1009)
+    {
+        return @"网络断开，请检查连接";
+    }
+    NSString *message = [self.responseJSONObject objectForKey:@"message"];
+    return message;
+}
+
 #pragma mark - NSObject
 
 - (NSString *)description {

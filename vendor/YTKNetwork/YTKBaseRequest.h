@@ -332,6 +332,8 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 ///  This validator will be used to test if `responseStatusCode` is valid.
 - (BOOL)statusCodeValidator;
 
+- (NSString *)errorMessaage;
+
 @end
 
 NS_ASSUME_NONNULL_END
