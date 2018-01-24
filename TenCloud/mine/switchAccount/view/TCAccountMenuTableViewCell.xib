@@ -18,10 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="180" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-Wh-2ry">
-                        <rect key="frame" x="16" y="11" width="29" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-Wh-2ry" customClass="TCTagLabel">
+                        <rect key="frame" x="15" y="14" width="20.5" height="12"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="public_checkbox_select" translatesAutoresizingMaskIntoConstraints="NO" id="kcl-Ks-BT5">
@@ -34,20 +35,29 @@
                             <constraint firstAttribute="height" constant="1" id="Tzf-vL-hBh"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7be-jw-6Ln">
+                        <rect key="frame" x="43.5" y="11" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="S3F-Wh-2ry" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="65Q-bw-WCi"/>
                     <constraint firstItem="zpo-qJ-0ze" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="HZB-HT-BJw"/>
+                    <constraint firstItem="7be-jw-6Ln" firstAttribute="centerY" secondItem="S3F-Wh-2ry" secondAttribute="centerY" id="M2U-lu-t25"/>
+                    <constraint firstItem="7be-jw-6Ln" firstAttribute="leading" secondItem="S3F-Wh-2ry" secondAttribute="trailing" constant="8" id="P3j-H8-Vfq"/>
                     <constraint firstItem="kcl-Ks-BT5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VNY-R3-Mmn"/>
                     <constraint firstAttribute="bottom" secondItem="zpo-qJ-0ze" secondAttribute="bottom" constant="-0.5" id="XR7-5j-GC3"/>
                     <constraint firstItem="zpo-qJ-0ze" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gN2-L0-Q1O"/>
-                    <constraint firstItem="S3F-Wh-2ry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="prM-6i-fkf"/>
+                    <constraint firstItem="S3F-Wh-2ry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="prM-6i-fkf"/>
                     <constraint firstAttribute="trailing" secondItem="kcl-Ks-BT5" secondAttribute="trailing" constant="13" id="r3P-AG-Dlv"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.18823529411764706" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
-                <outlet property="nameLabel" destination="S3F-Wh-2ry" id="34t-15-WgZ"/>
+                <outlet property="nameLabel" destination="7be-jw-6Ln" id="wPj-kg-sbO"/>
+                <outlet property="tagLabel2" destination="S3F-Wh-2ry" id="td9-cW-4CT"/>
                 <outlet property="tickView" destination="kcl-Ks-BT5" id="arP-9b-DNX"/>
             </connections>
         </tableViewCell>

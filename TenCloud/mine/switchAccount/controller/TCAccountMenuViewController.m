@@ -77,6 +77,7 @@
     [_menuTableView registerNib:cellNib forCellReuseIdentifier:ACCOUNT_MENU_CELL_ID];
     _menuTableView.tableFooterView = [UIView new];
     _menuTableView.layer.cornerRadius = TCSCALE(6);
+    _menuTableView.allowsMultipleSelection = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -145,9 +146,8 @@
     //TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     TCListCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     TCAccountMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ACCOUNT_MENU_CELL_ID forIndexPath:indexPath];
-    //BOOL selected = [[TCCurrentCorp shared] isCurrent:corp];
     BOOL selected = [[TCCurrentCorp shared] isSameWithID:corp.cid name:corp.company_name];
-    [cell setName:corp.company_name];
+    [cell setCorp:corp];
     cell.selected = selected;
     if (selected)
     {

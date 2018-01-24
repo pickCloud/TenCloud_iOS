@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCListCorp;
 @interface TCAccountMenuTableViewCell : UITableViewCell
 
-- (void) setName:(NSString *)name;
+//- (void) setName:(NSString *)name;
+- (void) setCorp:(TCListCorp*)corp;
 
 @end
