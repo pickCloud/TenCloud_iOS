@@ -16,19 +16,20 @@
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
 #import "TCClusterProvider+CoreDataClass.h"
-
-//test
 #import "TCSearchFilterViewController.h"
-//#import "TCConfiguration.h"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
+@property (nonatomic, weak) IBOutlet    UIView          *keyboradPanel;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
+- (void) onShowKeyboard:(NSNotification*)notification;
+- (void) onHideKeyboard:(NSNotification*)notification;
 - (void) onDeleteServerNotification:(NSNotification*)sender;
 - (void) onAddServerNotification:(NSNotification*)sender;
 - (void) onFilterSearchNotification:(NSNotification*)sender;
 - (void) onAddServerButton:(id)sender;
+- (IBAction) onCloseKeyboard:(id)sender;
 - (IBAction) onRefreshDataButton:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
 - (IBAction) onCancelSearch:(id)sender;
@@ -78,9 +79,22 @@
                                              selector:@selector(onFilterSearchNotification:)
                                                  name:NOTIFICATION_DO_SEARCH
                                                object:nil];
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    [self.view addSubview:_keyboradPanel];
+    _keyboradPanel.frame = newRect;
     
     [self startLoading];
     [self reloadServerList];
+    NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
+                       name:UIKeyboardWillShowNotification object:nil];
+    [notiCenter addObserver:self selector:@selector(onHideKeyboard:)
+                       name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void) dealloc
@@ -172,6 +186,46 @@
 
 
 #pragma mark - extension
+- (void) onShowKeyboard:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyboardHeight = CGRectGetHeight([aValue CGRectValue]);
+    
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height - keyboardHeight - newRect.size.height + TCSCALE(10);
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        weakSelf.keyboradPanel.frame = newRect;
+    }];
+    //[_statusMenu closeAllComponentsAnimated:YES];
+}
+
+
+- (void) onHideKeyboard:(NSNotification*)notification
+{
+    CGRect newRect = _keyboradPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.9
+                     animations:^{
+                         weakSelf.keyboradPanel.frame = newRect;
+                     }];
+    if (_keywordField.text.length == 0)
+    {
+        //[self reloadStaffArray];
+    }
+}
+
 - (void) onDeleteServerNotification:(NSNotification*)sender
 {
     TCServer *server = sender.object;
@@ -201,6 +255,12 @@
     [self doSearch:@"" provider:providers region:regions];
 }
 
+- (IBAction) onCloseKeyboard:(id)sender
+{
+    [_keywordField resignFirstResponder];
+    [self doSearch:@"" provider:@[] region:@[]];
+}
+
 - (void) onAddServerButton:(id)sender
 {
     NSLog(@"on add server");
@@ -211,6 +271,7 @@
 - (IBAction) onRefreshDataButton:(id)sender
 {
     NSLog(@"on refresh data button");
+    [self reloadServerList];
 }
 
 - (IBAction) onFilterButton:(id)sender

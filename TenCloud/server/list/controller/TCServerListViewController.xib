@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerListViewController">
             <connections>
+                <outlet property="keyboradPanel" destination="YJ0-Th-ySx" id="K4e-Ku-wkT"/>
                 <outlet property="keywordField" destination="Z83-97-fe7" id="4Wt-Mh-QJQ"/>
                 <outlet property="tableView" destination="lKE-4b-UzJ" id="XQ6-QO-rDA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -79,11 +80,11 @@
                                             <constraint firstAttribute="width" secondItem="kpu-QZ-wRR" secondAttribute="height" multiplier="29:22" id="61B-CM-Ll8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="取消">
+                                        <state key="normal" title="刷新数据">
                                             <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="onCancelSearch:" destination="-1" eventType="touchUpInside" id="DdQ-ZR-3nI"/>
+                                            <action selector="onRefreshDataButton:" destination="-1" eventType="touchUpInside" id="Cbo-u5-hVF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DU-ta-mYr">
@@ -149,6 +150,33 @@
                 <constraint firstItem="lKE-4b-UzJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pmO-uz-Kqm"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="66.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="YJ0-Th-ySx">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYd-dO-h7p">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bYd-dO-h7p" secondAttribute="height" multiplier="7:3" id="Acw-Qb-KFx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="收起键盘">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onCloseKeyboard:" destination="-1" eventType="touchUpInside" id="R99-iY-hGL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="bYd-dO-h7p" firstAttribute="width" secondItem="YJ0-Th-ySx" secondAttribute="width" id="4hr-Kr-ZTh"/>
+                <constraint firstItem="bYd-dO-h7p" firstAttribute="centerX" secondItem="YJ0-Th-ySx" secondAttribute="centerX" id="EOZ-sf-fsw"/>
+                <constraint firstItem="bYd-dO-h7p" firstAttribute="top" secondItem="YJ0-Th-ySx" secondAttribute="top" id="zOh-mY-stg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="13.5" y="577"/>
         </view>
     </objects>
     <resources>
