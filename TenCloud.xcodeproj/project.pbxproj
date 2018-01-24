@@ -157,6 +157,7 @@
 		A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D12251FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib */; };
 		A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12291FEBB38D00722C76 /* TCConfiguration.m */; };
 		A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D122C1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m */; };
+		A073F9B02018113200AB03DA /* TCServerConfigItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9AF2018113200AB03DA /* TCServerConfigItem.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -622,6 +623,8 @@
 		A06D12291FEBB38D00722C76 /* TCConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCConfiguration.m; sourceTree = "<group>"; };
 		A06D122B1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEqualCellSpaceFlowLayout.h; sourceTree = "<group>"; };
 		A06D122C1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEqualCellSpaceFlowLayout.m; sourceTree = "<group>"; };
+		A073F9AE2018113200AB03DA /* TCServerConfigItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerConfigItem.h; sourceTree = "<group>"; };
+		A073F9AF2018113200AB03DA /* TCServerConfigItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerConfigItem.m; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1707,6 +1710,8 @@
 				A07DBE171FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m */,
 				A07DBE181FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.h */,
 				A07DBE191FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m */,
+				A073F9AE2018113200AB03DA /* TCServerConfigItem.h */,
+				A073F9AF2018113200AB03DA /* TCServerConfigItem.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4031,6 +4036,7 @@
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
+				A073F9B02018113200AB03DA /* TCServerConfigItem.m in Sources */,
 				A0C9A0A51FF14B4E00F94E9E /* UIImage+Masking.m in Sources */,
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A0A86B7C1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m in Sources */,
