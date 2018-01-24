@@ -9,6 +9,7 @@
 #import "TCAddServerViewController.h"
 #import "TCUser+CoreDataClass.h"
 #import <SocketRocket.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface TCAddServerViewController ()<UIGestureRecognizerDelegate,SRWebSocketDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *serverNameField;
@@ -105,6 +106,14 @@
     [_ipField resignFirstResponder];
     [_userNameField resignFirstResponder];
     [_passwordField resignFirstResponder];
+    
+    AFNetworkReachabilityStatus status = [[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus];
+    NSLog(@"status:%ld",status);
+    if (status == AFNetworkReachabilityStatusNotReachable)
+    {
+        [MBProgressHUD showError:@"网络中断，请检查网络连接" toView:nil];
+        return;
+    }
     
     [MMProgressHUD showWithStatus:@"添加中"];
     if (self.socket.readyState == SR_OPEN)

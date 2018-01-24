@@ -32,6 +32,7 @@
     [[TCConfiguration shared] print];
     [[TCShareManager sharedManager] registerAllPlatForms];
     [[TCMessageManager shared] start];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];
