@@ -28,6 +28,8 @@
 @property (nonatomic, assign)           NSInteger       status;
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *messageArray;
+@property (nonatomic, assign)   NSInteger               pageIndex;
+- (void) reloadMessages;
 @end
 
 @implementation TCMessageTableViewController
@@ -38,6 +40,7 @@
     if (self)
     {
         self.hidesBottomBarWhenPushed = YES;
+        _pageIndex = 0;
     }
     return self;
 }
@@ -83,20 +86,7 @@
         [MBProgressHUD showError:message toView:nil];
     }];
      */
-    TCMessageListRequest *listReq = [TCMessageListRequest new];
-    listReq.status = _status;
-    listReq.page = 0;
-    [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
-        if (messageArray)
-        {
-            [weakSelf.messageArray addObjectsFromArray:messageArray];
-        }
-        [weakSelf stopLoading];
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
+    [self reloadMessages];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -237,4 +227,25 @@
     return !self.isLoading;
 }
 
+
+#pragma mark - extension
+- (void) reloadMessages
+{
+    _pageIndex = 0;
+    __weak __typeof(self) weakSelf = self;
+    TCMessageListRequest *listReq = [TCMessageListRequest new];
+    listReq.status = _status;
+    listReq.page = _pageIndex;
+    [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
+        if (messageArray)
+        {
+            [weakSelf.messageArray addObjectsFromArray:messageArray];
+        }
+        [weakSelf stopLoading];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
+}
 @end
