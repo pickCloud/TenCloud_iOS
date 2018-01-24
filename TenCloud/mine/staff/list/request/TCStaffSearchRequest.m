@@ -41,7 +41,7 @@
  */
 
 - (void) startWithSuccess:(void(^)(NSArray<TCStaff*> *staffArray))success
-                  failure:(void(^)(NSString *message))failure
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         /*
@@ -56,7 +56,8 @@
         success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        failure ? failure(message,statusNum.integerValue) : nil;
     }];
 }
 

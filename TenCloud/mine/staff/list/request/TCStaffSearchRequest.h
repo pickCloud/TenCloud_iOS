@@ -21,6 +21,6 @@
 @property (nonatomic, assign)   NSInteger   status;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCStaff*> *staffArray))success
-                  failure:(void(^)(NSString *message))failure;
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure;
 
 @end

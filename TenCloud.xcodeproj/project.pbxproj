@@ -215,6 +215,7 @@
 		A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */; };
 		A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */; };
 		A0884A2720066932004F5010 /* TCShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0884A2520066932004F5010 /* TCShareManager.m */; };
+		A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEC2018E20F00C00974 /* TCPageManager.m */; };
 		A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */; };
 		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
 		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
@@ -729,6 +730,8 @@
 		A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerListViewController.m; sourceTree = "<group>"; };
 		A0884A2520066932004F5010 /* TCShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShareManager.m; sourceTree = "<group>"; };
 		A0884A2620066932004F5010 /* TCShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShareManager.h; sourceTree = "<group>"; };
+		A0895CEB2018E20F00C00974 /* TCPageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPageManager.h; sourceTree = "<group>"; };
+		A0895CEC2018E20F00C00974 /* TCPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPageManager.m; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileViewController.h; sourceTree = "<group>"; };
 		A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileViewController.m; sourceTree = "<group>"; };
@@ -1287,6 +1290,8 @@
 				A025557D1FD7D69F00D16D22 /* ui */,
 				A02555791FD7CCCE00D16D22 /* tabbar */,
 				A02555271FD6936700D16D22 /* account */,
+				A0895CEB2018E20F00C00974 /* TCPageManager.h */,
+				A0895CEC2018E20F00C00974 /* TCPageManager.m */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -4065,6 +4070,7 @@
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A0A86B7C1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m in Sources */,
 				A031B5DC1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m in Sources */,
+				A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,

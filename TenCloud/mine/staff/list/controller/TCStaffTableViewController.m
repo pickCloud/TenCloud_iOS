@@ -20,6 +20,7 @@
 #import "ShapeSelectView.h"
 #import "ShapeView.h"
 #import "TCStaff+CoreDataClass.h"
+#import "TCPageManager.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
@@ -160,8 +161,12 @@
         }
         [[TCCurrentCorp shared] setIsAdmin:isAdmin];
         [weakSelf updateDropDownMenu];
-    } failure:^(NSString *message) {
-        
+    } failure:^(NSString *message, NSInteger errorCode) {
+        BOOL isError10003 = message && [message isEqualToString:@"非公司员工"];
+        if (errorCode == 10003 || isError10003) {
+            [TCPageManager showPersonHomePageFromController:self];
+            [MBProgressHUD showError:@"非公司员工，自动退出公司界面" toView:nil];
+        }
     }];
 }
 
@@ -188,7 +193,7 @@
         [weakSelf.staffArray removeAllObjects];
         [weakSelf.staffArray addObjectsFromArray:staffArray];
         [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
+    } failure:^(NSString *message, NSInteger errorCode) {
         
     }];
 }
