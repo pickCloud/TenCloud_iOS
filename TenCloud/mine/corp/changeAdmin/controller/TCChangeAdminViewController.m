@@ -137,7 +137,8 @@
                     }
                     weakSelf.staffArray = validStaffArray;
                     [weakSelf.tableView reloadData];
-                    [MMProgressHUD dismissWithSuccess:@"更换成功" title:nil afterDelay:1.32];
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    [MMProgressHUD dismissWithSuccess:@"更换成功" title:nil afterDelay:1.5];
                 } failure:^(NSString *message) {
                     [MMProgressHUD dismissWithError:message afterDelay:1.32];
                 }];
