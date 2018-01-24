@@ -20,6 +20,7 @@
     if (self)
     {
         _status = status;
+        self.ignoreCache = YES;
     }
     return self;
 }

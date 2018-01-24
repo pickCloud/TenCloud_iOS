@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *operationLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *contentLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *actionButton;
+@property (nonatomic, weak) IBOutlet    UIButton    *disclosureButton;
 - (IBAction) onActionButton:(id)sender;
 @end
 
@@ -56,6 +57,15 @@
     NSString *operationStr = [NSString stringWithFormat:@"%@ %@",operation,message.update_time];
     _operationLabel.text = operationStr;
     _contentLabel.text = message.content;
+    if (message.mode == 3 && message.sub_mode == 0)
+    {
+        _actionButton.hidden = YES;
+        _disclosureButton.hidden = YES;
+    }else
+    {
+        _actionButton.hidden = NO;
+        _disclosureButton.hidden = NO;
+    }
     if (message.sub_mode == 0)
     {
         [_actionButton setTitle:@"马上审核" forState:UIControlStateNormal];

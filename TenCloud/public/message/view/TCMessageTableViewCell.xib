@@ -102,6 +102,7 @@
             <connections>
                 <outlet property="actionButton" destination="GXK-mP-l8Z" id="beK-E7-rbr"/>
                 <outlet property="contentLabel" destination="Cnj-nH-QWe" id="lwU-p0-wNo"/>
+                <outlet property="disclosureButton" destination="crr-Ej-zsg" id="VGQ-dy-Qif"/>
                 <outlet property="operationLabel" destination="7bc-4X-vsx" id="Knq-yg-cin"/>
             </connections>
             <point key="canvasLocation" x="31.5" y="99"/>
