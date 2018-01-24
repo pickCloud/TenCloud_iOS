@@ -76,11 +76,13 @@
     }
     
     NSArray *selectedAreaPaths = [_areaView indexPathsForSelectedItems];
+    /*
     if (selectedAreaPaths.count == 0)
     {
         [MBProgressHUD showError:@"请选择区域" toView:nil];
         return;
     }
+     */
     
     [self dismiss];
     
