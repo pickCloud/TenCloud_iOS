@@ -158,6 +158,7 @@
 		A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12291FEBB38D00722C76 /* TCConfiguration.m */; };
 		A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D122C1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m */; };
 		A073F9B02018113200AB03DA /* TCServerConfigItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9AF2018113200AB03DA /* TCServerConfigItem.m */; };
+		A073F9B320185ED500AB03DA /* TCTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A073F9B220185ED500AB03DA /* TCTagLabel.m */; };
 		A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */; };
 		A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE01FDED62A00F37715 /* TCServerLog+CoreDataProperties.m */; };
 		A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DBDE41FDED78800F37715 /* TCServerLogTableViewController.m */; };
@@ -625,6 +626,8 @@
 		A06D122C1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEqualCellSpaceFlowLayout.m; sourceTree = "<group>"; };
 		A073F9AE2018113200AB03DA /* TCServerConfigItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerConfigItem.h; sourceTree = "<group>"; };
 		A073F9AF2018113200AB03DA /* TCServerConfigItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerConfigItem.m; sourceTree = "<group>"; };
+		A073F9B120185ED500AB03DA /* TCTagLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTagLabel.h; sourceTree = "<group>"; };
+		A073F9B220185ED500AB03DA /* TCTagLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTagLabel.m; sourceTree = "<group>"; };
 		A07DBDDD1FDED62A00F37715 /* TCServerLog+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataClass.h"; sourceTree = "<group>"; };
 		A07DBDDE1FDED62A00F37715 /* TCServerLog+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerLog+CoreDataClass.m"; sourceTree = "<group>"; };
 		A07DBDDF1FDED62A00F37715 /* TCServerLog+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerLog+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1116,6 +1119,8 @@
 				A019A7421FFB6A6900216660 /* TCTemplateTableViewCell.h */,
 				A019A7401FFB6A6900216660 /* TCTemplateTableViewCell.m */,
 				A019A7411FFB6A6900216660 /* TCTemplateTableViewCell.xib */,
+				A073F9B120185ED500AB03DA /* TCTagLabel.h */,
+				A073F9B220185ED500AB03DA /* TCTagLabel.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4177,6 +4182,7 @@
 				A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
+				A073F9B320185ED500AB03DA /* TCTagLabel.m in Sources */,
 				A033AD45200CEED700FFD2BF /* TCRemoveStaffRequest.m in Sources */,
 				A0A0B5BF200276F900EA8512 /* TCProfileButtonData.m in Sources */,
 				A031B6071FFD265600B4F448 /* TCModifyTemplateViewController.m in Sources */,

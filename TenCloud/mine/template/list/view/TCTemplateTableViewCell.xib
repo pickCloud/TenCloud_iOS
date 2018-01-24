@@ -35,14 +35,23 @@
                                     <constraint firstAttribute="height" constant="1" id="lem-6U-WKg"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtV-vX-ziL" customClass="TCTagLabel">
+                                <rect key="frame" x="72" y="16" width="16.5" height="10"/>
+                                <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
+                                <color key="textColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NtV-vX-ziL" firstAttribute="leading" secondItem="AJo-KU-Ov5" secondAttribute="trailing" constant="8" id="18j-Wx-bxc"/>
                             <constraint firstItem="AJo-KU-Ov5" firstAttribute="centerY" secondItem="igP-iC-9N7" secondAttribute="centerY" id="Fyy-oj-ohk"/>
                             <constraint firstAttribute="width" secondItem="igP-iC-9N7" secondAttribute="height" multiplier="345:44" id="TwJ-7T-N0e"/>
                             <constraint firstItem="FFi-Ib-4Ra" firstAttribute="width" secondItem="igP-iC-9N7" secondAttribute="width" id="WNZ-6g-Qaj"/>
                             <constraint firstItem="FFi-Ib-4Ra" firstAttribute="centerX" secondItem="igP-iC-9N7" secondAttribute="centerX" id="Wnb-CN-dgt"/>
                             <constraint firstItem="AJo-KU-Ov5" firstAttribute="leading" secondItem="igP-iC-9N7" secondAttribute="leading" constant="15" id="fkD-WV-yGH"/>
+                            <constraint firstItem="NtV-vX-ziL" firstAttribute="centerY" secondItem="AJo-KU-Ov5" secondAttribute="centerY" id="lyu-Lp-xUo"/>
                             <constraint firstAttribute="bottom" secondItem="FFi-Ib-4Ra" secondAttribute="bottom" id="sdF-FX-3W2"/>
                         </constraints>
                     </view>
@@ -115,8 +124,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bgView" destination="igP-iC-9N7" id="8ph-CS-IZ0"/>
+                <outlet property="bottomLineView" destination="FFi-Ib-4Ra" id="vfS-h3-KNM"/>
                 <outlet property="descLabel" destination="iVK-jT-cwB" id="UUN-YL-mvN"/>
                 <outlet property="nameLabel" destination="AJo-KU-Ov5" id="d6R-eg-QYu"/>
+                <outlet property="tagLabel" destination="NtV-vX-ziL" id="PLP-iQ-Ter"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="80.5"/>
         </tableViewCell>

@@ -21,6 +21,7 @@
     if (self)
     {
         _corpID = cid;
+        self.ignoreCache = YES;
     }
     return self;
 }

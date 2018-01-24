@@ -8,11 +8,14 @@
 
 #import "TCTemplateTableViewCell.h"
 #import "TCTemplate+CoreDataClass.h"
+#import "TCTagLabel.h"
 
 @interface TCTemplateTableViewCell()
 @property (nonatomic, weak) IBOutlet    UIView          *bgView;
 @property (nonatomic, weak) IBOutlet    UILabel         *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel         *descLabel;
+@property (nonatomic, weak) IBOutlet    TCTagLabel      *tagLabel;
+@property (nonatomic, weak) IBOutlet    UIView          *bottomLineView;
 
 - (void) updateUI;
 @end
@@ -28,6 +31,8 @@
     
     self.bgView.layer.cornerRadius = TCSCALE(4.0);
     self.bgView.clipsToBounds = YES;
+    
+    self.tagLabel.edgeInsets = UIEdgeInsetsMake(1, 2, 1, 2);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -91,9 +96,10 @@
     NSMutableAttributedString *desc = [NSMutableAttributedString new];
     UIFont *textFont = [UIFont systemFontOfSize:10.0];
     UIFont *digitFont = [UIFont systemFontOfSize:12.0];
-    NSDictionary *textAttr = @{NSForegroundColorAttributeName : THEME_TEXT_COLOR,
+    NSDictionary *textAttr = @{NSForegroundColorAttributeName : THEME_PLACEHOLDER_COLOR,
                                NSFontAttributeName : textFont };
-    NSDictionary *digitAttr = @{NSForegroundColorAttributeName : THEME_TINT_COLOR,
+    UIColor *digitColor = tmpl.type == 0 ? THEME_TINT_COLOR : THEME_TEXT_COLOR;
+    NSDictionary *digitAttr = @{NSForegroundColorAttributeName : digitColor,
                                 NSFontAttributeName : digitFont };
     NSMutableAttributedString *str1 = nil;
     str1 = [[NSMutableAttributedString alloc] initWithString:@"功能权限 " attributes:textAttr];
@@ -113,6 +119,24 @@
     [desc appendAttributedString:str4];
     [desc appendAttributedString:str5];
     _descLabel.attributedText = desc;
+    
+    if (tmpl.type == 0)
+    {
+        _tagLabel.text = @"预设";
+        UIColor *tagBgColor = [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:0.5];
+        _tagLabel.backgroundColor = tagBgColor;
+        _nameLabel.textColor = THEME_TINT_COLOR;
+        UIColor *lineColor = [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:0.3];
+        _bottomLineView.backgroundColor = lineColor;
+    }else
+    {
+        _tagLabel.text = @"新增";
+        UIColor *tagBgColor = [UIColor colorWithRed:137/255.0 green:154/255.0 blue:182/255.0 alpha:0.5];
+        _tagLabel.backgroundColor = tagBgColor;
+        _nameLabel.textColor = THEME_TEXT_COLOR;
+        UIColor *lineColor = [UIColor colorWithRed:137/255.0 green:154/255.0 blue:182/255.0 alpha:0.3];
+        _bottomLineView.backgroundColor = lineColor;
+    }
 }
 
 - (void) updateUI
