@@ -54,7 +54,13 @@
         success ? success(token) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        if (request.error.code == -1009)
+        {
+            failure ? failure(@"网络中断，请检查网络连接") : nil;
+        }else
+        {
+            failure ? failure(message) : nil;
+        }
     }];
 }
 

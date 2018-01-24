@@ -36,6 +36,11 @@
         success ? success(token) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"captcha login req__");
+        if (request.error.code == -1009)
+        {
+            failure ? failure(@"网络中断，请检查网络连接",0) : nil;
+            return ;
+        }
         NSNumber *resNumber = [request.responseJSONObject objectForKey:@"status"];
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         if (resNumber.integerValue == 10404)
