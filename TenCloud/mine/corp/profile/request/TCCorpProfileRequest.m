@@ -15,12 +15,23 @@
 
 @implementation TCCorpProfileRequest
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.ignoreCache = YES;
+    }
+    return self;
+}
+
 - (instancetype) initWithCorpID:(NSInteger)cid
 {
     self = [super init];
     if (self)
     {
         _corpID = cid;
+        self.ignoreCache = YES;
     }
     return self;
 }
@@ -65,6 +76,21 @@
 {
     return nil;
 }
+ 
+- (NSInteger)cacheTimeInSeconds
+{
+    return 0;
+}
  */
 
+- (NSDictionary *)requestHeaderFieldValueDictionary {
+    NSString *token = [[TCLocalAccount shared] token];
+    if (token == nil)
+    {
+        token = @"";
+    }
+    NSString *cidStr = [NSString stringWithFormat:@"%ld",_corpID];
+    return [NSDictionary dictionaryWithObjectsAndKeys:token,@"Authorization",
+            cidStr,@"Cid", nil];
+}
 @end

@@ -18,6 +18,10 @@
 
 #import "TCAcceptInviteViewController.h"
 #import "TCInviteLoginViewController.h"
+
+//for test
+#import "TCCorp+CoreDataClass.h"
+
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
 @interface TCMessageTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -123,6 +127,7 @@
             if (cidArray)
             {
                 NSString *cidStr = cidArray.firstObject;
+                NSLog(@"icdStr :%@",cidStr);
                 NSString *codeStr = nil;
                 if (cidArray.count > 1)
                 {
@@ -132,6 +137,7 @@
                 
                 TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:cid];
                 [corpReq startWithSuccess:^(TCCorp *corp) {
+                    NSLog(@"get copr info:%@ name:%@",corp.company_name,corp.name);
                     /*
                     if ([[TCCurrentCorp shared] cid] == cid)
                     {
@@ -184,6 +190,7 @@
                     }
                     
                 } failure:^(NSString *message) {
+                    NSLog(@"get corp failed");
                     [MBProgressHUD showError:@"消息已失效，不能跳转" toView:nil];
                 }];
             }
@@ -198,6 +205,13 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:27];
+    [corpReq startWithSuccess:^(TCCorp *corp) {
+        
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
