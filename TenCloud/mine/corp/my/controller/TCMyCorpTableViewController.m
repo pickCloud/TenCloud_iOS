@@ -185,19 +185,55 @@
 
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
- - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
- {
- return [UIImage imageNamed:@"no_data"];
- }
- */
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"corp_no_data"];
+}
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSMutableDictionary *attributes = [NSMutableDictionary new];
-    [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
-    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"您尚未创建或加入企业" attributes:attributes];
+    [attributes setObject:TCFont(12.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR2 forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"对不起，你还没有任何服务器" attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    NSString *text = @"马上去添加";
+    UIFont *textFont = TCFont(14.0);
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:textFont forKey:NSFontAttributeName];
+    if (state == UIControlStateNormal)
+    {
+        [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
+    }else
+    {
+        [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+    }
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
+    UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
+    UIImage *image = nil;
+    if (state == UIControlStateNormal)
+    {
+        image = [UIImage imageNamed:@"no_data_button_bg"];
+    }else
+    {
+        image = [UIImage imageNamed:@"no_data_button_bg_p"];
+    }
+    return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    //UIEdgeInsets inset = self.tableView.contentInset;
+    //return inset.top / 2.0 - self.tableView.frame.size.height / 20;
+    return -TCSCALE(20);
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
@@ -205,6 +241,12 @@
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
 {
     return !self.isLoading;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    TCAddCorpViewController *addVC = [TCAddCorpViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 
