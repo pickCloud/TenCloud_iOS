@@ -2,7 +2,7 @@
 //  TCPermissionNode+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/5.
+//  Created by huangdx on 2018/1/25.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -160,6 +160,27 @@
     return nodes;
 }
 
+- (NSArray*)selectedServerSubNodeIDArray
+{
+    NSMutableArray *nodes = [NSMutableArray new];
+    for (TCPermissionNode *node in self.data)
+    {
+        if (node.selected)
+        {
+            if (node.sid > 0)
+            {
+                [nodes addObject:@(node.sid)];
+            }
+        }
+        NSArray *subArray = [node selectedServerSubNodeIDArray];
+        if (subArray && subArray.count > 0)
+        {
+            [nodes addObjectsFromArray:subArray];
+        }
+    }
+    return nodes;
+}
+
 - (void) print
 {
     NSMutableString *blankStr = [NSMutableString new];
@@ -174,14 +195,19 @@
     }
 }
 
-@dynamic permID;
-@dynamic name;
-@dynamic filename;
 @dynamic data;
 @dynamic depth;
-@dynamic fold;
-@dynamic selected;
-@dynamic hidden;
 @dynamic fatherNode;
+@dynamic filename;
+@dynamic fold;
+@dynamic hidden;
+@dynamic name;
+@dynamic permID;
+@dynamic selected;
+@dynamic sid;
+@dynamic public_ip;
+@dynamic provider;
+@dynamic region_name;
+@dynamic status;
 
 @end

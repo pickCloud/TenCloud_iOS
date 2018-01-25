@@ -146,6 +146,22 @@
     }
 }
 
+- (void) setServerPermissionNodeSelected:(TCPermissionNode *)node withID:(NSInteger)idInteger
+{
+    for (TCPermissionNode *subNode in node.data)
+    {
+        if (subNode.sid == idInteger)
+        {
+            subNode.selected = YES;
+            break;
+        }
+        if (subNode.data.count > 0)
+        {
+            [self setServerPermissionNodeSelected:subNode withID:idInteger];
+        }
+    }
+}
+
 - (void) setTemplate:(TCTemplate*)tmpl
 {
     NSString *permissionsStr = tmpl.permissions;
@@ -174,7 +190,7 @@
                 if (dataNode.data.count > 2)
                 {
                     TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
-                    [self setPermissionNodeSelected:serverNode withID:pIDNum.integerValue];
+                    [self setServerPermissionNodeSelected:serverNode withID:pIDNum.integerValue];
                 }
             }
         }
@@ -380,7 +396,7 @@
         if (dataNode.data.count > 2)
         {
             TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
-            return [serverNode selectedSubNodeIDArray];
+            return [serverNode selectedServerSubNodeIDArray];
         }
     }
     return [NSMutableArray new];
