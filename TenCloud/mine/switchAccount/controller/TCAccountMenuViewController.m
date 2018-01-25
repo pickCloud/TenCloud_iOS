@@ -148,6 +148,13 @@
     TCAccountMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ACCOUNT_MENU_CELL_ID forIndexPath:indexPath];
     BOOL selected = [[TCCurrentCorp shared] isSameWithID:corp.cid name:corp.company_name];
     [cell setCorp:corp];
+    if (selected)
+    {
+        NSLog(@"cell at %@ selected",corp.company_name);
+    }else
+    {
+        NSLog(@"cell at %@ not selected",corp.company_name);
+    }
     cell.selected = selected;
     if (selected)
     {
@@ -180,7 +187,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CORP_CHANGE object:nil];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
-    [tableView reloadData];
+    //[tableView reloadData];
     
     if (_selectBlock)
     {
