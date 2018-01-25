@@ -165,7 +165,7 @@
         BOOL isError10003 = message && [message isEqualToString:@"非公司员工"];
         if (errorCode == 10003 || isError10003) {
             [TCPageManager showPersonHomePageFromController:self];
-            [MBProgressHUD showError:@"非公司员工，自动退出公司界面" toView:nil];
+            //[MBProgressHUD showError:@"非公司员工，自动退出公司界面" toView:nil];
         }
     }];
 }

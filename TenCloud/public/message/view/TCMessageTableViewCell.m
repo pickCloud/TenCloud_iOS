@@ -46,7 +46,7 @@
         operation = @"企业改变信息";
     }else if(message.mode == 3)
     {
-        operation = @"退出企业";
+        operation = @"离开企业";
     }else if(message.mode == 4)
     {
         operation = @"添加主机";

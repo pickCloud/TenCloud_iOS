@@ -48,7 +48,7 @@
             self.label.text = @"加载数据中";
             break;
         case MJRefreshStateNoMoreData:
-            self.label.text = @"木有数据了";
+            self.label.text = @"没有数据了";
             break;
         default:
             break;

@@ -134,7 +134,10 @@
     {
         [[TCEditingPermission shared] reset];
         [[TCEditingPermission shared] setTemplate:tmpl];
-        [[TCEditingPermission shared] readyForPreview];
+        if (tmpl.type != 0)
+        {
+            [[TCEditingPermission shared] readyForPreview];
+        }
         TCPermissionViewController *perVC = [TCPermissionViewController new];
         perVC.state = PermissionVCPreviewPermission;
         perVC.tmpl = tmpl;
