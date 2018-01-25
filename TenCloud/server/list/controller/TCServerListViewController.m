@@ -356,7 +356,19 @@
 - (void) reloadServerList
 {
     __weak  __typeof(self)  weakSelf = self;
+    /*
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
+    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf stopLoading];
+        [weakSelf.serverArray removeAllObjects];
+        [weakSelf.serverArray addObjectsFromArray:serverArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+        [weakSelf stopLoading];
+    }];
+     */
+    TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:@"" regions:@[] providers:@[]];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
         [weakSelf.serverArray removeAllObjects];
