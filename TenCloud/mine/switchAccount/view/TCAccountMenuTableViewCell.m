@@ -117,7 +117,9 @@
     
     NSString *currentName = [[TCCurrentCorp shared] name];
     NSLog(@"current:%@ _corp:%@",currentName,_corp.company_name);
-    if ([currentName isEqualToString:_corp.company_name])
+    BOOL selected = [[TCCurrentCorp shared] isSameWithID:_corp.cid name:_corp.company_name];
+    //if ([currentName isEqualToString:_corp.company_name])
+    if(selected)
     {
         _tagLabel2.backgroundColor = THEME_TINT_COLOR;
     }else

@@ -63,10 +63,10 @@
     [self connectWebSocket];
     
     //test data
-//    _serverNameField.text = @"测试机";
-//    _ipField.text = @"119.29.239.17";
-//    _userNameField.text = @"ubuntu";
-//    _passwordField.text = @"Sqsm3334545";
+    _serverNameField.text = @"测试机";
+    _ipField.text = @"119.29.239.17";
+    _userNameField.text = @"ubuntu";
+    _passwordField.text = @"Sqsm3334545";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -201,7 +201,7 @@
         NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
         [self closeWebSocket];
         [self connectWebSocket];
-        //[MMProgressHUD dismiss];
+        [MMProgressHUD dismiss];
     }
 }
 
@@ -225,7 +225,7 @@
             [MMProgressHUD dismissWithSuccess:@"添加成功" title:nil afterDelay:1.5];
         }else
         {
-            //[MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
+            [MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
         }
     }
 }
