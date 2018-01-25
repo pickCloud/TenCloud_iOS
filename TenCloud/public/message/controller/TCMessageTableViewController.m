@@ -133,6 +133,12 @@
                 }
                 NSInteger cid = cidStr.integerValue;
                 
+                if (message.mode == 1 && message.sub_mode == 1)
+                {
+                    [self resubmitWithCode:codeStr];
+                    return ;
+                }
+                
                 TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:cid];
                 [corpReq startWithSuccess:^(TCCorp *corp) {
                     NSLog(@"get copr info:%@ name:%@",corp.company_name,corp.name);
@@ -164,10 +170,6 @@
                     }else if(message.sub_mode == 1)
                     {
                         /*
-                        NSString *urlStr = [NSString stringWithFormat:@"tencloud://invite?code=%@",codeStr];
-                        NSURL *jumpURL = [NSURL URLWithString:urlStr];
-                        [[UIApplication sharedApplication] openURL:jumpURL];
-                         */
                         if ([[TCLocalAccount shared] isLogin])
                         {
                             TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:codeStr];
@@ -177,6 +179,8 @@
                             TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
                             [weakSelf.navigationController pushViewController:loginVC animated:YES];
                         }
+                         */
+                        [weakSelf resubmitWithCode:codeStr];
                     }else
                     {
                         NSArray *viewControllers = self.navigationController.viewControllers;
@@ -195,6 +199,19 @@
         }
     };
     return cell;
+}
+
+- (void) resubmitWithCode:(NSString*)codeStr
+{
+    if ([[TCLocalAccount shared] isLogin])
+    {
+        TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:codeStr];
+        [self.navigationController pushViewController:acceptVC animated:YES];
+    }else
+    {
+        TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
 }
 
 

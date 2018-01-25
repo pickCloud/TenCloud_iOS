@@ -101,6 +101,8 @@
         [weakSelf stopLoading];
     } failure:^(NSString *message) {
         NSLog(@"info_msg:%@",message);
+        [weakSelf stopLoading];
+        [weakSelf updateInviteInfoUI];
     }];
 }
 

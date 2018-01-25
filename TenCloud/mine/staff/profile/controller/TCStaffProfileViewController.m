@@ -23,6 +23,7 @@
 #import "TCChangeAdminViewController.h"
 #import "TCLeaveCorpRequest.h"
 #import "TCPersonHomeViewController.h"
+#import "TCMessageManager.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
@@ -294,6 +295,7 @@
                     TCLeaveCorpRequest *leaveReq = [TCLeaveCorpRequest new];
                     leaveReq.staffID = _staff.staffID;
                     [leaveReq startWithSuccess:^(NSString *message) {
+                        [[TCMessageManager shared] clearAllObserver];
                         TCPersonHomeViewController *homeVC = nil;
                         homeVC = [[TCPersonHomeViewController alloc] init];
                         [[TCCurrentCorp shared] reset];

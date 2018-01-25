@@ -163,6 +163,7 @@
     } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
         [weakSelf stopLoading];
         //[MBProgressHUD showError:@"获取数据失败" toView:nil];
+        [[TCMessageManager shared] clearAllObserver];
         TCPersonHomeViewController *personVC = [[TCPersonHomeViewController alloc] init];
         [[TCCurrentCorp shared] setCid:0];
         NSString *localName = [[TCLocalAccount shared] name];
@@ -217,6 +218,7 @@
             if ( selectedIndex < weakSelf.corpArray.count)
             {
                 [MMProgressHUD showWithStatus:@"切换身份中"];
+                [[TCMessageManager shared] clearAllObserver];
                 TCListCorp *selectedCorp = [weakSelf.passedCorpArray objectAtIndex:selectedIndex];
                 UIViewController *homeVC = nil;
                 if (selectedIndex == 0)

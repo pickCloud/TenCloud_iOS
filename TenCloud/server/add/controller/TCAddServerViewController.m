@@ -63,10 +63,20 @@
     [self connectWebSocket];
     
     //test data
-    _serverNameField.text = @"测试机";
-    _ipField.text = @"119.29.239.17";
-    _userNameField.text = @"ubuntu";
-    _passwordField.text = @"Sqsm3334545";
+//    _serverNameField.text = @"测试机";
+//    _ipField.text = @"119.29.239.17";
+//    _userNameField.text = @"ubuntu";
+//    _passwordField.text = @"Sqsm3334545";
+    
+//    _serverNameField.text = @"测试机2";
+//    _ipField.text = @"116.62.148.13";
+//    _userNameField.text = @"ubuntu";
+//    _passwordField.text = @"Sqsm3334545";
+    
+    _serverNameField.text = @"测试机2";
+    _ipField.text = @"47.96.129.231";
+    _userNameField.text = @"root";
+    _passwordField.text = @"Test1234";
 }
 
 - (void)didReceiveMemoryWarning {

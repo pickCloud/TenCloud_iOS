@@ -8,6 +8,7 @@
 
 #import "TCPageManager.h"
 #import "TCPersonHomeViewController.h"
+#import "TCMessageManager.h"
 
 @implementation TCPageManager
 
@@ -15,6 +16,7 @@
 {
     if (viewController)
     {
+        [[TCMessageManager shared] clearAllObserver];
         TCPersonHomeViewController *personVC = [[TCPersonHomeViewController alloc] init];
         [[TCCurrentCorp shared] setCid:0];
         NSString *localName = [[TCLocalAccount shared] name];

@@ -10,6 +10,7 @@
 #import "TCTabBarController.h"
 #import "TCPersonHomeViewController.h"
 #import "TCMyCorpTableViewController.h"
+#import "TCMessageManager.h"
 
 @interface TCInviteSuccessViewController ()
 @property (nonatomic, strong)   NSString    *titleText;
@@ -68,6 +69,7 @@
 - (IBAction) onMyCorpButton:(id)sender
 {
     NSLog(@"on my corp ");
+    [[TCMessageManager shared] clearAllObserver];
     TCTabBarController *tabBarController = [TCTabBarController new];
     [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
     [tabBarController setSelectedIndex:4];

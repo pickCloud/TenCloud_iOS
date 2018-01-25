@@ -94,7 +94,7 @@
 {
     if (obs)
     {
-        [mObserverArray addObject:obs];
+        [mObserverArray removeObject:obs];
     }
 }
 
