@@ -43,7 +43,7 @@
         operation = @"加入企业";
     }else if(message.mode == 2)
     {
-        operation = @"企业改变信息";
+        operation = @"企业变更";
     }else if(message.mode == 3)
     {
         operation = @"离开企业";
