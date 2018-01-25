@@ -217,6 +217,7 @@
 		A0884A2720066932004F5010 /* TCShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0884A2520066932004F5010 /* TCShareManager.m */; };
 		A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEC2018E20F00C00974 /* TCPageManager.m */; };
 		A0895CF02019743900C00974 /* TCBoderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEF2019743900C00974 /* TCBoderButton.m */; };
+		A0895CF32019E1C200C00974 /* TCServerWarningRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */; };
 		A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */; };
 		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
 		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
@@ -735,6 +736,8 @@
 		A0895CEC2018E20F00C00974 /* TCPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPageManager.m; sourceTree = "<group>"; };
 		A0895CEE2019743900C00974 /* TCBoderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCBoderButton.h; sourceTree = "<group>"; };
 		A0895CEF2019743900C00974 /* TCBoderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCBoderButton.m; sourceTree = "<group>"; };
+		A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerWarningRequest.m; sourceTree = "<group>"; };
+		A0895CF22019E1C200C00974 /* TCServerWarningRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerWarningRequest.h; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileViewController.h; sourceTree = "<group>"; };
 		A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileViewController.m; sourceTree = "<group>"; };
@@ -1470,6 +1473,8 @@
 		A02555451FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0895CF22019E1C200C00974 /* TCServerWarningRequest.h */,
+				A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -4283,6 +4288,7 @@
 				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,
 				A031B6261FFE1DAD00B4F448 /* TCStaff+CoreDataProperties.m in Sources */,
 				A07DBE4E1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m in Sources */,
+				A0895CF32019E1C200C00974 /* TCServerWarningRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

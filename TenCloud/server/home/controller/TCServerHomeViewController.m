@@ -13,6 +13,7 @@
 #import "ServerHomeIconCollectionViewCell.h"
 #import "TCAddServerViewController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCServerWarningRequest.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -236,6 +237,7 @@
 {
     __weak  __typeof(self)  weakSelf = self;
     NSLog(@" reload server list");
+    /*
     TCClusterRequest *request = [[TCClusterRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
@@ -248,6 +250,17 @@
             NSLog(@"删除%d",i);
             [weakSelf.serverArray removeObjectAtIndex:0];
         }
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
+     */
+    TCServerWarningRequest *req = [[TCServerWarningRequest alloc] init];
+    [req startWithSuccess:^(NSArray<TCServer *> *serverArray) {
+        [weakSelf stopLoading];
+        [weakSelf.serverArray removeAllObjects];
+        [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
