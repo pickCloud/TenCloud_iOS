@@ -27,6 +27,16 @@
 
 @implementation TCAddServerViewController
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加主机";
