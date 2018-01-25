@@ -77,6 +77,7 @@
     {
         idCardStr = @"无";
     }
+    /*
     if (!visable)
     {
         if (idCardStr && idCardStr.length >= 18)
@@ -90,6 +91,12 @@
     }
     item0.value = idCardStr;
     [_rowDataArray addObject:item0];
+     */
+    if (visable)
+    {
+        item0.value = idCardStr;
+        [_rowDataArray addObject:item0];
+    }
     
     TCServerInfoItem *item1 = [TCServerInfoItem new];
     item1.key = @"申请时间";
