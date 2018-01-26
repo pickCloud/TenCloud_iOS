@@ -10,6 +10,5 @@
 
 @interface TCMessageTableViewController : TCViewController
 
-- (instancetype) initWithStatus:(NSInteger)status;
 
 @end

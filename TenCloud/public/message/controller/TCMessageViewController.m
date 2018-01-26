@@ -118,12 +118,14 @@
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *controller = nil;
+    controller = [TCMessageTableViewController new];
     if (pageIndex == 0)
     {
-        controller = [[TCMessageTableViewController alloc] initWithStatus:0];
+        //controller = [[TCMessageTableViewController alloc] initWithStatus:0];
+        
     }else if (pageIndex == 1)
     {
-        controller = [[TCMessageTableViewController alloc] initWithStatus:1];
+        //controller = [[TCMessageTableViewController alloc] initWithStatus:1];
     }
     return controller;
 }

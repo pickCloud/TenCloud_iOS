@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理员 xxx 审核通过您加入 xxx公司，欢迎加入，更多详细，点击观看" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnj-nH-QWe">
-                        <rect key="frame" x="24" y="61" width="327" height="31.5"/>
+                        <rect key="frame" x="24" y="61" width="333" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crr-Ej-zsg">
-                        <rect key="frame" x="87" y="114.5" width="12" height="24"/>
+                        <rect key="frame" x="87" y="115" width="12" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="crr-Ej-zsg" secondAttribute="height" multiplier="1:2" id="Fkp-5v-B5X"/>
                         </constraints>
@@ -73,9 +73,10 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.1137254902" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="McA-5V-hpG" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.872" id="3Xt-xB-aHk"/>
+                    <constraint firstItem="Cnj-nH-QWe" firstAttribute="leading" secondItem="UyO-NM-UWS" secondAttribute="leading" id="3u8-Tj-vNL"/>
                     <constraint firstItem="Cnj-nH-QWe" firstAttribute="top" secondItem="7bc-4X-vsx" secondAttribute="bottom" constant="20" id="45R-ig-rJr"/>
                     <constraint firstItem="McA-5V-hpG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5t2-nY-JHd"/>
                     <constraint firstItem="crr-Ej-zsg" firstAttribute="centerY" secondItem="GXK-mP-l8Z" secondAttribute="centerY" id="6eX-ML-c8g"/>
@@ -84,17 +85,16 @@
                     <constraint firstAttribute="bottom" secondItem="GXK-mP-l8Z" secondAttribute="bottom" constant="27" id="IjU-Cx-VrR"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="leading" secondItem="McA-5V-hpG" secondAttribute="leading" id="Lhv-el-S6b"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="top" secondItem="McA-5V-hpG" secondAttribute="top" id="MnN-tZ-xQd"/>
-                    <constraint firstItem="Cnj-nH-QWe" firstAttribute="width" secondItem="McA-5V-hpG" secondAttribute="width" id="MpS-rg-YtV"/>
                     <constraint firstAttribute="trailing" secondItem="PCU-QI-CzG" secondAttribute="trailing" id="Q5g-XY-fQc"/>
                     <constraint firstItem="PCU-QI-CzG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YHb-ia-Y3C"/>
                     <constraint firstItem="McA-5V-hpG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.335" id="ceJ-PV-FQg"/>
                     <constraint firstAttribute="bottom" secondItem="PCU-QI-CzG" secondAttribute="bottom" constant="1" id="gcm-8U-EnX"/>
+                    <constraint firstItem="Cnj-nH-QWe" firstAttribute="trailing" secondItem="McA-5V-hpG" secondAttribute="trailing" constant="6" id="jQk-S5-gdB"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.032" id="sZg-VB-kBt"/>
                     <constraint firstItem="crr-Ej-zsg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.032" id="u9T-5i-Ucv"/>
                     <constraint firstItem="GXK-mP-l8Z" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.16266" id="uVL-Qa-hce"/>
                     <constraint firstItem="GXK-mP-l8Z" firstAttribute="top" secondItem="Cnj-nH-QWe" secondAttribute="bottom" constant="20" id="uzb-ha-K6j"/>
                     <constraint firstItem="7bc-4X-vsx" firstAttribute="leading" secondItem="UyO-NM-UWS" secondAttribute="trailing" constant="8" id="v5d-h9-C1h"/>
-                    <constraint firstItem="Cnj-nH-QWe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vBL-lB-sZ3"/>
                     <constraint firstItem="crr-Ej-zsg" firstAttribute="leading" secondItem="GXK-mP-l8Z" secondAttribute="trailing" constant="2" id="xBn-QX-fRx"/>
                 </constraints>
             </tableViewCellContentView>

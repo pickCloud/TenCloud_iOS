@@ -53,8 +53,11 @@
     {
         _keywords = @"";
     }
-    return @{@"status":@(_status),
-             @"mode":@(_mode),
+    if (_mode == 0)
+    {
+        return @{@"keywords":_keywords};
+    }
+    return @{@"mode":@(_mode),
              @"keywords":_keywords
              };
 }

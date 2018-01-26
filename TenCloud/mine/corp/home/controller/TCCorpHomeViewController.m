@@ -30,7 +30,8 @@
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
 #import "TCStaffListRequest.h"
-#import "TCMessageViewController.h"
+//#import "TCMessageViewController.h"
+#import "TCMessageTableViewController.h"
 
 
 #define PERSON_HOME_CELL_REUSE_ID       @"PERSON_HOME_CELL_REUSE_ID"
@@ -366,7 +367,8 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
-    TCMessageViewController *msgVC = [TCMessageViewController new];
+    //TCMessageViewController *msgVC = [TCMessageViewController new];
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
 

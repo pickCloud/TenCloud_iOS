@@ -14,7 +14,8 @@
 #import "TCCurrentCorp.h"
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
-#import "TCMessageViewController.h"
+//#import "TCMessageViewController.h"
+#import "TCMessageTableViewController.h"
 
 #import "TCPersonProfileViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
@@ -213,7 +214,8 @@
 - (void) onMessageButton:(id)sender
 {
     NSLog(@"on message button");
-    TCMessageViewController *msgVC = [TCMessageViewController new];
+    //TCMessageViewController *msgVC = [TCMessageViewController new];
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
 

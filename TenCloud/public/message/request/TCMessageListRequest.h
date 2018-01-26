@@ -11,10 +11,8 @@
 @class TCMessage;
 @interface TCMessageListRequest : YTKRequest
 
-@property (nonatomic, assign)   NSInteger   status;
 @property (nonatomic, assign)   NSInteger   page;
 @property (nonatomic, assign)   NSInteger   mode;
-//@property (nonatomic, strong)   NSString    *keywords;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCMessage*> *messageArray))success
                   failure:(void(^)(NSString *message))failure;

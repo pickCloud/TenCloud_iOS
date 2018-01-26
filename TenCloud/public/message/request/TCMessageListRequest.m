@@ -19,7 +19,6 @@
     self = [super init];
     if (self)
     {
-        _status = status;
         self.ignoreCache = YES;
     }
     return self;
@@ -40,11 +39,10 @@
 }
 
 - (NSString *)requestUrl {
-    //return @"/api/messages/search";
-    NSString *url = [NSString stringWithFormat:@"/api/messages/%ld?page=%ld&mode=%ld",_status,_page,_mode];
+    NSString *url = [NSString stringWithFormat:@"/api/messages/?page=%ld&mode=%ld",_page,_mode];
     if (_mode == 0)
     {
-        url = [NSString stringWithFormat:@"/api/messages/%ld?page=%ld",_status,_page];
+        url = [NSString stringWithFormat:@"/api/messages/?page=%ld",_page];
     }
     return url;
 }
@@ -53,17 +51,4 @@
     return YTKRequestMethodGET;
 }
 
-/*
-- (id)requestArgument
-{
-    if (_keywords == nil)
-    {
-        _keywords = @"";
-    }
-    return @{@"status":@(_status),
-             @"mode":@(_mode),
-             @"keywords":_keywords
-             };
-}
- */
 @end
