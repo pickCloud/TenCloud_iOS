@@ -81,9 +81,9 @@
 - (void) updateUI
 {
     NSString *companyName = nil;
-    if (_corp.company_name && _corp.company_name.length > 10)
+    if (_corp.company_name && _corp.company_name.length > 11)
     {
-        NSRange preRange = NSMakeRange(0, 10);
+        NSRange preRange = NSMakeRange(0, 11);
         NSString *preStr = [_corp.company_name substringWithRange:preRange];
         companyName = [NSString stringWithFormat:@"%@...",preStr];
     }else
