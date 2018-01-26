@@ -197,7 +197,7 @@
                         <constraint firstAttribute="width" secondItem="h6E-0Y-qdM" secondAttribute="height" multiplier="15:2" id="Y1E-zQ-ibR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="确认加入">
+                    <state key="normal" title="接受邀请">
                         <color key="titleColor" red="0.094117647060000004" green="0.1019607843" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
