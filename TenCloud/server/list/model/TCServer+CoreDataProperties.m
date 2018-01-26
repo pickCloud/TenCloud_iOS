@@ -17,7 +17,12 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{@"serverID":@"id"};
+    return @{@"serverID":@"id",
+             @"disk_content":@"disk",
+             @"memory_content":@"memory",
+             @"cpu_content":@"cpu",
+             @"net_content":@"network"
+             };
 }
 
 @dynamic net_content;
