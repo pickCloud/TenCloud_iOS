@@ -11,7 +11,9 @@
 #import "TCSpacingTextField.h"
 #import "TCAddCorpRequest.h"
 #import "TCSuccessResultViewController.h"
+#import "TCFailResultViewController.h"
 #import "TCCorpHomeViewController.h"
+#import "TCDissentViewController.h"
 
 @interface TCAddCorpViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -118,7 +120,22 @@
         [weakSelf.navigationController setViewControllers:newVCS];
         
     } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:message];
+        [MMProgressHUD dismiss];
+        TCFailResultViewController *failVC = [[TCFailResultViewController alloc] initWithTitle:@"创建失败" desc:message];
+        failVC.buttonTitle = @"提起企业异议";
+        failVC.finishBlock = ^(UIViewController *viewController) {
+            TCDissentViewController *dissentVC = [TCDissentViewController new];
+            NSArray *oldVCS = viewController.navigationController.viewControllers;
+            NSMutableArray *vcs = [NSMutableArray arrayWithArray:oldVCS];
+            [vcs removeLastObject];
+            [vcs addObject:dissentVC];
+            [viewController.navigationController setViewControllers:vcs animated:YES];
+        };
+        NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+        [newVCS removeLastObject];
+        [newVCS addObject:failVC];
+        [weakSelf.navigationController setViewControllers:newVCS];
     }];
 }
 

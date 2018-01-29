@@ -126,6 +126,8 @@
 		A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385951FE8BD9C00EC0EC8 /* TCStartServerRequest.m */; };
 		A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */; };
 		A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */; };
+		A0339852201F0BCB00CF8630 /* TCDissentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0339850201F0BCB00CF8630 /* TCDissentViewController.m */; };
+		A0339853201F0BCB00CF8630 /* TCDissentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0339851201F0BCB00CF8630 /* TCDissentViewController.xib */; };
 		A033AD3F200CE06300FFD2BF /* TCAcceptJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD3D200CE06300FFD2BF /* TCAcceptJoinRequest.m */; };
 		A033AD42200CEC8700FFD2BF /* TCRejectJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD40200CEC8700FFD2BF /* TCRejectJoinRequest.m */; };
 		A033AD45200CEED700FFD2BF /* TCRemoveStaffRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD43200CEED700FFD2BF /* TCRemoveStaffRequest.m */; };
@@ -574,6 +576,9 @@
 		A03385981FE8E3C500EC0EC8 /* TCServerStateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerStateTableViewCell.h; sourceTree = "<group>"; };
 		A03385991FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerStateTableViewCell.m; sourceTree = "<group>"; };
 		A033859A1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerStateTableViewCell.xib; sourceTree = "<group>"; };
+		A033984F201F0BCB00CF8630 /* TCDissentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDissentViewController.h; sourceTree = "<group>"; };
+		A0339850201F0BCB00CF8630 /* TCDissentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCDissentViewController.m; sourceTree = "<group>"; };
+		A0339851201F0BCB00CF8630 /* TCDissentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCDissentViewController.xib; sourceTree = "<group>"; };
 		A033AD3D200CE06300FFD2BF /* TCAcceptJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAcceptJoinRequest.m; sourceTree = "<group>"; };
 		A033AD3E200CE06300FFD2BF /* TCAcceptJoinRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAcceptJoinRequest.h; sourceTree = "<group>"; };
 		A033AD40200CEC8700FFD2BF /* TCRejectJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRejectJoinRequest.m; sourceTree = "<group>"; };
@@ -2975,6 +2980,9 @@
 				A0A86B641FF3B1B200D1D58D /* TCAddCorpViewController.h */,
 				A0A86B621FF3B1B200D1D58D /* TCAddCorpViewController.m */,
 				A0A86B631FF3B1B200D1D58D /* TCAddCorpViewController.xib */,
+				A033984F201F0BCB00CF8630 /* TCDissentViewController.h */,
+				A0339850201F0BCB00CF8630 /* TCDissentViewController.m */,
+				A0339851201F0BCB00CF8630 /* TCDissentViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -3773,6 +3781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */,
+				A0339853201F0BCB00CF8630 /* TCDissentViewController.xib in Resources */,
 				A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */,
 				A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */,
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
@@ -4178,6 +4187,7 @@
 				A031B6031FFD189400B4F448 /* TCAddTemplateRequest.m in Sources */,
 				A031B6201FFE1A9900B4F448 /* TCStaffListRequest.m in Sources */,
 				A0895CF02019743900C00974 /* TCBoderButton.m in Sources */,
+				A0339852201F0BCB00CF8630 /* TCDissentViewController.m in Sources */,
 				A0C9A0791FF10A5500F94E9E /* TCModifyUserProfileRequest.m in Sources */,
 				A0C9A0701FF0D47500F94E9E /* TCEditTextTableViewCell.m in Sources */,
 				A0C9A0561FED608500F94E9E /* TCIconTableViewCell.m in Sources */,
