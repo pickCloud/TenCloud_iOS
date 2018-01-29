@@ -122,7 +122,6 @@
         NSRange dateRange = NSMakeRange(0, 10);
         updateTime = [updateTime substringWithRange:dateRange];
     }
-    NSLog(@"jrsj:%@",updateTime);
     item3.value = updateTime;
     [_rowDataArray addObject:item3];
     
