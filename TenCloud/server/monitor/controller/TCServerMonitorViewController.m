@@ -39,6 +39,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
 //@property (nonatomic, strong) UILabel *touchLabel;
 - (IBAction) onHistoryButton:(id)sender;
+- (void) reloadChartData;
 @end
 
 @implementation TCServerMonitorViewController
@@ -71,7 +72,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     _cpuChartView.delegate = self;
     _cpuChartView.datasource = self;
     _cpuChartView.clipsToBounds = NO;
-    //_cpuChartView.backgroundColor = [UIColor magentaColor];
     
     _cpuChartView.lineLeftMargin = 0;
     _cpuChartView.lineRightMargin = 0;
@@ -168,93 +168,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     _cpuChartView.touchView = _touchLabel;
      */
     
-    NSInteger endTime = [[NSDate date] timeIntervalSince1970];
-    //NSInteger startTime = endTime - 3600;
-    //NSInteger startTime = endTime - 86400;  //24hour
-    //NSInteger startTime = endTime - 604800;   //one week
-    NSInteger startTime = endTime - 18144000;   //one month
-    __weak __typeof(self) weakSelf = self;
     [self startLoading];
-    TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
-    [request startWithSuccess:^(TCServerPerformance *performance) {
-        NSLog(@"perfor:%@",performance);
-        weakSelf.performance = performance;
-        
-        //重新计算cpu points
-        [_cpuPoints removeAllObjects];
-        NSMutableArray *rawPoints = [NSMutableArray new];
-        for (int i = 0; i < performance.cpu.count; i++)
-        {
-            TCServerCPU *cpu = [performance.cpu objectAtIndex:i];
-            [rawPoints addObject:@(cpu.percent.floatValue)];
-        }
-        NSMutableArray *mutableArray = [NSMutableArray array];
-        NSArray *tmpPoints = [WYLineChartPoint pointsFromValueArray:rawPoints];
-        [mutableArray addObject:tmpPoints];
-        [_cpuPoints addObjectsFromArray:mutableArray];
-        weakSelf.cpuChartView.points = [NSArray arrayWithArray:_cpuPoints];
-        [weakSelf.cpuChartView updateGraph];
-        
-        //重新计算内存points
-        [_memoryPoints removeAllObjects];
-        NSMutableArray *rawMemoryPoints = [NSMutableArray new];
-        for (int i = 0; i < performance.memory.count; i++)
-        {
-            TCServerMemory *memory = [performance.memory objectAtIndex:i];
-            [rawMemoryPoints addObject:@(memory.percent.floatValue)];
-        }
-        NSMutableArray *memoryPointArray = [NSMutableArray array];
-        NSArray *tmpMemoryPoints = [WYLineChartPoint pointsFromValueArray:rawMemoryPoints];
-        [memoryPointArray addObject:tmpMemoryPoints];
-        [_memoryPoints addObjectsFromArray:memoryPointArray];
-        weakSelf.memoryChartView.points = [NSArray arrayWithArray:_memoryPoints];
-        [weakSelf.memoryChartView updateGraph];
-        
-        //重新计算硬盘points
-        [_diskPoints removeAllObjects];
-        NSMutableArray *rawDiskPoints = [NSMutableArray new];
-        for (int i = 0; i < performance.disk.count; i++)
-        {
-            TCServerDisk *disk = [performance.disk objectAtIndex:i];
-            [rawDiskPoints addObject:@(disk.percent.floatValue)];
-        }
-        NSMutableArray *diskPointArray = [NSMutableArray array];
-        NSArray *tmpDiskPoints = [WYLineChartPoint pointsFromValueArray:rawDiskPoints];
-        [diskPointArray addObject:tmpDiskPoints];
-        [_diskPoints addObjectsFromArray:diskPointArray];
-        weakSelf.diskChartView.points = [NSArray arrayWithArray:_diskPoints];
-        [weakSelf.diskChartView updateGraph];
-        
-        //重新计算网络points
-        [_netOutputPoints removeAllObjects];
-        NSMutableArray *rawNetOutputPoints = [NSMutableArray new];
-        NSMutableArray *rawNetInputPoints = [NSMutableArray new];
-        for (int i = 0; i < performance.net.count; i++)
-        {
-            TCServerNet *net = [performance.net objectAtIndex:i];
-            [rawNetOutputPoints addObject:@(net.output)];
-            [rawNetInputPoints addObject:@(net.input)];
-        }
-        NSMutableArray *outputPointArray = [NSMutableArray array];
-        NSArray *tmpNetOutputPoints = [WYLineChartPoint pointsFromValueArray:rawNetOutputPoints];
-        [outputPointArray addObject:tmpNetOutputPoints];
-        //NSMutableArray *inputPointArray = [NSMutableArray array];
-        NSArray *tmpNetInputPoints = [WYLineChartPoint pointsFromValueArray:rawNetInputPoints];
-        //[inputPointArray addObject:tmpNetInputPoints];
-        [outputPointArray addObject:tmpNetInputPoints];
-        [_netOutputPoints addObjectsFromArray:outputPointArray];
-        //[_netOutputPoints addObject:outputPointArray];
-        //[_netOutputPoints addObject:inputPointArray];
-        
-        
-        weakSelf.netChartView.points = [NSArray arrayWithArray:_netOutputPoints];
-        [weakSelf.netChartView updateGraph];
-        [weakSelf stopLoading];
-    } failure:^(NSString *message) {
-        NSLog(@"message:%@",message);
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
+    [self reloadChartData];
     
     _periodMenuOptions = [NSMutableArray new];
     [_periodMenuOptions addObject:@"1个小时"];
@@ -281,6 +196,12 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 {
     [super viewDidAppear:animated];
     //[_cpuChartView updateGraph];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_periodMenu closeAllComponentsAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -564,14 +485,12 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
         {
             lineColor = [UIColor colorWithRed:216/255.f green:91/255.f blue:98/255.f alpha:1.0];
         }
-        //lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
     }else
     {
         lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
     }
     resultAttributes[kWYLineChartLineAttributeLineColor] = lineColor;
     resultAttributes[kWYLineChartLineAttributeJunctionColor] = lineColor;
-    //NSLog(@"result attributes:%@",resultAttributes);
     return resultAttributes;
 }
 
@@ -637,11 +556,10 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    //[_keywordField resignFirstResponder];
     _periodSelectedIndex = row;
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
-    //[self doSearchWithKeyword:_keywordField.text mode:_modeSelectedIndex];
+    [self reloadChartData];
 }
 
 - (UIColor *)colorForRow:(NSInteger)row {
@@ -653,5 +571,97 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 - (IBAction) onHistoryButton:(id)sender
 {
     NSLog(@"on history button");
+}
+
+- (void) reloadChartData
+{
+    NSInteger endTime = [[NSDate date] timeIntervalSince1970];
+    NSInteger startTime = endTime - 3600;
+    if (_periodSelectedIndex == 1)
+    {
+        startTime = endTime - 86400;  //24hour
+    }else if(_periodSelectedIndex == 2)
+    {
+        startTime = endTime - 604800;   //one week
+    }else if(_periodSelectedIndex == 3)
+    {
+        startTime = endTime - 18144000;   //one month
+    }
+    __weak __typeof(self) weakSelf = self;
+    TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
+    [request startWithSuccess:^(TCServerPerformance *performance) {
+        NSLog(@"perfor:%@",performance);
+        weakSelf.performance = performance;
+        
+        //重新计算cpu points
+        [_cpuPoints removeAllObjects];
+        NSMutableArray *rawPoints = [NSMutableArray new];
+        for (int i = 0; i < performance.cpu.count; i++)
+        {
+            TCServerCPU *cpu = [performance.cpu objectAtIndex:i];
+            [rawPoints addObject:@(cpu.percent.floatValue)];
+        }
+        NSMutableArray *mutableArray = [NSMutableArray array];
+        NSArray *tmpPoints = [WYLineChartPoint pointsFromValueArray:rawPoints];
+        [mutableArray addObject:tmpPoints];
+        [_cpuPoints addObjectsFromArray:mutableArray];
+        weakSelf.cpuChartView.points = [NSArray arrayWithArray:_cpuPoints];
+        [weakSelf.cpuChartView updateGraph];
+        
+        //重新计算内存points
+        [_memoryPoints removeAllObjects];
+        NSMutableArray *rawMemoryPoints = [NSMutableArray new];
+        for (int i = 0; i < performance.memory.count; i++)
+        {
+            TCServerMemory *memory = [performance.memory objectAtIndex:i];
+            [rawMemoryPoints addObject:@(memory.percent.floatValue)];
+        }
+        NSMutableArray *memoryPointArray = [NSMutableArray array];
+        NSArray *tmpMemoryPoints = [WYLineChartPoint pointsFromValueArray:rawMemoryPoints];
+        [memoryPointArray addObject:tmpMemoryPoints];
+        [_memoryPoints addObjectsFromArray:memoryPointArray];
+        weakSelf.memoryChartView.points = [NSArray arrayWithArray:_memoryPoints];
+        [weakSelf.memoryChartView updateGraph];
+        
+        //重新计算硬盘points
+        [_diskPoints removeAllObjects];
+        NSMutableArray *rawDiskPoints = [NSMutableArray new];
+        for (int i = 0; i < performance.disk.count; i++)
+        {
+            TCServerDisk *disk = [performance.disk objectAtIndex:i];
+            [rawDiskPoints addObject:@(disk.percent.floatValue)];
+        }
+        NSMutableArray *diskPointArray = [NSMutableArray array];
+        NSArray *tmpDiskPoints = [WYLineChartPoint pointsFromValueArray:rawDiskPoints];
+        [diskPointArray addObject:tmpDiskPoints];
+        [_diskPoints addObjectsFromArray:diskPointArray];
+        weakSelf.diskChartView.points = [NSArray arrayWithArray:_diskPoints];
+        [weakSelf.diskChartView updateGraph];
+        
+        //重新计算网络points
+        [_netOutputPoints removeAllObjects];
+        NSMutableArray *rawNetOutputPoints = [NSMutableArray new];
+        NSMutableArray *rawNetInputPoints = [NSMutableArray new];
+        for (int i = 0; i < performance.net.count; i++)
+        {
+            TCServerNet *net = [performance.net objectAtIndex:i];
+            [rawNetOutputPoints addObject:@(net.output)];
+            [rawNetInputPoints addObject:@(net.input)];
+        }
+        NSMutableArray *outputPointArray = [NSMutableArray array];
+        NSArray *tmpNetOutputPoints = [WYLineChartPoint pointsFromValueArray:rawNetOutputPoints];
+        [outputPointArray addObject:tmpNetOutputPoints];
+        NSArray *tmpNetInputPoints = [WYLineChartPoint pointsFromValueArray:rawNetInputPoints];
+        [outputPointArray addObject:tmpNetInputPoints];
+        [_netOutputPoints addObjectsFromArray:outputPointArray];
+        
+        weakSelf.netChartView.points = [NSArray arrayWithArray:_netOutputPoints];
+        [weakSelf.netChartView updateGraph];
+        [weakSelf stopLoading];
+    } failure:^(NSString *message) {
+        NSLog(@"message:%@",message);
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
 }
 @end
