@@ -58,7 +58,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"完善资料";
+    self.title = @"邀请员工";
     [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     _row3Label.font = TCFont(14);
     
