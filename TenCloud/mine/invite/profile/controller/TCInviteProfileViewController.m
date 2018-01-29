@@ -184,6 +184,8 @@
     req.idCard = _idCardField.text;
     [req startWithSuccess:^(NSString *message) {
         [MMProgressHUD dismiss];
+        [[TCLocalAccount shared] setName:weakSelf.nameField.text];
+        [[TCLocalAccount shared] save];
         TCInviteSuccessViewController *successVC = [[TCInviteSuccessViewController alloc] initWithTitle:@"提交成功" desc:@"申请已提交，待管理员审核通过，即可加入企业"];
         [weakSelf.navigationController pushViewController:successVC animated:YES];
     } failure:^(NSString *message) {
