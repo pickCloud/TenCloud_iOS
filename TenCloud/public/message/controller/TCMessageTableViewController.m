@@ -194,6 +194,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                         NSArray *viewControllers = self.navigationController.viewControllers;
                         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
                         [newVCS removeAllObjects];
+                        [[TCCurrentCorp shared] setCid:cid];
                         TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
                         [newVCS addObject:homeVC];
                         TCStaffTableViewController *staffVC = [TCStaffTableViewController new];
@@ -204,6 +205,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                         [weakSelf resubmitWithCode:codeStr];
                     }else
                     {
+                        [[TCCurrentCorp shared] setCid:cid];
                         NSArray *viewControllers = self.navigationController.viewControllers;
                         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
                         [newVCS removeAllObjects];
