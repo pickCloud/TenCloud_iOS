@@ -132,7 +132,7 @@
     NSString *str1 = [NSString stringWithFormat:@"%@",_inviteInfo.contact];
     NSMutableAttributedString *tmp1 = nil;
     tmp1 = [[NSMutableAttributedString alloc] initWithString:str1 attributes:greenAttr];
-    NSString *str2 = @" 邀请你加入 ";
+    NSString *str2 = @" 邀请你加入企业 ";
     NSMutableAttributedString *tmp2 = nil;
     tmp2 = [[NSMutableAttributedString alloc] initWithString:str2 attributes:grayAttr];
     //[row1Str appendAttributedString:tmp1];
@@ -142,6 +142,7 @@
     NSString *str3 = _inviteInfo.company_name;
     NSMutableAttributedString *tmp3 = nil;
     tmp3 = [[NSMutableAttributedString alloc] initWithString:str3 attributes:greenAttr];
+    /*
     CGRect rect3 = [str3 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:greenAttr context:nil];
     CGFloat previeWidth = rect1.size.width + rect2.size.width +rect3.size.width;
     if (previeWidth <= row1Rect.size.width)
@@ -158,6 +159,11 @@
         _row1Label.attributedText = row1Str;
         _row2Label.attributedText = tmp3;
     }
+     */
+    [row1Str appendAttributedString:tmp3];
+    [row1Str appendAttributedString:tmp2];
+    _row1Label.attributedText = row1Str;
+    _row2Label.text = @"";
 }
 
 
