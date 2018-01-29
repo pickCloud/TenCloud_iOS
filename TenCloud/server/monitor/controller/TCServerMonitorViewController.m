@@ -18,10 +18,16 @@
 #import "TCServerDisk+CoreDataClass.h"
 #import "TCServerNet+CoreDataClass.h"
 #import "NSString+Extension.h"
+#import "MKDropdownMenu.h"
+#import "ShapeSelectView.h"
 
-@interface TCServerMonitorViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource>
+@interface TCServerMonitorViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource,
+MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, strong)   TCServerPerformance *performance;
+@property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
+@property (nonatomic, assign)   NSInteger           periodSelectedIndex;
+@property (nonatomic, weak) IBOutlet    MKDropdownMenu      *periodMenu;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *cpuChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *memoryChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *diskChartView;
@@ -31,8 +37,8 @@
 @property (nonatomic, strong) NSMutableArray    *diskPoints;
 @property (nonatomic, strong) NSMutableArray    *netOutputPoints;
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
-
 //@property (nonatomic, strong) UILabel *touchLabel;
+- (IBAction) onHistoryButton:(id)sender;
 @end
 
 @implementation TCServerMonitorViewController
@@ -249,6 +255,26 @@
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
+    
+    _periodMenuOptions = [NSMutableArray new];
+    [_periodMenuOptions addObject:@"1个小时"];
+    [_periodMenuOptions addObject:@"24个小时"];
+    [_periodMenuOptions addObject:@"1周"];
+    [_periodMenuOptions addObject:@"1个月"];
+    
+    UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
+    self.periodMenu.selectedComponentBackgroundColor = dropDownBgColor;
+    self.periodMenu.dropdownBackgroundColor = dropDownBgColor;
+    self.periodMenu.dropdownShowsTopRowSeparator = YES;
+    self.periodMenu.dropdownShowsBottomRowSeparator = NO;
+    self.periodMenu.dropdownShowsBorder = NO;
+    self.periodMenu.backgroundDimmingOpacity = 0.5;//0.05;
+    self.periodMenu.componentTextAlignment = NSTextAlignmentLeft;
+    self.periodMenu.dropdownCornerRadius = TCSCALE(4.0);
+    self.periodMenu.rowSeparatorColor = THEME_BACKGROUND_COLOR;
+    
+    UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
+    self.periodMenu.disclosureIndicatorImage = disclosureImg;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -549,4 +575,83 @@
     return resultAttributes;
 }
 
+
+#pragma mark - MKDropdownMenuDataSource
+
+- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu {
+    return 1;
+}
+
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return _periodMenuOptions.count;
+}
+
+#pragma mark - MKDropdownMenuDelegate
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
+    return TCSCALE(32);
+}
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu widthForComponent:(NSInteger)component {
+    return MAX(dropdownMenu.bounds.size.width/3, 125);
+}
+
+- (BOOL)dropdownMenu:(MKDropdownMenu *)dropdownMenu shouldUseFullRowWidthForComponent:(NSInteger)component {
+    return NO;
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
+    return [[NSAttributedString alloc] initWithString:self.periodMenuOptions[_periodSelectedIndex]
+                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
+                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
+    NSLog(@"statusMenuOptions:%@",self.periodMenuOptions);
+    for (NSString *opt in self.periodMenuOptions)
+    {
+        NSLog(@"opt:%@",opt);
+    }
+    NSLog(@"seelI:%ld",_periodSelectedIndex);
+    return [[NSAttributedString alloc] initWithString:self.periodMenuOptions[_periodSelectedIndex]
+                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
+                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
+    
+}
+
+- (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    ShapeSelectView *shapeSelectView = (ShapeSelectView *)view;
+    if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
+        shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
+    }
+    //shapeSelectView.shapeView.sidesCount = row + 2;
+    NSString *statusStr = self.periodMenuOptions[row];
+    shapeSelectView.textLabel.text = statusStr;
+    shapeSelectView.selected = _periodSelectedIndex == row;
+    return shapeSelectView;
+}
+
+- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self colorForRow:row];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    //[_keywordField resignFirstResponder];
+    _periodSelectedIndex = row;
+    [dropdownMenu reloadComponent:component];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+    //[self doSearchWithKeyword:_keywordField.text mode:_modeSelectedIndex];
+}
+
+- (UIColor *)colorForRow:(NSInteger)row {
+    return DROPDOWN_CELL_BG_COLOR;
+}
+
+
+#pragma mark - extension
+- (IBAction) onHistoryButton:(id)sender
+{
+    NSLog(@"on history button");
+}
 @end
