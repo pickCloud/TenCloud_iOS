@@ -69,13 +69,13 @@
     _tableView.tableFooterView = _buttonTableView;
     
     TCServerInfoItem *item0 = [TCServerInfoItem new];
-    item0.key = @"身份证号码";
+    item0.key = @"身份证号";
     BOOL idCardPermission = [[TCCurrentCorp shared] havePermissionForFunc:FUNC_ID_STAFF_IDCARD];
     BOOL visable = [[TCCurrentCorp shared] isAdmin] || idCardPermission;
     NSString *idCardStr = _staff.id_card;
     if (idCardStr == nil || idCardStr.length == 0)
     {
-        idCardStr = @"无";
+        idCardStr = @"";
     }
     /*
     if (!visable)
@@ -112,11 +112,17 @@
     TCServerInfoItem *item3 = [TCServerInfoItem new];
     item3.key = @"加入时间";
     NSString *updateTime = _staff.update_time;
+    if (_staff.status == STAFF_STATUS_REJECT ||
+        _staff.status == STAFF_STATUS_PENDING)
+    {
+        updateTime = @"";
+    }
     if (updateTime && updateTime.length > 11)
     {
         NSRange dateRange = NSMakeRange(0, 10);
         updateTime = [updateTime substringWithRange:dateRange];
     }
+    NSLog(@"jrsj:%@",updateTime);
     item3.value = updateTime;
     [_rowDataArray addObject:item3];
     
@@ -449,7 +455,7 @@
         }
     }
     
-    TCServerInfoItem *statusItem = [_rowDataArray objectAtIndex:2];
+    TCServerInfoItem *statusItem = _rowDataArray.lastObject; //[_rowDataArray objectAtIndex:2];
     if (_staff.status == STAFF_STATUS_REJECT)
     {
         statusItem.value = @"审核不通过";
