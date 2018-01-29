@@ -51,11 +51,13 @@
     if (corp.create_time && corp.create_time.length > 0)
     {
         NSString *createDate = [corp.create_time substringWithRange:dateRange];
-        //NSString *createDateStr = [NSString stringWithFormat:@"创建时间 %@",createDate];
         NSString *createDateStr = nil;
-        if (corp.status == 4)
+        if (corp.status == STAFF_STATUS_FOUNDER)
         {
             createDateStr = [NSString stringWithFormat:@"创建时间  %@",createDate];
+        }else if(corp.status == STAFF_STATUS_WAITING)
+        {
+            createDateStr = @"";
         }else
         {
             createDateStr = [NSString stringWithFormat:@"申请时间  %@",createDate];
@@ -67,14 +69,13 @@
         NSString *reviewDate = [corp.update_time substringWithRange:dateRange];
         NSString *reviewDateStr = [NSString stringWithFormat:@"审核时间  %@",reviewDate];
         if (corp.status == 5 ||
-            corp.status == 2)
+            corp.status == 2 ||
+            corp.status == STAFF_STATUS_FOUNDER )
         {
             reviewDateStr = @"";
         }
         _reviewTimeLabel.text = reviewDateStr;
     }
-    //_applyTimeLabel.text = corp.create_time;
-    //_reviewTimeLabel.text = corp.update_time;
     
     if (corp.status == 3)
     {
