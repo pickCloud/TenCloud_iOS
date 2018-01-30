@@ -195,7 +195,7 @@
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(12.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR2 forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"对不起，你还没有任何服务器" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"对不起，你还没有任何企业" attributes:attributes];
 }
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
