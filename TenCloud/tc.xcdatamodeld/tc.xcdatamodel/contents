@@ -43,6 +43,13 @@
         <attribute name="tip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCPerformanceItem" representedClassName="TCPerformanceItem" syncable="YES">
+        <attribute name="cpu" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="disk" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="memory" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="net" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="TCPermissionNode" representedClassName="TCPermissionNode" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="depth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -202,5 +209,6 @@
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCPerformanceItem" positionX="-9" positionY="135" width="128" height="120"/>
     </elements>
 </model>

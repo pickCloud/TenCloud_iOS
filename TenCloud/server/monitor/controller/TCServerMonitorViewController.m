@@ -20,6 +20,7 @@
 #import "NSString+Extension.h"
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
+#import "TCMonitorHistoryTableViewController.h"
 
 @interface TCServerMonitorViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource,
 MKDropdownMenuDelegate,MKDropdownMenuDataSource>
@@ -571,6 +572,9 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 - (IBAction) onHistoryButton:(id)sender
 {
     NSLog(@"on history button");
+    TCMonitorHistoryTableViewController *historyVC = nil;
+    historyVC = [[TCMonitorHistoryTableViewController alloc] initWithServerID:_serverID];
+    [self.navigationController pushViewController:historyVC animated:YES];
 }
 
 - (void) reloadChartData

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCMonitorHistoryTableViewController">
+            <connections>
+                <outlet property="tableView" destination="p6x-o5-rEw" id="wvo-R4-GB5"/>
+                <outlet property="typeMenu" destination="rM4-fZ-ChI" id="CGO-vb-k1u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz3-Ne-91q">
+                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM4-fZ-ChI" customClass="MKDropdownMenu">
+                            <rect key="frame" x="15" y="7" width="120" height="30"/>
+                            <color key="backgroundColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="rM4-fZ-ChI" secondAttribute="height" multiplier="4:1" id="KtC-Z5-DEM"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="hWe-W7-9Ma"/>
+                                <outlet property="delegate" destination="-1" id="ido-UW-zOo"/>
+                            </connections>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtY-BT-eeX">
+                            <rect key="frame" x="340" y="0.0" width="20" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HtY-BT-eeX" secondAttribute="height" multiplier="5:11" id="cc7-A3-KXt"/>
+                            </constraints>
+                            <state key="normal" image="server_date_filter">
+                                <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onTimeFilterButton:" destination="-1" eventType="touchUpInside" id="nlh-Nb-fsq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d67-cM-F6C">
+                            <rect key="frame" x="266" y="0.0" width="74" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="d67-cM-F6C" secondAttribute="height" multiplier="37:22" id="jJ1-qQ-uk8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="时间筛选">
+                                <color key="titleColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onTimeFilterButton:" destination="-1" eventType="touchUpInside" id="Abz-MH-ySw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1137254902" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="HtY-BT-eeX" firstAttribute="leading" secondItem="d67-cM-F6C" secondAttribute="trailing" id="15L-VG-A2B"/>
+                        <constraint firstItem="rM4-fZ-ChI" firstAttribute="top" secondItem="Yz3-Ne-91q" secondAttribute="top" constant="7" id="1DJ-XB-qK1"/>
+                        <constraint firstItem="HtY-BT-eeX" firstAttribute="centerY" secondItem="Yz3-Ne-91q" secondAttribute="centerY" id="3no-7t-Ke0"/>
+                        <constraint firstItem="d67-cM-F6C" firstAttribute="width" secondItem="Yz3-Ne-91q" secondAttribute="width" multiplier="0.19733" id="IZJ-lG-ePs"/>
+                        <constraint firstAttribute="bottom" secondItem="rM4-fZ-ChI" secondAttribute="bottom" constant="7" id="MPm-OT-7Yb"/>
+                        <constraint firstItem="d67-cM-F6C" firstAttribute="centerY" secondItem="Yz3-Ne-91q" secondAttribute="centerY" id="WUo-Lw-SQ5"/>
+                        <constraint firstItem="rM4-fZ-ChI" firstAttribute="width" secondItem="Yz3-Ne-91q" secondAttribute="width" multiplier="0.32" id="fya-CW-vIW"/>
+                        <constraint firstAttribute="trailing" secondItem="HtY-BT-eeX" secondAttribute="trailing" constant="15" id="jmC-gt-XXL"/>
+                        <constraint firstItem="HtY-BT-eeX" firstAttribute="width" secondItem="Yz3-Ne-91q" secondAttribute="width" multiplier="0.053333" id="yNW-Oc-UV3"/>
+                        <constraint firstItem="rM4-fZ-ChI" firstAttribute="leading" secondItem="Yz3-Ne-91q" secondAttribute="leading" constant="15" id="zaf-eI-qY0"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6x-o5-rEw">
+                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="tEw-xm-Hue"/>
+                        <outlet property="delegate" destination="-1" id="qPi-GZ-0Ui"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Yz3-Ne-91q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0PU-Nh-OzC"/>
+                <constraint firstItem="p6x-o5-rEw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="EAB-Mu-JxG"/>
+                <constraint firstItem="p6x-o5-rEw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ecy-Dd-Eoh"/>
+                <constraint firstAttribute="bottom" secondItem="p6x-o5-rEw" secondAttribute="bottom" id="JvX-v1-hhg"/>
+                <constraint firstItem="Yz3-Ne-91q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="NJq-pH-QrZ"/>
+                <constraint firstItem="Yz3-Ne-91q" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bHX-Si-O2r"/>
+                <constraint firstItem="p6x-o5-rEw" firstAttribute="top" secondItem="Yz3-Ne-91q" secondAttribute="bottom" constant="2" id="tlL-6g-3bD"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="server_date_filter" width="20" height="20"/>
+    </resources>
+</document>
