@@ -43,7 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的企业";
+    self.title = @"我的公司";
     _corpArray = [NSMutableArray new];
     
     UIImage *addServerImg = [UIImage imageNamed:@"corp_nav_add"];

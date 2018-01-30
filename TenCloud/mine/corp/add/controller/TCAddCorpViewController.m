@@ -102,7 +102,7 @@
         [MMProgressHUD dismiss];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_CORP object:nil];
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"创建成功" desc:@"恭喜您成为公司管理员"];
-        successVC.buttonTitle = @"查看我的企业";
+        successVC.buttonTitle = @"查看我的公司";
         successVC.finishBlock = ^(UIViewController *viewController) {
             [MMProgressHUD showWithStatus:@"切换身份中"];
             TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:cid];

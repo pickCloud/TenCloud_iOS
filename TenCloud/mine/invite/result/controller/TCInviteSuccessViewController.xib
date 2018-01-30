@@ -77,7 +77,7 @@
                                 <constraint firstAttribute="width" constant="73" id="pSf-0Q-4pE"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title=" 我的企业 ">
+                            <state key="normal" title=" 我的公司 ">
                                 <color key="titleColor" red="0.26666666666666666" green="0.51372549019607838" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
