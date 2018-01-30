@@ -135,6 +135,8 @@
 		A03398642020400E00CF8630 /* TCMonitorHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A03398612020400D00CF8630 /* TCMonitorHistoryTableViewCell.xib */; };
 		A033986920204C0B00CF8630 /* TCPerformanceItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A033986620204C0B00CF8630 /* TCPerformanceItem+CoreDataClass.m */; };
 		A033986A20204C0B00CF8630 /* TCPerformanceItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A033986820204C0B00CF8630 /* TCPerformanceItem+CoreDataProperties.m */; };
+		A033986E20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A033986C20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib */; };
+		A033986F20206AC800CF8630 /* TCHistoryTimeFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A033986D20206AC800CF8630 /* TCHistoryTimeFilterViewController.m */; };
 		A033AD3F200CE06300FFD2BF /* TCAcceptJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD3D200CE06300FFD2BF /* TCAcceptJoinRequest.m */; };
 		A033AD42200CEC8700FFD2BF /* TCRejectJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD40200CEC8700FFD2BF /* TCRejectJoinRequest.m */; };
 		A033AD45200CEED700FFD2BF /* TCRemoveStaffRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD43200CEED700FFD2BF /* TCRemoveStaffRequest.m */; };
@@ -598,6 +600,9 @@
 		A033986620204C0B00CF8630 /* TCPerformanceItem+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPerformanceItem+CoreDataClass.m"; sourceTree = "<group>"; };
 		A033986720204C0B00CF8630 /* TCPerformanceItem+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCPerformanceItem+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A033986820204C0B00CF8630 /* TCPerformanceItem+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCPerformanceItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A033986B20206AC800CF8630 /* TCHistoryTimeFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCHistoryTimeFilterViewController.h; sourceTree = "<group>"; };
+		A033986C20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCHistoryTimeFilterViewController.xib; sourceTree = "<group>"; };
+		A033986D20206AC800CF8630 /* TCHistoryTimeFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCHistoryTimeFilterViewController.m; sourceTree = "<group>"; };
 		A033AD3D200CE06300FFD2BF /* TCAcceptJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAcceptJoinRequest.m; sourceTree = "<group>"; };
 		A033AD3E200CE06300FFD2BF /* TCAcceptJoinRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAcceptJoinRequest.h; sourceTree = "<group>"; };
 		A033AD40200CEC8700FFD2BF /* TCRejectJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRejectJoinRequest.m; sourceTree = "<group>"; };
@@ -1885,6 +1890,9 @@
 		A02555661FD7C82100D16D22 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A033986B20206AC800CF8630 /* TCHistoryTimeFilterViewController.h */,
+				A033986D20206AC800CF8630 /* TCHistoryTimeFilterViewController.m */,
+				A033986C20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib */,
 				A07DBE451FDFD5D300F37715 /* TCServerMonitorViewController.h */,
 				A07DBE461FDFD5D300F37715 /* TCServerMonitorViewController.m */,
 				A07DBE471FDFD5D300F37715 /* TCServerMonitorViewController.xib */,
@@ -3878,6 +3886,7 @@
 				A0DC9D78200F9E2C0061A015 /* TCJoinCorpViewController.xib in Resources */,
 				A07DBE111FDF872900F37715 /* TCServerConfigViewController.xib in Resources */,
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
+				A033986E20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib in Resources */,
 				A02CA8792001B2A300BD00C5 /* TCPermissionViewController.xib in Resources */,
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
@@ -4099,6 +4108,7 @@
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
 				A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */,
 				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
+				A033986F20206AC800CF8630 /* TCHistoryTimeFilterViewController.m in Sources */,
 				A019A72C1FFB627C00216660 /* TCTemplate+CoreDataClass.m in Sources */,
 				A02555811FD7D6C200D16D22 /* TCViewController.m in Sources */,
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,

@@ -13,6 +13,7 @@
 #import "TCPerformanceItem+CoreDataClass.h"
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
+#import "TCHistoryTimeFilterViewController.h"
 
 #define MONITOR_HISTORY_CELL_ID     @"MONITOR_HISTORY_CELL_ID"
 
@@ -126,6 +127,11 @@
 {
     NSLog(@"on time filter button");
     [_typeMenu closeAllComponentsAnimated:YES];
+    TCHistoryTimeFilterViewController *filterVC = [TCHistoryTimeFilterViewController new];
+    filterVC.providesPresentationContextTransitionStyle = YES;
+    filterVC.definesPresentationContext = YES;
+    filterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:filterVC animated:NO completion:nil];
 }
 
 
