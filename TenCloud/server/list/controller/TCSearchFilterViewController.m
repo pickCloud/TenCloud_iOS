@@ -39,6 +39,9 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
     [self.darkBackgroundView addGestureRecognizer:tapGesture];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.darkBackgroundView addGestureRecognizer:swipeGesture];
     
     UINib *cellNib = [UINib nibWithNibName:@"TCSearchFilterCollectionCell" bundle:nil];
     [_providerView registerNib:cellNib forCellWithReuseIdentifier:SEARCH_FILTER_CELL_REUSE_ID];
