@@ -11,14 +11,23 @@
 #import "TCStaff+CoreDataClass.h"
 #import "TCSetAdminRequest.h"
 #import "TCStaffListRequest.h"
+#import "TCStaffSearchRequest.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define CHANGE_ADMIN_CELL_ID    @"CHANGE_ADMIN_CELL_ID"
 
-@interface TCChangeAdminViewController ()
+@interface TCChangeAdminViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UILabel             *titleLabel;
 @property (nonatomic, weak) IBOutlet    UITableView         *tableView;
+@property (nonatomic, weak) IBOutlet    UITextField         *keywordField;
+@property (nonatomic, weak) IBOutlet    UIView              *keyboardPanel;
+@property (nonatomic, weak) IBOutlet    UIView              *navBarView;
+- (void) onShowKeyboard:(NSNotification*)notification;
+- (void) onHideKeyboard:(NSNotification*)notification;
 - (IBAction) onCloseButton:(id)sender;
 - (IBAction) onConfirmButton:(id)sender;
+- (IBAction) onCloseKeyboard:(id)sender;
+- (void) doSearchWithKeyword:(NSString*)keyword;
 @end
 
 @implementation TCChangeAdminViewController
@@ -37,9 +46,28 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCChangeAdminTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:CHANGE_ADMIN_CELL_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
+    _staffArray = [NSMutableArray new];
     [self startLoading];
     [self reloadStaffArray];
+    
+    NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
+                       name:UIKeyboardWillShowNotification object:nil];
+    [notiCenter addObserver:self selector:@selector(onHideKeyboard:)
+                       name:UIKeyboardWillHideNotification object:nil];
+    
+    CGRect newRect = _keyboardPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    [self.view addSubview:_keyboardPanel];
+    _keyboardPanel.frame = newRect;
+    [self.view bringSubviewToFront:_navBarView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +86,22 @@
 {
     //__weak __typeof(self) weakSelf = self;
     
+}
+
+- (void) doSearchWithKeyword:(NSString*)keyword
+{
+    __weak __typeof(self) weakSelf = self;
+    
+    TCStaffSearchRequest *req = [TCStaffSearchRequest new];
+    req.keyword = keyword;
+    req.status = STAFF_STATUS_PASS;
+    [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
+        [weakSelf.staffArray removeAllObjects];
+        [weakSelf.staffArray addObjectsFromArray:staffArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message, NSInteger errorCode) {
+        [MBProgressHUD showError:message toView:nil];
+    }];
 }
 
 - (void) reloadStaffArray
@@ -81,6 +125,51 @@
     } failure:^(NSString *message) {
         
     }];
+}
+
+- (void) onShowKeyboard:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyboardHeight = CGRectGetHeight([aValue CGRectValue]);
+    
+    CGRect newRect = _keyboardPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height - keyboardHeight - newRect.size.height + TCSCALE(10);
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        weakSelf.keyboardPanel.frame = newRect;
+    }];
+    //[_modeMenu closeAllComponentsAnimated:YES];
+}
+
+
+- (void) onHideKeyboard:(NSNotification*)notification
+{
+    CGRect newRect = _keyboardPanel.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    newRect.origin.y = screenRect.size.height;
+    newRect.size.width = TCSCALE(70);
+    newRect.size.height = TCSCALE(40);
+    newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.9
+                     animations:^{
+                         weakSelf.keyboardPanel.frame = newRect;
+                     }];
+    if (_keywordField.text.length == 0)
+    {
+        //[self reloadStaffArray];
+    }
+}
+
+- (IBAction) onCloseKeyboard:(id)sender
+{
+    [_keywordField resignFirstResponder];
 }
 
 
@@ -156,19 +245,22 @@
 
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
  - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
  {
- return [UIImage imageNamed:@"no_data"];
+     return [UIImage imageNamed:@"default_no_data"];
  }
- */
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
-    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"无员工记录" attributes:attributes];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR2 forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"无搜索结果" attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -TCSCALE(50);
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
@@ -177,5 +269,16 @@
 {
     return !self.isLoading;
 }
+
+
+#pragma mark - Text Field Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSString *word = textField.text;
+    [self doSearchWithKeyword:word];
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 @end
