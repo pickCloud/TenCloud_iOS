@@ -138,6 +138,12 @@
     NSLog(@"on end time button");
     _isStartTime = NO;
     
+    NSDate *startDate = [NSDate date];
+    NSInteger startTimeInt = [[TCMonitorHistoryTime shared] startTime];
+    if (startTimeInt > 0)
+    {
+        startDate = [NSDate dateWithTimeIntervalSince1970:startTimeInt];
+    }
     NSDate *endDate = [NSDate date];
     NSInteger endTimeInt = [[TCMonitorHistoryTime shared] endTime];
     if (endTimeInt > 0)
@@ -145,7 +151,7 @@
         endDate = [NSDate dateWithTimeIntervalSince1970:endTimeInt];
     }
     ActionSheetDatePicker *picker = [ActionSheetDatePicker alloc];
-    picker = [picker initWithTitle:@"选择开始时间"
+    picker = [picker initWithTitle:@"选择结束时间"
                     datePickerMode:UIDatePickerModeDateAndTime
                       selectedDate:endDate
                             target:self
@@ -157,6 +163,10 @@
     [minimumDateComponents setYear:1910];
     NSDate *minDate = [calendar dateFromComponents:minimumDateComponents];
     NSDate *maxDate = [NSDate date];
+    if (startTimeInt > 0)
+    {
+        minDate = startDate;
+    }
     [(ActionSheetDatePicker*)picker setMinimumDate:minDate];
     [(ActionSheetDatePicker*)picker setMaximumDate:maxDate];
     
