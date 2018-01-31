@@ -186,13 +186,13 @@
     ServerHomeIconCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID forIndexPath:indexPath];
     if (indexPath.row == 0)
     {
-        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:5];
+        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:1];
     }else if(indexPath.row == 1)
     {
-        [cell setTitle:@"安全警告" icon:@"server_home_alarm" messageNumber:10];
+        [cell setTitle:@"安全警告" icon:@"server_home_alarm" messageNumber:0];
     }else
     {
-        [cell setTitle:@"缴费信息" icon:@"server_home_money" messageNumber:9];
+        [cell setTitle:@"缴费信息" icon:@"server_home_money" messageNumber:0];
     }
     return cell;
 }

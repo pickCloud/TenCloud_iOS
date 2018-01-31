@@ -28,6 +28,13 @@
     UIImage *iconImage = [UIImage imageNamed:iconName];
     _iconView.image = iconImage;
     _titleLabel.text = title;
+    if (msgNumber == 0)
+    {
+        _messageNumLabel.backgroundColor = THEME_PLACEHOLDER_COLOR;
+    }else
+    {
+        _messageNumLabel.backgroundColor = THEME_TINT_COLOR;
+    }
 }
 
 - (void)layoutSubviews

@@ -38,7 +38,7 @@ static char const * const kIsLoadingKey     =   "isLoadingKey";
     NSLog(@"start loading rect:%2.f,%.2f",rect.size.width, rect.size.height);
     [self.loadingView removeFromSuperview];
     //[self.loadingView setBackgroundColor:[UIColor lightGrayColor]];
-    UIColor *backgroundColor = self.view.backgroundColor;
+    UIColor *backgroundColor = self.view.backgroundColor;//[UIColor clearColor];
     [self.loadingView setBackgroundColor:backgroundColor];
     [self.view addSubview:self.loadingView];
     [self.loadingView startLoadingAnimation];
