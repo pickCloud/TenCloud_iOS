@@ -80,6 +80,11 @@
         [_actionButton setTitle:@"马上查看" forState:UIControlStateNormal];
     }else if(message.sub_mode == 4)
     {
+        [_actionButton setTitle:@"查看主机" forState:UIControlStateNormal];
+    }else if(message.sub_mode == 5)
+    {
+        [_actionButton setTitle:@"添加主机" forState:UIControlStateNormal];
+    }else {
         [_actionButton setTitle:@"查看项目" forState:UIControlStateNormal];
     }
     

@@ -22,6 +22,7 @@
 #import "TCAcceptInviteViewController.h"
 #import "TCInviteLoginViewController.h"
 #import "TCCorp+CoreDataClass.h"
+#import "TCCorpProfileViewController.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -189,6 +190,11 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                 TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:cid];
                 [corpReq startWithSuccess:^(TCCorp *corp) {
                     NSLog(@"get copr info:%@ name:%@",corp.company_name,corp.name);
+                    if (message.mode == 2 && message.sub_mode == 3)
+                    {
+                        [self goToCorpProfilePage:corp];
+                        return ;
+                    }
                     if (message.sub_mode == 0)
                     {
                         NSArray *viewControllers = self.navigationController.viewControllers;
@@ -235,6 +241,20 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
         TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
         [self.navigationController pushViewController:loginVC animated:YES];
     }
+}
+
+- (void) goToCorpProfilePage:(TCCorp *)corp
+{
+    __weak __typeof(self) weakSelf = self;
+    [[TCCurrentCorp shared] setCid:corp.cid];
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+    [newVCS removeAllObjects];
+    TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corp.cid];
+    [newVCS addObject:homeVC];
+    TCCorpProfileViewController *profileVC = [[TCCorpProfileViewController alloc] initWithCorp:corp];
+    [newVCS addObject:profileVC];
+    [weakSelf.navigationController setViewControllers:newVCS animated:YES];
 }
 
 
