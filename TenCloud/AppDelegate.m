@@ -11,7 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "TCTabBarController.h"
 #import "TCLoginViewController.h"
-#import "TCConfiguration.h"
+//#import "TCConfiguration.h"
 #import "TCShareManager.h"
 #import "NSString+Extension.h"
 #import "TCInviteLoginViewController.h"
@@ -29,7 +29,7 @@
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
-    [[TCConfiguration shared] print];
+    //[[TCConfiguration shared] print];
     [[TCShareManager sharedManager] registerAllPlatForms];
     [[TCMessageManager shared] start];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];

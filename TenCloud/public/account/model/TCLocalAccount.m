@@ -9,6 +9,7 @@
 #import "TCLocalAccount.h"
 #import "TCUser+CoreDataClass.h"
 #import "TCMessageManager.h"
+#import "TCConfiguration.h"
 
 #define ACCOUNT_USERID      @"ACCOUNT_USERID"
 #define ACCOUNT_NAME        @"ACCOUNT_NAME"
@@ -156,6 +157,7 @@
     }
     
     [[TCMessageManager shared] start];
+    [[TCConfiguration shared] startFetch];
 }
 
 - (void) modified
@@ -201,6 +203,7 @@
         }
     }
     [[TCMessageManager shared] stop];
+    [[TCConfiguration shared] stopFetch];
 }
 
 - (void) save

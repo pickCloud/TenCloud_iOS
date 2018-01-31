@@ -34,16 +34,6 @@
     {
         _providerArray = [NSMutableArray new];
         _needRetry = NO;
-        TCClusterProviderRequest *providerReq = [[TCClusterProviderRequest alloc] initWithClusterID:@"1"];
-        if ([providerReq loadCacheWithError:nil])
-        {
-            NSDictionary *dataDict = [providerReq.responseJSONObject objectForKey:@"data"];
-            [self parseDictionaryData:dataDict];
-        }else
-        {
-            _needRetry = YES;
-        }
-        [self sendProviderConfigurationRequest];
     }
     return self;
 }
@@ -85,11 +75,20 @@
 
 - (void) startFetch
 {
-    
+    TCClusterProviderRequest *providerReq = [[TCClusterProviderRequest alloc] initWithClusterID:@"1"];
+    if ([providerReq loadCacheWithError:nil])
+    {
+        NSDictionary *dataDict = [providerReq.responseJSONObject objectForKey:@"data"];
+        [self parseDictionaryData:dataDict];
+    }else
+    {
+        _needRetry = YES;
+    }
+    [self sendProviderConfigurationRequest];
 }
 
 - (void) stopFetch
 {
-    
+    _needRetry = NO;
 }
 @end
