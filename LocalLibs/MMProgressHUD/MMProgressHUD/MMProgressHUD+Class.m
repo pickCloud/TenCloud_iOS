@@ -125,6 +125,7 @@
 }
 
 + (void)showWithStatus:(NSString *)status {
+    [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];
     [MMProgressHUD showWithTitle:nil
                           status:status];
 }
@@ -309,6 +310,18 @@
 }
 
 + (void)dismiss {
+    if ([NSThread isMainThread] == NO) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [[MMProgressHUD sharedHUD] dismiss];
+        });
+    }
+    else {
+        [[MMProgressHUD sharedHUD] dismiss];
+    }
+}
+
++ (void)dismissWithoutAnimation{
+    [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleNone];
     if ([NSThread isMainThread] == NO) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             [[MMProgressHUD sharedHUD] dismiss];

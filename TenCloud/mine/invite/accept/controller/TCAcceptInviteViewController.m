@@ -80,7 +80,7 @@
                 TCInviteJoinedViewController *joinedVC = [[TCInviteJoinedViewController alloc] initWithStaffStatus:status corpID:info.cid];
                 NSMutableArray *newVCS = [NSMutableArray array];
                 [newVCS addObject:joinedVC];
-                [self.navigationController setViewControllers:newVCS];
+                [weakSelf.navigationController setViewControllers:newVCS];
             }else
             {
                 [weakSelf stopLoading];

@@ -347,6 +347,8 @@ This message will be presented to the user when a cancelBlock is present after t
 /** Dismisses the shared HUD with the current presentationStyle and default delay. */
 + (void)dismiss;
 
++ (void)dismissWithoutAnimation;
+
 
 /** Dismisses the shared HUD with the current presentationStyle and specified delay. 
  @param delay Delay to wait before animating the dismiss of the HUD.

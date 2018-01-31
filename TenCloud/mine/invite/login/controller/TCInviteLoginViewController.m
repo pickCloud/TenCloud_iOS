@@ -311,7 +311,7 @@
             if (status == STAFF_STATUS_PENDING ||
                 status == STAFF_STATUS_PASS)
             {
-                [MMProgressHUD dismiss];
+                [MMProgressHUD dismissWithoutAnimation];
                 TCInviteJoinedViewController *joinedVC = [[TCInviteJoinedViewController alloc] initWithStaffStatus:status corpID:weakSelf.inviteInfo.cid];
                 NSMutableArray *newVCS = [NSMutableArray array];
                 [newVCS addObject:joinedVC];
@@ -321,7 +321,7 @@
                 [weakSelf stopLoading];
                 TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
                 [acceptReq startWithSuccess:^(NSString *message) {
-                    [MMProgressHUD dismiss];
+                    [MMProgressHUD dismissWithoutAnimation];
                     TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:shouldSet phoneNumber:user.mobile];
                     [weakSelf.navigationController pushViewController:profileVC animated:YES];
                 } failure:^(NSString *message) {
