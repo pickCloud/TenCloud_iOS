@@ -13,6 +13,10 @@
 
 + (instancetype) shared;
 
+- (void) startFetch;
+
+- (void) stopFetch;
+
 - (void) print;
 
 @property (nonatomic, strong)   NSMutableArray  *providerArray;

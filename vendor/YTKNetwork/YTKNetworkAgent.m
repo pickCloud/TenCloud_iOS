@@ -449,9 +449,9 @@
         //NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
         if (request.responseStatusCode == 403)
         {
-            //TCLoginViewController *loginVC = [TCLoginViewController new];
-            //UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            //[[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+            TCLoginViewController *loginVC = [TCLoginViewController new];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
         }
         
         if (request.delegate != nil) {

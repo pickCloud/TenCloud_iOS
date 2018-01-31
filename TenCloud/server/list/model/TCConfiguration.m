@@ -44,9 +44,6 @@
             _needRetry = YES;
         }
         [self sendProviderConfigurationRequest];
-        
-        
-        
     }
     return self;
 }
@@ -82,6 +79,16 @@
 }
 
 - (void) print
+{
+    
+}
+
+- (void) startFetch
+{
+    
+}
+
+- (void) stopFetch
 {
     
 }

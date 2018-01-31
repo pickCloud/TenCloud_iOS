@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCHistoryTimeFilterViewController;
+typedef void (^TCHistoryTimeFilterChangedBlock)(TCHistoryTimeFilterViewController *cell);
+
 @interface TCHistoryTimeFilterViewController : UIViewController
+
+@property (nonatomic, copy) TCHistoryTimeFilterChangedBlock valueChangedBlock;
 
 @end

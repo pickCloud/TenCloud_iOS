@@ -14,7 +14,10 @@
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
 #import "TCHistoryTimeFilterViewController.h"
+#import "TCMonitorHistoryTime.h"
+#import "TCTextRefreshAutoFooter.h"
 
+#define MONITOR_HISTORY_PER_PAGE    20
 #define MONITOR_HISTORY_CELL_ID     @"MONITOR_HISTORY_CELL_ID"
 
 @interface TCMonitorHistoryTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource>
@@ -49,6 +52,7 @@
     _performanceArray = [NSMutableArray new];
     
     //__weak __typeof(self) weakSelf = self;
+    [[TCMonitorHistoryTime shared] reset];
     [self startLoading];
     [self reloadHistory];
 
@@ -74,6 +78,11 @@
     
     UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
     self.typeMenu.disclosureIndicatorImage = disclosureImg;
+    
+    TCTextRefreshAutoFooter *footer = [TCTextRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHistory)];
+    footer.automaticallyRefresh = YES;
+    footer.automaticallyHidden = YES;
+    self.tableView.mj_footer = footer;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,14 +112,24 @@
     //startTime = endTime - 86400;      //24hour
     //startTime = endTime - 604800;     //one week
     startTime = endTime - 18144000;     //one month
+    TCMonitorHistoryTime *historyTime = [TCMonitorHistoryTime shared];
+    if (historyTime.startTime > 0)
+    {
+        startTime = historyTime.startTime;
+    }
+    if (historyTime.endTime > 0)
+    {
+        endTime = historyTime.endTime;
+    }
     req = [[TCPerformanceHistoryRequest alloc] initWithServerID:_serverID
                                                            type:type
                                                       startTime:startTime
                                                         endTime:endTime
                                                            page:_pageIndex
-                                                  amountPerPage:20];
+                                                  amountPerPage:MONITOR_HISTORY_PER_PAGE];
     [req startWithSuccess:^(NSArray<TCPerformanceItem *> *perfArray) {
         [weakSelf stopLoading];
+        [weakSelf.performanceArray removeAllObjects];
         [weakSelf.performanceArray addObjectsFromArray:perfArray];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
@@ -120,14 +139,57 @@
 
 - (void) loadMoreHistory
 {
-    
+    __weak __typeof(self) weakSelf = self;
+    TCPerformanceHistoryRequest *req = nil;
+    NSInteger type = _selectedMenuIndex + 1;
+    NSInteger endTime = [[NSDate date] timeIntervalSince1970];
+    NSInteger startTime = endTime - 3600;
+    //startTime = endTime - 86400;      //24hour
+    //startTime = endTime - 604800;     //one week
+    startTime = endTime - 18144000;     //one month
+    TCMonitorHistoryTime *historyTime = [TCMonitorHistoryTime shared];
+    if (historyTime.startTime > 0)
+    {
+        startTime = historyTime.startTime;
+    }
+    if (historyTime.endTime > 0)
+    {
+        endTime = historyTime.endTime;
+    }
+    req = [[TCPerformanceHistoryRequest alloc] initWithServerID:_serverID
+                                                           type:type
+                                                      startTime:startTime
+                                                        endTime:endTime
+                                                           page:_pageIndex + 1
+                                                  amountPerPage:MONITOR_HISTORY_PER_PAGE];
+    [req startWithSuccess:^(NSArray<TCPerformanceItem *> *perfArray) {
+        [weakSelf.tableView.mj_footer endRefreshing];
+        if (perfArray.count)
+        {
+            [self.performanceArray addObjectsFromArray:perfArray];
+            self.pageIndex ++;
+        }else
+        {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        [weakSelf stopLoading];
+        //[weakSelf.performanceArray addObjectsFromArray:perfArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
 - (IBAction) onTimeFilterButton:(id)sender
 {
     NSLog(@"on time filter button");
     [_typeMenu closeAllComponentsAnimated:YES];
+    __weak __typeof(self) weakSelf = self;
     TCHistoryTimeFilterViewController *filterVC = [TCHistoryTimeFilterViewController new];
+    filterVC.valueChangedBlock = ^(TCHistoryTimeFilterViewController *cell) {
+        NSLog(@"value changed block");
+        [weakSelf reloadHistory];
+    };
     filterVC.providesPresentationContextTransitionStyle = YES;
     filterVC.definesPresentationContext = YES;
     filterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;

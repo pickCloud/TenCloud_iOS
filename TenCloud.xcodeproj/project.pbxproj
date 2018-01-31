@@ -145,6 +145,7 @@
 		A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04539BB2007514900402D1A /* ShapeSelectView.xib */; };
 		A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539BD2007514900402D1A /* ShapeSelectView.m */; };
 		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
+		A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */; };
 		A067D89C200F264600160913 /* TCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89A200F264600160913 /* TCMessageViewController.m */; };
 		A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A067D89B200F264600160913 /* TCMessageViewController.xib */; };
 		A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89F200F438700160913 /* TCMessageListRequest.m */; };
@@ -618,6 +619,8 @@
 		A04539BD2007514900402D1A /* ShapeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeSelectView.m; sourceTree = "<group>"; };
 		A04539C02007523000402D1A /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
 		A04539C12007523000402D1A /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
+		A06277322021347100FF7E30 /* TCMonitorHistoryTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMonitorHistoryTime.h; sourceTree = "<group>"; };
+		A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMonitorHistoryTime.m; sourceTree = "<group>"; };
 		A067D899200F264600160913 /* TCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMessageViewController.h; sourceTree = "<group>"; };
 		A067D89A200F264600160913 /* TCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMessageViewController.m; sourceTree = "<group>"; };
 		A067D89B200F264600160913 /* TCMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMessageViewController.xib; sourceTree = "<group>"; };
@@ -1914,6 +1917,8 @@
 				A07DBE4B1FDFDD0D00F37715 /* TCServerPerformance+CoreDataClass.m */,
 				A07DBE4C1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.h */,
 				A07DBE4D1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m */,
+				A06277322021347100FF7E30 /* TCMonitorHistoryTime.h */,
+				A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4240,6 +4245,7 @@
 				A0C9A0AD1FF14B4E00F94E9E /* NYXImagesHelper.m in Sources */,
 				A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
+				A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
@@ -4515,7 +4521,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
@@ -4539,7 +4545,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
