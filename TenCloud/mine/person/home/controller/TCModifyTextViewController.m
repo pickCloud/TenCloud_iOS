@@ -14,10 +14,12 @@
 
 
 @interface TCModifyTextViewController ()<UIGestureRecognizerDelegate, UITextFieldDelegate>
+@property (nonatomic, strong)           UIButton            *confirmButton;
 @property (nonatomic, weak) IBOutlet    UITextField         *textField;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 - (void) onTapBlankArea:(id)sender;
 - (void) onConfirmButton:(id)sender;
+- (void) updateConfirmButtonWithString:(NSString*)string;
 @end
 
 @implementation TCModifyTextViewController
@@ -32,13 +34,14 @@
     
     self.title = _titleText;
     
-    UIButton *textButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [textButton setTitle:@"确定" forState:UIControlStateNormal];
-    [textButton setTitleColor:THEME_NAVBAR_TITLE_COLOR forState:UIControlStateNormal];
-    [textButton addTarget:self action:@selector(onConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
-    textButton.titleLabel.font = TCFont(15);
-    [textButton sizeToFit];
-    UIBarButtonItem *reviewButton = [[UIBarButtonItem alloc] initWithCustomView:textButton];
+    _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //UIButton *textButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_confirmButton setTitle:@"确定" forState:UIControlStateNormal];
+    [_confirmButton setTitleColor:THEME_NAVBAR_TITLE_COLOR forState:UIControlStateNormal];
+    [_confirmButton addTarget:self action:@selector(onConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
+    _confirmButton.titleLabel.font = TCFont(15);
+    [_confirmButton sizeToFit];
+    UIBarButtonItem *reviewButton = [[UIBarButtonItem alloc] initWithCustomView:_confirmButton];
     self.navigationItem.rightBarButtonItem = reviewButton;
     
     NSString *placeHolder = _placeHolder;
@@ -54,7 +57,8 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-
+    
+    [self updateConfirmButtonWithString:_textField.text];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -163,11 +167,34 @@
     }
 }
 
+- (void) updateConfirmButtonWithString:(NSString*)string
+{
+    if (string && string.length > 0)
+    {
+        if (![string isEqualToString:self.initialValue])
+        {
+            [_confirmButton setTitleColor:THEME_NAVBAR_TITLE_COLOR forState:UIControlStateNormal];
+            [_confirmButton setUserInteractionEnabled:YES];
+            return;
+        }
+    }
+    UIColor *lightColor = [THEME_NAVBAR_TITLE_COLOR colorWithAlphaComponent:0.2];
+    [_confirmButton setTitleColor:lightColor forState:UIControlStateNormal];
+    [_confirmButton setUserInteractionEnabled:NO];
+}
+
 #pragma mark - Text Field Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     [self onConfirmButton:nil];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self updateConfirmButtonWithString:newString];
     return YES;
 }
 
