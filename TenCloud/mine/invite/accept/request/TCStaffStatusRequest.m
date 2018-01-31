@@ -29,10 +29,16 @@
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        NSNumber *statusNumber = [dataDict objectForKey:@"status"];
-        if (statusNumber)
+        if (dataDict && ![dataDict isKindOfClass:[NSNull class]])
         {
-            success ? success(statusNumber.integerValue) : nil;
+            NSNumber *statusNumber = [dataDict objectForKey:@"status"];
+            if (statusNumber)
+            {
+                success ? success(statusNumber.integerValue) : nil;
+            }
+        }else
+        {
+            success ? success(STAFF_STATUS_UNEXIST) : nil;
         }
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];

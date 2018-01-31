@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCInviteJoinedViewController">
             <connections>
+                <outlet property="myCorpPanel" destination="h3Z-bR-pdd" id="efu-JH-xEf"/>
                 <outlet property="row1Label" destination="TM5-hS-n7z" id="uAQ-e8-ttI"/>
                 <outlet property="topConstraint" destination="BtJ-R7-aT9" id="snA-hI-Rqh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

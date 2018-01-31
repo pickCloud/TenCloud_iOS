@@ -90,6 +90,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_typeMenu closeAllComponentsAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 

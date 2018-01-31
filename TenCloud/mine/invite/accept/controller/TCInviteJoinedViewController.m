@@ -17,6 +17,7 @@
 @property (nonatomic, assign)   NSInteger       corpID;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, weak) IBOutlet    UILabel             *row1Label;
+@property (nonatomic, weak) IBOutlet    UIView              *myCorpPanel;
 - (IBAction) onEnterSystemButton:(id)sender;
 - (IBAction) onMyCorpButton:(id)sender;
 @end
@@ -47,9 +48,11 @@
     if (_staffStatus == STAFF_STATUS_PASS)
     {
         _row1Label.text = @"你已经加入了该企业，请勿重复提交。";
+        _myCorpPanel.hidden = YES;
     }else
     {
         _row1Label.text = @"你已经提交申请，请等待管理员审核。";
+        _myCorpPanel.hidden = NO;
     }
     
 }
