@@ -353,7 +353,8 @@
 {
     NSInteger amount = 0;
     TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
-    amount = [dataNode selectedSubNodeIDArray].count;
+    amount = [dataNode selectedServerSubNodeIDArray].count;
+    //[dataNode selectedSubNodeIDArray].count;
     return amount;
 }
 

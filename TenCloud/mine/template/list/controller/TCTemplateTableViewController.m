@@ -109,6 +109,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCTemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMPLATE_CELL_REUSE_ID forIndexPath:indexPath];
     TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
+    NSLog(@"tmpl:%@",template.name);
+    NSLog(@"permissions:%@",template.permissions);
+    NSLog(@"file:%@",template.access_filehub);
+    NSLog(@"proj:%@",template.access_projects);
+    NSLog(@"servers:%@",template.access_servers);
     [cell setTemplate:template];
     return cell;
 }
@@ -121,7 +126,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
-    
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
     BOOL havePermission = currentCorp.isAdmin ||
     [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_TEMPLATE];
