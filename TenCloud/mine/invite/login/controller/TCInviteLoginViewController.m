@@ -21,6 +21,9 @@
 #import "TCCaptchaLoginRequest.h"
 #import "TCInviteProfileViewController.h"
 #import "TCAcceptInviteRequest.h"
+#import "TCStaffStatusRequest.h"
+#import "TCInviteJoinedViewController.h"
+
 
 
 @interface TCInviteLoginViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
@@ -302,11 +305,29 @@
         user.token = token;
         [[TCLocalAccount shared] loginSuccess:user];
         
-        TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
-        [acceptReq startWithSuccess:^(NSString *message) {
-            [MMProgressHUD dismiss];
-            TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:shouldSet phoneNumber:user.mobile];
-            [weakSelf.navigationController pushViewController:profileVC animated:YES];
+        //获取员工在该公司状态
+        TCStaffStatusRequest *statusReq = [[TCStaffStatusRequest alloc] initWithCorpID:weakSelf.inviteInfo.cid];
+        [statusReq startWithSuccess:^(NSInteger status) {
+            if (status == STAFF_STATUS_PENDING ||
+                status == STAFF_STATUS_PASS)
+            {
+                [MMProgressHUD dismiss];
+                TCInviteJoinedViewController *joinedVC = [[TCInviteJoinedViewController alloc] initWithStaffStatus:status corpID:weakSelf.inviteInfo.cid];
+                NSMutableArray *newVCS = [NSMutableArray array];
+                [newVCS addObject:joinedVC];
+                [self.navigationController setViewControllers:newVCS];
+            }else
+            {
+                [weakSelf stopLoading];
+                TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
+                [acceptReq startWithSuccess:^(NSString *message) {
+                    [MMProgressHUD dismiss];
+                    TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:shouldSet phoneNumber:user.mobile];
+                    [weakSelf.navigationController pushViewController:profileVC animated:YES];
+                } failure:^(NSString *message) {
+                    [MMProgressHUD dismissWithError:message afterDelay:1.32];
+                }];
+            }
         } failure:^(NSString *message) {
             [MMProgressHUD dismissWithError:message afterDelay:1.32];
         }];

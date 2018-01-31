@@ -13,6 +13,8 @@
 #import "TCInviteInfo+CoreDataClass.h"
 #import "TCAcceptInviteRequest.h"
 #import "TCInviteProfileViewController.h"
+#import "TCStaffStatusRequest.h"
+#import "TCInviteJoinedViewController.h"
 
 
 @interface TCAcceptInviteViewController ()<UIGestureRecognizerDelegate>
@@ -61,15 +63,35 @@
     __weak __typeof(self) weakSelf = self;
     TCInviteInfoRequest *req = [[TCInviteInfoRequest alloc] initWithCode:_code];
     [req startWithSuccess:^(TCInviteInfo *info) {
-        NSLog(@"info:%@",info);
-        NSLog(@"info_comp:%@",info.company_name);
-        NSLog(@"info_contact:%@",info.contact);
-        NSLog(@"info_setting:%@",info.setting);
+        //NSLog(@"info:%@",info);
+        //NSLog(@"info_comp:%@",info.company_name);
+        //NSLog(@"info_contact:%@",info.contact);
+        //NSLog(@"info_setting:%@",info.setting);
         weakSelf.inviteInfo = info;
         [weakSelf updateInviteInfoUI];
-        [weakSelf stopLoading];
+        //[weakSelf stopLoading];
+        
+        TCStaffStatusRequest *statusReq = [[TCStaffStatusRequest alloc] initWithCorpID:info.cid];
+        [statusReq startWithSuccess:^(NSInteger status) {
+            NSLog(@"status:%ld",status);
+            if (status == STAFF_STATUS_PENDING ||
+                status == STAFF_STATUS_PASS)
+            {
+                TCInviteJoinedViewController *joinedVC = [[TCInviteJoinedViewController alloc] initWithStaffStatus:status corpID:info.cid];
+                NSMutableArray *newVCS = [NSMutableArray array];
+                [newVCS addObject:joinedVC];
+                [self.navigationController setViewControllers:newVCS];
+            }else
+            {
+                [weakSelf stopLoading];
+            }
+        } failure:^(NSString *message) {
+            [weakSelf stopLoading];
+            [MBProgressHUD showError:message toView:nil];
+        }];
     } failure:^(NSString *message) {
         NSLog(@"info_msg:%@",message);
+        
     }];
 }
 
