@@ -88,7 +88,7 @@
     [self.view addSubview:_keyboradPanel];
     _keyboradPanel.frame = newRect;
     
-    [self startLoading];
+    //[self startLoading];
     [self reloadServerList];
     NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
@@ -368,6 +368,7 @@
         [weakSelf stopLoading];
     }];
      */
+    [self startLoading];
     TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:@"" regions:@[] providers:@[]];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];

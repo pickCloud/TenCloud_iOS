@@ -34,6 +34,10 @@
     {
         _providerArray = [NSMutableArray new];
         _needRetry = NO;
+        if ([[TCLocalAccount shared] isLogin])
+        {
+            [self startFetch];
+        }
     }
     return self;
 }
