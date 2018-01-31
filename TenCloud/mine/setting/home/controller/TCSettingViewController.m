@@ -50,7 +50,13 @@
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *version = [infoDictionary objectForKey:@"CFBundleVersion"];
-    _versionLabel.text = version;
+#if ONLINE_ENVIROMENT
+    NSString *server = @"正式服务器";
+#else
+    NSString *server = @"测试服务器";
+#endif
+    NSString *desc = [NSString stringWithFormat:@"%@ %@",version,server];
+    _versionLabel.text = desc;
 }
 
 - (void)didReceiveMemoryWarning {

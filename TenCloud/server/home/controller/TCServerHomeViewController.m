@@ -90,8 +90,16 @@
     [self startLoading];
     [self reloadServerList];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onNotificationChangeCorp)
+                                             selector:@selector(reloadServerList)
                                                  name:NOTIFICATION_CORP_CHANGE
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadServerList)
+                                                 name:NOTIFICATION_ADD_SERVER
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadServerList)
+                                                 name:NOTIFICATION_DEL_SERVER
                                                object:nil];
 }
 
