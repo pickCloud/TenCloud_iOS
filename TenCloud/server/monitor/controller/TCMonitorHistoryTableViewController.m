@@ -121,6 +121,7 @@
     {
         endTime = historyTime.endTime;
     }
+    [weakSelf startLoading];
     req = [[TCPerformanceHistoryRequest alloc] initWithServerID:_serverID
                                                            type:type
                                                       startTime:startTime
@@ -319,6 +320,7 @@
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
     //[self doSearchWithKeyword:_keywordField.text mode:_modeSelectedIndex];
+    [self reloadHistory];
 }
 
 - (UIColor *)colorForRow:(NSInteger)row {
