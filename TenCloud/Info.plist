@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>拾云测</string>
+	<string>拾云</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -82,7 +82,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>0.3.9.2018020103</string>
+	<string>0.3.9.2018020104</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sinaweibo</string>
