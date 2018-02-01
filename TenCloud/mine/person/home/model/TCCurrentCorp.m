@@ -67,7 +67,8 @@
         self.mobile = [aDecoder decodeObjectForKey:CORP_MOBILE];
         self.cid = [aDecoder decodeIntegerForKey:CORP_CID];
         self.contact = [aDecoder decodeObjectForKey:CORP_CONTACT];
-        self.isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
+        //self.isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
+        _isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
         self.image_url = [aDecoder decodeObjectForKey:CORP_IMAGE_URL];
         self.funcPermissionArray = [aDecoder decodeObjectForKey:CORP_FUNC_PERMISSON];
         self.serverPermissionArray = [aDecoder decodeObjectForKey:CORP_SERVER_PERMISSION];
@@ -152,6 +153,7 @@
 {
     _isAdmin = isAdmin;
     [self modified];
+    [self save];
 }
 
 - (void) addObserver:(id<TCCurrentCorpDelegate>)obs

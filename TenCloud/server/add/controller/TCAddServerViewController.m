@@ -77,7 +77,13 @@
 //    _ipField.text = @"47.96.129.231";
 //    _userNameField.text = @"root";
 //    _passwordField.text = @"Test1234";
+    
+    _serverNameField.text = @"测试机2";
+    _ipField.text = @"47.97.185.147";
+    _userNameField.text = @"root";
+    _passwordField.text = @"Test1234";
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -193,11 +199,11 @@
 
 #pragma mark - socket delegate
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    
+    NSLog(@"socket did open");
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    
+    NSLog(@"did fail:%@",error.description);
     if (webSocket == self.socket) {
         _socket = nil;
         [self connectWebSocket];
@@ -205,7 +211,7 @@
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    
+    NSLog(@"did close");
     if (webSocket == self.socket) {
         NSLog(@"************************** socket连接断开************************** ");
         NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
@@ -221,13 +227,13 @@
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
+    NSLog(@"message:%@",message);
     if ([message isEqualToString:@"open"])
     {
         return;
     }
     
     if (webSocket == self.socket) {
-        NSLog(@"message:%@",message);
         if([message isEqualToString:@"success"])
         {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];

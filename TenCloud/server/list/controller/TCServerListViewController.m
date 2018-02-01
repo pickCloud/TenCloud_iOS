@@ -54,13 +54,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器列表";
-    UIImage *addServerImg = [UIImage imageNamed:@"server_nav_add"];
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:addServerImg forState:UIControlStateNormal];
-    [addButton sizeToFit];
-    [addButton addTarget:self action:@selector(onAddServerButton:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = addItem;
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    NSLog(@"corp is admin:%d",currentCorp.isAdmin);
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+        currentCorp.cid == 0)
+    {
+        UIImage *addServerImg = [UIImage imageNamed:@"server_nav_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addServerImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddServerButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+    }
     _serverArray = [NSMutableArray new];
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];

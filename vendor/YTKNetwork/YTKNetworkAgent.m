@@ -449,6 +449,8 @@
         //NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
         if (request.responseStatusCode == 403)
         {
+            [[TCLocalAccount shared] setToken:@""];
+            [[TCLocalAccount shared] save];
             TCLoginViewController *loginVC = [TCLoginViewController new];
             UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
             [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
