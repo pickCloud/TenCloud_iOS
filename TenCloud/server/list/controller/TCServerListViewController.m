@@ -294,7 +294,7 @@
     {
         keyword = @"";
     }
-    [self doSearch:@"" provider:providers region:regions];
+    [self doSearch:keyword provider:providers region:regions];
 }
 
 - (IBAction) onCloseKeyboard:(id)sender
