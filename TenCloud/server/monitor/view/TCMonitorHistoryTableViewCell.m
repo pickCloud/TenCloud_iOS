@@ -82,7 +82,7 @@
     NSInteger createTimeInt = performance.created_time;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:createTimeInt];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *createDateStr = [dateFormatter stringFromDate:date];
     _timeLabel.text = createDateStr;
     
