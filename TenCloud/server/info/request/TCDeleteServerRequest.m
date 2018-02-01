@@ -46,7 +46,8 @@
 
 - (id)requestArgument
 {
-    NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
-    return @{@"id":@[idStr]};
+    //NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
+    //return @{@"id":@[idStr]};
+    return @{@"id":@[@(_serverID)]};
 }
 @end
