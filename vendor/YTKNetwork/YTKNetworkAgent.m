@@ -446,7 +446,25 @@
         [request toggleAccessoriesWillStopCallBack];
         [request requestFailedFilter];
 
-        //NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        if (statusNum && [statusNum isKindOfClass:[NSNumber class]])
+        {
+            NSInteger statusCode = [statusNum integerValue];
+            if (statusCode == 10415)
+            {
+                [[TCLocalAccount shared] setToken:@""];
+                [[TCLocalAccount shared] save];
+                TCLoginViewController *loginVC = [TCLoginViewController new];
+                UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+                
+                NSString *message = [request.responseJSONObject objectForKey:@"message"];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"账号被踢出" message:message preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
+                [alertController addAction:cancelAction];
+                [loginVC presentViewController:alertController animated:YES completion:nil];
+            }
+        }
         if (request.responseStatusCode == 403)
         {
             [[TCLocalAccount shared] setToken:@""];
