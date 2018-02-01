@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerInfoViewController">
             <connections>
+                <outlet property="buttonTableView" destination="jlb-xO-GF3" id="ja6-6j-uZX"/>
                 <outlet property="footerView" destination="UUh-49-0G4" id="Q8Z-DI-WMI"/>
                 <outlet property="rebootFooterView" destination="rF1-a0-VdD" id="UC2-3B-nIN"/>
                 <outlet property="stopFooterView" destination="Z4l-rH-fwo" id="nvl-ba-K9d"/>
@@ -176,7 +177,23 @@
                 <constraint firstItem="xBK-SM-QPM" firstAttribute="width" secondItem="rF1-a0-VdD" secondAttribute="width" multiplier="0.92" id="aPa-WV-GGa"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="31.5" y="768"/>
+            <point key="canvasLocation" x="41" y="847"/>
         </view>
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jlb-xO-GF3">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <view key="tableHeaderView" contentMode="scaleToFill" id="h3t-Cl-Tbb">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="12"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Z5k-ZG-daU"/>
+                <outlet property="delegate" destination="-1" id="3g5-Gw-11j"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="606.5"/>
+        </tableView>
     </objects>
 </document>

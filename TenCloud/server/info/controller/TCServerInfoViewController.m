@@ -19,8 +19,10 @@
 #import "TCStopServerRequest.h"
 #import "TCStartServerRequest.h"
 #import "TCDeleteServerRequest.h"
+#import "TCButtonTableViewCell.h"
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
+#define SERVER_BUTTON_CELL_ID           @"SERVER_BUTTON_CELL_ID"
 #define STATE_MAX_RETRY_TIMES           120
 
 @interface TCServerInfoViewController ()
@@ -28,10 +30,12 @@
 @property (nonatomic, strong) IBOutlet    UIView          *footerView;      //error when weak
 @property (nonatomic, strong) IBOutlet    UIView          *stopFooterView;
 @property (nonatomic, strong) IBOutlet    UIView          *rebootFooterView;
+@property (nonatomic, strong)   IBOutlet    UITableView     *buttonTableView;
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
 @property (nonatomic, strong)   TCServer                *server;
 @property (nonatomic, assign)   NSInteger               retryTimes;
+@property (nonatomic, strong)   NSMutableArray          *buttonDataArray;
 - (IBAction) onRestartButton:(id)sender;
 - (IBAction) onPowerOffButton:(id)sender;
 - (IBAction) onStartButton:(id)sender;
@@ -65,6 +69,10 @@
     //_tableView.tableFooterView = _footerView;
     //_tableView.tableFooterView = _stopFooterView;
     //_tableView.tableFooterView = _rebootFooterView;
+    _buttonDataArray = [NSMutableArray new];
+    UINib *buttonCellNib = [UINib nibWithNibName:@"TCButtonTableViewCell" bundle:nil];
+    [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:SERVER_BUTTON_CELL_ID];
+    _tableView.tableFooterView = _buttonTableView;
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -119,10 +127,42 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_buttonTableView == tableView)
+    {
+        NSLog(@"_button data array:%@",_buttonDataArray);
+        return _buttonDataArray.count;
+    }
     return _configArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView == _buttonTableView)
+    {
+        __weak __typeof(self) weakSelf = self;
+        TCProfileButtonData *btnData = [_buttonDataArray objectAtIndex:indexPath.row];
+        TCButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_BUTTON_CELL_ID forIndexPath:indexPath];
+        btnData.buttonIndex = indexPath.row;
+        [cell setData:btnData];
+        cell.touchedBlock = ^(TCButtonTableViewCell *cell, NSInteger cellIndex, TCProfileButtonType type) {
+            NSLog(@"cell button %ld touched",cellIndex);
+            if (type == TCServerButtonStart)
+            {
+                [weakSelf onStartButton:nil];
+            }else if (type == TCServerButtonRestart)
+            {
+                [weakSelf onRestartButton:nil];
+            }else if(type == TCServerButtonStop)
+            {
+                [weakSelf onPowerOffButton:nil];
+            }else if(type == TCServerButtonDelete)
+            {
+                [self onDeleteButton:nil];
+            }
+        };
+        return cell;
+    }
+    
     TCServerInfoItem *infoItem = [_configArray objectAtIndex:indexPath.row];
     if (infoItem.cellType == TCInfoCellTypeStateLabel)
     {
@@ -230,8 +270,78 @@
 
 - (void) updateFooterViewWithStatus:(NSString*)status
 {
+    NSLog(@"get status:%@",status);
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
     if (status != nil)
     {
+        [_buttonDataArray removeAllObjects];
+        if ([status containsString:@"已停止"])
+        {
+            if ( currentCorp.isAdmin ||
+                [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"开机";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCServerButtonStart;
+                [_buttonDataArray addObject:data1];
+            }
+            
+//            TCProfileButtonData *data2 = [TCProfileButtonData new];
+//            data2.title = @"删除";
+//            data2.color = STATE_ALERT_COLOR;
+//            data2.type = TCServerButtonDelete;
+//            [_buttonDataArray addObject:data2];
+        }else if([status containsString:@"重启"])
+        {
+//            TCProfileButtonData *data2 = [TCProfileButtonData new];
+//            data2.title = @"删除";
+//            data2.color = STATE_ALERT_COLOR;
+//            data2.type = TCServerButtonDelete;
+//            [_buttonDataArray addObject:data2];
+        }else if([status containsString:@"启动"])
+        {
+//            TCProfileButtonData *data2 = [TCProfileButtonData new];
+//            data2.title = @"删除";
+//            data2.color = STATE_ALERT_COLOR;
+//            data2.type = TCServerButtonDelete;
+//            [_buttonDataArray addObject:data2];
+        }else if([status containsString:@"停止"])
+        {
+//            TCProfileButtonData *data2 = [TCProfileButtonData new];
+//            data2.title = @"删除";
+//            data2.color = STATE_ALERT_COLOR;
+//            data2.type = TCServerButtonDelete;
+//            [_buttonDataArray addObject:data2];
+        }else
+        {
+            if ( currentCorp.isAdmin ||
+                [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"重启";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCServerButtonRestart;
+                [_buttonDataArray addObject:data1];
+            }
+
+            if ( currentCorp.isAdmin ||
+                [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
+            {
+                TCProfileButtonData *data2 = [TCProfileButtonData new];
+                data2.title = @"关机";
+                data2.color = THEME_TINT_COLOR;
+                data2.type = TCServerButtonStop;
+                [_buttonDataArray addObject:data2];
+            }
+            
+//            TCProfileButtonData *data3 = [TCProfileButtonData new];
+//            data3.title = @"删除";
+//            data3.color = STATE_ALERT_COLOR;
+//            data3.type = TCServerButtonDelete;
+//            [_buttonDataArray addObject:data3];
+        }
+        /*
         if ([status containsString:@"已停止"])
         {
             self.tableView.tableFooterView = self.stopFooterView;
@@ -249,8 +359,20 @@
             self.tableView.tableFooterView = self.rebootFooterView;
             return;
         }
+         */
     }
-    self.tableView.tableFooterView = self.footerView;
+    
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_DEL_SERVER] )
+    {
+        TCProfileButtonData *data3 = [TCProfileButtonData new];
+        data3.title = @"删除";
+        data3.color = STATE_ALERT_COLOR;
+        data3.type = TCServerButtonDelete;
+        [_buttonDataArray addObject:data3];
+    }
+    
+    [self.buttonTableView reloadData];
 }
 
 - (void) udpateStatusLabel:(NSString*)status

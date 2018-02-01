@@ -78,10 +78,10 @@
 //    _userNameField.text = @"root";
 //    _passwordField.text = @"Test1234";
     
-    _serverNameField.text = @"测试机2";
-    _ipField.text = @"47.97.185.147";
-    _userNameField.text = @"root";
-    _passwordField.text = @"Test1234";
+//    _serverNameField.text = @"测试机2";
+//    _ipField.text = @"47.97.185.147";
+//    _userNameField.text = @"root";
+//    _passwordField.text = @"Test1234";
 }
 
 

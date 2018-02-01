@@ -487,14 +487,16 @@
             _staff.status == STAFF_STATUS_PENDING)
         {
             joinTimeItem.value = @"";
-        }
-        if (updateTime && updateTime.length > 11)
-        {
-            NSRange dateRange = NSMakeRange(0, 10);
-            joinTimeItem.value = [updateTime substringWithRange:dateRange];
         }else
         {
-            joinTimeItem.value = updateTime;
+            if (updateTime && updateTime.length > 11)
+            {
+                NSRange dateRange = NSMakeRange(0, 10);
+                joinTimeItem.value = [updateTime substringWithRange:dateRange];
+            }else
+            {
+                joinTimeItem.value = updateTime;
+            }
         }
     }
     [self.tableView reloadData];

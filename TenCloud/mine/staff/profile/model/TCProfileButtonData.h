@@ -15,7 +15,12 @@ typedef NS_ENUM(NSInteger, TCProfileButtonType){
     TCProfileButtonRejectJoin,              //拒绝加入
     TCProfileButtonRemoveStaff,             //解除关系
     TCProfileButtonChangeAdmin,             //更换管理员
-    TCProfileButtonLeaveCorp                //离开企业
+    TCProfileButtonLeaveCorp,               //离开企业
+    
+    TCServerButtonStart,                    //开启主机
+    TCServerButtonRestart,                  //重启主机
+    TCServerButtonStop,                     //关闭主机
+    TCServerButtonDelete,                   //删除主机
 };
 
 @interface TCProfileButtonData : NSObject
