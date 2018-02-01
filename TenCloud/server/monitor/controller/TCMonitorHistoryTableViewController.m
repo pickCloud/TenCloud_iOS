@@ -22,7 +22,8 @@
 #define MONITOR_HISTORY_PER_PAGE    20
 #define MONITOR_HISTORY_CELL_ID     @"MONITOR_HISTORY_CELL_ID"
 
-@interface TCMonitorHistoryTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource>
+@interface TCMonitorHistoryTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource,
+DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    MKDropdownMenu  *typeMenu;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
@@ -245,19 +246,25 @@
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
  - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
  {
- return [UIImage imageNamed:@"no_data"];
+ return [UIImage imageNamed:@"default_no_data"];
  }
- */
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
-    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    //[attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
+    [attributes setObject:THEME_TEXT_COLOR forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:@"暂无历史记录" attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    //UIEdgeInsets inset = self.tableView.contentInset;
+    //return inset.top / 2.0 - self.tableView.frame.size.height / 20;
+    return - TCSCALE(50);
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods

@@ -84,6 +84,8 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="tEw-xm-Hue"/>
                         <outlet property="delegate" destination="-1" id="qPi-GZ-0Ui"/>
+                        <outlet property="emptyDataSetDelegate" destination="-1" id="Gc9-hc-uEj"/>
+                        <outlet property="emptyDataSetSource" destination="-1" id="PXW-S3-qzC"/>
                     </connections>
                 </tableView>
             </subviews>

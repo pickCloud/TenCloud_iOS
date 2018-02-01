@@ -186,7 +186,7 @@
     ServerHomeIconCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID forIndexPath:indexPath];
     if (indexPath.row == 0)
     {
-        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:1];
+        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:10];
     }else if(indexPath.row == 1)
     {
         [cell setTitle:@"安全警告" icon:@"server_home_alarm" messageNumber:0];

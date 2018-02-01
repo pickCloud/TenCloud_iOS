@@ -23,7 +23,7 @@
 #import <MJRefresh/MJRefresh.h>
 #endif
 
-#define ONLINE_ENVIROMENT       1
+#define ONLINE_ENVIROMENT       0
 #if     ONLINE_ENVIROMENT       //正式服务器
 #define SERVER_URL_STRING       @"https://c.10.com"
 #define GEETEST_API1            @"https://c.10.com/api/user/captcha"
