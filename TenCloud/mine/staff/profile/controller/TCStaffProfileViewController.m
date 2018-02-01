@@ -112,6 +112,7 @@
     TCServerInfoItem *item3 = [TCServerInfoItem new];
     item3.key = @"加入时间";
     NSString *updateTime = _staff.update_time;
+    /*
     if (_staff.status == STAFF_STATUS_REJECT ||
         _staff.status == STAFF_STATUS_PENDING)
     {
@@ -122,6 +123,7 @@
         NSRange dateRange = NSMakeRange(0, 10);
         updateTime = [updateTime substringWithRange:dateRange];
     }
+     */
     item3.value = updateTime;
     [_rowDataArray addObject:item3];
     
@@ -258,6 +260,10 @@
                 TCAcceptJoinRequest *acceptReq = [TCAcceptJoinRequest new];
                 acceptReq.staffID = _staff.staffID;
                 [acceptReq startWithSuccess:^(NSString *message) {
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                    NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
+                    weakSelf.staff.update_time = todayString;
                     weakSelf.staff.status = STAFF_STATUS_PASS;
                     [weakSelf updateUI];
                 } failure:^(NSString *message) {
@@ -470,6 +476,26 @@
     }else if(_staff.status == STAFF_STATUS_WAITING)
     {
         statusItem.value = @"待加入";
+    }
+    
+    if (_rowDataArray.count >= 2)
+    {
+        NSInteger itemIndex = _rowDataArray.count - 2;
+        TCServerInfoItem *joinTimeItem = [_rowDataArray objectAtIndex:itemIndex];
+        NSString *updateTime = _staff.update_time;
+        if (_staff.status == STAFF_STATUS_REJECT ||
+            _staff.status == STAFF_STATUS_PENDING)
+        {
+            joinTimeItem.value = @"";
+        }
+        if (updateTime && updateTime.length > 11)
+        {
+            NSRange dateRange = NSMakeRange(0, 10);
+            joinTimeItem.value = [updateTime substringWithRange:dateRange];
+        }else
+        {
+            joinTimeItem.value = updateTime;
+        }
     }
     [self.tableView reloadData];
     [self.buttonTableView reloadData];
