@@ -58,8 +58,8 @@
     [msgButton setImage:messageIconImg forState:UIControlStateNormal];
     [msgButton sizeToFit];
     [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
-    self.navigationItem.rightBarButtonItem = messageItem;
+    //UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
+    //self.navigationItem.rightBarButtonItem = messageItem;
     
     _serverArray = [NSMutableArray new];
     //_headerHeightConstraint.constant = TCSCALE(156);

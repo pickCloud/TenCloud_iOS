@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCMonitorHistoryTableViewController">
             <connections>
                 <outlet property="tableView" destination="p6x-o5-rEw" id="wvo-R4-GB5"/>
+                <outlet property="topConstraint" destination="NJq-pH-QrZ" id="Xb5-r2-4nu"/>
                 <outlet property="typeMenu" destination="rM4-fZ-ChI" id="CGO-vb-k1u"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

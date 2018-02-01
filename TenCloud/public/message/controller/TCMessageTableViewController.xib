@@ -17,6 +17,7 @@
                 <outlet property="keywordField" destination="Pwu-FD-yog" id="jFZ-yD-DK8"/>
                 <outlet property="modeMenu" destination="1v7-hg-S0X" id="EPD-Cq-ycd"/>
                 <outlet property="tableView" destination="IZz-KL-sfe" id="v5r-pR-Hl8"/>
+                <outlet property="topConstraint" destination="BHU-EP-tyw" id="UW3-XQ-1p9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

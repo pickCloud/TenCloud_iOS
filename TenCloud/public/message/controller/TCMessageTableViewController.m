@@ -32,6 +32,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, weak) IBOutlet    MKDropdownMenu  *modeMenu;
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, weak) IBOutlet    UIView          *keyboardPanel;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, strong)   NSMutableArray          *modeMenuOptions;
 @property (nonatomic, assign)   NSInteger               modeSelectedIndex;
 @property (nonatomic, strong)   NSMutableArray          *messageArray;
@@ -61,6 +62,11 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     [super viewDidLoad];
     self.title = @"消息盒子";
     _messageArray = [NSMutableArray new];
+    
+    if (IS_iPhoneX)
+    {
+        _topConstraint.constant = 64+27;
+    }
     
     UINib *cellNib = [UINib nibWithNibName:@"TCMessageTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:MESSAGE_CELL_ID];

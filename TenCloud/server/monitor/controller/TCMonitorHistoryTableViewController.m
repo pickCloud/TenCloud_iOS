@@ -16,6 +16,8 @@
 #import "TCHistoryTimeFilterViewController.h"
 #import "TCMonitorHistoryTime.h"
 #import "TCTextRefreshAutoFooter.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 
 #define MONITOR_HISTORY_PER_PAGE    20
 #define MONITOR_HISTORY_CELL_ID     @"MONITOR_HISTORY_CELL_ID"
@@ -23,6 +25,7 @@
 @interface TCMonitorHistoryTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    MKDropdownMenu  *typeMenu;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, assign)   NSInteger               serverID;
 @property (nonatomic, strong)   NSMutableArray          *performanceArray;
 @property (nonatomic, strong)   NSMutableArray          *typeMenuOptions;
@@ -51,6 +54,11 @@
     self.title = @"历史记录";
     _performanceArray = [NSMutableArray new];
     
+    if (IS_iPhoneX)
+    {
+        _topConstraint.constant = 64+27;
+    }
+    
     //__weak __typeof(self) weakSelf = self;
     [[TCMonitorHistoryTime shared] reset];
     [self startLoading];
@@ -59,6 +67,8 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCMonitorHistoryTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:MONITOR_HISTORY_CELL_ID];
     _tableView.tableFooterView = [UIView new];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     _typeMenuOptions = [NSMutableArray new];
     [_typeMenuOptions addObject:@"正常"];
@@ -247,7 +257,7 @@
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"暂无消息" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"暂无历史记录" attributes:attributes];
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods

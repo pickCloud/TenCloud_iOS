@@ -300,7 +300,12 @@
 - (IBAction) onCloseKeyboard:(id)sender
 {
     [_keywordField resignFirstResponder];
-    [self doSearch:@"" provider:@[] region:@[]];
+    NSString *keyword = _keywordField.text;
+    if (keyword == nil)
+    {
+        keyword = @"";
+    }
+    [self doSearch:keyword provider:@[] region:@[]];
 }
 
 - (void) onAddServerButton:(id)sender
