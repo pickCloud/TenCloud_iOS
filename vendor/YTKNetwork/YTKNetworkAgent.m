@@ -146,6 +146,8 @@
 
     requestSerializer.timeoutInterval = [request requestTimeoutInterval];
     requestSerializer.allowsCellularAccess = [request allowsCellularAccess];
+    //always reload all request
+    requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     // If api needs server username and password
     NSArray<NSString *> *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
