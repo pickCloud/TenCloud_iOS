@@ -117,7 +117,7 @@
             [[TCCurrentCorp shared] setSelectedCorp:corp];
             [weakSelf updateCorpInfoUI];
         }
-        [[TCEmptyPermission shared] print];
+        [[TCEmptyPermission shared] reset];
         
         TCUserPermissionRequest *req1 = requestArray[1];
         TCTemplate *resultTemplate = [req1 resultTemplate];

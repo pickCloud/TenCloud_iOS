@@ -48,9 +48,14 @@
             _needRetry = YES;
         }
         
-        [self sendEmptyTemplateRequest];
+        //[self sendEmptyTemplateRequest];
     }
     return self;
+}
+
+- (void) reset
+{
+    [self sendEmptyTemplateRequest];
 }
 
 - (void) sendEmptyTemplateRequest
@@ -108,10 +113,12 @@
     }
 }
 
+/*
 - (void) print
 {
     
 }
+ */
 
 /*
 - (void) reset
