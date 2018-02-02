@@ -7,13 +7,14 @@
 //
 
 #import "TCServerHomeViewController.h"
-#import "TCClusterRequest.h"
 #import "TCServerTableViewCell.h"
 #import "TCServerDetailViewController.h"
 #import "ServerHomeIconCollectionViewCell.h"
 #import "TCAddServerViewController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCServerWarningRequest.h"
+#import "TCServerSummaryRequest.h"
+#import "TCServerSummary+CoreDataClass.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -245,25 +246,6 @@
 {
     __weak  __typeof(self)  weakSelf = self;
     NSLog(@" reload server list");
-    /*
-    TCClusterRequest *request = [[TCClusterRequest alloc] init];
-    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        [weakSelf stopLoading];
-        [weakSelf.serverArray removeAllObjects];
-        [weakSelf.serverArray addObjectsFromArray:serverArray];
-        NSLog(@"serverArray%d:%@",serverArray.count, serverArray);
-        NSLog(@"server count:%ld",weakSelf.serverArray.count);
-        for (int i = weakSelf.serverArray.count; i > 4; i--)
-        {
-            NSLog(@"删除%d",i);
-            [weakSelf.serverArray removeObjectAtIndex:0];
-        }
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
-     */
     TCServerWarningRequest *req = [[TCServerWarningRequest alloc] init];
     [req startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
@@ -274,6 +256,17 @@
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
+    
+    //需要与服务器列表一起刷新
+    TCServerSummaryRequest *summaryReq = [TCServerSummaryRequest new];
+    [summaryReq startWithSuccess:^(TCServerSummary *summary) {
+        NSLog(@"summary_server:%lld",summary.server_num);
+        NSLog(@"summary_warn_%lld",summary.warn_num);
+        NSLog(@"summary_pay_%lld",summary.payment_num);
+    } failure:^(NSString *message) {
+        
+    }];
+    
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods

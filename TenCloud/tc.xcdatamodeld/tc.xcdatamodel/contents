@@ -141,6 +141,11 @@
         <attribute name="memory" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="net" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
+    <entity name="TCServerSummary" representedClassName="TCServerSummary" syncable="YES">
+        <attribute name="payment_num" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="server_num" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="warn_num" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="TCServerSystemConfig" representedClassName="TCServerSystemConfig" syncable="YES">
         <attribute name="cpu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="memory" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -192,6 +197,7 @@
         <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="150"/>
         <element name="TCMessage" positionX="-9" positionY="135" width="128" height="180"/>
+        <element name="TCPerformanceItem" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="255"/>
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
         <element name="TCServerBasicInfo" positionX="0" positionY="162" width="128" height="210"/>
@@ -209,6 +215,6 @@
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCPerformanceItem" positionX="-9" positionY="135" width="128" height="120"/>
+        <element name="TCServerSummary" positionX="-9" positionY="135" width="128" height="90"/>
     </elements>
 </model>
