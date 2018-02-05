@@ -54,6 +54,11 @@
     return YTKRequestMethodGET;
 }
 
+- (id)requestArgument
+{
+    return @{@"id":@(_corpID)};
+}
+
 - (NSDictionary *)requestHeaderFieldValueDictionary {
     NSString *token = [[TCLocalAccount shared] token];
     if (token == nil)
