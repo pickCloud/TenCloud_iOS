@@ -21,6 +21,7 @@
 #import "UIViewController+LoadingView.h"
 #import "WRNavigationBar.h"
 #import <MJRefresh/MJRefresh.h>
+#import "TCAlertController.h"
 #endif
 
 #define ONLINE_ENVIROMENT       0

@@ -461,10 +461,14 @@
                 [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
                 
                 NSString *message = [request.responseJSONObject objectForKey:@"message"];
+                /*
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"账号被踢出" message:message preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
                 [alertController addAction:cancelAction];
                 [loginVC presentViewController:alertController animated:YES completion:nil];
+                 */
+                TCAlertController *okController = [TCAlertController alertControllerWithTitle:message okBlock:nil];
+                [loginVC presentViewController:okController animated:YES completion:nil];
             }
         }
         if (request.responseStatusCode == 403)

@@ -233,6 +233,20 @@
 		A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEC2018E20F00C00974 /* TCPageManager.m */; };
 		A0895CF02019743900C00974 /* TCBoderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEF2019743900C00974 /* TCBoderButton.m */; };
 		A0895CF32019E1C200C00974 /* TCServerWarningRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */; };
+		A0906E7320288DB2006D30C8 /* TCAlertDropDownAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6020288DB1006D30C8 /* TCAlertDropDownAnimation.m */; };
+		A0906E7420288DB2006D30C8 /* TCAlertFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6220288DB1006D30C8 /* TCAlertFadeAnimation.m */; };
+		A0906E7520288DB2006D30C8 /* TCAlertScaleFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6420288DB1006D30C8 /* TCAlertScaleFadeAnimation.m */; };
+		A0906E7620288DB2006D30C8 /* TCBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6620288DB1006D30C8 /* TCBaseAnimation.m */; };
+		A0906E7720288DB2006D30C8 /* TCAlertController+TransitionAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6720288DB1006D30C8 /* TCAlertController+TransitionAnimate.m */; };
+		A0906E7820288DB2006D30C8 /* TCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6920288DB1006D30C8 /* TCAlertController.m */; };
+		A0906E7920288DB2006D30C8 /* TCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6C20288DB1006D30C8 /* TCAlertView.m */; };
+		A0906E7A20288DB2006D30C8 /* TCShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E6E20288DB1006D30C8 /* TCShowAlertView.m */; };
+		A0906E7B20288DB2006D30C8 /* UIView+TCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E7020288DB1006D30C8 /* UIView+TCAlertView.m */; };
+		A0906E7C20288DB2006D30C8 /* UIView+TCAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E7220288DB1006D30C8 /* UIView+TCAutoLayout.m */; };
+		A0906E8020288EBF006D30C8 /* TCConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0906E7F20288EBF006D30C8 /* TCConfirmView.xib */; };
+		A0906E83202891FB006D30C8 /* TCConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E82202891FB006D30C8 /* TCConfirmView.m */; };
+		A0906E872028A220006D30C8 /* TCOKView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0906E852028A220006D30C8 /* TCOKView.m */; };
+		A0906E882028A220006D30C8 /* TCOKView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0906E862028A220006D30C8 /* TCOKView.xib */; };
 		A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */; };
 		A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0B5B0200227A800EA8512 /* TCStaffProfileViewController.xib */; };
 		A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0B5B320025C1D00EA8512 /* TCStaffProfileTableViewCell.m */; };
@@ -781,6 +795,31 @@
 		A0895CEF2019743900C00974 /* TCBoderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCBoderButton.m; sourceTree = "<group>"; };
 		A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerWarningRequest.m; sourceTree = "<group>"; };
 		A0895CF22019E1C200C00974 /* TCServerWarningRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerWarningRequest.h; sourceTree = "<group>"; };
+		A0906E5F20288DB1006D30C8 /* TCAlertDropDownAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAlertDropDownAnimation.h; sourceTree = "<group>"; };
+		A0906E6020288DB1006D30C8 /* TCAlertDropDownAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAlertDropDownAnimation.m; sourceTree = "<group>"; };
+		A0906E6120288DB1006D30C8 /* TCAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAlertFadeAnimation.h; sourceTree = "<group>"; };
+		A0906E6220288DB1006D30C8 /* TCAlertFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAlertFadeAnimation.m; sourceTree = "<group>"; };
+		A0906E6320288DB1006D30C8 /* TCAlertScaleFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAlertScaleFadeAnimation.h; sourceTree = "<group>"; };
+		A0906E6420288DB1006D30C8 /* TCAlertScaleFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAlertScaleFadeAnimation.m; sourceTree = "<group>"; };
+		A0906E6520288DB1006D30C8 /* TCBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBaseAnimation.h; sourceTree = "<group>"; };
+		A0906E6620288DB1006D30C8 /* TCBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBaseAnimation.m; sourceTree = "<group>"; };
+		A0906E6720288DB1006D30C8 /* TCAlertController+TransitionAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TCAlertController+TransitionAnimate.m"; sourceTree = "<group>"; };
+		A0906E6820288DB1006D30C8 /* TCAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAlertController.h; sourceTree = "<group>"; };
+		A0906E6920288DB1006D30C8 /* TCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAlertController.m; sourceTree = "<group>"; };
+		A0906E6B20288DB1006D30C8 /* TCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAlertView.h; sourceTree = "<group>"; };
+		A0906E6C20288DB1006D30C8 /* TCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAlertView.m; sourceTree = "<group>"; };
+		A0906E6D20288DB1006D30C8 /* TCShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShowAlertView.h; sourceTree = "<group>"; };
+		A0906E6E20288DB1006D30C8 /* TCShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShowAlertView.m; sourceTree = "<group>"; };
+		A0906E6F20288DB1006D30C8 /* UIView+TCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TCAlertView.h"; sourceTree = "<group>"; };
+		A0906E7020288DB1006D30C8 /* UIView+TCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TCAlertView.m"; sourceTree = "<group>"; };
+		A0906E7120288DB1006D30C8 /* UIView+TCAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TCAutoLayout.h"; sourceTree = "<group>"; };
+		A0906E7220288DB1006D30C8 /* UIView+TCAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TCAutoLayout.m"; sourceTree = "<group>"; };
+		A0906E7F20288EBF006D30C8 /* TCConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCConfirmView.xib; sourceTree = "<group>"; };
+		A0906E81202891FB006D30C8 /* TCConfirmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCConfirmView.h; sourceTree = "<group>"; };
+		A0906E82202891FB006D30C8 /* TCConfirmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCConfirmView.m; sourceTree = "<group>"; };
+		A0906E842028A220006D30C8 /* TCOKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCOKView.h; sourceTree = "<group>"; };
+		A0906E852028A220006D30C8 /* TCOKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCOKView.m; sourceTree = "<group>"; };
+		A0906E862028A220006D30C8 /* TCOKView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCOKView.xib; sourceTree = "<group>"; };
 		A09AEFE8B75004FC2C2CD8C1 /* Pods-TenCloudUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudUITests/Pods-TenCloudUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A0B5AE200227A800EA8512 /* TCStaffProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCStaffProfileViewController.h; sourceTree = "<group>"; };
 		A0A0B5AF200227A800EA8512 /* TCStaffProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCStaffProfileViewController.m; sourceTree = "<group>"; };
@@ -2023,6 +2062,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A0906E5D20288DB1006D30C8 /* alertController */,
 				A073F9B42018C08D00AB03DA /* refresh */,
 				A0A86B261FF37F2600D1D58D /* result */,
 				A0C9A0B71FF2284A00F94E9E /* imageView */,
@@ -2902,6 +2942,70 @@
 				A0895CEF2019743900C00974 /* TCBoderButton.m */,
 			);
 			path = button;
+			sourceTree = "<group>";
+		};
+		A0906E5D20288DB1006D30C8 /* alertController */ = {
+			isa = PBXGroup;
+			children = (
+				A0906E7E20288E3D006D30C8 /* confirm */,
+				A0906E7D20288E3D006D30C8 /* ok */,
+				A0906E5E20288DB1006D30C8 /* animations */,
+				A0906E6A20288DB1006D30C8 /* view */,
+				A0906E6720288DB1006D30C8 /* TCAlertController+TransitionAnimate.m */,
+				A0906E6820288DB1006D30C8 /* TCAlertController.h */,
+				A0906E6920288DB1006D30C8 /* TCAlertController.m */,
+			);
+			path = alertController;
+			sourceTree = "<group>";
+		};
+		A0906E5E20288DB1006D30C8 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				A0906E5F20288DB1006D30C8 /* TCAlertDropDownAnimation.h */,
+				A0906E6020288DB1006D30C8 /* TCAlertDropDownAnimation.m */,
+				A0906E6120288DB1006D30C8 /* TCAlertFadeAnimation.h */,
+				A0906E6220288DB1006D30C8 /* TCAlertFadeAnimation.m */,
+				A0906E6320288DB1006D30C8 /* TCAlertScaleFadeAnimation.h */,
+				A0906E6420288DB1006D30C8 /* TCAlertScaleFadeAnimation.m */,
+				A0906E6520288DB1006D30C8 /* TCBaseAnimation.h */,
+				A0906E6620288DB1006D30C8 /* TCBaseAnimation.m */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
+		A0906E6A20288DB1006D30C8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A0906E6B20288DB1006D30C8 /* TCAlertView.h */,
+				A0906E6C20288DB1006D30C8 /* TCAlertView.m */,
+				A0906E6D20288DB1006D30C8 /* TCShowAlertView.h */,
+				A0906E6E20288DB1006D30C8 /* TCShowAlertView.m */,
+				A0906E6F20288DB1006D30C8 /* UIView+TCAlertView.h */,
+				A0906E7020288DB1006D30C8 /* UIView+TCAlertView.m */,
+				A0906E7120288DB1006D30C8 /* UIView+TCAutoLayout.h */,
+				A0906E7220288DB1006D30C8 /* UIView+TCAutoLayout.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A0906E7D20288E3D006D30C8 /* ok */ = {
+			isa = PBXGroup;
+			children = (
+				A0906E842028A220006D30C8 /* TCOKView.h */,
+				A0906E852028A220006D30C8 /* TCOKView.m */,
+				A0906E862028A220006D30C8 /* TCOKView.xib */,
+			);
+			path = ok;
+			sourceTree = "<group>";
+		};
+		A0906E7E20288E3D006D30C8 /* confirm */ = {
+			isa = PBXGroup;
+			children = (
+				A0906E81202891FB006D30C8 /* TCConfirmView.h */,
+				A0906E82202891FB006D30C8 /* TCConfirmView.m */,
+				A0906E7F20288EBF006D30C8 /* TCConfirmView.xib */,
+			);
+			path = confirm;
 			sourceTree = "<group>";
 		};
 		A0A0B5A92002278600EA8512 /* profile */ = {
@@ -3915,6 +4019,7 @@
 				A02CA8772001B2A300BD00C5 /* TCPermissionTableViewController.xib in Resources */,
 				A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */,
 				A0D5882C200ED62C00104ED9 /* TCMessageTableViewCell.xib in Resources */,
+				A0906E882028A220006D30C8 /* TCOKView.xib in Resources */,
 				A031B6081FFD265600B4F448 /* TCModifyTemplateViewController.xib in Resources */,
 				A0A86B7D1FF47CE200D1D58D /* TCAccountMenuTableViewCell.xib in Resources */,
 				A0DC9D78200F9E2C0061A015 /* TCJoinCorpViewController.xib in Resources */,
@@ -3930,6 +4035,7 @@
 				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A0A86B4E1FF3927E00D1D58D /* TCMyCorpTableViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
+				A0906E8020288EBF006D30C8 /* TCConfirmView.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
@@ -4148,6 +4254,7 @@
 				A02555201FD6930800D16D22 /* YTKChainRequest.m in Sources */,
 				A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */,
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
+				A0906E872028A220006D30C8 /* TCOKView.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
@@ -4166,12 +4273,14 @@
 				A02555211FD6930800D16D22 /* YTKChainRequestAgent.m in Sources */,
 				A033986920204C0B00CF8630 /* TCPerformanceItem+CoreDataClass.m in Sources */,
 				A0A86B7C1FF47CE200D1D58D /* TCAccountMenuTableViewCell.m in Sources */,
+				A0906E83202891FB006D30C8 /* TCConfirmView.m in Sources */,
 				A031B5DC1FFC532100B4F448 /* TCPermissionSectionHeaderCell.m in Sources */,
 				A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
 				A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */,
+				A0906E7B20288DB2006D30C8 /* UIView+TCAlertView.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
 				A0A0E8CF20246B4B00265920 /* TCServerSummary+CoreDataClass.m in Sources */,
 				A001FA2E1FDD7E8F008328B0 /* TCClusterRequest.m in Sources */,
@@ -4184,6 +4293,7 @@
 				A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				A0DC9D86201204770061A015 /* NSManagedObject+Clone.m in Sources */,
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
+				A0906E7A20288DB2006D30C8 /* TCShowAlertView.m in Sources */,
 				A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */,
 				A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */,
 				A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */,
@@ -4201,6 +4311,7 @@
 				A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
 				A0A86B691FF3B6BC00D1D58D /* TCAddCorpRequest.m in Sources */,
+				A0906E7520288DB2006D30C8 /* TCAlertScaleFadeAnimation.m in Sources */,
 				A001FA281FDD3777008328B0 /* MBProgressHUD+Add.m in Sources */,
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A073F9BF2018C0B300AB03DA /* TCTextRefreshAutoFooter.m in Sources */,
@@ -4249,6 +4360,7 @@
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */,
 				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,
+				A0906E7320288DB2006D30C8 /* TCAlertDropDownAnimation.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
@@ -4293,6 +4405,7 @@
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */,
+				A0906E7920288DB2006D30C8 /* TCAlertView.m in Sources */,
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
@@ -4310,6 +4423,7 @@
 				A0A86B771FF3EC0900D1D58D /* TCAccountMenuViewController.m in Sources */,
 				A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */,
 				A02CA8782001B2A300BD00C5 /* TCPermissionTableViewController.m in Sources */,
+				A0906E7C20288DB2006D30C8 /* UIView+TCAutoLayout.m in Sources */,
 				A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
@@ -4326,6 +4440,7 @@
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,
+				A0906E7720288DB2006D30C8 /* TCAlertController+TransitionAnimate.m in Sources */,
 				A00AFF8C200C772200EFADF6 /* TCAcceptInviteRequest.m in Sources */,
 				A031B5E81FFC673600B4F448 /* TCPermissionItemCell.m in Sources */,
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
@@ -4333,6 +4448,8 @@
 				A03398632020400E00CF8630 /* TCMonitorHistoryTableViewCell.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */,
+				A0906E7820288DB2006D30C8 /* TCAlertController.m in Sources */,
+				A0906E7620288DB2006D30C8 /* TCBaseAnimation.m in Sources */,
 				A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
@@ -4360,6 +4477,7 @@
 				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,
 				A0C362E920035EE10033C99C /* TCModifyUserPermissionRequest.m in Sources */,
 				A07DBE1D1FDFA82700F37715 /* TCServerBusinessContract+CoreDataProperties.m in Sources */,
+				A0906E7420288DB2006D30C8 /* TCAlertFadeAnimation.m in Sources */,
 				A07DBE921FE1157800F37715 /* NSString+Extension.m in Sources */,
 				A07DBE431FDFBF8B00F37715 /* TCServerInfoViewController.m in Sources */,
 				A00AFF88200C4E1100EFADF6 /* TCAcceptInviteViewController.m in Sources */,

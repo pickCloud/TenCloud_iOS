@@ -67,6 +67,7 @@
 #pragma mark - extension
 - (IBAction) onExitAccount:(id)sender
 {
+    /*
     UIAlertController *alertController = nil;
     alertController = [UIAlertController alertControllerWithTitle:@"确定退出登录?"
                                                           message:nil
@@ -83,6 +84,21 @@
     [alertController addAction:cancelAction];
     [alertController addAction:exitAction];
     [alertController presentationController];
+    [self presentViewController:alertController animated:YES completion:nil];
+     */
+    
+    TCConfirmBlock confirmBlock = ^(TCConfirmView *view){
+        [[TCLocalAccount shared] logout];
+        [[TCCurrentCorp shared] reset];
+        TCLoginViewController *loginVC = [TCLoginViewController new];
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+    };
+    TCAlertController *alertController = nil;
+    alertController = [TCAlertController alertControllerWithTitle:@"确定退出登录?"
+                                                confirmButtonName:@"退出登录"
+                                                      cofirmBlock:confirmBlock
+                                                      cancelBlock:nil];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
