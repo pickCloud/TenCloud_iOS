@@ -281,15 +281,23 @@
                 }];
             }else if(type == TCProfileButtonRemoveStaff)
             {
-                TCRemoveStaffRequest *removeReq = [TCRemoveStaffRequest new];
-                removeReq.staffID = _staff.staffID;
-                [removeReq startWithSuccess:^(NSString *message) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_REMOVE_STAFF object:nil];
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                    [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.32];
-                } failure:^(NSString *message) {
-                    [MBProgressHUD showError:message toView:nil];
-                }];
+                NSString *title = @"确定踢出该员工?";
+                TCConfirmBlock block = ^(TCConfirmView *view){
+                    TCRemoveStaffRequest *removeReq = [TCRemoveStaffRequest new];
+                    removeReq.staffID = _staff.staffID;
+                    [removeReq startWithSuccess:^(NSString *message) {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_REMOVE_STAFF object:nil];
+                        [weakSelf.navigationController popViewControllerAnimated:YES];
+                        [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.32];
+                    } failure:^(NSString *message) {
+                        [MBProgressHUD showError:message toView:nil];
+                    }];
+                };
+                [TCAlertController presentFromController:weakSelf
+                                                   title:title
+                                       confirmButtonName:@"踢出"
+                                            confirmBlock:block
+                                             cancelBlock:nil];
             }else if(type == TCProfileButtonChangeAdmin)
             {
                 TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
