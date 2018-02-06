@@ -189,7 +189,7 @@
     [_messageButton.badgeView setBadgeValue:msgCount];
     [_messageButton.badgeView setOutlineWidth:0.0];
     [_messageButton.badgeView setBadgeColor:[UIColor redColor]];
-    [_messageButton.badgeView setMinDiameter:6.0];
+    [_messageButton.badgeView setMinDiameter:18.0];
     [_messageButton.badgeView setPosition:MGBadgePositionTopRight];
     
     UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];

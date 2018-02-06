@@ -15,6 +15,9 @@
 #import "TCServerWarningRequest.h"
 #import "TCServerSummaryRequest.h"
 #import "TCServerSummary+CoreDataClass.h"
+#import "TCMessageManager.h"
+#import "UIView+MGBadgeView.h"
+#import "TCMessageTableViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -33,9 +36,11 @@
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
-@interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+@interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,
+TCMessageManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
+@property (nonatomic, strong) UIButton        *messageButton;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *headerCollectionBgHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UIView              *headerView;
@@ -55,12 +60,18 @@
     [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];
-    UIButton *msgButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [msgButton setImage:messageIconImg forState:UIControlStateNormal];
-    [msgButton sizeToFit];
-    [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
-    //UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
-    //self.navigationItem.rightBarButtonItem = messageItem;
+    _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_messageButton setImage:messageIconImg forState:UIControlStateNormal];
+    [_messageButton sizeToFit];
+    [_messageButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    NSInteger msgCount = [[TCMessageManager shared] count];
+    [_messageButton.badgeView setBadgeValue:msgCount];
+    [_messageButton.badgeView setOutlineWidth:0.0];
+    [_messageButton.badgeView setBadgeColor:[UIColor redColor]];
+    [_messageButton.badgeView setMinDiameter:18.0];
+    [_messageButton.badgeView setPosition:MGBadgePositionTopRight];
+    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
+    self.navigationItem.rightBarButtonItem = messageItem;
     
     _serverArray = [NSMutableArray new];
     //_headerHeightConstraint.constant = TCSCALE(156);
@@ -102,6 +113,7 @@
                                              selector:@selector(reloadServerList)
                                                  name:NOTIFICATION_DEL_SERVER
                                                object:nil];
+    [[TCMessageManager shared] addObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -234,7 +246,9 @@
 
 - (void) onMessageButton:(id)sender
 {
-    [MBProgressHUD showError:@"暂无页面" toView:nil];
+    //[MBProgressHUD showError:@"暂无页面" toView:nil];
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    [self.navigationController pushViewController:msgVC animated:YES];
 }
 
 - (void) onNotificationChangeCorp
@@ -339,5 +353,12 @@
 {
     TCAddServerViewController *addVC = [TCAddServerViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
+}
+
+#pragma mark - TCMessageManagerDelegate
+- (void) messageCountChanged:(NSInteger)count
+{
+    NSLog(@"se msg btn badge:%ld",count);
+    _messageButton.badgeView.badgeValue = count;
 }
 @end
