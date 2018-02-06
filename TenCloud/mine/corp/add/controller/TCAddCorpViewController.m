@@ -14,6 +14,7 @@
 #import "TCFailResultViewController.h"
 #import "TCCorpHomeViewController.h"
 #import "TCDissentViewController.h"
+#import "TCCurrentCorp.h"
 
 @interface TCAddCorpViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -105,6 +106,7 @@
         successVC.buttonTitle = @"查看我的公司";
         successVC.finishBlock = ^(UIViewController *viewController) {
             [MMProgressHUD showWithStatus:@"切换身份中"];
+            [[TCCurrentCorp shared] setCid:cid];
             TCCorpHomeViewController *corpHome = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
             NSArray *oldVCS = weakSelf.navigationController.viewControllers;
             NSMutableArray *vcs = [NSMutableArray arrayWithArray:oldVCS];
