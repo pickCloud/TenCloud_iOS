@@ -245,17 +245,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 
 - (void) resubmitWithCode:(NSString*)inviteCode
 {
-    /*
-    if ([[TCLocalAccount shared] isLogin])
-    {
-        TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:codeStr];
-        [self.navigationController pushViewController:acceptVC animated:YES];
-    }else
-    {
-        TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
-        [self.navigationController pushViewController:loginVC animated:YES];
-    }
-     */
     __weak __typeof(self) weakSelf = self;
     NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
     TCInviteInfoRequest *infoReq = [[TCInviteInfoRequest alloc] initWithCode:inviteCode];
