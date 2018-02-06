@@ -12,7 +12,7 @@
 #import "TCGetCaptchaRequest.h"
 #import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
-#import "TCTabBarController.h"
+//#import "TCTabBarController.h"
 #import "TCResetPasswordRequest.h"
 #import <GT3Captcha/GT3Captcha.h>
 #import "TCGeetestCaptchaRequest.h"
@@ -23,7 +23,8 @@
 #import "TCAcceptInviteRequest.h"
 #import "TCStaffStatusRequest.h"
 #import "TCInviteJoinedViewController.h"
-
+#import "TCPageManager.h"
+#import "TCLoginViewController.h"
 
 
 @interface TCInviteLoginViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
@@ -159,6 +160,9 @@
     NSLog(@"on register button");
     if ([self isInviteInfoInvalid])
     {
+        TCLoginViewController *loginVC = [TCLoginViewController new];
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
         return;
     }
     NSString *phoneNumStr = _phoneNumberField.plainPhoneNum;
@@ -207,26 +211,6 @@
             [MMProgressHUD dismissWithError:message];
         }
     }];
-    /*
-    [MMProgressHUD showWithStatus:@"找回密码中"];
-    TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
-    [request startWithSuccess:^(NSString *token) {
-        [[TCLocalAccount shared] setToken:token];
-        TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
-        [request startWithSuccess:^(TCUser *user) {
-            user.token = token;
-            [[TCLocalAccount shared] loginSuccess:user];
-            TCTabBarController *tabBarController = [TCTabBarController new];
-            [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
-            [MMProgressHUD dismissWithSuccess:@"成功找回密码" title:nil afterDelay:1.32];
-        } failure:^(NSString *message) {
-            NSLog(@"msg:%@",message);
-            [MMProgressHUD dismissWithError:@"找回失败"];
-        }];
-    } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:message];
-    }];
-     */
 }
 
 - (BOOL) isInviteInfoInvalid
@@ -247,7 +231,7 @@
         _row3Label.text = @"";
         _phonePanel.hidden = YES;
         _captchaPanel.hidden = YES;
-        _inviteButton.alpha = 0.2;
+        [_inviteButton setTitle:@"进入系统" forState:UIControlStateNormal];
         return;
     }
     CGRect row1Rect = _row1Label.frame;

@@ -52,7 +52,7 @@
                         <constraint firstAttribute="width" secondItem="eWA-Y5-oHr" secondAttribute="height" multiplier="15:2" id="K3b-6a-KTS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="好的">
+                    <state key="normal" title="进入系统">
                         <color key="titleColor" red="0.094117647060000004" green="0.1019607843" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>

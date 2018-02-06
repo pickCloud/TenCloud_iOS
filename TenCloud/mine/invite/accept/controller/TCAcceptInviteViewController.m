@@ -15,6 +15,7 @@
 #import "TCInviteProfileViewController.h"
 #import "TCStaffStatusRequest.h"
 #import "TCInviteJoinedViewController.h"
+#import "TCTabBarController.h"
 
 
 @interface TCAcceptInviteViewController ()<UIGestureRecognizerDelegate>
@@ -111,6 +112,8 @@
     NSLog(@"on accept invite button");
     if ([self isInviteInfoInvalid])
     {
+        TCTabBarController *tabBarController = [TCTabBarController new];
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
         return;
     }
     NSString *phoneNum = [[TCLocalAccount shared] mobile];
@@ -138,7 +141,7 @@
     {
         _row1Label.text = @"邀请链接已过期，请联系管理员重新邀请";
         _row2Label.text = @"";
-        _inviteButton.alpha = 0.2;
+        [_inviteButton setTitle:@"进入系统" forState:UIControlStateNormal];
         return;
     }
     
