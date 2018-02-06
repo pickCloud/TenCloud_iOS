@@ -24,6 +24,10 @@
 #import "TCCorp+CoreDataClass.h"
 #import "TCCorpProfileViewController.h"
 #import "TCMessageManager.h"
+#import "TCInviteInfoRequest.h"
+#import "TCAcceptInviteRequest.h"
+#import "TCInviteProfileViewController.h"
+#import "TCInviteInfo+CoreDataClass.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -239,8 +243,9 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     return cell;
 }
 
-- (void) resubmitWithCode:(NSString*)codeStr
+- (void) resubmitWithCode:(NSString*)inviteCode
 {
+    /*
     if ([[TCLocalAccount shared] isLogin])
     {
         TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:codeStr];
@@ -250,6 +255,21 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
         TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:codeStr];
         [self.navigationController pushViewController:loginVC animated:YES];
     }
+     */
+    __weak __typeof(self) weakSelf = self;
+    NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
+    TCInviteInfoRequest *infoReq = [[TCInviteInfoRequest alloc] initWithCode:inviteCode];
+    [infoReq startWithSuccess:^(TCInviteInfo *info) {
+        TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:inviteCode];
+        [acceptReq startWithSuccess:^(NSString *message) {
+            TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:inviteCode joinSetting:info.setting shouldSetPassword:NO phoneNumber:phoneNumStr];
+            [weakSelf.navigationController pushViewController:profileVC animated:YES];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+    }];
 }
 
 - (void) goToCorpProfilePage:(TCCorp *)corp
