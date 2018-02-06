@@ -35,7 +35,7 @@
 // override this moethod
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.4;
+    return 0.28;//0.28;//0.32;//0.4;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext

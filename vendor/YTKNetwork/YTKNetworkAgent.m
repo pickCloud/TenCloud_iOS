@@ -454,8 +454,7 @@
             NSInteger statusCode = [statusNum integerValue];
             if (statusCode == 10415)
             {
-                [[TCLocalAccount shared] setToken:@""];
-                [[TCLocalAccount shared] save];
+                [[TCLocalAccount shared] logout];
                 TCLoginViewController *loginVC = [TCLoginViewController new];
                 UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];

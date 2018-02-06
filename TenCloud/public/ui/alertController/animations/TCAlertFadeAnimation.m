@@ -13,7 +13,7 @@
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     if (self.isPresenting) {
-        return 0.45;
+        return 0.32;//0.45;
     }
     return 0.25;
 }
@@ -39,7 +39,7 @@
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:alertController.view];
     
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.18 animations:^{
         alertController.backgroundView.alpha = 1.0;
         switch (alertController.preferredStyle) {
             case TCAlertControllerStyleAlert:
@@ -53,7 +53,7 @@
                 break;
         }
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.14 animations:^{
             alertController.alertView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
