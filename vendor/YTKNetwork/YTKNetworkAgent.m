@@ -466,8 +466,9 @@
                 [alertController addAction:cancelAction];
                 [loginVC presentViewController:alertController animated:YES completion:nil];
                  */
-                TCAlertController *okController = [TCAlertController alertControllerWithTitle:message okBlock:nil];
-                [loginVC presentViewController:okController animated:YES completion:nil];
+                [TCAlertController presentFromController:loginVC
+                                                   title:message
+                                                 okBlock:nil];
             }
         }
         if (request.responseStatusCode == 403)

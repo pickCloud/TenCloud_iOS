@@ -203,6 +203,29 @@
     TCTemplate *tmpl = [_templateArray objectAtIndex:path.row];
     __weak __typeof(self) weakSelf = self;
     NSString *tip = [NSString stringWithFormat:@"确定删除 %@ 模版?",tmpl.name];
+    TCConfirmBlock confirmBlock = ^(TCConfirmView *view){
+        TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
+        [delReq startWithSuccess:^(NSString *message) {
+            [weakSelf.templateArray removeObjectAtIndex:path.row];
+            NSArray *paths = [NSArray arrayWithObject:path];
+            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    };
+    [TCAlertController presentFromController:self
+                                       title:tip
+                           confirmButtonName:@"删除"
+                                confirmBlock:confirmBlock
+                                 cancelBlock:nil];
+    /*
+    TCAlertController *alert = [TCAlertController alertControllerWithTitle:tip
+                                                         confirmButtonName:@"删除"
+                                                               cofirmBlock:confirmBlock
+                                                               cancelBlock:nil];
+    [self presentViewController:alert animated:YES completion:nil];
+     */
+    /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:tip
                                                                              message:nil
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -224,6 +247,7 @@
     [alertController addAction:deleteAction];
     [alertController presentationController];
     [self presentViewController:alertController animated:YES completion:nil];
+     */
 }
 
 

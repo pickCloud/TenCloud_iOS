@@ -94,12 +94,11 @@
         UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
     };
-    TCAlertController *alertController = nil;
-    alertController = [TCAlertController alertControllerWithTitle:@"确定退出登录?"
-                                                confirmButtonName:@"退出登录"
-                                                      cofirmBlock:confirmBlock
-                                                      cancelBlock:nil];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [TCAlertController presentFromController:self
+                                       title:@"确定退出登录?"
+                           confirmButtonName:@"退出登录"
+                                confirmBlock:confirmBlock
+                                 cancelBlock:nil];
 }
 
 

@@ -129,6 +129,25 @@
         
     }else if(selectedCorp.status == 5 || selectedCorp.status == 1)
     {
+        NSString *tip = @"确定重新申请?";
+        TCConfirmBlock block = ^(TCConfirmView *view){
+            NSString *inviteCode = selectedCorp.code;
+            if ([[TCLocalAccount shared] isLogin])
+            {
+                TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
+                [weakSelf.navigationController pushViewController:acceptVC animated:YES];
+            }else
+            {
+                TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
+                [weakSelf.navigationController pushViewController:loginVC animated:YES];
+            }
+        };
+        [TCAlertController presentFromController:self
+                                           title:tip
+                               confirmButtonName:@"重新申请"
+                                    confirmBlock:block
+                                     cancelBlock:nil];
+        /*
         NSLog(@"select corp code:%@",selectedCorp.code);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重新申请?"
                                                                                  message:nil
@@ -154,9 +173,28 @@
         [alertController addAction:applyAction];
         [alertController presentationController];
         [self presentViewController:alertController animated:YES completion:nil];
+        */
     }else
     {
-
+        NSString *tip = @"确定切换到企业身份?";
+        TCConfirmBlock block = ^(TCConfirmView *view){
+            [MMProgressHUD showWithStatus:@"切换身份中"];
+            [[TCCurrentCorp shared] setCid:selectedCorp.cid];
+            UIViewController *homeVC = nil;
+            homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
+            NSArray *viewControllers = weakSelf.navigationController.viewControllers;
+            NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+            [newVCS removeAllObjects];
+            [newVCS addObject:homeVC];
+            [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+            [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
+        };
+        [TCAlertController presentFromController:self
+                                           title:tip
+                               confirmButtonName:@"切换"
+                                    confirmBlock:block
+                                     cancelBlock:nil];
+        /*
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业身份?"
                                                                                  message:nil
                                                                           preferredStyle:UIAlertControllerStyleAlert];
@@ -180,6 +218,7 @@
         [alertController addAction:switchAction];
         [alertController presentationController];
         [self presentViewController:alertController animated:YES completion:nil];
+         */
     }
 }
 

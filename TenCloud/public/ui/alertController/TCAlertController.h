@@ -70,8 +70,18 @@ typedef NS_ENUM(NSInteger, TCAlertTransitionAnimation) {
                              cofirmBlock:(TCConfirmBlock)confirmBlock
                              cancelBlock:(TCCancelBlock)cancelBlock;
 
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSString*)title
+             confirmButtonName:(NSString*)confirmBtnName
+                  confirmBlock:(TCConfirmBlock)confirmBlock
+                   cancelBlock:(TCCancelBlock)cancelBlock;
+
 + (instancetype)alertControllerWithTitle:(NSString*)title
                                  okBlock:(TCOKBlock)okBlock;
+
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSString*)title
+                       okBlock:(TCOKBlock)block;
 
 - (void)dismissViewControllerAnimated: (BOOL)animated;
 

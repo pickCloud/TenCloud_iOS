@@ -129,6 +129,22 @@
     return controller;
 }
 
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSString*)title
+             confirmButtonName:(NSString*)confirmBtnName
+                  confirmBlock:(TCConfirmBlock)confirmBlock
+                   cancelBlock:(TCCancelBlock)cancelBlock
+{
+    if (controller)
+    {
+        TCAlertController *ctrl = [TCAlertController alertControllerWithTitle:title
+                                                            confirmButtonName:confirmBtnName
+                                                                  cofirmBlock:confirmBlock
+                                                                  cancelBlock:cancelBlock];
+        [controller presentViewController:ctrl animated:YES completion:nil];
+    }
+}
+
 + (instancetype)alertControllerWithTitle:(NSString*)title
                                  okBlock:(TCOKBlock)okBlock
 {
@@ -138,6 +154,18 @@
     TCAlertController *controller = [[self alloc] initWithAlertView:view preferredStyle:TCAlertControllerStyleAlert transitionAnimation:TCAlertTransitionAnimationFade transitionAnimationClass:nil];
     controller.backgoundTapDismissEnable = NO;
     return controller;
+}
+
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSString*)title
+                       okBlock:(TCOKBlock)block
+{
+    if (controller)
+    {
+        TCAlertController *ctrl = [TCAlertController alertControllerWithTitle:title
+                                                                      okBlock:block];
+        [controller presentViewController:ctrl animated:YES completion:nil];
+    }
 }
 
 #pragma mark - life cycle

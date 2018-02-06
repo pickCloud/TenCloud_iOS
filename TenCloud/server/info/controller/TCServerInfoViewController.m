@@ -188,6 +188,21 @@
 - (IBAction) onRestartButton:(id)sender
 {
     __weak __typeof(self) weakSelf = self;
+    NSString *tip = @"确定重启这台服务器?";
+    TCConfirmBlock block = ^(TCConfirmView *view){
+        TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
+        [request startWithSuccess:^(NSString *status) {
+            [weakSelf sendUpdateServerStateRequest];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    };
+    [TCAlertController presentFromController:self
+                                       title:tip
+                           confirmButtonName:@"重启"
+                                confirmBlock:block
+                                 cancelBlock:nil];
+    /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重启这台服务器?"
                                                                              message:nil
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -206,12 +221,29 @@
     [alertController addAction:restartAction];
     [alertController presentationController];
     [self presentViewController:alertController animated:YES completion:nil];
+     */
 }
 
 - (IBAction) onPowerOffButton:(id)sender
 {
     NSLog(@"on power off button");
     __weak __typeof(self) weakSelf = self;
+    NSString *title = @"确定关闭这台服务器?";
+    TCConfirmBlock block = ^(TCConfirmView *view){
+        TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
+        [request startWithSuccess:^(NSString *status) {
+            [weakSelf sendUpdateServerStateRequest];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
+    };
+    [TCAlertController presentFromController:self
+                                       title:title
+                           confirmButtonName:@"关机"
+                                confirmBlock:block
+                                 cancelBlock:nil];
+    
+    /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定关闭这台服务器?"
                                                                              message:nil
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -230,6 +262,7 @@
     [alertController addAction:powerOffAction];
     [alertController presentationController];
     [self presentViewController:alertController animated:YES completion:nil];
+     */
 }
 
 - (IBAction) onStartButton:(id)sender
@@ -245,6 +278,25 @@
 
 - (IBAction) onDeleteButton:(id)sender
 {
+    NSString *title = @"确定删除这台服务器?";
+    TCConfirmBlock block = ^(TCConfirmView *view){
+        [MMProgressHUD showWithStatus:@"删除中"];
+        TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_server.serverID];
+        [requst startWithSuccess:^(NSString *status) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
+            [self.navigationController popViewControllerAnimated:YES];
+            [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
+        } failure:^(NSString *message) {
+            [MMProgressHUD dismissWithError:message];
+        }];
+    };
+    [TCAlertController presentFromController:self
+                                       title:title
+                           confirmButtonName:@"删除"
+                                confirmBlock:block
+                                 cancelBlock:nil];
+    
+    /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定删除这台服务器?"
                                                                              message:nil
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -266,6 +318,7 @@
     [alertController addAction:deleteAction];
     [alertController presentationController];
     [self presentViewController:alertController animated:YES completion:nil];
+     */
 }
 
 - (void) updateFooterViewWithStatus:(NSString*)status
