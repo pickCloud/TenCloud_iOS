@@ -17,6 +17,10 @@
 #import "FEPopupMenuController.h"
 #import "TCAcceptInviteViewController.h"
 #import "TCInviteLoginViewController.h"
+#import "TCInviteInfoRequest.h"
+#import "TCAcceptInviteRequest.h"
+#import "TCInviteProfileViewController.h"
+#import "TCInviteInfo+CoreDataClass.h"
 
 #define MY_CORP_CELL_REUSE_ID   @"MY_CORP_CELL_REUSE_ID"
 
@@ -132,6 +136,20 @@
         NSString *tip = @"确定重新申请?";
         TCConfirmBlock block = ^(TCConfirmView *view){
             NSString *inviteCode = selectedCorp.code;
+            NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
+            TCInviteInfoRequest *infoReq = [[TCInviteInfoRequest alloc] initWithCode:inviteCode];
+            [infoReq startWithSuccess:^(TCInviteInfo *info) {
+                TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:inviteCode];
+                [acceptReq startWithSuccess:^(NSString *message) {
+                    TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:inviteCode joinSetting:info.setting shouldSetPassword:NO phoneNumber:phoneNumStr];
+                    [weakSelf.navigationController pushViewController:profileVC animated:YES];
+                } failure:^(NSString *message) {
+                    [MBProgressHUD showError:message toView:nil];
+                }];
+            } failure:^(NSString *message) {
+                [MBProgressHUD showError:message toView:nil];
+            }];
+            /*
             if ([[TCLocalAccount shared] isLogin])
             {
                 TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
@@ -141,6 +159,7 @@
                 TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
                 [weakSelf.navigationController pushViewController:loginVC animated:YES];
             }
+             */
         };
         [TCAlertController presentFromController:self
                                            title:tip
