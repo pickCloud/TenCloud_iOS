@@ -28,6 +28,7 @@
 @property (nonatomic, strong)   TCInviteInfo                *inviteInfo;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAcceptInviteButton:(id)sender;
+- (IBAction) onEnterSystem:(id)sender;
 - (void) updateInviteInfoUI;
 @end
 
@@ -112,8 +113,7 @@
     NSLog(@"on accept invite button");
     if ([self isInviteInfoInvalid])
     {
-        TCTabBarController *tabBarController = [TCTabBarController new];
-        [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+        [self onEnterSystem:nil];
         return;
     }
     NSString *phoneNum = [[TCLocalAccount shared] mobile];
@@ -124,6 +124,12 @@
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];
+}
+
+- (IBAction) onEnterSystem:(id)sender
+{
+    TCTabBarController *tabBarController = [TCTabBarController new];
+    [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
 }
 
 - (BOOL) isInviteInfoInvalid

@@ -110,9 +110,46 @@
                     <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4T-Fa-S9Y">
+                    <rect key="frame" x="95" y="314" width="184" height="41"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂不接受，直接" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-0G-ifm">
+                            <rect key="frame" x="8" y="12" width="108" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="108" id="f8w-iF-qRy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeW-4V-yFe">
+                            <rect key="frame" x="116" y="6" width="68" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="68" id="v5K-Vx-D6X"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="进入系统">
+                                <color key="titleColor" red="0.2666666667" green="0.51372549020000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onEnterSystem:" destination="-1" eventType="touchUpInside" id="kgs-AX-4Tj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="FeW-4V-yFe" firstAttribute="leading" secondItem="f1x-0G-ifm" secondAttribute="trailing" id="5hf-F4-79e"/>
+                        <constraint firstItem="FeW-4V-yFe" firstAttribute="centerY" secondItem="Q4T-Fa-S9Y" secondAttribute="centerY" id="7k7-KL-NfX"/>
+                        <constraint firstAttribute="trailing" secondItem="FeW-4V-yFe" secondAttribute="trailing" id="CHL-TO-lb3"/>
+                        <constraint firstItem="f1x-0G-ifm" firstAttribute="leading" secondItem="Q4T-Fa-S9Y" secondAttribute="leading" constant="8" id="Pid-EU-N5y"/>
+                        <constraint firstItem="f1x-0G-ifm" firstAttribute="centerY" secondItem="Q4T-Fa-S9Y" secondAttribute="centerY" id="kXR-lv-id0"/>
+                        <constraint firstAttribute="height" constant="41" id="pSI-c1-EiN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.094117647058823528" green="0.10196078431372549" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q4T-Fa-S9Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3Ic-00-Kja"/>
                 <constraint firstAttribute="bottom" secondItem="8jB-57-hKL" secondAttribute="bottom" constant="18" id="67R-EA-yNF"/>
                 <constraint firstItem="yJ0-K4-yFW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="BtJ-R7-aT9"/>
                 <constraint firstItem="8jB-57-hKL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FdC-Vy-j3I"/>
@@ -120,6 +157,7 @@
                 <constraint firstItem="yJ0-K4-yFW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cH4-JL-mKz"/>
                 <constraint firstItem="h6E-0Y-qdM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iA9-Jf-FAR"/>
                 <constraint firstItem="yJ0-K4-yFW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="shs-pK-2jD"/>
+                <constraint firstItem="Q4T-Fa-S9Y" firstAttribute="top" secondItem="h6E-0Y-qdM" secondAttribute="bottom" constant="14" id="tJd-Xb-xbH"/>
                 <constraint firstItem="h6E-0Y-qdM" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.92" id="yky-ma-Y12"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="58.5"/>

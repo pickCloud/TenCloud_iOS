@@ -44,6 +44,7 @@
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onGetCaptchaButton:(id)sender;
 - (IBAction) onConfirmJoinButton:(id)sender;
+- (IBAction) onEnterSystem:(id)sender;
 - (void) updateInviteInfoUI;
 - (void) loginWithToken:(NSString*)token shouldSetPassword:(BOOL)shouldSet;
 @end
@@ -160,9 +161,7 @@
     NSLog(@"on register button");
     if ([self isInviteInfoInvalid])
     {
-        TCLoginViewController *loginVC = [TCLoginViewController new];
-        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+        [self onEnterSystem:nil];
         return;
     }
     NSString *phoneNumStr = _phoneNumberField.plainPhoneNum;
@@ -211,6 +210,13 @@
             [MMProgressHUD dismissWithError:message];
         }
     }];
+}
+
+- (IBAction) onEnterSystem:(id)sender
+{
+    TCLoginViewController *loginVC = [TCLoginViewController new];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
 }
 
 - (BOOL) isInviteInfoInvalid
