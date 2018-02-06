@@ -47,7 +47,7 @@
         [_button setTitle:_buttonTitle forState:UIControlStateNormal];
     }else
     {
-        [_button setTitle:@"好的" forState:UIControlStateNormal];
+        [_button setTitle:@"进入系统" forState:UIControlStateNormal];
     }
 }
 

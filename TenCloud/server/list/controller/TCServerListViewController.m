@@ -381,9 +381,15 @@
     }];
      */
     [self startLoading];
-    TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:@"" regions:@[] providers:@[]];
+    NSString *keyword = _keywordField.text;
+    if (keyword == nil)
+    {
+        keyword = @"";
+    }
+    TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:@[] providers:@[]];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        [weakSelf stopLoading];
+        //[weakSelf stopLoading];
+        [weakSelf performSelector:@selector(stopLoading) withObject:nil afterDelay:0.32];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];
