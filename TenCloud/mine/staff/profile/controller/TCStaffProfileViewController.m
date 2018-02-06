@@ -473,7 +473,20 @@
     {
         if (_staff.status == STAFF_STATUS_PENDING)
         {
-            
+            TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+            if ([currentCorp havePermissionForFunc:FUNC_ID_REVIEW_STAFF])
+            {
+                TCProfileButtonData *data1 = [TCProfileButtonData new];
+                data1.title = @"允许加入";
+                data1.color = THEME_TINT_COLOR;
+                data1.type = TCProfileButtonAllowJoin;
+                [_buttonDataArray addObject:data1];
+                TCProfileButtonData *data2 = [TCProfileButtonData new];
+                data2.title = @"拒绝加入";
+                data2.color = STATE_ALERT_COLOR;
+                data2.type = TCProfileButtonRejectJoin;
+                [_buttonDataArray addObject:data2];
+            }
         }else if(_staff.status == STAFF_STATUS_REJECT)
         {
             
