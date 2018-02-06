@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *contentLabel;
 @property (nonatomic, weak) IBOutlet    UIButton    *actionButton;
 @property (nonatomic, weak) IBOutlet    UIButton    *disclosureButton;
+@property (nonatomic, weak) IBOutlet    UIView      *redSpotView;
 - (IBAction) onActionButton:(id)sender;
 @end
 
@@ -26,6 +27,7 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.05];
     self.selectedBackgroundView = selectedBgView;
+    _redSpotView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,6 +40,7 @@
 {
     _message = message;
     NSString *operation = nil;
+    _redSpotView.hidden = message.status == 1;
     if (message.mode == 1)
     {
         operation = @"加入企业";
@@ -145,5 +148,12 @@
         _actionBlock(self,_message);
     }
     
+}
+
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+    CGSize spotSize = _redSpotView.frame.size;
+    _redSpotView.layer.cornerRadius = spotSize.width / 2.0;
 }
 @end

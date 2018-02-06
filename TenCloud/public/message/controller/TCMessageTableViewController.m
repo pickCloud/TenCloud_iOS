@@ -23,6 +23,7 @@
 #import "TCInviteLoginViewController.h"
 #import "TCCorp+CoreDataClass.h"
 #import "TCCorpProfileViewController.h"
+#import "TCMessageManager.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -138,6 +139,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     newRect.origin.x = screenRect.size.width - newRect.size.width - newRect.size.height;
     [self.view addSubview:_keyboardPanel];
     _keyboardPanel.frame = newRect;
+    
+    [[TCMessageManager shared] clearMessageCount];
 }
 
 - (void)didReceiveMemoryWarning {

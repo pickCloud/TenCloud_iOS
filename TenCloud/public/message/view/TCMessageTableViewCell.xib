@@ -72,6 +72,13 @@
                             <constraint firstAttribute="height" constant="0.5" id="NrM-07-3YE"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckw-YN-PiD">
+                        <rect key="frame" x="12" y="30" width="6" height="6"/>
+                        <color key="backgroundColor" red="0.8784313725490196" green="0.37254901960784315" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Ckw-YN-PiD" secondAttribute="height" multiplier="1:1" id="xct-TU-OiS"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
@@ -82,13 +89,16 @@
                     <constraint firstItem="crr-Ej-zsg" firstAttribute="centerY" secondItem="GXK-mP-l8Z" secondAttribute="centerY" id="6eX-ML-c8g"/>
                     <constraint firstItem="7bc-4X-vsx" firstAttribute="centerY" secondItem="UyO-NM-UWS" secondAttribute="centerY" id="C3k-zc-HYY"/>
                     <constraint firstItem="GXK-mP-l8Z" firstAttribute="leading" secondItem="McA-5V-hpG" secondAttribute="leading" id="Ezo-zD-zHd"/>
+                    <constraint firstItem="Ckw-YN-PiD" firstAttribute="centerY" secondItem="UyO-NM-UWS" secondAttribute="centerY" id="GXT-0h-AmD"/>
                     <constraint firstAttribute="bottom" secondItem="GXK-mP-l8Z" secondAttribute="bottom" constant="27" id="IjU-Cx-VrR"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="leading" secondItem="McA-5V-hpG" secondAttribute="leading" id="Lhv-el-S6b"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="top" secondItem="McA-5V-hpG" secondAttribute="top" id="MnN-tZ-xQd"/>
                     <constraint firstAttribute="trailing" secondItem="PCU-QI-CzG" secondAttribute="trailing" id="Q5g-XY-fQc"/>
                     <constraint firstItem="PCU-QI-CzG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YHb-ia-Y3C"/>
+                    <constraint firstItem="Ckw-YN-PiD" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.016" id="cYc-Oq-3L1"/>
                     <constraint firstItem="McA-5V-hpG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.335" id="ceJ-PV-FQg"/>
                     <constraint firstAttribute="bottom" secondItem="PCU-QI-CzG" secondAttribute="bottom" constant="1" id="gcm-8U-EnX"/>
+                    <constraint firstItem="UyO-NM-UWS" firstAttribute="leading" secondItem="Ckw-YN-PiD" secondAttribute="trailing" constant="6" id="hH7-Ak-E3X"/>
                     <constraint firstItem="Cnj-nH-QWe" firstAttribute="trailing" secondItem="McA-5V-hpG" secondAttribute="trailing" constant="6" id="jQk-S5-gdB"/>
                     <constraint firstItem="UyO-NM-UWS" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.032" id="sZg-VB-kBt"/>
                     <constraint firstItem="crr-Ej-zsg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.032" id="u9T-5i-Ucv"/>
@@ -104,6 +114,7 @@
                 <outlet property="contentLabel" destination="Cnj-nH-QWe" id="lwU-p0-wNo"/>
                 <outlet property="disclosureButton" destination="crr-Ej-zsg" id="VGQ-dy-Qif"/>
                 <outlet property="operationLabel" destination="7bc-4X-vsx" id="Knq-yg-cin"/>
+                <outlet property="redSpotView" destination="Ckw-YN-PiD" id="wTF-tN-s2z"/>
             </connections>
             <point key="canvasLocation" x="31.5" y="99"/>
         </tableViewCell>
