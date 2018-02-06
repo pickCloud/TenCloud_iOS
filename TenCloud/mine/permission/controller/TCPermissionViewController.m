@@ -41,7 +41,13 @@
         self.titleLabel.text = @"查看权限";
     }else
     {
-        self.titleLabel.text = @"修改模版权限";
+        if (_userID > 0)
+        {
+            self.titleLabel.text = @"设置权限";
+        }else
+        {
+            self.titleLabel.text = @"修改模版权限";
+        }
     }
     
     [self addChildViewController:self.magicController];
