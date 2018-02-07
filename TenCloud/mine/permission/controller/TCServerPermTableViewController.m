@@ -62,15 +62,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    __weak __typeof(self) weakSelf = self;
+    //__weak __typeof(self) weakSelf = self;
     TCPermissionNode *node = [_serverNodeArray objectAtIndex:indexPath.row];
     TCServerPermTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_PERM_CELL_ID forIndexPath:indexPath];
     cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
-        [node updateFatherNodeAfterSubNodeChanged];
-        [node updateSubNodesAfterFatherNodeChanged];
-        [weakSelf.tableView reloadData];
+        //[node updateFatherNodeAfterSubNodeChanged];
+        //[node updateSubNodesAfterFatherNodeChanged];
+        //[weakSelf.tableView reloadData];
     };
     
     return cell;
@@ -148,6 +148,11 @@
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:@"无服务器数据" attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return - TCSCALE(50);
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods

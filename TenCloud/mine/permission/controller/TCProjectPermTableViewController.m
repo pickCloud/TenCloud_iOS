@@ -152,6 +152,11 @@
     return [[NSAttributedString alloc] initWithString:@"无文件数据" attributes:attributes];
 }
 
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return - TCSCALE(50);
+}
+
 #pragma mark - DZNEmptyDataSetDelegate Methods
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView

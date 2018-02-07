@@ -152,6 +152,7 @@
     {
         if (subNode.sid == idInteger)
         {
+            NSLog(@"sub node %@ set selected %ld",subNode.name, idInteger);
             subNode.selected = YES;
             break;
         }
@@ -179,16 +180,20 @@
     }
     
     NSString *serverPermissionsStr = tmpl.access_servers;
+    NSLog(@"editing perm set servers !!!!");
     if (serverPermissionsStr && serverPermissionsStr.length > 0)
     {
+        NSLog(@"server perm strs:%@",serverPermissionsStr);
         NSArray *serverPerIDArray = [serverPermissionsStr componentsSeparatedByString:@","];
         if (serverPerIDArray && serverPerIDArray.count > 0)
         {
+            NSLog(@"server per id arr:%@",serverPerIDArray);
             for (NSNumber *pIDNum in serverPerIDArray)
             {
                 TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
                 if (dataNode.data.count > 2)
                 {
+                    NSLog(@"server node set id%ld selected",pIDNum.integerValue);
                     TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
                     [self setServerPermissionNodeSelected:serverNode withID:pIDNum.integerValue];
                 }
@@ -335,10 +340,17 @@
 
 - (void) readyForPreview
 {
+    if (_permissionArray.count > 0)
+    {
+        TCPermissionNode *funcNode = _permissionArray.firstObject;
+        [self removeNodeIfAllSubNodesUnselected:funcNode];
+    }
+    /*
     for (TCPermissionNode *subNode in _permissionArray)
     {
         [self removeNodeIfAllSubNodesUnselected:subNode];
     }
+     */
 }
 
 - (NSInteger) funcPermissionAmount

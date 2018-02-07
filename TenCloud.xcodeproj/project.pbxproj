@@ -244,6 +244,8 @@
 		A088F943202AE664005A97DD /* TCProjectPermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F941202AE664005A97DD /* TCProjectPermTableViewCell.xib */; };
 		A088F947202AE731005A97DD /* TCProjectPermTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F944202AE731005A97DD /* TCProjectPermTableViewController.m */; };
 		A088F948202AE731005A97DD /* TCProjectPermTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F946202AE731005A97DD /* TCProjectPermTableViewController.xib */; };
+		A088F94C202B01C4005A97DD /* TCPermissionTemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F949202B01C4005A97DD /* TCPermissionTemplateCell.m */; };
+		A088F94D202B01C4005A97DD /* TCPermissionTemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F94B202B01C4005A97DD /* TCPermissionTemplateCell.xib */; };
 		A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEC2018E20F00C00974 /* TCPageManager.m */; };
 		A0895CF02019743900C00974 /* TCBoderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEF2019743900C00974 /* TCBoderButton.m */; };
 		A0895CF32019E1C200C00974 /* TCServerWarningRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */; };
@@ -824,6 +826,9 @@
 		A088F944202AE731005A97DD /* TCProjectPermTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProjectPermTableViewController.m; sourceTree = "<group>"; };
 		A088F945202AE731005A97DD /* TCProjectPermTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProjectPermTableViewController.h; sourceTree = "<group>"; };
 		A088F946202AE731005A97DD /* TCProjectPermTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCProjectPermTableViewController.xib; sourceTree = "<group>"; };
+		A088F949202B01C4005A97DD /* TCPermissionTemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPermissionTemplateCell.m; sourceTree = "<group>"; };
+		A088F94A202B01C4005A97DD /* TCPermissionTemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPermissionTemplateCell.h; sourceTree = "<group>"; };
+		A088F94B202B01C4005A97DD /* TCPermissionTemplateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCPermissionTemplateCell.xib; sourceTree = "<group>"; };
 		A0895CEB2018E20F00C00974 /* TCPageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPageManager.h; sourceTree = "<group>"; };
 		A0895CEC2018E20F00C00974 /* TCPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPageManager.m; sourceTree = "<group>"; };
 		A0895CEE2019743900C00974 /* TCBoderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCBoderButton.h; sourceTree = "<group>"; };
@@ -3870,6 +3875,9 @@
 		A0EF3B9B20007C4A00D227BC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A088F94A202B01C4005A97DD /* TCPermissionTemplateCell.h */,
+				A088F949202B01C4005A97DD /* TCPermissionTemplateCell.m */,
+				A088F94B202B01C4005A97DD /* TCPermissionTemplateCell.xib */,
 				A088F93F202AE664005A97DD /* TCProjectPermTableViewCell.h */,
 				A088F940202AE664005A97DD /* TCProjectPermTableViewCell.m */,
 				A088F941202AE664005A97DD /* TCProjectPermTableViewCell.xib */,
@@ -4072,6 +4080,7 @@
 				A062773B202199AD00FF7E30 /* TCInviteJoinedViewController.xib in Resources */,
 				A07DBDF71FDF685E00F37715 /* TCServerContainerTableViewController.xib in Resources */,
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
+				A088F94D202B01C4005A97DD /* TCPermissionTemplateCell.xib in Resources */,
 				A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */,
 				A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */,
 				A088F948202AE731005A97DD /* TCProjectPermTableViewController.xib in Resources */,
@@ -4433,6 +4442,7 @@
 				A025551E1FD6930800D16D22 /* YTKBatchRequest.m in Sources */,
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
+				A088F94C202B01C4005A97DD /* TCPermissionTemplateCell.m in Sources */,
 				A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */,
 				A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */,
 				A0C9A0A31FF14B4E00F94E9E /* UIImage+Enhancing.m in Sources */,

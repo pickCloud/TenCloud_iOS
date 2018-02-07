@@ -127,10 +127,8 @@
             node = [_permissionNode.data objectAtIndex:2];
         }
         controller = [[TCServerPermTableViewController alloc] initWithPermissionNode:node state:_state];
-        //controller.view.backgroundColor = [UIColor orangeColor];
     }else if(pageIndex == 1)
     {
-        //controller.view.backgroundColor = [UIColor greenColor];
         if (_permissionNode.data.count > 1)
         {
             node = [_permissionNode.data objectAtIndex:1];
@@ -143,7 +141,6 @@
             node = [_permissionNode.data objectAtIndex:0];
         }
         controller = [[TCFilePermTableViewController alloc] initWithPermissionNode:node state:_state];
-        //controller.view.backgroundColor = [UIColor redColor];
     }
     //TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
     //controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];

@@ -186,8 +186,7 @@
 - (void) reloadTemplateArray
 {
     __weak __typeof(self) weakSelf = self;
-    NSInteger cid = [[TCCurrentCorp shared] cid];
-    TCTemplateListRequest *request = [[TCTemplateListRequest alloc] initWithCorpID:cid];
+    TCTemplateListRequest *request = [[TCTemplateListRequest alloc] init];
     [request startWithSuccess:^(NSArray<TCTemplate *> *templateArray) {
         [weakSelf.templateArray removeAllObjects];
         [weakSelf stopLoading];

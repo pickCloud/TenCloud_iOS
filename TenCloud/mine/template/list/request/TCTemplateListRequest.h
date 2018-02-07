@@ -11,7 +11,7 @@
 @class TCTemplate;
 @interface TCTemplateListRequest : YTKRequest
 
-- (instancetype) initWithCorpID:(NSInteger)cid;
+//- (instancetype) initWithCorpID:(NSInteger)cid;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCTemplate *> *templateArray))success
                   failure:(void(^)(NSString *message))failure;

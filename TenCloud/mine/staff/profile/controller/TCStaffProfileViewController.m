@@ -157,6 +157,7 @@
     req.userID = _staff.uid;
     [req startWithSuccess:^(TCTemplate *tmpl) {
         weakSelf.userTemplate = tmpl;
+        NSLog(@"get servers:%@",tmpl.access_servers);
         [weakSelf stopLoading];
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
@@ -218,6 +219,7 @@
                     NSLog(@"not for admin");
                     [[TCEditingPermission shared] reset];
                     [[TCEditingPermission shared] setTemplate:_userTemplate];
+                    NSLog(@"check per %@",_userTemplate.access_servers);
                     [[TCEditingPermission shared] readyForPreview];
                 }
                 /*

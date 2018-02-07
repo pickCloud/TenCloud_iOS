@@ -10,11 +10,12 @@
 #import "TCTemplate+CoreDataClass.h"
 
 @interface TCTemplateListRequest()
-@property (nonatomic, assign)   NSInteger     corpID;
+//@property (nonatomic, assign)   NSInteger     corpID;
 @end
 
 @implementation TCTemplateListRequest
 
+/*
 - (instancetype) initWithCorpID:(NSInteger)cid
 {
     self = [super init];
@@ -25,6 +26,7 @@
     }
     return self;
 }
+ */
 
 - (void) startWithSuccess:(void(^)(NSArray<TCTemplate *> *templateArray))success
                   failure:(void(^)(NSString *message))failure
@@ -54,7 +56,8 @@
 }
 
 - (NSString *)requestUrl {
-    NSString *url = [NSString stringWithFormat:@"/api/permission/template/list/%ld",_corpID];
+    NSInteger cid = [[TCCurrentCorp shared] cid];
+    NSString *url = [NSString stringWithFormat:@"/api/permission/template/list/%ld",cid];
     return url;
 }
 

@@ -15,11 +15,19 @@
 #import "TCModifyUserPermissionRequest.h"
 #import "TCTemplate+CoreDataClass.h"
 #import "TCDataPermissionViewController.h"
+#import "JYEqualCellSpaceFlowLayout.h"
+#import "TCPermissionTemplateCell.h"
+#import "TCTemplateListRequest.h"
+
+#define PERMISSION_TEMPLATE_CELL_ID @"PERMISSION_TEMPLATE_CELL_ID"
 
 @interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
 @property (nonatomic, strong)   VTMagicController           *magicController;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topHeightConstraint;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *templatePanelHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UILabel             *titleLabel;
+@property (nonatomic, weak) IBOutlet    UICollectionView    *templateCollectionView;
+@property (nonatomic, strong)   NSMutableArray              *templateArray;
 - (IBAction) onCloseButton:(id)sender;
 - (IBAction) onConfirmButton:(id)sender;
 @end
@@ -29,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _templateArray = [NSMutableArray new];
+    
     if (IS_iPhoneX)
     {
         _topHeightConstraint.constant = 64+27;
@@ -51,15 +61,44 @@
         }
     }
     
+    UINib *templateCellNib = [UINib nibWithNibName:@"TCPermissionTemplateCell" bundle:nil];
+    [_templateCollectionView registerNib:templateCellNib forCellWithReuseIdentifier:PERMISSION_TEMPLATE_CELL_ID];
+    JYEqualCellSpaceFlowLayout *areaLayout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithLeft betweenOfCell:12.0];
+    areaLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    [_templateCollectionView setCollectionViewLayout:areaLayout];
+    
+    if (_state == PermissionVCModifyUserPermission)
+    {
+        _templatePanelHeightConstraint.constant = 44;
+        [self startLoading];
+        __weak __typeof(self) weakSelf = self;
+        TCTemplateListRequest *request = [[TCTemplateListRequest alloc] init];
+        [request startWithSuccess:^(NSArray<TCTemplate *> *templateArray) {
+            [weakSelf.templateArray removeAllObjects];
+            [weakSelf stopLoading];
+            [weakSelf.templateArray addObjectsFromArray:templateArray];
+            [weakSelf.templateCollectionView reloadData];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+            [self stopLoading];
+        }];
+    }else
+    {
+        _templatePanelHeightConstraint.constant = 0;
+    }
+    
     [self addChildViewController:self.magicController];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat rectY = _topHeightConstraint.constant;// + 100;
+    CGFloat rectY = _topHeightConstraint.constant + _templatePanelHeightConstraint.constant;
     CGFloat rectH = screenRect.size.height - rectY;
     CGRect rect = CGRectMake(0, rectY, screenRect.size.width, rectH);
     _magicController.view.frame = rect;
     _magicController.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_magicController.view];
     [_magicController.magicView reloadData];
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -181,7 +220,6 @@
         controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
     }else
     {
-        //controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
         controller = [[TCDataPermissionViewController alloc] initWithPermissionNode:node state:_state];
     }
     return controller;
@@ -198,5 +236,54 @@
 
 - (void)magicView:(VTMagicView *)magicView didSelectItemAtIndex:(NSUInteger)itemIndex {
     //    NSLog(@"didSelectItemAtIndex:%ld", (long)itemIndex);
+}
+
+
+#pragma mark - collection view delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _templateArray.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCPermissionTemplateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PERMISSION_TEMPLATE_CELL_ID forIndexPath:indexPath];
+    //NSString *name = [_templateArray objectAtIndex:indexPath.row];
+    TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
+    [cell setName:template.name];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
+    NSString *text = template.name;
+    if (text == nil || text.length == 0)
+    {
+        text = @"默认";
+    }
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(kScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:TCFont(12.0)} context:nil].size;
+    return CGSizeMake(textSize.width + 24, textSize.height + 18);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"item selected:%ld",indexPath.row);
+    if (indexPath.row <= _templateArray.count)
+    {
+        TCTemplate *selectedTmpl = [_templateArray objectAtIndex:indexPath.row];
+        [[TCEditingPermission shared] reset];
+        [[TCEditingPermission shared] setTemplate:selectedTmpl];
+        [_magicController.magicView reloadData];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 @end
