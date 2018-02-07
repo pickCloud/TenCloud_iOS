@@ -2,7 +2,7 @@
 //  TCPermissionNode+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/25.
+//  Created by huangdx on 2018/2/7.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -40,12 +40,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL hidden;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nonatomic) int64_t permID;
+@property (nullable, nonatomic, copy) NSString *provider;
+@property (nullable, nonatomic, copy) NSString *public_ip;
+@property (nullable, nonatomic, copy) NSString *region_name;
 @property (nonatomic) BOOL selected;
 @property (nonatomic) int64_t sid;
-@property (nullable, nonatomic, copy) NSString *public_ip;
-@property (nullable, nonatomic, copy) NSString *provider;
-@property (nullable, nonatomic, copy) NSString *region_name;
 @property (nullable, nonatomic, copy) NSString *status;
+@property (nonatomic) int64_t type;
+@property (nullable, nonatomic, copy) NSString *mime;
 
 @end
 

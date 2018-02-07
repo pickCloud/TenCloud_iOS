@@ -57,6 +57,7 @@
         <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fold" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="permID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,6 +66,7 @@
         <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCServer" representedClassName="TCServer" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -198,7 +200,7 @@
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="150"/>
         <element name="TCMessage" positionX="-9" positionY="135" width="128" height="180"/>
         <element name="TCPerformanceItem" positionX="-9" positionY="135" width="128" height="120"/>
-        <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="255"/>
+        <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="285"/>
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
         <element name="TCServerBasicInfo" positionX="0" positionY="162" width="128" height="210"/>
         <element name="TCServerBusinessContract" positionX="-18" positionY="144" width="128" height="90"/>
@@ -210,11 +212,11 @@
         <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="120"/>
         <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="TCServerPerformance" positionX="-9" positionY="135" width="128" height="105"/>
+        <element name="TCServerSummary" positionX="-9" positionY="135" width="128" height="90"/>
         <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="105"/>
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCServerSummary" positionX="-9" positionY="135" width="128" height="90"/>
     </elements>
 </model>

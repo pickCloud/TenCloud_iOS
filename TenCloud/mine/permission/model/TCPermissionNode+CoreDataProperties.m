@@ -2,7 +2,7 @@
 //  TCPermissionNode+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/1/25.
+//  Created by huangdx on 2018/2/7.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -207,11 +207,13 @@
 @dynamic hidden;
 @dynamic name;
 @dynamic permID;
+@dynamic provider;
+@dynamic public_ip;
+@dynamic region_name;
 @dynamic selected;
 @dynamic sid;
-@dynamic public_ip;
-@dynamic provider;
-@dynamic region_name;
 @dynamic status;
+@dynamic type;
+@dynamic mime;
 
 @end

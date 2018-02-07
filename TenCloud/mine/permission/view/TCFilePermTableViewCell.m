@@ -102,6 +102,13 @@
         [self.checkButton setImage:selectedImage forState:UIControlStateNormal];
         self.nameLabel.textColor = THEME_TINT_COLOR;
         NSString *iconName = @"perm_file_doc_s";
+        if (self.mNode.type == 1)
+        {
+            iconName = @"perm_file_folder_s";
+        }else if(self.mNode.mime && [self.mNode.mime hasPrefix:@"image"])
+        {
+            iconName = @"perm_file_pic_s";
+        }
         UIImage *iconImg = [UIImage imageNamed:iconName];
         [_iconView setImage:iconImg];
     }else
@@ -110,6 +117,13 @@
         [self.checkButton setImage:unselectedImage forState:UIControlStateNormal];
         self.nameLabel.textColor = THEME_TEXT_COLOR;
         NSString *iconName = @"perm_file_doc";
+        if (self.mNode.type == 1)
+        {
+            iconName = @"perm_file_folder";
+        }else if(self.mNode.mime && [self.mNode.mime hasPrefix:@"image"])
+        {
+            iconName = @"perm_file_pic";
+        }
         UIImage *iconImg = [UIImage imageNamed:iconName];
         [_iconView setImage:iconImg];
     }
