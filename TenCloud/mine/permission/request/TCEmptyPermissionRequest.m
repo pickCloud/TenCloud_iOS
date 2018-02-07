@@ -57,9 +57,10 @@
     return nil;
 }
  */
+/*
 - (NSInteger)cacheTimeInSeconds
 {
     return  NSIntegerMax;
 }
-
+*/
 @end

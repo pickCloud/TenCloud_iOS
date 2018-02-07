@@ -11,15 +11,10 @@
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
 @interface TCPermissionCell()
-@property (nonatomic, weak) TCPermissionNode        *mNode;
-@property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
-@property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
 @property (nonatomic, weak) IBOutlet    UIImageView    *arrowView;
-@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *leftConstraint;
 @property (nonatomic, assign)   BOOL                arrowAnimating;
 - (IBAction) onSelectButton:(id)sender;
 - (IBAction) onFoldButton:(id)sender;
-- (void) updateCheckButtonUI;
 @end
 
 @implementation TCPermissionCell
@@ -56,11 +51,18 @@
     if (_editable)
     {
         [_checkButton setHidden:NO];
-        _leftConstraint.constant = 18 + (_mNode.depth - 2) * 23;
+        _leftConstraint.constant = 18 + (_mNode.depth - 1) * 23;
     }else
     {
         [_checkButton setHidden:YES];
-        _leftConstraint.constant = -4 + (_mNode.depth - 2) * 23;
+        _leftConstraint.constant = -4 + (_mNode.depth - 1) * 23;
+    }
+    if (!_mNode.fold)
+    {
+        _arrowView.transform = CGAffineTransformIdentity;
+    }else
+    {
+        _arrowView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(180.0f));
     }
 }
 

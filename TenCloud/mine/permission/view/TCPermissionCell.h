@@ -14,9 +14,14 @@ typedef void (^TCPermissionCellSelectBlock)(TCPermissionCell *cell, BOOL selecte
 @class TCPermissionNode;
 @interface TCPermissionCell : UITableViewCell
 
-- (void) setNode:(TCPermissionNode *)node;
+@property (nonatomic, weak)     TCPermissionNode        *mNode;
 @property (nonatomic, assign)   BOOL                        editable;
 @property (nonatomic, copy) TCPermissionCellFoldBlock       foldBlock;
 @property (nonatomic, copy) TCPermissionCellSelectBlock     selectBlock;
+@property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
+@property (nonatomic, weak) IBOutlet    UIButton    *checkButton;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *leftConstraint;
+- (void) setNode:(TCPermissionNode *)node;
+- (void) updateCheckButtonUI;
 
 @end

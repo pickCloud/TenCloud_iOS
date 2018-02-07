@@ -57,7 +57,11 @@
 
 - (TCPermissionNode*) subNodeAtIndex:(NSInteger)index
 {
-    NSInteger tmpIndex = 0;
+    if (index == 0)
+    {
+        return self;
+    }
+    NSInteger tmpIndex = 1;
     for (TCPermissionNode *sub1 in self.data)
     {
         if (sub1.hidden)

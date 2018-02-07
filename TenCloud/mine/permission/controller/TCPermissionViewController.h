@@ -9,10 +9,10 @@
 #import "TCViewController.h"
 
 typedef NS_ENUM(NSInteger, PermissionVCState){
-    PermissionVCStateNew   =    0,           //新增状态
-    PermissionVCStateEdit,                   //编辑状态
-    PermissionVCPreviewPermission,           //查看状态
-    PermissionVCModifyUserPermission         //修改用户权限
+    PermissionVCStateNew   =    0,           //新增权限模版
+    PermissionVCStateEdit,                   //编辑权限模版
+    PermissionVCPreviewPermission,           //查看权限
+    PermissionVCModifyUserPermission         //设置用户权限
 };
 
 @class TCPermissionViewController;

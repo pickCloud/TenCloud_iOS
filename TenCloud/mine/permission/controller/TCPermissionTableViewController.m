@@ -9,9 +9,7 @@
 #import "TCPermissionTableViewController.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCPermissionCell.h"
-#import "TCPermissionSectionHeaderCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#define PERMISSION_HEADER_CELL_ID   @"PERMISSION_HEADER_CELL_ID"
 #define PERMISSION_CELL_ID          @"PERMISSION_CELL_ID"
 
 @interface TCPermissionTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -36,9 +34,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //_pendingUpdatePaths = [NSMutableArray new];
+    
     // Do any additional setup after loading the view from its nib.
-    UINib *headerCellNib = [UINib nibWithNibName:@"TCPermissionSectionHeaderCell" bundle:nil];
-    [_tableView registerNib:headerCellNib forCellReuseIdentifier:PERMISSION_HEADER_CELL_ID];
+    //UINib *headerCellNib = [UINib nibWithNibName:@"TCPermissionSectionHeaderCell" bundle:nil];
+    //[_tableView registerNib:headerCellNib forCellReuseIdentifier:PERMISSION_HEADER_CELL_ID];
     UINib *cellNib = [UINib nibWithNibName:@"TCPermissionCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:PERMISSION_CELL_ID];
     _tableView.emptyDataSetSource = self;
@@ -60,7 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:section];
     NSInteger rowAmount = 0;
-    rowAmount = sectionNode.subNodeAmount;
+    rowAmount = sectionNode.subNodeAmount + 1;
     NSLog(@"s%ld row amount:%ld",section, rowAmount);
     return rowAmount;
 }
@@ -78,38 +78,67 @@
     };
     
     cell.foldBlock = ^(TCPermissionCell *cell, BOOL fold) {
+        NSMutableArray *pendingUpdatePaths = [NSMutableArray new];
         if (node.data.count > 0)
         {
             node.fold = fold;
+            NSInteger cellIndex = indexPath.row;
             for (TCPermissionNode *subItem in node.data)
             {
                 subItem.hidden = fold;
+                cellIndex ++;
+                NSIndexPath *itemPath = [NSIndexPath indexPathForRow:cellIndex inSection:indexPath.section];
+                [pendingUpdatePaths addObject:itemPath];
+                if (subItem.data && subItem.data.count > 0)
+                {
+                    for (TCPermissionNode *sn2 in subItem.data)
+                    {
+                        sn2.hidden = fold;
+                        cellIndex ++;
+                        NSIndexPath *sn2Path = [NSIndexPath indexPathForRow:cellIndex inSection:indexPath.section];
+                        [pendingUpdatePaths addObject:sn2Path];
+                    }
+                }
             }
+            [weakSelf.tableView beginUpdates];
+            if (fold)
+            {
+                [weakSelf.tableView deleteRowsAtIndexPaths:pendingUpdatePaths withRowAnimation:UITableViewRowAnimationFade];
+            }else
+            {
+                [weakSelf.tableView insertRowsAtIndexPaths:pendingUpdatePaths withRowAnimation:UITableViewRowAnimationFade];
+            }
+            [weakSelf.tableView endUpdates];
         }
-        [weakSelf.tableView reloadData];
     };
     
     return cell;
 }
 
+/*
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:section];
     return sectionNode.name;
 }
+ */
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15.0;
+}
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    /*
-    TCPermissionSectionHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:PERMISSION_HEADER_CELL_ID];
-    TCPermissionSection *pSection = [_permissionSegment.data objectAtIndex:section];
-    headerCell.nameLabel.text = pSection.name;
-    return headerCell;
-     */
+    return [UIView new];
+}
+/*
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     TCPermissionSectionHeaderCell *headerCell = [[[NSBundle mainBundle] loadNibNamed:@"TCPermissionSectionHeaderCell" owner:nil options:nil] lastObject];
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:section];
     headerCell.nameLabel.text = sectionNode.name;
     return headerCell;
 }
+ */
  
 
 #pragma mark - Table view delegate
@@ -126,12 +155,15 @@
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
- - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
- {
- return [UIImage imageNamed:@"no_data"];
- }
- */
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"default_no_data"];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return - TCSCALE(50);
+}
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {

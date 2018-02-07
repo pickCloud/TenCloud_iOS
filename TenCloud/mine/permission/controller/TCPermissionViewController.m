@@ -14,6 +14,7 @@
 #import "TCModifyPermissionRequest.h"
 #import "TCModifyUserPermissionRequest.h"
 #import "TCTemplate+CoreDataClass.h"
+#import "TCDataPermissionViewController.h"
 
 @interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
 @property (nonatomic, strong)   VTMagicController           *magicController;
@@ -52,7 +53,7 @@
     
     [self addChildViewController:self.magicController];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat rectY = _topHeightConstraint.constant;
+    CGFloat rectY = _topHeightConstraint.constant;// + 100;
     CGFloat rectH = screenRect.size.height - rectY;
     CGRect rect = CGRectMake(0, rectY, screenRect.size.width, rectH);
     _magicController.view.frame = rect;
@@ -129,7 +130,7 @@
         _magicController = [[VTMagicController alloc] init];
         _magicController.magicView.itemScale = 1.0;
         _magicController.magicView.headerHeight = 0;
-        _magicController.magicView.navigationHeight = TCSCALE(44);
+        _magicController.magicView.navigationHeight = 40;//TCSCALE(44);
         
         _magicController.magicView.itemSpacing = TCSCALE(29.5);
         _magicController.magicView.bounces = YES;
@@ -173,8 +174,16 @@
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *controller = nil;
+    NSLog(@"page index:%ld",pageIndex);
     TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
-    controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
+    if (pageIndex == 0)
+    {
+        controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
+    }else
+    {
+        //controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
+        controller = [[TCDataPermissionViewController alloc] initWithPermissionNode:node state:_state];
+    }
     return controller;
 }
 
