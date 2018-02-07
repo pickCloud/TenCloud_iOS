@@ -108,28 +108,42 @@
     {
         return;
     }
+    BOOL isViewState = _state == PermissionVCPreviewPermission;
     for (TCPermissionNode *subNode1 in _permissionNode.data)
     {
-        if (subNode1.permID > 0) {
-            [_serverNodeArray addObject:subNode1];
+        if (subNode1.permID > 0)
+        {
+            if ((isViewState && subNode1.selected) || !isViewState)
+            {
+                [_serverNodeArray addObject:subNode1];
+            }
         }
         for (TCPermissionNode *subNode2 in subNode1.data)
         {
             if (subNode2.permID > 0)
             {
-                [_serverNodeArray addObject:subNode2];
+                if ((isViewState && subNode2.selected) || !isViewState)
+                {
+                    [_serverNodeArray addObject:subNode2];
+                }
             }
             for (TCPermissionNode *subNode3 in subNode2.data)
             {
                 if (subNode3.permID > 0)
                 {
-                    [_serverNodeArray addObject:subNode3];
+                    if ((isViewState && subNode3.selected) || !isViewState)
+                    {
+                        [_serverNodeArray addObject:subNode3];
+                    }
                 }
                 for (TCPermissionNode *subNode4 in subNode3.data)
                 {
                     if (subNode4.permID > 0)
                     {
-                        [_serverNodeArray addObject:subNode4];
+                        if ((isViewState && subNode4.selected) || !isViewState)
+                        {
+                            [_serverNodeArray addObject:subNode4];
+                        }
                     }
                 }
             }
