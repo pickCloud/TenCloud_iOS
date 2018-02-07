@@ -353,7 +353,17 @@
 {
     NSInteger amount = 0;
     TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
-    amount = [dataNode selectedServerSubNodeIDArray].count;
+    if (dataNode.data.count >= 3)
+    {
+        TCPermissionNode *serverNode = [dataNode.data objectAtIndex:1];
+        NSInteger serverAmount = [serverNode selectedServerSubNodeIDArray].count;
+        TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
+        NSInteger fileAmount = [fileNode selectedSubNodeIDArray].count;
+        TCPermissionNode *projNode = [dataNode.data objectAtIndex:2];
+        NSInteger projAmount = [projNode selectedSubNodeIDArray].count;
+        amount = serverAmount + fileAmount + projAmount;
+    }
+
     //[dataNode selectedSubNodeIDArray].count;
     return amount;
 }
