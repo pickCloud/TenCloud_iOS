@@ -7,6 +7,7 @@
 //
 
 #import "TCMessageCountRequest.h"
+#import "TCDataSync.h"
 
 @interface TCMessageCountRequest()
 @property (nonatomic, assign)       NSInteger        status;
@@ -35,6 +36,23 @@
             if (msgNum)
             {
                 success ? success (msgNum.integerValue) : nil;
+            }
+            NSNumber *permNum = [dataDict objectForKey:@"permission_changed"];
+            if (permNum)
+            {
+                if (permNum.integerValue == 1)
+                {
+                    [[TCDataSync shared] sendPermissionChangedNotification];
+                }
+            }
+            NSNumber *adminNum = [dataDict objectForKey:@"admin_changed"];
+            if (adminNum)
+            {
+                if (adminNum.integerValue > 0)
+                {
+                    //[[TCDataSync shared] sendAdminChangedNotification];
+                    [[TCDataSync shared] sendPermissionChangedNotification];
+                }
             }
         }
         //success ? success(status) : nil;

@@ -21,10 +21,11 @@
 #import "ShapeView.h"
 #import "TCStaff+CoreDataClass.h"
 #import "TCPageManager.h"
+#import "TCDataSync.h"
 #define STAFF_CELL_ID       @"STAFF_CELL_ID"
 
 @interface TCStaffTableViewController ()
-<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MKDropdownMenuDelegate,MKDropdownMenuDataSource>
+<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MKDropdownMenuDelegate,MKDropdownMenuDataSource,TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, weak) IBOutlet    UIView          *keyboradPanel;
@@ -111,12 +112,13 @@
                                              selector:@selector(reloadStaffArray)
                                                  name:NOTIFICATION_CHANGE_ADMIN
                                                object:nil];
-    
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[TCDataSync shared] removePermissionChangedObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -528,4 +530,18 @@
                            alpha:1.0];
      */
 }
+
+#pragma mark - TCDataSyncDelegate
+/*
+- (void) dataSync:(TCDataSync*)sync adminChanged:(BOOL)changed
+{
+    [self reloadStaffArray];
+}
+*/
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    NSLog(@"receive sync perm changed");
+    [self reloadStaffArray];
+}
+
 @end

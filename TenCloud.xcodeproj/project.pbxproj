@@ -246,6 +246,7 @@
 		A088F948202AE731005A97DD /* TCProjectPermTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F946202AE731005A97DD /* TCProjectPermTableViewController.xib */; };
 		A088F94C202B01C4005A97DD /* TCPermissionTemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F949202B01C4005A97DD /* TCPermissionTemplateCell.m */; };
 		A088F94D202B01C4005A97DD /* TCPermissionTemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F94B202B01C4005A97DD /* TCPermissionTemplateCell.xib */; };
+		A088F951202BCB3C005A97DD /* TCDataSync.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F950202BCB3C005A97DD /* TCDataSync.m */; };
 		A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEC2018E20F00C00974 /* TCPageManager.m */; };
 		A0895CF02019743900C00974 /* TCBoderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CEF2019743900C00974 /* TCBoderButton.m */; };
 		A0895CF32019E1C200C00974 /* TCServerWarningRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0895CF12019E1C200C00974 /* TCServerWarningRequest.m */; };
@@ -829,6 +830,8 @@
 		A088F949202B01C4005A97DD /* TCPermissionTemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPermissionTemplateCell.m; sourceTree = "<group>"; };
 		A088F94A202B01C4005A97DD /* TCPermissionTemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPermissionTemplateCell.h; sourceTree = "<group>"; };
 		A088F94B202B01C4005A97DD /* TCPermissionTemplateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCPermissionTemplateCell.xib; sourceTree = "<group>"; };
+		A088F94F202BCB3C005A97DD /* TCDataSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDataSync.h; sourceTree = "<group>"; };
+		A088F950202BCB3C005A97DD /* TCDataSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCDataSync.m; sourceTree = "<group>"; };
 		A0895CEB2018E20F00C00974 /* TCPageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPageManager.h; sourceTree = "<group>"; };
 		A0895CEC2018E20F00C00974 /* TCPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPageManager.m; sourceTree = "<group>"; };
 		A0895CEE2019743900C00974 /* TCBoderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCBoderButton.h; sourceTree = "<group>"; };
@@ -1420,6 +1423,7 @@
 		A02555261FD6934700D16D22 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				A088F94E202BCB2D005A97DD /* dataSync */,
 				A0D58812200E479200104ED9 /* message */,
 				A0C363072004D1DC0033C99C /* share */,
 				A0C9A0B01FF1EE8900F94E9E /* upload */,
@@ -2984,6 +2988,15 @@
 			path = button;
 			sourceTree = "<group>";
 		};
+		A088F94E202BCB2D005A97DD /* dataSync */ = {
+			isa = PBXGroup;
+			children = (
+				A088F94F202BCB3C005A97DD /* TCDataSync.h */,
+				A088F950202BCB3C005A97DD /* TCDataSync.m */,
+			);
+			path = dataSync;
+			sourceTree = "<group>";
+		};
 		A0906E5D20288DB1006D30C8 /* alertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -4340,6 +4353,7 @@
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
+				A088F951202BCB3C005A97DD /* TCDataSync.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
 				A073F9B02018113200AB03DA /* TCServerConfigItem.m in Sources */,
 				A0C9A0A51FF14B4E00F94E9E /* UIImage+Masking.m in Sources */,

@@ -42,6 +42,7 @@
 - (IBAction) onDeleteButton:(id)sender;
 - (void) updateFooterViewWithStatus:(NSString*)status;
 - (void) udpateStatusLabel:(NSString*)status;
+- (void) reloadServerState;
 - (void) sendUpdateServerStateRequest;
 @end
 
@@ -436,6 +437,11 @@
     {
         [stateCell setStateValue:status];
     }
+}
+
+- (void) reloadServerState
+{
+    
 }
 
 - (void) sendUpdateServerStateRequest
