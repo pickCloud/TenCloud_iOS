@@ -37,7 +37,6 @@ typedef void (^RootVCAnimation)(void);
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     NSInteger pageIndex = (int)scrollView.contentOffset.x/screenRect.size.width;
-    NSLog(@"pageIndex:%ld",pageIndex);
     NSString *indicatorImgName = [NSString stringWithFormat:@"welcome_ind%ld",pageIndex+1];
     UIImage *indicatorImg = [UIImage imageNamed:indicatorImgName];
     if (indicatorImg)

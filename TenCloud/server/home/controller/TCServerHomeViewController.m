@@ -40,6 +40,7 @@
 TCMessageManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
+@property (nonatomic, assign) NSInteger       totalServerAmount;
 @property (nonatomic, strong) UIButton        *messageButton;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *headerCollectionBgHeightConstraint;
@@ -199,7 +200,7 @@ TCMessageManagerDelegate>
     ServerHomeIconCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID forIndexPath:indexPath];
     if (indexPath.row == 0)
     {
-        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:10];
+        [cell setTitle:@"服务器总数" icon:@"server_home_server" messageNumber:_totalServerAmount];
     }else if(indexPath.row == 1)
     {
         [cell setTitle:@"安全警告" icon:@"server_home_alarm" messageNumber:0];
@@ -277,6 +278,8 @@ TCMessageManagerDelegate>
         NSLog(@"summary_server:%lld",summary.server_num);
         NSLog(@"summary_warn_%lld",summary.warn_num);
         NSLog(@"summary_pay_%lld",summary.payment_num);
+        weakSelf.totalServerAmount = summary.server_num;
+        [weakSelf.headerCollectionView reloadData];
     } failure:^(NSString *message) {
         
     }];

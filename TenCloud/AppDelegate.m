@@ -58,9 +58,7 @@
 
      //normal code
     UIViewController *rootVC = nil;
-    //NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    //NSString *version = [infoDictionary objectForKey:@"CFBundleVersion"];
-    NSString *key = @"welcome001";//[NSString stringWithFormat:@"welcome",version];
+    NSString *key = @"welcome001";
     NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (!storedKey || ![storedKey isEqualToString:key])
     {
