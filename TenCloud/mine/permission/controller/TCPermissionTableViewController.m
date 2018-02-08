@@ -61,7 +61,6 @@
     TCPermissionNode *sectionNode = [_permissionNode.data objectAtIndex:section];
     NSInteger rowAmount = 0;
     rowAmount = sectionNode.subNodeAmount + 1;
-    NSLog(@"s%ld row amount:%ld",section, rowAmount);
     return rowAmount;
 }
 
@@ -79,36 +78,13 @@
     
     cell.foldBlock = ^(TCPermissionCell *cell, BOOL fold) {
         NSIndexPath *newPath = [weakSelf.tableView indexPathForCell:cell];
-        NSLog(@"new path:%ld,%ld",newPath.section,newPath.row);
         NSMutableArray *pendingUpdatePaths = [NSMutableArray new];
-        NSLog(@"fold %ld %ld",newPath.section, newPath.row);
         if (node.data.count > 0)
         {
-            /*
             node.fold = fold;
             NSInteger cellIndex = newPath.row;
-            for (TCPermissionNode *subItem in node.data)
-            {
-                subItem.hidden = fold;
-                cellIndex ++;
-                NSIndexPath *itemPath = [NSIndexPath indexPathForRow:cellIndex inSection:newPath.section];
-                [pendingUpdatePaths addObject:itemPath];
-                if (subItem.data && subItem.data.count > 0)
-                {
-                    for (TCPermissionNode *sn2 in subItem.data)
-                    {
-                        sn2.hidden = fold;
-                        cellIndex ++;
-                        NSIndexPath *sn2Path = [NSIndexPath indexPathForRow:cellIndex inSection:newPath.section];
-                        [pendingUpdatePaths addObject:sn2Path];
-                    }
-                }
-            }
-             */
             if (fold)
             {
-                node.fold = fold;
-                NSInteger cellIndex = newPath.row;
                 for (TCPermissionNode *subItem in node.data)
                 {
                     if (!subItem.hidden)
@@ -134,36 +110,37 @@
                 }
             }else
             {
-                node.fold = fold;
-                NSInteger cellIndex = newPath.row;
                 for (TCPermissionNode *subItem in node.data)
                 {
                     subItem.hidden = fold;
                     cellIndex ++;
                     NSIndexPath *itemPath = [NSIndexPath indexPathForRow:cellIndex inSection:newPath.section];
                     [pendingUpdatePaths addObject:itemPath];
-                    if (subItem.data && subItem.data.count > 0)
+                    if (!subItem.fold)
                     {
-                        for (TCPermissionNode *sn2 in subItem.data)
+                        if (subItem.data && subItem.data.count > 0)
                         {
-                            sn2.hidden = fold;
-                            cellIndex ++;
-                            NSIndexPath *sn2Path = [NSIndexPath indexPathForRow:cellIndex inSection:newPath.section];
-                            [pendingUpdatePaths addObject:sn2Path];
+                            for (TCPermissionNode *sn2 in subItem.data)
+                            {
+                                sn2.hidden = fold;
+                                cellIndex ++;
+                                NSIndexPath *sn2Path = [NSIndexPath indexPathForRow:cellIndex inSection:newPath.section];
+                                [pendingUpdatePaths addObject:sn2Path];
+                            }
                         }
                     }
                 }
             }
-            
+        
             
             [weakSelf.tableView beginUpdates];
             if (fold)
             {
-                NSLog(@"del pendingUpdatePaths:%@",pendingUpdatePaths);
+                //NSLog(@"del pendingUpdatePaths:%@",pendingUpdatePaths);
                 [weakSelf.tableView deleteRowsAtIndexPaths:pendingUpdatePaths withRowAnimation:UITableViewRowAnimationFade];
             }else
             {
-                NSLog(@"insert pendingUpdatePaths:%@",pendingUpdatePaths);
+                //NSLog(@"insert pendingUpdatePaths:%@",pendingUpdatePaths);
                 [weakSelf.tableView insertRowsAtIndexPaths:pendingUpdatePaths withRowAnimation:UITableViewRowAnimationFade];
             }
             [weakSelf.tableView endUpdates];

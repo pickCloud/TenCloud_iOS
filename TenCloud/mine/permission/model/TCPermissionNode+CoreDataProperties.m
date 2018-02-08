@@ -35,23 +35,22 @@
     for (TCPermissionNode *subNode in self.data)
     {
         NSInteger subAmount = 0;
-        if (subNode.fold == YES)
-        {
-            subAmount = 1;
-        }else if(subNode.hidden == YES)
+        BOOL haveSubNode = subNode.data && (subNode.data.count > 0);
+        if (subNode.hidden)
         {
             subAmount = 0;
-        }else if(subNode.data == nil || subNode.data.count == 0)
+        }else if(!haveSubNode)
         {
             subAmount = 1;
-        }
-        else
+        }else if(subNode.fold && haveSubNode)
+        {
+            subAmount = 1;
+        }else
         {
             subAmount = [subNode subNodeAmount] + 1;
         }
         amount += subAmount;
     }
-    NSLog(@"subNode:%@ fold:%d Amount:%ld",self.name, self.fold, amount);
     return amount;
 }
 
