@@ -7,6 +7,8 @@
 //
 
 #import "TCDataSync.h"
+#import "TCUserPermissionRequest.h"
+
 @interface TCDataSync()
 {
     NSMutableArray              *adminObserverArray;
@@ -67,6 +69,28 @@
     {
         [permissionObserverArray removeObject:obs];
     }
+}
+
+- (void) adminChanged:(BOOL)isAdmin
+{
+    [[TCCurrentCorp shared] setIsAdmin:isAdmin];
+    [self sendPermissionChangedNotification];
+}
+
+- (void) permissionChanged
+{
+    __weak __typeof(self) weakSelf = self;
+    NSInteger userID = [[TCLocalAccount shared] userID];
+    NSInteger corpID = [[TCCurrentCorp shared] cid];
+    TCUserPermissionRequest *permissionReq = [[TCUserPermissionRequest alloc] init];
+    permissionReq.userID = userID;
+    permissionReq.corpID = corpID;
+    [permissionReq startWithSuccess:^(TCTemplate *tmpl) {
+        [[TCCurrentCorp shared] setPermissions:tmpl];
+        [weakSelf sendPermissionChangedNotification];
+    } failure:^(NSString *message) {
+        NSLog(@"get permission failed:%@",message);
+    }];
 }
 
 - (void) sendAdminChangedNotification

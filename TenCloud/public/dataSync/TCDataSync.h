@@ -25,6 +25,9 @@
 - (void) addPermissionChangedObserver:(id<TCDataSyncDelegate>)obs;
 - (void) removePermissionChangedObserver:(id<TCDataSyncDelegate>)obs;
 
+- (void) adminChanged:(BOOL)isAdmin;
+- (void) permissionChanged;
+
 - (void) sendAdminChangedNotification;
 - (void) sendPermissionChangedNotification;
 

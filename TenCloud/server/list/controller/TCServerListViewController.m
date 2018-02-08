@@ -13,12 +13,13 @@
 #import "TCServerSearchRequest.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCAddServerViewController.h"
+#import "TCDataSync.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
 #import "TCClusterProvider+CoreDataClass.h"
 #import "TCSearchFilterViewController.h"
 
-@interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
+@interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, weak) IBOutlet    UITextField     *keywordField;
 @property (nonatomic, weak) IBOutlet    UIView          *keyboradPanel;
@@ -36,6 +37,7 @@
 - (void) doSearch:(NSString*)keyword provider:(NSArray<NSString*>*)providers
            region:(NSArray<NSString*>*)regions;
 - (void) reloadServerList;
+- (void) updateAddServerButton;
 @end
 
 @implementation TCServerListViewController
@@ -54,20 +56,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"服务器列表";
-    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
-    NSLog(@"corp is admin:%d",currentCorp.isAdmin);
-    if ( currentCorp.isAdmin ||
-        [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
-        currentCorp.cid == 0)
-    {
-        UIImage *addServerImg = [UIImage imageNamed:@"server_nav_add"];
-        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [addButton setImage:addServerImg forState:UIControlStateNormal];
-        [addButton sizeToFit];
-        [addButton addTarget:self action:@selector(onAddServerButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-        self.navigationItem.rightBarButtonItem = addItem;
-    }
+    [self updateAddServerButton];
     _serverArray = [NSMutableArray new];
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
@@ -102,11 +91,13 @@
                        name:UIKeyboardWillShowNotification object:nil];
     [notiCenter addObserver:self selector:@selector(onHideKeyboard:)
                        name:UIKeyboardWillHideNotification object:nil];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[TCDataSync shared] removePermissionChangedObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -397,5 +388,32 @@
         [MBProgressHUD showError:message toView:nil];
         [weakSelf stopLoading];
     }];
+}
+
+- (void) updateAddServerButton
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    NSLog(@"corp is admin:%d",currentCorp.isAdmin);
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+        currentCorp.cid == 0)
+    {
+        UIImage *addServerImg = [UIImage imageNamed:@"server_nav_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addServerImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddServerButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+    }else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self updateAddServerButton];
 }
 @end

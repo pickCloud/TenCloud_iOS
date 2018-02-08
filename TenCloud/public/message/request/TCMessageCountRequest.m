@@ -42,7 +42,7 @@
             {
                 if (permNum.integerValue == 1)
                 {
-                    [[TCDataSync shared] sendPermissionChangedNotification];
+                    [[TCDataSync shared] permissionChanged];
                 }
             }
             NSNumber *adminNum = [dataDict objectForKey:@"admin_changed"];
@@ -50,8 +50,8 @@
             {
                 if (adminNum.integerValue > 0)
                 {
-                    //[[TCDataSync shared] sendAdminChangedNotification];
-                    [[TCDataSync shared] sendPermissionChangedNotification];
+                    BOOL isAdmin = adminNum.integerValue == 1;
+                    [[TCDataSync shared] adminChanged:isAdmin];
                 }
             }
         }
