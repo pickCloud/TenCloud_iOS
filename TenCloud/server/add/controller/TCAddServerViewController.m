@@ -21,13 +21,20 @@
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *userNameField;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
-@property (nonatomic, weak) IBOutlet    UIView              *logView;
 @property (nonatomic, strong)           TCShowAlertView     *logAlertView;
+@property (nonatomic, weak) IBOutlet    UITextView          *logTextView;
+@property (nonatomic, strong)           NSMutableArray      *logTextArray;
+@property (nonatomic, strong)           NSMutableString     *logText;
+@property (nonatomic, strong)           TCShowAlertView     *successAlertView;
+@property (nonatomic, strong)           TCShowAlertView     *failAlertView;
 @property (nonatomic, strong)           SRWebSocket         *socket;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAddButton:(id)sender;
 - (IBAction) onLogButton:(id)sender;
 - (IBAction) onHideLogView:(id)sender;
+- (IBAction) onContinueAddServer:(id)sender;
+- (IBAction) onServerDetailButton:(id)sender;
+- (IBAction) onFailAlertOKButton:(id)sender;
 - (void) connectWebSocket;
 - (void) closeWebSocket;
 - (void) sendWebSocketData;
@@ -48,6 +55,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加主机";
+    _logTextArray = [NSMutableArray new];
+    _logText = [NSMutableString new];
     
     if (IS_iPhoneX)
     {
@@ -81,10 +90,10 @@
 //    _userNameField.text = @"ubuntu";
 //    _passwordField.text = @"Sqsm3334545";
     
-//    _serverNameField.text = @"测试机2";
-//    _ipField.text = @"47.96.129.231";
-//    _userNameField.text = @"root";
-//    _passwordField.text = @"Test1234";
+    _serverNameField.text = @"测试机2";
+    _ipField.text = @"47.96.129.231";
+    _userNameField.text = @"root";
+    _passwordField.text = @"Test1234";
     
 //    _serverNameField.text = @"测试机2";
 //    _ipField.text = @"47.97.185.147";
@@ -149,6 +158,7 @@
         return;
     }
     
+    /*
     [MMProgressHUD showWithStatus:@"添加中"];
     if (self.socket.readyState == SR_OPEN)
     {
@@ -158,44 +168,72 @@
     {
         [self closeWebSocket];
         [self connectWebSocket];
-        //[MBProgressHUD showError:@"请稍后重试" toView:nil];
         [MMProgressHUD dismissWithError:@"请稍后重试"];
-        NSLog(@"稍后重试");
+    }
+     */
+    if (self.socket.readyState == SR_OPEN)
+    {
+        [self sendWebSocketData];
+        
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
+        if (views.count >= 2)
+        {
+            UIView *logView = [views objectAtIndex:1];
+            _logAlertView = [TCShowAlertView alertViewWithView:logView];
+            _logAlertView.backgoundTapDismissEnable = YES;
+            [_logAlertView show];
+        }
+    }else {
+        [self closeWebSocket];
+        [self connectWebSocket];
     }
 }
 
 - (IBAction) onLogButton:(id)sender
 {
     NSLog(@"on log button");
-    NSLog(@"log button:%@",_logView);
     /*
-    if (_logView.superview)
-    {
-        [_logView removeFromSuperview];
-    }
-     */
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
     if (views.count >= 2)
     {
         UIView *logView = [views objectAtIndex:1];
-        //[TCShowAlertView showAlertViewWithView:logView backgoundTapDismissEnable:YES];
-        //TCShowAlertView *logAlertView = [[TCShowAlertView alloc] initWith]
+        NSMutableString *logText = [NSMutableString new];
+        [logText appendString:@"第一行abc\n"];
+        [logText appendString:@"第二行bddd\n"];
+        [logText appendString:@"第三行ddddzz\n"];
+        _logTextView.text = logText;
         
-        //TCShowAlertView *logAlertView = [TCShowAlertView alertViewWithView:logView];
-        //logAlertView.backgoundTapDismissEnable = YES;
-        //[logAlertView show];
         _logAlertView = [TCShowAlertView alertViewWithView:logView];
         _logAlertView.backgoundTapDismissEnable = YES;
         [_logAlertView show];
     }
-    //[TCShowAlertView showAlertViewWithView:_logView backgoundTapDismissEnable:YES];
-    
-    //[_logView showI]
-    /*
-    TCAlertController *alertController = [TCAlertController alertControllerWithAlertView:_logView preferredStyle:TCAlertControllerStyleAlert];
-    alertController.backgoundTapDismissEnable = NO;
-    [self presentViewController:alertController animated:YES completion:nil];
      */
+    
+    /*
+    //添加成功弹出框
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
+    if (views.count >= 3)
+    {
+        UIView *successView = [views objectAtIndex:2];
+        _successAlertView = [TCShowAlertView alertViewWithView:successView];
+        //successAlert.backgoundTapDismissEnable = YES;
+        [_successAlertView show];
+    }
+     */
+    
+    //添加失败弹出框
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
+    if (views.count >= 4)
+    {
+        UIView *failView = [views objectAtIndex:3];
+        _failAlertView = [TCShowAlertView alertViewWithView:failView];
+        _failAlertView.backgoundTapDismissEnable = YES;
+        [_failAlertView show];
+        
+        //_successAlertView = [TCShowAlertView alertViewWithView:failView];
+        //successAlert.backgoundTapDismissEnable = YES;
+        //[_successAlertView show];
+    }
 }
 
 - (IBAction) onHideLogView:(id)sender
@@ -203,6 +241,33 @@
     if (_logAlertView)
     {
         [_logAlertView hide];
+    }
+}
+
+- (IBAction) onContinueAddServer:(id)sender
+{
+    NSLog(@" on continue add server button");
+    if (_successAlertView)
+    {
+        [_successAlertView hide];
+    }
+}
+
+- (IBAction) onServerDetailButton:(id)sender
+{
+    //NSLog(@" on server detail button");
+    if (_successAlertView)
+    {
+        [_successAlertView hide];
+    }
+}
+
+- (IBAction) onFailAlertOKButton:(id)sender
+{
+    //NSLog(@"on fail alert ok button");
+    if (_failAlertView)
+    {
+        [_failAlertView hide];
     }
 }
 
@@ -283,6 +348,13 @@
     }
     
     if (webSocket == self.socket) {
+        [_logTextArray addObject:message];
+        NSString *rowText = [NSString stringWithFormat:@"%@\n",message];
+        [_logText appendString:rowText];
+        if (_logTextView)
+        {
+            [_logTextView setText:_logText];
+        }
         if([message isEqualToString:@"success"])
         {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
