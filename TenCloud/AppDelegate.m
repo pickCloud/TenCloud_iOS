@@ -17,6 +17,7 @@
 #import "TCInviteLoginViewController.h"
 #import "TCAcceptInviteViewController.h"
 #import "TCMessageManager.h"
+#import "TCWelcomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"app init 1");
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
@@ -56,13 +58,25 @@
 
      //normal code
     UIViewController *rootVC = nil;
-    if ([[TCLocalAccount shared] isLogin])
+    //NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //NSString *version = [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSString *key = @"welcome001";//[NSString stringWithFormat:@"welcome",version];
+    NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    if (!storedKey || ![storedKey isEqualToString:key])
     {
-        rootVC = [[TCTabBarController alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:key forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        rootVC = [[TCWelcomeViewController alloc] init];
     }else
     {
-        UIViewController *loginVC = [TCLoginViewController new];
-        rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        if ([[TCLocalAccount shared] isLogin])
+        {
+            rootVC = [[TCTabBarController alloc] init];
+        }else
+        {
+            UIViewController *loginVC = [TCLoginViewController new];
+            rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        }
     }
     self.window.rootViewController = rootVC;
     
@@ -72,6 +86,7 @@
     [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleDefault];
     [self.window makeKeyAndVisible];
     
+
     /*
     //test code1
     TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:@"b73d340"];
@@ -127,6 +142,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
+    NSLog(@"app init 2");
     NSString *hostName = url.host;
     NSDictionary *paramDict = [NSString paramDictFromURLQueryString:url.query];
     if ([hostName isEqualToString:@"invite"])
