@@ -11,15 +11,23 @@
 #import <SocketRocket.h>
 #import <AFNetworking/AFNetworking.h>
 
+#import "TCShowAlertView.h"
+#import "TCAlertController.h"
+#import "UIView+TCAlertView.h"
+
 @interface TCAddServerViewController ()<UIGestureRecognizerDelegate,SRWebSocketDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *serverNameField;
 @property (nonatomic, weak) IBOutlet    UITextField         *ipField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *userNameField;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
+@property (nonatomic, weak) IBOutlet    UIView              *logView;
+@property (nonatomic, strong)           TCShowAlertView     *logAlertView;
 @property (nonatomic, strong)           SRWebSocket         *socket;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAddButton:(id)sender;
+- (IBAction) onLogButton:(id)sender;
+- (IBAction) onHideLogView:(id)sender;
 - (void) connectWebSocket;
 - (void) closeWebSocket;
 - (void) sendWebSocketData;
@@ -46,14 +54,14 @@
         _topConstraint.constant = 64+27;
     }
     
-    NSAttributedString *serverNamePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入主机名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    _serverNameField.attributedPlaceholder = serverNamePlaceHolderStr;
-    NSAttributedString *ipPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入IP"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    _ipField.attributedPlaceholder = ipPlaceHolderStr;
-    NSAttributedString *userNamePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入用户名"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    _userNameField.attributedPlaceholder = userNamePlaceHolderStr;
-    NSAttributedString *pwdPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    _passwordField.attributedPlaceholder = pwdPlaceHolderStr;
+    //NSAttributedString *serverNamePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入主机名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    //_serverNameField.attributedPlaceholder = serverNamePlaceHolderStr;
+    //NSAttributedString *ipPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入IP"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    //_ipField.attributedPlaceholder = ipPlaceHolderStr;
+    //NSAttributedString *userNamePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入用户名"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    //_userNameField.attributedPlaceholder = userNamePlaceHolderStr;
+    //NSAttributedString *pwdPlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入密码"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    //_passwordField.attributedPlaceholder = pwdPlaceHolderStr;
     
     UITapGestureRecognizer  *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                   action:@selector(onTapBlankArea:)];
@@ -156,9 +164,50 @@
     }
 }
 
+- (IBAction) onLogButton:(id)sender
+{
+    NSLog(@"on log button");
+    NSLog(@"log button:%@",_logView);
+    /*
+    if (_logView.superview)
+    {
+        [_logView removeFromSuperview];
+    }
+     */
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
+    if (views.count >= 2)
+    {
+        UIView *logView = [views objectAtIndex:1];
+        //[TCShowAlertView showAlertViewWithView:logView backgoundTapDismissEnable:YES];
+        //TCShowAlertView *logAlertView = [[TCShowAlertView alloc] initWith]
+        
+        //TCShowAlertView *logAlertView = [TCShowAlertView alertViewWithView:logView];
+        //logAlertView.backgoundTapDismissEnable = YES;
+        //[logAlertView show];
+        _logAlertView = [TCShowAlertView alertViewWithView:logView];
+        _logAlertView.backgoundTapDismissEnable = YES;
+        [_logAlertView show];
+    }
+    //[TCShowAlertView showAlertViewWithView:_logView backgoundTapDismissEnable:YES];
+    
+    //[_logView showI]
+    /*
+    TCAlertController *alertController = [TCAlertController alertControllerWithAlertView:_logView preferredStyle:TCAlertControllerStyleAlert];
+    alertController.backgoundTapDismissEnable = NO;
+    [self presentViewController:alertController animated:YES completion:nil];
+     */
+}
+
+- (IBAction) onHideLogView:(id)sender
+{
+    if (_logAlertView)
+    {
+        [_logAlertView hide];
+    }
+}
+
 - (void) connectWebSocket
 {
-    //NSURL *newURL = [NSURL URLWithString:@"https://c.10.com/api/server/new"];
     NSInteger cid = [[TCCurrentCorp shared] cid];
     NSString *token = [[TCLocalAccount shared] token];
     NSString *urlStr = [NSString stringWithFormat:@"%@?Cid=%ld&Authorization=%@",ADD_SERVER_URL, cid,token];

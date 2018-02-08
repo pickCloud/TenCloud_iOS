@@ -119,8 +119,12 @@
     
     // width, height
     if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
-        [_alertView addConstraintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
-        
+        CGSize alertSize = _alertView.frame.size;
+        //NSLog(@"alerv _width:%.2f,%.2f",alertSize.width, alertSize.height);
+        CGFloat alertWidth = TCSCALE(alertSize.width);
+        CGFloat alertHeight = TCSCALE(alertSize.height);
+        [_alertView addConstraintWidth:alertWidth height:alertHeight];
+        //[_alertView addConstraintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
     }else {
         BOOL findAlertViewWidthConstraint = NO;
         for (NSLayoutConstraint *constraint in _alertView.constraints) {
