@@ -24,11 +24,12 @@
 #import "TCLeaveCorpRequest.h"
 #import "TCPersonHomeViewController.h"
 #import "TCMessageManager.h"
+#import "TCDataSync.h"
 
 #define STAFF_PROFILE_CELL_ID       @"STAFF_PROFILE_CELL_ID"
 #define STAFF_BUTTON_CELL_ID        @"STAFF_BUTTON_CELL_ID"
 
-@interface TCStaffProfileViewController ()<TCCurrentCorpDelegate>
+@interface TCStaffProfileViewController ()<TCCurrentCorpDelegate,TCDataSyncDelegate>
 @property (nonatomic, strong)   TCStaff         *staff;
 @property (nonatomic, strong)   TCTemplate      *userTemplate;
 @property (nonatomic, strong)   NSMutableArray  *rowDataArray;
@@ -168,11 +169,13 @@
                                                  name:NOTIFICATION_CHANGE_ADMIN
                                                object:nil];
     [[TCCurrentCorp shared] addObserver:self];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void) dealloc
 {
     [[TCCurrentCorp shared] removeObserver:self];
+    [[TCDataSync shared] removePermissionChangedObserver:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -562,6 +565,12 @@
 
 #pragma mark - TCCurrentCorpDelegate
 - (void) corpModified:(TCCurrentCorp*)corp
+{
+    [self updateUI];
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
 {
     [self updateUI];
 }

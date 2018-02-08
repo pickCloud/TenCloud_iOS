@@ -17,12 +17,15 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCEditingPermission.h"
 #import "TCPermissionViewController.h"
+#import "TCDataSync.h"
 
 #define TEMPLATE_CELL_REUSE_ID      @"TEMPLATE_CELL_REUSE_ID"
 
-@interface TCTemplateTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
+@interface TCTemplateTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,
+TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *templateArray;
+- (void) updateAddTemplateButton;
 - (void) onAddTemplateButton:(id)sender;
 - (void) onReloadTemplateNotification;
 - (void) onUpdateTemplateUINotification;
@@ -46,19 +49,7 @@
     [super viewDidLoad];
     self.title = @"权限模版管理";
     _templateArray = [NSMutableArray new];
-    
-    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
-    if ( currentCorp.isAdmin ||
-        [currentCorp havePermissionForFunc:FUNC_ID_ADD_TEMPLATE] )
-    {
-        UIImage *addTmplImg = [UIImage imageNamed:@"template_add"];
-        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [addButton setImage:addTmplImg forState:UIControlStateNormal];
-        [addButton sizeToFit];
-        [addButton addTarget:self action:@selector(onAddTemplateButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-        self.navigationItem.rightBarButtonItem = addItem;
-    }
+    [self updateAddTemplateButton];
     
     UINib *cellNib = [UINib nibWithNibName:@"TCTemplateTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:TEMPLATE_CELL_REUSE_ID];
@@ -77,6 +68,7 @@
     
     [self startLoading];
     [self reloadTemplateArray];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -92,6 +84,7 @@
 
 - (void) dealloc
 {
+    [[TCDataSync shared] removePermissionChangedObserver:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -167,6 +160,25 @@
 
 
 #pragma mark - extension
+- (void) updateAddTemplateButton
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    if ( currentCorp.isAdmin ||
+        [currentCorp havePermissionForFunc:FUNC_ID_ADD_TEMPLATE] )
+    {
+        UIImage *addTmplImg = [UIImage imageNamed:@"template_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addTmplImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddTemplateButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+    }else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
 - (void) onAddTemplateButton:(id)sender
 {
     TCAddTemplateViewController *addVC = [TCAddTemplateViewController new];
@@ -281,5 +293,11 @@
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
 {
     [self onAddTemplateButton:nil];
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self updateAddTemplateButton];
 }
 @end
