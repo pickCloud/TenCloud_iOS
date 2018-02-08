@@ -14,6 +14,7 @@
 #import "TCEditGenderTableViewCell.h"
 #import "TCEditDateTableViewCell.h"
 #import "TCCertificateTableViewCell.h"
+#import "TCDataSync.h"
 #define PROFILE_CELL_EDIT_TEXT      @"PROFILE_CELL_EDIT_TEXT"
 #define PROFILE_CELL_EDIT_AVATAR    @"PROFILE_CELL_EDIT_AVATAR"
 #define PROFILE_CELL_EDIT_GENDAR    @"PROFILE_CELL_EDIT_GENDAR"
@@ -21,10 +22,11 @@
 #define PROFILE_CELL_TEXT           @"PROFILE_CELL_TEXT"
 #define PROFILE_CELL_CERTIFICATE    @"PROFILE_CELL_CERTIFICATE"
 
-@interface TCCorpProfileViewController ()
+@interface TCCorpProfileViewController ()<TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *cellItemArray;
 @property (nonatomic, strong)   TCCorp                  *corp;
+- (void) updateCellData;
 @end
 
 @implementation TCCorpProfileViewController
@@ -53,13 +55,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"企业资料";
+    _cellItemArray = [NSMutableArray new];
     
+    UINib *editTextCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
+    [self.tableView registerNib:editTextCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
+    UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
+    [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
+    UINib *genderCellNib = [UINib nibWithNibName:@"TCEditGenderTableViewCell" bundle:nil];
+    [self.tableView registerNib:genderCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_GENDAR];
+    UINib *dateCellNib = [UINib nibWithNibName:@"TCEditDateTableViewCell" bundle:nil];
+    [self.tableView registerNib:dateCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_DATE];
+    UINib *textCellNib = [UINib nibWithNibName:@"TCTextTableViewCell" bundle:nil];
+    [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_TEXT];
+    UINib *certificateCellNib = [UINib nibWithNibName:@"TCCertificateTableViewCell" bundle:nil];
+    [self.tableView registerNib:certificateCellNib forCellReuseIdentifier:PROFILE_CELL_CERTIFICATE];
+    self.tableView.tableFooterView = [UIView new];
+    
+    [self updateCellData];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
+}
+
+- (void)dealloc
+{
+    [[TCDataSync shared] removePermissionChangedObserver:self];
+}
+
+- (void) updateCellData
+{
+    [_cellItemArray removeAllObjects];
     //TCLocalAccount *account = [TCLocalAccount shared];
     BOOL editPermission = [[TCCurrentCorp shared] havePermissionForFunc:FUNC_ID_MODIFY_CORP];
     BOOL editable = [[TCCurrentCorp shared] isAdmin] || editPermission;
     NSLog(@"editable:%ld isAdmin:%ld",editable, [[TCCurrentCorp shared] isAdmin]);
     
-    _cellItemArray = [NSMutableArray new];
     TCCellData *data1 = [TCCellData new];
     data1.title = @"LOGO";
     data1.initialValue = _corp.image_url;
@@ -125,35 +153,21 @@
     [_cellItemArray addObject:data7];
     
     /*
-    TCCellData *data5 = [TCCellData new];
-    data5.title = @"性别";
-    data5.keyName = @"gender";
-    data5.initialValue = @(account.gender);
-    data5.type = TCCellTypeEditGender;
-    [_cellItemArray addObject:data5];
-    
-    TCCellData *data6 = [TCCellData new];
-    data6.title = @"生日";
-    data6.keyName = @"birthday";
-    data6.initialValue = @(account.birthday);
-    data6.type = TCCellTypeEditDate;
-    [_cellItemArray addObject:data6];
+     TCCellData *data5 = [TCCellData new];
+     data5.title = @"性别";
+     data5.keyName = @"gender";
+     data5.initialValue = @(account.gender);
+     data5.type = TCCellTypeEditGender;
+     [_cellItemArray addObject:data5];
+     
+     TCCellData *data6 = [TCCellData new];
+     data6.title = @"生日";
+     data6.keyName = @"birthday";
+     data6.initialValue = @(account.birthday);
+     data6.type = TCCellTypeEditDate;
+     [_cellItemArray addObject:data6];
      */
-    
-    UINib *editTextCellNib = [UINib nibWithNibName:@"TCEditTextTableViewCell" bundle:nil];
-    [self.tableView registerNib:editTextCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_TEXT];
-    UINib *avatarCellNib = [UINib nibWithNibName:@"TCEditAvatarTableViewCell" bundle:nil];
-    [self.tableView registerNib:avatarCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_AVATAR];
-    UINib *genderCellNib = [UINib nibWithNibName:@"TCEditGenderTableViewCell" bundle:nil];
-    [self.tableView registerNib:genderCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_GENDAR];
-    UINib *dateCellNib = [UINib nibWithNibName:@"TCEditDateTableViewCell" bundle:nil];
-    [self.tableView registerNib:dateCellNib forCellReuseIdentifier:PROFILE_CELL_EDIT_DATE];
-    UINib *textCellNib = [UINib nibWithNibName:@"TCTextTableViewCell" bundle:nil];
-    [self.tableView registerNib:textCellNib forCellReuseIdentifier:PROFILE_CELL_TEXT];
-    UINib *certificateCellNib = [UINib nibWithNibName:@"TCCertificateTableViewCell" bundle:nil];
-    [self.tableView registerNib:certificateCellNib forCellReuseIdentifier:PROFILE_CELL_CERTIFICATE];
-    self.tableView.tableFooterView = [UIView new];
-    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -233,4 +247,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self updateCellData];
+}
 @end
