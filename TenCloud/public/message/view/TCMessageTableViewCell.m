@@ -142,7 +142,6 @@
 
 - (IBAction) onActionButton:(id)sender
 {
-    NSLog(@" on action buttton");
     if (_actionBlock)
     {
         _actionBlock(self,_message);

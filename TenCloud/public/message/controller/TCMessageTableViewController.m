@@ -15,12 +15,9 @@
 #import "TCMessageListRequest.h"
 #import "TCCorpProfileRequest.h"
 #import "TCStaffTableViewController.h"
-#import "TCMessageListRequest.h"
 #import "TCTextRefreshAutoFooter.h"
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
-#import "TCAcceptInviteViewController.h"
-#import "TCInviteLoginViewController.h"
 #import "TCCorp+CoreDataClass.h"
 #import "TCCorpProfileViewController.h"
 #import "TCMessageManager.h"
@@ -82,25 +79,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     
     
     [self startLoading];
-    //__weak __typeof(self) weakSelf = self;
-    /*
-    TCSearchMessageRequest *searchReq = [TCSearchMessageRequest new];
-    searchReq.status = _status;
-    searchReq.mode = 1;
-    searchReq.keywords = @"";
-    [searchReq startWithSuccess:^(NSArray<TCMessage*> *messageArray) {
-        if (messageArray)
-        {
-            [weakSelf.messageArray addObjectsFromArray:messageArray];
-        }
-        [weakSelf stopLoading];
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
-     */
     [self reloadMessages];
+    
     NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
                        name:UIKeyboardWillShowNotification object:nil];
@@ -119,9 +99,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     [_modeMenuOptions addObject:@"离开企业"];
     [_modeMenuOptions addObject:@"添加主机"];
     [_modeMenuOptions addObject:@"构建镜像"];
-    //_modeMenuOptions = [NSArray arrayWithObjects:@"全部",@"加入企业",@"企业变更",@"离开企业",@"添加主机",@"构建镜像",nil];
     
-    //UIColor *selectedBackgroundColor = [UIColor colorWithRed:0.91 green:0.92 blue:0.94 alpha:1.0];
     UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
     self.modeMenu.selectedComponentBackgroundColor = dropDownBgColor;
     self.modeMenu.dropdownBackgroundColor = dropDownBgColor;
@@ -353,12 +331,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    NSLog(@"statusMenuOptions:%@",self.modeMenuOptions);
-    for (NSString *opt in self.modeMenuOptions)
-    {
-        NSLog(@"opt:%@",opt);
-    }
-    NSLog(@"seelI:%ld",_modeSelectedIndex);
     return [[NSAttributedString alloc] initWithString:self.modeMenuOptions[_modeSelectedIndex]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
                                                         NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
@@ -371,7 +343,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
         shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
     }
-    //shapeSelectView.shapeView.sidesCount = row + 2;
     NSString *statusStr = self.modeMenuOptions[row];
     shapeSelectView.textLabel.text = statusStr;
     shapeSelectView.selected = _modeSelectedIndex == row;
@@ -468,7 +439,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 
 - (void) loadMoreMessages
 {
-    //__weak __typeof(self) weakSelf = self;
     TCMessageListRequest *listReq = [TCMessageListRequest new];
     listReq.page = _pageIndex + 1;
     [listReq startWithSuccess:^(NSArray<TCMessage *> *messageArray) {
