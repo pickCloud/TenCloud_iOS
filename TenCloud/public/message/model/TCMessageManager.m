@@ -49,7 +49,7 @@
             [_updateTimer invalidate];
             _updateTimer = nil;
         }
-        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:1100 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
         //[self fetchMessageCount];
         [self performSelector:@selector(fetchMessageCount) withObject:nil afterDelay:0.6];
     }
@@ -72,6 +72,10 @@
 
 - (void) fetchMessageCount
 {
+    if (![[TCLocalAccount shared] isLogin])
+    {
+        return;
+    }
     __weak __typeof(self) weakSelf = self;
     TCMessageCountRequest *countReq = [TCMessageCountRequest new];
     [countReq startWithSuccess:^(NSInteger count) {

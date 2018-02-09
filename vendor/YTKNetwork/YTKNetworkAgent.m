@@ -454,21 +454,19 @@
             NSInteger statusCode = [statusNum integerValue];
             if (statusCode == 10415)
             {
-                [[TCLocalAccount shared] logout];
-                TCLoginViewController *loginVC = [TCLoginViewController new];
-                UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-                [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
-                
-                NSString *message = [request.responseJSONObject objectForKey:@"message"];
-                /*
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"账号被踢出" message:message preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
-                [alertController addAction:cancelAction];
-                [loginVC presentViewController:alertController animated:YES completion:nil];
-                 */
-                [TCAlertController presentFromController:loginVC
-                                                   title:message
-                                                 okBlock:nil];
+                if ([[TCLocalAccount shared] isLogin])
+                {
+                    [[TCLocalAccount shared] logout];
+                    TCLoginViewController *loginVC = [TCLoginViewController new];
+                    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+                    
+                    NSString *message = [request.responseJSONObject objectForKey:@"message"];
+                    [TCAlertController presentFromController:loginVC
+                                                       title:message
+                                                     okBlock:nil];
+                    return ;
+                }
             }
         }
         if (request.responseStatusCode == 403)
@@ -478,6 +476,7 @@
             TCLoginViewController *loginVC = [TCLoginViewController new];
             UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
             [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+            return ;
         }
         
         if (request.delegate != nil) {
