@@ -41,9 +41,7 @@
 {
     [super layoutSubviews];
     CGSize messageLabelSize = _messageNumLabel.frame.size;
-    NSLog(@"msg label size:%.2f,%.2f",messageLabelSize.width, messageLabelSize.height);
     _messageNumLabel.layer.cornerRadius = messageLabelSize.height / 2.0;
-    NSLog(@"raidus:%.2f",_messageNumLabel.layer.cornerRadius);
     _messageNumLabel.clipsToBounds = YES;
 }
 

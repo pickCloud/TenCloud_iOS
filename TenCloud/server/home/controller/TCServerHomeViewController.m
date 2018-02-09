@@ -18,17 +18,11 @@
 #import "TCMessageManager.h"
 #import "UIView+MGBadgeView.h"
 #import "TCMessageTableViewController.h"
+#import "TCServer+CoreDataClass.h"
+#import "TCServerListViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
-//for test
-#import "TCServerLogTableViewController.h"
-#import "TCServer+CoreDataClass.h"
-#import "TCServerContainerTableViewController.h"
-#import "TCServerConfigViewController.h"
-#import "TCServerInfoViewController.h"
-#import "TCServerMonitorViewController.h"
-#import "TCServerListViewController.h"
 
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
@@ -88,7 +82,6 @@ TCMessageManagerDelegate>
     UINib *homeCollectionNibCell = [UINib nibWithNibName:@"ServerHomeIconCollectionViewCell" bundle:nil];
     [_headerCollectionView registerNib:homeCollectionNibCell forCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID];
     UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
-    //iconLayout.itemSize = CGSizeMake(TCSCALE(117), TCSCALE(100));
     iconLayout.itemSize = CGSizeMake(TCSCALE(116.8), TCSCALE(100));
     iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
@@ -147,35 +140,6 @@ TCMessageManagerDelegate>
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerLogTableViewController *logVC = [[TCServerLogTableViewController alloc] initWithID:server.serverID];
-    [self.navigationController pushViewController:logVC animated:YES];
-     */
-    
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerContainerTableViewController *containerVC = [[TCServerContainerTableViewController alloc] initWithID:server.serverID];
-    [self.navigationController pushViewController:containerVC animated:YES];
-     */
-    
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerConfigViewController *configVC = [[TCServerConfigViewController alloc] initWithID:server.serverID];
-    [self.navigationController pushViewController:configVC animated:YES];
-     */
-    
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerInfoViewController *infoVC = [[TCServerInfoViewController alloc] initWithID:server.serverID];
-    [self.navigationController pushViewController:infoVC animated:YES];
-     */
-    
-    /*
-    TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerMonitorViewController *monitorVC = [[TCServerMonitorViewController alloc] initWithID:server.serverID];
-    [self.navigationController pushViewController:monitorVC animated:YES];
-     */
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
     [self.navigationController pushViewController:detailVC animated:YES];
@@ -328,8 +292,6 @@ TCMessageManagerDelegate>
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
 {
-    //UIEdgeInsets inset = self.tableView.contentInset;
-    //return inset.top / 2.0 - self.tableView.frame.size.height / 20;
     return TCSCALE(50);
 }
 
@@ -342,8 +304,7 @@ TCMessageManagerDelegate>
 
 - (void)emptyDataSetDidTapView:(UIScrollView *)scrollView
 {
-    //TCAddServerViewController *addVC = [TCAddServerViewController new];
-    //[self.navigationController pushViewController:addVC animated:YES];
+    
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
@@ -355,7 +316,6 @@ TCMessageManagerDelegate>
 #pragma mark - TCMessageManagerDelegate
 - (void) messageCountChanged:(NSInteger)count
 {
-    NSLog(@"se msg btn badge:%ld",count);
     _messageButton.badgeView.badgeValue = count;
 }
 @end
