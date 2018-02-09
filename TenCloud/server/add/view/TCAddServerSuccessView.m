@@ -7,6 +7,7 @@
 //
 
 #import "TCAddServerSuccessView.h"
+#import "UIView+TCAlertView.h"
 @interface TCAddServerSuccessView()
 - (IBAction) onContinueButton:(id)sender;
 - (IBAction) onCheckButton:(id)sender;
@@ -23,6 +24,7 @@
 */
 - (IBAction) onContinueButton:(id)sender
 {
+    [self hideView];
     if (_continueBlock)
     {
         _continueBlock();
@@ -31,6 +33,7 @@
 
 - (IBAction) onCheckButton:(id)sender
 {
+    [self hideView];
     if (_checkBlock)
     {
         _checkBlock();

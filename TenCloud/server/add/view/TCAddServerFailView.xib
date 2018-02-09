@@ -105,6 +105,9 @@
                     <integer key="value" value="8"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="descLabel" destination="c8u-Y7-2VJ" id="wX7-WP-CNf"/>
+            </connections>
             <point key="canvasLocation" x="329" y="575.5"/>
         </view>
     </objects>

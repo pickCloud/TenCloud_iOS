@@ -31,4 +31,6 @@
 
 - (void)hide;
 
+- (void)hideWithoutAnimation;
+
 @end

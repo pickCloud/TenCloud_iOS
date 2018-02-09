@@ -14,6 +14,7 @@ typedef void (^TCAddServerBlock)(void);
 
 - (IBAction) onContinueButton:(id)sender;
 
+@property (nonatomic, weak) IBOutlet    UILabel *descLabel;
 @property (nonatomic, copy) TCAddServerBlock    continueBlock;
 
 @end

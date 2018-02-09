@@ -192,6 +192,15 @@
     }
 }
 
+- (void)hideWithoutAnimation
+{
+    if (self.superview)
+    {
+        self.alpha = 0;
+        [self removeFromSuperview];
+    }
+}
+
 - (void)dealloc
 {
     NSLog(@"%@ dealloc",NSStringFromClass([self class]));

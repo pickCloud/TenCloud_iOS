@@ -7,6 +7,7 @@
 //
 
 #import "TCAddServerFailView.h"
+#import "UIView+TCAlertView.h"
 
 @implementation TCAddServerFailView
 
@@ -20,6 +21,7 @@
 
 - (IBAction) onContinueButton:(id)sender
 {
+    [self hideView];
     if (_continueBlock)
     {
         _continueBlock();
