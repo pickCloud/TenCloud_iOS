@@ -195,6 +195,7 @@
 
 - (BOOL) isIDCardNeeded
 {
+    return NO;
     if (_joinSetting && _joinSetting.length > 0)
     {
         NSArray *settingArray = [_joinSetting componentsSeparatedByString:@","];
