@@ -30,7 +30,6 @@
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
 #import "TCStaffListRequest.h"
-//#import "TCMessageViewController.h"
 #import "TCMessageTableViewController.h"
 
 
@@ -338,13 +337,11 @@
 
 - (IBAction) onSwitchAccountButton:(id)sender
 {
-    NSLog(@"on switch account ");
+    
 }
 
 - (void) onMessageButton:(id)sender
 {
-    NSLog(@"on message button");
-    //TCMessageViewController *msgVC = [TCMessageViewController new];
     TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
@@ -374,8 +371,6 @@
         _contactLabel.text = [[TCCurrentCorp shared] contact];
         _phoneLabel.text = [NSString hiddenPhoneNumStr:mobile];
         NSURL *avatarURL = [NSURL URLWithString:_corpInfo.image_url];
-        NSLog(@"corp img url:%@",_corpInfo.image_url);
-        NSLog(@"avatar URL:%@",avatarURL);
         UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
         [_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
     }
@@ -385,7 +380,6 @@
 #pragma mark - TCCurrentCorpDelegate
 - (void) corpModified:(TCCurrentCorp*)corp
 {
-    NSLog(@"corp modifiedddd");
     _corpInfo.name = corp.name;
     _corpInfo.contact = corp.contact;
     _corpInfo.mobile = corp.mobile;
@@ -397,7 +391,6 @@
 #pragma mark - TCMessageManagerDelegate
 - (void) messageCountChanged:(NSInteger)count
 {
-    NSLog(@"se msg btn badge:%ld",count);
     _messageButton.badgeView.badgeValue = count;
 }
 @end

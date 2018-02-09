@@ -374,7 +374,6 @@
         
         //custom: process authorized access here
         NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
-        NSLog(@"status_num:%ld",statusNum.integerValue);
         if (statusNum)
         {
             if (statusNum.integerValue == 0)

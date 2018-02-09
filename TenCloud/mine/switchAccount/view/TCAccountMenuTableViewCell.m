@@ -55,7 +55,6 @@
 - (void) setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    NSLog(@"menu cell set Selected:%d %d %@",selected,self.selected, _corp.company_name);
     [self updateUI];
 }
 

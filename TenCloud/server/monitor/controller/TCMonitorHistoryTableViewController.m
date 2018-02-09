@@ -307,12 +307,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    NSLog(@"statusMenuOptions:%@",self.typeMenuOptions);
-    for (NSString *opt in self.typeMenuOptions)
-    {
-        NSLog(@"opt:%@",opt);
-    }
-    NSLog(@"seelI:%ld",_selectedMenuIndex);
     return [[NSAttributedString alloc] initWithString:self.typeMenuOptions[_selectedMenuIndex]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
                                                         NSForegroundColorAttributeName: THEME_TEXT_COLOR}];

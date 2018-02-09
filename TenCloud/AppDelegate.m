@@ -11,7 +11,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import "TCTabBarController.h"
 #import "TCLoginViewController.h"
-//#import "TCConfiguration.h"
 #import "TCShareManager.h"
 #import "NSString+Extension.h"
 #import "TCInviteLoginViewController.h"
@@ -27,11 +26,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSLog(@"app init 1");
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
-    //[[TCConfiguration shared] print];
     [[TCShareManager sharedManager] registerAllPlatForms];
     [[TCMessageManager shared] start];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
@@ -84,24 +81,6 @@
     [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleDefault];
     [self.window makeKeyAndVisible];
     
-
-    /*
-    //test code1
-    TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:@"b73d340"];
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    self.window.rootViewController = loginNav;
-    [self.window makeKeyAndVisible];
-     */
-    
-    /*
-    //test code
-    TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:@"22525ad"];
-    //TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:@"b73d340"];
-    
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:acceptVC];
-    self.window.rootViewController = loginNav;
-    [self.window makeKeyAndVisible];
-    */
     
     //set navigationbar back button
     /*
@@ -140,7 +119,6 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    NSLog(@"app init 2");
     NSString *hostName = url.host;
     NSDictionary *paramDict = [NSString paramDictFromURLQueryString:url.query];
     if ([hostName isEqualToString:@"invite"])
@@ -148,8 +126,6 @@
         if (paramDict)
         {
             NSString *code = [paramDict objectForKey:@"code"];
-            NSLog(@"invite code is:%@",code);
-            NSLog(@"sssss112");
             [[TCMessageManager shared] clearAllObserver];
             if ([[TCLocalAccount shared] isLogin])
             {

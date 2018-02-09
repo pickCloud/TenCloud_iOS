@@ -439,12 +439,6 @@
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    NSLog(@"statusMenuOptions:%@",self.statusMenuOptions);
-    for (NSString *opt in self.statusMenuOptions)
-    {
-        NSLog(@"opt:%@",opt);
-    }
-    NSLog(@"seelI:%ld",_statusSelectedIndex);
     return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
                                                         NSForegroundColorAttributeName: THEME_TEXT_COLOR}];

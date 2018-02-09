@@ -51,7 +51,6 @@
 - (TCCorp *) resultCorp
 {
     NSArray *corpDictArray = [self.responseJSONObject objectForKey:@"data"];
-    NSLog(@"corp array:%@",corpDictArray);
     if (corpDictArray && corpDictArray.count >= 1)
     {
         NSDictionary *corpDict = corpDictArray.firstObject;

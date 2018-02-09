@@ -527,12 +527,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    NSLog(@"statusMenuOptions:%@",self.periodMenuOptions);
-    for (NSString *opt in self.periodMenuOptions)
-    {
-        NSLog(@"opt:%@",opt);
-    }
-    NSLog(@"seelI:%ld",_periodSelectedIndex);
     return [[NSAttributedString alloc] initWithString:self.periodMenuOptions[_periodSelectedIndex]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
                                                         NSForegroundColorAttributeName: THEME_TEXT_COLOR}];

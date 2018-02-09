@@ -220,7 +220,7 @@
     NSArray *array =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *fileName = [array.firstObject stringByAppendingPathComponent:@"currrentCorpArchiverModel"];
     if([data writeToFile:fileName atomically:YES]){
-        NSLog(@"归档成功");
+        
     }
 }
 

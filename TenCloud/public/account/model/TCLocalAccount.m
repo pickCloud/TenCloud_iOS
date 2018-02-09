@@ -113,7 +113,6 @@
 - (BOOL) isNameSetted
 {
     BOOL isSetted = _name.length > 0;
-    NSLog(@"_name:%@",_name);
     return isSetted;
 }
 
@@ -215,7 +214,7 @@
     NSArray *array =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *fileName = [array.firstObject stringByAppendingPathComponent:@"accountArchiverModel"];
     if([data writeToFile:fileName atomically:YES]){
-        NSLog(@"归档成功");
+        
     }
 }
 

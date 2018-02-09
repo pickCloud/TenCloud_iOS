@@ -32,7 +32,6 @@
 @property (nonatomic, strong)           UIView              *mSuccessView;
 @property (nonatomic, strong)           UIView              *mFailView;
 @property (nonatomic, strong)           TCShowAlertView     *logAlertView;
-//@property (nonatomic, weak) IBOutlet    UITextView          *logTextView;
 @property (nonatomic, strong)           NSMutableArray      *logTextArray;
 @property (nonatomic, strong)           NSMutableAttributedString   *logText;
 @property (nonatomic, strong)           TCShowAlertView     *successAlertView;
