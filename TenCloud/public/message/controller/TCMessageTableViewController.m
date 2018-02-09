@@ -28,7 +28,7 @@
 #import "TCAcceptInviteRequest.h"
 #import "TCInviteProfileViewController.h"
 #import "TCInviteInfo+CoreDataClass.h"
-#import "TCServerDetailViewController.h"
+#import "TCServerListViewController.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -203,10 +203,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                 //添加主机\查看主机
                 if (message.mode == 4 && message.sub_mode == 4)
                 {
-                    NSLog(@"点击添加主机查看主机:%@",cidStr);
-                    NSInteger serverID = cidStr.integerValue;
-                    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:serverID name:@"服务器"];
-                    [self.navigationController pushViewController:detailVC animated:YES];
+                    TCServerListViewController *listVC = [TCServerListViewController new];
+                    [self.navigationController pushViewController:listVC animated:YES];
                     return;
                 }
                 

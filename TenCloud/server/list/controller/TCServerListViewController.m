@@ -382,8 +382,8 @@
     }
     TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:@[] providers:@[]];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        //[weakSelf stopLoading];
-        [weakSelf performSelector:@selector(stopLoading) withObject:nil afterDelay:0.32];
+        [weakSelf stopLoading];
+        //[weakSelf performSelector:@selector(stopLoading) withObject:nil afterDelay:0.32];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];

@@ -12,8 +12,6 @@
 @interface TCServerSearchRequest()
 @property (nonatomic, assign)   NSInteger   clusterID;
 @property (nonatomic, strong)   NSString    *serverName;
-//@property (nonatomic, strong)   NSString    *regionName;
-//@property (nonatomic, strong)   NSString    *providerName;
 @property (nonatomic, strong)   NSArray     *regions;
 @property (nonatomic, strong)   NSArray     *providers;
 @end
@@ -40,16 +38,12 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        /*
-        NSArray *containerDictArray = [request.responseJSONObject objectForKey:@"data"];
-        NSLog(@"container array:%@",containerDictArray);
-        NSArray *containerArray = [NSArray mj_objectArrayWithKeyValuesArray:containerDictArray];
-        success ? success(containerArray) : nil;
-        */
         NSArray *dictArray = [request.responseJSONObject objectForKey:@"data"];
         NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
         NSArray *resArray = [TCServer mj_objectArrayWithKeyValuesArray:dictArray context:context];
-        success ? success(resArray) : nil;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.32 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            success ? success(resArray) : nil;
+        });
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         failure ? failure(message) : nil;
