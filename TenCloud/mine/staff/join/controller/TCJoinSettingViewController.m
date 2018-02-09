@@ -40,7 +40,7 @@
     _keyArray = [NSMutableArray new];
     [_keyArray addObject:@"name"];
     [_keyArray addObject:@"mobile"];
-    [_keyArray addObject:@"id_card"];
+    //[_keyArray addObject:@"id_card"]; //for hide id card
     _selectedKeyArray = [NSMutableArray new];
     TCJoinSettingItem *item1 = [TCJoinSettingItem new];
     item1.name = @"姓名";
@@ -74,6 +74,12 @@
         
         for (int i = 0; i < settingArray.count; i++)
         {
+            //for hide id card
+            if (i >= 2)
+            {
+                continue;
+            }
+            //end
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
             [weakSelf.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         }

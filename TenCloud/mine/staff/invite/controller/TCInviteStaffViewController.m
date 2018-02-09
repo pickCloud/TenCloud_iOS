@@ -130,10 +130,10 @@
         {
             [keyArray addObject:@"姓名"];
         }
-        if ([settingArray containsObject:@"id_card"])
-        {
-            [keyArray addObject:@"身份证号"];
-        }
+//        if ([settingArray containsObject:@"id_card"])
+//        {
+//            [keyArray addObject:@"身份证号"];
+//        }
         NSString *rawKeyStr = [keyArray componentsJoinedByString:@"、"];
         NSString *resKeyStr = [NSString stringWithFormat:@"%@，",rawKeyStr];
         weakSelf.keyNameLabel.text = resKeyStr;
