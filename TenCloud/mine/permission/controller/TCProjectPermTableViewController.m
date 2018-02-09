@@ -163,7 +163,7 @@
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:@"无文件数据" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"无项目数据" attributes:attributes];
 }
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView

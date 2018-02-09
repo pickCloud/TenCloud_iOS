@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topHeightConstraint;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *templatePanelHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UILabel             *titleLabel;
+@property (nonatomic, weak) IBOutlet    UIButton            *confirmButton;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *templateCollectionView;
 @property (nonatomic, strong)   NSMutableArray              *templateArray;
 - (IBAction) onCloseButton:(id)sender;
@@ -50,6 +51,7 @@
     }else if(_state == PermissionVCPreviewPermission)
     {
         self.titleLabel.text = @"查看权限";
+        [self.confirmButton setHidden:YES];
     }else
     {
         if (_userID > 0)

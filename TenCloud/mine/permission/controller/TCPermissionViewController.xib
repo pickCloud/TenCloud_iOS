@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCPermissionViewController">
             <connections>
+                <outlet property="confirmButton" destination="y34-f5-ilr" id="Bte-9K-mZN"/>
                 <outlet property="templateCollectionView" destination="nJt-nl-W5X" id="Wg3-hX-Yu7"/>
                 <outlet property="templatePanelHeightConstraint" destination="xm8-Qf-2Nj" id="HvL-Us-mbO"/>
                 <outlet property="titleLabel" destination="5uz-aa-drm" id="liU-lQ-dY9"/>
