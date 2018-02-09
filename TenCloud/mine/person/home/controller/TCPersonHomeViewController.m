@@ -14,9 +14,7 @@
 #import "TCCurrentCorp.h"
 #import "UIView+MGBadgeView.h"
 #import "TCMessageManager.h"
-//#import "TCMessageViewController.h"
 #import "TCMessageTableViewController.h"
-
 #import "TCPersonProfileViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
 #import "TCSettingViewController.h"
@@ -41,7 +39,6 @@
 @property (nonatomic, weak) IBOutlet    TCSwitchAccountButton   *switchButton;
 
 - (IBAction) onProfilePage:(id)sender;
-- (IBAction) onSwitchAccountButton:(id)sender;
 - (void) onMessageButton:(id)sender;
 - (void) loadCorpArray;
 @end
@@ -81,7 +78,6 @@
     
     __weak __typeof(self) weakSelf = self;
     _switchButton.touchedBlock = ^{
-        //NSMutableArray *passedCorpArray = [NSMutableArray new];
         [weakSelf.passedCorpArray removeAllObjects];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)
         {
@@ -206,15 +202,8 @@
     [self.navigationController pushViewController:profileVC animated:YES];
 }
 
-- (IBAction) onSwitchAccountButton:(id)sender
-{
-    NSLog(@"on switch account ");
-}
-
 - (void) onMessageButton:(id)sender
 {
-    NSLog(@"on message button");
-    //TCMessageViewController *msgVC = [TCMessageViewController new];
     TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
@@ -274,7 +263,6 @@
 #pragma mark - TCMessageManagerDelegate
 - (void) messageCountChanged:(NSInteger)count
 {
-    NSLog(@"se msg btn badge:%ld",count);
     _messageButton.badgeView.badgeValue = count;
 }
 @end
