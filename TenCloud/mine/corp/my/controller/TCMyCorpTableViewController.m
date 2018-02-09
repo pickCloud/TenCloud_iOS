@@ -15,8 +15,6 @@
 #import "TCCorpHomeViewController.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "FEPopupMenuController.h"
-#import "TCAcceptInviteViewController.h"
-#import "TCInviteLoginViewController.h"
 #import "TCInviteInfoRequest.h"
 #import "TCAcceptInviteRequest.h"
 #import "TCInviteProfileViewController.h"
@@ -252,7 +250,6 @@
     __weak __typeof(self) weakSelf = self;
     TCCorpListRequest   *request = [[TCCorpListRequest alloc] initWithStatus:7];
     [request startWithSuccess:^(NSArray<TCCorp *> *corpArray) {
-        NSLog(@"corp list:%@",corpArray);
         [weakSelf.corpArray removeAllObjects];
         [weakSelf stopLoading];
         [weakSelf.corpArray addObjectsFromArray:corpArray];
