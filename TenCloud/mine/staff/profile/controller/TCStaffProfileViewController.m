@@ -79,25 +79,10 @@
     {
         idCardStr = @"";
     }
-    /*
-    if (!visable)
-    {
-        if (idCardStr && idCardStr.length >= 18)
-        {
-            NSRange preRange = NSMakeRange(0, 5);
-            NSString *preStr = [idCardStr substringWithRange:preRange];
-            NSRange endRange = NSMakeRange(idCardStr.length - 4, 3);
-            NSString *endStr = [idCardStr substringWithRange:endRange];
-            idCardStr = [NSString stringWithFormat:@"%@**********%@",preStr,endStr];
-        }
-    }
-    item0.value = idCardStr;
-    [_rowDataArray addObject:item0];
-     */
     if (visable)
     {
         item0.value = idCardStr;
-        [_rowDataArray addObject:item0];
+        //[_rowDataArray addObject:item0];  //hide for id card
     }
     
     TCServerInfoItem *item1 = [TCServerInfoItem new];
