@@ -149,50 +149,12 @@
             } failure:^(NSString *message) {
                 [MBProgressHUD showError:message toView:nil];
             }];
-            /*
-            if ([[TCLocalAccount shared] isLogin])
-            {
-                TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
-                [weakSelf.navigationController pushViewController:acceptVC animated:YES];
-            }else
-            {
-                TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
-                [weakSelf.navigationController pushViewController:loginVC animated:YES];
-            }
-             */
         };
         [TCAlertController presentFromController:self
                                            title:tip
                                confirmButtonName:@"重新申请"
                                     confirmBlock:block
                                      cancelBlock:nil];
-        /*
-        NSLog(@"select corp code:%@",selectedCorp.code);
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重新申请?"
-                                                                                 message:nil
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        alertController.view.tintColor = [UIColor grayColor];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *applyAction = [UIAlertAction actionWithTitle:@"重新申请" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            NSString *inviteCode = selectedCorp.code;
-            if ([[TCLocalAccount shared] isLogin])
-            {
-                TCAcceptInviteViewController *acceptVC = [[TCAcceptInviteViewController alloc] initWithCode:inviteCode];
-                [weakSelf.navigationController pushViewController:acceptVC animated:YES];
-            }else
-            {
-                TCInviteLoginViewController *loginVC = [[TCInviteLoginViewController alloc] initWithCode:inviteCode];
-                [weakSelf.navigationController pushViewController:loginVC animated:YES];
-            }
-            
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:applyAction];
-        [alertController presentationController];
-        [self presentViewController:alertController animated:YES completion:nil];
-        */
     }else
     {
         NSString *tip = @"确定切换到企业身份?";
@@ -206,6 +168,7 @@
             [newVCS removeAllObjects];
             [newVCS addObject:homeVC];
             [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CORP_CHANGE object:nil];
             [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
         };
         [TCAlertController presentFromController:self
@@ -213,31 +176,6 @@
                                confirmButtonName:@"切换"
                                     confirmBlock:block
                                      cancelBlock:nil];
-        /*
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定切换到企业身份?"
-                                                                                 message:nil
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        alertController.view.tintColor = [UIColor grayColor];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *switchAction = [UIAlertAction actionWithTitle:@"切换" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [MMProgressHUD showWithStatus:@"切换身份中"];
-            [[TCCurrentCorp shared] setCid:selectedCorp.cid];
-            UIViewController *homeVC = nil;
-            homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:selectedCorp.cid];
-            NSArray *viewControllers = weakSelf.navigationController.viewControllers;
-            NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-            [newVCS removeAllObjects];
-            [newVCS addObject:homeVC];
-            [weakSelf.navigationController setViewControllers:newVCS animated:YES];
-            [MMProgressHUD dismissWithSuccess:@"切换成功" title:nil afterDelay:1.32];
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:switchAction];
-        [alertController presentationController];
-        [self presentViewController:alertController animated:YES completion:nil];
-         */
     }
 }
 
