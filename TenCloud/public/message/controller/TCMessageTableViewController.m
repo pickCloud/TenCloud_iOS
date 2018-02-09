@@ -26,6 +26,7 @@
 #import "TCInviteProfileViewController.h"
 #import "TCInviteInfo+CoreDataClass.h"
 #import "TCServerListViewController.h"
+#import "TCAddServerViewController.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -179,11 +180,19 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                     return ;
                 }
                 //添加主机\查看主机
-                if (message.mode == 4 && message.sub_mode == 4)
+                if (message.mode == 4)
                 {
-                    TCServerListViewController *listVC = [TCServerListViewController new];
-                    [self.navigationController pushViewController:listVC animated:YES];
-                    return;
+                    if (message.sub_mode == 4)
+                    {
+                        TCServerListViewController *listVC = [TCServerListViewController new];
+                        [weakSelf.navigationController pushViewController:listVC animated:YES];
+                        return;
+                    }else if(message.sub_mode == 5)
+                    {
+                        TCAddServerViewController *addVC = [TCAddServerViewController new];
+                        [weakSelf.navigationController pushViewController:addVC animated:YES];
+                        return;
+                    }
                 }
                 
                 TCCorpProfileRequest *corpReq = [[TCCorpProfileRequest alloc] initWithCorpID:cid];
