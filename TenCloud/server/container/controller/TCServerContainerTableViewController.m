@@ -87,12 +87,11 @@
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
+
  - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
  {
- return [UIImage imageNamed:@"no_data"];
+ return [UIImage imageNamed:@"default_no_data"];
  }
- */
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -100,6 +99,11 @@
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:@"您还没创建容器哦" attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -self.tableView.frame.size.height/15;
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods

@@ -255,16 +255,13 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 {
     NSMutableDictionary *attributes = [NSMutableDictionary new];
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
-    //[attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
-    [attributes setObject:THEME_TEXT_COLOR forKey:NSForegroundColorAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:@"暂无历史记录" attributes:attributes];
 }
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
 {
-    //UIEdgeInsets inset = self.tableView.contentInset;
-    //return inset.top / 2.0 - self.tableView.frame.size.height / 20;
-    return - TCSCALE(50);
+    return -self.tableView.frame.size.height/15;
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
