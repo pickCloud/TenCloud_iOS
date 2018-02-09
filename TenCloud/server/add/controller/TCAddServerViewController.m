@@ -11,6 +11,10 @@
 #import <SocketRocket.h>
 #import <AFNetworking/AFNetworking.h>
 
+#import "TCAddServerLogView.h"
+#import "TCAddServerSuccessView.h"
+#import "TCAddServerFailView.h"
+
 #import "TCShowAlertView.h"
 #import "TCAlertController.h"
 #import "UIView+TCAlertView.h"
@@ -21,23 +25,29 @@
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *userNameField;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
+@property (nonatomic, strong)           TCAddServerLogView              *mLogView;
+@property (nonatomic, strong)           UIView              *mSuccessView;
+@property (nonatomic, strong)           UIView              *mFailView;
 @property (nonatomic, strong)           TCShowAlertView     *logAlertView;
 @property (nonatomic, weak) IBOutlet    UITextView          *logTextView;
 @property (nonatomic, strong)           NSMutableArray      *logTextArray;
-@property (nonatomic, strong)           NSMutableString     *logText;
+@property (nonatomic, strong)           NSMutableAttributedString   *logText;
 @property (nonatomic, strong)           TCShowAlertView     *successAlertView;
 @property (nonatomic, strong)           TCShowAlertView     *failAlertView;
 @property (nonatomic, strong)           SRWebSocket         *socket;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAddButton:(id)sender;
 - (IBAction) onLogButton:(id)sender;
-- (IBAction) onHideLogView:(id)sender;
+//- (IBAction) onHideLogView:(id)sender;
 - (IBAction) onContinueAddServer:(id)sender;
 - (IBAction) onServerDetailButton:(id)sender;
 - (IBAction) onFailAlertOKButton:(id)sender;
 - (void) connectWebSocket;
 - (void) closeWebSocket;
 - (void) sendWebSocketData;
+- (void) showLogAlertView;
+- (void) showSuccessAlertView;
+- (void) showFailAlertView:(NSString*)message;
 @end
 
 @implementation TCAddServerViewController
@@ -56,7 +66,7 @@
     [super viewDidLoad];
     self.title = @"添加主机";
     _logTextArray = [NSMutableArray new];
-    _logText = [NSMutableString new];
+    _logText = [NSMutableAttributedString new];
     
     if (IS_iPhoneX)
     {
@@ -99,6 +109,8 @@
 //    _ipField.text = @"47.97.185.147";
 //    _userNameField.text = @"root";
 //    _passwordField.text = @"Test1234";
+    
+    
 }
 
 
@@ -171,6 +183,9 @@
         [MMProgressHUD dismissWithError:@"请稍后重试"];
     }
      */
+    
+    /*
+    //废弃
     if (self.socket.readyState == SR_OPEN)
     {
         [self sendWebSocketData];
@@ -187,11 +202,110 @@
         [self closeWebSocket];
         [self connectWebSocket];
     }
+     */
+    
+    //clear and reset old data
+    [_logTextArray removeAllObjects];
+    if (_logText.length > 0)
+    {
+        NSRange deleteRange = NSMakeRange(0, _logText.length);
+        [_logText deleteCharactersInRange:deleteRange];
+    }
+    
+    if (self.socket.readyState == SR_OPEN)
+    {
+        [self sendWebSocketData];
+        //_logAlertView = [[TCAddServerLogView alloc] createView];
+        //[_logAlertView show];
+        [self showLogAlertView];
+    }else
+    {
+        [self closeWebSocket];
+        [self connectWebSocket];
+    }
 }
 
 - (IBAction) onLogButton:(id)sender
 {
     NSLog(@"on log button");
+    [self showLogAlertView];
+    /*
+    //添加失败弹出框
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerFailView" owner:nil options:nil];
+    if (views.count > 0)
+    {
+        TCAddServerFailView *successView = views.firstObject;
+        successView.continueBlock = ^{
+            NSLog(@"fail continue?");
+        };
+        _failAlertView = [TCShowAlertView alertViewWithView:successView];
+        _failAlertView.backgoundTapDismissEnable = YES;
+        [_failAlertView show];
+    }
+     */
+    
+    /*
+    //添加成功弹出框,可用
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerSuccessView" owner:nil options:nil];
+    if (views.count > 0)
+    {
+        TCAddServerSuccessView *successView = views.firstObject;
+        successView.checkBlock = ^{
+            NSLog(@"want check?");
+        };
+        successView.continueBlock = ^{
+            NSLog(@"want continue?");
+        };
+        _successAlertView = [TCShowAlertView alertViewWithView:successView];
+        _successAlertView.backgoundTapDismissEnable = YES;
+        [_successAlertView show];
+    }
+     */
+    
+    /*
+    //ok
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerLogView"
+                                                   owner:self options:nil];
+    if (views.count > 0)
+    {
+        TCAddServerLogView *logView = views.firstObject;
+        _logAlertView = [TCShowAlertView alertViewWithView:logView];
+        _logAlertView.backgoundTapDismissEnable = YES;
+        //_alertView = [TCShowAlertView alertViewWithView:logView];
+        
+        NSAttributedString *testStr = [[NSAttributedString alloc] initWithString:@"请输入主机名称\n哈哈哈"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+        //[logView setText:@"just do it!!!"];
+        [logView setAttrText:testStr];
+        [_logAlertView show];
+    }
+    */
+    
+    /*
+    _logAlertView = [[TCAddServerLogView alloc] init];
+    [_logAlertView createView];
+    [_logAlertView show];
+    
+    __weak __typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *tmp = [NSString stringWithFormat:@"测试%ld\n",random()];
+        [weakSelf.logText appendString:tmp];
+        [weakSelf.logAlertView setText:weakSelf.logText];
+    });
+     */
+    
+//    NSString *tmp = [NSString stringWithFormat:@"测试%ld\n",random()];
+//    [self.logText appendString:tmp];
+//    [self.logAlertView setText:self.logText];
+    /*
+    __weak __typeof(self) weakSelf = self;
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                    repeats:YES
+                                      block:^(NSTimer * _Nonnull timer) {
+                                          NSString *tmp = [NSString stringWithFormat:@"测试%ld\n",random()];
+                                          [weakSelf.logText appendString:tmp];
+                                          [weakSelf.logAlertView setText:weakSelf.logText];
+                                      }];
+     */
     /*
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
     if (views.count >= 2)
@@ -221,6 +335,7 @@
     }
      */
     
+    /*
     //添加失败弹出框
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerViewController" owner:self options:nil];
     if (views.count >= 4)
@@ -234,8 +349,67 @@
         //successAlert.backgoundTapDismissEnable = YES;
         //[_successAlertView show];
     }
+     */
+    
 }
 
+- (void) showLogAlertView
+{
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerLogView"
+                                                   owner:self options:nil];
+    if (views.count > 0)
+    {
+        //TCAddServerLogView *logView = views.firstObject;
+        _mLogView = views.firstObject;
+        _logAlertView = [TCShowAlertView alertViewWithView:_mLogView];
+        _logAlertView.backgoundTapDismissEnable = YES;
+        //_alertView = [TCShowAlertView alertViewWithView:logView];
+        
+        //NSAttributedString *testStr = [[NSAttributedString alloc] initWithString:@"请输入主机名称\n哈哈哈"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+        //[logView setText:@"just do it!!!"];
+        //[logView setAttrText:testStr];
+        //[logView setText:_logText];
+        //[logView setAttrText:<#(NSAttributedString *)#>]
+        //[_mLogView setAttrText:testStr];
+        [_mLogView setAttrText:_logText];
+        [_logAlertView show];
+    }
+}
+
+- (void) showSuccessAlertView
+{
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerSuccessView" owner:nil options:nil];
+    if (views.count > 0)
+    {
+        TCAddServerSuccessView *successView = views.firstObject;
+        successView.checkBlock = ^{
+            NSLog(@"want check?");
+        };
+        successView.continueBlock = ^{
+            NSLog(@"want continue?");
+        };
+        _successAlertView = [TCShowAlertView alertViewWithView:successView];
+        _successAlertView.backgoundTapDismissEnable = YES;
+        [_successAlertView show];
+    }
+}
+
+- (void) showFailAlertView:(NSString*)message
+{
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TCAddServerFailView" owner:nil options:nil];
+    if (views.count > 0)
+    {
+        TCAddServerFailView *successView = views.firstObject;
+        successView.continueBlock = ^{
+            NSLog(@"fail continue?");
+        };
+        _failAlertView = [TCShowAlertView alertViewWithView:successView];
+        _failAlertView.backgoundTapDismissEnable = YES;
+        [_failAlertView show];
+    }
+}
+
+/*
 - (IBAction) onHideLogView:(id)sender
 {
     if (_logAlertView)
@@ -243,6 +417,7 @@
         [_logAlertView hide];
     }
 }
+ */
 
 - (IBAction) onContinueAddServer:(id)sender
 {
@@ -331,7 +506,7 @@
         NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
         [self closeWebSocket];
         [self connectWebSocket];
-        [MMProgressHUD dismiss];
+        //[MMProgressHUD dismiss];
     }
 }
 
@@ -348,6 +523,7 @@
     }
     
     if (webSocket == self.socket) {
+        /*
         [_logTextArray addObject:message];
         NSString *rowText = [NSString stringWithFormat:@"%@\n",message];
         [_logText appendString:rowText];
@@ -355,14 +531,27 @@
         {
             [_logTextView setText:_logText];
         }
+         */
+        NSAttributedString *msgStr = [[NSAttributedString alloc] initWithString:message  attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+        [_logText appendAttributedString:msgStr];
+        if (_mLogView)
+        {
+            [_mLogView setAttrText:_logText];
+        }
+        
         if([message isEqualToString:@"success"])
         {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
             [self.navigationController popViewControllerAnimated:YES];
-            [MMProgressHUD dismissWithSuccess:@"添加成功" title:nil afterDelay:1.5];
+            //[MMProgressHUD dismissWithSuccess:@"添加成功" title:nil afterDelay:1.5];
+            if (_logAlertView)
+            {
+                [_logAlertView hide];
+            }
+            [self showSuccessAlertView];
         }else
         {
-            [MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
+            //[MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
         }
     }
 }

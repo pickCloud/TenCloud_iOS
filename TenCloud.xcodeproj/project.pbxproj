@@ -320,6 +320,12 @@
 		A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */; };
 		A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */; };
 		A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */; };
+		A0BD822F202CA2B00002B8C2 /* TCAddServerLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */; };
+		A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */; };
+		A0BD8234202CB1D90002B8C2 /* TCAddServerSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD8233202CB1D90002B8C2 /* TCAddServerSuccessView.m */; };
+		A0BD8236202CB1EA0002B8C2 /* TCAddServerSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD8235202CB1EA0002B8C2 /* TCAddServerSuccessView.xib */; };
+		A0BD8239202CB4330002B8C2 /* TCAddServerFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD8238202CB4330002B8C2 /* TCAddServerFailView.m */; };
+		A0BD823B202CB4400002B8C2 /* TCAddServerFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD823A202CB4400002B8C2 /* TCAddServerFailView.xib */; };
 		A0C362E320031F6E0033C99C /* TCUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */; };
 		A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E520035E920033C99C /* TCModifyPermissionRequest.m */; };
 		A0C362E920035EE10033C99C /* TCModifyUserPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C362E820035EE10033C99C /* TCModifyUserPermissionRequest.m */; };
@@ -958,6 +964,15 @@
 		A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCChangeAdminTableViewCell.xib; sourceTree = "<group>"; };
 		A0B7142120070BBD00BE9FCA /* TCSetAdminRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetAdminRequest.h; sourceTree = "<group>"; };
 		A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetAdminRequest.m; sourceTree = "<group>"; };
+		A0BD822D202CA2B00002B8C2 /* TCAddServerLogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerLogView.h; sourceTree = "<group>"; };
+		A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddServerLogView.m; sourceTree = "<group>"; };
+		A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAddServerLogView.xib; sourceTree = "<group>"; };
+		A0BD8232202CB1D90002B8C2 /* TCAddServerSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerSuccessView.h; sourceTree = "<group>"; };
+		A0BD8233202CB1D90002B8C2 /* TCAddServerSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddServerSuccessView.m; sourceTree = "<group>"; };
+		A0BD8235202CB1EA0002B8C2 /* TCAddServerSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAddServerSuccessView.xib; sourceTree = "<group>"; };
+		A0BD8237202CB4330002B8C2 /* TCAddServerFailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerFailView.h; sourceTree = "<group>"; };
+		A0BD8238202CB4330002B8C2 /* TCAddServerFailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddServerFailView.m; sourceTree = "<group>"; };
+		A0BD823A202CB4400002B8C2 /* TCAddServerFailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAddServerFailView.xib; sourceTree = "<group>"; };
 		A0C362E120031F6E0033C99C /* TCUserPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUserPermissionRequest.m; sourceTree = "<group>"; };
 		A0C362E220031F6E0033C99C /* TCUserPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUserPermissionRequest.h; sourceTree = "<group>"; };
 		A0C362E420035E920033C99C /* TCModifyPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyPermissionRequest.h; sourceTree = "<group>"; };
@@ -1730,6 +1745,15 @@
 		A02555501FD7C82100D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0BD822D202CA2B00002B8C2 /* TCAddServerLogView.h */,
+				A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */,
+				A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */,
+				A0BD8232202CB1D90002B8C2 /* TCAddServerSuccessView.h */,
+				A0BD8233202CB1D90002B8C2 /* TCAddServerSuccessView.m */,
+				A0BD8235202CB1EA0002B8C2 /* TCAddServerSuccessView.xib */,
+				A0BD8237202CB4330002B8C2 /* TCAddServerFailView.h */,
+				A0BD8238202CB4330002B8C2 /* TCAddServerFailView.m */,
+				A0BD823A202CB4400002B8C2 /* TCAddServerFailView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4106,10 +4130,12 @@
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
+				A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */,
 				A0C3630F2004D27D0033C99C /* TCShareViewController.xib in Resources */,
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
+				A0BD8236202CB1EA0002B8C2 /* TCAddServerSuccessView.xib in Resources */,
 				A088F934202A14CC005A97DD /* TCServerPermTableViewController.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
 				A0C362FE2004553D0033C99C /* TCJoinSettingTableViewCell.xib in Resources */,
@@ -4127,6 +4153,7 @@
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
 				A033985C201F718600CF8630 /* TCMonitorHistoryTableViewController.xib in Resources */,
 				A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */,
+				A0BD823B202CB4400002B8C2 /* TCAddServerFailView.xib in Resources */,
 				A0A86B781FF3EC0900D1D58D /* TCAccountMenuViewController.xib in Resources */,
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
 				A088F95A202BEDF7005A97DD /* TCWelcomeViewController.xib in Resources */,
@@ -4393,6 +4420,7 @@
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
+				A0BD8239202CB4330002B8C2 /* TCAddServerFailView.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A088F951202BCB3C005A97DD /* TCDataSync.m in Sources */,
 				A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */,
@@ -4521,6 +4549,7 @@
 				A0C9A0AD1FF14B4E00F94E9E /* NYXImagesHelper.m in Sources */,
 				A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */,
 				A001FA401FDD81CB008328B0 /* TCServerMemory+CoreDataProperties.m in Sources */,
+				A0BD8234202CB1D90002B8C2 /* TCAddServerSuccessView.m in Sources */,
 				A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
@@ -4623,6 +4652,7 @@
 				A031B62A1FFE259000B4F448 /* TCStaffTableViewCell.m in Sources */,
 				A07DBE391FDFB47600F37715 /* TCServerConfigTableViewCell.m in Sources */,
 				A0D58827200E536600104ED9 /* TCMessage+CoreDataProperties.m in Sources */,
+				A0BD822F202CA2B00002B8C2 /* TCAddServerLogView.m in Sources */,
 				A0DC9D7E201042450061A015 /* TCLeaveCorpRequest.m in Sources */,
 				A0C362E320031F6E0033C99C /* TCUserPermissionRequest.m in Sources */,
 				A0D58821200E4DF100104ED9 /* TCSearchMessageRequest.m in Sources */,
