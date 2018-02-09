@@ -91,10 +91,10 @@
 //    _userNameField.text = @"ubuntu";
 //    _passwordField.text = @"Sqsm3334545";
     
-    _serverNameField.text = @"测试机2";
-    _ipField.text = @"47.96.129.231";
-    _userNameField.text = @"root";
-    _passwordField.text = @"Test1234";
+//    _serverNameField.text = @"测试机2";
+//    _ipField.text = @"47.96.129.231";
+//    _userNameField.text = @"root";
+//    _passwordField.text = @"Test1234";
     
 //    _serverNameField.text = @"测试机2";
 //    _ipField.text = @"47.97.185.147";
