@@ -130,7 +130,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServer:server];
+    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -261,12 +261,15 @@
 
 - (void) onDeleteServerNotification:(NSNotification*)sender
 {
+    /*
     TCServer *server = sender.object;
     if (server)
     {
         [_serverArray removeObject:server];
         [_tableView reloadData];
     }
+     */
+    [self reloadServerList];
 }
 
 - (void) onAddServerNotification:(NSNotification*)sender

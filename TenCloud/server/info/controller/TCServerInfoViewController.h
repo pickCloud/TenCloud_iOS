@@ -12,6 +12,6 @@
 @class TCServer;
 @interface TCServerInfoViewController : TCViewController
 
-- (instancetype) initWithServer:(TCServer*)server;
+- (instancetype) initWithServerID:(NSInteger)serverID;
 
 @end

@@ -15,11 +15,13 @@
 #import "TCServer+CoreDataClass.h"
 
 @interface TCServerDetailViewController ()
-@property (nonatomic, strong)   TCServer    *server;
+@property (nonatomic, assign)   NSInteger   serverID;
+@property (nonatomic, strong)   NSString    *serverName;
 @end
 
 @implementation TCServerDetailViewController
 
+/*
 - (instancetype) initWithServer:(TCServer*)server
 {
     self = [super init];
@@ -30,11 +32,23 @@
     }
     return self;
 }
+ */
+- (instancetype) initWithServerID:(NSInteger)serverID name:(NSString *)name
+{
+    self = [super init];
+    if (self)
+    {
+        _serverID = serverID;
+        _serverName = name;
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = _server.name;
+    self.title = _serverName;
     self.view.backgroundColor = THEME_BACKGROUND_COLOR;
     //self.edgesForExtendedLayout = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
     
@@ -128,19 +142,21 @@
     UIViewController *controller = nil;
     if (pageIndex == 0)
     {
-        controller = [[TCServerMonitorViewController alloc] initWithID:_server.serverID];
+        //controller = [[TCServerMonitorViewController alloc] initWithID:_server.serverID];
+        controller = [[TCServerMonitorViewController alloc] initWithID:_serverID];
     }else if (pageIndex == 1)
     {
-        controller = [[TCServerInfoViewController alloc] initWithServer:_server];
+        //controller = [[TCServerInfoViewController alloc] initWithServer:_server];
+        controller = [[TCServerInfoViewController alloc] initWithServerID:_serverID];
     }else if(pageIndex == 2)
     {
-        controller = [[TCServerConfigViewController alloc] initWithID:_server.serverID];
+        controller = [[TCServerConfigViewController alloc] initWithID:_serverID];
     }else if(pageIndex == 3)
     {
-        controller = [[TCServerContainerTableViewController alloc] initWithID:_server.serverID];
+        controller = [[TCServerContainerTableViewController alloc] initWithID:_serverID];
     }else if(pageIndex == 4)
     {
-        controller = [[TCServerLogTableViewController alloc] initWithID:_server.serverID];
+        controller = [[TCServerLogTableViewController alloc] initWithID:_serverID];
     }
     return controller;
 }

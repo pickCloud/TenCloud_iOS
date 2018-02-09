@@ -33,7 +33,7 @@
 @property (nonatomic, strong)   IBOutlet    UITableView     *buttonTableView;
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
-@property (nonatomic, strong)   TCServer                *server;
+@property (nonatomic, assign)   NSInteger               serverID;
 @property (nonatomic, assign)   NSInteger               retryTimes;
 @property (nonatomic, strong)   NSMutableArray          *buttonDataArray;
 - (IBAction) onRestartButton:(id)sender;
@@ -48,12 +48,12 @@
 
 @implementation TCServerInfoViewController
 
-- (instancetype) initWithServer:(TCServer*)server
+- (instancetype) initWithServerID:(NSInteger)serverID
 {
     self = [super init];
     if (self)
     {
-        _server = server;
+        _serverID = serverID;
         _retryTimes = 0;
     }
     return self;
@@ -77,7 +77,7 @@
     
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
-    TCServerConfigRequest *request = [[TCServerConfigRequest alloc] initWithServerID:_server.serverID];
+    TCServerConfigRequest *request = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(TCServerConfig *config) {
         weakSelf.config = config;
         [weakSelf stopLoading];
@@ -191,7 +191,7 @@
     __weak __typeof(self) weakSelf = self;
     NSString *tip = @"确定重启这台服务器?";
     TCConfirmBlock block = ^(TCConfirmView *view){
-        TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
+        TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_serverID];
         [request startWithSuccess:^(NSString *status) {
             [weakSelf sendUpdateServerStateRequest];
         } failure:^(NSString *message) {
@@ -231,7 +231,7 @@
     __weak __typeof(self) weakSelf = self;
     NSString *title = @"确定关闭这台服务器?";
     TCConfirmBlock block = ^(TCConfirmView *view){
-        TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
+        TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_serverID];
         [request startWithSuccess:^(NSString *status) {
             [weakSelf sendUpdateServerStateRequest];
         } failure:^(NSString *message) {
@@ -269,7 +269,7 @@
 - (IBAction) onStartButton:(id)sender
 {
     __weak __typeof(self) weakSelf = self;
-    TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_server.serverID];
+    TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(NSString *status) {
         [weakSelf sendUpdateServerStateRequest];
     } failure:^(NSString *message) {
@@ -282,9 +282,10 @@
     NSString *title = @"确定删除这台服务器?";
     TCConfirmBlock block = ^(TCConfirmView *view){
         [MMProgressHUD showWithStatus:@"删除中"];
-        TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_server.serverID];
+        TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_serverID];
         [requst startWithSuccess:^(NSString *status) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:nil];
             [self.navigationController popViewControllerAnimated:YES];
             [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
         } failure:^(NSString *message) {

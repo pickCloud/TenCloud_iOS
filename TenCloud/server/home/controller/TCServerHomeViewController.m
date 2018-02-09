@@ -180,7 +180,7 @@ TCMessageManagerDelegate>
     [self.navigationController pushViewController:monitorVC animated:YES];
      */
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServer:server];
+    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

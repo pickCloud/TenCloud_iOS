@@ -12,6 +12,6 @@
 @class TCServer;
 @interface TCServerDetailViewController : VTMagicController
 
-- (instancetype) initWithServer:(TCServer*)server;
+- (instancetype) initWithServerID:(NSInteger)serverID name:(NSString*)name;
 
 @end
