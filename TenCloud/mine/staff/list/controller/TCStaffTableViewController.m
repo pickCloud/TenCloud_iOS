@@ -166,8 +166,14 @@
     } failure:^(NSString *message, NSInteger errorCode) {
         BOOL isError10003 = message && [message isEqualToString:@"非公司员工"];
         if (errorCode == 10003 || isError10003) {
+            TCCurrentCorp *corp = [TCCurrentCorp shared];
+            NSString *oldCorpName = corp.name;
             [TCPageManager showPersonHomePageFromController:self];
-            //[MBProgressHUD showError:@"非公司员工，自动退出公司界面" toView:nil];
+            if (![corp isAdmin])
+            {
+                NSString *tip = [NSString stringWithFormat:@"您已被管理员踢出 %@",oldCorpName];
+                [TCAlertController presentWithTitle:tip okBlock:nil];
+            }
         }
     }];
 }

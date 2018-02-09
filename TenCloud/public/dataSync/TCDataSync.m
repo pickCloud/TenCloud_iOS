@@ -88,7 +88,7 @@
     [permissionReq startWithSuccess:^(TCTemplate *tmpl) {
         [[TCCurrentCorp shared] setPermissions:tmpl];
         [weakSelf sendPermissionChangedNotification];
-    } failure:^(NSString *message) {
+    } failure:^(NSString *message,NSInteger errorCode) {
         NSLog(@"get permission failed:%@",message);
     }];
 }

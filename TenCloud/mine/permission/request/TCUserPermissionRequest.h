@@ -20,6 +20,6 @@
 - (TCTemplate *) resultTemplate;
 
 - (void) startWithSuccess:(void(^)(TCTemplate *tmpl))success
-                  failure:(void(^)(NSString *message))failure;
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure;
 
 @end

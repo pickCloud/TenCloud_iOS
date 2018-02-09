@@ -40,6 +40,7 @@
 @property (nonatomic, weak)     IBOutlet    UILabel         *phoneLabel;
 @property (nonatomic, weak)     IBOutlet    UITableView     *buttonTableView;
 - (void) updateUI;
+- (void) reloadUserPermission;
 @end
 
 @implementation TCStaffProfileViewController
@@ -151,18 +152,11 @@
     [_avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatar];
     _phoneLabel.text = _staff.mobile;
     
-    [self startLoading];
-    __weak __typeof(self) weakSelf = self;
-    TCUserPermissionRequest *req = [TCUserPermissionRequest new];
-    req.corpID = [[TCCurrentCorp shared] cid];
-    req.userID = _staff.uid;
-    [req startWithSuccess:^(TCTemplate *tmpl) {
-        weakSelf.userTemplate = tmpl;
-        NSLog(@"get servers:%@",tmpl.access_servers);
-        [weakSelf stopLoading];
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-    }];
+    if (_staff.status == STAFF_STATUS_PASS ||
+        _staff.status == STAFF_STATUS_FOUNDER )
+    {
+        [self reloadUserPermission];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
@@ -562,6 +556,26 @@
     [self.buttonTableView reloadData];
 }
 
+- (void) reloadUserPermission
+{
+    [self startLoading];
+    __weak __typeof(self) weakSelf = self;
+    TCUserPermissionRequest *req = [TCUserPermissionRequest new];
+    req.corpID = [[TCCurrentCorp shared] cid];
+    req.userID = _staff.uid;
+    [req startWithSuccess:^(TCTemplate *tmpl) {
+        weakSelf.userTemplate = tmpl;
+        NSLog(@"get servers:%@",tmpl.access_servers);
+        [weakSelf stopLoading];
+    } failure:^(NSString *message,NSInteger errorCode) {
+        if (errorCode == 10003)
+        {
+            [MBProgressHUD showError:@"该员工已离开公司" toView:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [weakSelf stopLoading];
+    }];
+}
 
 #pragma mark - TCCurrentCorpDelegate
 - (void) corpModified:(TCCurrentCorp*)corp
@@ -573,5 +587,10 @@
 - (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
 {
     [self updateUI];
+    if (_staff.status == STAFF_STATUS_PASS ||
+        _staff.status == STAFF_STATUS_FOUNDER )
+    {
+        [self reloadUserPermission];
+    }
 }
 @end

@@ -30,14 +30,20 @@
  */
 
 - (void) startWithSuccess:(void(^)(TCTemplate *tmpl))success
-                  failure:(void(^)(NSString *message))failure
+                  failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         TCTemplate *tmpl = [self resultTemplate];
         success ? success(tmpl) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        NSNumber *errorNum = [request.responseJSONObject objectForKey:@"status"];
+        NSInteger errorCode = 0;
+        if (errorNum)
+        {
+            errorCode = errorNum.integerValue;
+        }
+        failure ? failure(message,errorCode) : nil;
     }];
 }
 

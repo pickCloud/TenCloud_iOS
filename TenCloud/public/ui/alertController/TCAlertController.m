@@ -168,6 +168,15 @@
     }
 }
 
++ (void) presentWithTitle:(NSString*)title okBlock:(TCOKBlock)block
+{
+    UIViewController *rootVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (rootVC)
+    {
+        [TCAlertController presentFromController:rootVC title:title okBlock:block];
+    }
+}
+
 #pragma mark - life cycle
 
 - (void)viewDidLoad {
