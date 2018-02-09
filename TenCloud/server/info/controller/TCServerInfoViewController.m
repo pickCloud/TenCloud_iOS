@@ -20,6 +20,9 @@
 #import "TCStartServerRequest.h"
 #import "TCDeleteServerRequest.h"
 #import "TCButtonTableViewCell.h"
+#import "TCModifyTextViewController.h"
+#import "TCModifyServerNameRequest.h"
+
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
 #define SERVER_BUTTON_CELL_ID           @"SERVER_BUTTON_CELL_ID"
@@ -41,6 +44,7 @@
 - (void) udpateStatusLabel:(NSString*)status;
 - (void) reloadServerState;
 - (void) sendUpdateServerStateRequest;
+- (void) onModifyServerName;
 @end
 
 @implementation TCServerInfoViewController
@@ -83,7 +87,9 @@
         NSString *ip = info.public_ip ? info.public_ip : @"";
         NSString *status = info.machine_status ? info.machine_status : @"";
         NSString *time = info.created_time ? info.created_time : @"";
-        TCServerInfoItem *item1 = [[TCServerInfoItem alloc] initWithKey:@"名称" value:name];
+        TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+        BOOL canModify = currentCorp.isAdmin || [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_SERVER];
+        TCServerInfoItem *item1 = [[TCServerInfoItem alloc] initWithKey:@"名称" value:name disclosure:canModify];
         TCServerInfoItem *item2 = [[TCServerInfoItem alloc] initWithKey:@"服务商" value:clusterName];
         TCServerInfoItem *item3 = [[TCServerInfoItem alloc] initWithKey:@"地址" value:address];
         TCServerInfoItem *item4 = [[TCServerInfoItem alloc] initWithKey:@"IP" value:ip];
@@ -163,12 +169,12 @@
     if (infoItem.cellType == TCInfoCellTypeStateLabel)
     {
         TCServerStateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_STATE_CELL_REUSE_ID forIndexPath:indexPath];
-        [cell setKey:infoItem.key value:infoItem.value];
+        [cell setKey:infoItem.key value:infoItem.value disclosure:infoItem.disclosure];
         return cell;
     }
     TCServerConfigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_CELL_REUSE_ID forIndexPath:indexPath];
     
-    [cell setKey:infoItem.key value:infoItem.value];
+    [cell setKey:infoItem.key value:infoItem.value disclosure:infoItem.disclosure];
     return cell;
 }
 
@@ -178,6 +184,10 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0)
+    {
+        [self onModifyServerName];
+    }
 }
 
 #pragma mark - extension
@@ -355,5 +365,31 @@
                        withObject:nil
                        afterDelay:1.5];
     }];
+}
+
+- (void) onModifyServerName
+{
+    __weak __typeof(self) weakSelf = self;
+    TCServerBasicInfo *info = _config.basic_info;
+    NSString *oldName = info.name ? info.name : @"";
+    TCModifyTextViewController *modifyVC = [TCModifyTextViewController new];
+    modifyVC.titleText = @"修改服务器名称";
+    modifyVC.initialValue = oldName;
+    modifyVC.placeHolder = @"服务器名称";
+    modifyVC.valueChangedBlock = ^(TCModifyTextViewController *vc, id newValue) {
+        TCServerInfoItem *nameItem = weakSelf.configArray.firstObject;
+        nameItem.value = newValue;
+        [weakSelf.tableView reloadData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_SERVER object:nil];
+    };
+    modifyVC.requestBlock = ^(TCModifyTextViewController *vc, NSString *newValue) {
+        TCModifyServerNameRequest *modifyReq = [[TCModifyServerNameRequest alloc] initWithServerID:weakSelf.serverID name:newValue];
+        [modifyReq startWithSuccess:^(NSString *status) {
+            [vc modifyRequestResult:YES message:@"修改成功"];
+        } failure:^(NSString *message) {
+            [vc modifyRequestResult:NO message:message];
+        }];
+    };
+    [self.navigationController pushViewController:modifyVC animated:YES];
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "TCCertificateTableViewCell.h"
-#import "TCModifyTextViewController.h"
+//#import "TCModifyTextViewController.h"
 #import "TCCellData.h"
 
 @interface TCCertificateTableViewCell()

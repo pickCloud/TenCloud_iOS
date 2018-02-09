@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *keyLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *valueLabel;
 @property (nonatomic, weak) IBOutlet    UIView              *stateBackgroundView;
+@property (nonatomic, weak) IBOutlet    UIButton            *disclosureButton;
 @end
 
 @implementation TCServerStateTableViewCell
@@ -43,11 +44,12 @@
     NSLog(@"selected once:%d",selected);
 }
 
-- (void) setKey:(NSString*)key value:(NSString*)value
+- (void) setKey:(NSString*)key value:(NSString*)value disclosure:(BOOL)disclosure
 {
     _keyLabel.text = key;
     //_valueLabel.text = value;
     [self setStateValue:value];
+    _disclosureButton.hidden = !disclosure;
 }
 
 - (void) setStateValue:(NSString*)value

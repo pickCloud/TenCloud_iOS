@@ -11,5 +11,6 @@
 @interface TCServerConfigTableViewCell : UITableViewCell
 
 - (void) setKey:(NSString*)key value:(NSString*)value;
+- (void) setKey:(NSString*)key value:(NSString*)value disclosure:(BOOL)disclosure;
 
 @end

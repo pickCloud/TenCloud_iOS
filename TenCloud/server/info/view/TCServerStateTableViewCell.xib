@@ -26,14 +26,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1M-xI-EsT">
-                        <rect key="frame" x="21" y="0.0" width="323" height="1"/>
+                        <rect key="frame" x="14.5" y="0.0" width="336" height="1"/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="dgW-8f-To2"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIY-W5-OwV">
-                        <rect key="frame" x="21" y="0.0" width="87" height="45"/>
+                        <rect key="frame" x="14.5" y="0.0" width="87" height="45"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="rIY-W5-OwV" secondAttribute="height" multiplier="29:15" id="DFw-OY-gcn"/>
@@ -43,18 +43,18 @@
                         <color key="highlightedColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-2O-vTd">
-                        <rect key="frame" x="103.5" y="15" width="43" height="14.5"/>
+                        <rect key="frame" x="97" y="15" width="43" height="14.5"/>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿里云" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-X5-GV5">
-                        <rect key="frame" x="110" y="15.5" width="30" height="13.5"/>
+                        <rect key="frame" x="103.5" y="15.5" width="30" height="13.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="10"/>
                         <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byI-66-2gy">
-                        <rect key="frame" x="324" y="0.0" width="20" height="44.5"/>
+                        <rect key="frame" x="330.5" y="0.0" width="20" height="44.5"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                         </accessibility>
@@ -63,7 +63,7 @@
                         </constraints>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-u8-nq5">
-                        <rect key="frame" x="21" y="43.5" width="344" height="1"/>
+                        <rect key="frame" x="14.5" y="43.5" width="350.5" height="1"/>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="TKc-tL-RSn"/>
@@ -76,7 +76,7 @@
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0fD-fV-gG4"/>
                     <constraint firstItem="x1M-xI-EsT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1fh-HT-aae"/>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8Ri-80-Rwk"/>
-                    <constraint firstItem="x1M-xI-EsT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.884" id="AlC-5H-beY"/>
+                    <constraint firstItem="x1M-xI-EsT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.92" id="AlC-5H-beY"/>
                     <constraint firstItem="H6X-X5-GV5" firstAttribute="leading" secondItem="rIY-W5-OwV" secondAttribute="trailing" constant="2" id="ChG-n4-TJ6"/>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.241" id="HxQ-JG-66p"/>
                     <constraint firstAttribute="trailing" secondItem="Y6I-u8-nq5" secondAttribute="trailing" id="JS1-nk-I0L"/>
@@ -99,6 +99,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="disclosureButton" destination="byI-66-2gy" id="8c4-PZ-v0C"/>
                 <outlet property="keyLabel" destination="rIY-W5-OwV" id="4SO-NG-1m4"/>
                 <outlet property="stateBackgroundView" destination="KEs-2O-vTd" id="ZNW-qK-WHz"/>
                 <outlet property="valueLabel" destination="H6X-X5-GV5" id="GWF-ap-fyg"/>

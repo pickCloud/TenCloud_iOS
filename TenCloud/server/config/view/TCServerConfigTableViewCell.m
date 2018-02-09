@@ -12,6 +12,7 @@
 @interface TCServerConfigTableViewCell()
 @property (nonatomic, weak) IBOutlet    UILabel             *keyLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *valueLabel;
+@property (nonatomic, weak) IBOutlet    UIButton            *disclosureButton;
 @end
 
 @implementation TCServerConfigTableViewCell
@@ -39,8 +40,14 @@
 
 - (void) setKey:(NSString*)key value:(NSString*)value
 {
+    [self setKey:key value:value disclosure:NO];
+}
+
+- (void) setKey:(NSString*)key value:(NSString*)value disclosure:(BOOL)disclosure
+{
     _keyLabel.text = key;
     _valueLabel.text = value;
+    _disclosureButton.hidden = !disclosure;
 }
 
 @end

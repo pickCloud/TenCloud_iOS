@@ -320,6 +320,7 @@
 		A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */; };
 		A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */; };
 		A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */; };
+		A0B82EDA202DE96F00E93BC0 /* TCModifyServerNameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */; };
 		A0BD822F202CA2B00002B8C2 /* TCAddServerLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */; };
 		A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */; };
 		A0BD8234202CB1D90002B8C2 /* TCAddServerSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD8233202CB1D90002B8C2 /* TCAddServerSuccessView.m */; };
@@ -964,6 +965,8 @@
 		A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCChangeAdminTableViewCell.xib; sourceTree = "<group>"; };
 		A0B7142120070BBD00BE9FCA /* TCSetAdminRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetAdminRequest.h; sourceTree = "<group>"; };
 		A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetAdminRequest.m; sourceTree = "<group>"; };
+		A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyServerNameRequest.m; sourceTree = "<group>"; };
+		A0B82ED9202DE96F00E93BC0 /* TCModifyServerNameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyServerNameRequest.h; sourceTree = "<group>"; };
 		A0BD822D202CA2B00002B8C2 /* TCAddServerLogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerLogView.h; sourceTree = "<group>"; };
 		A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddServerLogView.m; sourceTree = "<group>"; };
 		A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAddServerLogView.xib; sourceTree = "<group>"; };
@@ -1683,6 +1686,8 @@
 		A025554A1FD7C82100D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0B82ED9202DE96F00E93BC0 /* TCModifyServerNameRequest.h */,
+				A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */,
 				A06D12061FEA529C00722C76 /* TCDeleteServerRequest.h */,
 				A06D12051FEA529C00722C76 /* TCDeleteServerRequest.m */,
 				A03385961FE8BD9D00EC0EC8 /* TCStartServerRequest.h */,
@@ -4562,6 +4567,7 @@
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
+				A0B82EDA202DE96F00E93BC0 /* TCModifyServerNameRequest.m in Sources */,
 				A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,

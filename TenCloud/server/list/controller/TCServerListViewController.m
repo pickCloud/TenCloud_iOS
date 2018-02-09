@@ -68,6 +68,10 @@
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAddServerNotification:)
+                                                 name:NOTIFICATION_MODIFY_SERVER
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddServerNotification:)
                                                  name:NOTIFICATION_ADD_SERVER
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self

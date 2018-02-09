@@ -17,9 +17,11 @@ typedef NS_ENUM(NSInteger, TCInfoCellType){
 
 - (instancetype) initWithKey:(NSString*)key value:(NSString*)value;
 - (instancetype) initWithKey:(NSString*)key value:(NSString*)value type:(TCInfoCellType)type;
+- (instancetype) initWithKey:(NSString *)key value:(NSString *)value disclosure:(BOOL)disclosure;
 
 @property (nonatomic, strong)   NSString        *key;
 @property (nonatomic, strong)   NSString        *value;
+@property (nonatomic, assign)   BOOL            disclosure;
 @property (nonatomic, assign)   TCInfoCellType  cellType;
 
 @end
