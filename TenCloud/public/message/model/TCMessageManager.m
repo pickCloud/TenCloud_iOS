@@ -49,8 +49,7 @@
             [_updateTimer invalidate];
             _updateTimer = nil;
         }
-        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:1100 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
-        //[self fetchMessageCount];
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fetchMessageCount) userInfo:nil repeats:YES];
         [self performSelector:@selector(fetchMessageCount) withObject:nil afterDelay:0.6];
     }
 }
