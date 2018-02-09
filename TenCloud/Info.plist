@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>拾云测</string>
+	<string>拾云</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,7 +27,7 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxc01464912319f82e</string>
+				<string>wxc1fa4f1bfc738872</string>
 			</array>
 		</dict>
 		<dict>
@@ -47,7 +47,7 @@
 			<string>qq</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41e2ef66</string>
+				<string>QQ41f65ec0</string>
 			</array>
 		</dict>
 		<dict>

@@ -113,7 +113,6 @@
         {
             weakSelf.corpInfo = corp;
             [[TCCurrentCorp shared] setSelectedCorp:corp];
-            NSLog(@"req start updt corp info ui");
             [weakSelf updateCorpInfoUI];
         }
         [[TCEmptyPermission shared] reset];
@@ -214,7 +213,6 @@
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         menuVC.selectBlock = ^ (TCAccountMenuViewController *vc, NSInteger selectedIndex) {
-            NSLog(@"menu select %ld",selectedIndex);
             if ( selectedIndex < weakSelf.corpArray.count)
             {
                 [MMProgressHUD showWithStatus:@"切换身份中"];
