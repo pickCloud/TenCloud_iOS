@@ -250,6 +250,7 @@
                     weakSelf.staff.update_time = todayString;
                     weakSelf.staff.status = STAFF_STATUS_PASS;
                     [weakSelf updateUI];
+                    [weakSelf reloadUserPermission];
                 } failure:^(NSString *message) {
                     [MBProgressHUD showError:message toView:nil];
                 }];
