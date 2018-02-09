@@ -77,7 +77,6 @@
     [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     _corpArray = [NSMutableArray new];
-    [[TCCurrentCorp shared] addObserver:self];
     _passedCorpArray = [NSMutableArray new];
     
     /*
@@ -115,6 +114,7 @@
         {
             weakSelf.corpInfo = corp;
             [[TCCurrentCorp shared] setSelectedCorp:corp];
+            NSLog(@"req start updt corp info ui");
             [weakSelf updateCorpInfoUI];
         }
         [[TCEmptyPermission shared] reset];
@@ -248,30 +248,7 @@
     };
     
     [[TCMessageManager shared] addObserver:self];
-    
-    /*
-    [staffReq startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
-        _staffCount = staffArray.count;
-        
-        //judge if current user is admin
-        BOOL isAdmin = NO;
-        NSInteger localUserID = [[TCLocalAccount shared] userID];
-        for (TCStaff *tmpStaff in staffArray)
-        {
-            if (tmpStaff.is_admin && (tmpStaff.uid == localUserID))
-            {
-                //[[TCCurrentCorp shared] setIsAdmin:YES];
-                isAdmin = YES;
-                break;
-            }
-        }
-        [[TCCurrentCorp shared] setIsAdmin:isAdmin];
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        
-    }];
-    */
-
+    [[TCCurrentCorp shared] addObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -397,6 +374,8 @@
         _contactLabel.text = [[TCCurrentCorp shared] contact];
         _phoneLabel.text = [NSString hiddenPhoneNumStr:mobile];
         NSURL *avatarURL = [NSURL URLWithString:_corpInfo.image_url];
+        NSLog(@"corp img url:%@",_corpInfo.image_url);
+        NSLog(@"avatar URL:%@",avatarURL);
         UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
         [_avatarButton sd_setImageWithURL:avatarURL forState:UIControlStateNormal placeholderImage:defaultAvatarImg];
     }
@@ -406,6 +385,7 @@
 #pragma mark - TCCurrentCorpDelegate
 - (void) corpModified:(TCCurrentCorp*)corp
 {
+    NSLog(@"corp modifiedddd");
     _corpInfo.name = corp.name;
     _corpInfo.contact = corp.contact;
     _corpInfo.mobile = corp.mobile;

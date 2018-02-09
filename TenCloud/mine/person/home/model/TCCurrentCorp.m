@@ -119,6 +119,7 @@
     _cid = corp.cid;
     _contact = corp.contact;
     _isAdmin = corp.is_admin;
+    _image_url = corp.image_url;
     [self save];
 }
 
