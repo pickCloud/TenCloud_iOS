@@ -25,6 +25,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="44.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-DY-VGa" userLabel="topline">
+                        <rect key="frame" x="21" y="1" width="323" height="1"/>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.20784313730000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="YgS-Zz-KIu"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIY-W5-OwV">
                         <rect key="frame" x="21" y="0.0" width="87" height="45"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,11 +61,11 @@
                             <constraint firstAttribute="width" secondItem="byI-66-2gy" secondAttribute="height" multiplier="10:22" id="OcR-9Q-XxP"/>
                         </constraints>
                     </button>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-u8-nq5">
-                        <rect key="frame" x="21" y="43.5" width="323" height="1"/>
-                        <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-u8-nq5">
+                        <rect key="frame" x="21" y="44" width="344" height="1"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="TKc-tL-RSn"/>
+                            <constraint firstAttribute="height" constant="0.5" id="TKc-tL-RSn"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -67,18 +74,21 @@
                 <constraints>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0fD-fV-gG4"/>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8Ri-80-Rwk"/>
-                    <constraint firstItem="Y6I-u8-nq5" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.884" id="BtC-2x-1AV"/>
                     <constraint firstItem="H6X-X5-GV5" firstAttribute="leading" secondItem="rIY-W5-OwV" secondAttribute="trailing" constant="2" id="ChG-n4-TJ6"/>
                     <constraint firstItem="rIY-W5-OwV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.241" id="HxQ-JG-66p"/>
+                    <constraint firstItem="byI-66-2gy" firstAttribute="trailing" secondItem="hp6-DY-VGa" secondAttribute="trailing" id="JRT-y3-2zE"/>
+                    <constraint firstAttribute="trailing" secondItem="Y6I-u8-nq5" secondAttribute="trailing" id="JfM-Uh-C3Q"/>
                     <constraint firstItem="byI-66-2gy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kvg-Ug-ssd"/>
                     <constraint firstAttribute="bottom" secondItem="Y6I-u8-nq5" secondAttribute="bottom" id="Mrs-0S-zZ0"/>
+                    <constraint firstItem="Y6I-u8-nq5" firstAttribute="leading" secondItem="hp6-DY-VGa" secondAttribute="leading" id="RxP-fj-lc1"/>
                     <constraint firstItem="byI-66-2gy" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="TZV-1A-5HI"/>
-                    <constraint firstItem="Y6I-u8-nq5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VFW-uj-tx8"/>
                     <constraint firstItem="H6X-X5-GV5" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="aPK-qw-gBY"/>
-                    <constraint firstItem="byI-66-2gy" firstAttribute="trailing" secondItem="Y6I-u8-nq5" secondAttribute="trailing" id="h4W-s7-5d4"/>
+                    <constraint firstItem="rIY-W5-OwV" firstAttribute="leading" secondItem="hp6-DY-VGa" secondAttribute="leading" id="h4Y-m2-vWQ"/>
                     <constraint firstItem="H6X-X5-GV5" firstAttribute="centerY" secondItem="rIY-W5-OwV" secondAttribute="centerY" id="h7L-FM-UQW"/>
-                    <constraint firstItem="rIY-W5-OwV" firstAttribute="leading" secondItem="Y6I-u8-nq5" secondAttribute="leading" id="mnX-Nk-qkg"/>
+                    <constraint firstItem="hp6-DY-VGa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.884" id="jUU-EI-eP1"/>
+                    <constraint firstItem="hp6-DY-VGa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="mod-oh-oPG"/>
                     <constraint firstAttribute="bottom" secondItem="rIY-W5-OwV" secondAttribute="bottom" constant="-0.5" id="v17-iK-iJ0"/>
+                    <constraint firstItem="hp6-DY-VGa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="yzc-yp-9zp"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -87,6 +97,7 @@
                 <outlet property="keyLabel" destination="rIY-W5-OwV" id="4SO-NG-1m4"/>
                 <outlet property="valueLabel" destination="H6X-X5-GV5" id="GWF-ap-fyg"/>
             </connections>
+            <point key="canvasLocation" x="32.5" y="52.5"/>
         </tableViewCell>
     </objects>
 </document>

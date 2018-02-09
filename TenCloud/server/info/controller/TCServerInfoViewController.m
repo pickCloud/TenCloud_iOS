@@ -27,9 +27,6 @@
 
 @interface TCServerInfoViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
-@property (nonatomic, strong) IBOutlet    UIView          *footerView;      //error when weak
-@property (nonatomic, strong) IBOutlet    UIView          *stopFooterView;
-@property (nonatomic, strong) IBOutlet    UIView          *rebootFooterView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *buttonTableView;
 @property (nonatomic, strong)   TCServerConfig          *config;
 @property (nonatomic, strong)   NSMutableArray          *configArray;
@@ -67,9 +64,7 @@
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
     UINib *stateCellNib = [UINib nibWithNibName:@"TCServerStateTableViewCell" bundle:nil];
     [_tableView registerNib:stateCellNib forCellReuseIdentifier:SERVER_STATE_CELL_REUSE_ID];
-    //_tableView.tableFooterView = _footerView;
-    //_tableView.tableFooterView = _stopFooterView;
-    //_tableView.tableFooterView = _rebootFooterView;
+    
     _buttonDataArray = [NSMutableArray new];
     UINib *buttonCellNib = [UINib nibWithNibName:@"TCButtonTableViewCell" bundle:nil];
     [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:SERVER_BUTTON_CELL_ID];
@@ -203,26 +198,6 @@
                            confirmButtonName:@"重启"
                                 confirmBlock:block
                                  cancelBlock:nil];
-    /*
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定重启这台服务器?"
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    alertController.view.tintColor = [UIColor grayColor];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *restartAction = [UIAlertAction actionWithTitle:@"重启" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_server.serverID];
-        [request startWithSuccess:^(NSString *status) {
-            [weakSelf sendUpdateServerStateRequest];
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
-        }];
-    }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:restartAction];
-    [alertController presentationController];
-    [self presentViewController:alertController animated:YES completion:nil];
-     */
 }
 
 - (IBAction) onPowerOffButton:(id)sender
@@ -244,26 +219,6 @@
                                 confirmBlock:block
                                  cancelBlock:nil];
     
-    /*
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定关闭这台服务器?"
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    alertController.view.tintColor = [UIColor grayColor];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *powerOffAction = [UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_server.serverID];
-        [request startWithSuccess:^(NSString *status) {
-            [weakSelf sendUpdateServerStateRequest];
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
-        }];
-    }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:powerOffAction];
-    [alertController presentationController];
-    [self presentViewController:alertController animated:YES completion:nil];
-     */
 }
 
 - (IBAction) onStartButton:(id)sender
@@ -297,30 +252,6 @@
                            confirmButtonName:@"删除"
                                 confirmBlock:block
                                  cancelBlock:nil];
-    
-    /*
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定删除这台服务器?"
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    alertController.view.tintColor = [UIColor grayColor];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [MMProgressHUD showWithStatus:@"删除中"];
-        TCDeleteServerRequest *requst = [[TCDeleteServerRequest alloc] initWithServerID:_server.serverID];
-        [requst startWithSuccess:^(NSString *status) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
-            [self.navigationController popViewControllerAnimated:YES];
-            [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
-        } failure:^(NSString *message) {
-            [MMProgressHUD dismissWithError:message];
-        }];
-    }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:deleteAction];
-    [alertController presentationController];
-    [self presentViewController:alertController animated:YES completion:nil];
-     */
 }
 
 - (void) updateFooterViewWithStatus:(NSString*)status
@@ -341,33 +272,15 @@
                 data1.type = TCServerButtonStart;
                 [_buttonDataArray addObject:data1];
             }
-            
-//            TCProfileButtonData *data2 = [TCProfileButtonData new];
-//            data2.title = @"删除";
-//            data2.color = STATE_ALERT_COLOR;
-//            data2.type = TCServerButtonDelete;
-//            [_buttonDataArray addObject:data2];
         }else if([status containsString:@"重启"])
         {
-//            TCProfileButtonData *data2 = [TCProfileButtonData new];
-//            data2.title = @"删除";
-//            data2.color = STATE_ALERT_COLOR;
-//            data2.type = TCServerButtonDelete;
-//            [_buttonDataArray addObject:data2];
+            
         }else if([status containsString:@"启动"])
         {
-//            TCProfileButtonData *data2 = [TCProfileButtonData new];
-//            data2.title = @"删除";
-//            data2.color = STATE_ALERT_COLOR;
-//            data2.type = TCServerButtonDelete;
-//            [_buttonDataArray addObject:data2];
+            
         }else if([status containsString:@"停止"])
         {
-//            TCProfileButtonData *data2 = [TCProfileButtonData new];
-//            data2.title = @"删除";
-//            data2.color = STATE_ALERT_COLOR;
-//            data2.type = TCServerButtonDelete;
-//            [_buttonDataArray addObject:data2];
+            
         }else
         {
             if ( currentCorp.isAdmin ||
@@ -389,32 +302,7 @@
                 data2.type = TCServerButtonStop;
                 [_buttonDataArray addObject:data2];
             }
-            
-//            TCProfileButtonData *data3 = [TCProfileButtonData new];
-//            data3.title = @"删除";
-//            data3.color = STATE_ALERT_COLOR;
-//            data3.type = TCServerButtonDelete;
-//            [_buttonDataArray addObject:data3];
         }
-        /*
-        if ([status containsString:@"已停止"])
-        {
-            self.tableView.tableFooterView = self.stopFooterView;
-            return;
-        }else if([status containsString:@"重启"])
-        {
-            self.tableView.tableFooterView = self.rebootFooterView;
-            return;
-        }else if([status containsString:@"启动"])
-        {
-            self.tableView.tableFooterView = self.rebootFooterView;
-            return;
-        }else if([status containsString:@"停止"])
-        {
-            self.tableView.tableFooterView = self.rebootFooterView;
-            return;
-        }
-         */
     }
     
     if ( currentCorp.isAdmin ||

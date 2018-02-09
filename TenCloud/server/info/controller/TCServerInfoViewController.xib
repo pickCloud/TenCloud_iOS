@@ -6,17 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerInfoViewController">
             <connections>
                 <outlet property="buttonTableView" destination="jlb-xO-GF3" id="ja6-6j-uZX"/>
-                <outlet property="footerView" destination="UUh-49-0G4" id="Q8Z-DI-WMI"/>
-                <outlet property="rebootFooterView" destination="rF1-a0-VdD" id="UC2-3B-nIN"/>
-                <outlet property="stopFooterView" destination="Z4l-rH-fwo" id="nvl-ba-K9d"/>
                 <outlet property="tableView" destination="8pd-0n-4p8" id="Mkh-Tr-rNy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8pd-0n-4p8">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8pd-0n-4p8">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.1843137255" green="0.20392156859999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,135 +44,6 @@
                 <constraint firstItem="8pd-0n-4p8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="cgf-Ya-1um"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="69.5"/>
-        </view>
-        <view contentMode="scaleToFill" id="UUh-49-0G4">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-PO-26o" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="20" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="BHf-PO-26o" secondAttribute="height" multiplier="15:2" id="PhD-UT-7OE"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="重启">
-                        <color key="titleColor" red="0.13725490196078433" green="0.1529411765" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onRestartButton:" destination="-1" eventType="touchUpInside" id="PlH-QE-NVp"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URr-eu-uFQ" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="83" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="关机">
-                        <color key="titleColor" red="0.13725490200000001" green="0.1529411765" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onPowerOffButton:" destination="-1" eventType="touchUpInside" id="k4f-bH-TUQ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qi-Ht-xG3" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="144" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.89019607840000003" green="0.61960784310000006" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="删除">
-                        <color key="titleColor" red="0.31372549020000001" green="0.12549019610000001" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onDeleteButton:" destination="-1" eventType="touchUpInside" id="vmb-A0-yTQ"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="BHf-PO-26o" firstAttribute="centerX" secondItem="UUh-49-0G4" secondAttribute="centerX" id="3y2-4a-0xZ"/>
-                <constraint firstItem="1qi-Ht-xG3" firstAttribute="centerX" secondItem="UUh-49-0G4" secondAttribute="centerX" id="837-NT-a2I"/>
-                <constraint firstItem="BHf-PO-26o" firstAttribute="top" secondItem="UUh-49-0G4" secondAttribute="top" constant="20" id="IxN-RK-pvJ"/>
-                <constraint firstItem="URr-eu-uFQ" firstAttribute="centerX" secondItem="UUh-49-0G4" secondAttribute="centerX" id="Lso-o0-fKy"/>
-                <constraint firstItem="1qi-Ht-xG3" firstAttribute="height" secondItem="BHf-PO-26o" secondAttribute="height" id="ci5-SA-AR9"/>
-                <constraint firstItem="URr-eu-uFQ" firstAttribute="height" secondItem="BHf-PO-26o" secondAttribute="height" id="dOx-AS-rfp"/>
-                <constraint firstItem="URr-eu-uFQ" firstAttribute="width" secondItem="BHf-PO-26o" secondAttribute="width" id="fh5-3C-AOh"/>
-                <constraint firstItem="1qi-Ht-xG3" firstAttribute="width" secondItem="BHf-PO-26o" secondAttribute="width" id="fme-sM-lac"/>
-                <constraint firstItem="URr-eu-uFQ" firstAttribute="top" secondItem="BHf-PO-26o" secondAttribute="bottom" constant="17" id="gBQ-SJ-Gye"/>
-                <constraint firstItem="1qi-Ht-xG3" firstAttribute="top" secondItem="URr-eu-uFQ" secondAttribute="bottom" constant="15" id="hvo-4b-Oua"/>
-                <constraint firstItem="BHf-PO-26o" firstAttribute="width" secondItem="UUh-49-0G4" secondAttribute="width" multiplier="0.92" id="wrY-2V-HrI"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="31.5" y="575.5"/>
-        </view>
-        <view contentMode="scaleToFill" id="Z4l-rH-fwo">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srh-1q-L9C" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="20" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="srh-1q-L9C" secondAttribute="height" multiplier="15:2" id="1hw-Ew-4FA"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="开机">
-                        <color key="titleColor" red="0.13725490200000001" green="0.1529411765" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onStartButton:" destination="-1" eventType="touchUpInside" id="rjO-0g-piF"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzU-oC-yFr" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="83" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.89019607840000003" green="0.61960784310000006" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="删除">
-                        <color key="titleColor" red="0.31372549020000001" green="0.12549019610000001" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onDeleteButton:" destination="-1" eventType="touchUpInside" id="3u9-Jh-yle"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="qzU-oC-yFr" firstAttribute="top" secondItem="srh-1q-L9C" secondAttribute="bottom" constant="17" id="M7M-c9-VeG"/>
-                <constraint firstItem="qzU-oC-yFr" firstAttribute="centerX" secondItem="Z4l-rH-fwo" secondAttribute="centerX" id="fyX-Nf-GxU"/>
-                <constraint firstItem="qzU-oC-yFr" firstAttribute="width" secondItem="srh-1q-L9C" secondAttribute="width" id="g6z-PU-Tjl"/>
-                <constraint firstItem="srh-1q-L9C" firstAttribute="width" secondItem="Z4l-rH-fwo" secondAttribute="width" multiplier="0.92" id="gXc-Ts-X3m"/>
-                <constraint firstItem="srh-1q-L9C" firstAttribute="top" secondItem="Z4l-rH-fwo" secondAttribute="top" constant="20" id="heE-wt-m7a"/>
-                <constraint firstItem="qzU-oC-yFr" firstAttribute="height" secondItem="srh-1q-L9C" secondAttribute="height" id="qtE-GG-Hba"/>
-                <constraint firstItem="srh-1q-L9C" firstAttribute="centerX" secondItem="Z4l-rH-fwo" secondAttribute="centerX" id="scD-pt-uYh"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="462.5" y="546.5"/>
-        </view>
-        <view contentMode="scaleToFill" id="rF1-a0-VdD">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBK-SM-QPM" customClass="TCRoundCornerButton">
-                    <rect key="frame" x="15" y="20" width="345" height="46"/>
-                    <color key="backgroundColor" red="0.89019607840000003" green="0.61960784310000006" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="xBK-SM-QPM" secondAttribute="height" multiplier="15:2" id="IMY-eS-jbd"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="删除">
-                        <color key="titleColor" red="0.31372549020000001" green="0.12549019610000001" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onDeleteButton:" destination="-1" eventType="touchUpInside" id="Stj-cu-KSy"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="xBK-SM-QPM" firstAttribute="centerX" secondItem="rF1-a0-VdD" secondAttribute="centerX" id="6Wt-yx-KHH"/>
-                <constraint firstItem="xBK-SM-QPM" firstAttribute="top" secondItem="rF1-a0-VdD" secondAttribute="top" constant="20" id="7J8-SP-xyg"/>
-                <constraint firstItem="xBK-SM-QPM" firstAttribute="width" secondItem="rF1-a0-VdD" secondAttribute="width" multiplier="0.92" id="aPa-WV-GGa"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="41" y="847"/>
         </view>
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jlb-xO-GF3">
             <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
