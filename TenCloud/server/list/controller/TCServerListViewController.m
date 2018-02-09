@@ -7,7 +7,6 @@
 //
 
 #import "TCServerListViewController.h"
-#import "TCClusterRequest.h"
 #import "TCServerTableViewCell.h"
 #import "TCServerDetailViewController.h"
 #import "TCServerSearchRequest.h"
@@ -175,33 +174,49 @@
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    NSString *text = @"马上去添加";
-    UIFont *textFont = TCFont(14.0);
-    NSMutableDictionary *attributes = [NSMutableDictionary new];
-    [attributes setObject:textFont forKey:NSFontAttributeName];
-    if (state == UIControlStateNormal)
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+    currentCorp.cid == 0;
+    if (canAdd)
     {
-        [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
-    }else
-    {
-        [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        NSString *text = @"马上去添加";
+        UIFont *textFont = TCFont(14.0);
+        NSMutableDictionary *attributes = [NSMutableDictionary new];
+        [attributes setObject:textFont forKey:NSFontAttributeName];
+        if (state == UIControlStateNormal)
+        {
+            [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
+        }else
+        {
+            [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        }
+        return [[NSAttributedString alloc] initWithString:text attributes:attributes];
     }
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    return nil;
 }
 
 - (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
-    UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
-    UIImage *image = nil;
-    if (state == UIControlStateNormal)
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+    currentCorp.cid == 0;
+    if (canAdd)
     {
-        image = [UIImage imageNamed:@"no_data_button_bg"];
-    }else
-    {
-        image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
+        UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
+        UIImage *image = nil;
+        if (state == UIControlStateNormal)
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg"];
+        }else
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        }
+        return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
     }
-    return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
+    return nil;
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
@@ -279,7 +294,7 @@
 
 - (void) onFilterSearchNotification:(NSNotification*)sender
 {
-    NSLog(@"收到filter search通知");
+    //NSLog(@"收到filter search通知");
     NSDictionary *filterDict = sender.object;
     NSArray *providers = [filterDict objectForKey:@"provider"];
     NSArray *regions = [filterDict objectForKey:@"region"];
@@ -304,20 +319,20 @@
 
 - (void) onAddServerButton:(id)sender
 {
-    NSLog(@"on add server");
+    //NSLog(@"on add server");
     TCAddServerViewController *addVC = [TCAddServerViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
 }
 
 - (IBAction) onRefreshDataButton:(id)sender
 {
-    NSLog(@"on refresh data button");
+    //NSLog(@"on refresh data button");
     [self reloadServerList];
 }
 
 - (IBAction) onFilterButton:(id)sender
 {
-    NSLog(@"on filter button");
+    //NSLog(@"on filter button");
     TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
     filterVC.providesPresentationContextTransitionStyle = YES;
     filterVC.definesPresentationContext = YES;
@@ -333,20 +348,6 @@
 - (void) doSearch:(NSString*)keyword provider:(NSArray<NSString*>*)providers
            region:(NSArray<NSString*>*)regions
 {
-    /*
-    NSMutableString *providerStr = [NSMutableString new];
-    for (int i = 0; i < providers.count; i++) {
-        <#statements#>
-    }
-    NSMutableString *regionStr = [NSMutableString new];
-    [NSString string]
-     */
-    //NSString *providerStr = [providers mj_JSONString];
-    //NSString *regionsStr = [regions mj_JSONString];
-    //NSString *providerStr = [providers componentsJoinedByString:@","];
-    //NSString *regionsStr = [regions componentsJoinedByString:@","];
-    //NSLog(@"providerStr:%@",providerStr);
-    //NSLog(@"regionStr:%@",regionsStr);
     __weak __typeof(self) weakSelf = self;
     TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:regions providers:providers];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
@@ -362,18 +363,6 @@
 - (void) reloadServerList
 {
     __weak  __typeof(self)  weakSelf = self;
-    /*
-    TCClusterRequest *request = [[TCClusterRequest alloc] init];
-    [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        [weakSelf stopLoading];
-        [weakSelf.serverArray removeAllObjects];
-        [weakSelf.serverArray addObjectsFromArray:serverArray];
-        [weakSelf.tableView reloadData];
-    } failure:^(NSString *message) {
-        [MBProgressHUD showError:message toView:nil];
-        [weakSelf stopLoading];
-    }];
-     */
     [self startLoading];
     NSString *keyword = _keywordField.text;
     if (keyword == nil)
@@ -383,7 +372,6 @@
     TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:@[] providers:@[]];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
-        //[weakSelf performSelector:@selector(stopLoading) withObject:nil afterDelay:0.32];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];

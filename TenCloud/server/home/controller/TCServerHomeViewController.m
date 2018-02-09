@@ -30,9 +30,6 @@
 #import "TCServerMonitorViewController.h"
 #import "TCServerListViewController.h"
 
-//test
-//#import <MMDrawerController/MMDrawerController.h>
-//#import "TCServerFilterViewController.h"
 
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
@@ -229,25 +226,10 @@ TCMessageManagerDelegate>
     
     TCServerListViewController *listVC = [TCServerListViewController new];
     [self.navigationController pushViewController:listVC animated:YES];
-     /*
-    TCServerFilterViewController *filterVC = [TCServerFilterViewController new];
-    TCServerListViewController *listVC = [TCServerListViewController new];
-    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:listVC rightDrawerViewController:filterVC];
-    [drawerController setShowsShadow:NO];
-    [drawerController setShouldStretchDrawer:NO];
-    [drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNone];
-    [drawerController setMaximumLeftDrawerWidth:TCSCALE(260)];
-    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    drawerController.title = @"服务器列表";
-    drawerController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:drawerController animated:YES];
-    */
 }
 
 - (void) onMessageButton:(id)sender
 {
-    //[MBProgressHUD showError:@"暂无页面" toView:nil];
     TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
 }
@@ -260,7 +242,6 @@ TCMessageManagerDelegate>
 - (void) reloadServerList
 {
     __weak  __typeof(self)  weakSelf = self;
-    NSLog(@" reload server list");
     TCServerWarningRequest *req = [[TCServerWarningRequest alloc] init];
     [req startWithSuccess:^(NSArray<TCServer *> *serverArray) {
         [weakSelf stopLoading];
@@ -275,9 +256,6 @@ TCMessageManagerDelegate>
     //需要与服务器列表一起刷新
     TCServerSummaryRequest *summaryReq = [TCServerSummaryRequest new];
     [summaryReq startWithSuccess:^(TCServerSummary *summary) {
-        NSLog(@"summary_server:%lld",summary.server_num);
-        NSLog(@"summary_warn_%lld",summary.warn_num);
-        NSLog(@"summary_pay_%lld",summary.payment_num);
         weakSelf.totalServerAmount = summary.server_num;
         [weakSelf.headerCollectionView reloadData];
     } failure:^(NSString *message) {
@@ -303,33 +281,49 @@ TCMessageManagerDelegate>
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    NSString *text = @"马上去添加";
-    UIFont *textFont = TCFont(14.0);
-    NSMutableDictionary *attributes = [NSMutableDictionary new];
-    [attributes setObject:textFont forKey:NSFontAttributeName];
-    if (state == UIControlStateNormal)
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+    currentCorp.cid == 0;
+    if (canAdd)
     {
-        [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
-    }else
-    {
-        [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        NSString *text = @"马上去添加";
+        UIFont *textFont = TCFont(14.0);
+        NSMutableDictionary *attributes = [NSMutableDictionary new];
+        [attributes setObject:textFont forKey:NSFontAttributeName];
+        if (state == UIControlStateNormal)
+        {
+            [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
+        }else
+        {
+            [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        }
+        return [[NSAttributedString alloc] initWithString:text attributes:attributes];
     }
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    return nil;
 }
 
 - (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
-    UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
-    UIImage *image = nil;
-    if (state == UIControlStateNormal)
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
+    currentCorp.cid == 0;
+    if (canAdd)
     {
-        image = [UIImage imageNamed:@"no_data_button_bg"];
-    }else
-    {
-        image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
+        UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
+        UIImage *image = nil;
+        if (state == UIControlStateNormal)
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg"];
+        }else
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        }
+        return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
     }
-    return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
+    return nil;
 }
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
