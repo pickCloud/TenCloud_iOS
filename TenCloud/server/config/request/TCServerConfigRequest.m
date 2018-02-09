@@ -35,6 +35,10 @@
         success ? success(config) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        if ([message hasPrefix:@"'NoneType' object is not"])
+        {
+            message = @"该服务器已不存在";
+        }
         failure ? failure(message) : nil;
     }];
 }
