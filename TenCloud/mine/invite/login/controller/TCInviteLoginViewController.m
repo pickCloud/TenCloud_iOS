@@ -322,7 +322,7 @@
             [MMProgressHUD dismissWithError:message afterDelay:1.32];
         }];
     } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:@"加入失败，请稍后再试" afterDelay:1.32];
+        [MMProgressHUD dismissWithError:@"加入失败，请稍候再试" afterDelay:1.32];
     }];
 }
 

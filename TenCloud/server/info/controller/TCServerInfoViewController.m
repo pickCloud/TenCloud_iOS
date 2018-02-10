@@ -379,6 +379,8 @@
     modifyVC.valueChangedBlock = ^(TCModifyTextViewController *vc, id newValue) {
         TCServerInfoItem *nameItem = weakSelf.configArray.firstObject;
         nameItem.value = newValue;
+        weakSelf.parentViewController.title = newValue;
+        weakSelf.config.basic_info.name = newValue;
         [weakSelf.tableView reloadData];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_SERVER object:nil];
     };
