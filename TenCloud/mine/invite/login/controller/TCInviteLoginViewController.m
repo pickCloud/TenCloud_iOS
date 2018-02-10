@@ -183,7 +183,7 @@
     __weak __typeof(self) weakSelf = self;
     [MMProgressHUD showWithStatus:@"加入中"];
     TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNumStr captcha:_captchaField.text];
-    [loginReq startWithSuccess:^(NSString *token) {
+    [loginReq startWithSuccess:^(NSString *token,NSInteger corpID) {
         [weakSelf loginWithToken:token shouldSetPassword:NO];
     } failure:^(NSString *message, NSInteger errorCode) {
         if (errorCode == 10404)

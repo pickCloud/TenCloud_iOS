@@ -74,12 +74,15 @@
     
     UIViewController *mineHomeVC = nil;
     TCCurrentCorp *corp = [TCCurrentCorp shared];
+    NSLog(@"corp_%ld:%@",corp.cid, corp);
     if (corp && corp.exist)
     {
+        NSLog(@"存在企业");
         mineHomeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corp.cid];
         
     }else
     {
+        NSLog(@"不存在企业");
         mineHomeVC = [TCPersonHomeViewController new];
     }
     UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];

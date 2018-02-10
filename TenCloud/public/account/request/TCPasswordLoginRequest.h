@@ -12,7 +12,7 @@
 
 - (instancetype) initWithPhoneNumber:(NSString *)phoneNumber password:(NSString *)password;
 
-- (void) startWithSuccess:(void(^)(NSString *token))success
+- (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure;
 
 /*

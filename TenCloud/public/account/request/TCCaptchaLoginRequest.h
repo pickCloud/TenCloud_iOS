@@ -12,7 +12,7 @@
 
 - (instancetype) initWithPhoneNumber:(NSString *)phoneNumber captcha:(NSString *)captcha;
 
-- (void) startWithSuccess:(void(^)(NSString *token))success
+- (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message, NSInteger errorCode))failure;
 
 @end

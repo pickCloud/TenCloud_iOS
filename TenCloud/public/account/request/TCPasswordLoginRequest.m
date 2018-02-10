@@ -45,13 +45,19 @@
 }
  */
 
-- (void) startWithSuccess:(void(^)(NSString *token))success
+- (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
         NSString *token = [dataDict objectForKey:@"token"];
-        success ? success(token) : nil;
+        NSInteger corpID = 0;
+        NSNumber *corpIDNum = [dataDict objectForKey:@"cid"];
+        if (corpIDNum)
+        {
+            corpID = corpIDNum.integerValue;
+        }
+        success ? success(token,corpID) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
         if (request.error.code == -1009)

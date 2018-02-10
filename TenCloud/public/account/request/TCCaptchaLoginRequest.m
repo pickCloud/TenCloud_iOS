@@ -26,16 +26,20 @@
     return self;
 }
 
-- (void) startWithSuccess:(void(^)(NSString *token))success
+- (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"captcha login success:");
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
         NSString *token = [dataDict objectForKey:@"token"];
-        success ? success(token) : nil;
+        NSInteger corpID = 0;
+        NSNumber *corpIDNum = [dataDict objectForKey:@"cid"];
+        if (corpIDNum)
+        {
+            corpID = corpIDNum.integerValue;
+        }
+        success ? success(token,corpID) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"captcha login req__");
         if (request.error.code == -1009)
         {
             failure ? failure(@"网络中断，请检查网络连接",0) : nil;

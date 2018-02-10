@@ -197,18 +197,17 @@
         
         [MMProgressHUD showWithStatus:@"登录中"];
         TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNum password:password];
-        [loginReq startWithSuccess:^(NSString *token) {
+        [loginReq startWithSuccess:^(NSString *token, NSInteger corpID) {
             [[TCLocalAccount shared] setToken:token];
             TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
             [request startWithSuccess:^(TCUser *user) {
-                NSLog(@"user:%@",user);
                 user.token = token;
                 [[TCLocalAccount shared] loginSuccess:user];
+                [[TCCurrentCorp shared] setCid:corpID];
                 TCTabBarController *tabBarController = [TCTabBarController new];
                 [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
                 [MMProgressHUD dismissWithSuccess:@"登录成功" title:nil afterDelay:1.32];
             } failure:^(NSString *message) {
-                NSLog(@"msg:%@",message);
                 [MMProgressHUD dismissWithError:@"登录失败"];
             }];
         } failure:^(NSString *message) {
@@ -234,28 +233,26 @@
         
         [MMProgressHUD showWithStatus:@"登录中"];
         TCCaptchaLoginRequest *loginReq = [[TCCaptchaLoginRequest alloc] initWithPhoneNumber:phoneNum captcha:captcha];
-        [loginReq startWithSuccess:^(NSString *token) {
+        [loginReq startWithSuccess:^(NSString *token, NSInteger corpID) {
             [[TCLocalAccount shared] setToken:token];
             TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
             [request startWithSuccess:^(TCUser *user) {
                 user.token = token;
                 [[TCLocalAccount shared] loginSuccess:user];
+                [[TCCurrentCorp shared] setCid:corpID];
                 TCTabBarController *tabBarController = [TCTabBarController new];
                 [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
                 [MMProgressHUD dismissWithSuccess:@"登录成功" title:nil afterDelay:1.32];
             } failure:^(NSString *message) {
-                NSLog(@"msg:%@",message);
                 [MMProgressHUD dismissWithError:@"登录失败"];
             }];
         } failure:^(NSString *message, NSInteger errorCode){
-            NSLog(@"message:%@ errorcode:%ld",message,errorCode);
             if (errorCode == 10404)
             {
                 NSString *token = message;
                 [[TCLocalAccount shared] setToken:token];
                 TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
                 [request startWithSuccess:^(TCUser *user) {
-                    NSLog(@"user:%@",user);
                     user.token = token;
                     [[TCLocalAccount shared] loginSuccess:user];
                     [MMProgressHUD dismiss];
