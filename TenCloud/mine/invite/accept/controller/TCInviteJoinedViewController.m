@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"邀请员工";
+    self.title = @"邀请加入";
     [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
     
     if (IS_iPhoneX)
