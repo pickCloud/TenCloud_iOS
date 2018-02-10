@@ -276,6 +276,7 @@
 		A0A0E8CF20246B4B00265920 /* TCServerSummary+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CC20246B4B00265920 /* TCServerSummary+CoreDataClass.m */; };
 		A0A0E8D020246B4B00265920 /* TCServerSummary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */; };
 		A0A0E8D320246B7100265920 /* TCServerSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */; };
+		A0A18810202F0769007D3C95 /* TCLogoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A1880E202F0769007D3C95 /* TCLogoutRequest.m */; };
 		A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */; };
 		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
 		A0A86B151FF33FF500D1D58D /* TCAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B131FF33FF500D1D58D /* TCAccountSecurityViewController.m */; };
@@ -893,6 +894,8 @@
 		A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSummary+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A0A0E8D120246B7100265920 /* TCServerSummaryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSummaryRequest.h; sourceTree = "<group>"; };
 		A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerSummaryRequest.m; sourceTree = "<group>"; };
+		A0A1880E202F0769007D3C95 /* TCLogoutRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLogoutRequest.m; sourceTree = "<group>"; };
+		A0A1880F202F0769007D3C95 /* TCLogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLogoutRequest.h; sourceTree = "<group>"; };
 		A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
 		A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingViewController.m; sourceTree = "<group>"; };
 		A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSettingViewController.xib; sourceTree = "<group>"; };
@@ -1509,6 +1512,8 @@
 		A025552A1FD6936700D16D22 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0A1880F202F0769007D3C95 /* TCLogoutRequest.h */,
+				A0A1880E202F0769007D3C95 /* TCLogoutRequest.m */,
 				A01A9BBC1FF50D7200BD450D /* TCResetPhoneRequest.h */,
 				A01A9BBD1FF50D7200BD450D /* TCResetPhoneRequest.m */,
 				A007037F1FE8183900F232D7 /* TCSetSmsCountRequest.h */,
@@ -4573,6 +4578,7 @@
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
 				A088F947202AE731005A97DD /* TCProjectPermTableViewController.m in Sources */,
+				A0A18810202F0769007D3C95 /* TCLogoutRequest.m in Sources */,
 				A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */,
 				A0906E7920288DB2006D30C8 /* TCAlertView.m in Sources */,
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,

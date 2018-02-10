@@ -12,6 +12,7 @@
 #import "TCLoginViewController.h"
 #import "TCAccountSecurityViewController.h"
 #import "TCPageManager.h"
+#import "TCLogoutRequest.h"
 #define SETTING_TEXT_CELL_REUSE_ID  @"SETTING_TEXT_CELL_REUSE_ID"
 
 @interface TCSettingViewController ()
@@ -68,14 +69,21 @@
 #pragma mark - extension
 - (IBAction) onExitAccount:(id)sender
 {
+    __weak __typeof(self) weakSelf = self;
     TCConfirmBlock confirmBlock = ^(TCConfirmView *view){
-        [[TCLocalAccount shared] logout];
-        [[TCCurrentCorp shared] reset];
-        TCLoginViewController *loginVC = [TCLoginViewController new];
-        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [TCPageManager setRootController:loginNav];
+        TCLogoutRequest *logoutReq = [TCLogoutRequest new];
+        [logoutReq startWithSuccess:^(NSString *status) {
+            [[TCLocalAccount shared] logout];
+            [[TCCurrentCorp shared] reset];
+            TCLoginViewController *loginVC = [TCLoginViewController new];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [TCPageManager setRootController:loginNav];
+        } failure:^(NSString *message) {
+            [MBProgressHUD showError:message toView:nil];
+        }];
     };
-    [TCAlertController presentFromController:self
+    
+    [TCAlertController presentFromController:weakSelf
                                        title:@"确定退出登录?"
                            confirmButtonName:@"退出登录"
                                 confirmBlock:confirmBlock
