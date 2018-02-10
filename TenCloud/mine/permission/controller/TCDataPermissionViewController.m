@@ -76,7 +76,8 @@
         _magicController.magicView.bounces = YES;
         _magicController.magicView.headerView.backgroundColor = THEME_TINT_COLOR;
         _magicController.magicView.sliderColor = [UIColor clearColor];//THEME_TINT_COLOR;
-        _magicController.magicView.navigationColor = TABLE_CELL_BG_COLOR;
+        UIColor *navBgColor = [UIColor colorWithRed:29/255.0 green:32/255.0 blue:41/255.0 alpha:1.0];
+        _magicController.magicView.navigationColor = navBgColor;
         _magicController.magicView.layoutStyle = VTLayoutStyleDivide;
         _magicController.magicView.separatorHeight = 0.0f;
         _magicController.magicView.dataSource = self;

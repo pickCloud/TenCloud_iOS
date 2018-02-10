@@ -182,6 +182,9 @@
         _magicController.magicView.separatorHeight = 0.0f;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat sliderWidth = screenRect.size.width * 0.26666;
+        _magicController.magicView.sliderWidth = sliderWidth;
     }
     return _magicController;
 }

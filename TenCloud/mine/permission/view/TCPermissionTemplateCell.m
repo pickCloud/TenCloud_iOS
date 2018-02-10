@@ -20,7 +20,7 @@
     self.layer.cornerRadius = 4.0;
     self.layer.borderWidth = 1.0f;
     self.layer.borderColor = [UIColor clearColor].CGColor;
-    _nameLabel.textColor = THEME_PLACEHOLDER_COLOR;
+    //_nameLabel.textColor = THEME_PLACEHOLDER_COLOR;
 }
 
 - (void) setName:(NSString*)name
@@ -34,12 +34,12 @@
     if (self.selected)
     {
         _selectedIconView.hidden = NO;
-        _nameLabel.textColor = THEME_TINT_COLOR;
+        //_nameLabel.textColor = THEME_TINT_COLOR;
         self.layer.borderColor = THEME_TINT_COLOR.CGColor;
     }else
     {
         _selectedIconView.hidden = YES;
-        _nameLabel.textColor = THEME_PLACEHOLDER_COLOR;
+        //_nameLabel.textColor = THEME_PLACEHOLDER_COLOR;
         self.layer.borderColor = [UIColor clearColor].CGColor;
     }
 }
