@@ -22,13 +22,14 @@
 #import "TCButtonTableViewCell.h"
 #import "TCModifyTextViewController.h"
 #import "TCModifyServerNameRequest.h"
+#import "TCDataSync.h"
 
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
 #define SERVER_BUTTON_CELL_ID           @"SERVER_BUTTON_CELL_ID"
 #define STATE_MAX_RETRY_TIMES           120
 
-@interface TCServerInfoViewController ()
+@interface TCServerInfoViewController ()<TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *buttonTableView;
 @property (nonatomic, strong)   TCServerConfig          *config;
@@ -36,6 +37,7 @@
 @property (nonatomic, assign)   NSInteger               serverID;
 @property (nonatomic, assign)   NSInteger               retryTimes;
 @property (nonatomic, strong)   NSMutableArray          *buttonDataArray;
+@property (nonatomic, strong)   NSString                *status;
 - (IBAction) onRestartButton:(id)sender;
 - (IBAction) onPowerOffButton:(id)sender;
 - (IBAction) onStartButton:(id)sender;
@@ -45,6 +47,7 @@
 - (void) reloadServerState;
 - (void) sendUpdateServerStateRequest;
 - (void) onModifyServerName;
+- (void) updateModifyServerNameUI;
 @end
 
 @implementation TCServerInfoViewController
@@ -106,7 +109,7 @@
         
         TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
         [statusReq startWithSuccess:^(NSString *status) {
-            NSLog(@"status:%@",status);
+            weakSelf.status = status;
             [weakSelf updateFooterViewWithStatus:status];
         } failure:^(NSString *message) {
             NSLog(@"message:%@",message);
@@ -115,11 +118,18 @@
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
+    
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    [[TCDataSync shared] removePermissionChangedObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -349,6 +359,7 @@
     TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
     [statusReq startWithSuccess:^(NSString *status) {
         NSLog(@"status:%@",status);
+        weakSelf.status = status;
         weakSelf.retryTimes ++;
         [weakSelf udpateStatusLabel:status];
         [weakSelf updateFooterViewWithStatus:status];
@@ -393,5 +404,27 @@
         }];
     };
     [self.navigationController pushViewController:modifyVC animated:YES];
+}
+
+- (void) updateModifyServerNameUI
+{
+    if (_configArray.count > 0)
+    {
+        TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+        BOOL canModify = currentCorp.isAdmin || [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_SERVER];
+        TCServerInfoItem *nameItem = _configArray.firstObject;
+        nameItem.disclosure = canModify;
+        [self.tableView reloadData];
+    }
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self updateModifyServerNameUI];
+    if (_status && _status.length > 0)
+    {
+        [self updateFooterViewWithStatus:_status];
+    }
 }
 @end

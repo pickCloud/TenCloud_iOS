@@ -250,6 +250,9 @@ TCMessageManagerDelegate>
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    NSLog(@"current corp is admin:%ld",currentCorp.isAdmin);
+    
+    
     BOOL canAdd = currentCorp.isAdmin ||
     [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
     currentCorp.cid == 0;
