@@ -12,6 +12,8 @@
 #import "TCWelcomeViewController.h"
 #import "TCTabBarController.h"
 #import "TCLoginViewController.h"
+#import "TCCurrentCorp.h"
+#import "TCCorpHomeViewController.h"
 
 typedef void (^TCRootVCAnimation)(void);
 
@@ -69,5 +71,33 @@ typedef void (^TCRootVCAnimation)(void);
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:animation
                     completion:nil];
+}
+
++ (void) loadCorpPageWithCorpID:(NSInteger)corpID
+{
+    [[TCCurrentCorp shared] setCid:corpID];
+    UITabBarController *tabController = (UITabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (tabController)
+    {
+        NSArray *navControllers = tabController.viewControllers;
+        if (navControllers && navControllers.count >= 5 )
+        {
+            [tabController setSelectedIndex:4];
+            NSMutableArray *newVCS = [NSMutableArray new];
+            TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corpID];
+            [newVCS addObject:homeVC];
+            UINavigationController *nav = [navControllers objectAtIndex:4];
+            [nav setViewControllers:newVCS animated:YES];
+        }
+    }
+    //NSArray *navControllers = [[[UIApplication sharedApplication] keyWindow] rootViewController] childViewControllers
+    /*
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
+    [newVCS removeAllObjects];
+    TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
+    [newVCS addObject:homeVC];
+    [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+     */
 }
 @end

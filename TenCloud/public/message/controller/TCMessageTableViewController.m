@@ -27,6 +27,7 @@
 #import "TCInviteInfo+CoreDataClass.h"
 #import "TCServerListViewController.h"
 #import "TCAddServerViewController.h"
+#import "TCPageManager.h"
 
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
@@ -219,13 +220,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                         [weakSelf resubmitWithCode:codeStr];
                     }else
                     {
-                        [[TCCurrentCorp shared] setCid:cid];
-                        NSArray *viewControllers = self.navigationController.viewControllers;
-                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-                        [newVCS removeAllObjects];
-                        TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
-                        [newVCS addObject:homeVC];
-                        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+                        [self.navigationController popViewControllerAnimated:NO];
+                        [TCPageManager loadCorpPageWithCorpID:cid];
                     }
                     
                 } failure:^(NSString *message) {

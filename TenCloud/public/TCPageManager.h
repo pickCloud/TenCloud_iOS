@@ -16,4 +16,6 @@
 
 + (void) setRootController:(UIViewController*)controller;
 
++ (void) loadCorpPageWithCorpID:(NSInteger)corpID;
+
 @end
