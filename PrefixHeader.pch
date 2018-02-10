@@ -87,12 +87,12 @@
 #define NOTIFICATION_CHANGE_ADMIN       @"NOTIFICATION_CHANGE_ADMIN"
 #define NOTIFICATION_CHANGE_JOIN_SETTING    @"NOTIFICATION_CHANGE_JOIN_SETTING"
 
-#define STAFF_STATUS_UNEXIST            0
-#define STAFF_STATUS_PASS               3
-#define STAFF_STATUS_REJECT             1
-#define STAFF_STATUS_PENDING            2
-#define STAFF_STATUS_FOUNDER            4
-#define STAFF_STATUS_WAITING            5
+#define STAFF_STATUS_UNEXIST            0       //不存在此员工
+#define STAFF_STATUS_PASS               3       //员工 已审核通过
+#define STAFF_STATUS_REJECT             1       //员工 审核被拒绝
+#define STAFF_STATUS_PENDING            2       //员工 等待审核 接受邀请流程走完
+#define STAFF_STATUS_FOUNDER            4       //员工是创始人
+#define STAFF_STATUS_WAITING            5       //员工 待加入 接受邀请流程未走完
 
 #define WELCOME_PAGE_KEY        @"welcome001"
 

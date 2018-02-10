@@ -126,12 +126,19 @@
     if (selectedCorp.status == -1)
     {
         [MBProgressHUD showError:@"暂无未通过处理页面" toView:nil];
-    }else if(selectedCorp.status == 2)
+    }else if(selectedCorp.status == STAFF_STATUS_PENDING)
     {
-        
-    }else if(selectedCorp.status == 5 || selectedCorp.status == 1)
+        //此场景不做任何响应动作
+    }else if(selectedCorp.status == STAFF_STATUS_REJECT ||
+             selectedCorp.status == STAFF_STATUS_WAITING)
     {
         NSString *tip = @"确定重新申请?";
+        NSString *confirmBtnName = @"重新申请";
+        if (selectedCorp.status == STAFF_STATUS_WAITING)
+        {
+            tip = @"确定申请加入?";
+            confirmBtnName = @"申请加入";
+        }
         TCConfirmBlock block = ^(TCConfirmView *view){
             NSString *inviteCode = selectedCorp.code;
             NSString *phoneNumStr = [[TCLocalAccount shared] mobile];
@@ -150,7 +157,7 @@
         };
         [TCAlertController presentFromController:self
                                            title:tip
-                               confirmButtonName:@"重新申请"
+                               confirmButtonName:confirmBtnName
                                     confirmBlock:block
                                      cancelBlock:nil];
     }else
