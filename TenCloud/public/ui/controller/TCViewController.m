@@ -27,8 +27,16 @@
         UIImage *nomalImage = [UIImage imageNamed:@"public_back"];
         [button setImage:[nomalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         
-        [button sizeToFit];
-        //[button setBackgroundColor:[UIColor redColor]];
+        //[button sizeToFit];
+        button.bounds = CGRectMake(0, 0, 44, 44);
+        
+        CGFloat btnOffset = TCSCALE(18)+TCSCALE(18);//0;//TCSCALE(18);
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
+        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItem = backButtonItem;
+        
+        //CGRect btnRect = button.frame;
+        //NSLog(@"back btn rect:%.2f, %.2f, %.2f, %.2f",btnRect.origin.x, btnRect.origin.y, btnRect.size.width, btnRect.size.height);
         
         /*
          //deprecated
@@ -45,10 +53,7 @@
          */
         
         
-        CGFloat btnOffset = TCSCALE(18);
-        button.contentEdgeInsets = UIEdgeInsetsMake(0, -btnOffset, 0, 0);
-        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-        self.navigationItem.leftBarButtonItem = backButtonItem;
+
         
         /*
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
