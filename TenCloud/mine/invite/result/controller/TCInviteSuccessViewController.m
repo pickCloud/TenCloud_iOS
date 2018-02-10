@@ -11,6 +11,7 @@
 #import "TCPersonHomeViewController.h"
 #import "TCMyCorpTableViewController.h"
 #import "TCMessageManager.h"
+#import "TCWelcomeViewController.h"
 
 @interface TCInviteSuccessViewController ()
 @property (nonatomic, strong)   NSString    *titleText;
@@ -62,8 +63,19 @@
     {
         _finishBlock(self);
     }
-    TCTabBarController *tabBarController = [TCTabBarController new];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+    UIViewController *rootVC = nil;
+    NSString *key = @"welcome001";
+    NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    if (!storedKey || ![storedKey isEqualToString:key])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:key forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        rootVC = [[TCWelcomeViewController alloc] init];
+    }else
+    {
+        TCTabBarController *tabBarController = [TCTabBarController new];
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+    }
 }
 
 - (IBAction) onMyCorpButton:(id)sender
