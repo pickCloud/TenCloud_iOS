@@ -55,12 +55,9 @@
 
      //normal code
     UIViewController *rootVC = nil;
-    NSString *key = @"welcome001";
-    NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-    if (!storedKey || ![storedKey isEqualToString:key])
+    NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:WELCOME_PAGE_KEY];
+    if (!storedKey || ![storedKey isEqualToString:WELCOME_PAGE_KEY])
     {
-        [[NSUserDefaults standardUserDefaults] setObject:key forKey:key];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         rootVC = [[TCWelcomeViewController alloc] init];
     }else
     {
@@ -119,6 +116,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
+    NSLog(@"page created2:%@",url);
     NSString *hostName = url.host;
     NSDictionary *paramDict = [NSString paramDictFromURLQueryString:url.query];
     if ([hostName isEqualToString:@"invite"])

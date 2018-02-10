@@ -9,6 +9,7 @@
 #import "TCWelcomeViewController.h"
 #import "TCTabBarController.h"
 #import "TCLoginViewController.h"
+#import "TCPageManager.h"
 
 typedef void (^RootVCAnimation)(void);
 
@@ -25,6 +26,13 @@ typedef void (^RootVCAnimation)(void);
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSUserDefaults standardUserDefaults] setObject:WELCOME_PAGE_KEY forKey:WELCOME_PAGE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +57,17 @@ typedef void (^RootVCAnimation)(void);
 #pragma mark - extension
 - (IBAction) onStartButton:(id)sender
 {
+    UIViewController *rootVC = nil;
+    if ([[TCLocalAccount shared] isLogin])
+    {
+        rootVC = [[TCTabBarController alloc] init];
+    }else
+    {
+        UIViewController *loginVC = [TCLoginViewController new];
+        rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    }
+    [TCPageManager setRootController:rootVC];
+    /*
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     UIViewController *rootVC = nil;
     if ([[TCLocalAccount shared] isLogin])
@@ -71,6 +90,7 @@ typedef void (^RootVCAnimation)(void);
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:animation
                     completion:nil];
+     */
 }
 
 @end

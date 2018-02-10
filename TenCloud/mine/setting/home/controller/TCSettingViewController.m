@@ -11,6 +11,7 @@
 #import "TCCellData.h"
 #import "TCLoginViewController.h"
 #import "TCAccountSecurityViewController.h"
+#import "TCPageManager.h"
 #define SETTING_TEXT_CELL_REUSE_ID  @"SETTING_TEXT_CELL_REUSE_ID"
 
 @interface TCSettingViewController ()
@@ -72,7 +73,7 @@
         [[TCCurrentCorp shared] reset];
         TCLoginViewController *loginVC = [TCLoginViewController new];
         UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+        [TCPageManager setRootController:loginNav];
     };
     [TCAlertController presentFromController:self
                                        title:@"确定退出登录?"

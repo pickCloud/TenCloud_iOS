@@ -25,6 +25,7 @@
 #import "TCInviteJoinedViewController.h"
 #import "TCPageManager.h"
 #import "TCLoginViewController.h"
+#import "TCPageManager.h"
 
 
 @interface TCInviteLoginViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
@@ -214,9 +215,12 @@
 
 - (IBAction) onEnterSystem:(id)sender
 {
+    /*
     TCLoginViewController *loginVC = [TCLoginViewController new];
     UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+     */
+    [TCPageManager enterHomePage];
 }
 
 - (BOOL) isInviteInfoInvalid

@@ -10,6 +10,7 @@
 #import "TCTabBarController.h"
 #import "TCMyCorpTableViewController.h"
 #import "TCPersonHomeViewController.h"
+#import "TCPageManager.h"
 
 
 @interface TCInviteJoinedViewController ()<UIGestureRecognizerDelegate>
@@ -65,8 +66,9 @@
 #pragma mark - extension
 - (IBAction) onEnterSystemButton:(id)sender
 {
-    TCTabBarController *tabBarController = [TCTabBarController new];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+    [TCPageManager enterHomePage];
+    //TCTabBarController *tabBarController = [TCTabBarController new];
+    //[[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
 }
 
 - (IBAction) onMyCorpButton:(id)sender

@@ -16,6 +16,7 @@
 #import "TCStaffStatusRequest.h"
 #import "TCInviteJoinedViewController.h"
 #import "TCTabBarController.h"
+#import "TCPageManager.h"
 
 
 @interface TCAcceptInviteViewController ()<UIGestureRecognizerDelegate>
@@ -128,8 +129,9 @@
 
 - (IBAction) onEnterSystem:(id)sender
 {
-    TCTabBarController *tabBarController = [TCTabBarController new];
-    [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+    //TCTabBarController *tabBarController = [TCTabBarController new];
+    //[[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
+    [TCPageManager enterHomePage];
 }
 
 - (BOOL) isInviteInfoInvalid

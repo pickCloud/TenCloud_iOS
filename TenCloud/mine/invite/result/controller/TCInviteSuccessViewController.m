@@ -12,6 +12,7 @@
 #import "TCMyCorpTableViewController.h"
 #import "TCMessageManager.h"
 #import "TCWelcomeViewController.h"
+#import "TCPageManager.h"
 
 @interface TCInviteSuccessViewController ()
 @property (nonatomic, strong)   NSString    *titleText;
@@ -63,6 +64,7 @@
     {
         _finishBlock(self);
     }
+    /*
     UIViewController *rootVC = nil;
     NSString *key = @"welcome001";
     NSString *storedKey = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -76,6 +78,8 @@
         TCTabBarController *tabBarController = [TCTabBarController new];
         [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
     }
+     */
+    [TCPageManager enterHomePage];
 }
 
 - (IBAction) onMyCorpButton:(id)sender

@@ -94,6 +94,8 @@
 #define STAFF_STATUS_FOUNDER            4
 #define STAFF_STATUS_WAITING            5
 
+#define WELCOME_PAGE_KEY        @"welcome001"
+
 
 //function id
 //企业资料

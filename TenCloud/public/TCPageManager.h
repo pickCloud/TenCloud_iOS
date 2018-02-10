@@ -12,4 +12,8 @@
 
 + (void) showPersonHomePageFromController:(UIViewController*)viewController;
 
++ (void) enterHomePage;
+
++ (void) setRootController:(UIViewController*)controller;
+
 @end
