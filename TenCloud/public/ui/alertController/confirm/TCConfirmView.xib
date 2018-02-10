@@ -43,7 +43,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="取消">
-                                <color key="titleColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="onCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="V58-7X-8to"/>
