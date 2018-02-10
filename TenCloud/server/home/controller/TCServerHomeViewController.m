@@ -20,6 +20,7 @@
 #import "TCMessageTableViewController.h"
 #import "TCServer+CoreDataClass.h"
 #import "TCServerListViewController.h"
+#import "TCDataSync.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -28,7 +29,7 @@
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
 @interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,
-TCMessageManagerDelegate>
+TCMessageManagerDelegate,TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 @property (nonatomic, assign) NSInteger       totalServerAmount;
@@ -109,6 +110,7 @@ TCMessageManagerDelegate>
                                                  name:NOTIFICATION_DEL_SERVER
                                                object:nil];
     [[TCMessageManager shared] addObserver:self];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,6 +121,7 @@ TCMessageManagerDelegate>
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[TCDataSync shared] removePermissionChangedObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -324,5 +327,11 @@ TCMessageManagerDelegate>
 - (void) messageCountChanged:(NSInteger)count
 {
     _messageButton.badgeView.badgeValue = count;
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self.tableView reloadData];
 }
 @end
