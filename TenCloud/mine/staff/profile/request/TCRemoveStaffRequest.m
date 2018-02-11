@@ -22,6 +22,7 @@
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        //此处属于本应服务端传回出错消息，服务端传回内容不对，客户端修正
         //NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
         //if (statusNum && statusNum.integerValue == 10003)
         if(message && [message isEqualToString:@"非公司员工"])
