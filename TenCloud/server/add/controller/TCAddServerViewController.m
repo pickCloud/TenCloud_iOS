@@ -8,20 +8,17 @@
 
 #import "TCAddServerViewController.h"
 #import "TCUser+CoreDataClass.h"
-#import <SocketRocket.h>
 #import <AFNetworking/AFNetworking.h>
-
+#import "TCAddServerManager.h"
 #import "TCAddServerLogView.h"
 #import "TCAddServerSuccessView.h"
 #import "TCAddServerFailView.h"
-
 #import "TCShowAlertView.h"
-#import "TCAlertController.h"
 #import "UIView+TCAlertView.h"
 
 #define ADDING_SERVER_BUTTON_TITLE  @"正在添加...请稍候..."
 
-@interface TCAddServerViewController ()<UIGestureRecognizerDelegate,SRWebSocketDelegate>
+@interface TCAddServerViewController ()<UIGestureRecognizerDelegate,TCAddServerManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *serverNameField;
 @property (nonatomic, weak) IBOutlet    UITextField         *ipField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -36,13 +33,9 @@
 @property (nonatomic, strong)           NSMutableAttributedString   *logText;
 @property (nonatomic, strong)           TCShowAlertView     *successAlertView;
 @property (nonatomic, strong)           TCShowAlertView     *failAlertView;
-@property (nonatomic, strong)           SRWebSocket         *socket;
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onAddButton:(id)sender;
 - (IBAction) onLogButton:(id)sender;
-- (void) connectWebSocket;
-- (void) closeWebSocket;
-- (void) sendWebSocketData;
 - (void) showLogAlertView;
 - (void) showSuccessAlertView;
 - (void) showFailAlertView:(NSString*)message;
@@ -77,7 +70,7 @@
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
     
-    [self connectWebSocket];
+    //[self connectWebSocket];
     
     //test data
 //    _serverNameField.text = @"测试机";
@@ -90,17 +83,17 @@
 //    _userNameField.text = @"ubuntu";
 //    _passwordField.text = @"Sqsm3334545";
     
-//    _serverNameField.text = @"测试机2";
-//    _ipField.text = @"47.96.129.231";
-//    _userNameField.text = @"root";
-//    _passwordField.text = @"Test1234";
+    _serverNameField.text = @"测试机2";
+    _ipField.text = @"47.96.129.231";
+    _userNameField.text = @"root";
+    _passwordField.text = @"Test1234";
     
 //    _serverNameField.text = @"测试机2";
 //    _ipField.text = @"47.97.185.147";
 //    _userNameField.text = @"root";
 //    _passwordField.text = @"Test1234";
     
-    
+    [[TCAddServerManager shared] setDelegate:self];
 }
 
 
@@ -111,7 +104,7 @@
 
 - (void) dealloc
 {
-    [self closeWebSocket];
+    [[TCAddServerManager shared] setDelegate:nil];
 }
 
 #pragma mark - extension
@@ -170,20 +163,14 @@
         [_logText deleteCharactersInRange:deleteRange];
     }
     
-    if (self.socket.readyState == SR_OPEN)
-    {
-        [self sendWebSocketData];
-        
-        UIColor *addingColor = [UIColor colorWithRed:86/255.0 green:148/255.0 blue:156/255.0 alpha:1.0];
-        [_addServerButton setTitle:ADDING_SERVER_BUTTON_TITLE forState:UIControlStateNormal];
-        [_addServerButton setTitleColor:addingColor forState:UIControlStateNormal];
-        [self showLogAlertView];
-    }else
-    {
-        [self closeWebSocket];
-        [self connectWebSocket];
-        //[MBProgressHUD showError:@"连接失败，请稍后重试" toView:nil];
-    }
+    [[TCAddServerManager shared] addServerWithName:_serverNameField.text
+                                                ip:_ipField.text
+                                          userName:_userNameField.text
+                                          password:_passwordField.text];
+    UIColor *addingColor = [UIColor colorWithRed:86/255.0 green:148/255.0 blue:156/255.0 alpha:1.0];
+    [_addServerButton setTitle:ADDING_SERVER_BUTTON_TITLE forState:UIControlStateNormal];
+    [_addServerButton setTitleColor:addingColor forState:UIControlStateNormal];
+    [self showLogAlertView];
 }
 
 - (IBAction) onLogButton:(id)sender
@@ -250,119 +237,44 @@
     [_userNameField setText:@""];
 }
 
-- (void) connectWebSocket
+ 
+#pragma mark - TCAddServerManagerDelegate
+- (void) addServerManager:(TCAddServerManager*)manager receiveSuccessMessage:(NSString*)message
 {
-    NSInteger cid = [[TCCurrentCorp shared] cid];
-    NSString *token = [[TCLocalAccount shared] token];
-    NSString *urlStr = [NSString stringWithFormat:@"%@?Cid=%ld&Authorization=%@",ADD_SERVER_URL, cid,token];
-    NSURL *newURL = [NSURL URLWithString:urlStr];
-    NSURLRequest *newRequest = [NSURLRequest requestWithURL:newURL];
-    self.socket = [[SRWebSocket alloc] initWithURLRequest:newRequest];
-    self.socket.delegate = self;
-    [self.socket open];
-}
-
-- (void) closeWebSocket
-{
-    if (self.socket)
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
+    if (_logAlertView)
     {
-        [self.socket close];
-        self.socket = nil;
+        [_logAlertView hide];
     }
+    [self resetToReady];
+    [self showSuccessAlertView];
 }
 
-- (void) sendWebSocketData
+- (void) addServerManager:(TCAddServerManager*)manager receiveFailMessage:(NSString*)message
 {
-    NSString *serverName = _serverNameField.text;
-    NSString *ip = _ipField.text;
-    NSString *userName = _userNameField.text;
-    NSString *password = _passwordField.text;
-    NSDictionary *params = @{@"passwd":password,
-                             @"username":userName,
-                             @"public_ip":ip,
-                             @"name":serverName,
-                             @"cluster_id":@"1"
-                             };
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:nil];
-    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    [self.socket send:jsonStr];
-}
-
-#pragma mark - socket delegate
-- (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    NSLog(@"socket did open");
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    NSLog(@"did fail:%@",error.description);
-    if (webSocket == self.socket) {
-        _socket = nil;
-        [self connectWebSocket];
-    }
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    NSLog(@"did close");
-    if (webSocket == self.socket) {
-        NSLog(@"************************** socket连接断开************************** ");
-        NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
-        [self closeWebSocket];
-        [self connectWebSocket];
-        //[MMProgressHUD dismiss];
-    }
-}
-
--(void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload{
-    NSString *reply = [[NSString alloc] initWithData:pongPayload encoding:NSUTF8StringEncoding];
-    NSLog(@"reply===%@",reply);
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
-    NSLog(@"message:%@",message);
-    if ([message isEqualToString:@"open"])
+    NSString *errorMessage = @"服务器未返回失败原因";
+    NSLog(@"_logTextArray:%@",_logTextArray);
+    if (_logTextArray.count >= 2)
     {
-        return;
+        errorMessage = [_logTextArray objectAtIndex:_logTextArray.count - 2];
     }
-    
-    if (webSocket == self.socket) {
-        [_logTextArray addObject:message];
-        NSString *tmpstr = [NSString stringWithFormat:@"%@\n",message];
-        NSAttributedString *msgStr = [[NSAttributedString alloc] initWithString:tmpstr  attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-        [_logText appendAttributedString:msgStr];
-        if (_mLogView)
-        {
-            [_mLogView setAttrText:_logText];
-        }
-        
-        if([message isEqualToString:@"success"])
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
-            if (_logAlertView)
-            {
-                [_logAlertView hide];
-            }
-            [self resetToReady];
-            [self showSuccessAlertView];
-        }else if([message isEqualToString:@"failure"])
-        {
-            //从上一条消息中获取失败原因
-            NSString *errorMessage = @"服务器未返回失败原因";
-            if (_logTextArray.count >= 2)
-            {
-                errorMessage = [_logTextArray objectAtIndex:_logTextArray.count - 2];
-            }
-            if (_logAlertView)
-            {
-                [_logAlertView hideWithoutAnimation];
-            }
-            [self resetToReady];
-            [self showFailAlertView:errorMessage];
-        }else
-        {
-            //[MMProgressHUD dismissWithError:message title:nil afterDelay:1.5];
-        }
+    if (_logAlertView)
+    {
+        [_logAlertView hideWithoutAnimation];
+    }
+    [self resetToReady];
+    [self showFailAlertView:errorMessage];
+}
+
+- (void) addServerManager:(TCAddServerManager*)manager receiveLogMessage:(NSString*)message
+{
+    [_logTextArray addObject:message];
+    NSString *tmpstr = [NSString stringWithFormat:@"%@\n",message];
+    NSAttributedString *msgStr = [[NSAttributedString alloc] initWithString:tmpstr  attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
+    [_logText appendAttributedString:msgStr];
+    if (_mLogView)
+    {
+        [_mLogView setAttrText:_logText];
     }
 }
 @end

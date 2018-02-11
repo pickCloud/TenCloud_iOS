@@ -140,6 +140,7 @@
 		A033AD3F200CE06300FFD2BF /* TCAcceptJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD3D200CE06300FFD2BF /* TCAcceptJoinRequest.m */; };
 		A033AD42200CEC8700FFD2BF /* TCRejectJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD40200CEC8700FFD2BF /* TCRejectJoinRequest.m */; };
 		A033AD45200CEED700FFD2BF /* TCRemoveStaffRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A033AD43200CEED700FFD2BF /* TCRemoveStaffRequest.m */; };
+		A038C478202FCDF400C20A04 /* TCAddServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A038C477202FCDF400C20A04 /* TCAddServerManager.m */; };
 		A04539B620073A2B00402D1A /* TCStaffSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539B420073A2B00402D1A /* TCStaffSearchRequest.m */; };
 		A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539B920074F2200402D1A /* MKDropdownMenu.m */; };
 		A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04539BB2007514900402D1A /* ShapeSelectView.xib */; };
@@ -657,6 +658,8 @@
 		A033AD41200CEC8700FFD2BF /* TCRejectJoinRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRejectJoinRequest.h; sourceTree = "<group>"; };
 		A033AD43200CEED700FFD2BF /* TCRemoveStaffRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRemoveStaffRequest.m; sourceTree = "<group>"; };
 		A033AD44200CEED700FFD2BF /* TCRemoveStaffRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRemoveStaffRequest.h; sourceTree = "<group>"; };
+		A038C476202FCDF400C20A04 /* TCAddServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerManager.h; sourceTree = "<group>"; };
+		A038C477202FCDF400C20A04 /* TCAddServerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddServerManager.m; sourceTree = "<group>"; };
 		A04539B420073A2B00402D1A /* TCStaffSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCStaffSearchRequest.m; sourceTree = "<group>"; };
 		A04539B520073A2B00402D1A /* TCStaffSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffSearchRequest.h; sourceTree = "<group>"; };
 		A04539B820074F2200402D1A /* MKDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDropdownMenu.h; sourceTree = "<group>"; };
@@ -1741,6 +1744,8 @@
 		A025554E1FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A038C476202FCDF400C20A04 /* TCAddServerManager.h */,
+				A038C477202FCDF400C20A04 /* TCAddServerManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4625,6 +4630,7 @@
 				A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */,
 				A0906E7820288DB2006D30C8 /* TCAlertController.m in Sources */,
 				A0906E7620288DB2006D30C8 /* TCBaseAnimation.m in Sources */,
+				A038C478202FCDF400C20A04 /* TCAddServerManager.m in Sources */,
 				A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
