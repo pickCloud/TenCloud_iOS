@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, FetchCaptchaState){
     FetchCaptchaStateNone   =    0,          //未获取
     FetchCaptchaStateCountdown,              //倒计时
     FetchCaptchaStateRefetch,                //重新获取
+    FetchCaptchaStateDisable                 //获取次数太多，不可用
 };
 
 @interface GetCaptchaButton : UIButton

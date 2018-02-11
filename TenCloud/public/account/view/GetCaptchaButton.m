@@ -57,6 +57,13 @@
         [self setTitleColor:THEME_TEXT_COLOR forState:UIControlStateNormal];
         [self setUserInteractionEnabled:NO];
         [self doCountDown];
+    }else if(_fetchState == FetchCaptchaStateDisable)
+    {
+        [self setTitle:@"重新获取" forState:UIControlStateNormal];
+        UIColor *bgColor = [THEME_TEXT_COLOR colorWithAlphaComponent:0.3];
+        [self setBackgroundColor:bgColor];
+        [self setTitleColor:THEME_TEXT_COLOR forState:UIControlStateNormal];
+        [self setUserInteractionEnabled:NO];
     }
 }
 

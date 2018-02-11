@@ -17,6 +17,8 @@
 #import <GT3Captcha/GT3Captcha.h>
 #import "TCGeetestCaptchaRequest.h"
 #import "TCSuccessResultViewController.h"
+//#import "TCPageManager.h"
+#import "TCAlertController.h"
 
 @interface TCModifyPasswordViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *phoneNumberField;
@@ -91,11 +93,11 @@
     if (_captchaButton.fetchState == FetchCaptchaStateNone ||
         _captchaButton.fetchState == FetchCaptchaStateRefetch)
     {
-        [_captchaButton setFetchState:FetchCaptchaStateCountdown];
         NSString *phoneNum = [[TCLocalAccount shared] mobile];
         TCGetCaptchaRequest *request = [[TCGetCaptchaRequest alloc] initWithPhoneNumber:phoneNum];
         __weak __typeof(self) weakSelf = self;
         [request startWithSuccess:^(NSString *message) {
+            [weakSelf.captchaButton setFetchState:FetchCaptchaStateCountdown];
             [MBProgressHUD showSuccess:@"短信验证码已发送，请注意查收" toView:nil];
             [weakSelf.captchaField becomeFirstResponder];
         } failure:^(NSString *message, NSInteger errorCode) {
@@ -103,6 +105,12 @@
             {
                 [weakSelf.captchaField resignFirstResponder];
                 [weakSelf.gt3Button startCaptcha];
+            }else if(errorCode == 10407)
+            {
+                [TCAlertController presentFromController:self
+                                                   title:message
+                                                 okBlock:nil];
+                [weakSelf.captchaButton setFetchState:FetchCaptchaStateDisable];
             }else
             {
                 [MBProgressHUD showError:message toView:nil];

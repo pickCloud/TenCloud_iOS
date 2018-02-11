@@ -41,7 +41,7 @@
 
 - (IBAction) onSetSmsCount4:(id)sender
 {
-    TCSetSmsCountRequest *request = [[TCSetSmsCountRequest alloc] initWithCount:4];
+    TCSetSmsCountRequest *request = [[TCSetSmsCountRequest alloc] initWithCount:10];
     [request startWithSuccess:^(NSString *message) {
         NSLog(@"msg:%@",message);
     } failure:^(NSString *message) {
