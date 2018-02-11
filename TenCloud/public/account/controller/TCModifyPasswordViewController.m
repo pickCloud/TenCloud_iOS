@@ -19,6 +19,7 @@
 #import "TCSuccessResultViewController.h"
 
 @interface TCModifyPasswordViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
+@property (nonatomic, weak) IBOutlet    UITextField         *phoneNumberField;
 @property (nonatomic, weak) IBOutlet    UITextField         *oldPasswordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -55,6 +56,8 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
+    
+    _phoneNumberField.text = [[TCLocalAccount shared] mobile];
     
     GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:GEETEST_API1 API2:GEETEST_API2 timeout:8.0];
     captchaManager.delegate = self;
