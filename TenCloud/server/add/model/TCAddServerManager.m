@@ -8,6 +8,8 @@
 
 #import "TCAddServerManager.h"
 #import <SocketRocket.h>
+#import "TCDataSync.h"
+#import "TCEmptyPermission.h"
 
 @interface TCAddServerManager ()<SRWebSocketDelegate>
 @property (nonatomic, strong)   SRWebSocket     *socket;
@@ -123,7 +125,8 @@
         if([message isEqualToString:@"success"])
         {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
-            NSLog(@"成功添加主机哦哦哦哦哦!!!");
+            [[TCEmptyPermission shared] reset];
+            [[TCDataSync shared] permissionChanged];
             if (_delegate && [_delegate respondsToSelector:@selector(addServerManager:receiveSuccessMessage:)])
             {
                 [_delegate addServerManager:self receiveSuccessMessage:message];

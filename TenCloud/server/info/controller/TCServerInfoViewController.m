@@ -23,6 +23,7 @@
 #import "TCModifyTextViewController.h"
 #import "TCModifyServerNameRequest.h"
 #import "TCDataSync.h"
+#import "TCEmptyPermission.h"
 
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
@@ -261,6 +262,8 @@
         [requst startWithSuccess:^(NSString *status) {
             //[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:_server];
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:nil];
+            [[TCEmptyPermission shared] reset];
+            [[TCDataSync shared] permissionChanged];
             [self.navigationController popViewControllerAnimated:YES];
             [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
         } failure:^(NSString *message) {

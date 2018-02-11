@@ -83,10 +83,10 @@
 //    _userNameField.text = @"ubuntu";
 //    _passwordField.text = @"Sqsm3334545";
     
-    _serverNameField.text = @"测试机2";
-    _ipField.text = @"47.96.129.231";
-    _userNameField.text = @"root";
-    _passwordField.text = @"Test1234";
+    //_serverNameField.text = @"测试机2";
+    //_ipField.text = @"47.96.129.231";
+    //_userNameField.text = @"root";
+    //_passwordField.text = @"Test1234";
     
 //    _serverNameField.text = @"测试机2";
 //    _ipField.text = @"47.97.185.147";
@@ -241,7 +241,6 @@
 #pragma mark - TCAddServerManagerDelegate
 - (void) addServerManager:(TCAddServerManager*)manager receiveSuccessMessage:(NSString*)message
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_SERVER object:nil];
     if (_logAlertView)
     {
         [_logAlertView hide];
@@ -253,7 +252,6 @@
 - (void) addServerManager:(TCAddServerManager*)manager receiveFailMessage:(NSString*)message
 {
     NSString *errorMessage = @"服务器未返回失败原因";
-    NSLog(@"_logTextArray:%@",_logTextArray);
     if (_logTextArray.count >= 2)
     {
         errorMessage = [_logTextArray objectAtIndex:_logTextArray.count - 2];
