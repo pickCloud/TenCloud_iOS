@@ -21,4 +21,6 @@
 
 + (void) loadCorpProfilePageWithCorp:(TCCorp*)corp;
 
++ (void) loadCorpStaffPage:(NSInteger)corpID;
+
 @end

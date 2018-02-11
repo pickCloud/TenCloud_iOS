@@ -16,6 +16,7 @@
 #import "TCCorpHomeViewController.h"
 #import "TCCorp+CoreDataClass.h"
 #import "TCCorpProfileViewController.h"
+#import "TCStaffTableViewController.h"
 
 typedef void (^TCRootVCAnimation)(void);
 
@@ -118,6 +119,27 @@ typedef void (^TCRootVCAnimation)(void);
             [newVCS addObject:homeVC];
             TCCorpProfileViewController *profileVC = [[TCCorpProfileViewController alloc] initWithCorp:corp];
             [newVCS addObject:profileVC];
+            UINavigationController *nav = [navControllers objectAtIndex:4];
+            [nav setViewControllers:newVCS animated:YES];
+        }
+    }
+}
+
++ (void) loadCorpStaffPage:(NSInteger)corpID
+{
+    [[TCCurrentCorp shared] setCid:corpID];
+    UITabBarController *tabController = (UITabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (tabController)
+    {
+        NSArray *navControllers = tabController.viewControllers;
+        if (navControllers && navControllers.count >= 5 )
+        {
+            [tabController setSelectedIndex:4];
+            NSMutableArray *newVCS = [NSMutableArray new];
+            TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corpID];
+            [newVCS addObject:homeVC];
+            TCStaffTableViewController *staffVC = [TCStaffTableViewController new];
+            [newVCS addObject:staffVC];
             UINavigationController *nav = [navControllers objectAtIndex:4];
             [nav setViewControllers:newVCS animated:YES];
         }

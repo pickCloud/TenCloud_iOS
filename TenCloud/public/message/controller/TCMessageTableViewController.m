@@ -11,10 +11,8 @@
 #import "TCMessageTableViewCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCMessage+CoreDataClass.h"
-#import "TCCorpHomeViewController.h"
 #import "TCMessageListRequest.h"
 #import "TCCorpProfileRequest.h"
-#import "TCStaffTableViewController.h"
 #import "TCTextRefreshAutoFooter.h"
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
@@ -206,15 +204,9 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                     }
                     if (message.sub_mode == 0)
                     {
-                        NSArray *viewControllers = self.navigationController.viewControllers;
-                        NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-                        [newVCS removeAllObjects];
-                        [[TCCurrentCorp shared] setCid:cid];
-                        TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:cid];
-                        [newVCS addObject:homeVC];
-                        TCStaffTableViewController *staffVC = [TCStaffTableViewController new];
-                        [newVCS addObject:staffVC];
-                        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+                        [weakSelf.navigationController popViewControllerAnimated:NO];
+                        [TCPageManager loadCorpStaffPage:cid];
+                        return;
                     }else if(message.sub_mode == 1)
                     {
                         [weakSelf resubmitWithCode:codeStr];
