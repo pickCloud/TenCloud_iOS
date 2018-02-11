@@ -28,6 +28,11 @@
     _textLabel.text = text;
 }
 
+- (void) setAttrText:(NSAttributedString *)attrText
+{
+    _textLabel.attributedText = attrText;
+}
+
 - (IBAction) onOkButton:(id)sender
 {
     [self hideView];
@@ -37,4 +42,8 @@
     }
 }
 
+- (void) setAlignment:(NSTextAlignment)alignment
+{
+    [_textLabel setTextAlignment:alignment];
+}
 @end

@@ -455,17 +455,50 @@
             {
                 if ([[TCLocalAccount shared] isLogin])
                 {
-                    [[TCLocalAccount shared] logout];
-                    TCLoginViewController *loginVC = [TCLoginViewController new];
-                    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-                    [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
-                    
-                    NSString *message = [request.responseJSONObject objectForKey:@"message"];
-                    [TCAlertController presentFromController:loginVC
-                                                       title:message
-                                                     okBlock:nil];
-                    return ;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[TCLocalAccount shared] logout];
+                        TCLoginViewController *loginVC = [TCLoginViewController new];
+                        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                        [[[UIApplication sharedApplication] keyWindow] setRootViewController:loginNav];
+                        
+                        NSString *message = [request.responseJSONObject objectForKey:@"message"];
+                        UIFont *textFont = TCFont(14.0);
+                        NSDictionary *greenAttr = @{NSForegroundColorAttributeName : THEME_TINT_COLOR,
+                                                    NSFontAttributeName : textFont };
+                        NSDictionary *grayAttr = @{NSForegroundColorAttributeName : THEME_TEXT_COLOR,
+                                                   NSFontAttributeName : textFont };
+                        NSMutableAttributedString *attrText = [NSMutableAttributedString new];
+                        if (message.length > 40)
+                        {
+                            NSRange range1 = NSMakeRange(0, 6);
+                            NSString *preStr1 = [message substringWithRange:range1];
+                            preStr1 = [NSString stringWithFormat:@"%@\n",preStr1];
+                            NSMutableAttributedString *str1 = nil;
+                            str1 = [[NSMutableAttributedString alloc] initWithString:preStr1 attributes:grayAttr];
+                            NSRange range2 = NSMakeRange(6, 19);
+                            NSString *preStr2 = [message substringWithRange:range2];
+                            preStr2 = [NSString stringWithFormat:@"%@\n",preStr2];
+                            NSMutableAttributedString *str2 = nil;
+                            str2 = [[NSMutableAttributedString alloc] initWithString:preStr2 attributes:greenAttr];
+                            NSRange range3 = NSMakeRange(25, message.length - 25);
+                            NSString *preStr3 = [message substringWithRange:range3];
+                            NSMutableAttributedString *str3 = nil;
+                            str3 = [[NSMutableAttributedString alloc] initWithString:preStr3 attributes:grayAttr];
+                            [attrText appendAttributedString:str1];
+                            [attrText appendAttributedString:str2];
+                            [attrText appendAttributedString:str3];
+                            [TCAlertController presentFromController:loginNav
+                                                               title:attrText];
+                        }else
+                        {
+                            [TCAlertController presentFromController:loginNav
+                                                               title:message
+                                                             okBlock:nil];
+                        }
+                        
+                    });
                 }
+                return ;
             }
         }
         if (request.responseStatusCode == 403)

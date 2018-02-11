@@ -235,56 +235,6 @@
                                confirmButtonName:@"更换"
                                     confirmBlock:block
                                      cancelBlock:nil];
-        /*
-        TCAlertController *alert = [TCAlertController alertControllerWithTitle:text
-                                                             confirmButtonName:@"更换"
-                                                                   cofirmBlock:block
-                                                                   cancelBlock:nil];
-        [self presentViewController:alert animated:YES completion:nil];
-         */
-        
-        /*
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定更换管理员?"
-                                                                                 message:nil
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        alertController.view.tintColor = [UIColor grayColor];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *restartAction = [UIAlertAction actionWithTitle:@"更换" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [MMProgressHUD showWithStatus:@"更换管理员中..."];
-            TCSetAdminRequest *setReq = [TCSetAdminRequest new];
-            setReq.uid = staff.uid;
-            [setReq startWithSuccess:^(NSString *message) {
-                TCStaffListRequest *req = [[TCStaffListRequest alloc] init];
-                [req startWithSuccess:^(NSArray<TCStaff *> *staffArray) {
-                    weakSelf.currentStaff.is_admin = NO;
-                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CHANGE_ADMIN object:nil];
-                    //weakSelf.staffArray = staffArray;
-                    NSMutableArray *validStaffArray = [NSMutableArray new];
-                    for (TCStaff *tmpStaff in staffArray)
-                    {
-                        if (tmpStaff.status == STAFF_STATUS_PASS ||
-                            tmpStaff.status == STAFF_STATUS_FOUNDER)
-                        {
-                            [validStaffArray addObject:tmpStaff];
-                        }
-                    }
-                    weakSelf.staffArray = validStaffArray;
-                    [weakSelf.tableView reloadData];
-                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    [MMProgressHUD dismissWithSuccess:@"更换成功" title:nil afterDelay:1.5];
-                } failure:^(NSString *message) {
-                    [MMProgressHUD dismissWithError:message afterDelay:1.32];
-                }];
-            } failure:^(NSString *message) {
-                [MMProgressHUD dismissWithError:message afterDelay:1.32];
-            }];
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:restartAction];
-        [alertController presentationController];
-        [self presentViewController:alertController animated:YES completion:nil];
-         */
     }
 }
 

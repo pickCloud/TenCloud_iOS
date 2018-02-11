@@ -78,10 +78,18 @@ typedef NS_ENUM(NSInteger, TCAlertTransitionAnimation) {
 
 + (instancetype)alertControllerWithTitle:(NSString*)title
                                  okBlock:(TCOKBlock)okBlock;
+                               //alignment:(NSTextAlignment)alignment;
+
++ (instancetype)alertControllerWithTitle:(NSAttributedString*)attrTitle
+                                 okBlock:(TCOKBlock)okBlock
+                               alignment:(NSTextAlignment)alignment;
 
 + (void) presentFromController:(UIViewController*)controller
                          title:(NSString*)title
                        okBlock:(TCOKBlock)block;
+
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSAttributedString*)attrTitle;
 
 + (void) presentWithTitle:(NSString*)title okBlock:(TCOKBlock)block;
 

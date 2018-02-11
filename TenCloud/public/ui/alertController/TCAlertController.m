@@ -147,11 +147,32 @@
 
 + (instancetype)alertControllerWithTitle:(NSString*)title
                                  okBlock:(TCOKBlock)okBlock
+                               //alignment:(NSTextAlignment)alignment
 {
     TCOKView *view = [TCOKView createViewFromNib];
     view.okBlock = okBlock;
     view.text = title;
-    TCAlertController *controller = [[self alloc] initWithAlertView:view preferredStyle:TCAlertControllerStyleAlert transitionAnimation:TCAlertTransitionAnimationFade transitionAnimationClass:nil];
+    //view.alignment = alignment;
+    TCAlertController *controller = [[self alloc] initWithAlertView:view
+                                                     preferredStyle:TCAlertControllerStyleAlert
+                                                transitionAnimation:TCAlertTransitionAnimationFade
+                                           transitionAnimationClass:nil];
+    controller.backgoundTapDismissEnable = NO;
+    return controller;
+}
+
++ (instancetype)alertControllerWithTitle:(NSAttributedString*)attrTitle
+                                 okBlock:(TCOKBlock)okBlock
+                               alignment:(NSTextAlignment)alignment
+{
+    TCOKView *view = [TCOKView createViewFromNib];
+    view.okBlock = okBlock;
+    view.attrText = attrTitle;
+    view.alignment = alignment;
+    TCAlertController *controller = [[self alloc] initWithAlertView:view
+                                                     preferredStyle:TCAlertControllerStyleAlert
+                                                transitionAnimation:TCAlertTransitionAnimationFade
+                                           transitionAnimationClass:nil];
     controller.backgoundTapDismissEnable = NO;
     return controller;
 }
@@ -164,6 +185,17 @@
     {
         TCAlertController *ctrl = [TCAlertController alertControllerWithTitle:title
                                                                       okBlock:block];
+        [controller presentViewController:ctrl animated:YES completion:nil];
+    }
+}
+
++ (void) presentFromController:(UIViewController*)controller
+                         title:(NSAttributedString*)attrTitle
+{
+    if (controller)
+    {
+        TCAlertController *ctrl = [TCAlertController alertControllerWithTitle:attrTitle
+                                                                      okBlock:nil alignment:NSTextAlignmentLeft];
         [controller presentViewController:ctrl animated:YES completion:nil];
     }
 }

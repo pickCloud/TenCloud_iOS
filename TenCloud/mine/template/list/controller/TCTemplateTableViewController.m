@@ -229,36 +229,6 @@ TCDataSyncDelegate>
                            confirmButtonName:@"删除"
                                 confirmBlock:confirmBlock
                                  cancelBlock:nil];
-    /*
-    TCAlertController *alert = [TCAlertController alertControllerWithTitle:tip
-                                                         confirmButtonName:@"删除"
-                                                               cofirmBlock:confirmBlock
-                                                               cancelBlock:nil];
-    [self presentViewController:alert animated:YES completion:nil];
-     */
-    /*
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:tip
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    alertController.view.tintColor = [UIColor grayColor];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
-        TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
-        [delReq startWithSuccess:^(NSString *message) {
-            [weakSelf.templateArray removeObjectAtIndex:path.row];
-            NSArray *paths = [NSArray arrayWithObject:path];
-            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
-        } failure:^(NSString *message) {
-            [MBProgressHUD showError:message toView:nil];
-        }];
-    }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:deleteAction];
-    [alertController presentationController];
-    [self presentViewController:alertController animated:YES completion:nil];
-     */
 }
 
 

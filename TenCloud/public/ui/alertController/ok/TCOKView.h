@@ -14,6 +14,8 @@ typedef void (^TCOKBlock)(TCOKView *view);
 @interface TCOKView : UIView
 
 @property (nonatomic, strong)   NSString    *text;
+@property (nonatomic, strong)   NSAttributedString  *attrText;
 @property (nonatomic, copy) TCOKBlock   okBlock;
+@property (nonatomic, assign)   NSTextAlignment alignment;
 
 @end
