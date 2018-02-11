@@ -161,8 +161,8 @@
                                                       oldPassword:_oldPasswordField.text
                                                           captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
-        [[TCLocalAccount shared] setToken:token];
-        [[TCLocalAccount shared] save];
+        //[[TCLocalAccount shared] setToken:token];
+        //[[TCLocalAccount shared] save];
         [MMProgressHUD dismiss];
         //[MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
         //[weakSelf.navigationController popViewControllerAnimated:YES];

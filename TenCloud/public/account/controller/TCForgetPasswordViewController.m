@@ -16,6 +16,7 @@
 #import "TCResetPasswordRequest.h"
 #import <GT3Captcha/GT3Captcha.h>
 #import "TCGeetestCaptchaRequest.h"
+#import "TCPasswordLoginRequest.h"
 
 @interface TCForgetPasswordViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumberField;
@@ -149,19 +150,27 @@
     [_password2Field resignFirstResponder];
     
     [MMProgressHUD showWithStatus:@"找回密码中"];
-    TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
+    NSString *phone = _phoneNumberField.plainPhoneNum;
+    NSString *password = _passwordField.text;
+    TCResetPasswordRequest *request = [[TCResetPasswordRequest alloc] initWithPhoneNumber:phone password:password captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
-        [[TCLocalAccount shared] setToken:token];
-        TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
-        [request startWithSuccess:^(TCUser *user) {
-            user.token = token;
-            [[TCLocalAccount shared] loginSuccess:user];
-            TCTabBarController *tabBarController = [TCTabBarController new];
-            [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
-            [MMProgressHUD dismissWithSuccess:@"成功找回密码" title:nil afterDelay:1.32];
+        TCPasswordLoginRequest *loginReq = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phone password:password];
+        [loginReq startWithSuccess:^(NSString *token, NSInteger corpID) {
+            [[TCLocalAccount shared] setToken:token];
+            TCUserProfileRequest *profileReq = [TCUserProfileRequest new];
+            [profileReq startWithSuccess:^(TCUser *user) {
+                user.token = token;
+                [[TCLocalAccount shared] loginSuccess:user];
+                [[TCCurrentCorp shared] setCid:corpID];
+                TCTabBarController *tabController = [TCTabBarController new];
+                UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+                [window setRootViewController:tabController];
+                [MMProgressHUD dismissWithSuccess:@"成功找回密码" title:nil afterDelay:1.32];
+            } failure:^(NSString *message) {
+                [MMProgressHUD dismissWithError:message];
+            }];
         } failure:^(NSString *message) {
-            NSLog(@"msg:%@",message);
-            [MMProgressHUD dismissWithError:@"找回失败"];
+            [MMProgressHUD dismissWithError:message];
         }];
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message];

@@ -52,8 +52,14 @@
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        NSString *resToken = [dataDict objectForKey:@"token"];
-        success ? success(resToken) : nil;
+        if (dataDict && [dataDict isKindOfClass:[NSDictionary class]])
+        {
+            NSString *resToken = [dataDict objectForKey:@"token"];
+            success ? success(resToken) : nil;
+        }else
+        {
+            success ? success(@""):nil;
+        }
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         //NSString *message = [request.responseJSONObject objectForKey:@"message"];
         //failure ? failure(message) : nil;
