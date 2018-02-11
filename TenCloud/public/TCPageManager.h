@@ -23,4 +23,7 @@
 
 + (void) loadCorpStaffPage:(NSInteger)corpID;
 
++ (void) replaceViewController:(UIViewController*)oldVC
+            withViewController:(UIViewController*)newVC;
+
 @end

@@ -317,7 +317,7 @@
                 [acceptReq startWithSuccess:^(NSString *message) {
                     [MMProgressHUD dismissWithoutAnimation];
                     TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:shouldSet phoneNumber:user.mobile];
-                    [weakSelf.navigationController pushViewController:profileVC animated:YES];
+                    [TCPageManager replaceViewController:self withViewController:profileVC];
                 } failure:^(NSString *message) {
                     [MMProgressHUD dismissWithError:message afterDelay:1.32];
                 }];

@@ -12,7 +12,7 @@
 #import "TCInviteSuccessViewController.h"
 #import "TCCompleteInviteRequest.h"
 #import "TCSetPasswordRequest.h"
-
+#import "TCPageManager.h"
 
 @interface TCInviteProfileViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong)           NSString            *code;
@@ -187,7 +187,8 @@
         [[TCLocalAccount shared] setName:weakSelf.nameField.text];
         [[TCLocalAccount shared] save];
         TCInviteSuccessViewController *successVC = [[TCInviteSuccessViewController alloc] initWithTitle:@"提交成功" desc:@"申请已提交，待管理员审核通过，即可加入企业"];
-        [weakSelf.navigationController pushViewController:successVC animated:YES];
+        [TCPageManager replaceViewController:self
+                          withViewController:successVC];
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message afterDelay:1.32];
     }];

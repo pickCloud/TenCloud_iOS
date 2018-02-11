@@ -145,4 +145,14 @@ typedef void (^TCRootVCAnimation)(void);
         }
     }
 }
+
++ (void) replaceViewController:(UIViewController*)oldVC withViewController:(UIViewController*)newVC
+{
+    if (newVC)
+    {
+        NSMutableArray *newVCS = [NSMutableArray array];
+        [newVCS addObject:newVC];
+        [oldVC.navigationController setViewControllers:newVCS animated:YES];
+    }
+}
 @end

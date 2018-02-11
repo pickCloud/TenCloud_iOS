@@ -120,8 +120,8 @@
     NSString *phoneNum = [[TCLocalAccount shared] mobile];
     TCAcceptInviteRequest *acceptReq = [[TCAcceptInviteRequest alloc] initWithCode:_code];
     [acceptReq startWithSuccess:^(NSString *message) {
-        TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:NO phoneNumber:phoneNum];;
-        [self.navigationController pushViewController:profileVC animated:YES];
+        TCInviteProfileViewController *profileVC = [[TCInviteProfileViewController alloc] initWithCode:_code joinSetting:_inviteInfo.setting shouldSetPassword:NO phoneNumber:phoneNum];
+        [TCPageManager replaceViewController:self withViewController:profileVC];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];
