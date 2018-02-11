@@ -330,17 +330,12 @@
 
 - (IBAction) onRefreshDataButton:(id)sender
 {
-    //NSLog(@"on refresh data button");
     [self reloadServerList];
 }
 
 - (IBAction) onFilterButton:(id)sender
 {
-    //NSLog(@"on filter button");
     TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
-    filterVC.providesPresentationContextTransitionStyle = YES;
-    filterVC.definesPresentationContext = YES;
-    filterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:filterVC animated:NO completion:nil];
 }
 

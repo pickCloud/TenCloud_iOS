@@ -27,6 +27,18 @@
 
 @implementation TCSearchFilterViewController
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.providesPresentationContextTransitionStyle = YES;
+        self.definesPresentationContext = YES;
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.darkBackgroundView.alpha = 0.0;
