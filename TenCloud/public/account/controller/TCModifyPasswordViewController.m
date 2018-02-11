@@ -107,7 +107,7 @@
                 [weakSelf.gt3Button startCaptcha];
             }else if(errorCode == 10407)
             {
-                [TCAlertController presentFromController:self
+                [TCAlertController presentFromController:weakSelf
                                                    title:message
                                                  okBlock:nil];
                 [weakSelf.captchaButton setFetchState:FetchCaptchaStateDisable];

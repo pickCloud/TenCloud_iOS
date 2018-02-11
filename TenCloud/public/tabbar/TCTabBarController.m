@@ -16,6 +16,7 @@
 #import "TCPersonHomeViewController.h"
 #import "TCCorpHomeViewController.h"
 
+#import "TCMineHomeViewController.h"
 
 @interface TCTabBarController ()
 
@@ -51,7 +52,8 @@
     projectHomeNav.tabBarItem.title = @"项目";
     [self addChildViewController:projectHomeNav];
     
-    TCResourceHomeViewController *resourceHomeVC = [TCResourceHomeViewController new];
+    //TCResourceHomeViewController *resourceHomeVC = [TCResourceHomeViewController new];
+    TCMineHomeViewController *resourceHomeVC = [TCMineHomeViewController new];
     UINavigationController *resourceHomeNav = [[UINavigationController alloc] initWithRootViewController:resourceHomeVC];
     UIImage *resourceSelIcon = [UIImage imageNamed:@"tabbar_resource_selected"];
     UIImage *resourceIcon = [[UIImage imageNamed:@"tabbar_resource"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

@@ -108,6 +108,12 @@
             {
                 [weakSelf.captchaField resignFirstResponder];
                 [weakSelf.gt3Button startCaptcha];
+            }else if(errorCode == 10407)
+            {
+                [TCAlertController presentFromController:weakSelf
+                                                   title:message
+                                                 okBlock:nil];
+                [weakSelf.captchaButton setFetchState:FetchCaptchaStateDisable];
             }else
             {
                 [MBProgressHUD showError:message toView:nil];
