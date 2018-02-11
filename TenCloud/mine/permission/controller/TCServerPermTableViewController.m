@@ -10,6 +10,8 @@
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCServerPermTableViewCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCClusterProvider+CoreDataClass.h"
+#import "TCSearchFilterViewController.h"
 #define SERVER_PERM_CELL_ID          @"SERVER_PERM_CELL_ID"
 
 @interface TCServerPermTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -153,7 +155,21 @@
 
 - (IBAction) onFilterButton:(id)sender
 {
-    NSLog(@" on filter button ");
+    NSMutableArray *providerArr = [NSMutableArray new];
+    for (TCPermissionNode *subNode1 in _permissionNode.data)
+    {
+        TCClusterProvider *provider = [TCClusterProvider MR_createEntity];
+        provider.provider = subNode1.name;
+        NSMutableArray *regions = [NSMutableArray new];
+        for (TCPermissionNode *subNode2 in subNode1.data)
+        {
+            [regions addObject:subNode2.name];
+        }
+        provider.regions = regions;
+        [providerArr addObject:provider];
+    }
+    TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providerArr];
+    [self presentViewController:filterVC animated:NO completion:nil];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
