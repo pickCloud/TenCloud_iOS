@@ -21,8 +21,14 @@
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
+        NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        //NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        //if (statusNum && statusNum.integerValue == 10003)
+        if(message && [message isEqualToString:@"非公司员工"])
+        {
+            failure ? failure(@"该员工已离开企业") : nil;
+            return ;
+        }
         failure ? failure([self errorMessaage]) : nil;
     }];
 }

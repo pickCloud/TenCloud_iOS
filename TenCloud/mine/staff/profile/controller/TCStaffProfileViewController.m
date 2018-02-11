@@ -275,6 +275,7 @@
                         [weakSelf.navigationController popViewControllerAnimated:YES];
                         [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.32];
                     } failure:^(NSString *message) {
+                        NSLog(@"msggg:%@",message);
                         [MBProgressHUD showError:message toView:nil];
                     }];
                 };
