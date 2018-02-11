@@ -57,8 +57,9 @@
         TCUser *user = [TCUser mj_objectWithKeyValues:userDict context:context];
         success ? success(user) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        //failure ? failure(message) : nil;
+        failure ? failure([self errorMessaage]) : nil;
     }];
 }
 

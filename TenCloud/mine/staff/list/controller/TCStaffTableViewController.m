@@ -164,6 +164,7 @@
         [[TCCurrentCorp shared] setIsAdmin:isAdmin];
         [weakSelf updateDropDownMenu];
     } failure:^(NSString *message, NSInteger errorCode) {
+        [weakSelf stopLoading];
         BOOL isError10003 = message && [message isEqualToString:@"非公司员工"];
         if (errorCode == 10003 || isError10003) {
             TCCurrentCorp *corp = [TCCurrentCorp shared];
@@ -174,6 +175,9 @@
                 NSString *tip = [NSString stringWithFormat:@"您已被管理员踢出 %@",oldCorpName];
                 [TCAlertController presentWithTitle:tip okBlock:nil];
             }
+        }else
+        {
+            [MBProgressHUD showError:message toView:nil];
         }
     }];
 }

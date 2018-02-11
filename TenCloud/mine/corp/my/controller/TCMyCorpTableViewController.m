@@ -263,6 +263,8 @@
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         NSLog(@"my corp req failed:%@",message);
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
     }];
 }
 

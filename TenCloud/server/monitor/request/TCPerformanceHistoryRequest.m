@@ -63,8 +63,9 @@
         success ? success(logArray) : nil;
          */
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        //failure ? failure(message) : nil;
+        failure ? failure([self errorMessaage]) : nil;
     }];
 }
 

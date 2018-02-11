@@ -30,8 +30,9 @@
         //NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
         success ? success(@"完成接受邀请") : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
+        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
+        //failure ? failure(message) : nil;
+        failure ? failure([self errorMessaage]) : nil;
     }];
 }
 
