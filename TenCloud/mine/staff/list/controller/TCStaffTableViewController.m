@@ -172,8 +172,13 @@
             [TCPageManager showPersonHomePageFromController:self];
             if (![corp isAdmin])
             {
-                NSString *tip = [NSString stringWithFormat:@"您已被管理员踢出 %@",oldCorpName];
-                [TCAlertController presentWithTitle:tip okBlock:nil];
+                [MBProgressHUD showError:@"您已被管理员踢出" toView:nil];
+                /*
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    NSString *tip = [NSString stringWithFormat:@"您已被管理员踢出 %@",oldCorpName];
+                    [TCAlertController presentWithTitle:tip okBlock:nil];
+                });
+                 */
             }
         }else
         {
