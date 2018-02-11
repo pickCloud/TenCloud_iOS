@@ -44,6 +44,12 @@
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         //NSString *message = [request.responseJSONObject objectForKey:@"message"];
         //failure ? failure(message) : nil;
+        NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
+        if (statusNum && statusNum.integerValue == 10003)
+        {
+            failure ? failure(@"该员工已离开公司"):nil;
+            return ;
+        }
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
