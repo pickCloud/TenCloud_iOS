@@ -32,7 +32,7 @@
                         <outlet property="emptyDataSetSource" destination="-1" id="Pmf-OJ-5Ey"/>
                     </connections>
                 </tableView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KC-fO-SKK">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KC-fO-SKK">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XII-MM-1Xx">
@@ -51,6 +51,9 @@
                             <state key="normal" title="筛选">
                                 <color key="titleColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="onFilterButton:" destination="-1" eventType="touchUpInside" id="qQw-cO-HGH"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysw-Iq-wT5">
                             <rect key="frame" x="340" y="0.0" width="20" height="40"/>
@@ -58,6 +61,9 @@
                                 <constraint firstAttribute="width" secondItem="ysw-Iq-wT5" secondAttribute="height" multiplier="1:2" id="9LH-Dp-WdD"/>
                             </constraints>
                             <state key="normal" image="server_filter"/>
+                            <connections>
+                                <action selector="onFilterButton:" destination="-1" eventType="touchUpInside" id="mos-hh-aex"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

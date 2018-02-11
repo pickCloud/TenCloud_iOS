@@ -13,6 +13,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCAddServerViewController.h"
 #import "TCDataSync.h"
+#import "TCConfiguration.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
 #import "TCClusterProvider+CoreDataClass.h"
@@ -335,7 +336,9 @@
 
 - (IBAction) onFilterButton:(id)sender
 {
-    TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
+    //TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
+    NSArray *providers = [[TCConfiguration shared] providerArray];
+    TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providers];
     [self presentViewController:filterVC animated:NO completion:nil];
 }
 

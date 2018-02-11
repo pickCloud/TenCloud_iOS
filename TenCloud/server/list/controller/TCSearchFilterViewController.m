@@ -9,7 +9,6 @@
 #import "TCSearchFilterViewController.h"
 #import "TCSearchFilterCollectionCell.h"
 #import "TCClusterProvider+CoreDataClass.h"
-#import "TCConfiguration.h"
 #import "JYEqualCellSpaceFlowLayout.h"
 
 #define SEARCH_FILTER_CELL_REUSE_ID     @"SEARCH_FILTER_CELL_REUSE_ID"
@@ -21,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *providerView;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *areaView;
+@property (nonatomic, strong)   NSArray                     *providerArray;
 - (IBAction) onConfirmButton:(id)sender;
 - (void) dismiss;
 @end
@@ -35,6 +35,20 @@
         self.providesPresentationContextTransitionStyle = YES;
         self.definesPresentationContext = YES;
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    return self;
+}
+
+- (instancetype) initWithProviderArray:(NSArray*)providerArray
+{
+    self = [super init];
+    if (self)
+    {
+        self.providesPresentationContextTransitionStyle = YES;
+        self.definesPresentationContext = YES;
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        _providerArray = providerArray;
+        
     }
     return self;
 }
@@ -103,7 +117,7 @@
     
     NSMutableArray *providers = [NSMutableArray new];
     NSIndexPath *providerPath = selectedProviderPaths.firstObject;
-    TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:providerPath.row];
+    TCClusterProvider *provider = [_providerArray objectAtIndex:providerPath.row];
     [providers addObject:provider.provider];
     
     NSMutableArray *areas = [NSMutableArray new];
@@ -167,14 +181,14 @@
 {
     if (collectionView == _providerView)
     {
-        return [[[TCConfiguration shared] providerArray] count];
+        return _providerArray.count;
     }else if(collectionView == _areaView)
     {
         NSArray *itemArray = [_providerView indexPathsForSelectedItems];
         if (itemArray && itemArray.count > 0)
         {
             NSIndexPath *selectedPath = itemArray.firstObject;
-            TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:selectedPath.row];
+            TCClusterProvider *provider = [_providerArray objectAtIndex:selectedPath.row];
             return provider.regions.count;
         }
     }
@@ -186,7 +200,7 @@
     if (collectionView == _providerView)
     {
         TCSearchFilterCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SEARCH_FILTER_CELL_REUSE_ID forIndexPath:indexPath];
-        TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:indexPath.row];
+        TCClusterProvider *provider = [_providerArray objectAtIndex:indexPath.row];
         [cell setName:provider.provider];
         return cell;
     }else if(collectionView == _areaView)
@@ -196,7 +210,7 @@
         if (itemArray && itemArray.count > 0)
         {
             NSIndexPath *selectedPath = itemArray.firstObject;
-            TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:selectedPath.row];
+            TCClusterProvider *provider = [_providerArray objectAtIndex:selectedPath.row];
             NSString *regionName = [provider.regions objectAtIndex:indexPath.row];
             [cell setName:regionName];
         }
@@ -210,7 +224,7 @@
     NSString *text = nil;
     if (collectionView == _providerView)
     {
-        TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:indexPath.row];
+        TCClusterProvider *provider = [_providerArray objectAtIndex:indexPath.row];
         text = provider.provider;
     }else if(collectionView == _areaView)
     {
@@ -218,7 +232,7 @@
         if (itemArray && itemArray.count > 0)
         {
             NSIndexPath *selectedPath = itemArray.firstObject;
-            TCClusterProvider *provider = [[[TCConfiguration shared] providerArray] objectAtIndex:selectedPath.row];
+            TCClusterProvider *provider = [_providerArray objectAtIndex:selectedPath.row];
             NSString *regionName = [provider.regions objectAtIndex:indexPath.row];
             text = regionName;
         }

@@ -19,6 +19,7 @@
 @property (nonatomic, assign) PermissionVCState         state;
 - (TCPermissionNode *) dataForIndexPath:(NSIndexPath*)indexPath;
 - (void) reloadServerNodeArray;
+- (IBAction) onFilterButton:(id)sender;
 @end
 
 @implementation TCServerPermTableViewController
@@ -78,7 +79,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 12.0;//32.0;
+    return 32.0;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -148,6 +149,11 @@
             }
         }
     }
+}
+
+- (IBAction) onFilterButton:(id)sender
+{
+    NSLog(@" on filter button ");
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods

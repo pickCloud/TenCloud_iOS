@@ -10,4 +10,6 @@
 
 @interface TCSearchFilterViewController : UIViewController
 
+- (instancetype) initWithProviderArray:(NSArray*)providerArray;
+
 @end
