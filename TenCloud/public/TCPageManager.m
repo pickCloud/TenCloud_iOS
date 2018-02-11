@@ -14,6 +14,8 @@
 #import "TCLoginViewController.h"
 #import "TCCurrentCorp.h"
 #import "TCCorpHomeViewController.h"
+#import "TCCorp+CoreDataClass.h"
+#import "TCCorpProfileViewController.h"
 
 typedef void (^TCRootVCAnimation)(void);
 
@@ -99,5 +101,26 @@ typedef void (^TCRootVCAnimation)(void);
     [newVCS addObject:homeVC];
     [weakSelf.navigationController setViewControllers:newVCS animated:YES];
      */
+}
+
++ (void) loadCorpProfilePageWithCorp:(TCCorp*)corp
+{
+    [[TCCurrentCorp shared] setCid:corp.cid];
+    UITabBarController *tabController = (UITabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (tabController)
+    {
+        NSArray *navControllers = tabController.viewControllers;
+        if (navControllers && navControllers.count >= 5 )
+        {
+            [tabController setSelectedIndex:4];
+            NSMutableArray *newVCS = [NSMutableArray new];
+            TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corp.cid];
+            [newVCS addObject:homeVC];
+            TCCorpProfileViewController *profileVC = [[TCCorpProfileViewController alloc] initWithCorp:corp];
+            [newVCS addObject:profileVC];
+            UINavigationController *nav = [navControllers objectAtIndex:4];
+            [nav setViewControllers:newVCS animated:YES];
+        }
+    }
 }
 @end

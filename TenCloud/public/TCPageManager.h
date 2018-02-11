@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class TCCorp;
 @interface TCPageManager : NSObject
 
 + (void) showPersonHomePageFromController:(UIViewController*)viewController;
@@ -17,5 +18,7 @@
 + (void) setRootController:(UIViewController*)controller;
 
 + (void) loadCorpPageWithCorpID:(NSInteger)corpID;
+
++ (void) loadCorpProfilePageWithCorp:(TCCorp*)corp;
 
 @end

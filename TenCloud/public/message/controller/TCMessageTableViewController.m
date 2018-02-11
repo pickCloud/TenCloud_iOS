@@ -19,7 +19,6 @@
 #import "MKDropdownMenu.h"
 #import "ShapeSelectView.h"
 #import "TCCorp+CoreDataClass.h"
-#import "TCCorpProfileViewController.h"
 #import "TCMessageManager.h"
 #import "TCInviteInfoRequest.h"
 #import "TCAcceptInviteRequest.h"
@@ -201,7 +200,8 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
                     NSLog(@"get copr info:%@ name:%@",corp.company_name,corp.name);
                     if (message.mode == 2 && message.sub_mode == 3)
                     {
-                        [self goToCorpProfilePage:corp];
+                        [weakSelf.navigationController popViewControllerAnimated:NO];
+                        [TCPageManager loadCorpProfilePageWithCorp:corp];
                         return ;
                     }
                     if (message.sub_mode == 0)
@@ -250,20 +250,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];
-}
-
-- (void) goToCorpProfilePage:(TCCorp *)corp
-{
-    __weak __typeof(self) weakSelf = self;
-    [[TCCurrentCorp shared] setCid:corp.cid];
-    NSArray *viewControllers = self.navigationController.viewControllers;
-    NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
-    [newVCS removeAllObjects];
-    TCCorpHomeViewController *homeVC = [[TCCorpHomeViewController alloc] initWithCorpID:corp.cid];
-    [newVCS addObject:homeVC];
-    TCCorpProfileViewController *profileVC = [[TCCorpProfileViewController alloc] initWithCorp:corp];
-    [newVCS addObject:profileVC];
-    [weakSelf.navigationController setViewControllers:newVCS animated:YES];
 }
 
 
