@@ -16,6 +16,8 @@
 @property (nonatomic, weak) IBOutlet    UIButton    *actionButton;
 @property (nonatomic, weak) IBOutlet    UIButton    *disclosureButton;
 @property (nonatomic, weak) IBOutlet    UIView      *redSpotView;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *bottomConstraint;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *disclosureBtnTopConstraint;
 - (IBAction) onActionButton:(id)sender;
 @end
 
@@ -64,10 +66,14 @@
     {
         _actionButton.hidden = YES;
         _disclosureButton.hidden = YES;
+        _bottomConstraint.constant = 0;
+        _disclosureBtnTopConstraint.constant = 0;
     }else
     {
         _actionButton.hidden = NO;
         _disclosureButton.hidden = NO;
+        _bottomConstraint.constant = 20;
+        _disclosureBtnTopConstraint.constant = 14;
     }
     if (message.sub_mode == 0)
     {
