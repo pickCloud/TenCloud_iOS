@@ -64,6 +64,22 @@
     self.nameLabel.text = node.name;
     self.areaLabel.text = node.region_name;
     self.ipLabel.text = node.public_ip;
+    
+    UIImage *iconImage = nil;
+    if ([node.provider isEqualToString:SERVER_PROVIDER_ALIYUN])
+    {
+        iconImage = [UIImage imageNamed:@"server_type_aliyun"];
+    }else if([node.provider isEqualToString:SERVER_PROVIDER_AMAZON])
+    {
+        iconImage = [UIImage imageNamed:@"server_type_amazon"];
+    }else if([node.provider isEqualToString:SERVER_PROVIDER_MICROS])
+    {
+        iconImage = [UIImage imageNamed:@"server_type_microyun"];
+    }else
+    {
+        iconImage = [UIImage imageNamed:@"server_type_tencentyun"];
+    }
+    [_iconView setImage:iconImage];
 }
 
 - (void) updateUI
