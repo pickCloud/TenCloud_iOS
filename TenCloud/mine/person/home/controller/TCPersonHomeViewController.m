@@ -114,6 +114,9 @@
     
     [self updateAccountInfo];
     [[TCMessageManager shared] addObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadCorpArray) name:NOTIFICATION_ADD_CORP
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,6 +128,7 @@
 {
     [[TCLocalAccount shared] removeObserver:self];
     [[TCMessageManager shared] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view data source

@@ -16,16 +16,18 @@
 #define  LSActionSheetTitleLabelFont  [UIFont systemFontOfSize:13]
 
 //颜色
-#define  LSActionSheetButtonBackgroundColor [UIColor colorWithRed:251/255.0 green:251/255.0 blue:253/255.0 alpha:1]
+#define  LSActionSheetButtonBackgroundColor TABLE_CELL_BG_COLOR
+        //[UIColor colorWithRed:251/255.0 green:251/255.0 blue:253/255.0 alpha:1]
 //#define  LSActionSheetBackgroundColor [UIColor colorWithRed:129/255.0 green:129/255.0 blue:129/255.0 alpha:0.5]
 #define  LSActionSheetBackgroundColor [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5]
 
 
 #define  LSActionSheetTitleLabelColor  [UIColor colorWithRed:137/255.0 green:137/255.0 blue:137/255.0 alpha:1]
 
-#define  LSActionSheetCancelButtonColor [UIColor blackColor]
+#define  LSActionSheetCancelButtonColor THEME_TEXT_COLOR //[UIColor blackColor]
 #define  LSActionSheetDestructiveButtonColor   [UIColor redColor]
-#define  LSActionSheetOtherButtonColor  [UIColor blackColor]
+#define  LSActionSheetOtherButtonColor  THEME_TEXT_COLOR
+        //[UIColor blackColor]
 
 //#define  LSActionSheetContentViewBackgroundColor [UIColor colorWithRed:251/255.0 green:251/255.0 blue:253/255.0 alpha:0.5]
 #define  LSActionSheetContentViewBackgroundColor [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1]
