@@ -58,6 +58,9 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
+    NSLog(@"md_severs:%@",_mTemplate.access_servers);
+    NSLog(@"md_files:%@",_mTemplate.access_filehub);
+    NSLog(@"md_projs:%@",_mTemplate.access_projects);
     [[TCEditingPermission shared] reset];
     [[TCEditingPermission shared] setTemplate:_mTemplate];
 }
@@ -121,6 +124,7 @@
         weakSelf.mTemplate.access_servers = perm.serverPermissionIDString;
         weakSelf.mTemplate.access_projects = perm.projectPermissionIDString;
         weakSelf.mTemplate.permissions = perm.permissionIDString;
+        [weakSelf updatePermissionDescLabel];
     };
     [self presentViewController:perVC animated:YES completion:nil];
 }

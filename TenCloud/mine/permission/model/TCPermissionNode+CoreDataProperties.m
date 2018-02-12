@@ -168,6 +168,7 @@
     NSMutableArray *nodes = [NSMutableArray new];
     for (TCPermissionNode *node in self.data)
     {
+        NSLog(@"znode %@ selected %ld",node.name, node.selected);
         if (node.selected)
         {
             if (node.sid > 0)

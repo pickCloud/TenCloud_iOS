@@ -367,13 +367,19 @@
     TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
     if (dataNode.data.count >= 3)
     {
-        TCPermissionNode *serverNode = [dataNode.data objectAtIndex:1];
+        TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
         NSInteger serverAmount = [serverNode selectedServerSubNodeIDArray].count;
+        NSLog(@"serverAmount:%ld",serverAmount);
         TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
         NSInteger fileAmount = [fileNode selectedSubNodeIDArray].count;
-        TCPermissionNode *projNode = [dataNode.data objectAtIndex:2];
+        NSLog(@"file amount:%ld",fileAmount);
+        TCPermissionNode *projNode = [dataNode.data objectAtIndex:1];
         NSInteger projAmount = [projNode selectedSubNodeIDArray].count;
+        NSLog(@"proj_amount:%ld",projAmount);
         amount = serverAmount + fileAmount + projAmount;
+    }else
+    {
+        NSLog(@"node < 3");
     }
 
     //[dataNode selectedSubNodeIDArray].count;
