@@ -68,14 +68,14 @@
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-C3-z0y" userLabel="sepeartor line">
                                     <rect key="frame" x="0.0" y="58" width="312" height="1"/>
-                                    <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.74117647058823533" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="Xtx-uI-nxn"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="190-yF-kap" userLabel="sepeartor line2">
                                     <rect key="frame" x="0.0" y="107" width="312" height="1"/>
-                                    <color key="backgroundColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.74117647060000003" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="N2e-00-Kn2"/>
                                     </constraints>
@@ -130,7 +130,7 @@
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlU-4g-GyV" userLabel="sepeartor line">
                                     <rect key="frame" x="0.0" y="58" width="312" height="1"/>
-                                    <color key="backgroundColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.74117647060000003" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="fDw-x7-LJD"/>
                                     </constraints>
@@ -146,7 +146,7 @@
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyC-sD-Cp8" userLabel="sepeartor line2">
                                     <rect key="frame" x="0.0" y="107" width="312" height="1"/>
-                                    <color key="backgroundColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.74117647060000003" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.53725490196078429" green="0.60392156862745094" blue="0.71372549019607845" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="DV0-HG-skl"/>
                                     </constraints>
@@ -223,7 +223,7 @@
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trV-aV-oID" customClass="TCRoundCornerButton">
                     <rect key="frame" x="31" y="440" width="312" height="44"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.28235294117647058" green="0.73333333333333328" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="trV-aV-oID" secondAttribute="height" multiplier="156:22" id="gEv-Lf-qRB"/>
                     </constraints>
@@ -241,7 +241,7 @@
                         <constraint firstAttribute="width" secondItem="uDx-5c-4Jr" secondAttribute="height" multiplier="17:6" id="6BE-7S-0CX"/>
                     </constraints>
                     <state key="normal" title="忘记密码?">
-                        <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="onForgetPasswordButton:" destination="-1" eventType="touchUpInside" id="FeM-0z-Iik"/>
@@ -253,7 +253,7 @@
                         <constraint firstAttribute="width" secondItem="IvO-6E-r84" secondAttribute="height" multiplier="17:6" id="pHY-4b-VCI"/>
                     </constraints>
                     <state key="normal" title="新用户注册">
-                        <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="onRegisterButton:" destination="-1" eventType="touchUpInside" id="8dV-z6-4Jo"/>
