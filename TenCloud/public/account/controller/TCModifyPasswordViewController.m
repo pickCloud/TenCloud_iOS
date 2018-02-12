@@ -163,7 +163,7 @@
     [request startWithSuccess:^(NSString *token) {
         //[[TCLocalAccount shared] setToken:token];
         //[[TCLocalAccount shared] save];
-        [MMProgressHUD dismiss];
+        [MMProgressHUD dismissWithoutAnimation];
         //[MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
         //[weakSelf.navigationController popViewControllerAnimated:YES];
         

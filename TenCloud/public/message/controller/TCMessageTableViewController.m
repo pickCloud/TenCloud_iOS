@@ -260,12 +260,11 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
-/*
- - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
- {
- return [UIImage imageNamed:@"no_data"];
- }
- */
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"default_no_data"];
+}
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -273,6 +272,11 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     [attributes setObject:TCFont(13.0) forKey:NSFontAttributeName];
     [attributes setObject:THEME_PLACEHOLDER_COLOR forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:@"暂无消息" attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -self.tableView.frame.size.height/15;
 }
 
 #pragma mark - DZNEmptyDataSetDelegate Methods

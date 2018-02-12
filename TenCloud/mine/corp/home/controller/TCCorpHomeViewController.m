@@ -53,7 +53,7 @@
 - (IBAction) onProfilePage:(id)sender;
 - (IBAction) onSwitchAccountButton:(id)sender;
 - (void) onMessageButton:(id)sender;
-- (void) loadCorpArray;
+- (void) reloadCorpArray;
 - (void) updateCorpInfoUI;
 @end
 
@@ -344,7 +344,7 @@
     [self.navigationController pushViewController:msgVC animated:YES];
 }
 
-- (void) loadCorpArray
+- (void) reloadCorpArray
 {
     __weak __typeof(self) weakSelf = self;
     TCCorpListRequest *request = [[TCCorpListRequest alloc] initWithStatus:7];

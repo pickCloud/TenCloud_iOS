@@ -100,7 +100,7 @@
     [MMProgressHUD showWithStatus:@"添加中..."];
     TCAddCorpRequest *request = [[TCAddCorpRequest alloc] initWithName:_nameField.text contact:_contactField.text phone:_phoneField.plainPhoneNum];
     [request startWithSuccess:^(NSInteger cid) {
-        [MMProgressHUD dismiss];
+        [MMProgressHUD dismissWithoutAnimation];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_CORP object:nil];
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"创建成功" desc:@"恭喜您成为公司管理员"];
         successVC.buttonTitle = @"查看我的公司";
