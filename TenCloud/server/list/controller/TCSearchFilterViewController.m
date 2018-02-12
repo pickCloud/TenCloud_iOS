@@ -95,14 +95,14 @@
 #pragma mark - extension
 - (IBAction) onConfirmButton:(id)sender
 {
-    NSLog(@"on confirm button");
-    
     NSArray *selectedProviderPaths = [_providerView indexPathsForSelectedItems];
+    /*
     if (selectedProviderPaths.count == 0)
     {
         [MBProgressHUD showError:@"请选择服务商" toView:nil];
         return;
     }
+     */
     
     NSArray *selectedAreaPaths = [_areaView indexPathsForSelectedItems];
     /*
@@ -113,12 +113,14 @@
     }
      */
     
-    [self dismiss];
     
     NSMutableArray *providers = [NSMutableArray new];
     NSIndexPath *providerPath = selectedProviderPaths.firstObject;
     TCClusterProvider *provider = [_providerArray objectAtIndex:providerPath.row];
-    [providers addObject:provider.provider];
+    if (selectedProviderPaths && selectedProviderPaths.count > 0)
+    {
+        [providers addObject:provider.provider];
+    }
     
     NSMutableArray *areas = [NSMutableArray new];
     for (int i = 0; i < selectedAreaPaths.count; i++)
@@ -132,6 +134,7 @@
                                  @"region":areas
                                  };
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DO_SEARCH object:filterDict];
+    [self dismiss];
 }
 
 - (void) dismiss

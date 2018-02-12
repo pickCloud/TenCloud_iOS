@@ -19,8 +19,11 @@
 @property (nonatomic, weak)  TCPermissionNode           *permissionNode;
 @property (nonatomic, strong)   NSMutableArray          *serverNodeArray;
 @property (nonatomic, assign) PermissionVCState         state;
+@property (nonatomic, strong)   NSMutableArray          *providers;
+@property (nonatomic, strong)   NSMutableArray          *regions;
 - (TCPermissionNode *) dataForIndexPath:(NSIndexPath*)indexPath;
 - (void) reloadServerNodeArray;
+- (void) onFilterNotification:(NSNotification*)sender;
 - (IBAction) onFilterButton:(id)sender;
 @end
 
@@ -40,6 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _serverNodeArray = [NSMutableArray new];
+    _providers = [NSMutableArray new];
+    _regions = [NSMutableArray new];
     [self reloadServerNodeArray];
     
     UINib *cellNib = [UINib nibWithNibName:@"TCServerPermTableViewCell" bundle:nil];
@@ -47,6 +52,16 @@
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.tableFooterView = [UIView new];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onFilterNotification:)
+                                                 name:NOTIFICATION_DO_SEARCH
+                                               object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +128,12 @@
     NSLog(@"is view state:%ld",isViewState);
     for (TCPermissionNode *subNode1 in _permissionNode.data)
     {
+        if (_providers.count > 0)
+        {
+            if (![_providers containsObject:subNode1.name]) {
+                continue;
+            }
+        }
         if (subNode1.sid > 0)
         {
             if ((isViewState && subNode1.selected) || !isViewState)
@@ -122,6 +143,13 @@
         }
         for (TCPermissionNode *subNode2 in subNode1.data)
         {
+            if (_regions.count > 0)
+            {
+                if (![_regions containsObject:subNode2.name])
+                {
+                    continue;
+                }
+            }
             if (subNode2.sid > 0)
             {
                 if ((isViewState && subNode2.selected) || !isViewState)
@@ -151,6 +179,20 @@
             }
         }
     }
+}
+
+- (void) onFilterNotification:(NSNotification*)sender
+{
+    NSDictionary *filterDict = sender.object;
+    NSArray *providers = [filterDict objectForKey:@"provider"];
+    NSArray *regions = [filterDict objectForKey:@"region"];
+    [_providers removeAllObjects];
+    [_providers addObjectsFromArray:providers];
+    [_regions removeAllObjects];
+    [_regions addObjectsFromArray:regions];
+    [self reloadServerNodeArray];
+    [self.tableView reloadData];
+    
 }
 
 - (IBAction) onFilterButton:(id)sender
