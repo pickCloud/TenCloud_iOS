@@ -38,8 +38,11 @@
         if ([message hasPrefix:@"'NoneType' object is not"])
         {
             message = @"该服务器已不存在";
+            failure ? failure(message) : nil;
+        }else
+        {
+            failure ? failure([self errorMessaage]) : nil;
         }
-        failure ? failure(message) : nil;
     }];
 }
 
