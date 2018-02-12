@@ -12,6 +12,8 @@
 
 - (void) startLoading;
 
+- (void) startLoadingWithBackgroundColor:(BOOL)useBgColor;
+
 - (void) stopLoading;
 
 - (BOOL) isLoading;

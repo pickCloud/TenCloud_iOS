@@ -94,7 +94,7 @@
         [MBProgressHUD showError:message toView:nil];
     }];
      */
-    [self startLoading];
+    [self startLoadingWithBackgroundColor:YES];
     __weak __typeof(self) weakSelf = self;
     NSInteger userID = [[TCLocalAccount shared] userID];
     TCCorpProfileRequest *profileReq = [[TCCorpProfileRequest alloc] initWithCorpID:_corpID];

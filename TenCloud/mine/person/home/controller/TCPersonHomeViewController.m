@@ -53,7 +53,7 @@
     [[TCLocalAccount shared] addObserver:self];
     _corpArray = [NSMutableArray new];
     _passedCorpArray = [NSMutableArray new];
-    [self startLoading];
+    [self startLoadingWithBackgroundColor:YES];
     [self loadCorpArray];
     
     UIImage *messageIconImg = [UIImage imageNamed:@"nav_message"];

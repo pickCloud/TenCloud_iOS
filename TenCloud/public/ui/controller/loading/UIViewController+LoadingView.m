@@ -34,10 +34,19 @@ static char const * const kIsLoadingKey     =   "isLoadingKey";
 
 - (void) startLoading
 {
+    [self startLoadingWithBackgroundColor:NO];
+}
+
+- (void) startLoadingWithBackgroundColor:(BOOL)useBgColor
+{
     //CGRect rect = self.view.bounds;
     [self.loadingView removeFromSuperview];
     //[self.loadingView setBackgroundColor:[UIColor lightGrayColor]];
     UIColor *bgColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    if (useBgColor)
+    {
+        bgColor = self.view.backgroundColor;
+    }
     //UIColor *backgroundColor = self.view.backgroundColor;//[UIColor clearColor];
     //[self.loadingView setBackgroundColor:backgroundColor];
     [self.loadingView setBackgroundColor:bgColor];
