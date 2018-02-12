@@ -142,7 +142,7 @@
     data6.initialValue = createTime;
     data6.type = TCCellTypeText;
     data6.hideDetailView = YES;
-    data6.editable = editable;
+    data6.editable = NO;
     [_cellItemArray addObject:data6];
     
     TCCellData *data7 = [TCCellData new];

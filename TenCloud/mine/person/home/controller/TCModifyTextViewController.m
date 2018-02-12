@@ -59,6 +59,14 @@
     [self.view addGestureRecognizer:tapGesture];
     
     [self updateConfirmButtonWithString:_textField.text];
+    
+    
+    //UIButton *clearButton = [self.textField valueForKey:@"_clearButton"];
+    //if (clearButton)
+    //{
+    //    [clearButton setTintColor:[UIColor redColor]];
+    //    [clearButton setBackgroundColor:[UIColor redColor]];
+    //}
 }
 
 - (void)didReceiveMemoryWarning {
