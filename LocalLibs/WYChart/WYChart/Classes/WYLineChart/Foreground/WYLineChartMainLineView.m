@@ -67,7 +67,10 @@ NSString * const kWYLineChartLineAttributeJunctionSize = @"kWYLineChartLineAttri
         //          Draw Junction Shape          //
         //* * * * * * * * * * * * * * * * * * * *//
         if (_junctionStyle != kWYLineChartJunctionShapeNone && _showJunctionShape) {
-            
+            if (_points.count < 2)
+            {
+                return ;
+            }
             [_points enumerateObjectsUsingBlock:^(WYLineChartPoint * point, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 WYLineChartJunctionShape *shape = [[WYLineChartJunctionShape alloc] initWithStyle:_junctionStyle

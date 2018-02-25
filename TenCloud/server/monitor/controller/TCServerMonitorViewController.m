@@ -191,6 +191,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     
     UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
     self.periodMenu.disclosureIndicatorImage = disclosureImg;
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -265,6 +266,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     return [_cpuPoints[0] count];
 }
 
+/*
 - (void)lineChartView:(WYLineChartView *)lineView didBeganTouchAtSegmentOfPoint:(WYLineChartPoint *)originalPoint value:(CGFloat)value {
     //_touchLabel.text = [NSString stringWithFormat:@"%f", value];
 }
@@ -292,6 +294,7 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 - (void)lineChartView:(WYLineChartView *)lineView didEndedPinchGraphWithOption:(WYLineChartViewScaleOption)option scale:(CGFloat)scale {
     //NSLog(@"end pinch, scale : %f", scale);
 }
+ */
 
 #pragma mark - WYLineChartViewDatasource
 
@@ -521,16 +524,25 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.periodMenuOptions[_periodSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
-                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
+                            NSForegroundColorAttributeName :THEME_PLACEHOLDER_COLOR
+                            };
+    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
+                                                              attributes:attr];
+    return str;
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.periodMenuOptions[_periodSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
-                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
-    
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
+                            NSForegroundColorAttributeName :THEME_TEXT_COLOR
+                            };
+    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
+                                                              attributes:attr];
+    return str;
 }
 
 - (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -539,7 +551,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
         shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
     }
-    //shapeSelectView.shapeView.sidesCount = row + 2;
     NSString *statusStr = self.periodMenuOptions[row];
     shapeSelectView.textLabel.text = statusStr;
     shapeSelectView.selected = _periodSelectedIndex == row;
@@ -565,7 +576,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 #pragma mark - extension
 - (IBAction) onHistoryButton:(id)sender
 {
-    NSLog(@"on history button");
     TCMonitorHistoryTableViewController *historyVC = nil;
     historyVC = [[TCMonitorHistoryTableViewController alloc] initWithServerID:_serverID];
     [self.navigationController pushViewController:historyVC animated:YES];
@@ -588,7 +598,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     __weak __typeof(self) weakSelf = self;
     TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
     [request startWithSuccess:^(TCServerPerformance *performance) {
-        NSLog(@"perfor:%@",performance);
         weakSelf.performance = performance;
         
         //重新计算cpu points
