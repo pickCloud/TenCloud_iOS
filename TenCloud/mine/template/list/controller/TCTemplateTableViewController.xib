@@ -25,7 +25,7 @@
                     <rect key="frame" x="15" y="0.0" width="345" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="lAn-wa-49U">
-                        <rect key="frame" x="0.0" y="0.0" width="345" height="8"/>
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="1"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

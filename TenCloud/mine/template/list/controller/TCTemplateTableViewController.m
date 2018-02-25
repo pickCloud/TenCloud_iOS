@@ -92,16 +92,17 @@ TCDataSyncDelegate>
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _templateArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _templateArray.count;
+    //return _templateArray.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCTemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMPLATE_CELL_REUSE_ID forIndexPath:indexPath];
-    TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
+    TCTemplate *template = [_templateArray objectAtIndex:indexPath.section];
     NSLog(@"tmpl:%@",template.name);
     NSLog(@"permissions:%@",template.permissions);
     NSLog(@"file:%@",template.access_filehub);
@@ -115,10 +116,29 @@ TCDataSyncDelegate>
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 15;
+    }
+    return 7.5;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 7.5;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.row];
+    TCTemplate *tmpl = [_templateArray objectAtIndex:indexPath.section];
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
     BOOL havePermission = currentCorp.isAdmin ||
     [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_TEMPLATE];
@@ -212,15 +232,17 @@ TCDataSyncDelegate>
 
 - (void) deleteTemplateAtIndexPath:(NSIndexPath*)path
 {
-    TCTemplate *tmpl = [_templateArray objectAtIndex:path.row];
+    TCTemplate *tmpl = [_templateArray objectAtIndex:path.section];
     __weak __typeof(self) weakSelf = self;
     NSString *tip = [NSString stringWithFormat:@"确定删除 %@ 模版?",tmpl.name];
     TCConfirmBlock confirmBlock = ^(TCConfirmView *view){
         TCDeleteTemplateRequest *delReq = [[TCDeleteTemplateRequest alloc] initWithTemplateID:tmpl.tid];
         [delReq startWithSuccess:^(NSString *message) {
-            [weakSelf.templateArray removeObjectAtIndex:path.row];
-            NSArray *paths = [NSArray arrayWithObject:path];
-            [weakSelf.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+            [weakSelf.templateArray removeObjectAtIndex:path.section];
+            [weakSelf.tableView beginUpdates];
+            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:path.section];
+            [weakSelf.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            [weakSelf.tableView endUpdates];
         } failure:^(NSString *message) {
             [MBProgressHUD showError:message toView:nil];
         }];

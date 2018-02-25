@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-//@class TCCorp;
 @class TCTemplate;
 @interface TCTemplateTableViewCell : UITableViewCell
-
-//- (void) setCorp:(TCCorp*)corp;
 
 - (void) setTemplate:(TCTemplate*)tmpl;
 
