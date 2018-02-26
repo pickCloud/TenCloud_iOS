@@ -8,7 +8,7 @@
 
 #import "TCAccountMenuViewController.h"
 #import "TCAccountMenuTableViewCell.h"
-#import "TCCorp+CoreDataClass.h"
+//#import "TCCorp+CoreDataClass.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "TCCurrentCorp.h"
 
@@ -23,7 +23,6 @@
 //@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, strong)   NSArray             *corpArray;
 @property (nonatomic, assign)   CGRect              buttonRect;
-@property (nonatomic, assign)   NSInteger           preSelectedIndex;
 - (void) dismiss;
 @end
 
@@ -143,11 +142,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TCCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     TCListCorp *corp = [_corpArray objectAtIndex:indexPath.row];
     TCAccountMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ACCOUNT_MENU_CELL_ID forIndexPath:indexPath];
     BOOL selected = [[TCCurrentCorp shared] isSameWithID:corp.cid name:corp.company_name];
     [cell setCorp:corp];
+    /*
     if (selected)
     {
         NSLog(@"cell at %@ selected",corp.company_name);
@@ -155,6 +154,7 @@
     {
         NSLog(@"cell at %@ not selected",corp.company_name);
     }
+     */
     cell.selected = selected;
     if (selected)
     {
@@ -174,20 +174,18 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cannot touched???");
     if (_preSelectedIndex == indexPath.row)
     {
         [self dismiss];
         return;
     }
-    //TCCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
     TCListCorp *curCorp = [_corpArray objectAtIndex:indexPath.row];
-    //[[TCCurrentCorp shared] setName:curCorp.company_name];
     [[TCCurrentCorp shared] setCid:curCorp.cid];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CORP_CHANGE object:nil];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
     //[tableView reloadData];
+    _preSelectedIndex = indexPath.row;
     
     if (_selectBlock)
     {

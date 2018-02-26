@@ -198,17 +198,27 @@
     _tableView.tableFooterView = [UIView new];
     
     _switchButton.touchedBlock = ^{
-        //NSMutableArray *passedCorpArray = [NSMutableArray new];
         [weakSelf.passedCorpArray removeAllObjects];
         for (TCListCorp * tmpCorp in weakSelf.corpArray)
         {
-            if (tmpCorp.status == 3 || tmpCorp.status == 4 || tmpCorp.cid == 0)
+            if (tmpCorp.status == STAFF_STATUS_PASS ||
+                tmpCorp.status == STAFF_STATUS_FOUNDER ||
+                tmpCorp.cid == 0)
             {
-                //[passedCorpArray addObject:tmpCorp];
                 [weakSelf.passedCorpArray addObject:tmpCorp];
             }
         }
         TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:weakSelf.passedCorpArray buttonRect:weakSelf.switchButton.frame];
+        NSInteger preIndex = 0;
+        NSInteger preCorpID = [[TCCurrentCorp shared] cid];
+        for (TCListCorp *tmpCorp in weakSelf.passedCorpArray)
+        {
+            if (tmpCorp.cid == preCorpID)
+            {
+                preIndex = preCorpID;
+            }
+        }
+        menuVC.preSelectedIndex = preIndex;
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;

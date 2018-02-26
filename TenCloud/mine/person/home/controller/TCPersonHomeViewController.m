@@ -87,12 +87,20 @@
             }
         }
         TCAccountMenuViewController *menuVC = [[TCAccountMenuViewController alloc] initWithCorpArray:weakSelf.passedCorpArray buttonRect:weakSelf.switchButton.frame];
+        NSInteger preIndex = 0;
+        NSInteger preCorpID = [[TCCurrentCorp shared] cid];
+        for (TCListCorp *tmpCorp in weakSelf.passedCorpArray)
+        {
+            if (tmpCorp.cid == preCorpID)
+            {
+                preIndex = preCorpID;
+            }
+        }
+        menuVC.preSelectedIndex = preIndex;
         menuVC.providesPresentationContextTransitionStyle = YES;
         menuVC.definesPresentationContext = YES;
         menuVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         menuVC.selectBlock = ^ (TCAccountMenuViewController *vc, NSInteger selectedIndex) {
-            NSLog(@"menu select %ld",selectedIndex);
-            //NSInteger corpIndex = selectedIndex - 1;
             if ( selectedIndex < weakSelf.corpArray.count)
             {
                 [MMProgressHUD showWithStatus:@"切换身份中"];

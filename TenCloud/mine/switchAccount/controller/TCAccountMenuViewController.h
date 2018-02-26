@@ -15,5 +15,6 @@ typedef void (^TCAccountMenuSelectBlock)(TCAccountMenuViewController *vc, NSInte
 
 - (instancetype) initWithCorpArray:(NSArray*)corpArray buttonRect:(CGRect)rect;
 @property (nonatomic, copy) TCAccountMenuSelectBlock   selectBlock;
+@property (nonatomic, assign)   NSInteger              preSelectedIndex;
 
 @end

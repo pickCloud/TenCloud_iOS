@@ -102,20 +102,20 @@
     }
     if (self.selected)
     {
-        NSLog(@"tag selected:%@",_corp.company_name);
+        //NSLog(@"tag selected:%@",_corp.company_name);
         _nameLabel.textColor = THEME_TINT_COLOR;
         _tickView.hidden = NO;
         //_tagLabel2.backgroundColor = THEME_TINT_COLOR;
     }else
     {
-        NSLog(@"tag not selected:%@",_corp.company_name);
+        //NSLog(@"tag not selected:%@",_corp.company_name);
         _nameLabel.textColor = THEME_TEXT_COLOR;
         _tickView.hidden = YES;
         //_tagLabel2.backgroundColor = THEME_TEXT_COLOR;
     }
     
-    NSString *currentName = [[TCCurrentCorp shared] name];
-    NSLog(@"current:%@ _corp:%@",currentName,_corp.company_name);
+    //NSString *currentName = [[TCCurrentCorp shared] name];
+    //NSLog(@"current:%@ _corp:%@",currentName,_corp.company_name);
     BOOL selected = [[TCCurrentCorp shared] isSameWithID:_corp.cid name:_corp.company_name];
     //if ([currentName isEqualToString:_corp.company_name])
     if(selected)
