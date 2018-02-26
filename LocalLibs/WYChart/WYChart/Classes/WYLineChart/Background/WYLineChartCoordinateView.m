@@ -40,11 +40,13 @@
     NSInteger labelCount = [self.parentView.delegate respondsToSelector:@selector(numberOfLabelOnXAxisInLineChartView:)] ?
     [self.parentView.delegate numberOfLabelOnXAxisInLineChartView:self.parentView] : 0;
     
-    NSAssert(labelCount <= [[self.parentView.calculator arrayContainedMostPoints] count], @"WYLineChartCoordinateYAXisView : labels count can't more than line's points count");
-    if (labelCount < 2)
+    NSInteger pointCount = [[self.parentView.calculator arrayContainedMostPoints] count];
+    NSLog(@"point count:%ld",pointCount);
+    if (pointCount < 2)
     {
         return;
     }
+    NSAssert(labelCount <= [[self.parentView.calculator arrayContainedMostPoints] count], @"WYLineChartCoordinateYAXisView : labels count can't more than line's points count");
     
     UILabel *label;
     CGFloat centerX, centerY;

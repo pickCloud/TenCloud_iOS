@@ -38,7 +38,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 @property (nonatomic, strong) NSMutableArray    *diskPoints;
 @property (nonatomic, strong) NSMutableArray    *netOutputPoints;
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
-//@property (nonatomic, strong) UILabel *touchLabel;
 - (IBAction) onHistoryButton:(id)sender;
 - (void) reloadChartData;
 @end
@@ -158,17 +157,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     _netChartView.axisColor = axisColor;
     _netChartView.labelsColor = axisColor;
     
-    /*
-    _touchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    _touchLabel.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:0.3];
-    _touchLabel.textColor = [UIColor blackColor];
-    _touchLabel.layer.cornerRadius = 5;
-    _touchLabel.layer.masksToBounds = YES;
-    _touchLabel.textAlignment = NSTextAlignmentCenter;
-    _touchLabel.font = [UIFont systemFontOfSize:12.f];
-    _cpuChartView.touchView = _touchLabel;
-     */
-    
     [self startLoading];
     [self reloadChartData];
     
@@ -216,7 +204,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 #pragma mark - WYLineChartViewDelegate
 
 - (NSInteger)numberOfLabelOnXAxisInLineChartView:(WYLineChartView *)chartView {
-    //NSLog(@"_cpuPoints count:%ld",[_cpuPoints[0] count]);
     if (chartView == _memoryChartView)
     {
         return [_memoryPoints[0] count];
@@ -266,35 +253,6 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
     return [_cpuPoints[0] count];
 }
 
-/*
-- (void)lineChartView:(WYLineChartView *)lineView didBeganTouchAtSegmentOfPoint:(WYLineChartPoint *)originalPoint value:(CGFloat)value {
-    //_touchLabel.text = [NSString stringWithFormat:@"%f", value];
-}
-
-- (void)lineChartView:(WYLineChartView *)lineView didMovedTouchToSegmentOfPoint:(WYLineChartPoint *)originalPoint value:(CGFloat)value {
-    //NSLog(@"changed move for value : %f", value);
-    //_touchLabel.text = [NSString stringWithFormat:@"%f", value];
-}
-
-- (void)lineChartView:(WYLineChartView *)lineView didEndedTouchToSegmentOfPoint:(WYLineChartPoint *)originalPoint value:(CGFloat)value {
-    //NSLog(@"ended move for value : %f", value);
-    //_touchLabel.text = [NSString stringWithFormat:@"%f", value];
-}
-
-- (void)lineChartView:(WYLineChartView *)lineView didBeganPinchWithScale:(CGFloat)scale {
-    
-    //NSLog(@"begin pinch, scale : %f", scale);
-}
-
-- (void)lineChartView:(WYLineChartView *)lineView didChangedPinchWithScale:(CGFloat)scale {
-    
-    //NSLog(@"change pinch, scale : %f", scale);
-}
-
-- (void)lineChartView:(WYLineChartView *)lineView didEndedPinchGraphWithOption:(WYLineChartViewScaleOption)option scale:(CGFloat)scale {
-    //NSLog(@"end pinch, scale : %f", scale);
-}
- */
 
 #pragma mark - WYLineChartViewDatasource
 
@@ -608,6 +566,14 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
             TCServerCPU *cpu = [performance.cpu objectAtIndex:i];
             [rawPoints addObject:@(cpu.percent.floatValue)];
         }
+        
+        if (rawPoints.count == 1)
+        {
+            NSNumber *cpuNum1 = rawPoints.firstObject;
+            NSNumber *cpuNum2 = [NSNumber numberWithFloat:cpuNum1.floatValue];
+            [rawPoints addObject:cpuNum2];
+        }
+        
         NSMutableArray *mutableArray = [NSMutableArray array];
         NSArray *tmpPoints = [WYLineChartPoint pointsFromValueArray:rawPoints];
         [mutableArray addObject:tmpPoints];
@@ -623,6 +589,13 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
             TCServerMemory *memory = [performance.memory objectAtIndex:i];
             [rawMemoryPoints addObject:@(memory.percent.floatValue)];
         }
+        if (rawMemoryPoints.count == 1)
+        {
+            NSNumber *memoryNum1 = rawMemoryPoints.firstObject;
+            NSNumber *memoryNum2 = [NSNumber numberWithFloat:memoryNum1.floatValue];
+            [rawMemoryPoints addObject:memoryNum2];
+        }
+        
         NSMutableArray *memoryPointArray = [NSMutableArray array];
         NSArray *tmpMemoryPoints = [WYLineChartPoint pointsFromValueArray:rawMemoryPoints];
         [memoryPointArray addObject:tmpMemoryPoints];
@@ -637,6 +610,12 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
         {
             TCServerDisk *disk = [performance.disk objectAtIndex:i];
             [rawDiskPoints addObject:@(disk.percent.floatValue)];
+        }
+        if (rawDiskPoints.count == 1)
+        {
+            NSNumber *diskPoint1 = rawDiskPoints.firstObject;
+            NSNumber *diskPoint2 = [NSNumber numberWithFloat:diskPoint1.floatValue];
+            [rawDiskPoints addObject:diskPoint2];
         }
         NSMutableArray *diskPointArray = [NSMutableArray array];
         NSArray *tmpDiskPoints = [WYLineChartPoint pointsFromValueArray:rawDiskPoints];
@@ -654,6 +633,15 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
             TCServerNet *net = [performance.net objectAtIndex:i];
             [rawNetOutputPoints addObject:@(net.output)];
             [rawNetInputPoints addObject:@(net.input)];
+        }
+        if (rawNetInputPoints.count == 1)
+        {
+            NSNumber *inputNum1 = rawNetInputPoints.firstObject;
+            NSNumber *inputNum2 = [NSNumber numberWithInteger:inputNum1.integerValue];
+            [rawNetInputPoints addObject:inputNum2];
+            NSNumber *outputNum1 = rawNetOutputPoints.firstObject;
+            NSNumber *outputNum2 = [NSNumber numberWithInteger:outputNum1.integerValue];
+            [rawNetOutputPoints addObject:outputNum2];
         }
         NSMutableArray *outputPointArray = [NSMutableArray array];
         NSArray *tmpNetOutputPoints = [WYLineChartPoint pointsFromValueArray:rawNetOutputPoints];
