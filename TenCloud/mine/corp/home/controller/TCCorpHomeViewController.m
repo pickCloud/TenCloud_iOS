@@ -78,22 +78,6 @@
     _corpArray = [NSMutableArray new];
     _passedCorpArray = [NSMutableArray new];
     
-    /*
-    [self startLoading];
-    __weak  __typeof(self) weakSelf = self;
-    TCCorpProfileRequest *profileReq = [[TCCorpProfileRequest alloc] initWithCorpID:_corpID];
-    [profileReq startWithSuccess:^(TCCorp *corp) {
-        weakSelf.corpInfo = corp;
-        NSLog(@"weak com:%@",weakSelf.corpInfo.name);
-        [weakSelf stopLoading];
-        [[TCCurrentCorp shared] setSelectedCorp:corp];
-        [[TCEmptyPermission shared] print];
-        [weakSelf updateCorpInfoUI];
-    } failure:^(NSString *message) {
-        [weakSelf stopLoading];
-        [MBProgressHUD showError:message toView:nil];
-    }];
-     */
     [self startLoadingWithBackgroundColor:YES];
     __weak __typeof(self) weakSelf = self;
     NSInteger userID = [[TCLocalAccount shared] userID];
