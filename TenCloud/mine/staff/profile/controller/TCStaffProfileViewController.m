@@ -186,29 +186,17 @@
         btnData.buttonIndex = indexPath.row;
         [cell setData:btnData];
         cell.touchedBlock = ^(TCButtonTableViewCell *cell, NSInteger cellIndex, TCProfileButtonType type) {
-            NSLog(@"cell button %ld touched",cellIndex);
             if (type == TCProfileButtonViewPermission)
             {
-                NSLog(@"查看权限");
-                
                 if (_staff.is_admin)
-                //if ([[TCCurrentCorp shared] isAdmin])
                 {
-                    NSLog(@"for admin");
                     [[TCEditingPermission shared] resetForAdmin];
                 }else
                 {
-                    NSLog(@"not for admin");
                     [[TCEditingPermission shared] reset];
                     [[TCEditingPermission shared] setTemplate:_userTemplate];
-                    NSLog(@"check per %@",_userTemplate.access_servers);
                     [[TCEditingPermission shared] readyForPreview];
                 }
-                /*
-                [[TCEditingPermission shared] reset];
-                [[TCEditingPermission shared] setTemplate:_userTemplate];
-                [[TCEditingPermission shared] readyForPreview];
-                */
                 
                 TCPermissionViewController *perVC = [TCPermissionViewController new];
                 perVC.userID = (NSInteger)_staff.uid;
@@ -224,7 +212,6 @@
                 [self presentViewController:perVC animated:YES completion:nil];
             }else if(type == TCProfileButtonSetPermission)
             {
-                NSLog(@"设置权限");
                 [[TCEditingPermission shared] reset];
                 [[TCEditingPermission shared] setTemplate:_userTemplate];
                 TCPermissionViewController *perVC = [TCPermissionViewController new];
@@ -288,8 +275,6 @@
             {
                 TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
                 changeVC.currentStaff = _staff;
-                //changeVC.staffArray = self.staffArray;
-                //NSLog(@"vc staffs:%@",changeVC.staffArray);
                 [self presentViewController:changeVC animated:YES completion:^{
                     
                 }];
@@ -332,8 +317,6 @@
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -347,14 +330,6 @@
     {
         if (_staff.is_admin)
         {
-            /*
-            TCProfileButtonData *data0 = [TCProfileButtonData new];
-            data0.title = @"查看权限";
-            data0.color = THEME_TINT_COLOR;
-            data0.type = TCProfileButtonViewPermission;
-            [_buttonDataArray addObject:data0];
-            */
-            
             NSInteger uid = [[TCLocalAccount shared] userID];
             if (_staff.uid == uid)
             {
@@ -512,7 +487,6 @@
     req.userID = _staff.uid;
     [req startWithSuccess:^(TCTemplate *tmpl) {
         weakSelf.userTemplate = tmpl;
-        NSLog(@"get servers:%@",tmpl.access_servers);
         [weakSelf stopLoading];
     } failure:^(NSString *message,NSInteger errorCode) {
         if (errorCode == 10003)

@@ -21,8 +21,6 @@
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
