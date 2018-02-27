@@ -50,9 +50,7 @@
         weakSelf.needRetry = NO;
         [weakSelf.providerArray removeAllObjects];
         [weakSelf.providerArray addObjectsFromArray:aProviderArray];
-        //NSLog(@"从请求更新providers:%@",aProviderArray);;
     } failure:^(NSString *message) {
-        //NSLog(@"message:%@",message);
         if (weakSelf.needRetry)
         {
             [self performSelector:@selector(sendProviderConfigurationRequest)

@@ -72,7 +72,6 @@
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     [super setHighlighted:highlighted animated:animated];
-    NSLog(@"highlighted:%d",highlighted);
     [self updateUI];
 }
 
@@ -143,25 +142,12 @@
 
 - (void) updateUI
 {
-    /*
-    if (self.selected)
-    {
-        self.bg2View.backgroundColor = [UIColor redColor]; //TABLE_CELL_BG_COLOR;
-        NSLog(@"变红");
-    }else
-    {
-        self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-        NSLog(@"不变红");
-    }
-     */
     if (self.highlighted)
     {
         self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
-        NSLog(@"变红");
     }else
     {
         self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-        NSLog(@"不变红");
     }
 }
 

@@ -14,10 +14,9 @@
 #import "TCAddServerViewController.h"
 #import "TCDataSync.h"
 #import "TCConfiguration.h"
-#define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #import "TCServer+CoreDataClass.h"
-#import "TCClusterProvider+CoreDataClass.h"
 #import "TCSearchFilterViewController.h"
+#define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
@@ -88,7 +87,6 @@
     [self.view addSubview:_keyboradPanel];
     _keyboradPanel.frame = newRect;
     
-    //[self startLoading];
     [self reloadServerList];
     NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(onShowKeyboard:)
@@ -128,8 +126,6 @@
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -141,22 +137,7 @@
 #pragma mark - Text Field Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"word:%@",textField.text);
     NSString *word = textField.text;
-    /*
-    if (word.length == 0)
-    {
-        [MBProgressHUD showError:@"请输入搜索词" toView:self.view];
-        return NO;
-    }
-    NSString *trimedWord = [word stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (trimedWord == NULL || trimedWord.length == 0)
-    {
-        [MBProgressHUD showError:@"不能搜索空白字符" toView:self.view];
-        [textField setText:nil];
-        return NO;
-    }
-     */
     [self doSearch:word provider:@[] region:@[]];
     [textField resignFirstResponder];
     return YES;
@@ -281,14 +262,6 @@
 
 - (void) onDeleteServerNotification:(NSNotification*)sender
 {
-    /*
-    TCServer *server = sender.object;
-    if (server)
-    {
-        [_serverArray removeObject:server];
-        [_tableView reloadData];
-    }
-     */
     [self reloadServerList];
 }
 
@@ -299,7 +272,6 @@
 
 - (void) onFilterSearchNotification:(NSNotification*)sender
 {
-    //NSLog(@"收到filter search通知");
     NSDictionary *filterDict = sender.object;
     NSArray *providers = [filterDict objectForKey:@"provider"];
     NSArray *regions = [filterDict objectForKey:@"region"];
@@ -324,7 +296,6 @@
 
 - (void) onAddServerButton:(id)sender
 {
-    //NSLog(@"on add server");
     TCAddServerViewController *addVC = [TCAddServerViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
 }
@@ -336,7 +307,6 @@
 
 - (IBAction) onFilterButton:(id)sender
 {
-    //TCSearchFilterViewController *filterVC = [TCSearchFilterViewController new];
     NSArray *providers = [[TCConfiguration shared] providerArray];
     TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providers];
     [self presentViewController:filterVC animated:NO completion:nil];
@@ -353,7 +323,6 @@
     __weak __typeof(self) weakSelf = self;
     TCServerSearchRequest *request = [[TCServerSearchRequest alloc] initWithServerName:keyword regions:regions providers:providers];
     [request startWithSuccess:^(NSArray<TCServer *> *serverArray) {
-        NSLog(@"search resu:%@",serverArray);
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.tableView reloadData];
@@ -386,7 +355,6 @@
 - (void) updateAddServerButton
 {
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
-    NSLog(@"corp is admin:%d",currentCorp.isAdmin);
     if ( currentCorp.isAdmin ||
         [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
         currentCorp.cid == 0)

@@ -162,8 +162,6 @@
 		A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12091FEAB2A700722C76 /* TCServerSearchRequest.m */; };
 		A06D120E1FEB36BC00722C76 /* TCAddServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */; };
 		A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */; };
-		A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */; };
-		A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */; };
 		A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12161FEB8CF200722C76 /* TCClusterProviderRequest.m */; };
 		A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D12191FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m */; };
 		A06D121D1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D121B1FEB924F00722C76 /* TCClusterProvider+CoreDataProperties.m */; };
@@ -697,9 +695,6 @@
 		A06D120B1FEB36BC00722C76 /* TCAddServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAddServerViewController.xib; sourceTree = "<group>"; };
 		A06D120C1FEB36BC00722C76 /* TCAddServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddServerViewController.h; sourceTree = "<group>"; };
 		A06D120D1FEB36BC00722C76 /* TCAddServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddServerViewController.m; sourceTree = "<group>"; };
-		A06D12101FEB81F700722C76 /* TCServerFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerFilterViewController.h; sourceTree = "<group>"; };
-		A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerFilterViewController.m; sourceTree = "<group>"; };
-		A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerFilterViewController.xib; sourceTree = "<group>"; };
 		A06D12151FEB8CF200722C76 /* TCClusterProviderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCClusterProviderRequest.h; sourceTree = "<group>"; };
 		A06D12161FEB8CF200722C76 /* TCClusterProviderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCClusterProviderRequest.m; sourceTree = "<group>"; };
 		A06D12181FEB924F00722C76 /* TCClusterProvider+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCClusterProvider+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -1961,9 +1956,6 @@
 				A07DBEC01FE27A3300F37715 /* TCServerListViewController.h */,
 				A07DBEC21FE27A3300F37715 /* TCServerListViewController.m */,
 				A07DBEC11FE27A3300F37715 /* TCServerListViewController.xib */,
-				A06D12101FEB81F700722C76 /* TCServerFilterViewController.h */,
-				A06D12111FEB81F700722C76 /* TCServerFilterViewController.m */,
-				A06D12121FEB81F700722C76 /* TCServerFilterViewController.xib */,
 				A06D121E1FEBA2F100722C76 /* TCSearchFilterViewController.h */,
 				A06D121F1FEBA2F100722C76 /* TCSearchFilterViewController.m */,
 				A06D12201FEBA2F100722C76 /* TCSearchFilterViewController.xib */,
@@ -4167,7 +4159,6 @@
 				A088F92A202A038C005A97DD /* TCDataPermissionViewController.xib in Resources */,
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
 				A033985C201F718600CF8630 /* TCMonitorHistoryTableViewController.xib in Resources */,
-				A06D12141FEB81F700722C76 /* TCServerFilterViewController.xib in Resources */,
 				A0BD823B202CB4400002B8C2 /* TCAddServerFailView.xib in Resources */,
 				A0A86B781FF3EC0900D1D58D /* TCAccountMenuViewController.xib in Resources */,
 				A07DBEBF1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib in Resources */,
@@ -4534,7 +4525,6 @@
 				A07DBE481FDFD5D300F37715 /* TCServerMonitorViewController.m in Sources */,
 				A07DBEAC1FE2022B00F37715 /* TCResetPasswordRequest.m in Sources */,
 				A0A86B301FF3896D00D1D58D /* TCFailResultViewController.m in Sources */,
-				A06D12131FEB81F700722C76 /* TCServerFilterViewController.m in Sources */,
 				A0906E7320288DB2006D30C8 /* TCAlertDropDownAnimation.m in Sources */,
 				A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */,
 				A07DBDFA1FDF696100F37715 /* TCServerContainerListRequest.m in Sources */,
