@@ -76,7 +76,6 @@
 #pragma mark - extension
 - (IBAction) onConfirmButton:(id)sender
 {
-    NSLog(@"on confirm button");
     if (_valueChangedBlock)
     {
         _valueChangedBlock(self);
@@ -86,7 +85,6 @@
 
 - (IBAction) onStartTimeButton:(id)sender
 {
-    NSLog(@"on start time button");
     _isStartTime = YES;
     NSDate *startDate = [NSDate date];
     NSInteger startTimeInt = [[TCMonitorHistoryTime shared] startTime];
@@ -135,7 +133,6 @@
 
 - (IBAction) onEndTimeButton:(id)sender
 {
-    NSLog(@"on end time button");
     _isStartTime = NO;
     
     NSDate *startDate = [NSDate date];
@@ -231,16 +228,12 @@
 
 - (void) actionSheetPickerSelectDate:(NSDate*)date element:(id)element
 {
-    NSLog(@"element:%@",element);
-    __weak __typeof(self) weakSelf = self;
     NSNumber *timeStamp = @(date.timeIntervalSince1970);
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"   yyyy年MM月dd日 hh:mm:ss"];
     NSString *dateStr = [dateFormatter stringFromDate:date];
-    NSLog(@"start dateStr:%@",dateStr);
-    //weakSelf.descLabel.text = dateStr;
     if (_isStartTime)
     {
         [[TCMonitorHistoryTime shared] setStartTime:timeStamp.integerValue];

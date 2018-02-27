@@ -8,7 +8,6 @@
 
 #import "YTKRequest.h"
 
-//@class TCServerPerformance;
 @class TCPerformanceItem;
 @interface TCPerformanceHistoryRequest : YTKRequest
 

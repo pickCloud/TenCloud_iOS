@@ -7,7 +7,6 @@
 //
 
 #import "TCPerformanceHistoryRequest.h"
-//#import "TCServerPerformance+CoreDataClass.h"
 #import "TCPerformanceItem+CoreDataClass.h"
 
 @interface TCPerformanceHistoryRequest()
@@ -48,23 +47,8 @@
         NSArray *perfDictArray = [request.responseJSONObject objectForKey:@"data"];
         NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
         NSArray *perfArray = [TCPerformanceItem mj_objectArrayWithKeyValuesArray:perfDictArray context:context];
-        //NSArray *perfArray = [TCServerPerformance mj_objectArrayWithKeyValuesArray:perfDictArray context:context];
         success ? success(perfArray) : nil;
-        
-        //NSArray *containerDictArray = [request.responseJSONObject objectForKey:@"data"];
-        //NSLog(@"container array:%@",containerDictArray);
-        //NSArray *containerArray = [NSArray mj_objectArrayWithKeyValuesArray:containerDictArray];
-        
-        //success ? success(containerArray) : nil;
-        
-        /*
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-        NSArray *logArray = [TCServerLog mj_objectArrayWithKeyValuesArray:logDictArray context:context];
-        success ? success(logArray) : nil;
-         */
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }

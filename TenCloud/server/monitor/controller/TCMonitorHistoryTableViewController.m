@@ -60,7 +60,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
         _topConstraint.constant = 64+27;
     }
     
-    //__weak __typeof(self) weakSelf = self;
     [[TCMonitorHistoryTime shared] reset];
     [self startLoading];
     [self reloadHistory];
@@ -106,15 +105,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
     [super viewWillDisappear:animated];
     [_typeMenu closeAllComponentsAnimated:YES];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - extension
 - (void) reloadHistory
@@ -190,7 +180,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
         [weakSelf stopLoading];
-        //[weakSelf.performanceArray addObjectsFromArray:perfArray];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         [weakSelf.tableView.mj_footer endRefreshing];
@@ -199,12 +188,10 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 - (IBAction) onTimeFilterButton:(id)sender
 {
-    NSLog(@"on time filter button");
     [_typeMenu closeAllComponentsAnimated:YES];
     __weak __typeof(self) weakSelf = self;
     TCHistoryTimeFilterViewController *filterVC = [TCHistoryTimeFilterViewController new];
     filterVC.valueChangedBlock = ^(TCHistoryTimeFilterViewController *cell) {
-        NSLog(@"value changed block");
         [weakSelf reloadHistory];
     };
     filterVC.providesPresentationContextTransitionStyle = YES;
@@ -225,22 +212,14 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TCServerPerformance *performance = [_performanceArray objectAtIndex:indexPath.row];
     TCPerformanceItem *item = [_performanceArray objectAtIndex:indexPath.row];
     TCMonitorHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MONITOR_HISTORY_CELL_ID forIndexPath:indexPath];
-    //[cell setPerformance:performance];
     [cell setPerformance:item];
-    
-    //TCMessage *message = [_messageArray objectAtIndex:indexPath.row];
-    //TCMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MESSAGE_CELL_ID forIndexPath:indexPath];
-    //[cell setMessage:message];
     return cell;
 }
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
@@ -279,7 +258,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 }
 
 - (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
-    //return _modeMenuOptions.count;
     return _typeMenuOptions.count;
 }
 
@@ -298,16 +276,21 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.typeMenuOptions[_selectedMenuIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
-                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{NSFontAttributeName:menuFont,
+                           NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR};
+    NSString *str = self.typeMenuOptions[_selectedMenuIndex];
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.typeMenuOptions[_selectedMenuIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
-                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
-    
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{NSFontAttributeName:menuFont,
+                           NSForegroundColorAttributeName: THEME_TEXT_COLOR};
+    NSString *str = self.typeMenuOptions[_selectedMenuIndex];
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -316,7 +299,6 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
     if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
         shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
     }
-    //shapeSelectView.shapeView.sidesCount = row + 2;
     NSString *statusStr = self.typeMenuOptions[row];
     shapeSelectView.textLabel.text = statusStr;
     shapeSelectView.selected = _selectedMenuIndex == row;
@@ -328,11 +310,9 @@ DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    //[_keywordField resignFirstResponder];
     _selectedMenuIndex = row;
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
-    //[self doSearchWithKeyword:_keywordField.text mode:_modeSelectedIndex];
     [self reloadHistory];
 }
 

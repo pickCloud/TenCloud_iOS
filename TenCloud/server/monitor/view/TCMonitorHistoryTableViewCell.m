@@ -67,7 +67,6 @@
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     [super setHighlighted:highlighted animated:animated];
-    NSLog(@"highlighted:%d",highlighted);
     [self updateUI];
 }
 
@@ -86,27 +85,22 @@
     _timeLabel.text = createDateStr;
     
     CGFloat cpuProgress = performance.cpu.percent.floatValue;
-    //performance.cpu_content.percent.floatValue;
     _cpuProgressView.progress = cpuProgress/100.0;
     NSString *cpuProgressStr = [NSString stringWithFormat:@"%.02f%%",cpuProgress];
     _cpuProgressLabel.text = cpuProgressStr;
     
     CGFloat diskProgress = performance.disk.percent.floatValue;
-    //server.disk_content.percent.floatValue;
     _diskProgressView.progress = diskProgress / 100.0;
     NSString *diskProgressStr = [NSString stringWithFormat:@"%.02f%%",diskProgress];
     _diskProgressLabel.text = diskProgressStr;
     
     CGFloat memoryProgress = performance.memory.percent.floatValue;
-    //server.memory_content.percent.floatValue;
     _memoryProgressView.progress = memoryProgress / 100.0;
     NSString *memoryProgressStr = [NSString stringWithFormat:@"%.02f%%",memoryProgress];
     _memoryProgressLabel.text = memoryProgressStr;
     
     NSInteger input = performance.net.input;
-    //server.net_content.input;
     NSInteger output = performance.net.output;
-    //server.net_content.output;
     NSString *networkSpeedStr = [NSString stringWithFormat:@"%ld/%ld",input,output];
     _networkSpeedLabel.text = networkSpeedStr;
     
@@ -117,11 +111,9 @@
     if (self.highlighted)
     {
         self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
-        NSLog(@"变红");
     }else
     {
         self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-        NSLog(@"不变红");
     }
 }
 
