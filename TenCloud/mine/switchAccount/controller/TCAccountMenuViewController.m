@@ -8,7 +8,6 @@
 
 #import "TCAccountMenuViewController.h"
 #import "TCAccountMenuTableViewCell.h"
-//#import "TCCorp+CoreDataClass.h"
 #import "TCListCorp+CoreDataClass.h"
 #import "TCCurrentCorp.h"
 
@@ -19,8 +18,6 @@
 @property (nonatomic, weak) IBOutlet    UIView      *darkBackgroundView;
 @property (nonatomic, weak) IBOutlet    UIView      *contentView;
 @property (nonatomic, weak) IBOutlet    UITableView *menuTableView;
-//@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *contentViewTrailingConstraint;
-//@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
 @property (nonatomic, strong)   NSArray             *corpArray;
 @property (nonatomic, assign)   CGRect              buttonRect;
 - (void) dismiss;
@@ -43,7 +40,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.darkBackgroundView.alpha = 0.0;
-    //self.contentViewTrailingConstraint.constant = - kScreenWidth;
     
     if (IS_iPhoneX)
     {
@@ -126,7 +122,6 @@
 
 - (void) onTapGesture:(id)sender
 {
-    NSLog(@"sneder:%@",sender);
     [self dismiss];
 }
 
