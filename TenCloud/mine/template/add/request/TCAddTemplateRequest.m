@@ -40,7 +40,7 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
+        //NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
         success ? success (@"添加成功") : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         failure ? failure([self errorMessaage]) : nil;

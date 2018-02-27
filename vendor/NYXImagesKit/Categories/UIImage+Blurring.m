@@ -23,7 +23,7 @@ static int16_t __s_gaussianblur_kernel_5x5[25] = {
 
 @implementation UIImage (NYX_Blurring)
 
--(UIImage*)gaussianBlurWithBias:(NSInteger)bias
+-(UIImage*)gaussianBlurWithBias:(long)bias
 {
 	/// Create an ARGB bitmap context
 	const size_t width = (size_t)self.size.width;

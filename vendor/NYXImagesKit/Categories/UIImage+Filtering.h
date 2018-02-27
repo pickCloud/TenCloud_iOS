@@ -19,7 +19,7 @@
 
 -(UIImage*)edgeDetectionWithBias:(NSInteger)bias;
 
--(UIImage*)embossWithBias:(NSInteger)bias;
+-(UIImage*)embossWithBias:(int32_t)bias;
 
 -(UIImage*)gammaCorrectionWithValue:(float)value;
 
@@ -31,8 +31,8 @@
 
 -(UIImage*)sepia;
 
--(UIImage*)sharpenWithBias:(NSInteger)bias;
+-(UIImage*)sharpenWithBias:(int32_t)bias;
 
--(UIImage*)unsharpenWithBias:(NSInteger)bias;
+-(UIImage*)unsharpenWithBias:(int32_t)bias;
 
 @end

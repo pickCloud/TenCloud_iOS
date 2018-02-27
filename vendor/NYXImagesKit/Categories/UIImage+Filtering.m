@@ -277,7 +277,7 @@ static int16_t __s_unsharpen_kernel_3x3[9] = {
 	//}
 }
 
--(UIImage*)embossWithBias:(NSInteger)bias
+-(UIImage*)embossWithBias:(int32_t)bias
 {
 	/// Create an ARGB bitmap context
 	const size_t width = (size_t)self.size.width;
@@ -592,14 +592,23 @@ static int16_t __s_unsharpen_kernel_3x3[9] = {
 
 		/// Cleanup
 		CGImageRelease(sepiaImageRef);
-		free(reds), free(greens), free(blues), free(tmpRed), free(tmpGreen), free(tmpBlue), free(finalRed), free(finalGreen), free(finalBlue);
-		CGContextRelease(bmContext);
+//        free(reds), free(greens), free(blues), free(tmpRed), free(tmpGreen), free(tmpBlue), free(finalRed), free(finalGreen), free(finalBlue);
+        free(reds);
+        free(greens);
+        free(blues);
+        free(tmpRed);
+        free(tmpGreen);
+        free(tmpBlue);
+        free(finalRed);
+        free(finalGreen);
+        free(finalBlue);
+        CGContextRelease(bmContext);
 
 		return sepia;
 	}
 }
 
--(UIImage*)sharpenWithBias:(NSInteger)bias
+-(UIImage*)sharpenWithBias:(int32_t)bias
 {
 	/// Create an ARGB bitmap context
 	const size_t width = (size_t)self.size.width;
@@ -640,7 +649,7 @@ static int16_t __s_unsharpen_kernel_3x3[9] = {
 	return sharpened;
 }
 
--(UIImage*)unsharpenWithBias:(NSInteger)bias
+-(UIImage*)unsharpenWithBias:(int32_t)bias
 {
 	/// Create an ARGB bitmap context
 	const size_t width = (size_t)self.size.width;

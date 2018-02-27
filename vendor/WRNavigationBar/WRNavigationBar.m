@@ -520,10 +520,14 @@ static int wrPushDisplayCount = 0;
         NSString *sysVersion = [[UIDevice currentDevice] systemVersion];
         if ([sysVersion floatValue] >= 10)
         {
-            [coor notifyWhenInteractionChangesUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                __strong typeof (self) pThis = weakSelf;
-                [pThis dealInteractionChanges:context];
-            }];
+            if (@available(iOS 10.0, *)) {
+                [coor notifyWhenInteractionChangesUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                    __strong typeof (self) pThis = weakSelf;
+                    [pThis dealInteractionChanges:context];
+                }];
+            } else {
+                // Fallback on earlier versions
+            }
         }
         else
         {

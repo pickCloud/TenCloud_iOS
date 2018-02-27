@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^ButtonTouchedBlock)();
+typedef void (^ButtonTouchedBlock)(void);
 
 @interface TCSwitchAccountButton : UIButton
 

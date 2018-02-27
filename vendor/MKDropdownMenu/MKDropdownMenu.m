@@ -862,7 +862,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
     return self;
 }
 
-- (void)presentDropdownInContainerView:(UIView *)containerView animated:(BOOL)animated completion:(void (^)())completion {
+- (void)presentDropdownInContainerView:(UIView *)containerView animated:(BOOL)animated completion:(void (^)(void))completion {
     
     self.containerView = containerView;
     
@@ -875,7 +875,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
     
     // Adjust scrollView + height
     CGFloat height = CGRectGetHeight(containerView.bounds);
-    void (^scrollViewAdjustBlock)() = ^{};
+    void (^scrollViewAdjustBlock)(void) = ^{};
     
     if ([containerView isKindOfClass:[UIScrollView class]]) {
         UIScrollView *scrollView = (UIScrollView *)containerView;
@@ -961,11 +961,11 @@ static const CGFloat kScrollViewBottomSpace = 5;
                          }
                      }];}
 
-- (void)dismissDropdownAnimated:(BOOL)animated completion:(void (^)())completion {
+- (void)dismissDropdownAnimated:(BOOL)animated completion:(void (^)(void))completion {
     
     [self.controller beginAppearanceTransition:NO animated:animated];
     
-    void (^scrollViewResetBlock)() = ^{};
+    void (^scrollViewResetBlock)(void) = ^{};
     
     if ([self.containerView isKindOfClass:[UIScrollView class]]) {
         UIScrollView *scrollView = (UIScrollView *)self.containerView;
@@ -1537,7 +1537,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
     
     NSInteger previousComponent = self.selectedComponent;
     
-    void (^presentation)() = ^{
+    void (^presentation)(void) = ^{
         self.selectedComponent = component;
         [self presentDropdownForSelectedComponentAnimated:animated completion:nil];
         if (component != NSNotFound && [self.delegate respondsToSelector:@selector(dropdownMenu:didOpenComponent:)]) {
@@ -1626,7 +1626,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
 }
 
 - (void)updateComponentButtonsSelection:(BOOL)selected {
-    void (^animation)() = ^{
+    void (^animation)(void) = ^{
         if (selected && self.selectedComponent != NSNotFound) {
             [self.buttons[self.selectedComponent] setSelected:YES];
         } else {
@@ -1653,7 +1653,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
     return self.presentingView ?: self.window;
 }
 
-- (void)presentDropdownForSelectedComponentAnimated:(BOOL)animated completion:(void (^)())completion {
+- (void)presentDropdownForSelectedComponentAnimated:(BOOL)animated completion:(void (^)(void))completion {
     if (self.selectedComponent == NSNotFound) {
         if (completion) {
             completion();
@@ -1686,7 +1686,7 @@ static const CGFloat kScrollViewBottomSpace = 5;
     [self updateComponentButtonsSelection:YES];
 }
 
-- (void)dismissDropdownAnimated:(BOOL)animated completion:(void (^)())completion {
+- (void)dismissDropdownAnimated:(BOOL)animated completion:(void (^)(void))completion {
     if (self.contentViewController.view.window == nil) {
         if (completion) {
             completion();
