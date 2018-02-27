@@ -72,16 +72,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+#pragma mark - extension
 - (IBAction) onSettingButton:(id)sender
 {
     TCJoinSettingViewController *settingVC = [TCJoinSettingViewController new];
@@ -90,7 +81,6 @@
 
 - (IBAction) onInviteButton:(id)sender
 {
-    NSLog(@"响应邀请");
     TCShareViewController *shareVC = [[TCShareViewController alloc] init];
     NSString *inviterName = [[TCLocalAccount shared] name];
     NSString *companyName = [[TCCurrentCorp shared] name];
@@ -115,10 +105,6 @@
         if (settingArray)
         {
             [weakSelf.joinSettingArray addObjectsFromArray:settingArray];
-            NSLog(@"josin settings:%@",weakSelf.joinSettingArray);
-        }else
-        {
-            NSLog(@"join settings null");
         }
         
         NSMutableArray *keyArray = [NSMutableArray new];
