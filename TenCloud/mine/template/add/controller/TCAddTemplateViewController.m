@@ -129,7 +129,7 @@
     NSInteger dataAmount = [[TCEditingPermission shared] dataPermissionAmount];
     if (funcAmount == 0 && dataAmount == 0)
     {
-        [_permissionDescLabel setText:@"未选择"];
+        [_permissionDescLabel setText:@"请选择"];
     }else
     {
         NSString *desc = [NSString stringWithFormat:@"功能权限 %ld 项  数据权限 %ld 项",funcAmount,dataAmount];
