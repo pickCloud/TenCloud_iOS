@@ -67,7 +67,6 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     [_nameField resignFirstResponder];
     [_contactField resignFirstResponder];
     [_phoneField resignFirstResponder];
@@ -75,7 +74,6 @@
 
 - (IBAction) onAddButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_nameField.text.length == 0)
     {
         [MBProgressHUD showError:@"请输入企业名称" toView:nil];
