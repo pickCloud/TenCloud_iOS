@@ -15,7 +15,6 @@
 #import "TCInviteProfileViewController.h"
 #import "TCStaffStatusRequest.h"
 #import "TCInviteJoinedViewController.h"
-#import "TCTabBarController.h"
 #import "TCPageManager.h"
 
 
@@ -66,17 +65,11 @@
     __weak __typeof(self) weakSelf = self;
     TCInviteInfoRequest *req = [[TCInviteInfoRequest alloc] initWithCode:_code];
     [req startWithSuccess:^(TCInviteInfo *info) {
-        //NSLog(@"info:%@",info);
-        //NSLog(@"info_comp:%@",info.company_name);
-        //NSLog(@"info_contact:%@",info.contact);
-        //NSLog(@"info_setting:%@",info.setting);
         weakSelf.inviteInfo = info;
         [weakSelf updateInviteInfoUI];
-        //[weakSelf stopLoading];
         
         TCStaffStatusRequest *statusReq = [[TCStaffStatusRequest alloc] initWithCorpID:info.cid];
         [statusReq startWithSuccess:^(NSInteger status) {
-            NSLog(@"status:%ld",status);
             if (status == STAFF_STATUS_PENDING ||
                 status == STAFF_STATUS_PASS)
             {
@@ -106,12 +99,11 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
+    
 }
 
 - (IBAction) onAcceptInviteButton:(id)sender
 {
-    NSLog(@"on accept invite button");
     if ([self isInviteInfoInvalid])
     {
         [self onEnterSystem:nil];
@@ -129,8 +121,6 @@
 
 - (IBAction) onEnterSystem:(id)sender
 {
-    //TCTabBarController *tabBarController = [TCTabBarController new];
-    //[[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
     [TCPageManager enterHomePage];
 }
 
@@ -153,9 +143,6 @@
         return;
     }
     
-    CGRect row1Rect = _row1Label.frame;
-    NSLog(@"row1Rect:%.2f, %.2f, %.2f, %.2f",row1Rect.origin.x, row1Rect.origin.y, row1Rect.size.width,
-          row1Rect.size.height);
     NSMutableAttributedString *row1Str = [NSMutableAttributedString new];
     UIFont *textFont = TCFont(14.0);
     NSDictionary *greenAttr = @{NSForegroundColorAttributeName : THEME_TINT_COLOR,
@@ -168,31 +155,11 @@
     NSString *str2 = @" 邀请你加入企业 ";
     NSMutableAttributedString *tmp2 = nil;
     tmp2 = [[NSMutableAttributedString alloc] initWithString:str2 attributes:grayAttr];
-    //[row1Str appendAttributedString:tmp1];
-    CGSize boundSize = CGSizeMake(row1Rect.size.width, MAXFLOAT);
-    CGRect rect1 = [str1 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:greenAttr context:nil];
-    CGRect rect2 = [str2 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:grayAttr context:nil];
+    
     NSString *str3 = _inviteInfo.company_name;
     NSMutableAttributedString *tmp3 = nil;
     tmp3 = [[NSMutableAttributedString alloc] initWithString:str3 attributes:greenAttr];
-    /*
-    CGRect rect3 = [str3 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:greenAttr context:nil];
-    CGFloat previeWidth = rect1.size.width + rect2.size.width +rect3.size.width;
-    if (previeWidth <= row1Rect.size.width)
-    {
-        [row1Str appendAttributedString:tmp1];
-        [row1Str appendAttributedString:tmp2];
-        [row1Str appendAttributedString:tmp3];
-        _row1Label.attributedText = row1Str;
-        _row2Label.text = @"";
-    }else
-    {
-        [row1Str appendAttributedString:tmp1];
-        [row1Str appendAttributedString:tmp2];
-        _row1Label.attributedText = row1Str;
-        _row2Label.attributedText = tmp3;
-    }
-     */
+    
     [row1Str appendAttributedString:tmp3];
     [row1Str appendAttributedString:tmp2];
     _row1Label.attributedText = row1Str;

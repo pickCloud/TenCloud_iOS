@@ -1,6 +1,6 @@
 //
 //  TCInviteJoinedViewController.h
-//  TenCloud
+//  功能: 邀请加入页面(已经加入、审核中两种情况下显示)
 //
 //  Created by huangdx on 2017/12/14.
 //  Copyright © 2017年 10.com. All rights reserved.

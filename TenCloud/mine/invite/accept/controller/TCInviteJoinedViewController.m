@@ -67,8 +67,6 @@
 - (IBAction) onEnterSystemButton:(id)sender
 {
     [TCPageManager enterHomePage];
-    //TCTabBarController *tabBarController = [TCTabBarController new];
-    //[[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
 }
 
 - (IBAction) onMyCorpButton:(id)sender
