@@ -67,12 +67,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     self.navigationItem.rightBarButtonItem = messageItem;
     
     _serverArray = [NSMutableArray new];
-    //_headerHeightConstraint.constant = TCSCALE(156);
     _tableView.tintColor = [UIColor clearColor];
     _headerView.backgroundColor = THEME_BACKGROUND_COLOR;
     _headerCollectionBgView.backgroundColor = TABLE_CELL_BG_COLOR;
     _headerCollectionBgHeightConstraint.constant = TCSCALE(120);
-    //[[UITableViewHeaderFooterView appearance] setTintColor:[UIColor purpleColor]];
     
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
@@ -86,7 +84,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     iconLayout.itemSize = CGSizeMake(TCSCALE(116.8), TCSCALE(100));
     iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
-    float iconX = 0;//_searchCourseButton.frame.origin.x;
+    float iconX = 0;
     iconLayout.headerReferenceSize = CGSizeMake(iconX, iconX);
     iconLayout.footerReferenceSize = CGSizeMake(iconX, iconX);
     [_headerCollectionView setCollectionViewLayout:iconLayout];
@@ -143,8 +141,6 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
@@ -181,7 +177,6 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 
 #pragma mark - CollectionView Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"select item:%d %d",(int)indexPath.section, (int)indexPath.row);
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0)
     {
@@ -253,9 +248,6 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
-    NSLog(@"current corp is admin:%ld",currentCorp.isAdmin);
-    
-    
     BOOL canAdd = currentCorp.isAdmin ||
     [currentCorp havePermissionForFunc:FUNC_ID_ADD_SERVER] ||
     currentCorp.cid == 0;
