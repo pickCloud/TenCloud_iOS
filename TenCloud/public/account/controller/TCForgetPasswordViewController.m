@@ -77,7 +77,6 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     [_phoneNumberField resignFirstResponder];
     [_captchaField resignFirstResponder];
     [_passwordField resignFirstResponder];
@@ -86,7 +85,6 @@
 
 - (IBAction) onGetCaptchaButton:(id)sender
 {
-    NSLog(@"on get captcha button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
@@ -124,7 +122,6 @@
 
 - (IBAction) onRegisterButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];

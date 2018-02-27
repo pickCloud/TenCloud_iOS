@@ -15,7 +15,7 @@
 #import "TCUser+CoreDataClass.h"
 #import "TCTabBarController.h"
 
-@interface TCRegisterViewController ()
+@interface TCRegisterViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumberField;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -74,7 +74,6 @@
 
 - (IBAction) onGetCaptchaButton:(id)sender
 {
-    NSLog(@"on get captcha button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
@@ -98,7 +97,6 @@
 
 - (IBAction) onRegisterButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];

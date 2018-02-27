@@ -9,7 +9,7 @@
 #import "TCViewController.h"
 
 
-@interface TCViewController ()
+@interface TCViewController ()<UIGestureRecognizerDelegate>
 
 @end
 

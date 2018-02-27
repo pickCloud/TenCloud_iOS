@@ -8,16 +8,12 @@
 
 #import "TCModifyPasswordViewController.h"
 #import "GetCaptchaButton.h"
-//#import "TCSpacingTextField.h"
 #import "TCGetCaptchaRequest.h"
-//#import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
-//#import "TCTabBarController.h"
 #import "TCResetPasswordRequest.h"
 #import <GT3Captcha/GT3Captcha.h>
 #import "TCGeetestCaptchaRequest.h"
 #import "TCSuccessResultViewController.h"
-//#import "TCPageManager.h"
 #import "TCAlertController.h"
 
 @interface TCModifyPasswordViewController ()<UIGestureRecognizerDelegate,GT3CaptchaManagerDelegate>
@@ -78,7 +74,6 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     [_oldPasswordField resignFirstResponder];
     [_captchaField resignFirstResponder];
     [_passwordField resignFirstResponder];
@@ -87,7 +82,6 @@
 
 - (IBAction) onGetCaptchaButton:(id)sender
 {
-    NSLog(@"on get captcha button");
     [_captchaField becomeFirstResponder];
     
     if (_captchaButton.fetchState == FetchCaptchaStateNone ||
@@ -121,7 +115,6 @@
 
 - (IBAction) onRegisterButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_oldPasswordField.text.length == 0)
     {
         [MBProgressHUD showError:@"请输入原密码" toView:nil];
@@ -161,12 +154,7 @@
                                                       oldPassword:_oldPasswordField.text
                                                           captcha:_captchaField.text];
     [request startWithSuccess:^(NSString *token) {
-        //[[TCLocalAccount shared] setToken:token];
-        //[[TCLocalAccount shared] save];
         [MMProgressHUD dismissWithoutAnimation];
-        //[MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
-        //[weakSelf.navigationController popViewControllerAnimated:YES];
-        
         TCSuccessResultViewController *successVC = [[TCSuccessResultViewController alloc] initWithTitle:@"修改成功" desc:@"您的新密码已经生效"];
         successVC.finishBlock = ^(UIViewController *viewController) {
             [viewController.navigationController popViewControllerAnimated:YES];
@@ -176,7 +164,6 @@
         [newVCS removeLastObject];
         [newVCS addObject:successVC];
         [weakSelf.navigationController setViewControllers:newVCS];
-        
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message afterDelay:1.32];
     }];

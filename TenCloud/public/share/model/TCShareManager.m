@@ -16,8 +16,8 @@
 #import "WeiboSDK.h"
 #import <TencentOpenAPI/TencentApiInterface.h>
 
-#define WECHAT_APP_ID       @"wxc1fa4f1bfc738872"//@"wxc01464912319f82e"
-#define WECHAT_APP_SECRET   @"ed627a20a5c8839164005f2358f5fe69"//@"a899820621ce623d835c4caf9381762d"
+#define WECHAT_APP_ID       @"wxc1fa4f1bfc738872"
+#define WECHAT_APP_SECRET   @"ed627a20a5c8839164005f2358f5fe69"
 #define QQ_APP_ID           @"1106665152"
 #define QQ_APP_KEY          @"slhcMjf52PvQoMnO"
 

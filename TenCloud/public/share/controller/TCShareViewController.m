@@ -33,8 +33,6 @@
     
     _messageVC = [[MFMessageComposeViewController alloc] init];
     _messageVC.messageComposeDelegate = self;
-    //[[[[_messageVC viewControllers] lastObject] navigationItem] setTitle:@"返回"];
-    //[[[[[picker viewControllers] lastObject] navigationItem] rightBarButtonItem] setTitle:@"返回"];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
     [self.darkBackgroundView addGestureRecognizer:tapGesture];
@@ -90,19 +88,12 @@
 
 - (IBAction) onMessageButton:(id)sender
 {
-    NSLog(@"on message button");
-    //MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
-    //vc.body = @"测试";
-    //vc.messageComposeDelegate = self;
-    //vc.navigationBar.tintColor = [UIColor blackColor];
-    //[self presentViewController:vc animated:YES completion:nil];
     _messageVC.body = _content;
     [self presentViewController:_messageVC animated:YES completion:nil];
 }
 
 - (IBAction) onQQButton:(id)sender
 {
-    NSLog(@"on qq button ");
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *iconPath = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
     UIImage *icon = [UIImage imageNamed:iconPath];
@@ -116,7 +107,6 @@
 
 - (IBAction) onWeixinButton:(id)sender
 {
-    NSLog(@"on weixin button");
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *iconPath = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
     UIImage *icon = [UIImage imageNamed:iconPath];

@@ -11,7 +11,7 @@
 #import "TCTabBarController.h"
 #import "TCSetPasswordRequest.h"
 
-@interface TCSetPasswordViewController ()
+@interface TCSetPasswordViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
 @property (nonatomic, weak) IBOutlet    UITextField         *password2Field;
 - (void) onTapBlankArea:(id)sender;
