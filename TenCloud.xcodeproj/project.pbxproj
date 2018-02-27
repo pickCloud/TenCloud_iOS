@@ -87,8 +87,6 @@
 		A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555971FD7E24A00D16D22 /* TCResourceHomeViewController.xib */; };
 		A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */; };
 		A025559E1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */; };
-		A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */; };
-		A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */; };
 		A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A51FD7E84500D16D22 /* TCLocalAccount.m */; };
 		A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555A81FD7E8D700D16D22 /* TCUser+CoreDataClass.m */; };
 		A02555AC1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AA1FD7E8D700D16D22 /* TCUser+CoreDataProperties.m */; };
@@ -566,9 +564,6 @@
 		A025559A1FD7E36800D16D22 /* TCDiscoverHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDiscoverHomeViewController.h; sourceTree = "<group>"; };
 		A025559B1FD7E36800D16D22 /* TCDiscoverHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCDiscoverHomeViewController.m; sourceTree = "<group>"; };
 		A025559C1FD7E36800D16D22 /* TCDiscoverHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCDiscoverHomeViewController.xib; sourceTree = "<group>"; };
-		A025559F1FD7E44900D16D22 /* TCMineHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMineHomeViewController.h; sourceTree = "<group>"; };
-		A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMineHomeViewController.m; sourceTree = "<group>"; };
-		A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMineHomeViewController.xib; sourceTree = "<group>"; };
 		A02555A41FD7E84500D16D22 /* TCLocalAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCLocalAccount.h; sourceTree = "<group>"; };
 		A02555A51FD7E84500D16D22 /* TCLocalAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCLocalAccount.m; sourceTree = "<group>"; };
 		A02555A71FD7E8D700D16D22 /* TCUser+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCUser+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -1563,7 +1558,6 @@
 				A031434C1FED567C006F55EC /* staff */,
 				A031435C1FED567C006F55EC /* template */,
 				A03143381FECDB06006F55EC /* person */,
-				A025558B1FD7E20C00D16D22 /* home */,
 				A0A86B6F1FF3EC0900D1D58D /* switchAccount */,
 				A0C9A0581FF0A32400F94E9E /* customerService */,
 			);
@@ -2201,48 +2195,6 @@
 			sourceTree = "<group>";
 		};
 		A025558A1FD7E20300D16D22 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		A025558B1FD7E20C00D16D22 /* home */ = {
-			isa = PBXGroup;
-			children = (
-				A025558C1FD7E20C00D16D22 /* controller */,
-				A025558D1FD7E20C00D16D22 /* model */,
-				A025558E1FD7E20C00D16D22 /* request */,
-				A025558F1FD7E20C00D16D22 /* view */,
-			);
-			path = home;
-			sourceTree = "<group>";
-		};
-		A025558C1FD7E20C00D16D22 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				A025559F1FD7E44900D16D22 /* TCMineHomeViewController.h */,
-				A02555A01FD7E44900D16D22 /* TCMineHomeViewController.m */,
-				A02555A11FD7E44900D16D22 /* TCMineHomeViewController.xib */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		A025558D1FD7E20C00D16D22 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		A025558E1FD7E20C00D16D22 /* request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = request;
-			sourceTree = "<group>";
-		};
-		A025558F1FD7E20C00D16D22 /* view */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -4190,7 +4142,6 @@
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
 				A088F943202AE664005A97DD /* TCProjectPermTableViewCell.xib in Resources */,
 				A031B5DD1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib in Resources */,
-				A02555A31FD7E44900D16D22 /* TCMineHomeViewController.xib in Resources */,
 				A0A86B4E1FF3927E00D1D58D /* TCMyCorpTableViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
 				A0906E8020288EBF006D30C8 /* TCConfirmView.xib in Resources */,
@@ -4513,7 +4464,6 @@
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */,
 				A0884A2720066932004F5010 /* TCShareManager.m in Sources */,
-				A02555A21FD7E44900D16D22 /* TCMineHomeViewController.m in Sources */,
 				A088F939202AC894005A97DD /* TCFilePermTableViewCell.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
 				A0A86B9B1FF4F52D00D1D58D /* TCListCorp+CoreDataProperties.m in Sources */,

@@ -11,12 +11,9 @@
 #import "TCProjectHomeViewController.h"
 #import "TCResourceHomeViewController.h"
 #import "TCDiscoverHomeViewController.h"
-#import "TCMineHomeViewController.h"
 #import "TCCurrentCorp.h"
 #import "TCPersonHomeViewController.h"
 #import "TCCorpHomeViewController.h"
-
-//#import "TCMineHomeViewController.h"
 
 @interface TCTabBarController ()
 
@@ -53,7 +50,6 @@
     [self addChildViewController:projectHomeNav];
     
     TCResourceHomeViewController *resourceHomeVC = [TCResourceHomeViewController new];
-    //TCMineHomeViewController *resourceHomeVC = [TCMineHomeViewController new];
     UINavigationController *resourceHomeNav = [[UINavigationController alloc] initWithRootViewController:resourceHomeVC];
     UIImage *resourceSelIcon = [UIImage imageNamed:@"tabbar_resource_selected"];
     UIImage *resourceIcon = [[UIImage imageNamed:@"tabbar_resource"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
