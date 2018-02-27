@@ -28,7 +28,6 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.00];
     self.selectedBackgroundView = selectedBgView;
-    
     self.bgView.layer.cornerRadius = TCSCALE(2.0);
 }
 

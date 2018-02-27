@@ -7,7 +7,6 @@
 //
 
 #import "TCCorpListRequest.h"
-//#import "TCCorp+CoreDataClass.h"
 #import "TCListCorp+CoreDataClass.h"
 
 @interface TCCorpListRequest()
