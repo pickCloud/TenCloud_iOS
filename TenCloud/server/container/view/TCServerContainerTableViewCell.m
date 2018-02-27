@@ -7,12 +7,7 @@
 //
 
 #import "TCServerContainerTableViewCell.h"
-#import "TCServer+CoreDataClass.h"
-#import "TCServerNet+CoreDataClass.h"
-#import "TCServerCPU+CoreDataClass.h"
-#import "TCServerDisk+CoreDataClass.h"
-#import "TCServerMemory+CoreDataClass.h"
-#import "TCProgressView.h"
+
 
 @interface TCServerContainerTableViewCell ()
 @property (nonatomic, weak) IBOutlet    UIView      *bg2View;
@@ -20,7 +15,6 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *containerIDLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *timeLabel;
-
 - (void) updateUI;
 @end
 
@@ -34,9 +28,7 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.02];
     self.selectedBackgroundView = selectedBgView;
-    
     self.bg2View.layer.cornerRadius = TCSCALE(2.0);
-    
     self.nameLabel.font = TCFont(14);
 }
 
@@ -51,14 +43,6 @@
     [super setSelected:selected];
     [self updateUI];
 }
-
-/*
-- (void) setServer:(TCServer*)server
-{
-    self.nameLabel.text = server.name;
-    
-}
- */
 
 - (void) setContainer:(NSArray<NSString*> *)strArray
 {

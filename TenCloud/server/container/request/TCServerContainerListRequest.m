@@ -7,7 +7,6 @@
 //
 
 #import "TCServerContainerListRequest.h"
-#import "TCServerLog+CoreDataClass.h"
 
 @interface TCServerContainerListRequest()
 @property (nonatomic, assign)   NSInteger   serverID;
@@ -30,17 +29,9 @@
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSArray *containerDictArray = [request.responseJSONObject objectForKey:@"data"];
-        NSLog(@"container array:%@",containerDictArray);
         NSArray *containerArray = [NSArray mj_objectArrayWithKeyValuesArray:containerDictArray];
         success ? success(containerArray) : nil;
-        /*
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-        NSArray *logArray = [TCServerLog mj_objectArrayWithKeyValuesArray:logDictArray context:context];
-        success ? success(logArray) : nil;
-         */
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
@@ -53,16 +44,4 @@
 - (YTKRequestMethod)requestMethod {
     return YTKRequestMethodGET;
 }
-/*
-- (id)requestArgument
-{
-    
-    NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
-    return @{
-             @"object_id":idStr
-             };
-     
-    return nil;
-}
-*/
 @end
