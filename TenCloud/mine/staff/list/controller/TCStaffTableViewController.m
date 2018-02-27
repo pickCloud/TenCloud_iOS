@@ -355,7 +355,7 @@
         self.menuController = nil;
     }
     __weak __typeof(self) weakSelf = self;
-    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"设置个人加入条件" iconImage:nil action:^{
+    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"设置加入条件" iconImage:nil action:^{
         TCJoinSettingViewController *joinVC = [TCJoinSettingViewController new];
         [weakSelf.navigationController pushViewController:joinVC animated:YES];
     }];
