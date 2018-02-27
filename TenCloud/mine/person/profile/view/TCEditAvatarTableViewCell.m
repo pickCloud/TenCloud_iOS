@@ -49,15 +49,6 @@
     NSURL *avatarURL = [NSURL URLWithString:data.initialValue];
     UIImage *defaultAvatarImg = [UIImage imageNamed:@"default_avatar"];
     [self.avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatarImg];
-    /*
-    if (self.data.editable)
-    {
-        [self.detailView setHidden:NO];
-    }else
-    {
-        [self.detailView setHidden:YES];
-    }
-     */
     if (self.data.editable)
     {
         [self.detailView setHidden:NO];
@@ -84,38 +75,15 @@
                 picker.delegate = self;
                 picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 picker.allowsEditing = YES;//设置可编辑
-                
                 if ([picker.navigationBar respondsToSelector:@selector(setBarTintColor:)])
                 {
                     [picker.navigationBar setTranslucent:NO];
                     [picker.navigationBar setBarTintColor:[UIColor purpleColor]];
                     [picker.navigationBar setTintColor:[UIColor blueColor]];
-                    NSLog(@"condition111");
                 }else
                 {
                     [picker.navigationBar setBackgroundColor:[UIColor blackColor]];
-                    NSLog(@"condition222");
                 }
-                
-                //[picker vhl_setNavBackgroundColor:[UIColor purpleColor]];
-                //[picker vhl_setNavBarTintColor:[UIColor redColor]];
-                //[picker vhl_setNavBarTitleColor:[UIColor greenColor]];
-                
-                /*
-                //仅第一个导航栏有效，且有极大的崩溃风险，不建议采用
-                [self.fatherViewController presentViewController:picker animated:YES completion:^{
-                    UIViewController *controller = picker.viewControllers.lastObject;
-                    UIBarButtonItem *cancelButton = [controller valueForKey:@"imagePickerCancelButton"];
-                    if (cancelButton)
-                    {
-                        UIButton *button = [cancelButton valueForKey:@"view"];
-                        if (button)
-                        {
-                            [button setTitleColor:THEME_NAVBAR_TITLE_COLOR forState:UIControlStateNormal];
-                        }
-                    }
-                }];
-                */
                 [self.fatherViewController presentViewController:picker animated:YES completion:nil];
             }
                 break;
@@ -126,8 +94,6 @@
                 picker.sourceType = UIImagePickerControllerSourceTypeCamera;
                 picker.allowsEditing = YES;//设置可编辑
                 picker.showsCameraControls = YES;
-                
-                //[picker vhl_setNavBarHidden:YES];
                 [self.fatherViewController presentViewController:picker animated:YES completion:nil];
             }
                 break;
