@@ -19,7 +19,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
     [self.keyLabel setFont:TCFont(14)];
     [self.valueLabel setFont:TCFont(14)];
     
@@ -35,7 +34,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-    NSLog(@"selected once:%d",selected);
 }
 
 - (void) setKey:(NSString*)key value:(NSString*)value

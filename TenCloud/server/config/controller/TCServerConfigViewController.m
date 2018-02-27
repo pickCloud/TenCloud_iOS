@@ -48,7 +48,6 @@
     TCServerConfigRequest *request = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(TCServerConfig *config) {
         [weakSelf stopLoading];
-        //[weakSelf.configDict removeAllObjects];
         [weakSelf.configArray removeAllObjects];
         TCServerSystemConfig *sysConfig = config.system_info.config;
         NSString *os = sysConfig.os_name;
@@ -83,7 +82,6 @@
         [_configArray addObject:item3];
         [_configArray addObject:item4];
         [weakSelf.tableView reloadData];
-        //NSLog(@"_configDict:%@",_configDict);
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
@@ -117,7 +115,6 @@
 
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
