@@ -37,32 +37,13 @@
 - (void) reset
 {
     [_permissionArray removeAllObjects];
-    //raw
-    //[[TCEmptyPermission shared] reset];
-    //NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    //[_permissionArray addObjectsFromArray:emptyArray];
-    
-    //new
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    //NSMutableArray *newEmptyArray = [NSMutableArray new];
     for (TCPermissionNode *tmpNode in emptyArray)
     {
         NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
         TCPermissionNode *newNode = (TCPermissionNode*)[tmpNode cloneInContext:moc exludeEntities:nil];
         [_permissionArray addObject:newNode];
     }
-    //[_permissionArray addObjectsFromArray:<#(nonnull NSArray *)#>]
-    
-    /*
-    //[_permissionArray addObjectsFromArray:[emptyArray mutableCopy]];
-    //[_permissionArray addObjectsFromArray:[emptyArray copy]];
-    for (TCPermissionNode *tmpNode in emptyArray)
-    {
-        [_permissionArray addObject:[tmpNode copy]];
-        //[_permissionArray addObject:[tmpNode mutableCopy]];
-        //[_permissionArray addObject:tmpNode];
-    }
-     */
     
     for (TCPermissionNode * subNode in _permissionArray)
     {
@@ -73,9 +54,6 @@
 - (void) resetForAdmin
 {
     [_permissionArray removeAllObjects];
-    //[[TCEmptyPermission shared] reset];
-    //NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
-    //[_permissionArray addObjectsFromArray:emptyArray];
     NSArray *emptyArray = [[TCEmptyPermission shared] permissionArray];
     for (TCPermissionNode *tmpNode in emptyArray)
     {
@@ -152,7 +130,7 @@
     {
         if (subNode.sid == idInteger)
         {
-            NSLog(@"sub node %@ set selected %ld",subNode.name, idInteger);
+            //NSLog(@"sub node %@ set selected %ld",subNode.name, idInteger);
             subNode.selected = YES;
             break;
         }
@@ -180,20 +158,16 @@
     }
     
     NSString *serverPermissionsStr = tmpl.access_servers;
-    NSLog(@"editing perm set servers !!!!");
     if (serverPermissionsStr && serverPermissionsStr.length > 0)
     {
-        NSLog(@"server perm strs:%@",serverPermissionsStr);
         NSArray *serverPerIDArray = [serverPermissionsStr componentsSeparatedByString:@","];
         if (serverPerIDArray && serverPerIDArray.count > 0)
         {
-            NSLog(@"server per id arr:%@",serverPerIDArray);
             for (NSNumber *pIDNum in serverPerIDArray)
             {
                 TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
                 if (dataNode.data.count > 2)
                 {
-                    NSLog(@"server node set id%ld selected",pIDNum.integerValue);
                     TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
                     [self setServerPermissionNodeSelected:serverNode withID:pIDNum.integerValue];
                 }
@@ -246,24 +220,6 @@
 
 - (void) removeNodeIfAllSubNodesUnselected:(TCPermissionNode *)node
 {
-    /*
-    for (TCPermissionNode *subNode in node.data)
-    {
-        if (subNode.data.count > 0)
-        {
-            [self removeNodeIfAllSubNodesUnselected:subNode];
-        }else
-        {
-            if (subNode.depth > 1)
-            {
-                if (!subNode.selected)
-                {
-                    [node.data removeObject:subNode];
-                }
-            }
-        }
-    }
-     */
     int i = (int)node.data.count - 1;
     for (; i >= 0; i--)
     {
@@ -291,53 +247,6 @@
     }
 }
 
-
-/*
-- (void) removeNodeIfAllSubNodesUnselected:(TCPermissionNode *)node
-{
-    NSLog(@"node %@ select:%d depth:%lld",node.name,node.selected,node.depth);
-    BOOL nodeSelected = NO;
-    for (TCPermissionNode * subNode in node.data)
-    {
-        BOOL subNodeSelect = subNode.selected;
-        if (subNode.data.count > 0)
-        {
-            [self removeNodeIfAllSubNodesUnselected:subNode];
-        }else
-        {
-            [self removeNodeIfAllSubNodesUnselected:subNode];
-        }
-        nodeSelected = nodeSelected || subNodeSelect;
-    }
-    if (node.depth > 1)
-    {
-        if (node.data == nil || node.data.count == 0)
-        {
-            if (!node.selected)
-            {
-                if (node.fatherNode && node.fatherNode.data.count > 0)
-                {
-                    [node.fatherNode.data removeObject:node];
-                }
-                NSLog(@"remove node %@",node.name);
-            }
-        }else
-        {
-            if (!nodeSelected)
-            {
-                if (node.fatherNode && node.fatherNode.data.count > 0)
-                {
-                    [node.fatherNode.data removeObject:node];
-                }
-                NSLog(@"remove node %@",node.name);
-            }
-        }
-    }
-
-    //node.selected = allSelected;
-}
- */
-
 - (void) readyForPreview
 {
     if (_permissionArray.count > 0)
@@ -345,12 +254,6 @@
         TCPermissionNode *funcNode = _permissionArray.firstObject;
         [self removeNodeIfAllSubNodesUnselected:funcNode];
     }
-    /*
-    for (TCPermissionNode *subNode in _permissionArray)
-    {
-        [self removeNodeIfAllSubNodesUnselected:subNode];
-    }
-     */
 }
 
 - (NSInteger) funcPermissionAmount
@@ -369,20 +272,12 @@
     {
         TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
         NSInteger serverAmount = [serverNode selectedServerSubNodeIDArray].count;
-        NSLog(@"serverAmount:%ld",serverAmount);
         TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
         NSInteger fileAmount = [fileNode selectedSubNodeIDArray].count;
-        NSLog(@"file amount:%ld",fileAmount);
         TCPermissionNode *projNode = [dataNode.data objectAtIndex:1];
         NSInteger projAmount = [projNode selectedSubNodeIDArray].count;
-        NSLog(@"proj_amount:%ld",projAmount);
         amount = serverAmount + fileAmount + projAmount;
-    }else
-    {
-        NSLog(@"node < 3");
     }
-
-    //[dataNode selectedSubNodeIDArray].count;
     return amount;
 }
 
