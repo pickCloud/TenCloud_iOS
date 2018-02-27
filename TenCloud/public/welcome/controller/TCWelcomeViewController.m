@@ -67,30 +67,6 @@ typedef void (^RootVCAnimation)(void);
         rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
     }
     [TCPageManager setRootController:rootVC];
-    /*
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    UIViewController *rootVC = nil;
-    if ([[TCLocalAccount shared] isLogin])
-    {
-        rootVC = [[TCTabBarController alloc] init];
-    }else
-    {
-        UIViewController *loginVC = [TCLoginViewController new];
-        rootVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    }
-    rootVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    RootVCAnimation animation = ^{
-        BOOL oldState = [UIView areAnimationsEnabled];
-        [UIView setAnimationsEnabled:NO];
-        keyWindow.rootViewController = rootVC;
-        [UIView setAnimationsEnabled:oldState];
-    };
-    [UIView transitionWithView:keyWindow
-                      duration:0.9f
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:animation
-                    completion:nil];
-     */
 }
 
 @end
