@@ -266,9 +266,9 @@
     NSMutableAttributedString *tmp2 = nil;
     tmp2 = [[NSMutableAttributedString alloc] initWithString:str2 attributes:grayAttr];
     //[row1Str appendAttributedString:tmp1];
-    CGSize boundSize = CGSizeMake(row1Rect.size.width, MAXFLOAT);
-    CGRect rect1 = [str1 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:greenAttr context:nil];
-    CGRect rect2 = [str2 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:grayAttr context:nil];
+    //CGSize boundSize = CGSizeMake(row1Rect.size.width, MAXFLOAT);
+    //CGRect rect1 = [str1 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:greenAttr context:nil];
+    //CGRect rect2 = [str2 boundingRectWithSize:boundSize options:NSStringDrawingUsesLineFragmentOrigin attributes:grayAttr context:nil];
     NSString *str3 = _inviteInfo.company_name;
     NSMutableAttributedString *tmp3 = nil;
     tmp3 = [[NSMutableAttributedString alloc] initWithString:str3 attributes:greenAttr];

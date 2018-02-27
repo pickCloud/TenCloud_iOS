@@ -15,11 +15,4 @@
 - (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure;
 
-/*
-+ (TCPasswordLoginRequest *)requestWithPhoneNumber:(NSString *)phoneNumber
-                                  password:(NSString *)password
-                                  success:(void(^)(NSString *token))success
-                                  failure:(void(^)(NSString *message))failure;
- */
-
 @end

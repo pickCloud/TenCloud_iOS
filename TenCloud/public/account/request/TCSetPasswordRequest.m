@@ -28,13 +28,8 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        //NSString *token = [dataDict objectForKey:@"token"];
-        //success ? success(token) : nil;
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }

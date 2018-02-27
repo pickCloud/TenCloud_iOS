@@ -17,18 +17,6 @@
 
 @implementation TCGeetestCaptchaRequest
 
-/*
-- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber
-{
-    self = [super init];
-    if (self)
-    {
-        _phoneNumber = phoneNumber;
-    }
-    return self;
-}
- */
-
 - (instancetype) initWithPhoneNumber:(NSString *)phoneNumber challenge:(NSString*)challenge validate:(NSString*)validate seccode:(NSString*)seccode
 {
     self = [super init];

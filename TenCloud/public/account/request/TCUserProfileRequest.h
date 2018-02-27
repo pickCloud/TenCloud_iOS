@@ -11,16 +11,7 @@
 @class TCUser;
 @interface TCUserProfileRequest : YTKRequest
 
-//- (instancetype) initWithPhoneNumber:(NSString *)phoneNumber password:(NSString *)password;
-
 - (void) startWithSuccess:(void(^)(TCUser *user))success
                   failure:(void(^)(NSString *message))failure;
-
-/*
-+ (TCPasswordLoginRequest *)requestWithPhoneNumber:(NSString *)phoneNumber
-                                  password:(NSString *)password
-                                  success:(void(^)(NSString *token))success
-                                  failure:(void(^)(NSString *message))failure;
- */
 
 @end

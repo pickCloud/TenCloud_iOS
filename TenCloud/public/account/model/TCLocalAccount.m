@@ -127,7 +127,6 @@
 
 - (void) loginSuccess:(TCUser*)user
 {
-    NSLog(@"login success, prepare send notification");
     TCLocalAccount *account = [TCLocalAccount shared];
     account.userID = user.userID;
     account.name = user.name;
@@ -138,13 +137,6 @@
     account.gender = user.gender;
     account.birthday = user.birthday;
     account.createTime = user.create_time;
-    //NSLog(@"user id:%ld",user.userID);
-    /*
-    if (!account.name || account.name.length == 0)
-    {
-        account.name = [NSString stringWithFormat:@"%@",user.mobile];
-    }
-     */
     [account save];
     
     for (id<TCLocalAccountDelegate> obs in mObserverArray)

@@ -26,25 +26,6 @@
     return self;
 }
 
-/*
-+ (TCPasswordLoginRequest *)requestWithPhoneNumber:(NSString *)phoneNumber
-                                  password:(NSString *)password
-                                   success:(void(^)(NSString *token))success
-                                   failure:(void(^)(NSString *message))failure
-{
-    TCPasswordLoginRequest *request = [[TCPasswordLoginRequest alloc] initWithPhoneNumber:phoneNumber password:password];
-    [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        NSString *token = [dataDict objectForKey:@"token"];
-        success ? success(token) : nil;
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        failure ? failure(message) : nil;
-    }];
-    return request;
-}
- */
-
 - (void) startWithSuccess:(void(^)(NSString *token, NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure
 {
