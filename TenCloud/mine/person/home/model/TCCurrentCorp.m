@@ -67,7 +67,6 @@
         self.mobile = [aDecoder decodeObjectForKey:CORP_MOBILE];
         self.cid = [aDecoder decodeIntegerForKey:CORP_CID];
         self.contact = [aDecoder decodeObjectForKey:CORP_CONTACT];
-        //self.isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
         _isAdmin = [aDecoder decodeBoolForKey:CORP_IS_ADMIN];
         self.image_url = [aDecoder decodeObjectForKey:CORP_IMAGE_URL];
         self.funcPermissionArray = [aDecoder decodeObjectForKey:CORP_FUNC_PERMISSON];
@@ -88,10 +87,8 @@
     [aCoder encodeObject:self.serverPermissionArray forKey:CORP_SERVER_PERMISSION];
 }
 
-//- (BOOL) isCurrent:(TCCorp*)corp
 - (BOOL) isSameWithID:(NSInteger)cid name:(NSString*)corpName
 {
-    //NSLog(@"is same with %ld corpName:%@ _name:%@ _cid:%ld",cid,corpName,_name,_cid);
     if (cid == 0 && _name == nil)
     {
         return YES;

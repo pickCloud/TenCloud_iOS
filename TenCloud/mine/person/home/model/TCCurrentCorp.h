@@ -29,8 +29,6 @@
 @property (nonatomic, strong)   NSArray     *funcPermissionArray;
 @property (nonatomic, strong)   NSArray     *serverPermissionArray;
 
-
-//- (BOOL) isCurrent:(TCCorp*)corp;
 - (BOOL) isSameWithID:(NSInteger)cid name:(NSString*)corpName;
 
 - (void) setSelectedCorp:(TCCorp*)corp;

@@ -25,16 +25,8 @@
     _textLabel.font = TCFont(11.0);
 }
 
-/*
-- (void) addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
-{
-    [_realButton addTarget:target action:action forControlEvents:controlEvents];
-}
- */
-
 - (IBAction) onButton:(id)sender
 {
-    NSLog(@"优雅的按下3");
     self.checked = !_checked;
     [self setNeedsDisplay];
     if (_touchedBlock)

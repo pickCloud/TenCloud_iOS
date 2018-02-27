@@ -35,7 +35,6 @@
     self.title = _titleText;
     
     _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    //UIButton *textButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_confirmButton setTitle:@"确定" forState:UIControlStateNormal];
     [_confirmButton setTitleColor:THEME_NAVBAR_TITLE_COLOR forState:UIControlStateNormal];
     [_confirmButton addTarget:self action:@selector(onConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
