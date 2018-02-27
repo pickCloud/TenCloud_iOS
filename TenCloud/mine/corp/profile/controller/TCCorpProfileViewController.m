@@ -86,7 +86,6 @@
     //TCLocalAccount *account = [TCLocalAccount shared];
     BOOL editPermission = [[TCCurrentCorp shared] havePermissionForFunc:FUNC_ID_MODIFY_CORP];
     BOOL editable = [[TCCurrentCorp shared] isAdmin] || editPermission;
-    NSLog(@"editable:%ld isAdmin:%ld",editable, [[TCCurrentCorp shared] isAdmin]);
     
     TCCellData *data1 = [TCCellData new];
     data1.title = @"LOGO";
