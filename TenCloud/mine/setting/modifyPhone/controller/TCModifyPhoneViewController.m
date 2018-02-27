@@ -10,14 +10,11 @@
 #import "GetCaptchaButton.h"
 #import "TCSpacingTextField.h"
 #import "TCGetCaptchaRequest.h"
-#import "TCRegisterRequest.h"
-#import "TCUserProfileRequest.h"
 #import "TCUser+CoreDataClass.h"
-#import "TCTabBarController.h"
 #import "TCSuccessResultViewController.h"
 #import "TCResetPhoneRequest.h"
 
-@interface TCModifyPhoneViewController ()
+@interface TCModifyPhoneViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    TCSpacingTextField  *phoneNumberField;
 @property (nonatomic, weak) IBOutlet    UITextField         *captchaField;
 @property (nonatomic, weak) IBOutlet    UITextField         *passwordField;
@@ -72,7 +69,6 @@
 
 - (IBAction) onGetCaptchaButton:(id)sender
 {
-    NSLog(@"on get captcha button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
@@ -96,7 +92,6 @@
 
 - (IBAction) onRegisterButton:(id)sender
 {
-    NSLog(@"on register button");
     if (_phoneNumberField.plainPhoneNum.length == 0)
     {
         [MBProgressHUD showError:@"请输入手机号" toView:nil];
@@ -136,27 +131,6 @@
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message];
     }];
-    
-    /*
-    TCRegisterRequest *request = [[TCRegisterRequest alloc] initWithPhoneNumber:_phoneNumberField.plainPhoneNum password:_passwordField.text captcha:_captchaField.text];
-    [request startWithSuccess:^(NSString *token) {
-        [[TCLocalAccount shared] setToken:token];
-        TCUserProfileRequest *request = [[TCUserProfileRequest alloc] init];
-        [request startWithSuccess:^(TCUser *user) {
-            user.token = token;
-            [[TCLocalAccount shared] loginSuccess:user];
-            TCTabBarController *tabBarController = [TCTabBarController new];
-            [[[UIApplication sharedApplication] keyWindow] setRootViewController:tabBarController];
-            [MMProgressHUD dismissWithSuccess:@"修改成功" title:nil afterDelay:1.32];
-        } failure:^(NSString *message) {
-            NSLog(@"msg:%@",message);
-            [MMProgressHUD dismissWithError:message];
-        }];
-    } failure:^(NSString *message) {
-        [MMProgressHUD dismissWithError:message];
-    }];
-     */
-    
 }
 
 @end
