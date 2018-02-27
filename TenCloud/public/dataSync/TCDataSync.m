@@ -95,7 +95,6 @@
 
 - (void) sendAdminChangedNotification
 {
-    NSLog(@"send admin changed notfi");
     for (id<TCDataSyncDelegate> obs in adminObserverArray)
     {
         if (obs && [obs respondsToSelector:@selector(dataSync:adminChanged:)])
@@ -107,7 +106,6 @@
 
 - (void) sendPermissionChangedNotification
 {
-    NSLog(@"send perm changed notfi:%@",permissionObserverArray);
     for (id<TCDataSyncDelegate> obs in permissionObserverArray)
     {
         if (obs && [obs respondsToSelector:@selector(dataSync:permissionChanged:)])

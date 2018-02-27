@@ -25,7 +25,6 @@
 #import "TCServerListViewController.h"
 #import "TCAddServerViewController.h"
 #import "TCPageManager.h"
-
 #define MESSAGE_CELL_ID             @"MESSAGE_CELL_ID"
 
 @interface TCMessageTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,
@@ -312,16 +311,21 @@ MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.modeMenuOptions[_modeSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
-                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+    UIFont *font = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSString *str = self.modeMenuOptions[_modeSelectedIndex];
+    NSDictionary *attr = @{NSFontAttributeName: font,
+                       NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR};
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.modeMenuOptions[_modeSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
-                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
-    
+    UIFont *font = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSString *str = self.modeMenuOptions[_modeSelectedIndex];
+    NSDictionary *attr = @{NSFontAttributeName: font,
+                           NSForegroundColorAttributeName: THEME_TEXT_COLOR};
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {

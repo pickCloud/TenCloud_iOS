@@ -148,8 +148,6 @@
 		A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0627736202192DF00FF7E30 /* TCStaffStatusRequest.m */; };
 		A062773B202199AD00FF7E30 /* TCInviteJoinedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0627739202199AD00FF7E30 /* TCInviteJoinedViewController.xib */; };
 		A062773C202199AD00FF7E30 /* TCInviteJoinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A062773A202199AD00FF7E30 /* TCInviteJoinedViewController.m */; };
-		A067D89C200F264600160913 /* TCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89A200F264600160913 /* TCMessageViewController.m */; };
-		A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A067D89B200F264600160913 /* TCMessageViewController.xib */; };
 		A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D89F200F438700160913 /* TCMessageListRequest.m */; };
 		A067D8A4200F4A7600160913 /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D8A3200F4A7600160913 /* UIView+MGBadgeView.m */; };
 		A067D8A7200F591F00160913 /* TCMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A067D8A6200F591F00160913 /* TCMessageManager.m */; };
@@ -669,9 +667,6 @@
 		A0627738202199AD00FF7E30 /* TCInviteJoinedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInviteJoinedViewController.h; sourceTree = "<group>"; };
 		A0627739202199AD00FF7E30 /* TCInviteJoinedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteJoinedViewController.xib; sourceTree = "<group>"; };
 		A062773A202199AD00FF7E30 /* TCInviteJoinedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInviteJoinedViewController.m; sourceTree = "<group>"; };
-		A067D899200F264600160913 /* TCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMessageViewController.h; sourceTree = "<group>"; };
-		A067D89A200F264600160913 /* TCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMessageViewController.m; sourceTree = "<group>"; };
-		A067D89B200F264600160913 /* TCMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMessageViewController.xib; sourceTree = "<group>"; };
 		A067D89E200F438700160913 /* TCMessageListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMessageListRequest.h; sourceTree = "<group>"; };
 		A067D89F200F438700160913 /* TCMessageListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMessageListRequest.m; sourceTree = "<group>"; };
 		A067D8A2200F4A7600160913 /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
@@ -3769,9 +3764,6 @@
 		A0D58813200E479200104ED9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				A067D899200F264600160913 /* TCMessageViewController.h */,
-				A067D89A200F264600160913 /* TCMessageViewController.m */,
-				A067D89B200F264600160913 /* TCMessageViewController.xib */,
 				A0D5881A200E4B3700104ED9 /* TCMessageTableViewController.h */,
 				A0D5881B200E4B3700104ED9 /* TCMessageTableViewController.m */,
 				A0D5881C200E4B3700104ED9 /* TCMessageTableViewController.xib */,
@@ -4148,7 +4140,6 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
-				A067D89D200F264600160913 /* TCMessageViewController.xib in Resources */,
 				A00AFF74200A03F300EFADF6 /* TCInviteLoginViewController.xib in Resources */,
 				A088F938202AC894005A97DD /* TCFilePermTableViewCell.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
@@ -4445,7 +4436,6 @@
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A0D58819200E482E00104ED9 /* TCMessageCountRequest.m in Sources */,
 				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
-				A067D89C200F264600160913 /* TCMessageViewController.m in Sources */,
 				A0A86B951FF4EFB100D1D58D /* TCModifyCorpProfileRequest.m in Sources */,
 				A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */,
 				A031B61C1FFE0FF400B4F448 /* TCStaffTableViewController.m in Sources */,
