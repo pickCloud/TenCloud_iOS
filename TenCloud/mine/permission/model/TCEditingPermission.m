@@ -130,7 +130,6 @@
     {
         if (subNode.sid == idInteger)
         {
-            //NSLog(@"sub node %@ set selected %ld",subNode.name, idInteger);
             subNode.selected = YES;
             break;
         }

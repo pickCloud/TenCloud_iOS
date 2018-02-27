@@ -218,7 +218,6 @@
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *controller = nil;
-    NSLog(@"page index:%ld",pageIndex);
     TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
     if (pageIndex == 0)
     {
@@ -232,15 +231,15 @@
 
 #pragma mark - VTMagicViewDelegate
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex {
-    //    NSLog(@"index:%ld viewDidAppear:%@", (long)pageIndex, viewController.view);
+    
 }
 
 - (void)magicView:(VTMagicView *)magicView viewDidDisappear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex {
-    //    NSLog(@"index:%ld viewDidDisappear:%@", (long)pageIndex, viewController.view);
+
 }
 
 - (void)magicView:(VTMagicView *)magicView didSelectItemAtIndex:(NSUInteger)itemIndex {
-    //    NSLog(@"didSelectItemAtIndex:%ld", (long)itemIndex);
+    
 }
 
 
@@ -258,7 +257,6 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TCPermissionTemplateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PERMISSION_TEMPLATE_CELL_ID forIndexPath:indexPath];
-    //NSString *name = [_templateArray objectAtIndex:indexPath.row];
     TCTemplate *template = [_templateArray objectAtIndex:indexPath.row];
     [cell setName:template.name];
     return cell;
@@ -277,7 +275,6 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"item selected:%ld",indexPath.row);
     if (indexPath.row <= _templateArray.count)
     {
         TCTemplate *selectedTmpl = [_templateArray objectAtIndex:indexPath.row];

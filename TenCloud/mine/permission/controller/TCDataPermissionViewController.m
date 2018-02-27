@@ -14,7 +14,7 @@
 #import "TCProjectPermTableViewController.h"
 #import "TCEditingPermission.h"
 
-@interface TCDataPermissionViewController ()
+@interface TCDataPermissionViewController () <VTMagicViewDataSource, VTMagicViewDelegate>
 @property (nonatomic, strong)   VTMagicController       *magicController;
 @property (nonatomic, weak)  TCPermissionNode           *permissionNode;
 @property (nonatomic, assign) PermissionVCState         state;
@@ -40,7 +40,6 @@
     [self addChildViewController:self.magicController];
     CGRect viewRect = self.view.frame;
     viewRect.size.width = screenRect.size.width;
-    NSLog(@"viewRect:%.2f,%.2f, %.2f,%.2f",viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height);
     CGFloat rectY = 0;
     CGFloat rectH = viewRect.size.height - rectY;
     CGRect rect = CGRectMake(0, rectY, viewRect.size.width, rectH);
@@ -54,7 +53,6 @@
 {
     CGRect viewRect = self.view.frame;
     viewRect.origin.x = 0;
-    NSLog(@"view did layout subviews!!!!:%.2f,%.2f,%.2f,%.2f",viewRect.origin.x,viewRect.origin.y, viewRect.size.width,viewRect.size.height);
     _magicController.view.frame = viewRect;
 }
 
@@ -90,12 +88,6 @@
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
     NSMutableArray *titleList = [NSMutableArray array];
-    //TCEditingPermission *editingPermission = [TCEditingPermission shared];
-    //NSArray *nodeArray = editingPermission.permissionArray;
-    //for (TCPermissionNode *node in nodeArray)
-    //{
-    //    [titleList addObject:node.name];
-    //}
     [titleList addObject:@"服务器"];
     [titleList addObject:@"项目"];
     [titleList addObject:@"文件服务"];
@@ -107,7 +99,6 @@
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
-        //UIColor *normalColor = [UIColor colorWithRed:137/255.0 green:154/255.0 blue:182/255.0 alpha:1.0];
         [menuItem setTitleColor:THEME_PLACEHOLDER_COLOR forState:UIControlStateNormal];
         [menuItem setTitleColor:THEME_TEXT_COLOR forState:UIControlStateSelected];
         menuItem.titleLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -119,8 +110,7 @@
     UIViewController *controller = nil;
     controller = [UIViewController new];
     
-    TCPermissionNode *node = nil;//[_permissionNode.data objectAtIndex:2];
-    //[[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
+    TCPermissionNode *node = nil;
     if (pageIndex == 0)
     {
         if (_permissionNode.data.count > 2)
@@ -143,22 +133,20 @@
         }
         controller = [[TCFilePermTableViewController alloc] initWithPermissionNode:node state:_state];
     }
-    //TCPermissionNode *node = [[[TCEditingPermission shared] permissionArray] objectAtIndex:pageIndex];
-    //controller = [[TCPermissionTableViewController alloc] initWithPermissionNode:node state:_state];
     return controller;
 }
 
 #pragma mark - VTMagicViewDelegate
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex {
-    //    NSLog(@"index:%ld viewDidAppear:%@", (long)pageIndex, viewController.view);
+    
 }
 
 - (void)magicView:(VTMagicView *)magicView viewDidDisappear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex {
-    //    NSLog(@"index:%ld viewDidDisappear:%@", (long)pageIndex, viewController.view);
+    
 }
 
 - (void)magicView:(VTMagicView *)magicView didSelectItemAtIndex:(NSUInteger)itemIndex {
-    //    NSLog(@"didSelectItemAtIndex:%ld", (long)itemIndex);
+    
 }
 
 @end

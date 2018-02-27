@@ -14,36 +14,12 @@
 
 @implementation TCModifyUserPermissionRequest
 
-/*
-- (instancetype) initWithTemplateID:(NSInteger)tid
-                               name:(NSString*)name
-                funcPermissionArray:(NSArray*)funcPerArray
-              serverPermissionArray:(NSArray*)serverPerArray
-             projectPermissionArray:(NSArray*)projPerArray
-                filePermissionArray:(NSArray*)filePerArray
-{
-    self = [super init];
-    if (self)
-    {
-        _templateID = tid;
-        _name = name;
-        _funcPermissionArray = funcPerArray;
-        _serverPermissionArray = serverPerArray;
-        _projectPermissionArray = projPerArray;
-        _filePermissionArray = filePerArray;
-    }
-    return self;
-}
- */
-
 - (void) startWithSuccess:(void(^)(NSString *message))success
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         NSNumber *statusNum = [request.responseJSONObject objectForKey:@"status"];
         if (statusNum && statusNum.integerValue == 10003)
         {
@@ -55,8 +31,6 @@
 }
 
 - (NSString *)requestUrl {
-    //NSString *url = [NSString stringWithFormat:@"/api/permission/template/%ld/update",_templateID];
-    //return url;
     return @"/api/permission/user/update";
 }
 

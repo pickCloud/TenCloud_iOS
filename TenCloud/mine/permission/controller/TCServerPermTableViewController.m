@@ -80,17 +80,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //__weak __typeof(self) weakSelf = self;
     TCPermissionNode *node = [_serverNodeArray objectAtIndex:indexPath.row];
     TCServerPermTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_PERM_CELL_ID forIndexPath:indexPath];
     cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
-        //[node updateFatherNodeAfterSubNodeChanged];
-        //[node updateSubNodesAfterFatherNodeChanged];
-        //[weakSelf.tableView reloadData];
+        
     };
-    
     return cell;
 }
 
@@ -125,7 +121,6 @@
         return;
     }
     BOOL isViewState = _state == PermissionVCPreviewPermission;
-    NSLog(@"is view state:%ld",isViewState);
     for (TCPermissionNode *subNode1 in _permissionNode.data)
     {
         if (_providers.count > 0)

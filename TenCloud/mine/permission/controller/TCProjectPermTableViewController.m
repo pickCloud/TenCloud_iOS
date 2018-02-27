@@ -9,8 +9,6 @@
 #import "TCProjectPermTableViewController.h"
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCProjectPermTableViewCell.h"
-//#import "TCFilePermTableViewCell.h"
-
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define PROJECT_PERM_CELL_ID          @"PROJECT_PERM_CELL_ID"
 
@@ -64,15 +62,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    __weak __typeof(self) weakSelf = self;
     TCPermissionNode *node = [_serverNodeArray objectAtIndex:indexPath.row];
     TCProjectPermTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROJECT_PERM_CELL_ID forIndexPath:indexPath];
     cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
-        //[node updateFatherNodeAfterSubNodeChanged];
-        //[node updateSubNodesAfterFatherNodeChanged];
-        //[weakSelf.tableView reloadData];
+        
     };
     
     return cell;

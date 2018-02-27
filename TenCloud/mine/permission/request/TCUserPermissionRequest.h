@@ -8,13 +8,11 @@
 
 #import "YTKRequest.h"
 
-//@class TCPermissionNode;
 @class TCTemplate;
 @interface TCUserPermissionRequest : YTKRequest
 
 @property (nonatomic, assign)   NSInteger     corpID;
 @property (nonatomic, assign)   NSInteger     userID;
-//- (instancetype) initWithCorpID:(NSInteger)cid userID:(NSInteger)uid;
 @property (nonatomic, strong)   TCTemplate      *resultTemplate;
 
 - (TCTemplate *) resultTemplate;

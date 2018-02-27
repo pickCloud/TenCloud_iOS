@@ -83,7 +83,6 @@
 
 - (IBAction) onSelectButton:(id)sender
 {
-    NSLog(@"select button");
     if (!_editable)
     {
         return;
@@ -99,27 +98,6 @@
 
 - (IBAction) onFoldButton:(id)sender
 {
-    NSLog(@"fold button");
-    /*
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    if (self.chunk.fold)
-    {
-        CATransform3D from = CATransform3DMakeRotation(M_PI_2, 0, 0, 1);
-        animation.fromValue = [NSValue valueWithCATransform3D:from];
-        CATransform3D to = CATransform3DMakeRotation(0, 0, 0, 1);
-        animation.toValue = [NSValue valueWithCATransform3D:to];
-        //animation.toValue = [NSValue valueWithCATransform3D: CATransform3DMakeRotation(M_PI_2, 0.0, 0.0, 1.0) ];
-    }else
-    {
-        CATransform3D from = CATransform3DMakeRotation(0, 0, 0, 1);
-        animation.fromValue = [NSValue valueWithCATransform3D:from];
-        CATransform3D to = CATransform3DMakeRotation(M_PI_2, 0, 0, 1);
-        animation.toValue = [NSValue valueWithCATransform3D:to];
-    }
-    animation.duration = 0.28;
-    animation.cumulative = YES;
-    [_arrowView.layer addAnimation:animation forKey:@"rotation"];
-     */
     if (!_arrowAnimating)
     {
         _arrowAnimating = YES;

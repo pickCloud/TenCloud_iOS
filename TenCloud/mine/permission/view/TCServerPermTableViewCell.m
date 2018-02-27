@@ -10,7 +10,6 @@
 #import "TCPermissionNode+CoreDataClass.h"
 
 @interface TCServerPermTableViewCell ()
-@property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *areaLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *ipLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
@@ -33,7 +32,6 @@
     self.selectedBackgroundView = selectedBgView;
     
     self.bg2View.layer.cornerRadius = TCSCALE(2.0);
-    
     self.nameLabel.font = TCFont(14);
     self.ipLabel.font = TCFont(9.0);
     self.statusLabel.font = TCFont(9.0);
@@ -48,7 +46,6 @@
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     [super setHighlighted:highlighted animated:animated];
-    NSLog(@"highlighted:%d",highlighted);
     [self updateUI];
 }
 
@@ -84,25 +81,12 @@
 
 - (void) updateUI
 {
-    /*
-    if (self.selected)
-    {
-        self.bg2View.backgroundColor = [UIColor redColor]; //TABLE_CELL_BG_COLOR;
-        NSLog(@"变红");
-    }else
-    {
-        self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-        NSLog(@"不变红");
-    }
-     */
     if (self.highlighted)
     {
         self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
-        NSLog(@"变红");
     }else
     {
         self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-        NSLog(@"不变红");
     }
 }
 

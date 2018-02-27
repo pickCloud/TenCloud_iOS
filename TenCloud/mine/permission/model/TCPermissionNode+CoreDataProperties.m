@@ -168,7 +168,6 @@
     NSMutableArray *nodes = [NSMutableArray new];
     for (TCPermissionNode *node in self.data)
     {
-        NSLog(@"znode %@ selected %ld",node.name, node.selected);
         if (node.selected)
         {
             if (node.sid > 0)
@@ -192,7 +191,6 @@
     {
         [blankStr appendString:@"  "];
     }
-    NSLog(@"%@%@ %p",blankStr,self.name,self);
     for (TCPermissionNode *node in self.data)
     {
         [node print];

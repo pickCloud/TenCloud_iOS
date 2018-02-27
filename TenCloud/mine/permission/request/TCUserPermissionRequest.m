@@ -16,19 +16,6 @@
 
 @implementation TCUserPermissionRequest
 
-/*
-- (instancetype) initWithCorpID:(NSInteger)cid userID:(NSInteger)uid
-{
-    self = [super init];
-    if (self)
-    {
-        _corpID = cid;
-        _userID = uid;
-    }
-    return self;
-}
- */
-
 - (void) startWithSuccess:(void(^)(TCTemplate *tmpl))success
                   failure:(void(^)(NSString *message, NSInteger errorCode))failure
 {
@@ -112,17 +99,7 @@
         NSString *funcIDStr = [funcIDArray componentsJoinedByString:@","];
         tmpl.permissions = funcIDStr;
     }
-    //NSLog(@"tmpl_servers:%@",tmpl.access_servers);
-    //NSLog(@"tmpl_projs:%@",tmpl.access_projects);
-    //NSLog(@"tmpl_files:%@",tmpl.access_filehub);
-    //NSLog(@"tmpl_pers:%@",tmpl.permissions);
     return tmpl;
 }
-/*
-- (id)requestArgument
-{
-    return nil;
-}
- */
 
 @end

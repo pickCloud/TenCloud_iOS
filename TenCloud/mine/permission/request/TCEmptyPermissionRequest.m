@@ -37,8 +37,6 @@
             success ? success (resArray) : nil;
         }
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
@@ -51,17 +49,4 @@
 - (YTKRequestMethod)requestMethod {
     return YTKRequestMethodGET;
 }
-
-/*
-- (id)requestArgument
-{
-    return nil;
-}
- */
-/*
-- (NSInteger)cacheTimeInSeconds
-{
-    return  NSIntegerMax;
-}
-*/
 @end
