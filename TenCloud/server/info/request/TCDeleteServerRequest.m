@@ -31,8 +31,6 @@
         NSString *status = [request.responseJSONObject objectForKey:@"data"];
         success ? success(status) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
@@ -47,8 +45,6 @@
 
 - (id)requestArgument
 {
-    //NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
-    //return @{@"id":@[idStr]};
     return @{@"id":@[@(_serverID)]};
 }
 @end

@@ -10,8 +10,6 @@
 #define BUTTON_FONT_SIZE        16.0
 
 
-
-
 @interface TCServerStateTableViewCell()
 @property (nonatomic, weak) IBOutlet    UILabel             *keyLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *valueLabel;
@@ -31,23 +29,18 @@
     UIView *selectedBgView = [[UIView alloc] init];
     selectedBgView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.02];
     self.selectedBackgroundView = selectedBgView;
-    
     self.backgroundColor = TABLE_CELL_BG_COLOR;
-    //UIColor *normalColor = [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-    NSLog(@"selected once:%d",selected);
 }
 
 - (void) setKey:(NSString*)key value:(NSString*)value disclosure:(BOOL)disclosure
 {
     _keyLabel.text = key;
-    //_valueLabel.text = value;
     [self setStateValue:value];
     _disclosureButton.hidden = !disclosure;
 }

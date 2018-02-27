@@ -142,7 +142,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_buttonTableView == tableView)
     {
-        NSLog(@"_button data array:%@",_buttonDataArray);
         return _buttonDataArray.count;
     }
     return _configArray.count;
@@ -223,7 +222,6 @@
 
 - (IBAction) onPowerOffButton:(id)sender
 {
-    NSLog(@"on power off button");
     __weak __typeof(self) weakSelf = self;
     NSString *title = @"确定关闭这台服务器?";
     TCConfirmBlock block = ^(TCConfirmView *view){
@@ -279,7 +277,6 @@
 
 - (void) updateFooterViewWithStatus:(NSString*)status
 {
-    NSLog(@"get status:%@",status);
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
     if (status != nil)
     {
@@ -361,7 +358,6 @@
     __weak __typeof(self) weakSelf = self;
     TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
     [statusReq startWithSuccess:^(NSString *status) {
-        NSLog(@"status:%@",status);
         weakSelf.status = status;
         weakSelf.retryTimes ++;
         [weakSelf udpateStatusLabel:status];
