@@ -10,7 +10,7 @@
 #import "TCPermissionViewController.h"
 #import "TCEditingPermission.h"
 #import "TCAddTemplateRequest.h"
-#import "TCSuccessResultViewController.h"
+//#import "TCSuccessResultViewController.h"
 
 @interface TCAddTemplateViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
@@ -64,7 +64,6 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     [_nameField resignFirstResponder];
 }
 
@@ -79,10 +78,6 @@
     [_nameField resignFirstResponder];
     
     TCEditingPermission *tmpl = [TCEditingPermission shared];
-    NSLog(@"per ids:%@",tmpl.permissionIDArray);
-    NSLog(@"server ids:%@",tmpl.serverPermissionIDArray);
-    NSLog(@"proj ids:%@",tmpl.projectPermissionIDArray);
-    NSLog(@"file ids:%@",tmpl.filePermissionIDArray);
     
     __weak __typeof(self) weakSelf = self;
     TCAddTemplateRequest *request = nil;
@@ -117,7 +112,6 @@
 
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
-    NSLog(@"on edit permission template");
     TCPermissionViewController *perVC = [TCPermissionViewController new];
     perVC.state = PermissionVCStateNew;
     [self presentViewController:perVC animated:YES completion:nil];

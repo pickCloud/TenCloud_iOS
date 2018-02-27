@@ -41,14 +41,8 @@
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSDictionary *dataDict = [request.responseJSONObject objectForKey:@"data"];
-        if (dataDict)
-        {
-            //NSNumber *cidNum = [dataDict objectForKey:@"cid"];
-        }
         success ? success (@"添加成功") : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }

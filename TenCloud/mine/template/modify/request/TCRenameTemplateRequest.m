@@ -32,14 +32,11 @@
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success ? success(@"修改成功"):nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //NSString *message = [request.responseJSONObject objectForKey:@"message"];
-        //failure ? failure(message) : nil;
         failure ? failure([self errorMessaage]) : nil;
     }];
 }
 
 - (NSString *)requestUrl {
-    //return @"/api/user/password/set";
     NSString *url = [NSString stringWithFormat:@"/api/permission/template/%ld/rename",_templateID];
     return url;
 }

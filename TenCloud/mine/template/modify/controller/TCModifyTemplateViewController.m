@@ -11,13 +11,10 @@
 #import "TCEditingPermission.h"
 //#import "TCSuccessResultViewController.h"
 #import "TCTemplate+CoreDataClass.h"
-
-
 #import "TCModifyTextViewController.h"
 #import "TCRenameTemplateRequest.h"
 
 @interface TCModifyTemplateViewController ()<UIGestureRecognizerDelegate>
-//@property (nonatomic, weak) IBOutlet    UITextField         *nameField;
 @property (nonatomic, weak) IBOutlet    UILabel             *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *permissionDescLabel;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topConstraint;
@@ -49,18 +46,12 @@
         _topConstraint.constant = 64+27;
     }
     
-    
-    //NSAttributedString *namePlaceHolderStr = [[NSAttributedString alloc] initWithString:@"请输入新增模版的名称"   attributes:@{NSForegroundColorAttributeName:THEME_PLACEHOLDER_COLOR}];
-    //_nameField.attributedPlaceholder = namePlaceHolderStr;
     _nameLabel.text = _mTemplate.name;
     
     UITapGestureRecognizer  *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
-    NSLog(@"md_severs:%@",_mTemplate.access_servers);
-    NSLog(@"md_files:%@",_mTemplate.access_filehub);
-    NSLog(@"md_projs:%@",_mTemplate.access_projects);
     [[TCEditingPermission shared] reset];
     [[TCEditingPermission shared] setTemplate:_mTemplate];
 }
@@ -84,7 +75,6 @@
 #pragma mark - extension
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     //[_nameField resignFirstResponder];
 }
 
@@ -113,7 +103,6 @@
 
 - (IBAction) onEditPermissionTemplate:(id)sender
 {
-    NSLog(@"on edit permission template");
     __weak __typeof(self) weakSelf = self;
     TCPermissionViewController *perVC = [TCPermissionViewController new];
     perVC.state = PermissionVCStateEdit;
