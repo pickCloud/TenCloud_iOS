@@ -38,8 +38,8 @@
     self.navigationItem.rightBarButtonItem = messageItem;
     
     _keyArray = [NSMutableArray new];
-    [_keyArray addObject:@"name"];
     [_keyArray addObject:@"mobile"];
+    [_keyArray addObject:@"name"];
     //[_keyArray addObject:@"id_card"]; //for hide id card
     _selectedKeyArray = [NSMutableArray new];
     TCJoinSettingItem *item1 = [TCJoinSettingItem new];
