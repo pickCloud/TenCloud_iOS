@@ -103,19 +103,12 @@ TCDataSyncDelegate>
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCTemplateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMPLATE_CELL_REUSE_ID forIndexPath:indexPath];
     TCTemplate *template = [_templateArray objectAtIndex:indexPath.section];
-    NSLog(@"tmpl:%@",template.name);
-    NSLog(@"permissions:%@",template.permissions);
-    NSLog(@"file:%@",template.access_filehub);
-    NSLog(@"proj:%@",template.access_projects);
-    NSLog(@"servers:%@",template.access_servers);
     [cell setTemplate:template];
     return cell;
 }
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 15;

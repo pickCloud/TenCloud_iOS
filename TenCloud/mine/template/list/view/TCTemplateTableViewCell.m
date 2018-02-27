@@ -89,10 +89,6 @@
         }
     }
     
-    /*
-    NSString *descStr = [NSString stringWithFormat:@"功能权限 %ld 项  数据权限 %ld 项 ",funcPermNum,dataPermNum];
-    _descLabel.text = descStr;
-     */
     NSMutableAttributedString *desc = [NSMutableAttributedString new];
     UIFont *textFont = [UIFont systemFontOfSize:10.0];
     UIFont *digitFont = [UIFont systemFontOfSize:12.0];
