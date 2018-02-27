@@ -84,12 +84,11 @@
     _keyboradPanel.frame = newRect;
     
     _statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核不通过", nil];
-    //_statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核拒绝", nil];
     _statusSelectedIndex = 0;
     //self.statusMenu.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1.0] CGColor];
     //self.statusMenu.layer.borderWidth = 0.5;
     
-    UIColor *selectedBackgroundColor = [UIColor colorWithRed:0.91 green:0.92 blue:0.94 alpha:1.0];
+    //UIColor *selectedBackgroundColor = [UIColor colorWithRed:0.91 green:0.92 blue:0.94 alpha:1.0];
     UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
     self.statusMenu.selectedComponentBackgroundColor = dropDownBgColor;
     self.statusMenu.dropdownBackgroundColor = dropDownBgColor;
@@ -168,7 +167,7 @@
         BOOL isError10003 = message && [message isEqualToString:@"非公司员工"];
         if (errorCode == 10003 || isError10003) {
             TCCurrentCorp *corp = [TCCurrentCorp shared];
-            NSString *oldCorpName = corp.name;
+            //NSString *oldCorpName = corp.name;
             [TCPageManager showPersonHomePageFromController:self];
             if (![corp isAdmin])
             {
@@ -263,8 +262,6 @@
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     TCStaff *staff = [_staffArray objectAtIndex:indexPath.row];
@@ -301,7 +298,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     NSString *word = textField.text;
-    NSLog(@"word:%@ sIndex:%ld",textField.text,_statusSelectedIndex);
     [self doSearchWithKeyword:word withStaus:_statusSelectedIndex];
     [textField resignFirstResponder];
     return YES;
@@ -368,8 +364,6 @@
     FEPopupMenuItem *item3 = [[FEPopupMenuItem alloc] initWithTitle:@"更换管理员" iconImage:nil action:^{
         TCChangeAdminViewController *changeVC = [TCChangeAdminViewController new];
         changeVC.staffArray = weakSelf.staffArray;
-        //[changeVC.staffArray addObjectsFromArray:weakSelf.staffArray];
-        NSLog(@"vc staffs:%@",changeVC.staffArray);
         [self presentViewController:changeVC animated:YES completion:^{
             
         }];
@@ -428,13 +422,11 @@
 #pragma mark - MKDropdownMenuDelegate
 
 - (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
-    //return 0; // use default row height
     return TCSCALE(32);
 }
 
 - (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu widthForComponent:(NSInteger)component {
     return MAX(dropdownMenu.bounds.size.width/3, 125);
-    //return 0; // use automatic width
 }
 
 - (BOOL)dropdownMenu:(MKDropdownMenu *)dropdownMenu shouldUseFullRowWidthForComponent:(NSInteger)component {
@@ -442,16 +434,21 @@
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightLight],
-                                                        NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR}];
+    UIFont *font = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{NSFontAttributeName: font,
+                           NSForegroundColorAttributeName: THEME_PLACEHOLDER_COLOR};
+    NSString *str = self.statusMenuOptions[_statusSelectedIndex];
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.statusMenuOptions[_statusSelectedIndex]
-                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:TCSCALE(12) weight:UIFontWeightRegular],
-                                                        NSForegroundColorAttributeName: THEME_TEXT_COLOR}];
-    
+    UIFont *font = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{NSFontAttributeName: font,
+                           NSForegroundColorAttributeName: THEME_TEXT_COLOR};
+    NSString *str = self.statusMenuOptions[_statusSelectedIndex];
+    return [[NSAttributedString alloc] initWithString:str
+                                           attributes:attr];
 }
 
 - (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -460,84 +457,26 @@
     if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
         shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
     }
-    //shapeSelectView.shapeView.sidesCount = row + 2;
     NSString *statusStr = self.statusMenuOptions[row];
-    shapeSelectView.textLabel.text = statusStr;//self.statusMenuOptions[row];
+    shapeSelectView.textLabel.text = statusStr;
     shapeSelectView.selected = _statusSelectedIndex == row;
-    /*
-    if ([statusStr isEqualToString:@"审核通过"])
-    {
-        shapeSelectView.selected = YES;
-    }else
-    {
-        shapeSelectView.selected = NO;
-    }
-     */
-    //shapeSelectView.selected = 0;
     return shapeSelectView;
-    /*
-    switch (component) {
-        case DropdownComponentShape: {
-
-        }
-        case 2: {
-            LineWidthSelectView *lineWidthSelectView = (LineWidthSelectView *)view;
-            if (lineWidthSelectView == nil || ![lineWidthSelectView isKindOfClass:[LineWidthSelectView class]]) {
-                lineWidthSelectView = [LineWidthSelectView new];
-                lineWidthSelectView.backgroundColor = [UIColor clearColor];
-            }
-            lineWidthSelectView.lineColor = self.view.tintColor;
-            lineWidthSelectView.lineWidth = row * 2 + 1;
-            return lineWidthSelectView;
-        }
-        default:
-            return nil;
-    }
-     */
 }
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [self colorForRow:row];
-    /*
-    if (component == DropdownComponentColor) {
-        
-    }
-    return nil;
-     */
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    //self.shapeView.sidesCount = row + 2;
     [_keywordField resignFirstResponder];
     _statusSelectedIndex = row;
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
     [self doSearchWithKeyword:_keywordField.text withStaus:_statusSelectedIndex];
-    /*
-    switch (component) {
-        case DropdownComponentShape:
-
-            break;
-        case DropdownComponentColor:
-            self.shapeView.fillColor = [self colorForRow:row];
-            break;
-        case DropdownComponentLineWidth:
-            self.shapeView.lineWidth = row * 2 + 1;
-            break;
-        default:
-            break;
-    }
-     */
 }
 
 - (UIColor *)colorForRow:(NSInteger)row {
     return DROPDOWN_CELL_BG_COLOR;
-    /*
-    return [UIColor colorWithHue:(CGFloat)row/[self.statusMenuOptions numberOfRowsInComponent:0]
-                      saturation:1.0
-                      brightness:1.0
-                           alpha:1.0];
-     */
 }
 
 #pragma mark - TCDataSyncDelegate
@@ -549,7 +488,6 @@
 */
 - (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
 {
-    NSLog(@"receive sync perm changed");
     [self reloadStaffArray];
 }
 

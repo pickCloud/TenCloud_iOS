@@ -8,15 +8,9 @@
 
 #import "YTKRequest.h"
 
-//@class TCServer;
 @class TCStaff;
 @interface TCStaffSearchRequest : YTKRequest
 
-/*
-- (instancetype) initWithServerName:(NSString*)name
-                            regions:(NSArray*)regions
-                          providers:(NSArray*)providers;
- */
 @property (nonatomic, strong)   NSString    *keyword;
 @property (nonatomic, assign)   NSInteger   status;
 
