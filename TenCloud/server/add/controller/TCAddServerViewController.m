@@ -148,7 +148,6 @@
     [_passwordField resignFirstResponder];
     
     AFNetworkReachabilityStatus status = [[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus];
-    NSLog(@"status:%ld",status);
     if (status == AFNetworkReachabilityStatusNotReachable)
     {
         [MBProgressHUD showError:@"网络中断，请检查网络连接" toView:nil];

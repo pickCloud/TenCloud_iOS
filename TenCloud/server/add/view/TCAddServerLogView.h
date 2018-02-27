@@ -10,12 +10,8 @@
 
 @interface TCAddServerLogView : UIView
 
-//- (instancetype) createView;
-
 - (void) setText:(NSString*)text;
 
 - (void) setAttrText:(NSAttributedString*)text;
-
-//- (void) show;
 
 @end
