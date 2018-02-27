@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_staffArray = [NSMutableArray new];
     // Do any additional setup after loading the view from its nib.
     if (IS_iPhoneX)
     {
@@ -84,14 +83,12 @@
 
 - (IBAction) onConfirmButton:(id)sender
 {
-    //__weak __typeof(self) weakSelf = self;
     
 }
 
 - (void) doSearchWithKeyword:(NSString*)keyword
 {
     __weak __typeof(self) weakSelf = self;
-    
     TCStaffSearchRequest *req = [TCStaffSearchRequest new];
     req.keyword = keyword;
     req.status = STAFF_STATUS_PASS;
@@ -119,7 +116,6 @@
             }
         }
         weakSelf.staffArray = validStaffArray;
-        //weakSelf.staffArray = staffArray;
         [weakSelf stopLoading];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
@@ -192,8 +188,6 @@
 
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     TCStaff *staff = [_staffArray objectAtIndex:indexPath.row];

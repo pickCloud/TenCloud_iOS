@@ -9,15 +9,10 @@
 #import "TCViewController.h"
 
 
-//@class TCChangeAdminViewController;
-//typedef void (^TCPermissionModifiedBlock)(TCPermissionViewController *vc);
-
 @class TCTemplate;
 @class TCStaff;
 @interface TCChangeAdminViewController : TCViewController
 
 @property (nonatomic, strong)   NSMutableArray     *staffArray;
 @property (nonatomic, strong)   TCStaff            *currentStaff;
-//@property (nonatomic, assign)   NSInteger           userID;
-//@property (nonatomic, copy)     TCPermissionModifiedBlock   modifiedBlock;
 @end
