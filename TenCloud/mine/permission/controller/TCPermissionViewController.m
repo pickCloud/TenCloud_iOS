@@ -18,10 +18,11 @@
 #import "JYEqualCellSpaceFlowLayout.h"
 #import "TCPermissionTemplateCell.h"
 #import "TCTemplateListRequest.h"
+#import "TCEmptyPermission.h"
 
 #define PERMISSION_TEMPLATE_CELL_ID @"PERMISSION_TEMPLATE_CELL_ID"
 
-@interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate>
+@interface TCPermissionViewController ()<VTMagicViewDataSource, VTMagicViewDelegate, TCEditingPermissionDelegate>
 @property (nonatomic, strong)   VTMagicController           *magicController;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *topHeightConstraint;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *templatePanelHeightConstraint;
@@ -99,8 +100,7 @@
     [self.view addSubview:_magicController.view];
     [_magicController.magicView reloadData];
     
-
-    
+    [[TCEditingPermission shared] addObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +108,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) dealloc
+{
+    [[TCEditingPermission shared] removeObserver:self];
+}
 
 #pragma mark - extension
 - (IBAction) onCloseButton:(id)sender
@@ -195,10 +199,28 @@
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
     NSMutableArray *titleList = [NSMutableArray array];
     TCEditingPermission *editingPermission = [TCEditingPermission shared];
+    /*
     NSArray *nodeArray = editingPermission.permissionArray;
     for (TCPermissionNode *node in nodeArray)
     {
         [titleList addObject:node.name];
+    }
+     */
+    TCEmptyPermission *emptyPerm = [TCEmptyPermission shared];
+    if (_state == PermissionVCPreviewPermission)
+    {
+        [titleList addObject:@"功能"];
+        [titleList addObject:@"数据"];
+    }else
+    {
+        NSInteger selectedFuncAmount = [editingPermission funcPermissionAmount];
+        NSInteger funcAmount = [emptyPerm funcPermissionAmount];
+        NSInteger selectedDataAmount = [editingPermission dataPermissionAmount];
+        NSInteger dataAmount = [emptyPerm dataPermissionAmount];
+        NSString *funcTitle = [NSString stringWithFormat:@"功能(%ld/%ld)",selectedFuncAmount,funcAmount];
+        NSString *dataTitle = [NSString stringWithFormat:@"数据(%ld/%ld)",selectedDataAmount,dataAmount];
+        [titleList addObject:funcTitle];
+        [titleList addObject:dataTitle];
     }
     return titleList;
 }
@@ -287,5 +309,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+
+#pragma mark - TCEditingPermissionDelegate
+- (void) editingPermission:(TCEditingPermission* )perm selectedAmountChanged:(NSInteger)amount
+{
+    [_magicController.magicView reloadMenuTitles];
 }
 @end

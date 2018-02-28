@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class TCEditingPermission;
+@protocol TCEditingPermissionDelegate<NSObject>
+- (void) editingPermission:(TCEditingPermission* )perm selectedAmountChanged:(NSInteger)amount;
+@end
+
 @class TCTemplate;
 @interface TCEditingPermission : NSObject
+
+@property (nonatomic, copy) NSMutableArray      *permissionArray;
 
 + (instancetype) shared;
 
@@ -21,11 +28,15 @@
 
 - (void) readyForPreview;
 
-@property (nonatomic, copy) NSMutableArray      *permissionArray;
-
 - (NSInteger) funcPermissionAmount;
 
 - (NSInteger) dataPermissionAmount;
+
+- (void) addObserver:(id<TCEditingPermissionDelegate>)obs;
+
+- (void) removeObserver:(id<TCEditingPermissionDelegate>)obs;
+
+- (void) selectedAmountChanged;
 
 - (NSArray *)permissionIDArray;
 

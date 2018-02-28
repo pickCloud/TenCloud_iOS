@@ -10,6 +10,7 @@
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCPermissionCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCEditingPermission.h"
 #define PERMISSION_CELL_ID          @"PERMISSION_CELL_ID"
 
 @interface TCPermissionTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -68,6 +69,7 @@
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
         [node updateFatherNodeAfterSubNodeChanged];
         [node updateSubNodesAfterFatherNodeChanged];
+        [[TCEditingPermission shared] selectedAmountChanged];
         [weakSelf.tableView reloadData];
     };
     

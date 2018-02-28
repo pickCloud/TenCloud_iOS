@@ -57,6 +57,35 @@
     [self sendEmptyTemplateRequest];
 }
 
+- (NSInteger) funcPermissionAmount
+{
+    NSInteger amount = 0;
+    TCPermissionNode *funcNode = _permissionArray.firstObject;
+    amount = [funcNode subNodeAmount];
+    //amount = [funcNode selectedSubNodeIDArray].count;
+    return amount;
+}
+
+- (NSInteger) dataPermissionAmount
+{
+    NSInteger amount = 0;
+    TCPermissionNode *dataNode = [_permissionArray objectAtIndex:1];
+    if (dataNode.data.count >= 3)
+    {
+        TCPermissionNode *serverNode = [dataNode.data objectAtIndex:2];
+        //NSInteger serverAmount = [serverNode selectedServerSubNodeIDArray].count;
+        NSInteger serverAmount = [serverNode subNodeAmount];
+        TCPermissionNode *fileNode = [dataNode.data objectAtIndex:0];
+        //NSInteger fileAmount = [fileNode selectedSubNodeIDArray].count;
+        NSInteger fileAmount = [fileNode subNodeAmount];
+        TCPermissionNode *projNode = [dataNode.data objectAtIndex:1];
+        //NSInteger projAmount = [projNode selectedSubNodeIDArray].count;
+        NSInteger projAmount = [projNode subNodeAmount];
+        amount = serverAmount + fileAmount + projAmount;
+    }
+    return amount;
+}
+
 - (void) sendEmptyTemplateRequest
 {
     __weak __typeof(self) weakSelf = self;

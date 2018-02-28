@@ -16,7 +16,9 @@
 
 - (void) reset;
 
-//- (void) print;
+- (NSInteger) funcPermissionAmount;
+
+- (NSInteger) dataPermissionAmount;
 
 @property (nonatomic, strong)   NSMutableArray  *permissionArray;
 

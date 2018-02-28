@@ -12,6 +12,12 @@
 #import "TCTemplate+CoreDataClass.h"
 #import "NSManagedObject+Clone.h"
 
+@interface TCEditingPermission()
+{
+    NSMutableArray      *mObserverArray;
+}
+@end
+
 @implementation TCEditingPermission
 
 + (instancetype) shared
@@ -30,6 +36,7 @@
     if (self)
     {
         _permissionArray = [NSMutableArray new];
+        mObserverArray = [NSMutableArray new];
     }
     return self;
 }
@@ -49,6 +56,7 @@
     {
         [self resetPermissionNode:subNode];
     }
+    //[mObserverArray removeAllObjects];
 }
 
 - (void) resetForAdmin
@@ -278,6 +286,33 @@
         amount = serverAmount + fileAmount + projAmount;
     }
     return amount;
+}
+
+- (void) addObserver:(id<TCEditingPermissionDelegate>)obs
+{
+    if (obs)
+    {
+        [mObserverArray addObject:obs];
+    }
+}
+
+- (void) removeObserver:(id<TCEditingPermissionDelegate>)obs
+{
+    if (obs)
+    {
+        [mObserverArray removeObject:obs];
+    }
+}
+
+- (void) selectedAmountChanged
+{
+    for (id<TCEditingPermissionDelegate> obs in mObserverArray)
+    {
+        if (obs && [obs respondsToSelector:@selector(editingPermission:selectedAmountChanged:)])
+        {
+            [obs editingPermission:self selectedAmountChanged:0];
+        }
+    }
 }
 
 - (NSArray *)permissionIDArray

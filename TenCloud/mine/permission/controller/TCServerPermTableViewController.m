@@ -12,6 +12,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCClusterProvider+CoreDataClass.h"
 #import "TCSearchFilterViewController.h"
+#import "TCEditingPermission.h"
 #define SERVER_PERM_CELL_ID          @"SERVER_PERM_CELL_ID"
 
 @interface TCServerPermTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -85,7 +86,7 @@
     cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
-        
+        [[TCEditingPermission shared] selectedAmountChanged];
     };
     return cell;
 }

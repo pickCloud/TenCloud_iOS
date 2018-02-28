@@ -10,6 +10,7 @@
 #import "TCPermissionNode+CoreDataClass.h"
 #import "TCProjectPermTableViewCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "TCEditingPermission.h"
 #define PROJECT_PERM_CELL_ID          @"PROJECT_PERM_CELL_ID"
 
 @interface TCProjectPermTableViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
@@ -67,7 +68,7 @@
     cell.editable = (_state != PermissionVCPreviewPermission);
     [cell setNode:node];
     cell.selectBlock = ^(TCPermissionCell *cell, BOOL selected) {
-        
+        [[TCEditingPermission shared] selectedAmountChanged];
     };
     
     return cell;
