@@ -34,6 +34,7 @@
         _titleText = title;
         _descText = desc;
         _finishBlock = nil;
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
