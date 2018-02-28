@@ -391,6 +391,7 @@
 		A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D7A200FA70C0061A015 /* NSString+Addition.m */; };
 		A0DC9D7E201042450061A015 /* TCLeaveCorpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D7C201042450061A015 /* TCLeaveCorpRequest.m */; };
 		A0DC9D86201204770061A015 /* NSManagedObject+Clone.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DC9D85201204770061A015 /* NSManagedObject+Clone.m */; };
+		A0E39C5D20468F8C003EA1AA /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E39C5C20468F8C003EA1AA /* Bugly.framework */; };
 		A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */; };
 		A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9920007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m */; };
 		A0EF3BA020007C8200D227BC /* TCEmptyPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3B9E20007C8200D227BC /* TCEmptyPermission.m */; };
@@ -1085,6 +1086,7 @@
 		A0DC9D7D201042450061A015 /* TCLeaveCorpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLeaveCorpRequest.h; sourceTree = "<group>"; };
 		A0DC9D84201204770061A015 /* NSManagedObject+Clone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Clone.h"; sourceTree = "<group>"; };
 		A0DC9D85201204770061A015 /* NSManagedObject+Clone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Clone.m"; sourceTree = "<group>"; };
+		A0E39C5C20468F8C003EA1AA /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		A0EF3B9620007C4A00D227BC /* TCPermissionNode+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataClass.h"; sourceTree = "<group>"; };
 		A0EF3B9720007C4A00D227BC /* TCPermissionNode+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TCPermissionNode+CoreDataClass.m"; sourceTree = "<group>"; };
 		A0EF3B9820007C4A00D227BC /* TCPermissionNode+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPermissionNode+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1109,6 +1111,7 @@
 			files = (
 				A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */,
 				A07DBEB21FE2241A00F37715 /* Foundation.framework in Frameworks */,
+				A0E39C5D20468F8C003EA1AA /* Bugly.framework in Frameworks */,
 				2CBF4820F1B9A1F98B28493D /* libPods-TenCloud.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1189,6 +1192,7 @@
 		A00703761FE79A5000F232D7 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0E39C5B20468F8C003EA1AA /* bugly */,
 				A00703771FE79A5000F232D7 /* GT3Captcha */,
 			);
 			path = frameworks;
@@ -3834,6 +3838,14 @@
 			path = NSManagedObject;
 			sourceTree = "<group>";
 		};
+		A0E39C5B20468F8C003EA1AA /* bugly */ = {
+			isa = PBXGroup;
+			children = (
+				A0E39C5C20468F8C003EA1AA /* Bugly.framework */,
+			);
+			path = bugly;
+			sourceTree = "<group>";
+		};
 		A0EF3B9320007C4A00D227BC /* permission */ = {
 			isa = PBXGroup;
 			children = (
@@ -4782,6 +4794,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks/GT3Captcha",
+					"$(PROJECT_DIR)/frameworks/bugly",
 				);
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = TenCloud/Info.plist;
@@ -4806,6 +4819,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks/GT3Captcha",
+					"$(PROJECT_DIR)/frameworks/bugly",
 				);
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = TenCloud/Info.plist;

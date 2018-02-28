@@ -17,6 +17,7 @@
 #import "TCAcceptInviteViewController.h"
 #import "TCMessageManager.h"
 #import "TCWelcomeViewController.h"
+#import <Bugly/Bugly.h>
 
 @interface AppDelegate ()
 
@@ -27,6 +28,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Bugly startWithAppId:@"df4c8fb59b"];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];
     [[YTKNetworkConfig sharedConfig] setBaseUrl:SERVER_URL_STRING];
     [[TCShareManager sharedManager] registerAllPlatForms];
