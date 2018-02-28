@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSInteger) subNodeAmount;
 
+- (NSInteger) subLeafNodeAmount;
+
 - (TCPermissionNode*) subNodeAtIndex:(NSInteger)index;
 
 //- (void) setFatherNodeSelectedAfterSubNodesAllSelected;

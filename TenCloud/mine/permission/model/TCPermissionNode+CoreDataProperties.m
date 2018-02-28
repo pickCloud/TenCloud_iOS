@@ -54,6 +54,28 @@
     return amount;
 }
 
+- (NSInteger) subLeafNodeAmount
+{
+    NSInteger amount = 0;
+    for (TCPermissionNode *subNode in self.data)
+    {
+        NSInteger subAmount = 0;
+        BOOL haveSubNode = subNode.data && (subNode.data.count > 0);
+        if (haveSubNode)
+        {
+            subAmount = [subNode subLeafNodeAmount];
+        }else
+        {
+            if (subNode.sid > 0 || subNode.permID > 0)
+            {
+                subAmount = 1;
+            }
+        }
+        amount += subAmount;
+    }
+    return amount;
+}
+
 - (TCPermissionNode*) subNodeAtIndex:(NSInteger)index
 {
     if (index == 0)
