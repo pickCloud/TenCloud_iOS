@@ -60,12 +60,17 @@
     [self updateConfirmButtonWithString:_textField.text];
     
     
-    //UIButton *clearButton = [self.textField valueForKey:@"_clearButton"];
-    //if (clearButton)
-    //{
-    //    [clearButton setTintColor:[UIColor redColor]];
-    //    [clearButton setBackgroundColor:[UIColor redColor]];
-    //}
+    UIButton *clearButton = [self.textField valueForKey:@"_clearButton"];
+    if (clearButton)
+    {
+        UIImage *delImg = [UIImage imageNamed:@"checkbox_circle"];
+        //[UIImage imageNamed:@"edit_btn_del"];
+        NSLog(@"dele img:%@",delImg);
+        [clearButton setImage:delImg forState:UIControlStateNormal];
+        [clearButton setImage:delImg forState:UIControlStateHighlighted];
+        //[clearButton setTintColor:[UIColor redColor]];
+        //[clearButton setBackgroundColor:[UIColor redColor]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
