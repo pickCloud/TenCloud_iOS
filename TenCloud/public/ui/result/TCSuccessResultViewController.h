@@ -6,11 +6,11 @@
 //  Copyright © 2017年 10.com. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TCViewController.h"
 
 typedef void (^FinishBlock)(UIViewController *viewController);
 
-@interface TCSuccessResultViewController : UIViewController
+@interface TCSuccessResultViewController : TCViewController
 
 - (id) initWithTitle:(NSString *)title desc:(NSString*)desc;
 

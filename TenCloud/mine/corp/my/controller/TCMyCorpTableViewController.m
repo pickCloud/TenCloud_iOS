@@ -70,7 +70,7 @@
     [self reloadCorpArray];
     
     __weak __typeof(self) weakSelf = self;
-    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"添加企业" iconImage:nil action:^{
+    FEPopupMenuItem *item1 = [[FEPopupMenuItem alloc] initWithTitle:@"添加新企业" iconImage:nil action:^{
         TCAddCorpViewController *addVC = [TCAddCorpViewController new];
         [weakSelf.navigationController pushViewController:addVC animated:YES];
     }];

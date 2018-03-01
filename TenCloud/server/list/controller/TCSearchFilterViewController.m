@@ -116,18 +116,20 @@
     
     NSMutableArray *providers = [NSMutableArray new];
     NSIndexPath *providerPath = selectedProviderPaths.firstObject;
-    TCClusterProvider *provider = [_providerArray objectAtIndex:providerPath.row];
-    if (selectedProviderPaths && selectedProviderPaths.count > 0)
-    {
-        [providers addObject:provider.provider];
-    }
-    
     NSMutableArray *areas = [NSMutableArray new];
-    for (int i = 0; i < selectedAreaPaths.count; i++)
+    if (_providerArray.count > providerPath.row)
     {
-        NSIndexPath *areaPath = [selectedAreaPaths objectAtIndex:i];
-        NSString *region = [provider.regions objectAtIndex:areaPath.row];
-        [areas addObject:region];
+        TCClusterProvider *provider = [_providerArray objectAtIndex:providerPath.row];
+        if (selectedProviderPaths && selectedProviderPaths.count > 0)
+        {
+            [providers addObject:provider.provider];
+        }
+        for (int i = 0; i < selectedAreaPaths.count; i++)
+        {
+            NSIndexPath *areaPath = [selectedAreaPaths objectAtIndex:i];
+            NSString *region = [provider.regions objectAtIndex:areaPath.row];
+            [areas addObject:region];
+        }
     }
     
     NSDictionary *filterDict = @{@"provider":providers,

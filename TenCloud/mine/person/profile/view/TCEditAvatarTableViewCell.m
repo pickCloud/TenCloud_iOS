@@ -75,15 +75,6 @@
                 picker.delegate = self;
                 picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 picker.allowsEditing = YES;//设置可编辑
-                if ([picker.navigationBar respondsToSelector:@selector(setBarTintColor:)])
-                {
-                    [picker.navigationBar setTranslucent:NO];
-                    [picker.navigationBar setBarTintColor:[UIColor purpleColor]];
-                    [picker.navigationBar setTintColor:[UIColor blueColor]];
-                }else
-                {
-                    [picker.navigationBar setBackgroundColor:[UIColor blackColor]];
-                }
                 [self.fatherViewController presentViewController:picker animated:YES completion:nil];
             }
                 break;

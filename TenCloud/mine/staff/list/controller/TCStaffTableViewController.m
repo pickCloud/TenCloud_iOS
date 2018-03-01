@@ -83,7 +83,7 @@
     [self.view addSubview:_keyboradPanel];
     _keyboradPanel.frame = newRect;
     
-    _statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核不通过", nil];
+    _statusMenuOptions = [NSArray arrayWithObjects:@"全部",@"待审核",@"审核通过",@"审核不通过",@"创建人", nil];
     _statusSelectedIndex = 0;
     //self.statusMenu.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1.0] CGColor];
     //self.statusMenu.layer.borderWidth = 0.5;
@@ -191,13 +191,16 @@
     NSInteger status = -100;
     if (_statusSelectedIndex == 1)
     {
-        status = 2;
+        status = STAFF_STATUS_PENDING;
     }else if(_statusSelectedIndex == 2)
     {
-        status = 3;
+        status = STAFF_STATUS_PASS;
     }else if(_statusSelectedIndex == 3)
     {
-        status = 1;
+        status = STAFF_STATUS_REJECT;
+    }else if(_statusSelectedIndex == 4)
+    {
+        status = STAFF_STATUS_FOUNDER;
     }
     __weak __typeof(self) weakSelf = self;
     
