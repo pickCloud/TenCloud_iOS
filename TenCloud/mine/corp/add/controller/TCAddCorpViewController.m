@@ -117,10 +117,10 @@
         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
         [newVCS removeLastObject];
         [newVCS addObject:successVC];
-        [weakSelf.navigationController setViewControllers:newVCS];
+        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
         
     } failure:^(NSString *message) {
-        [MMProgressHUD dismiss];
+        [MMProgressHUD dismissWithoutAnimation];
         TCFailResultViewController *failVC = [[TCFailResultViewController alloc] initWithTitle:@"创建失败" desc:message];
         failVC.buttonTitle = @"提起企业异议";
         failVC.finishBlock = ^(UIViewController *viewController) {
@@ -135,7 +135,7 @@
         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
         [newVCS removeLastObject];
         [newVCS addObject:failVC];
-        [weakSelf.navigationController setViewControllers:newVCS];
+        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
     }];
 }
 
