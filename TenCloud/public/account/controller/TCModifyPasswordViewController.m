@@ -163,7 +163,7 @@
         NSMutableArray *newVCS = [NSMutableArray arrayWithArray:viewControllers];
         [newVCS removeLastObject];
         [newVCS addObject:successVC];
-        [weakSelf.navigationController setViewControllers:newVCS];
+        [weakSelf.navigationController setViewControllers:newVCS animated:YES];
     } failure:^(NSString *message) {
         [MMProgressHUD dismissWithError:message afterDelay:1.32];
     }];
