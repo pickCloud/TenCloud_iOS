@@ -22,6 +22,7 @@
 #import "TCServerListViewController.h"
 #import "TCDataSync.h"
 #import "TCTextRefreshHeader.h"
+#import "TCServerProfileViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -152,8 +153,12 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    /*
     TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
     [self.navigationController pushViewController:detailVC animated:YES];
+     */
+    TCServerProfileViewController *profileVC = [[TCServerProfileViewController alloc] initWithID:server.serverID];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 

@@ -93,6 +93,8 @@
 		A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */; };
 		A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */; };
 		A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */; };
+		A02C235D204FDEAC00F709B7 /* TCServerProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02C235B204FDEAC00F709B7 /* TCServerProfileViewController.xib */; };
+		A02C235E204FDEAC00F709B7 /* TCServerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02C235C204FDEAC00F709B7 /* TCServerProfileViewController.m */; };
 		A02CA86A2000835400BD00C5 /* TCEditingPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A02CA8692000835400BD00C5 /* TCEditingPermission.m */; };
 		A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A02CA86B2000F23F00BD00C5 /* TCPermissionCell.m */; };
 		A02CA86F2000F23F00BD00C5 /* TCPermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02CA86C2000F23F00BD00C5 /* TCPermissionCell.xib */; };
@@ -574,6 +576,9 @@
 		A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLoginViewController.xib; sourceTree = "<group>"; };
 		A02555B91FDBD4B400D16D22 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		A02C235A204FDEAC00F709B7 /* TCServerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerProfileViewController.h; sourceTree = "<group>"; };
+		A02C235B204FDEAC00F709B7 /* TCServerProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerProfileViewController.xib; sourceTree = "<group>"; };
+		A02C235C204FDEAC00F709B7 /* TCServerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerProfileViewController.m; sourceTree = "<group>"; };
 		A02CA8682000835400BD00C5 /* TCEditingPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEditingPermission.h; sourceTree = "<group>"; };
 		A02CA8692000835400BD00C5 /* TCEditingPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEditingPermission.m; sourceTree = "<group>"; };
 		A02CA86B2000F23F00BD00C5 /* TCPermissionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPermissionCell.m; sourceTree = "<group>"; };
@@ -1566,6 +1571,7 @@
 		A025553B1FD7C6A100D16D22 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				A02C2355204FD85B00F709B7 /* profile */,
 				A025554C1FD7C82100D16D22 /* add */,
 				A025555B1FD7C82100D16D22 /* config */,
 				A02555511FD7C82100D16D22 /* container */,
@@ -2249,6 +2255,48 @@
 				A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */,
 			);
 			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		A02C2355204FD85B00F709B7 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				A02C2356204FD85B00F709B7 /* controller */,
+				A02C2357204FD85B00F709B7 /* model */,
+				A02C2358204FD85B00F709B7 /* request */,
+				A02C2359204FD85B00F709B7 /* view */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		A02C2356204FD85B00F709B7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A02C235A204FDEAC00F709B7 /* TCServerProfileViewController.h */,
+				A02C235C204FDEAC00F709B7 /* TCServerProfileViewController.m */,
+				A02C235B204FDEAC00F709B7 /* TCServerProfileViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A02C2357204FD85B00F709B7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A02C2358204FD85B00F709B7 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A02C2359204FD85B00F709B7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		A03143381FECDB06006F55EC /* person */ = {
@@ -4139,6 +4187,7 @@
 				A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */,
 				A033986E20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib in Resources */,
 				A02CA8792001B2A300BD00C5 /* TCPermissionViewController.xib in Resources */,
+				A02C235D204FDEAC00F709B7 /* TCServerProfileViewController.xib in Resources */,
 				A088F93E202AD27D005A97DD /* TCFilePermTableViewController.xib in Resources */,
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
@@ -4582,6 +4631,7 @@
 				A031B6251FFE1DAD00B4F448 /* TCStaff+CoreDataClass.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */,
+				A02C235E204FDEAC00F709B7 /* TCServerProfileViewController.m in Sources */,
 				A088F933202A14CC005A97DD /* TCServerPermTableViewController.m in Sources */,
 				A025559D1FD7E36800D16D22 /* TCDiscoverHomeViewController.m in Sources */,
 				A0D5881D200E4B3700104ED9 /* TCMessageTableViewController.m in Sources */,
@@ -4800,7 +4850,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
@@ -4825,7 +4875,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloudtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
