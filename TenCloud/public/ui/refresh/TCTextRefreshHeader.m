@@ -23,7 +23,7 @@
     
     // 添加label
     UILabel *label = [[UILabel alloc] init];
-    label.textColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0];
+    label.textColor = THEME_TEXT_COLOR;
     label.font = [UIFont systemFontOfSize:13];
     label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:label];

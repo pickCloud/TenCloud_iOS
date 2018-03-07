@@ -21,6 +21,7 @@
 #import "TCServer+CoreDataClass.h"
 #import "TCServerListViewController.h"
 #import "TCDataSync.h"
+#import "TCTextRefreshHeader.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 
@@ -88,6 +89,13 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     iconLayout.headerReferenceSize = CGSizeMake(iconX, iconX);
     iconLayout.footerReferenceSize = CGSizeMake(iconX, iconX);
     [_headerCollectionView setCollectionViewLayout:iconLayout];
+    
+    if (self.tableView.mj_header == nil)
+    {
+        TCTextRefreshHeader *refreshHeader = [TCTextRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadServerList)];
+        refreshHeader.automaticallyChangeAlpha = YES;
+        self.tableView.mj_header = refreshHeader;
+    }
     
     [self startLoading];
     [self reloadServerList];
@@ -213,8 +221,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
         [weakSelf stopLoading];
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
+        [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
+        [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf stopLoading];
         [MBProgressHUD showError:message toView:nil];
     }];
@@ -222,10 +232,11 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     //需要与服务器列表一起刷新
     TCServerSummaryRequest *summaryReq = [TCServerSummaryRequest new];
     [summaryReq startWithSuccess:^(TCServerSummary *summary) {
+        [weakSelf.tableView.mj_header endRefreshing];
         weakSelf.totalServerAmount = summary.server_num;
         [weakSelf.headerCollectionView reloadData];
     } failure:^(NSString *message) {
-        
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
     
 }
@@ -313,6 +324,11 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 {
     TCAddServerViewController *addVC = [TCAddServerViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    return YES;
 }
 
 #pragma mark - TCMessageManagerDelegate
