@@ -37,8 +37,8 @@
     
     TCServerHomeViewController *serverHomeVC = [TCServerHomeViewController new];
     UINavigationController *serverHomeNav = [[UINavigationController alloc] initWithRootViewController:serverHomeVC];
-    UIImage *serverSelIcon = [UIImage imageNamed:@"tabbar_server_selected"];
-    UIImage *serverIcon = [[UIImage imageNamed:@"tabbar_server"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *serverSelIcon = [UIImage imageNamed:@"tabbar_server2_selected"];
+    UIImage *serverIcon = [[UIImage imageNamed:@"tabbar_server2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     serverHomeNav.tabBarItem.image = serverIcon;
     serverHomeNav.tabBarItem.selectedImage = serverSelIcon;
     serverHomeNav.tabBarItem.title = @"主机/集群";
@@ -46,8 +46,8 @@
     
     TCServiceHomeViewController *serviceHomeVC = [TCServiceHomeViewController new];
     UINavigationController *serviceHomeNav = [[UINavigationController alloc] initWithRootViewController:serviceHomeVC];
-    UIImage *serviceSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
-    UIImage *serviceIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *serviceSelIcon = [UIImage imageNamed:@"tabbar_service_selected"];
+    UIImage *serviceIcon = [[UIImage imageNamed:@"tabbar_service"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     serviceHomeNav.tabBarItem.image = serviceIcon;
     serviceHomeNav.tabBarItem.selectedImage = serviceSelIcon;
     serviceHomeNav.tabBarItem.title = @"应用/服务";
@@ -55,8 +55,8 @@
     
     TCLogHomeViewController *logHomeVC = [TCLogHomeViewController new];
     UINavigationController *logNav = [[UINavigationController alloc] initWithRootViewController:logHomeVC];
-    UIImage *logSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
-    UIImage *logIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *logSelIcon = [UIImage imageNamed:@"tabbar_log_selected"];
+    UIImage *logIcon = [[UIImage imageNamed:@"tabbar_log"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     logNav.tabBarItem.image = logIcon;
     logNav.tabBarItem.selectedImage = logSelIcon;
     logNav.tabBarItem.title = @"日志/事件";
@@ -64,8 +64,8 @@
     
     TCMirrorHomeViewController *mirrorHomeVC = [TCMirrorHomeViewController new];
     UINavigationController *mirrorNav = [[UINavigationController alloc] initWithRootViewController:mirrorHomeVC];
-    UIImage *mirrorSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
-    UIImage *mirrorIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *mirrorSelIcon = [UIImage imageNamed:@"tabbar_mirror_selected"];
+    UIImage *mirrorIcon = [[UIImage imageNamed:@"tabbar_mirror"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     mirrorNav.tabBarItem.image = mirrorIcon;
     mirrorNav.tabBarItem.selectedImage = mirrorSelIcon;
     mirrorNav.tabBarItem.title = @"镜像";
@@ -109,8 +109,8 @@
         mineHomeVC = [TCPersonHomeViewController new];
     }
     UINavigationController *mineHomeNav = [[UINavigationController alloc] initWithRootViewController:mineHomeVC];
-    UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine_selected"];
-    UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *mineSelIcon = [UIImage imageNamed:@"tabbar_mine2_selected"];
+    UIImage *mineIcon = [[UIImage imageNamed:@"tabbar_mine2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     mineHomeNav.tabBarItem.image = mineIcon;
     mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
     mineHomeNav.tabBarItem.title = @"我的";
