@@ -15,6 +15,10 @@
 #import "TCPersonHomeViewController.h"
 #import "TCCorpHomeViewController.h"
 
+#import "TCServiceHomeViewController.h"
+#import "TCLogHomeViewController.h"
+#import "TCMirrorHomeViewController.h"
+
 @interface TCTabBarController ()
 
 @end
@@ -37,9 +41,36 @@
     UIImage *serverIcon = [[UIImage imageNamed:@"tabbar_server"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     serverHomeNav.tabBarItem.image = serverIcon;
     serverHomeNav.tabBarItem.selectedImage = serverSelIcon;
-    serverHomeNav.tabBarItem.title = @"服务器";
+    serverHomeNav.tabBarItem.title = @"主机/集群";
     [self addChildViewController:serverHomeNav];
     
+    TCServiceHomeViewController *serviceHomeVC = [TCServiceHomeViewController new];
+    UINavigationController *serviceHomeNav = [[UINavigationController alloc] initWithRootViewController:serviceHomeVC];
+    UIImage *serviceSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
+    UIImage *serviceIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    serviceHomeNav.tabBarItem.image = serviceIcon;
+    serviceHomeNav.tabBarItem.selectedImage = serviceSelIcon;
+    serviceHomeNav.tabBarItem.title = @"应用/服务";
+    [self addChildViewController:serviceHomeNav];
+    
+    TCLogHomeViewController *logHomeVC = [TCLogHomeViewController new];
+    UINavigationController *logNav = [[UINavigationController alloc] initWithRootViewController:logHomeVC];
+    UIImage *logSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
+    UIImage *logIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    logNav.tabBarItem.image = logIcon;
+    logNav.tabBarItem.selectedImage = logSelIcon;
+    logNav.tabBarItem.title = @"日志/事件";
+    [self addChildViewController:logNav];
+    
+    TCMirrorHomeViewController *mirrorHomeVC = [TCMirrorHomeViewController new];
+    UINavigationController *mirrorNav = [[UINavigationController alloc] initWithRootViewController:mirrorHomeVC];
+    UIImage *mirrorSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
+    UIImage *mirrorIcon = [[UIImage imageNamed:@"tabbar_project"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mirrorNav.tabBarItem.image = mirrorIcon;
+    mirrorNav.tabBarItem.selectedImage = mirrorSelIcon;
+    mirrorNav.tabBarItem.title = @"镜像";
+    [self addChildViewController:mirrorNav];
+    /*
     TCProjectHomeViewController *projectHomeVC = [TCProjectHomeViewController new];
     UINavigationController *projectHomeNav = [[UINavigationController alloc] initWithRootViewController:projectHomeVC];
     UIImage *projectSelIcon = [UIImage imageNamed:@"tabbar_project_selected"];
@@ -66,7 +97,7 @@
     discoverHomeNav.tabBarItem.selectedImage = discoverSelIcon;
     discoverHomeNav.tabBarItem.title = @"发现";
     [self addChildViewController:discoverHomeNav];
-    
+    */
     
     UIViewController *mineHomeVC = nil;
     TCCurrentCorp *corp = [TCCurrentCorp shared];

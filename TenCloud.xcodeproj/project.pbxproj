@@ -47,6 +47,12 @@
 		A00AFF90200C90F000EFADF6 /* TCInviteSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */; };
 		A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */; };
 		A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */; };
+		A0142C9D205187FB00DC843D /* TCServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */; };
+		A0142C9E205187FB00DC843D /* TCServiceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142C9C205187FB00DC843D /* TCServiceHomeViewController.xib */; };
+		A0142CA22051891000DC843D /* TCLogHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142CA02051891000DC843D /* TCLogHomeViewController.m */; };
+		A0142CA32051891000DC843D /* TCLogHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142CA12051891000DC843D /* TCLogHomeViewController.xib */; };
+		A0142CAA20518A1D00DC843D /* TCMirrorHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142CA820518A1D00DC843D /* TCMirrorHomeViewController.m */; };
+		A0142CAB20518A1D00DC843D /* TCMirrorHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142CA920518A1D00DC843D /* TCMirrorHomeViewController.xib */; };
 		A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */; };
 		A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */; };
 		A019A7271FFB5F6300216660 /* TCTemplateListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7251FFB5F6300216660 /* TCTemplateListRequest.m */; };
@@ -496,6 +502,15 @@
 		A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteSuccessViewController.xib; sourceTree = "<group>"; };
 		A00AFF93200CA39C00EFADF6 /* TCCompleteInviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCompleteInviteRequest.h; sourceTree = "<group>"; };
 		A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCompleteInviteRequest.m; sourceTree = "<group>"; };
+		A0142C9A205187FB00DC843D /* TCServiceHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServiceHomeViewController.h; sourceTree = "<group>"; };
+		A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServiceHomeViewController.m; sourceTree = "<group>"; };
+		A0142C9C205187FB00DC843D /* TCServiceHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServiceHomeViewController.xib; sourceTree = "<group>"; };
+		A0142C9F2051891000DC843D /* TCLogHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCLogHomeViewController.h; sourceTree = "<group>"; };
+		A0142CA02051891000DC843D /* TCLogHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCLogHomeViewController.m; sourceTree = "<group>"; };
+		A0142CA12051891000DC843D /* TCLogHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLogHomeViewController.xib; sourceTree = "<group>"; };
+		A0142CA720518A1D00DC843D /* TCMirrorHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMirrorHomeViewController.h; sourceTree = "<group>"; };
+		A0142CA820518A1D00DC843D /* TCMirrorHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMirrorHomeViewController.m; sourceTree = "<group>"; };
+		A0142CA920518A1D00DC843D /* TCMirrorHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMirrorHomeViewController.xib; sourceTree = "<group>"; };
 		A019A7081FFB31E100216660 /* TCTemplateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewController.h; sourceTree = "<group>"; };
 		A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTemplateTableViewController.m; sourceTree = "<group>"; };
 		A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTemplateTableViewController.xib; sourceTree = "<group>"; };
@@ -1256,6 +1271,84 @@
 			path = request;
 			sourceTree = "<group>";
 		};
+		A0142C942051879E00DC843D /* log */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C952051879E00DC843D /* home */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		A0142C952051879E00DC843D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C962051879E00DC843D /* controller */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A0142C962051879E00DC843D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C9F2051891000DC843D /* TCLogHomeViewController.h */,
+				A0142CA02051891000DC843D /* TCLogHomeViewController.m */,
+				A0142CA12051891000DC843D /* TCLogHomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0142C972051879F00DC843D /* service */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C982051879F00DC843D /* home */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		A0142C982051879F00DC843D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C992051879F00DC843D /* controller */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A0142C992051879F00DC843D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0142C9A205187FB00DC843D /* TCServiceHomeViewController.h */,
+				A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */,
+				A0142C9C205187FB00DC843D /* TCServiceHomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0142CA420518A0400DC843D /* mirror */ = {
+			isa = PBXGroup;
+			children = (
+				A0142CA520518A0400DC843D /* home */,
+			);
+			path = mirror;
+			sourceTree = "<group>";
+		};
+		A0142CA520518A0400DC843D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A0142CA620518A0400DC843D /* controller */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A0142CA620518A0400DC843D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0142CA720518A1D00DC843D /* TCMirrorHomeViewController.h */,
+				A0142CA820518A1D00DC843D /* TCMirrorHomeViewController.m */,
+				A0142CA920518A1D00DC843D /* TCMirrorHomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		A019A7001FFB302D00216660 /* list */ = {
 			isa = PBXGroup;
 			children = (
@@ -1382,6 +1475,9 @@
 		A02554D21FD67FD400D16D22 /* TenCloud */ = {
 			isa = PBXGroup;
 			children = (
+				A0142CA420518A0400DC843D /* mirror */,
+				A0142C942051879E00DC843D /* log */,
+				A0142C972051879F00DC843D /* service */,
 				A025553B1FD7C6A100D16D22 /* server */,
 				A025553C1FD7C6A200D16D22 /* discover */,
 				A025553A1FD7C6A100D16D22 /* mine */,
@@ -4174,6 +4270,7 @@
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
+				A0142CA32051891000DC843D /* TCLogHomeViewController.xib in Resources */,
 				A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */,
 				A0C3630F2004D27D0033C99C /* TCShareViewController.xib in Resources */,
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
@@ -4207,6 +4304,7 @@
 				A088F94D202B01C4005A97DD /* TCPermissionTemplateCell.xib in Resources */,
 				A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */,
 				A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */,
+				A0142CAB20518A1D00DC843D /* TCMirrorHomeViewController.xib in Resources */,
 				A088F948202AE731005A97DD /* TCProjectPermTableViewController.xib in Resources */,
 				A0A86B161FF33FF500D1D58D /* TCAccountSecurityViewController.xib in Resources */,
 				A02CA8772001B2A300BD00C5 /* TCPermissionTableViewController.xib in Resources */,
@@ -4221,6 +4319,7 @@
 				A033986E20206AC800CF8630 /* TCHistoryTimeFilterViewController.xib in Resources */,
 				A02CA8792001B2A300BD00C5 /* TCPermissionViewController.xib in Resources */,
 				A02C235D204FDEAC00F709B7 /* TCServerProfileViewController.xib in Resources */,
+				A0142C9E205187FB00DC843D /* TCServiceHomeViewController.xib in Resources */,
 				A088F93E202AD27D005A97DD /* TCFilePermTableViewController.xib in Resources */,
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
@@ -4442,6 +4541,7 @@
 				A0A124E120514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m in Sources */,
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
+				A0142CA22051891000DC843D /* TCLogHomeViewController.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
 				A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */,
 				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
@@ -4504,6 +4604,7 @@
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */,
 				A0A0B5BB2002728100EA8512 /* TCButtonTableViewCell.m in Sources */,
+				A0142C9D205187FB00DC843D /* TCServiceHomeViewController.m in Sources */,
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A062773C202199AD00FF7E30 /* TCInviteJoinedViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
@@ -4661,6 +4762,7 @@
 				A038C478202FCDF400C20A04 /* TCAddServerManager.m in Sources */,
 				A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */,
 				A07DBE991FE15B4A00F37715 /* TCSpacingTextField.m in Sources */,
+				A0142CAA20518A1D00DC843D /* TCMirrorHomeViewController.m in Sources */,
 				A07DBE351FDFA92200F37715 /* TCServerConfig+CoreDataProperties.m in Sources */,
 				A06D120A1FEAB2A700722C76 /* TCServerSearchRequest.m in Sources */,
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
