@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="TCClusterProvider" representedClassName="TCClusterProvider" syncable="YES">
         <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="regions" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -169,6 +169,14 @@
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCSystemLoad" representedClassName="TCSystemLoad" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fifteen_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="five_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="login_users" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="one_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="run_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCTemplate" representedClassName="TCTemplate" syncable="YES">
         <attribute name="access_filehub" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="access_projects" optional="YES" attributeType="String" syncable="YES"/>
@@ -218,5 +226,6 @@
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="135"/>
     </elements>
 </model>

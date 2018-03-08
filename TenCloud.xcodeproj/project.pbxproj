@@ -29,6 +29,7 @@
 		A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA581FDEB29E008328B0 /* FOLoadingView.m */; };
 		A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A001FA591FDEB29E008328B0 /* FOLoadingView.xib */; };
 		A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */; };
+		A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0068E9F2050231100DE656C /* TCTimeTagLabel.m */; };
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
 		A007037E1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */; };
@@ -273,6 +274,10 @@
 		A0A0E8CF20246B4B00265920 /* TCServerSummary+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CC20246B4B00265920 /* TCServerSummary+CoreDataClass.m */; };
 		A0A0E8D020246B4B00265920 /* TCServerSummary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */; };
 		A0A0E8D320246B7100265920 /* TCServerSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */; };
+		A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */; };
+		A0A124E020514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DD20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m */; };
+		A0A124E120514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DF20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m */; };
+		A0A124E420514D4300E1FF7E /* TCSystemLoadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124E220514D4300E1FF7E /* TCSystemLoadRequest.m */; };
 		A0A18810202F0769007D3C95 /* TCLogoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A1880E202F0769007D3C95 /* TCLogoutRequest.m */; };
 		A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A86B091FF33FD400D1D58D /* TCSettingViewController.m */; };
 		A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A86B0A1FF33FD400D1D58D /* TCSettingViewController.xib */; };
@@ -461,6 +466,8 @@
 		A001FA591FDEB29E008328B0 /* FOLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FOLoadingView.xib; sourceTree = "<group>"; };
 		A001FA5A1FDEB29E008328B0 /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
+		A0068E9F2050231100DE656C /* TCTimeTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeTagLabel.m; sourceTree = "<group>"; };
+		A0068EA02050231100DE656C /* TCTimeTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeTagLabel.h; sourceTree = "<group>"; };
 		A00703781FE79A5000F232D7 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
 		A00703791FE79A5000F232D7 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		A007037C1FE7E6D300F232D7 /* TCGeetestCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGeetestCaptchaRequest.m; sourceTree = "<group>"; };
@@ -888,6 +895,14 @@
 		A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSummary+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A0A0E8D120246B7100265920 /* TCServerSummaryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSummaryRequest.h; sourceTree = "<group>"; };
 		A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerSummaryRequest.m; sourceTree = "<group>"; };
+		A0A124D32051158A00E1FF7E /* TCAutoScaleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAutoScaleLabel.h; sourceTree = "<group>"; };
+		A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAutoScaleLabel.m; sourceTree = "<group>"; };
+		A0A124DC20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCSystemLoad+CoreDataClass.h"; sourceTree = "<group>"; };
+		A0A124DD20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCSystemLoad+CoreDataClass.m"; sourceTree = "<group>"; };
+		A0A124DE20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCSystemLoad+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A0A124DF20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCSystemLoad+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A0A124E220514D4300E1FF7E /* TCSystemLoadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSystemLoadRequest.m; sourceTree = "<group>"; };
+		A0A124E320514D4300E1FF7E /* TCSystemLoadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSystemLoadRequest.h; sourceTree = "<group>"; };
 		A0A1880E202F0769007D3C95 /* TCLogoutRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLogoutRequest.m; sourceTree = "<group>"; };
 		A0A1880F202F0769007D3C95 /* TCLogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLogoutRequest.h; sourceTree = "<group>"; };
 		A0A86B081FF33FD400D1D58D /* TCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingViewController.h; sourceTree = "<group>"; };
@@ -2142,6 +2157,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A0A124D22051157200E1FF7E /* label */,
 				A0906E5D20288DB1006D30C8 /* alertController */,
 				A073F9B42018C08D00AB03DA /* refresh */,
 				A0A86B261FF37F2600D1D58D /* result */,
@@ -2281,6 +2297,10 @@
 		A02C2357204FD85B00F709B7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0A124DC20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.h */,
+				A0A124DD20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m */,
+				A0A124DE20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.h */,
+				A0A124DF20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2288,6 +2308,8 @@
 		A02C2358204FD85B00F709B7 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0A124E320514D4300E1FF7E /* TCSystemLoadRequest.h */,
+				A0A124E220514D4300E1FF7E /* TCSystemLoadRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -2295,6 +2317,8 @@
 		A02C2359204FD85B00F709B7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0068EA02050231100DE656C /* TCTimeTagLabel.h */,
+				A0068E9F2050231100DE656C /* TCTimeTagLabel.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3187,6 +3211,15 @@
 				A0A0B5BA2002728100EA8512 /* TCButtonTableViewCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		A0A124D22051157200E1FF7E /* label */ = {
+			isa = PBXGroup;
+			children = (
+				A0A124D32051158A00E1FF7E /* TCAutoScaleLabel.h */,
+				A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */,
+			);
+			path = label;
 			sourceTree = "<group>";
 		};
 		A0A86B061FF33FD400D1D58D /* home */ = {
@@ -4406,6 +4439,7 @@
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
 				A0B7140C2006E50A00BE9FCA /* TCGetInviteURLRequest.m in Sources */,
 				A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */,
+				A0A124E120514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m in Sources */,
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
@@ -4497,6 +4531,7 @@
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A0D58819200E482E00104ED9 /* TCMessageCountRequest.m in Sources */,
 				A07DBE2E1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataClass.m in Sources */,
+				A0A124E020514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m in Sources */,
 				A0A86B951FF4EFB100D1D58D /* TCModifyCorpProfileRequest.m in Sources */,
 				A0C9A0A91FF14B4E00F94E9E /* UIImage+Saving.m in Sources */,
 				A031B61C1FFE0FF400B4F448 /* TCStaffTableViewController.m in Sources */,
@@ -4513,6 +4548,7 @@
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */,
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
+				A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */,
 				A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */,
 				A0884A2720066932004F5010 /* TCShareManager.m in Sources */,
 				A088F939202AC894005A97DD /* TCFilePermTableViewCell.m in Sources */,
@@ -4590,6 +4626,7 @@
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A0D5882B200ED62C00104ED9 /* TCMessageTableViewCell.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
+				A0A124E420514D4300E1FF7E /* TCSystemLoadRequest.m in Sources */,
 				A0A86B851FF49D0000D1D58D /* TCCorpHomeViewController.m in Sources */,
 				A0A86B771FF3EC0900D1D58D /* TCAccountMenuViewController.m in Sources */,
 				A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */,
@@ -4675,6 +4712,7 @@
 				A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */,
 				A0C362F92004504A0033C99C /* TCJoinSettingItem.m in Sources */,
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,
+				A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,

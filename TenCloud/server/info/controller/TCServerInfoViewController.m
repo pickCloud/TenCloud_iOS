@@ -67,6 +67,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //self.title = @"  主机名称  ";
+    
     _configArray = [NSMutableArray new];
     UINib *configCellNib = [UINib nibWithNibName:@"TCServerConfigTableViewCell" bundle:nil];
     [_tableView registerNib:configCellNib forCellReuseIdentifier:SERVER_CONFIG_CELL_REUSE_ID];
@@ -78,7 +80,7 @@
     [_buttonTableView registerNib:buttonCellNib forCellReuseIdentifier:SERVER_BUTTON_CELL_ID];
     _tableView.tableFooterView = _buttonTableView;
     
-    [self startLoading];
+    [self startLoadingWithBackgroundColor:YES];
     __weak __typeof(self) weakSelf = self;
     TCServerConfigRequest *request = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(TCServerConfig *config) {
@@ -107,6 +109,7 @@
         [_configArray addObject:item5];
         [_configArray addObject:item6];
         [weakSelf.tableView reloadData];
+        weakSelf.title = name;
         
         TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
         [statusReq startWithSuccess:^(NSString *status) {

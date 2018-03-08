@@ -153,6 +153,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
+    
     /*
     TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
     [self.navigationController pushViewController:detailVC animated:YES];
