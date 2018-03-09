@@ -737,13 +737,13 @@
                             <color key="textColor" red="0.84705882349999995" green="0.35686274509999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="px0-Op-9TO">
-                            <rect key="frame" x="155" y="676" width="205" height="25"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="px0-Op-9TO">
+                            <rect key="frame" x="180.5" y="676" width="179.5" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="px0-Op-9TO" secondAttribute="height" multiplier="41:5" id="R7P-DX-2CO"/>
+                                <constraint firstAttribute="width" secondItem="px0-Op-9TO" secondAttribute="height" multiplier="179:24" id="Cgk-Gr-IC1"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zk9-SK-jS8">
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zk9-SK-jS8">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -796,7 +796,7 @@
                         <constraint firstItem="aJ1-Ef-YpU" firstAttribute="centerX" secondItem="pQr-NI-LeN" secondAttribute="centerX" id="aRB-SY-tD5"/>
                         <constraint firstItem="gvN-NP-u4n" firstAttribute="top" secondItem="I5v-C9-eYC" secondAttribute="bottom" constant="27" id="cPN-jD-aiD"/>
                         <constraint firstItem="bzL-Ha-UR0" firstAttribute="width" secondItem="lZE-u8-XR6" secondAttribute="width" id="eg3-g5-vPO"/>
-                        <constraint firstItem="px0-Op-9TO" firstAttribute="width" secondItem="pQr-NI-LeN" secondAttribute="width" multiplier="0.5942" id="fB5-dH-BNe"/>
+                        <constraint firstItem="px0-Op-9TO" firstAttribute="width" secondItem="pQr-NI-LeN" secondAttribute="width" multiplier="0.52" id="fB5-dH-BNe"/>
                         <constraint firstItem="px0-Op-9TO" firstAttribute="trailing" secondItem="pQr-NI-LeN" secondAttribute="trailing" id="fkb-85-o5c"/>
                         <constraint firstItem="fgI-jD-1vH" firstAttribute="width" secondItem="pQr-NI-LeN" secondAttribute="width" id="h87-hT-mJI"/>
                         <constraint firstAttribute="trailing" secondItem="lZE-u8-XR6" secondAttribute="trailing" constant="15" id="hf3-Y9-6kP"/>

@@ -28,8 +28,8 @@
     self = [super init];
     if (self){
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
-        self.minimumLineSpacing = 18;
-        self.minimumInteritemSpacing = 8;
+        self.minimumLineSpacing = 5;//18;
+        self.minimumInteritemSpacing = betweenOfCell;//8;
         self.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
         _betweenOfCell = betweenOfCell;
         _cellType = cellType;
@@ -37,6 +37,8 @@
     return self;
 }
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSLog(@"layout elements in rect:%.2f,%.2f,%.2f,%.2f",rect.origin.x,
+          rect.origin.y,rect.size.width,rect.size.height);
     NSArray * layoutAttributes_t = [super layoutAttributesForElementsInRect:rect];
     NSArray * layoutAttributes = [[NSArray alloc]initWithArray:layoutAttributes_t copyItems:YES];
     //用来临时存放一行的Cell数组
@@ -51,18 +53,22 @@
         //加入临时数组
         [layoutAttributesTemp addObject:currentAttr];
         _sumCellWidth += currentAttr.frame.size.width;
+        NSLog(@"add attr%d: %@",index, layoutAttributes);
         
         CGFloat previousY = previousAttr == nil ? 0 : CGRectGetMaxY(previousAttr.frame);
         CGFloat currentY = CGRectGetMaxY(currentAttr.frame);
         CGFloat nextY = nextAttr == nil ? 0 : CGRectGetMaxY(nextAttr.frame);
+        NSLog(@"preY:%.2f curY:%.2f nextY:%.2f",previousY,currentY, nextY);
         //如果当前cell是单独一行
         if (currentY != previousY && currentY != nextY){
             if ([currentAttr.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]) {
                 [layoutAttributesTemp removeAllObjects];
+                NSLog(@"header remove attr%d curY%ld preY%ld nextY%ld",index,currentY,previousY,nextY);
                 _sumCellWidth = 0.0;
             }else if ([currentAttr.representedElementKind isEqualToString:UICollectionElementKindSectionFooter]){
                 [layoutAttributesTemp removeAllObjects];
                 _sumCellWidth = 0.0;
+                NSLog(@"footer remove attr%d curY%ld preY%ld nextY%ld",index,currentY,previousY,nextY);
             }else{
                 [self setCellFrameWith:layoutAttributesTemp];
             }
@@ -70,6 +76,7 @@
         //如果下一个cell在本行，这开始调整Frame位置
         else if( currentY != nextY) {
             [self setCellFrameWith:layoutAttributesTemp];
+            NSLog(@"go to next row");
         }
     }
     return layoutAttributes;
@@ -110,6 +117,7 @@
                 nowFrame.origin.x = nowWidth - nowFrame.size.width;
                 attributes.frame = nowFrame;
                 nowWidth = nowWidth - nowFrame.size.width - _betweenOfCell;
+                NSLog(@"jy%d x:%.2f",index,nowFrame.origin.x);
             }
             _sumCellWidth = 0.0;
             [layoutAttributes removeAllObjects];

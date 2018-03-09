@@ -563,7 +563,16 @@
     
     UINib *periodCell = [UINib nibWithNibName:@"TCTimePeriodCell" bundle:nil];
     [_periodCollectionView registerNib:periodCell forCellWithReuseIdentifier:SERVER_PROFILE_PERIOD_CELL_ID];
-    JYEqualCellSpaceFlowLayout *areaLayout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithRight betweenOfCell:15.0];
+    
+    UICollectionViewFlowLayout *areaLayout = nil;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0)
+    {
+        areaLayout = [[UICollectionViewFlowLayout alloc] init];
+    }else
+    {
+        areaLayout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithRight betweenOfCell:15.0];
+    }
+    //areaLayout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithRight betweenOfCell:15.0];
     areaLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     [_periodCollectionView setCollectionViewLayout:areaLayout];
     [_periodCollectionView setAllowsMultipleSelection:NO];
