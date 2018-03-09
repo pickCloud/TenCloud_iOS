@@ -109,7 +109,6 @@
         [_configArray addObject:item5];
         [_configArray addObject:item6];
         [weakSelf.tableView reloadData];
-        weakSelf.title = name;
         
         TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
         [statusReq startWithSuccess:^(NSString *status) {
@@ -392,7 +391,7 @@
     modifyVC.valueChangedBlock = ^(TCModifyTextViewController *vc, id newValue) {
         TCServerInfoItem *nameItem = weakSelf.configArray.firstObject;
         nameItem.value = newValue;
-        weakSelf.parentViewController.title = newValue;
+        //weakSelf.parentViewController.title = newValue;
         weakSelf.config.basic_info.name = newValue;
         [weakSelf.tableView reloadData];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_SERVER object:nil];

@@ -8,7 +8,6 @@
 
 #import "TCServerListViewController.h"
 #import "TCServerTableViewCell.h"
-#import "TCServerDetailViewController.h"
 #import "TCServerSearchRequest.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "TCAddServerViewController.h"
@@ -16,6 +15,7 @@
 #import "TCConfiguration.h"
 #import "TCServer+CoreDataClass.h"
 #import "TCSearchFilterViewController.h"
+#import "TCServerProfileViewController.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,TCDataSyncDelegate>
@@ -130,8 +130,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
-    TCServerDetailViewController *detailVC = [[TCServerDetailViewController alloc] initWithServerID:server.serverID name:server.name];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    TCServerProfileViewController *profileVC = [[TCServerProfileViewController alloc] initWithID:server.serverID];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 #pragma mark - Text Field Delegate

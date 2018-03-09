@@ -70,6 +70,7 @@
 @property (nonatomic, strong) NSMutableArray    *diskPoints;
 @property (nonatomic, strong) NSMutableArray    *netOutputPoints;
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
+- (void) reloadConfigData;
 - (void) reloadChartData;
 - (void) initChartUI;
 - (void) initMonitorPeriodUI;
@@ -115,13 +116,14 @@
     [self reloadChartData];
     
     __weak __typeof(self) weakSelf = self;
-    TCServerConfigRequest *configReq = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
-    [configReq startWithSuccess:^(TCServerConfig *config) {
-        weakSelf.config = config;
-        [weakSelf updateConfigUI];
-    } failure:^(NSString *message) {
-        NSLog(@"server config fail:%@",message);
-    }];
+    [self reloadConfigData];
+//    TCServerConfigRequest *configReq = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
+//    [configReq startWithSuccess:^(TCServerConfig *config) {
+//        weakSelf.config = config;
+//        [weakSelf updateConfigUI];
+//    } failure:^(NSString *message) {
+//        NSLog(@"server config fail:%@",message);
+//    }];
     
     TCSystemLoadRequest *loadReq = [[TCSystemLoadRequest alloc] initWithServerID:_serverID];
     [loadReq startWithSuccess:^(TCSystemLoad *sysLoad) {
@@ -130,6 +132,11 @@
     } failure:^(NSString *message) {
         
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadConfigData)
+                                                 name:NOTIFICATION_MODIFY_SERVER
+                                               object:nil];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -148,6 +155,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 #pragma mark - WYLineChartViewDelegate
@@ -407,6 +418,18 @@
 
 
 #pragma mark - extension
+- (void) reloadConfigData
+{
+    __weak __typeof(self) weakSelf = self;
+    TCServerConfigRequest *configReq = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
+    [configReq startWithSuccess:^(TCServerConfig *config) {
+        weakSelf.config = config;
+        [weakSelf updateConfigUI];
+    } failure:^(NSString *message) {
+        NSLog(@"server config fail:%@",message);
+    }];
+}
+
 - (void) reloadChartData
 {
     NSInteger endTime = [[NSDate date] timeIntervalSince1970];
@@ -707,7 +730,7 @@
 - (IBAction) onInfoButton:(id)sender
 {
     TCServerInfoViewController *infoVC = [[TCServerInfoViewController alloc] initWithServerID:_serverID];
-    infoVC.title = _config.basic_info.name;
+    infoVC.title = @"基本信息";
     [self.navigationController pushViewController:infoVC animated:YES];
 }
 
@@ -749,7 +772,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return _periodMenuOptions.count;
-    //return _templateArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
