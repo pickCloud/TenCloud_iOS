@@ -29,6 +29,7 @@
 #import "TCAlertController.h"
 #import "TCTimePeriodCell.h"
 #import "JYEqualCellSpaceFlowLayout.h"
+#import "TCServerStatusLabel.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
 
@@ -40,6 +41,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView         *iconView;
 @property (nonatomic, weak) IBOutlet    UILabel             *ipLabel;
+@property (nonatomic, weak) IBOutlet    TCServerStatusLabel *statusLabel;
 //资源概况
 @property (nonatomic, weak) IBOutlet    UILabel             *systemTimeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *runTimeLabel;
@@ -667,6 +669,7 @@
         iconImage = [UIImage imageNamed:@"server_type_tencentyun"];
     }
     [_iconView setImage:iconImage];
+    [_statusLabel setStatus:_config.basic_info.machine_status];
     
     TCServerSystemConfig *sysConfig = _config.system_info.config;
     _systemNameLabel.text = sysConfig.os_name;

@@ -53,6 +53,7 @@
 		A0142CA32051891000DC843D /* TCLogHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142CA12051891000DC843D /* TCLogHomeViewController.xib */; };
 		A0142CAA20518A1D00DC843D /* TCMirrorHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142CA820518A1D00DC843D /* TCMirrorHomeViewController.m */; };
 		A0142CAB20518A1D00DC843D /* TCMirrorHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142CA920518A1D00DC843D /* TCMirrorHomeViewController.xib */; };
+		A018E7B32052836E00C3CB96 /* TCServerStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A018E7B22052836E00C3CB96 /* TCServerStatusLabel.m */; };
 		A019A70B1FFB31E100216660 /* TCTemplateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */; };
 		A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */; };
 		A019A7271FFB5F6300216660 /* TCTemplateListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A019A7251FFB5F6300216660 /* TCTemplateListRequest.m */; };
@@ -515,6 +516,8 @@
 		A0142CA720518A1D00DC843D /* TCMirrorHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMirrorHomeViewController.h; sourceTree = "<group>"; };
 		A0142CA820518A1D00DC843D /* TCMirrorHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMirrorHomeViewController.m; sourceTree = "<group>"; };
 		A0142CA920518A1D00DC843D /* TCMirrorHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCMirrorHomeViewController.xib; sourceTree = "<group>"; };
+		A018E7B12052836E00C3CB96 /* TCServerStatusLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatusLabel.h; sourceTree = "<group>"; };
+		A018E7B22052836E00C3CB96 /* TCServerStatusLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatusLabel.m; sourceTree = "<group>"; };
 		A019A7081FFB31E100216660 /* TCTemplateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCTemplateTableViewController.h; sourceTree = "<group>"; };
 		A019A7091FFB31E100216660 /* TCTemplateTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTemplateTableViewController.m; sourceTree = "<group>"; };
 		A019A70A1FFB31E100216660 /* TCTemplateTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTemplateTableViewController.xib; sourceTree = "<group>"; };
@@ -2429,6 +2432,8 @@
 				A0B7FFE020526F47007A7A93 /* TCTimePeriodCell.xib */,
 				A0068EA02050231100DE656C /* TCTimeTagLabel.h */,
 				A0068E9F2050231100DE656C /* TCTimeTagLabel.m */,
+				A018E7B12052836E00C3CB96 /* TCServerStatusLabel.h */,
+				A018E7B22052836E00C3CB96 /* TCServerStatusLabel.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4638,6 +4643,7 @@
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A073F9BF2018C0B300AB03DA /* TCTextRefreshAutoFooter.m in Sources */,
 				A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */,
+				A018E7B32052836E00C3CB96 /* TCServerStatusLabel.m in Sources */,
 				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
 				A0C9A0691FF0D07800F94E9E /* TCCellData.m in Sources */,

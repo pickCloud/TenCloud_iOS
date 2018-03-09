@@ -33,6 +33,7 @@
                 <outlet property="oneMinLabel" destination="hne-sL-xOz" id="2fA-gp-OVX"/>
                 <outlet property="periodCollectionView" destination="px0-Op-9TO" id="Xyr-oo-j3D"/>
                 <outlet property="runTimeLabel" destination="JEx-0Y-o18" id="1ph-89-dVy"/>
+                <outlet property="statusLabel" destination="nle-2D-HmL" id="FGi-kg-glc"/>
                 <outlet property="storageDescLabel" destination="K42-T5-c3D" id="cqe-tk-XF0"/>
                 <outlet property="systemNameLabel" destination="Ypd-fn-3pP" id="5xT-Dp-YYo"/>
                 <outlet property="systemTimeLabel" destination="AEQ-ya-s5g" id="9A8-gA-8Wi"/>
@@ -83,6 +84,12 @@
                                         <action selector="onInfoButton:" destination="-1" eventType="touchUpInside" id="riJ-fQ-x0Z"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运行中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nle-2D-HmL" customClass="TCServerStatusLabel">
+                                    <rect key="frame" x="123" y="45" width="31" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -91,10 +98,12 @@
                                 <constraint firstItem="XpF-ba-gyQ" firstAttribute="centerY" secondItem="pwG-JM-xkL" secondAttribute="centerY" id="Mid-kg-vmm"/>
                                 <constraint firstItem="ZAM-nb-KEf" firstAttribute="top" secondItem="Elz-2m-Wp9" secondAttribute="top" constant="12" id="NPP-VH-TlU"/>
                                 <constraint firstItem="ZAM-nb-KEf" firstAttribute="centerX" secondItem="Elz-2m-Wp9" secondAttribute="centerX" id="UYJ-iC-MJ3"/>
+                                <constraint firstItem="nle-2D-HmL" firstAttribute="centerY" secondItem="RAv-Y7-tDj" secondAttribute="centerY" id="WqZ-Qt-epl"/>
                                 <constraint firstItem="njf-XB-6MY" firstAttribute="centerY" secondItem="RAv-Y7-tDj" secondAttribute="centerY" id="YpZ-Tu-llo"/>
                                 <constraint firstItem="pwG-JM-xkL" firstAttribute="width" secondItem="Elz-2m-Wp9" secondAttribute="width" multiplier="0.032" id="Zyt-K3-4eJ"/>
                                 <constraint firstItem="pwG-JM-xkL" firstAttribute="leading" secondItem="RAv-Y7-tDj" secondAttribute="leading" id="aBL-nn-0Vz"/>
                                 <constraint firstItem="ZAM-nb-KEf" firstAttribute="width" secondItem="Elz-2m-Wp9" secondAttribute="width" multiplier="0.92" id="bSA-3Z-H6S"/>
+                                <constraint firstItem="nle-2D-HmL" firstAttribute="leading" secondItem="RAv-Y7-tDj" secondAttribute="trailing" constant="12" id="dcd-IG-3jH"/>
                                 <constraint firstItem="pwG-JM-xkL" firstAttribute="centerY" secondItem="Elz-2m-Wp9" secondAttribute="centerY" multiplier="1.5" id="hkF-bs-q7F"/>
                                 <constraint firstAttribute="width" secondItem="Elz-2m-Wp9" secondAttribute="height" multiplier="375:100" id="kis-5p-oez"/>
                                 <constraint firstItem="RAv-Y7-tDj" firstAttribute="leading" secondItem="ZAM-nb-KEf" secondAttribute="leading" id="oHM-4L-gGK"/>
@@ -199,7 +208,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5分钟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJ0-aQ-iPs" customClass="TCTimeTagLabel">
-                                            <rect key="frame" x="155" y="146" width="36" height="12"/>
+                                            <rect key="frame" x="152" y="145" width="42" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="xJ0-aQ-iPs" secondAttribute="height" multiplier="42:14" id="6IV-Qw-xMA"/>
                                             </constraints>
@@ -207,8 +216,8 @@
                                             <color key="textColor" red="0.32549019610000002" green="0.36470588240000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10分钟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21P-kd-DHW" customClass="TCTimeTagLabel">
-                                            <rect key="frame" x="258.5" y="146" width="36" height="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15分钟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21P-kd-DHW" customClass="TCTimeTagLabel">
+                                            <rect key="frame" x="255.5" y="145" width="42" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="21P-kd-DHW" secondAttribute="height" multiplier="42:14" id="DY5-h2-3Iw"/>
                                             </constraints>
@@ -227,14 +236,13 @@
                                         <constraint firstItem="BpA-40-Hb9" firstAttribute="centerX" secondItem="mEK-EJ-11W" secondAttribute="centerX" multiplier="1.602" id="5q0-Og-WGx"/>
                                         <constraint firstItem="21P-kd-DHW" firstAttribute="centerY" secondItem="uq6-d5-rud" secondAttribute="centerY" id="8G7-jU-qfb"/>
                                         <constraint firstItem="JEx-0Y-o18" firstAttribute="leading" secondItem="3M4-TW-VIn" secondAttribute="trailing" id="8Vc-rh-cOm"/>
-                                        <constraint firstItem="21P-kd-DHW" firstAttribute="width" secondItem="21P-kd-DHW" secondAttribute="height" multiplier="42:14" id="9RK-1F-gA3"/>
-                                        <constraint firstItem="21P-kd-DHW" firstAttribute="width" secondItem="21P-kd-DHW" secondAttribute="height" multiplier="42:14" id="Chb-Os-GAn"/>
                                         <constraint firstItem="aD4-th-4kH" firstAttribute="centerY" secondItem="gAI-AV-J73" secondAttribute="centerY" id="HmW-ZV-12U"/>
                                         <constraint firstItem="JEx-0Y-o18" firstAttribute="centerY" secondItem="3M4-TW-VIn" secondAttribute="centerY" id="KbX-ET-HKQ"/>
                                         <constraint firstItem="gAI-AV-J73" firstAttribute="leading" secondItem="AqM-RV-2dP" secondAttribute="leading" id="MAP-za-vkL"/>
                                         <constraint firstItem="gAI-AV-J73" firstAttribute="centerY" secondItem="mEK-EJ-11W" secondAttribute="centerY" multiplier="0.86" id="N3u-dN-mAS"/>
                                         <constraint firstItem="vRo-jj-6zK" firstAttribute="centerX" secondItem="mEK-EJ-11W" secondAttribute="centerX" id="OM6-mG-MyK"/>
                                         <constraint firstItem="Tp1-IM-UL8" firstAttribute="leading" secondItem="AqM-RV-2dP" secondAttribute="leading" id="Q5u-04-moJ"/>
+                                        <constraint firstItem="xJ0-aQ-iPs" firstAttribute="width" secondItem="uq6-d5-rud" secondAttribute="width" id="Tdt-Tf-ZYy"/>
                                         <constraint firstItem="aD4-th-4kH" firstAttribute="leading" secondItem="gAI-AV-J73" secondAttribute="trailing" id="Uhu-KO-PVQ"/>
                                         <constraint firstItem="3M4-TW-VIn" firstAttribute="centerY" secondItem="mEK-EJ-11W" secondAttribute="centerY" multiplier="0.556" id="Vdl-uM-0ou"/>
                                         <constraint firstItem="BpA-40-Hb9" firstAttribute="centerY" secondItem="hne-sL-xOz" secondAttribute="centerY" id="X3R-nM-IA1"/>
@@ -255,7 +263,7 @@
                                         <constraint firstItem="3M4-TW-VIn" firstAttribute="width" secondItem="AqM-RV-2dP" secondAttribute="width" id="o1g-52-72E"/>
                                         <constraint firstItem="uq6-d5-rud" firstAttribute="top" secondItem="hne-sL-xOz" secondAttribute="bottom" constant="6" id="oMu-0H-FGF"/>
                                         <constraint firstItem="f8b-OD-fJj" firstAttribute="leading" secondItem="Tp1-IM-UL8" secondAttribute="trailing" id="q6k-VM-I0B"/>
-                                        <constraint firstItem="xJ0-aQ-iPs" firstAttribute="width" secondItem="xJ0-aQ-iPs" secondAttribute="height" multiplier="42:14" id="xm5-Gc-YIm"/>
+                                        <constraint firstItem="21P-kd-DHW" firstAttribute="width" secondItem="uq6-d5-rud" secondAttribute="width" id="s6O-1Y-dCw"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
