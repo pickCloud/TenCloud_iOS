@@ -331,6 +331,8 @@
 		A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */; };
 		A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7FFD92052212F007A7A93 /* TCRightImageButton.m */; };
 		A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7FFDC205227FA007A7A93 /* TCRoundRectBorderLabel.m */; };
+		A0B7FFE120526F47007A7A93 /* TCTimePeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7FFDE20526F46007A7A93 /* TCTimePeriodCell.m */; };
+		A0B7FFE220526F47007A7A93 /* TCTimePeriodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B7FFE020526F47007A7A93 /* TCTimePeriodCell.xib */; };
 		A0B82EDA202DE96F00E93BC0 /* TCModifyServerNameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */; };
 		A0BD822F202CA2B00002B8C2 /* TCAddServerLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */; };
 		A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */; };
@@ -998,6 +1000,9 @@
 		A0B7FFD92052212F007A7A93 /* TCRightImageButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRightImageButton.m; sourceTree = "<group>"; };
 		A0B7FFDB205227FA007A7A93 /* TCRoundRectBorderLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRoundRectBorderLabel.h; sourceTree = "<group>"; };
 		A0B7FFDC205227FA007A7A93 /* TCRoundRectBorderLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRoundRectBorderLabel.m; sourceTree = "<group>"; };
+		A0B7FFDE20526F46007A7A93 /* TCTimePeriodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimePeriodCell.m; sourceTree = "<group>"; };
+		A0B7FFDF20526F46007A7A93 /* TCTimePeriodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimePeriodCell.h; sourceTree = "<group>"; };
+		A0B7FFE020526F47007A7A93 /* TCTimePeriodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCTimePeriodCell.xib; sourceTree = "<group>"; };
 		A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyServerNameRequest.m; sourceTree = "<group>"; };
 		A0B82ED9202DE96F00E93BC0 /* TCModifyServerNameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyServerNameRequest.h; sourceTree = "<group>"; };
 		A0BD822D202CA2B00002B8C2 /* TCAddServerLogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerLogView.h; sourceTree = "<group>"; };
@@ -2419,6 +2424,9 @@
 		A02C2359204FD85B00F709B7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0B7FFDF20526F46007A7A93 /* TCTimePeriodCell.h */,
+				A0B7FFDE20526F46007A7A93 /* TCTimePeriodCell.m */,
+				A0B7FFE020526F47007A7A93 /* TCTimePeriodCell.xib */,
 				A0068EA02050231100DE656C /* TCTimeTagLabel.h */,
 				A0068E9F2050231100DE656C /* TCTimeTagLabel.m */,
 			);
@@ -4351,6 +4359,7 @@
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
 				A031B62B1FFE259000B4F448 /* TCStaffTableViewCell.xib in Resources */,
+				A0B7FFE220526F47007A7A93 /* TCTimePeriodCell.xib in Resources */,
 				A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
@@ -4660,6 +4669,7 @@
 				A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */,
+				A0B7FFE120526F47007A7A93 /* TCTimePeriodCell.m in Sources */,
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */,
 				A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */,

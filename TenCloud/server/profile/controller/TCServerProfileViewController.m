@@ -27,8 +27,9 @@
 #import "TCSystemLoadRequest.h"
 #import "TCSystemLoad+CoreDataClass.h"
 #import "TCAlertController.h"
-#import "MKDropdownMenu.h"
-#import "ShapeSelectView.h"
+#import "TCTimePeriodCell.h"
+#import "JYEqualCellSpaceFlowLayout.h"
+#define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
 
 @interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource>
@@ -56,7 +57,7 @@
 //监控信息
 @property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
 @property (nonatomic, assign)   NSInteger           periodSelectedIndex;
-@property (nonatomic, weak) IBOutlet    MKDropdownMenu      *periodMenu;
+@property (nonatomic, weak) IBOutlet    UICollectionView    *periodCollectionView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *cpuChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *memoryChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *diskChartView;
@@ -68,7 +69,7 @@
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
 - (void) reloadChartData;
 - (void) initChartUI;
-- (void) initPeriodMenuUI;
+- (void) initMonitorPeriodUI;
 - (void) updateChartUI;
 - (void) updateConfigUI;
 - (void) updateSystemLoadUI;
@@ -105,7 +106,7 @@
     _netOutputPoints = [NSMutableArray new];
     _netInputPoints = [NSMutableArray new];
     
-    [self initPeriodMenuUI];
+    [self initMonitorPeriodUI];
     [self initChartUI];
     [self startLoadingWithBackgroundColor:YES];
     [self reloadChartData];
@@ -137,7 +138,6 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [_periodMenu closeAllComponentsAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -408,9 +408,17 @@
 {
     NSInteger endTime = [[NSDate date] timeIntervalSince1970];
     NSInteger startTime = endTime - 3600;
-    //startTime = endTime - 86400;  //24hour
-    //startTime = endTime - 604800;   //one week
-    startTime = endTime - 18144000;   //one month
+    if (_periodSelectedIndex == 1)
+    {
+        startTime = endTime - 86400;  //24hour
+    }else if(_periodSelectedIndex == 2)
+    {
+        startTime = endTime - 604800;   //one week
+    }else
+    {
+        startTime = endTime - 3600;
+    }
+    //startTime = endTime - 18144000;   //one month
     __weak __typeof(self) weakSelf = self;
     TCServerPerformanceRequest *request = [[TCServerPerformanceRequest alloc] initWithServerID:_serverID type:0 startTime:startTime endTime:endTime];
     [request startWithSuccess:^(TCServerPerformance *performance) {
@@ -519,27 +527,22 @@
     _netChartView.labelsColor = axisColor;
 }
 
-- (void) initPeriodMenuUI
+- (void) initMonitorPeriodUI
 {
     _periodMenuOptions = [NSMutableArray new];
-    [_periodMenuOptions addObject:@"1个小时"];
-    [_periodMenuOptions addObject:@"24个小时"];
+    [_periodMenuOptions addObject:@"1小时"];
+    [_periodMenuOptions addObject:@"24小时"];
     [_periodMenuOptions addObject:@"1周"];
-    [_periodMenuOptions addObject:@"1个月"];
     
-    UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
-    self.periodMenu.selectedComponentBackgroundColor = dropDownBgColor;
-    self.periodMenu.dropdownBackgroundColor = dropDownBgColor;
-    self.periodMenu.dropdownShowsTopRowSeparator = YES;
-    self.periodMenu.dropdownShowsBottomRowSeparator = NO;
-    self.periodMenu.dropdownShowsBorder = NO;
-    self.periodMenu.backgroundDimmingOpacity = 0.5;//0.05;
-    self.periodMenu.componentTextAlignment = NSTextAlignmentLeft;
-    self.periodMenu.dropdownCornerRadius = TCSCALE(4.0);
-    self.periodMenu.rowSeparatorColor = THEME_BACKGROUND_COLOR;
+    UINib *periodCell = [UINib nibWithNibName:@"TCTimePeriodCell" bundle:nil];
+    [_periodCollectionView registerNib:periodCell forCellWithReuseIdentifier:SERVER_PROFILE_PERIOD_CELL_ID];
+    JYEqualCellSpaceFlowLayout *areaLayout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithRight betweenOfCell:15.0];
+    areaLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    [_periodCollectionView setCollectionViewLayout:areaLayout];
+    [_periodCollectionView setAllowsMultipleSelection:NO];
     
-    UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
-    self.periodMenu.disclosureIndicatorImage = disclosureImg;
+    _periodSelectedIndex = 0;
+    [_periodCollectionView reloadData];
 }
 
 - (void) updateChartUI
@@ -729,76 +732,46 @@
 }
 
 
-#pragma mark - MKDropdownMenuDataSource
-
-- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu {
+#pragma mark - collection view delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return 1;
 }
 
-- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return _periodMenuOptions.count;
+    //return _templateArray.count;
 }
 
-#pragma mark - MKDropdownMenuDelegate
-
-- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
-    return TCSCALE(32);
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCTimePeriodCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SERVER_PROFILE_PERIOD_CELL_ID forIndexPath:indexPath];
+    NSString *periodName = [_periodMenuOptions objectAtIndex:indexPath.row];
+    [cell setName:periodName];
+    [cell setSelected:indexPath.row == _periodSelectedIndex];
+    return cell;
 }
 
-- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu widthForComponent:(NSInteger)component {
-    return MAX(dropdownMenu.bounds.size.width/3, 125);
-}
-
-- (BOOL)dropdownMenu:(MKDropdownMenu *)dropdownMenu shouldUseFullRowWidthForComponent:(NSInteger)component {
-    return NO;
-}
-
-- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
-    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
-    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
-                            NSForegroundColorAttributeName :THEME_PLACEHOLDER_COLOR
-                            };
-    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
-                                                              attributes:attr];
-    return str;
-}
-
-- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
-    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
-    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
-                            NSForegroundColorAttributeName :THEME_TEXT_COLOR
-                            };
-    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
-                                                              attributes:attr];
-    return str;
-}
-
-- (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    
-    ShapeSelectView *shapeSelectView = (ShapeSelectView *)view;
-    if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
-        shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *text = [_periodMenuOptions objectAtIndex:indexPath.row];
+    if (text == nil || text.length == 0)
+    {
+        text = @"默认";
     }
-    NSString *statusStr = self.periodMenuOptions[row];
-    shapeSelectView.textLabel.text = statusStr;
-    shapeSelectView.selected = _periodSelectedIndex == row;
-    return shapeSelectView;
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(kScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:TCFont(10.0)} context:nil].size;
+    return CGSizeMake(textSize.width + 8, textSize.height + 4);
 }
 
-- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self colorForRow:row];
-}
-
-- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    _periodSelectedIndex = row;
-    [dropdownMenu reloadComponent:component];
-    [dropdownMenu closeAllComponentsAnimated:YES];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    _periodSelectedIndex = indexPath.row;
+    [_periodCollectionView reloadData];
     [self reloadChartData];
 }
 
-- (UIColor *)colorForRow:(NSInteger)row {
-    return DROPDOWN_CELL_BG_COLOR;
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 @end
