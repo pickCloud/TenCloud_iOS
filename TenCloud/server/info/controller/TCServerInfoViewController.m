@@ -255,6 +255,7 @@
 
 - (IBAction) onDeleteButton:(id)sender
 {
+    __weak __typeof(self) weakSelf = self;
     NSString *title = @"确定删除这台服务器?";
     TCConfirmBlock block = ^(TCConfirmView *view){
         [MMProgressHUD showWithStatus:@"删除中"];
@@ -264,7 +265,16 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DEL_SERVER object:nil];
             [[TCEmptyPermission shared] reset];
             [[TCDataSync shared] permissionChanged];
-            [self.navigationController popViewControllerAnimated:YES];
+            
+            NSArray *oldVCS = weakSelf.navigationController.viewControllers;
+            NSMutableArray *newVCS = [NSMutableArray arrayWithArray:oldVCS];
+            if (newVCS.count > 2)
+            {
+                [newVCS removeLastObject];
+                [newVCS removeLastObject];
+            }
+            [weakSelf.navigationController setViewControllers:newVCS animated:YES];
+            //[self.navigationController popViewControllerAnimated:YES];
             [MMProgressHUD dismissWithSuccess:@"删除成功" title:nil afterDelay:1.5];
         } failure:^(NSString *message) {
             [MMProgressHUD dismissWithError:message];
