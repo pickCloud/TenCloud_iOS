@@ -329,6 +329,8 @@
 		A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7141D2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m */; };
 		A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */; };
 		A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */; };
+		A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7FFD92052212F007A7A93 /* TCRightImageButton.m */; };
+		A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B7FFDC205227FA007A7A93 /* TCRoundRectBorderLabel.m */; };
 		A0B82EDA202DE96F00E93BC0 /* TCModifyServerNameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */; };
 		A0BD822F202CA2B00002B8C2 /* TCAddServerLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD822E202CA2B00002B8C2 /* TCAddServerLogView.m */; };
 		A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BD8230202CA2C30002B8C2 /* TCAddServerLogView.xib */; };
@@ -992,6 +994,10 @@
 		A0B7141E2006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCChangeAdminTableViewCell.xib; sourceTree = "<group>"; };
 		A0B7142120070BBD00BE9FCA /* TCSetAdminRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSetAdminRequest.h; sourceTree = "<group>"; };
 		A0B7142220070BBD00BE9FCA /* TCSetAdminRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSetAdminRequest.m; sourceTree = "<group>"; };
+		A0B7FFD82052212F007A7A93 /* TCRightImageButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRightImageButton.h; sourceTree = "<group>"; };
+		A0B7FFD92052212F007A7A93 /* TCRightImageButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRightImageButton.m; sourceTree = "<group>"; };
+		A0B7FFDB205227FA007A7A93 /* TCRoundRectBorderLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCRoundRectBorderLabel.h; sourceTree = "<group>"; };
+		A0B7FFDC205227FA007A7A93 /* TCRoundRectBorderLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCRoundRectBorderLabel.m; sourceTree = "<group>"; };
 		A0B82ED8202DE96F00E93BC0 /* TCModifyServerNameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyServerNameRequest.m; sourceTree = "<group>"; };
 		A0B82ED9202DE96F00E93BC0 /* TCModifyServerNameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyServerNameRequest.h; sourceTree = "<group>"; };
 		A0BD822D202CA2B00002B8C2 /* TCAddServerLogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddServerLogView.h; sourceTree = "<group>"; };
@@ -3140,6 +3146,8 @@
 				A0C9A0B51FF2281C00F94E9E /* TCCircleButton.m */,
 				A0895CEE2019743900C00974 /* TCBoderButton.h */,
 				A0895CEF2019743900C00974 /* TCBoderButton.m */,
+				A0B7FFD82052212F007A7A93 /* TCRightImageButton.h */,
+				A0B7FFD92052212F007A7A93 /* TCRightImageButton.m */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -3314,6 +3322,8 @@
 			children = (
 				A0A124D32051158A00E1FF7E /* TCAutoScaleLabel.h */,
 				A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */,
+				A0B7FFDB205227FA007A7A93 /* TCRoundRectBorderLabel.h */,
+				A0B7FFDC205227FA007A7A93 /* TCRoundRectBorderLabel.m */,
 			);
 			path = label;
 			sourceTree = "<group>";
@@ -4553,6 +4563,7 @@
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
 				A0906E872028A220006D30C8 /* TCOKView.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
+				A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
@@ -4560,6 +4571,7 @@
 				A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */,
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
+				A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,

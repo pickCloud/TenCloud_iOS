@@ -34,6 +34,7 @@
     UIColor *barBgColor = [UIColor colorWithRed:47/255.0 green:53/255.0 blue:67/255.0 alpha:1.0];
     [[UITabBar appearance] setBarTintColor:barBgColor];
     self.tabBar.tintColor = THEME_TINT_COLOR; //[UIColor cyanColor];
+    UIOffset titleOffset = UIOffsetMake(0, -2);
     
     TCServerHomeViewController *serverHomeVC = [TCServerHomeViewController new];
     UINavigationController *serverHomeNav = [[UINavigationController alloc] initWithRootViewController:serverHomeVC];
@@ -42,6 +43,7 @@
     serverHomeNav.tabBarItem.image = serverIcon;
     serverHomeNav.tabBarItem.selectedImage = serverSelIcon;
     serverHomeNav.tabBarItem.title = @"主机/集群";
+    serverHomeNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:serverHomeNav];
     
     TCServiceHomeViewController *serviceHomeVC = [TCServiceHomeViewController new];
@@ -51,6 +53,7 @@
     serviceHomeNav.tabBarItem.image = serviceIcon;
     serviceHomeNav.tabBarItem.selectedImage = serviceSelIcon;
     serviceHomeNav.tabBarItem.title = @"应用/服务";
+    serviceHomeNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:serviceHomeNav];
     
     TCLogHomeViewController *logHomeVC = [TCLogHomeViewController new];
@@ -60,6 +63,7 @@
     logNav.tabBarItem.image = logIcon;
     logNav.tabBarItem.selectedImage = logSelIcon;
     logNav.tabBarItem.title = @"日志/事件";
+    logNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:logNav];
     
     TCMirrorHomeViewController *mirrorHomeVC = [TCMirrorHomeViewController new];
@@ -69,6 +73,7 @@
     mirrorNav.tabBarItem.image = mirrorIcon;
     mirrorNav.tabBarItem.selectedImage = mirrorSelIcon;
     mirrorNav.tabBarItem.title = @"镜像";
+    mirrorNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:mirrorNav];
     /*
     TCProjectHomeViewController *projectHomeVC = [TCProjectHomeViewController new];
@@ -114,6 +119,7 @@
     mineHomeNav.tabBarItem.image = mineIcon;
     mineHomeNav.tabBarItem.selectedImage = mineSelIcon;
     mineHomeNav.tabBarItem.title = @"我的";
+    mineHomeNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:mineHomeNav];
 }
 

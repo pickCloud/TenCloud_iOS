@@ -918,8 +918,11 @@ static const CGFloat kScrollViewBottomSpace = 5;
     }
     
     // Set frame to dropdown's content TableView
+//    self.controller.view.frame = CGRectMake(CGRectGetMinX(containerView.bounds), 0,
+//                                            CGRectGetWidth(containerView.bounds), height);
     self.controller.view.frame = CGRectMake(CGRectGetMinX(containerView.bounds), topOffset,
                                             CGRectGetWidth(containerView.bounds), height - topOffset);
+    self.controller.view.backgroundColor = [UIColor blueColor];
     
     // Show dropdown
     [containerView addSubview:self.controller.view];

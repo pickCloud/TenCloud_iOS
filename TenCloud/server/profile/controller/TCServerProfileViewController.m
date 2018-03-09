@@ -26,6 +26,9 @@
 #import "TCServerSystemInfo+CoreDataClass.h"
 #import "TCSystemLoadRequest.h"
 #import "TCSystemLoad+CoreDataClass.h"
+#import "TCAlertController.h"
+#import "MKDropdownMenu.h"
+#import "ShapeSelectView.h"
 
 
 @interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource>
@@ -50,7 +53,10 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *storageDescLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *networkDescLabel;
 //费用信息
-//
+//监控信息
+@property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
+@property (nonatomic, assign)   NSInteger           periodSelectedIndex;
+@property (nonatomic, weak) IBOutlet    MKDropdownMenu      *periodMenu;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *cpuChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *memoryChartView;
 @property (nonatomic, weak) IBOutlet    WYLineChartView     *diskChartView;
@@ -62,6 +68,7 @@
 @property (nonatomic, strong) NSMutableArray    *netInputPoints;
 - (void) reloadChartData;
 - (void) initChartUI;
+- (void) initPeriodMenuUI;
 - (void) updateChartUI;
 - (void) updateConfigUI;
 - (void) updateSystemLoadUI;
@@ -69,6 +76,9 @@
 - (IBAction) onInfoButton:(id)sender;
 - (IBAction) onHelpButton:(id)sender;
 - (IBAction) onConfigButton:(id)sender;
+- (IBAction) onResourceDetailButton:(id)sender;
+- (IBAction) onFeeDetailButton:(id)sender;
+- (IBAction) onMonitorDetailButton:(id)sender;
 @end
 
 @implementation TCServerProfileViewController
@@ -95,6 +105,7 @@
     _netOutputPoints = [NSMutableArray new];
     _netInputPoints = [NSMutableArray new];
     
+    [self initPeriodMenuUI];
     [self initChartUI];
     [self startLoadingWithBackgroundColor:YES];
     [self reloadChartData];
@@ -126,7 +137,7 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    //[_periodMenu closeAllComponentsAnimated:NO];
+    [_periodMenu closeAllComponentsAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -508,6 +519,29 @@
     _netChartView.labelsColor = axisColor;
 }
 
+- (void) initPeriodMenuUI
+{
+    _periodMenuOptions = [NSMutableArray new];
+    [_periodMenuOptions addObject:@"1个小时"];
+    [_periodMenuOptions addObject:@"24个小时"];
+    [_periodMenuOptions addObject:@"1周"];
+    [_periodMenuOptions addObject:@"1个月"];
+    
+    UIColor *dropDownBgColor = [UIColor colorWithRed:39/255.0 green:42/255.0 blue:52/255.0 alpha:1.0];
+    self.periodMenu.selectedComponentBackgroundColor = dropDownBgColor;
+    self.periodMenu.dropdownBackgroundColor = dropDownBgColor;
+    self.periodMenu.dropdownShowsTopRowSeparator = YES;
+    self.periodMenu.dropdownShowsBottomRowSeparator = NO;
+    self.periodMenu.dropdownShowsBorder = NO;
+    self.periodMenu.backgroundDimmingOpacity = 0.5;//0.05;
+    self.periodMenu.componentTextAlignment = NSTextAlignmentLeft;
+    self.periodMenu.dropdownCornerRadius = TCSCALE(4.0);
+    self.periodMenu.rowSeparatorColor = THEME_BACKGROUND_COLOR;
+    
+    UIImage *disclosureImg = [UIImage imageNamed:@"dropdown"];
+    self.periodMenu.disclosureIndicatorImage = disclosureImg;
+}
+
 - (void) updateChartUI
 {
     //重新计算cpu points
@@ -658,7 +692,8 @@
 
 - (IBAction) onAverageLoadButton:(id)sender
 {
-    
+    [TCAlertController presentWithTitle:@"平均负载的值越小代表系统压力越小，越大则代表系统压力越大。"
+                                okBlock:nil];
 }
 
 - (IBAction) onInfoButton:(id)sender
@@ -676,5 +711,94 @@
 - (IBAction) onConfigButton:(id)sender
 {
     NSLog(@"on config button");
+}
+
+- (IBAction) onResourceDetailButton:(id)sender
+{
+    NSLog(@"on res detail button");
+}
+
+- (IBAction) onFeeDetailButton:(id)sender
+{
+    NSLog(@"on fee detail button");
+}
+
+- (IBAction) onMonitorDetailButton:(id)sender
+{
+    NSLog(@"on monitor detail button");
+}
+
+
+#pragma mark - MKDropdownMenuDataSource
+
+- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu {
+    return 1;
+}
+
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return _periodMenuOptions.count;
+}
+
+#pragma mark - MKDropdownMenuDelegate
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
+    return TCSCALE(32);
+}
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu widthForComponent:(NSInteger)component {
+    return MAX(dropdownMenu.bounds.size.width/3, 125);
+}
+
+- (BOOL)dropdownMenu:(MKDropdownMenu *)dropdownMenu shouldUseFullRowWidthForComponent:(NSInteger)component {
+    return NO;
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component {
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
+                            NSForegroundColorAttributeName :THEME_PLACEHOLDER_COLOR
+                            };
+    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
+                                                              attributes:attr];
+    return str;
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForSelectedComponent:(NSInteger)component {
+    UIFont *menuFont = [UIFont systemFontOfSize:TCSCALE(12)];
+    NSDictionary *attr = @{ NSFontAttributeName : menuFont,
+                            NSForegroundColorAttributeName :THEME_TEXT_COLOR
+                            };
+    NSString *rawStr = self.periodMenuOptions[_periodSelectedIndex];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:rawStr
+                                                              attributes:attr];
+    return str;
+}
+
+- (UIView *)dropdownMenu:(MKDropdownMenu *)dropdownMenu viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    ShapeSelectView *shapeSelectView = (ShapeSelectView *)view;
+    if (shapeSelectView == nil || ![shapeSelectView isKindOfClass:[ShapeSelectView class]]) {
+        shapeSelectView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShapeSelectView class]) owner:nil options:nil] firstObject];
+    }
+    NSString *statusStr = self.periodMenuOptions[row];
+    shapeSelectView.textLabel.text = statusStr;
+    shapeSelectView.selected = _periodSelectedIndex == row;
+    return shapeSelectView;
+}
+
+- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self colorForRow:row];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    _periodSelectedIndex = row;
+    [dropdownMenu reloadComponent:component];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+    [self reloadChartData];
+}
+
+- (UIColor *)colorForRow:(NSInteger)row {
+    return DROPDOWN_CELL_BG_COLOR;
 }
 @end
