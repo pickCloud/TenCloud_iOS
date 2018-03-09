@@ -832,6 +832,7 @@
                         <constraint firstAttribute="width" secondItem="JFv-fI-DIp" secondAttribute="height" multiplier="1:1" id="PyH-OC-kLv"/>
                     </constraints>
                     <state key="normal" image="server_profile_config"/>
+                    <state key="highlighted" image="server_profile_config_p"/>
                     <connections>
                         <action selector="onConfigButton:" destination="-1" eventType="touchUpInside" id="r6a-od-m9P"/>
                         <action selector="onHelpButton:" destination="-1" eventType="touchUpInside" id="d74-p9-zlr"/>
@@ -866,6 +867,7 @@
         <image name="cell_detail" width="12" height="12"/>
         <image name="server_home_more" width="12" height="12"/>
         <image name="server_profile_config" width="48" height="48"/>
+        <image name="server_profile_config_p" width="48" height="48"/>
         <image name="server_profile_detail" width="12" height="12"/>
         <image name="server_profile_help" width="48" height="48"/>
         <image name="server_type_aliyun" width="12" height="12"/>
