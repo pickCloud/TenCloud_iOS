@@ -12,7 +12,7 @@
 
 - (void) initUI
 {
-    self.edgeInsets = UIEdgeInsetsMake(1, 2, 1, 2);
+    self.edgeInsets = UIEdgeInsetsMake(0, 2, 0, 2);
     self.layer.cornerRadius = 2.0;
     self.clipsToBounds = YES;
     self.backgroundColor = THEME_NAVBAR_TITLE_COLOR;

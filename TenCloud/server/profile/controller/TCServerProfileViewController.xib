@@ -83,12 +83,6 @@
                                         <action selector="onInfoButton:" destination="-1" eventType="touchUpInside" id="riJ-fQ-x0Z"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="包年包月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUv-eK-u6o" customClass="TCRoundRectBorderLabel">
-                                    <rect key="frame" x="123" y="44" width="49.5" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -97,8 +91,6 @@
                                 <constraint firstItem="XpF-ba-gyQ" firstAttribute="centerY" secondItem="pwG-JM-xkL" secondAttribute="centerY" id="Mid-kg-vmm"/>
                                 <constraint firstItem="ZAM-nb-KEf" firstAttribute="top" secondItem="Elz-2m-Wp9" secondAttribute="top" constant="12" id="NPP-VH-TlU"/>
                                 <constraint firstItem="ZAM-nb-KEf" firstAttribute="centerX" secondItem="Elz-2m-Wp9" secondAttribute="centerX" id="UYJ-iC-MJ3"/>
-                                <constraint firstItem="MUv-eK-u6o" firstAttribute="centerY" secondItem="RAv-Y7-tDj" secondAttribute="centerY" id="WXx-Ez-5ZM"/>
-                                <constraint firstItem="MUv-eK-u6o" firstAttribute="leading" secondItem="RAv-Y7-tDj" secondAttribute="trailing" constant="12" id="Xmt-9j-HEx"/>
                                 <constraint firstItem="njf-XB-6MY" firstAttribute="centerY" secondItem="RAv-Y7-tDj" secondAttribute="centerY" id="YpZ-Tu-llo"/>
                                 <constraint firstItem="pwG-JM-xkL" firstAttribute="width" secondItem="Elz-2m-Wp9" secondAttribute="width" multiplier="0.032" id="Zyt-K3-4eJ"/>
                                 <constraint firstItem="pwG-JM-xkL" firstAttribute="leading" secondItem="RAv-Y7-tDj" secondAttribute="leading" id="aBL-nn-0Vz"/>
@@ -449,6 +441,12 @@
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="包年包月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUv-eK-u6o" customClass="TCRoundRectBorderLabel">
+                                            <rect key="frame" x="167" y="16" width="41" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已购合同期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4J-3a-g1m" customClass="TCAutoScaleLabel">
                                             <rect key="frame" x="15" y="41" width="61.5" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -497,6 +495,7 @@
                                         <constraint firstItem="Mju-VI-pOw" firstAttribute="centerY" secondItem="p4J-3a-g1m" secondAttribute="centerY" id="3sI-H5-szk"/>
                                         <constraint firstItem="heh-IC-cvg" firstAttribute="leading" secondItem="Afx-kM-O60" secondAttribute="leading" id="5Gw-gx-QtP"/>
                                         <constraint firstItem="u96-gA-3xZ" firstAttribute="leading" secondItem="Afx-kM-O60" secondAttribute="trailing" constant="42" id="Anl-Ky-Q8e"/>
+                                        <constraint firstItem="MUv-eK-u6o" firstAttribute="centerY" secondItem="u96-gA-3xZ" secondAttribute="centerY" id="BcU-sS-6w6"/>
                                         <constraint firstItem="p4J-3a-g1m" firstAttribute="centerY" secondItem="k6j-ju-s4b" secondAttribute="centerY" multiplier="0.7" id="Eqb-Iz-nS7"/>
                                         <constraint firstItem="heh-IC-cvg" firstAttribute="centerY" secondItem="k6j-ju-s4b" secondAttribute="centerY" multiplier="1.32" id="Faj-sx-0wa"/>
                                         <constraint firstItem="wRo-YO-AqE" firstAttribute="centerY" secondItem="heh-IC-cvg" secondAttribute="centerY" id="Ldo-AK-mcw"/>
@@ -511,6 +510,7 @@
                                         <constraint firstAttribute="width" secondItem="k6j-ju-s4b" secondAttribute="height" multiplier="345:138" id="dIQ-C8-Pkf"/>
                                         <constraint firstItem="Afx-kM-O60" firstAttribute="leading" secondItem="k6j-ju-s4b" secondAttribute="leading" constant="15" id="jqA-Ij-nMI"/>
                                         <constraint firstItem="wRo-YO-AqE" firstAttribute="leading" secondItem="u96-gA-3xZ" secondAttribute="leading" id="lsz-42-K4Z"/>
+                                        <constraint firstItem="MUv-eK-u6o" firstAttribute="leading" secondItem="u96-gA-3xZ" secondAttribute="trailing" constant="11" id="qOe-yd-bR6"/>
                                         <constraint firstItem="9Jh-j5-8Vs" firstAttribute="leading" secondItem="Afx-kM-O60" secondAttribute="leading" id="twy-oE-9CY"/>
                                         <constraint firstItem="u96-gA-3xZ" firstAttribute="centerY" secondItem="Afx-kM-O60" secondAttribute="centerY" id="yMh-qR-9Xr"/>
                                         <constraint firstItem="2y3-GC-Bjf" firstAttribute="top" secondItem="Mju-VI-pOw" secondAttribute="bottom" constant="4.5" id="zjC-h0-MpP"/>
