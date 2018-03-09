@@ -30,6 +30,7 @@
 #import "TCTimePeriodCell.h"
 #import "JYEqualCellSpaceFlowLayout.h"
 #import "TCServerStatusLabel.h"
+#import "TCMonitorHistoryTableViewController.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
 
@@ -535,6 +536,7 @@
     [_periodMenuOptions addObject:@"1小时"];
     [_periodMenuOptions addObject:@"24小时"];
     [_periodMenuOptions addObject:@"1周"];
+    [_periodMenuOptions addObject:@"更多"];
     
     UINib *periodCell = [UINib nibWithNibName:@"TCTimePeriodCell" bundle:nil];
     [_periodCollectionView registerNib:periodCell forCellWithReuseIdentifier:SERVER_PROFILE_PERIOD_CELL_ID];
@@ -732,6 +734,9 @@
 - (IBAction) onMonitorDetailButton:(id)sender
 {
     NSLog(@"on monitor detail button");
+    //TCMonitorHistoryTableViewController *historyVC = nil;
+    //historyVC = [[TCMonitorHistoryTableViewController alloc] initWithServerID:_serverID];
+    //[self.navigationController pushViewController:historyVC animated:YES];
 }
 
 
@@ -768,6 +773,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 3)
+    {
+        [_periodCollectionView reloadData];
+        TCMonitorHistoryTableViewController *historyVC = nil;
+        historyVC = [[TCMonitorHistoryTableViewController alloc] initWithServerID:_serverID];
+        [self.navigationController pushViewController:historyVC animated:YES];
+        return;
+    }
     _periodSelectedIndex = indexPath.row;
     [_periodCollectionView reloadData];
     [self reloadChartData];
