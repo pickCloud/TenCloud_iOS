@@ -722,12 +722,36 @@
     _runTimeLabel.text = _systemLoad.run_time;
     NSString *amountStr = [NSString stringWithFormat:@"%d",(int)_systemLoad.login_users];
     _loginUserAmountLabel.text = amountStr;
-    NSString *oneMinStr = [NSString stringWithFormat:@"%g",_systemLoad.one_minute_load];
+    CGFloat oneMinLoad = _systemLoad.one_minute_load;
+    NSString *oneMinStr = [NSString stringWithFormat:@"%g",oneMinLoad];
     _oneMinLabel.text = oneMinStr;
-    NSString *fiveMinStr = [NSString stringWithFormat:@"%g",_systemLoad.five_minute_load];
+    if (oneMinLoad > 0.7)
+    {
+        [_oneMinLabel setTextColor:STATE_ALERT_COLOR];
+    }else
+    {
+        [_oneMinLabel setTextColor:THEME_TINT_COLOR];
+    }
+    CGFloat fiveMinLoad = _systemLoad.five_minute_load;
+    NSString *fiveMinStr = [NSString stringWithFormat:@"%g",fiveMinLoad];
     _fiveMinLabel.text = fiveMinStr;
-    NSString *tenMinStr = [NSString stringWithFormat:@"%g",_systemLoad.fifteen_minute_load];
+    if (fiveMinLoad > 0.7)
+    {
+        [_fiveMinLabel setTextColor:STATE_ALERT_COLOR];
+    }else
+    {
+        [_fiveMinLabel setTextColor:THEME_TINT_COLOR];
+    }
+    CGFloat fifteenMinLoad = _systemLoad.fifth_minute_load;
+    NSString *tenMinStr = [NSString stringWithFormat:@"%g",fifteenMinLoad];
     _tenMinLabel.text = tenMinStr;
+    if (fifteenMinLoad > 0.7)
+    {
+        [_tenMinLabel setTextColor:STATE_ALERT_COLOR];
+    }else
+    {
+        [_tenMinLabel setTextColor:THEME_TINT_COLOR];
+    }
 }
 
 - (IBAction) onAverageLoadButton:(id)sender

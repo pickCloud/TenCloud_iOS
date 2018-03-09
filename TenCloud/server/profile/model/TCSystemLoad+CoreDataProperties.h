@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t login_users;
 @property (nonatomic) double one_minute_load;
 @property (nonatomic) double five_minute_load;
-@property (nonatomic) double fifteen_minute_load;
+@property (nonatomic) double fifth_minute_load;
 
 @end
 

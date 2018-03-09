@@ -20,6 +20,6 @@
 @dynamic login_users;
 @dynamic one_minute_load;
 @dynamic five_minute_load;
-@dynamic fifteen_minute_load;
+@dynamic fifth_minute_load;
 
 @end
