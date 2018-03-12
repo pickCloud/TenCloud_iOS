@@ -290,12 +290,13 @@
 - (void) updateFooterViewWithStatus:(NSString*)status
 {
     TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL haveSpecialPermission = currentCorp.isAdmin || currentCorp.cid == 0;
     if (status != nil)
     {
         [_buttonDataArray removeAllObjects];
         if ([status containsString:@"已停止"])
         {
-            if ( currentCorp.isAdmin ||
+            if ( haveSpecialPermission ||
                 [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
             {
                 TCProfileButtonData *data1 = [TCProfileButtonData new];
@@ -315,7 +316,7 @@
             
         }else
         {
-            if ( currentCorp.isAdmin ||
+            if ( haveSpecialPermission ||
                 [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
             {
                 TCProfileButtonData *data1 = [TCProfileButtonData new];
@@ -325,7 +326,7 @@
                 [_buttonDataArray addObject:data1];
             }
 
-            if ( currentCorp.isAdmin ||
+            if ( haveSpecialPermission ||
                 [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
             {
                 TCProfileButtonData *data2 = [TCProfileButtonData new];
@@ -337,7 +338,7 @@
         }
     }
     
-    if ( currentCorp.isAdmin ||
+    if ( haveSpecialPermission ||
         [currentCorp havePermissionForFunc:FUNC_ID_DEL_SERVER] )
     {
         TCProfileButtonData *data3 = [TCProfileButtonData new];
