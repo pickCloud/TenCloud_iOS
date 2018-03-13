@@ -31,6 +31,7 @@
 #import "JYEqualCellSpaceFlowLayout.h"
 #import "TCServerStatusLabel.h"
 #import "TCMonitorHistoryTableViewController.h"
+#import "TCServerToolViewController.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
 
@@ -775,6 +776,10 @@
 - (IBAction) onConfigButton:(id)sender
 {
     NSLog(@"on config button");
+    //TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providers];
+    //[self presentViewController:filterVC animated:NO completion:nil];
+    TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] init];
+    [self presentViewController:toolVC animated:NO completion:nil];
 }
 
 - (IBAction) onResourceDetailButton:(id)sender

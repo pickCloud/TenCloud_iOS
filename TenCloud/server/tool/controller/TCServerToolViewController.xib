@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerToolViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11n-ZR-Swl">
+                    <rect key="frame" x="150" y="562" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="11n-ZR-Swl" secondAttribute="height" multiplier="1:1" id="IaI-mh-ngx"/>
+                    </constraints>
+                    <state key="normal" image="server_tool_close"/>
+                    <connections>
+                        <action selector="onCloseButton:" destination="-1" eventType="touchUpInside" id="Wyk-HV-qzQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80O-aU-6rj" customClass="TCToolButton">
+                    <rect key="frame" x="152" y="191" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="height" multiplier="70:97" id="6YB-cQ-DVa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="查看进程状态" image="server_tool_process_status">
+                        <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onProcessStatusButton:" destination="-1" eventType="touchUpInside" id="hWK-3O-HbC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfM-f4-3ge" customClass="TCToolButton">
+                    <rect key="frame" x="55" y="191" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="远程访问" image="server_tool_remote_access">
+                        <color key="titleColor" red="0.33725490196078434" green="0.38431372549019605" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onRemoteAccessButton:" destination="-1" eventType="touchUpInside" id="eN2-Nn-oQB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJo-a9-IFz" customClass="TCToolButton">
+                    <rect key="frame" x="250" y="191" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="server_tool_network_status">
+                        <attributedString key="attributedTitle">
+                            <fragment content="查看 网络连接情况">
+                                <attributes>
+                                    <color key="NSColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <state key="highlighted">
+                        <attributedString key="attributedTitle">
+                            <fragment content="查看 网络连接情况">
+                                <attributes>
+                                    <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                        <tabStops>
+                                            <textTab alignment="left" location="28">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="56">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="84">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="112">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="140">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="168">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="196">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="224">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="252">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="280">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="308">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="336">
+                                                <options/>
+                                            </textTab>
+                                        </tabStops>
+                                    </paragraphStyle>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <connections>
+                        <action selector="onNetworkStatusButton:" destination="-1" eventType="touchUpInside" id="G2H-V6-gUa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyo-Rm-o5t" customClass="TCToolButton">
+                    <rect key="frame" x="55" y="312" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="查看路由信息" image="server_tool_route_info">
+                        <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onRouteInfoButton:" destination="-1" eventType="touchUpInside" id="iUy-FA-5rQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-xY-gbc" customClass="TCToolButton">
+                    <rect key="frame" x="152" y="312" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="server_tool_port_info">
+                        <attributedString key="attributedTitle">
+                            <fragment content="查看 网络接口信息">
+                                <attributes>
+                                    <color key="NSColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <state key="highlighted">
+                        <attributedString key="attributedTitle">
+                            <fragment content="查看 网络连接情况">
+                                <attributes>
+                                    <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                        <tabStops>
+                                            <textTab alignment="left" location="28">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="56">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="84">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="112">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="140">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="168">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="196">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="224">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="252">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="280">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="308">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="336">
+                                                <options/>
+                                            </textTab>
+                                        </tabStops>
+                                    </paragraphStyle>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <connections>
+                        <action selector="onPortInfoButton:" destination="-1" eventType="touchUpInside" id="fgR-s7-LBT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXp-gD-63B" customClass="TCToolButton">
+                    <rect key="frame" x="250" y="312" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="配置管理" image="server_tool_config_manage">
+                        <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onConfigManageButton:" destination="-1" eventType="touchUpInside" id="2bP-Fv-873"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C64-aK-hDY" customClass="TCToolButton">
+                    <rect key="frame" x="55" y="433" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="server_tool_monitor_file">
+                        <attributedString key="attributedTitle">
+                            <fragment content="监控 打开的文件">
+                                <attributes>
+                                    <color key="NSColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <state key="highlighted">
+                        <attributedString key="attributedTitle">
+                            <fragment content="监控 打开的文件">
+                                <attributes>
+                                    <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                        <tabStops>
+                                            <textTab alignment="left" location="28">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="56">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="84">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="112">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="140">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="168">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="196">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="224">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="252">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="280">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="308">
+                                                <options/>
+                                            </textTab>
+                                            <textTab alignment="left" location="336">
+                                                <options/>
+                                            </textTab>
+                                        </tabStops>
+                                    </paragraphStyle>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <connections>
+                        <action selector="onMonitorFileButton:" destination="-1" eventType="touchUpInside" id="yjS-Px-2kR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="0hP-An-iVV"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="3lT-gi-nLi"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="leading" secondItem="FJo-a9-IFz" secondAttribute="leading" id="6Et-4K-d7c"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="6xX-Tm-SGc"/>
+                <constraint firstItem="11n-ZR-Swl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8EJ-IL-Von"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="8ix-wd-vJL"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="9f3-6V-icE"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="top" id="AVR-ZA-l8j"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.18667" id="Cm1-7O-NU3"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="centerX" secondItem="80O-aU-6rj" secondAttribute="centerX" multiplier="0.48" id="DDK-4P-zvq"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EKq-88-s7K"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="F2f-4q-ZNB"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="bottom" constant="24" id="Kgo-tf-Zmi"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.72" id="Kxk-xZ-z78"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="LiF-TX-lu2"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="top" id="Stt-1O-oDJ"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="leading" secondItem="wfM-f4-3ge" secondAttribute="leading" id="SyN-Cg-XXt"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="top" id="XHH-PL-4v0"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="top" secondItem="wfM-f4-3ge" secondAttribute="bottom" constant="24" id="ZB9-15-npi"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.52" id="dpH-GU-p8B"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="top" id="g6n-Ak-cYj"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="hgm-82-kHZ"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="i8E-hs-mNf"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nNA-rQ-O0u"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="pv2-jw-zmO"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="leading" secondItem="wfM-f4-3ge" secondAttribute="leading" id="sFR-Xp-rsO"/>
+                <constraint firstItem="11n-ZR-Swl" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.2" id="ugC-WB-PHf"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="w8z-92-lW3"/>
+                <constraint firstAttribute="bottom" secondItem="11n-ZR-Swl" secondAttribute="bottom" constant="30" id="wXi-jU-NgB"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="xNZ-p6-zsK"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="104.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="server_tool_close" width="24" height="24"/>
+        <image name="server_tool_config_manage" width="48" height="48"/>
+        <image name="server_tool_monitor_file" width="48" height="48"/>
+        <image name="server_tool_network_status" width="48" height="48"/>
+        <image name="server_tool_port_info" width="48" height="48"/>
+        <image name="server_tool_process_status" width="48" height="48"/>
+        <image name="server_tool_remote_access" width="48" height="48"/>
+        <image name="server_tool_route_info" width="48" height="48"/>
+    </resources>
+</document>

@@ -835,7 +835,6 @@
                     <state key="highlighted" image="server_profile_config_p"/>
                     <connections>
                         <action selector="onConfigButton:" destination="-1" eventType="touchUpInside" id="r6a-od-m9P"/>
-                        <action selector="onHelpButton:" destination="-1" eventType="touchUpInside" id="d74-p9-zlr"/>
                     </connections>
                 </button>
             </subviews>

@@ -101,6 +101,9 @@
 		A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555AE1FD7F0C300D16D22 /* TCLoginViewController.m */; };
 		A02555B11FD7F0C300D16D22 /* TCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */; };
 		A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */; };
+		A028BD6F2057AFBF00548298 /* TCServerToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A028BD6A2057AFBF00548298 /* TCServerToolViewController.m */; };
+		A028BD702057AFBF00548298 /* TCServerToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A028BD6B2057AFBF00548298 /* TCServerToolViewController.xib */; };
+		A028BD712057AFBF00548298 /* TCToolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A028BD6E2057AFBF00548298 /* TCToolButton.m */; };
 		A02C235D204FDEAC00F709B7 /* TCServerProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02C235B204FDEAC00F709B7 /* TCServerProfileViewController.xib */; };
 		A02C235E204FDEAC00F709B7 /* TCServerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02C235C204FDEAC00F709B7 /* TCServerProfileViewController.m */; };
 		A02CA86A2000835400BD00C5 /* TCEditingPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = A02CA8692000835400BD00C5 /* TCEditingPermission.m */; };
@@ -605,6 +608,11 @@
 		A02555AF1FD7F0C300D16D22 /* TCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCLoginViewController.xib; sourceTree = "<group>"; };
 		A02555B91FDBD4B400D16D22 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		A028BD692057AFBF00548298 /* TCServerToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerToolViewController.h; sourceTree = "<group>"; };
+		A028BD6A2057AFBF00548298 /* TCServerToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerToolViewController.m; sourceTree = "<group>"; };
+		A028BD6B2057AFBF00548298 /* TCServerToolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerToolViewController.xib; sourceTree = "<group>"; };
+		A028BD6D2057AFBF00548298 /* TCToolButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCToolButton.h; sourceTree = "<group>"; };
+		A028BD6E2057AFBF00548298 /* TCToolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCToolButton.m; sourceTree = "<group>"; };
 		A02C235A204FDEAC00F709B7 /* TCServerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerProfileViewController.h; sourceTree = "<group>"; };
 		A02C235B204FDEAC00F709B7 /* TCServerProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerProfileViewController.xib; sourceTree = "<group>"; };
 		A02C235C204FDEAC00F709B7 /* TCServerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerProfileViewController.m; sourceTree = "<group>"; };
@@ -1696,6 +1704,7 @@
 		A025553B1FD7C6A100D16D22 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				A028BD672057AFBF00548298 /* tool */,
 				A02C2355204FD85B00F709B7 /* profile */,
 				A025554C1FD7C82100D16D22 /* add */,
 				A025555B1FD7C82100D16D22 /* config */,
@@ -2381,6 +2390,34 @@
 				A02555BA1FDBD4B400D16D22 /* HMSegmentedControl.m */,
 			);
 			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		A028BD672057AFBF00548298 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				A028BD682057AFBF00548298 /* controller */,
+				A028BD6C2057AFBF00548298 /* view */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		A028BD682057AFBF00548298 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A028BD692057AFBF00548298 /* TCServerToolViewController.h */,
+				A028BD6A2057AFBF00548298 /* TCServerToolViewController.m */,
+				A028BD6B2057AFBF00548298 /* TCServerToolViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A028BD6C2057AFBF00548298 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A028BD6D2057AFBF00548298 /* TCToolButton.h */,
+				A028BD6E2057AFBF00548298 /* TCToolButton.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		A02C2355204FD85B00F709B7 /* profile */ = {
@@ -4294,6 +4331,7 @@
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
 				A0142CA32051891000DC843D /* TCLogHomeViewController.xib in Resources */,
+				A028BD702057AFBF00548298 /* TCServerToolViewController.xib in Resources */,
 				A0BD8231202CA2C30002B8C2 /* TCAddServerLogView.xib in Resources */,
 				A0C3630F2004D27D0033C99C /* TCShareViewController.xib in Resources */,
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
@@ -4783,6 +4821,7 @@
 				A02555A61FD7E84500D16D22 /* TCLocalAccount.m in Sources */,
 				A07DBEBE1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m in Sources */,
 				A03398632020400E00CF8630 /* TCMonitorHistoryTableViewCell.m in Sources */,
+				A028BD6F2057AFBF00548298 /* TCServerToolViewController.m in Sources */,
 				A07DBDE21FDED62A00F37715 /* TCServerLog+CoreDataProperties.m in Sources */,
 				A0C362E620035E920033C99C /* TCModifyPermissionRequest.m in Sources */,
 				A0906E7820288DB2006D30C8 /* TCAlertController.m in Sources */,
@@ -4844,6 +4883,7 @@
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,
 				A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,
+				A028BD712057AFBF00548298 /* TCToolButton.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,
 				A031B6261FFE1DAD00B4F448 /* TCStaff+CoreDataProperties.m in Sources */,
@@ -5018,7 +5058,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenClouddev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
@@ -5043,7 +5083,7 @@
 				INFOPLIST_FILE = TenCloud/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenCloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.10.TenClouddev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "336dd3d3-53ea-4ec9-93a9-72553ea506ea";
 				PROVISIONING_PROFILE_SPECIFIER = AllDev;
