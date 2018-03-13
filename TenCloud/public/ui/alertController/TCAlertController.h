@@ -93,6 +93,9 @@ typedef NS_ENUM(NSInteger, TCAlertTransitionAnimation) {
 
 + (void) presentWithTitle:(NSString*)title okBlock:(TCOKBlock)block;
 
++ (void) presentWithTitle:(NSString *)title
+                     desc:(NSString *)desc;
+
 - (void)dismissViewControllerAnimated: (BOOL)animated;
 
 @end

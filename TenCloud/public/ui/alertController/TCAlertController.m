@@ -9,6 +9,7 @@
 #import "TCAlertController.h"
 #import "UIView+TCAutoLayout.h"
 #import "UIView+TCAlertView.h"
+#import "TCDescView.h"
 
 @interface TCAlertController ()
 
@@ -206,6 +207,35 @@
     if (rootVC)
     {
         [TCAlertController presentFromController:rootVC title:title okBlock:block];
+    }
+}
+
++ (void) presentWithTitle:(NSString *)title
+                     desc:(NSString *)desc
+{
+    UIViewController *rootVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (rootVC)
+    {
+        TCDescView *view = [TCDescView createViewFromNib];
+        view.title = title;
+        view.desc = desc;
+        TCAlertController *ctrl = [[self alloc] initWithAlertView:view
+                                                   preferredStyle:TCAlertControllerStyleAlert
+                                              transitionAnimation:TCAlertTransitionAnimationFade
+                                         transitionAnimationClass:nil];
+        ctrl.backgoundTapDismissEnable = NO;
+        [rootVC presentViewController:ctrl animated:YES completion:nil];
+        
+        /*
+        //TCOKView *view = [TCOKView createViewFromNib];
+        //view.text = title;
+        TCAlertController *controller = [[self alloc] initWithAlertView:view
+                                                         preferredStyle:TCAlertControllerStyleAlert
+                                                    transitionAnimation:TCAlertTransitionAnimationFade
+                                               transitionAnimationClass:nil];
+        controller.backgoundTapDismissEnable = NO;
+        [rootVC presentViewController:controller animated:YES completion:nil];
+         */
     }
 }
 

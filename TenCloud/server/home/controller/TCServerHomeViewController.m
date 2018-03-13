@@ -27,7 +27,6 @@
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 
-#import "TCServerToolViewController.h"
 
 @interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,
 TCMessageManagerDelegate,TCDataSyncDelegate>
@@ -209,11 +208,8 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 
 - (void) onMessageButton:(id)sender
 {
-    //TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
-    //[self.navigationController pushViewController:msgVC animated:YES];
-    
-    TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] init];
-    [self presentViewController:toolVC animated:NO completion:nil];
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    [self.navigationController pushViewController:msgVC animated:YES];
 }
 
 - (void) onNotificationChangeCorp

@@ -399,6 +399,8 @@
 		A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0C21FF25EBA00F94E9E /* TCEditDateTableViewCell.m */; };
 		A0C9A0CC1FF2A3F500F94E9E /* TCTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C9A0C91FF2A3F400F94E9E /* TCTextTableViewCell.m */; };
 		A0C9A0CD1FF2A3F500F94E9E /* TCTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0C9A0CA1FF2A3F400F94E9E /* TCTextTableViewCell.xib */; };
+		A0CA2BE62057C9D800E7A579 /* TCDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA2BE42057C9D700E7A579 /* TCDescView.m */; };
+		A0CA2BE72057C9D800E7A579 /* TCDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0CA2BE52057C9D700E7A579 /* TCDescView.xib */; };
 		A0D58819200E482E00104ED9 /* TCMessageCountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D58817200E482D00104ED9 /* TCMessageCountRequest.m */; };
 		A0D5881D200E4B3700104ED9 /* TCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D5881B200E4B3700104ED9 /* TCMessageTableViewController.m */; };
 		A0D5881E200E4B3700104ED9 /* TCMessageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D5881C200E4B3700104ED9 /* TCMessageTableViewController.xib */; };
@@ -1120,6 +1122,9 @@
 		A0C9A0C91FF2A3F400F94E9E /* TCTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTextTableViewCell.m; sourceTree = "<group>"; };
 		A0C9A0CA1FF2A3F400F94E9E /* TCTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCTextTableViewCell.xib; sourceTree = "<group>"; };
 		A0C9A0CB1FF2A3F500F94E9E /* TCTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTextTableViewCell.h; sourceTree = "<group>"; };
+		A0CA2BE32057C9D700E7A579 /* TCDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDescView.h; sourceTree = "<group>"; };
+		A0CA2BE42057C9D700E7A579 /* TCDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDescView.m; sourceTree = "<group>"; };
+		A0CA2BE52057C9D700E7A579 /* TCDescView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDescView.xib; sourceTree = "<group>"; };
 		A0D58817200E482D00104ED9 /* TCMessageCountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMessageCountRequest.m; sourceTree = "<group>"; };
 		A0D58818200E482E00104ED9 /* TCMessageCountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMessageCountRequest.h; sourceTree = "<group>"; };
 		A0D5881A200E4B3700104ED9 /* TCMessageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMessageTableViewController.h; sourceTree = "<group>"; };
@@ -3248,6 +3253,7 @@
 		A0906E5D20288DB1006D30C8 /* alertController */ = {
 			isa = PBXGroup;
 			children = (
+				A0CA2BE22057C9D700E7A579 /* desc */,
 				A0906E7E20288E3D006D30C8 /* confirm */,
 				A0906E7D20288E3D006D30C8 /* ok */,
 				A0906E5E20288DB1006D30C8 /* animations */,
@@ -3991,6 +3997,16 @@
 			path = imageView;
 			sourceTree = "<group>";
 		};
+		A0CA2BE22057C9D700E7A579 /* desc */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA2BE32057C9D700E7A579 /* TCDescView.h */,
+				A0CA2BE42057C9D700E7A579 /* TCDescView.m */,
+				A0CA2BE52057C9D700E7A579 /* TCDescView.xib */,
+			);
+			path = desc;
+			sourceTree = "<group>";
+		};
 		A0D58812200E479200104ED9 /* message */ = {
 			isa = PBXGroup;
 			children = (
@@ -4394,6 +4410,7 @@
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
+				A0CA2BE72057C9D800E7A579 /* TCDescView.xib in Resources */,
 				A00AFF74200A03F300EFADF6 /* TCInviteLoginViewController.xib in Resources */,
 				A088F938202AC894005A97DD /* TCFilePermTableViewCell.xib in Resources */,
 				A0A86B841FF49D0000D1D58D /* TCCorpHomeViewController.xib in Resources */,
@@ -4853,6 +4870,7 @@
 				A0C3630E2004D27D0033C99C /* TCShareViewController.m in Sources */,
 				A0C363012004BBDB0033C99C /* TCSetJoinSettingRequest.m in Sources */,
 				A0C9A0C41FF25EBA00F94E9E /* TCEditDateTableViewCell.m in Sources */,
+				A0CA2BE62057C9D800E7A579 /* TCDescView.m in Sources */,
 				A0A86B9A1FF4F52D00D1D58D /* TCListCorp+CoreDataClass.m in Sources */,
 				A0A86B531FF3946200D1D58D /* TCCorp+CoreDataClass.m in Sources */,
 				A07DBE9C1FE176E200F37715 /* GetCaptchaButton.m in Sources */,

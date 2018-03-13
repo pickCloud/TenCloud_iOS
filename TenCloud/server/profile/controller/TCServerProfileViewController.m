@@ -757,8 +757,9 @@
 
 - (IBAction) onAverageLoadButton:(id)sender
 {
-    [TCAlertController presentWithTitle:@"平均负载的值越小代表系统压力越小，越大则代表系统压力越大。"
-                                okBlock:nil];
+    NSString *desc = @"load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了。\n\r\n平均负载的值越小代表系统压力越小，越大则代表系统压力越大。通常，我们会以最后一个数值，也就是15分钟内的平均负载作为参考来评估系统的负载情况。\n\r\n对于只有单核cpu的系统，1.0是该系统所能承受负荷的边界值，大于1.0则有处理需要等待。\n\r\n一个单核cpu的系统，平均负载的合适值是0.7以下。如果负载长期徘徊在1.0，则需要考虑马上处理了。超过1.0的负载，可能会带来非常严重的后果。";
+    [TCAlertController presentWithTitle:@"平均负载"
+                                   desc:desc];
 }
 
 - (IBAction) onInfoButton:(id)sender
@@ -775,9 +776,6 @@
 
 - (IBAction) onConfigButton:(id)sender
 {
-    NSLog(@"on config button");
-    //TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providers];
-    //[self presentViewController:filterVC animated:NO completion:nil];
     TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] init];
     [self presentViewController:toolVC animated:NO completion:nil];
 }
