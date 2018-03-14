@@ -284,6 +284,8 @@
 		A0A0E8CF20246B4B00265920 /* TCServerSummary+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CC20246B4B00265920 /* TCServerSummary+CoreDataClass.m */; };
 		A0A0E8D020246B4B00265920 /* TCServerSummary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */; };
 		A0A0E8D320246B7100265920 /* TCServerSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */; };
+		A0A0F09720580BFD003CB4BD /* TCServerUsage+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F09420580BFD003CB4BD /* TCServerUsage+CoreDataClass.m */; };
+		A0A0F09820580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F09620580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m */; };
 		A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */; };
 		A0A124E020514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DD20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m */; };
 		A0A124E120514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DF20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m */; };
@@ -927,6 +929,10 @@
 		A0A0E8CE20246B4B00265920 /* TCServerSummary+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerSummary+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A0A0E8D120246B7100265920 /* TCServerSummaryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerSummaryRequest.h; sourceTree = "<group>"; };
 		A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerSummaryRequest.m; sourceTree = "<group>"; };
+		A0A0F09320580BFD003CB4BD /* TCServerUsage+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerUsage+CoreDataClass.h"; sourceTree = "<group>"; };
+		A0A0F09420580BFD003CB4BD /* TCServerUsage+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerUsage+CoreDataClass.m"; sourceTree = "<group>"; };
+		A0A0F09520580BFD003CB4BD /* TCServerUsage+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerUsage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A0A0F09620580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerUsage+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A0A124D32051158A00E1FF7E /* TCAutoScaleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAutoScaleLabel.h; sourceTree = "<group>"; };
 		A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAutoScaleLabel.m; sourceTree = "<group>"; };
 		A0A124DC20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCSystemLoad+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -1709,6 +1715,7 @@
 		A025553B1FD7C6A100D16D22 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0F08E20580BE3003CB4BD /* usage */,
 				A028BD672057AFBF00548298 /* tool */,
 				A02C2355204FD85B00F709B7 /* profile */,
 				A025554C1FD7C82100D16D22 /* add */,
@@ -3373,6 +3380,49 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A0A0F08E20580BE3003CB4BD /* usage */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0F08F20580BE3003CB4BD /* controller */,
+				A0A0F09020580BE3003CB4BD /* model */,
+				A0A0F09120580BE3003CB4BD /* request */,
+				A0A0F09220580BE3003CB4BD /* view */,
+			);
+			path = usage;
+			sourceTree = "<group>";
+		};
+		A0A0F08F20580BE3003CB4BD /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0A0F09020580BE3003CB4BD /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0F09320580BFD003CB4BD /* TCServerUsage+CoreDataClass.h */,
+				A0A0F09420580BFD003CB4BD /* TCServerUsage+CoreDataClass.m */,
+				A0A0F09520580BFD003CB4BD /* TCServerUsage+CoreDataProperties.h */,
+				A0A0F09620580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A0A0F09120580BE3003CB4BD /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0A0F09220580BE3003CB4BD /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A0A124D22051157200E1FF7E /* label */ = {
 			isa = PBXGroup;
 			children = (
@@ -4734,6 +4784,7 @@
 				A0C9A0AB1FF14B4E00F94E9E /* UIView+Screenshot.m in Sources */,
 				A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */,
 				A00AFF73200A03F300EFADF6 /* TCInviteLoginViewController.m in Sources */,
+				A0A0F09820580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m in Sources */,
 				A0884A2720066932004F5010 /* TCShareManager.m in Sources */,
 				A088F939202AC894005A97DD /* TCFilePermTableViewCell.m in Sources */,
 				A07DBEB01FE210E800F37715 /* TCRoundCornerButton.m in Sources */,
@@ -4809,6 +4860,7 @@
 				A0C9A0A81FF14B4E00F94E9E /* UIImage+Rotating.m in Sources */,
 				A07DBEC41FE27A3300F37715 /* TCServerListViewController.m in Sources */,
 				A0D5882B200ED62C00104ED9 /* TCMessageTableViewCell.m in Sources */,
+				A0A0F09720580BFD003CB4BD /* TCServerUsage+CoreDataClass.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A0A124E420514D4300E1FF7E /* TCSystemLoadRequest.m in Sources */,
 				A0A86B851FF49D0000D1D58D /* TCCorpHomeViewController.m in Sources */,

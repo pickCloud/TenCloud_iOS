@@ -23,6 +23,7 @@
 #import "TCDataSync.h"
 #import "TCTextRefreshHeader.h"
 #import "TCServerProfileViewController.h"
+#import "TCServerUsage+CoreDataClass.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
@@ -34,6 +35,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 @property (nonatomic, strong) NSMutableArray  *serverArray;
 @property (nonatomic, assign) NSInteger       totalServerAmount;
 @property (nonatomic, strong) UIButton        *messageButton;
+@property (nonatomic, strong) NSMutableArray  *usageArray;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *headerCollectionBgHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UIView              *headerView;
@@ -116,6 +118,30 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
                                                object:nil];
     [[TCMessageManager shared] addObserver:self];
     [[TCDataSync shared] addPermissionChangedObserver:self];
+    
+    _usageArray = [NSMutableArray new];
+    TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
+    usage1.serverID = 27;
+    usage1.name = @"厦门测试机23";
+    usage1.cpuUsageRate = 0.12;
+    usage1.diskUsageRate = 0.29;
+    usage1.memoryUsageRate = 0.3;
+    usage1.networkUsage = @"22/33";
+    usage1.diskIO = @"33/44";
+    usage1.type = TCServerUsageIdle;
+    
+    TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
+    usage1.serverID = 28;
+    usage1.name = @"厦门测试机24";
+    usage1.cpuUsageRate = 0.22;
+    usage1.diskUsageRate = 0.39;
+    usage1.memoryUsageRate = 0.43;
+    usage1.networkUsage = @"55/66";
+    usage1.diskIO = @"77/88";
+    usage1.type = TCServerUsageSafe;
+    [_usageArray addObject:usage2];
+    
+    //NSLog(@"usages:%@",_usageArray);
 }
 
 - (void)didReceiveMemoryWarning {
