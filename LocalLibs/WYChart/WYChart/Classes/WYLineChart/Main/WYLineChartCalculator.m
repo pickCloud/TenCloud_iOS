@@ -138,7 +138,10 @@
     
     y = (_parentView.lineTopMargin + 30.f) + (differ > 0 ? ((maxValue - value) * pixels / differ) : 0);
     y = roundf(y);
-    
+    if (maxValue == 0.0 && minValue == 0.0)
+    {
+        y = self.drawableAreaHeight;
+    }
     return y;
 }
 
