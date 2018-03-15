@@ -17,10 +17,9 @@
 ///////--------------------------------------- Reference Line Default Attribute ------------------------------------------///////
 
 #define DEFAULT_BACKGROUND_COLOR [UIColor colorWithRed:12.f/255.f green:71.f/255.f blue:98.f/255.f alpha:0.9]
-#define DEFAULT_AXIS_COLOR [UIColor whiteColor]
+#define DEFAULT_AXIS_COLOR [[UIColor whiteColor] colorWithAlphaComponent:0.4]
 
-#define DEFAULT_LABEL_COLOR [UIColor whiteColor]
-
+#define DEFAULT_LABEL_COLOR [[UIColor whiteColor] colorWithAlphaComponent:0.4]
 #define DEFAULT_POINTS_LABEL_COLOR [UIColor blackColor]
 #define DEFAULT_POINTS_LABEL_BACKGROUNDCOLOR [UIColor whiteColor]
 

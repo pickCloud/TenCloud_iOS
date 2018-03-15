@@ -53,6 +53,24 @@
         color1 = [UIColor colorWithRed:239/255.0 green:154/255.0 blue:154/255.0 alpha:1.0];
         color2 = [UIColor colorWithRed:152/255.0 green:84/255.0 blue:84/255.0 alpha:1.0];
     }
+    UIColor *maskColor = nil;
+    if (usage.type == TCServerUsageIdle)
+    {
+        maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
+    }else if(usage.type == TCServerUsageSafe)
+    {
+        maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    }else if (usage.type == TCServerUsageWarning)
+    {
+        maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    }else if(usage.type == TCServerUsageAlert)
+    {
+        maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
+    }else
+    {
+        maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
+    }
+    [_maskView setBackgroundColor:maskColor];
 
     _gradientLayer.colors = @[(__bridge id)color1.CGColor,
                               (__bridge id)color2.CGColor];

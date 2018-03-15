@@ -43,8 +43,7 @@
     self.selectedBackgroundView = selectedBgView;
     
     UINib *cellNib = [UINib nibWithNibName:@"TCServerUsageCollectionCell" bundle:nil];
-    [self.collectionView registerNib:cellNib
-          forCellWithReuseIdentifier:SERVER_USAGE_CELL_REUSE_ID];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:SERVER_USAGE_CELL_REUSE_ID];
     UINib *cell1Nib = [UINib nibWithNibName:@"TCServerUsage1Cell" bundle:nil];
     [self.collectionView registerNib:cell1Nib forCellWithReuseIdentifier:SERVER_USAGE_CELL1_ID];
     UINib *cell2Nib = [UINib nibWithNibName:@"TCServerUsage2Cell" bundle:nil];
@@ -86,12 +85,16 @@
     CGFloat rowWidth = (width - (_columnAmount - 1)*interval - 1)/_columnAmount;
     CGFloat rowHeight = rowWidth * 0.7347;
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    if (layout == nil)
+    {
+        layout = [[UICollectionViewFlowLayout alloc] init];
+    }
     CGSize itemSize = CGSizeMake(rowWidth, rowHeight);
     layout.itemSize = itemSize;
     layout.minimumInteritemSpacing = interval;
     layout.minimumLineSpacing = interval;
-    [_collectionView setCollectionViewLayout:layout];
+    [self.collectionView setCollectionViewLayout:layout];
     
     NSInteger rowAmount = ceil(_usageArray.count * 1.0 / _columnAmount);
     CGFloat newHeight = rowAmount * rowHeight + (rowAmount - 1)*interval;

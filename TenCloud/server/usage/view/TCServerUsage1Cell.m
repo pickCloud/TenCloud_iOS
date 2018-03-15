@@ -58,7 +58,8 @@
 #pragma mark - extension
 - (void) initChartUI
 {
-    UIColor *axisColor = [UIColor colorWithRed:102/255.0 green:112/255.0 blue:130/255.0 alpha:1.0];
+    //UIColor *axisColor = [UIColor colorWithRed:102/255.0 green:112/255.0 blue:130/255.0 alpha:1.0];
+    UIColor *axisColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     
     //设置CPU曲线图
     _cpuChartView.backgroundColor = [UIColor clearColor];
@@ -83,7 +84,7 @@
     _cpuChartView.points = [NSArray arrayWithArray:_cpuPoints];
     
     _cpuChartView.touchPointColor = [UIColor redColor];
-    _cpuChartView.labelsFont = [UIFont systemFontOfSize:12];
+    _cpuChartView.labelsFont = [UIFont systemFontOfSize:TCSCALE(10)];
     
     _cpuChartView.verticalReferenceLineColor = [UIColor clearColor];
     _cpuChartView.horizontalRefernenceLineColor = [UIColor clearColor];
@@ -105,7 +106,7 @@
     _memoryChartView.pinchable = NO;
     _memoryPoints = mutableArray;
     _memoryChartView.points = [NSArray arrayWithArray:_memoryPoints];
-    _memoryChartView.labelsFont = [UIFont systemFontOfSize:12];
+    _memoryChartView.labelsFont = [UIFont systemFontOfSize:TCSCALE(10)];
     _memoryChartView.verticalReferenceLineColor = [UIColor clearColor];
     _memoryChartView.horizontalRefernenceLineColor = [UIColor clearColor];
     _memoryChartView.axisColor = axisColor;
@@ -125,7 +126,7 @@
     _diskChartView.pinchable = NO;
     _diskPoints = mutableArray;
     _diskChartView.points = [NSArray arrayWithArray:_diskPoints];
-    _diskChartView.labelsFont = [UIFont systemFontOfSize:12];
+    _diskChartView.labelsFont = [UIFont systemFontOfSize:TCSCALE(10)];
     _diskChartView.verticalReferenceLineColor = [UIColor clearColor];
     _diskChartView.horizontalRefernenceLineColor = [UIColor clearColor];
     _diskChartView.axisColor = axisColor;
@@ -145,7 +146,7 @@
     _netChartView.pinchable = NO;
     _netPoints = mutableArray;
     _netChartView.points = [NSArray arrayWithArray:_netPoints];
-    _netChartView.labelsFont = [UIFont systemFontOfSize:12];
+    _netChartView.labelsFont = [UIFont systemFontOfSize:TCSCALE(10)];
     _netChartView.verticalReferenceLineColor = [UIColor clearColor];
     _netChartView.horizontalRefernenceLineColor = [UIColor clearColor];
     _netChartView.axisColor = axisColor;
@@ -506,6 +507,7 @@
     resultAttributes[kWYLineChartLineAttributeJunctionStyle] = @(kWYLineChartJunctionShapeSolidCircle);
     
     UIColor *lineColor;
+    /*
     if (chartView == _diskChartView)
     {
         lineColor = [UIColor colorWithRed:151/255.f green:186/255.f blue:147/255.f alpha:1.0];
@@ -525,6 +527,8 @@
     {
         lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
     }
+     */
+    lineColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     resultAttributes[kWYLineChartLineAttributeLineColor] = lineColor;
     resultAttributes[kWYLineChartLineAttributeJunctionColor] = lineColor;
     return resultAttributes;

@@ -46,6 +46,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (void) onMessageButton:(id)sender;
 - (void) onNotificationChangeCorp;
 - (void) reloadServerList;
+
+//for fake usage data
+@property (nonatomic, assign)   TCServerUsageType   alertType;
+- (void) oneServerChangeAlertType;
 @end
 
 @implementation TCServerHomeViewController
@@ -128,6 +132,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #if ONLINE_ENVIROMENT
     fakeServerID = 27;
 #endif
+    
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
     usage1.name = @"厦门测试机";
@@ -139,7 +144,6 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage1.type = TCServerUsageIdle;
     [_usageArray addObject:usage1];
     
-    /*
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
     usage2.serverID = fakeServerID;
     usage2.name = @"美国西部CDN";
@@ -195,6 +199,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage6.type = TCServerUsageSafe;
     [_usageArray addObject:usage6];
     
+    /*
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
     usage7.serverID = fakeServerID;
     usage7.name = @"厦门测试机27";
@@ -288,10 +293,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if (indexPath.section == 1)
-//    {
-//        return;
-//    }
+    if (indexPath.section == 1)
+    {
+        return;
+    }
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     
     /*
@@ -335,6 +340,9 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     if (indexPath.row == 0)
     {
         [self onMoreButton:nil];
+    }else if(indexPath.row == 1)
+    {
+        [self oneServerChangeAlertType];
     }else
     {
         [MBProgressHUD showError:@"暂无此页面" toView:nil];
@@ -486,6 +494,86 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #pragma mark - TCDataSyncDelegate
 - (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
 {
+    [self.tableView reloadData];
+}
+
+#pragma mark - for fake usage data
+- (void) oneServerChangeAlertType
+{
+    [_usageArray removeAllObjects];
+    if (_alertType < TCServerUsageCrit)
+    {
+        _alertType = _alertType + 1;
+    }else
+    {
+        _alertType = TCServerUsageIdle;
+    }
+    
+    int fakeServerID = 186;
+#if ONLINE_ENVIROMENT
+    fakeServerID = 27;
+#endif
+    if (_alertType == TCServerUsageIdle)
+    {
+        TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
+        usage1.serverID = fakeServerID;
+        usage1.name = @"厦门测试机";
+        usage1.cpuUsageRate = 0.12;
+        usage1.diskUsageRate = 0.29;
+        usage1.memoryUsageRate = 0.3;
+        usage1.networkUsage = @"22/33";
+        usage1.diskIO = @"33/44";
+        usage1.type = TCServerUsageIdle;
+        [_usageArray addObject:usage1];
+    }else if(_alertType == TCServerUsageSafe)
+    {
+        TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
+        usage2.serverID = fakeServerID;
+        usage2.name = @"美国西部CDN";
+        usage2.cpuUsageRate = 0.22;
+        usage2.diskUsageRate = 0.39;
+        usage2.memoryUsageRate = 0.43;
+        usage2.networkUsage = @"55/66";
+        usage2.diskIO = @"77/88";
+        usage2.type = TCServerUsageSafe;
+        [_usageArray addObject:usage2];
+    }else if(_alertType == TCServerUsageWarning)
+    {
+        TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
+        usage3.serverID = fakeServerID;
+        usage3.name = @"新加坡跳板机";
+        usage3.cpuUsageRate = 0.27;
+        usage3.diskUsageRate = 0.31;
+        usage3.memoryUsageRate = 0.26;
+        usage3.networkUsage = @"55/66";
+        usage3.diskIO = @"77/88";
+        usage3.type = TCServerUsageWarning;
+        [_usageArray addObject:usage3];
+    }else if(_alertType == TCServerUsageAlert)
+    {
+        TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
+        usage4.serverID = fakeServerID;
+        usage4.name = @"卖萌专用";
+        usage4.cpuUsageRate = 0.22;
+        usage4.diskUsageRate = 0.37;
+        usage4.memoryUsageRate = 0.13;
+        usage4.networkUsage = @"55/66";
+        usage4.diskIO = @"77/88";
+        usage4.type = TCServerUsageAlert;
+        [_usageArray addObject:usage4];
+    }else
+    {
+        TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
+        usage5.serverID = fakeServerID;
+        usage5.name = @"厦门测试机25";
+        usage5.cpuUsageRate = 0.12;
+        usage5.diskUsageRate = 0.19;
+        usage5.memoryUsageRate = 0.34;
+        usage5.networkUsage = @"55/66";
+        usage5.diskIO = @"77/88";
+        usage5.type = TCServerUsageCrit;
+        [_usageArray addObject:usage5];
+    }
     [self.tableView reloadData];
 }
 @end
