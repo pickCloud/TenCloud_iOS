@@ -145,6 +145,13 @@
     {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:SERVER_USAGE_CELL1_ID
                                                          forIndexPath:indexPath];
+        __weak __typeof(self) weakSelf = self;
+        cell.nextBlock = ^(TCServerUsageCollectionCell *cell) {
+            TCServerUsage *usage = [weakSelf.usageArray objectAtIndex:indexPath.row];
+            TCServerProfileViewController *profileVC = [[TCServerProfileViewController alloc] initWithID:usage.serverID];
+            [weakSelf.navController pushViewController:profileVC animated:YES];
+        };
+        
     }else if(_columnAmount == 2)
     {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:SERVER_USAGE_CELL2_ID

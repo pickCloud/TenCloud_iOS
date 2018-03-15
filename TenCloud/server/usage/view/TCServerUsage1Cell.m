@@ -272,7 +272,10 @@
 
 - (IBAction) onServerProfilePage:(id)sender
 {
-    NSLog(@" on server profile page");
+    if (self.nextBlock)
+    {
+        self.nextBlock(self);
+    }
 }
 
 

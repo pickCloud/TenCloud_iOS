@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCServerUsageCollectionCell;
+typedef void (^TCServerUsageCellNextBlock)(TCServerUsageCollectionCell *cell);
+
 @class TCServerUsage;
 @interface TCServerUsageCollectionCell : UICollectionViewCell
 
@@ -19,6 +22,7 @@
 @property (nonatomic, weak)     IBOutlet    UILabel     *memoryLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel     *diskLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel     *networkLabel;
+@property (nonatomic, copy) TCServerUsageCellNextBlock  nextBlock;
 
 - (void) setUsage:(TCServerUsage*)usage;
 
