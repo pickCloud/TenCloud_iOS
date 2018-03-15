@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TCServerUsage4Cell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="148"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="148"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOp-pc-jhp">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="148"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1s-ei-vZr">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="148"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器名称" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-ev-tdj" customClass="TCAutoScaleLabel">
+                        <rect key="frame" x="12" y="44.5" width="176" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yOp-pc-jhp" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="23l-56-3ZB"/>
+                <constraint firstItem="yOp-pc-jhp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AZI-Xs-Gqc"/>
+                <constraint firstItem="U1s-ei-vZr" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="HAi-da-3pP"/>
+                <constraint firstItem="Dd6-ev-tdj" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.88" id="W5k-SP-gSN"/>
+                <constraint firstItem="U1s-ei-vZr" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="dRK-fj-Sag"/>
+                <constraint firstItem="yOp-pc-jhp" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="g62-HA-cgg"/>
+                <constraint firstItem="yOp-pc-jhp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gjH-PY-jat"/>
+                <constraint firstItem="Dd6-ev-tdj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="jBR-SD-i5i"/>
+                <constraint firstItem="U1s-ei-vZr" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="jHH-jQ-Umq"/>
+                <constraint firstItem="Dd6-ev-tdj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="0.7" id="oPx-WS-Q85"/>
+                <constraint firstItem="U1s-ei-vZr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="rEs-8P-lLp"/>
+            </constraints>
+            <size key="customSize" width="200" height="90"/>
+            <connections>
+                <outlet property="highlightView" destination="U1s-ei-vZr" id="pWh-r0-DO2"/>
+                <outlet property="maskView" destination="yOp-pc-jhp" id="RWe-0d-FOv"/>
+                <outlet property="nameLabel" destination="Dd6-ev-tdj" id="yd2-vf-j0c"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="72"/>
+        </collectionViewCell>
+    </objects>
+</document>

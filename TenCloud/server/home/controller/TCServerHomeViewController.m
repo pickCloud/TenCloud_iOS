@@ -8,7 +8,7 @@
 
 #import "TCServerHomeViewController.h"
 #import "TCServerTableViewCell.h"
-#import "TCServerDetailViewController.h"
+//#import "TCServerDetailViewController.h"
 #import "ServerHomeIconCollectionViewCell.h"
 #import "TCAddServerViewController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
@@ -24,9 +24,11 @@
 #import "TCTextRefreshHeader.h"
 #import "TCServerProfileViewController.h"
 #import "TCServerUsage+CoreDataClass.h"
+#import "TCServerHomeUsageCell.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
+#define SERVER_HOME_USAGE_REUSE_ID      @"SERVER_HOME_USAGE_REUSE_ID"
 
 
 @interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,
@@ -77,6 +79,8 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     UINib *serverCellNib = [UINib nibWithNibName:@"TCServerTableViewCell" bundle:nil];
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
+    UINib *usageCellNib = [UINib nibWithNibName:@"TCServerHomeUsageCell" bundle:nil];
+    [_tableView registerNib:usageCellNib forCellReuseIdentifier:SERVER_HOME_USAGE_REUSE_ID];
     _tableView.emptyDataSetDelegate = self;
     _tableView.emptyDataSetSource = self;
     
@@ -120,28 +124,119 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [[TCDataSync shared] addPermissionChangedObserver:self];
     
     _usageArray = [NSMutableArray new];
+    int fakeServerID = 186;
+#if ONLINE_ENVIROMENT
+    fakeServerID = 27;
+#endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
-    usage1.serverID = 27;
-    usage1.name = @"厦门测试机23";
+    usage1.serverID = fakeServerID;
+    usage1.name = @"厦门测试机";
     usage1.cpuUsageRate = 0.12;
     usage1.diskUsageRate = 0.29;
     usage1.memoryUsageRate = 0.3;
     usage1.networkUsage = @"22/33";
     usage1.diskIO = @"33/44";
     usage1.type = TCServerUsageIdle;
+    [_usageArray addObject:usage1];
     
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
-    usage1.serverID = 28;
-    usage1.name = @"厦门测试机24";
-    usage1.cpuUsageRate = 0.22;
-    usage1.diskUsageRate = 0.39;
-    usage1.memoryUsageRate = 0.43;
-    usage1.networkUsage = @"55/66";
-    usage1.diskIO = @"77/88";
-    usage1.type = TCServerUsageSafe;
+    usage2.serverID = fakeServerID;
+    usage2.name = @"美国西部CDN";
+    usage2.cpuUsageRate = 0.22;
+    usage2.diskUsageRate = 0.39;
+    usage2.memoryUsageRate = 0.43;
+    usage2.networkUsage = @"55/66";
+    usage2.diskIO = @"77/88";
+    usage2.type = TCServerUsageSafe;
     [_usageArray addObject:usage2];
     
-    //NSLog(@"usages:%@",_usageArray);
+    TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
+    usage3.serverID = fakeServerID;
+    usage3.name = @"新加坡跳板机";
+    usage3.cpuUsageRate = 0.22;
+    usage3.diskUsageRate = 0.39;
+    usage3.memoryUsageRate = 0.43;
+    usage3.networkUsage = @"55/66";
+    usage3.diskIO = @"77/88";
+    usage3.type = TCServerUsageWarning;
+    [_usageArray addObject:usage3];
+    
+    TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
+    usage4.serverID = fakeServerID;
+    usage4.name = @"卖萌专用";
+    usage4.cpuUsageRate = 0.22;
+    usage4.diskUsageRate = 0.39;
+    usage4.memoryUsageRate = 0.43;
+    usage4.networkUsage = @"55/66";
+    usage4.diskIO = @"77/88";
+    usage4.type = TCServerUsageAlert;
+    [_usageArray addObject:usage4];
+    
+    TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
+    usage5.serverID = fakeServerID;
+    usage5.name = @"厦门测试机24";
+    usage5.cpuUsageRate = 0.22;
+    usage5.diskUsageRate = 0.39;
+    usage5.memoryUsageRate = 0.43;
+    usage5.networkUsage = @"55/66";
+    usage5.diskIO = @"77/88";
+    usage5.type = TCServerUsageCrit;
+    [_usageArray addObject:usage5];
+    
+    TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
+    usage6.serverID = fakeServerID;
+    usage6.name = @"厦门测试机24";
+    usage6.cpuUsageRate = 0.22;
+    usage6.diskUsageRate = 0.39;
+    usage6.memoryUsageRate = 0.43;
+    usage6.networkUsage = @"55/66";
+    usage6.diskIO = @"77/88";
+    usage6.type = TCServerUsageSafe;
+    [_usageArray addObject:usage6];
+
+    TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
+    usage7.serverID = fakeServerID;
+    usage7.name = @"厦门测试机24";
+    usage7.cpuUsageRate = 0.22;
+    usage7.diskUsageRate = 0.39;
+    usage7.memoryUsageRate = 0.43;
+    usage7.networkUsage = @"55/66";
+    usage7.diskIO = @"77/88";
+    usage7.type = TCServerUsageSafe;
+    [_usageArray addObject:usage7];
+    
+    TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
+    usage8.serverID = fakeServerID;
+    usage8.name = @"厦门测试机24";
+    usage8.cpuUsageRate = 0.22;
+    usage8.diskUsageRate = 0.39;
+    usage8.memoryUsageRate = 0.43;
+    usage8.networkUsage = @"55/66";
+    usage8.diskIO = @"77/88";
+    usage8.type = TCServerUsageSafe;
+    [_usageArray addObject:usage8];
+    
+    TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
+    usage9.serverID = fakeServerID;
+    usage9.name = @"厦门测试机24";
+    usage9.cpuUsageRate = 0.22;
+    usage9.diskUsageRate = 0.39;
+    usage9.memoryUsageRate = 0.43;
+    usage9.networkUsage = @"55/66";
+    usage9.diskIO = @"77/88";
+    usage9.type = TCServerUsageSafe;
+    [_usageArray addObject:usage9];
+    
+    TCServerUsage *usage10 = [TCServerUsage MR_createEntity];
+    usage10.serverID = fakeServerID;
+    usage10.name = @"厦门测试机24";
+    usage10.cpuUsageRate = 0.22;
+    usage10.diskUsageRate = 0.39;
+    usage10.memoryUsageRate = 0.43;
+    usage10.networkUsage = @"55/66";
+    usage10.diskIO = @"77/88";
+    usage10.type = TCServerUsageSafe;
+    [_usageArray addObject:usage10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,14 +253,25 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 1)
+    {
+        return 1;
+    }
     return _serverArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1)
+    {
+        TCServerHomeUsageCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_HOME_USAGE_REUSE_ID forIndexPath:indexPath];
+        [cell setNavController:self.navigationController];
+        [cell setUsageData:_usageArray];
+        return cell;
+    }
     TCServerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CELL_REUSE_ID forIndexPath:indexPath];
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     [cell setServer:server];
@@ -176,6 +282,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    if (indexPath.section == 1)
+//    {
+//        return;
+//    }
     TCServer *server = [_serverArray objectAtIndex:indexPath.row];
     
     /*

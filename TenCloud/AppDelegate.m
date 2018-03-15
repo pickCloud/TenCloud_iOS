@@ -29,7 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 #if ONLINE_ENVIROMENT
-    [Bugly startWithAppId:@"df4c8fb59b"];
+    //[Bugly startWithAppId:@"df4c8fb59b"];
 #endif
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"tc.sqlite"];

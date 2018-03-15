@@ -286,6 +286,17 @@
 		A0A0E8D320246B7100265920 /* TCServerSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0E8D220246B7100265920 /* TCServerSummaryRequest.m */; };
 		A0A0F09720580BFD003CB4BD /* TCServerUsage+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F09420580BFD003CB4BD /* TCServerUsage+CoreDataClass.m */; };
 		A0A0F09820580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F09620580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m */; };
+		A0A0F09C2058C55F003CB4BD /* TCServerHomeUsageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F09A2058C55F003CB4BD /* TCServerHomeUsageCell.m */; };
+		A0A0F09D2058C55F003CB4BD /* TCServerHomeUsageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0F09B2058C55F003CB4BD /* TCServerHomeUsageCell.xib */; };
+		A0A0F0A320590321003CB4BD /* TCServerUsageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F0A120590321003CB4BD /* TCServerUsageCollectionCell.m */; };
+		A0A0F0A820595DB8003CB4BD /* TCServerUsage1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F0A520595DB7003CB4BD /* TCServerUsage1Cell.m */; };
+		A0A0F0A920595DB8003CB4BD /* TCServerUsage1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0F0A620595DB7003CB4BD /* TCServerUsage1Cell.xib */; };
+		A0A0F0B320595FAB003CB4BD /* TCServerUsage2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F0AA20595FAA003CB4BD /* TCServerUsage2Cell.m */; };
+		A0A0F0B420595FAB003CB4BD /* TCServerUsage3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0F0AB20595FAA003CB4BD /* TCServerUsage3Cell.xib */; };
+		A0A0F0B520595FAB003CB4BD /* TCServerUsage4Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F0AC20595FAA003CB4BD /* TCServerUsage4Cell.m */; };
+		A0A0F0B620595FAB003CB4BD /* TCServerUsage4Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0F0AD20595FAA003CB4BD /* TCServerUsage4Cell.xib */; };
+		A0A0F0B720595FAB003CB4BD /* TCServerUsage3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0F0AE20595FAB003CB4BD /* TCServerUsage3Cell.m */; };
+		A0A0F0B820595FAB003CB4BD /* TCServerUsage2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A0F0AF20595FAB003CB4BD /* TCServerUsage2Cell.xib */; };
 		A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */; };
 		A0A124E020514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DD20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.m */; };
 		A0A124E120514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A124DF20514CBF00E1FF7E /* TCSystemLoad+CoreDataProperties.m */; };
@@ -933,6 +944,23 @@
 		A0A0F09420580BFD003CB4BD /* TCServerUsage+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerUsage+CoreDataClass.m"; sourceTree = "<group>"; };
 		A0A0F09520580BFD003CB4BD /* TCServerUsage+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCServerUsage+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A0A0F09620580BFD003CB4BD /* TCServerUsage+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCServerUsage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A0A0F09A2058C55F003CB4BD /* TCServerHomeUsageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerHomeUsageCell.m; sourceTree = "<group>"; };
+		A0A0F09B2058C55F003CB4BD /* TCServerHomeUsageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerHomeUsageCell.xib; sourceTree = "<group>"; };
+		A0A0F09F2058F8F5003CB4BD /* TCServerHomeUsageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerHomeUsageCell.h; sourceTree = "<group>"; };
+		A0A0F0A020590321003CB4BD /* TCServerUsageCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerUsageCollectionCell.h; sourceTree = "<group>"; };
+		A0A0F0A120590321003CB4BD /* TCServerUsageCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerUsageCollectionCell.m; sourceTree = "<group>"; };
+		A0A0F0A520595DB7003CB4BD /* TCServerUsage1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerUsage1Cell.m; sourceTree = "<group>"; };
+		A0A0F0A620595DB7003CB4BD /* TCServerUsage1Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerUsage1Cell.xib; sourceTree = "<group>"; };
+		A0A0F0A720595DB8003CB4BD /* TCServerUsage1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerUsage1Cell.h; sourceTree = "<group>"; };
+		A0A0F0AA20595FAA003CB4BD /* TCServerUsage2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerUsage2Cell.m; sourceTree = "<group>"; };
+		A0A0F0AB20595FAA003CB4BD /* TCServerUsage3Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerUsage3Cell.xib; sourceTree = "<group>"; };
+		A0A0F0AC20595FAA003CB4BD /* TCServerUsage4Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerUsage4Cell.m; sourceTree = "<group>"; };
+		A0A0F0AD20595FAA003CB4BD /* TCServerUsage4Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerUsage4Cell.xib; sourceTree = "<group>"; };
+		A0A0F0AE20595FAB003CB4BD /* TCServerUsage3Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerUsage3Cell.m; sourceTree = "<group>"; };
+		A0A0F0AF20595FAB003CB4BD /* TCServerUsage2Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerUsage2Cell.xib; sourceTree = "<group>"; };
+		A0A0F0B020595FAB003CB4BD /* TCServerUsage2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerUsage2Cell.h; sourceTree = "<group>"; };
+		A0A0F0B120595FAB003CB4BD /* TCServerUsage4Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerUsage4Cell.h; sourceTree = "<group>"; };
+		A0A0F0B220595FAB003CB4BD /* TCServerUsage3Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerUsage3Cell.h; sourceTree = "<group>"; };
 		A0A124D32051158A00E1FF7E /* TCAutoScaleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAutoScaleLabel.h; sourceTree = "<group>"; };
 		A0A124D42051158A00E1FF7E /* TCAutoScaleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAutoScaleLabel.m; sourceTree = "<group>"; };
 		A0A124DC20514CBF00E1FF7E /* TCSystemLoad+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCSystemLoad+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -1797,6 +1825,9 @@
 				A07DBEBB1FE2626000F37715 /* ServerHomeIconCollectionViewCell.h */,
 				A07DBEBC1FE2626000F37715 /* ServerHomeIconCollectionViewCell.m */,
 				A07DBEBD1FE2626000F37715 /* ServerHomeIconCollectionViewCell.xib */,
+				A0A0F09F2058F8F5003CB4BD /* TCServerHomeUsageCell.h */,
+				A0A0F09A2058C55F003CB4BD /* TCServerHomeUsageCell.m */,
+				A0A0F09B2058C55F003CB4BD /* TCServerHomeUsageCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3419,6 +3450,20 @@
 		A0A0F09220580BE3003CB4BD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0F0B020595FAB003CB4BD /* TCServerUsage2Cell.h */,
+				A0A0F0AA20595FAA003CB4BD /* TCServerUsage2Cell.m */,
+				A0A0F0AF20595FAB003CB4BD /* TCServerUsage2Cell.xib */,
+				A0A0F0B220595FAB003CB4BD /* TCServerUsage3Cell.h */,
+				A0A0F0AE20595FAB003CB4BD /* TCServerUsage3Cell.m */,
+				A0A0F0AB20595FAA003CB4BD /* TCServerUsage3Cell.xib */,
+				A0A0F0B120595FAB003CB4BD /* TCServerUsage4Cell.h */,
+				A0A0F0AC20595FAA003CB4BD /* TCServerUsage4Cell.m */,
+				A0A0F0AD20595FAA003CB4BD /* TCServerUsage4Cell.xib */,
+				A0A0F0A720595DB8003CB4BD /* TCServerUsage1Cell.h */,
+				A0A0F0A520595DB7003CB4BD /* TCServerUsage1Cell.m */,
+				A0A0F0A620595DB7003CB4BD /* TCServerUsage1Cell.xib */,
+				A0A0F0A020590321003CB4BD /* TCServerUsageCollectionCell.h */,
+				A0A0F0A120590321003CB4BD /* TCServerUsageCollectionCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4410,6 +4455,7 @@
 				A0C363062004C1990033C99C /* TCInviteStaffViewController.xib in Resources */,
 				A02CA86F2000F23F00BD00C5 /* TCPermissionCell.xib in Resources */,
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
+				A0A0F09D2058C55F003CB4BD /* TCServerHomeUsageCell.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
 				A00AFF87200C4E1100EFADF6 /* TCAcceptInviteViewController.xib in Resources */,
 				A031B5D41FFC2FA600B4F448 /* TCPermissionFoldCell.xib in Resources */,
@@ -4430,6 +4476,7 @@
 				A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */,
 				A088F94D202B01C4005A97DD /* TCPermissionTemplateCell.xib in Resources */,
 				A0A0B5B2200227A800EA8512 /* TCStaffProfileViewController.xib in Resources */,
+				A0A0F0B420595FAB003CB4BD /* TCServerUsage3Cell.xib in Resources */,
 				A0A86B2F1FF3896D00D1D58D /* TCFailResultViewController.xib in Resources */,
 				A0142CAB20518A1D00DC843D /* TCMirrorHomeViewController.xib in Resources */,
 				A088F948202AE731005A97DD /* TCProjectPermTableViewController.xib in Resources */,
@@ -4452,6 +4499,7 @@
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
 				A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
+				A0A0F0A920595DB8003CB4BD /* TCServerUsage1Cell.xib in Resources */,
 				A088F943202AE664005A97DD /* TCProjectPermTableViewCell.xib in Resources */,
 				A031B5DD1FFC532100B4F448 /* TCPermissionSectionHeaderCell.xib in Resources */,
 				A0A86B4E1FF3927E00D1D58D /* TCMyCorpTableViewController.xib in Resources */,
@@ -4469,8 +4517,10 @@
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
 				A031B62B1FFE259000B4F448 /* TCStaffTableViewCell.xib in Resources */,
+				A0A0F0B620595FAB003CB4BD /* TCServerUsage4Cell.xib in Resources */,
 				A0B7FFE220526F47007A7A93 /* TCTimePeriodCell.xib in Resources */,
 				A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */,
+				A0A0F0B820595FAB003CB4BD /* TCServerUsage2Cell.xib in Resources */,
 				A07DBEC31FE27A3300F37715 /* TCServerListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4682,6 +4732,7 @@
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
 				A0906E872028A220006D30C8 /* TCOKView.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
+				A0A0F0B520595FAB003CB4BD /* TCServerUsage4Cell.m in Sources */,
 				A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
@@ -4739,6 +4790,7 @@
 				A06D120F1FEB36BC00722C76 /* TCAddServerViewController.m in Sources */,
 				A062773C202199AD00FF7E30 /* TCInviteJoinedViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
+				A0A0F0A320590321003CB4BD /* TCServerUsageCollectionCell.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
@@ -4748,6 +4800,7 @@
 				A033858E1FE8A70700EC0EC8 /* TCServerStatusRequest.m in Sources */,
 				A073F9BF2018C0B300AB03DA /* TCTextRefreshAutoFooter.m in Sources */,
 				A06D12071FEA529C00722C76 /* TCDeleteServerRequest.m in Sources */,
+				A0A0F0B320595FAB003CB4BD /* TCServerUsage2Cell.m in Sources */,
 				A018E7B32052836E00C3CB96 /* TCServerStatusLabel.m in Sources */,
 				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
@@ -4815,7 +4868,9 @@
 				A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */,
 				A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
+				A0A0F09C2058C55F003CB4BD /* TCServerHomeUsageCell.m in Sources */,
 				A031B6031FFD189400B4F448 /* TCAddTemplateRequest.m in Sources */,
+				A0A0F0B720595FAB003CB4BD /* TCServerUsage3Cell.m in Sources */,
 				A031B6201FFE1A9900B4F448 /* TCStaffListRequest.m in Sources */,
 				A0895CF02019743900C00974 /* TCBoderButton.m in Sources */,
 				A0339852201F0BCB00CF8630 /* TCDissentViewController.m in Sources */,
@@ -4853,6 +4908,7 @@
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
 				A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */,
 				A0C362F1200443AE0033C99C /* TCJoinSettingRequest.m in Sources */,
+				A0A0F0A820595DB8003CB4BD /* TCServerUsage1Cell.m in Sources */,
 				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
 				A04539B620073A2B00402D1A /* TCStaffSearchRequest.m in Sources */,

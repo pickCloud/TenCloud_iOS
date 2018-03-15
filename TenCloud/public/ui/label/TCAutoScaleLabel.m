@@ -15,8 +15,13 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        CGFloat fontSize = TCSCALE(self.font.pointSize);
-        self.font = [UIFont systemFontOfSize:fontSize];
+        //CGFloat fontSize = TCSCALE(self.font.pointSize);
+        //self.font = [UIFont systemFontOfSize:fontSize];
+        UIFontDescriptor *fontDesc = self.font.fontDescriptor;
+        CGFloat newSize = TCSCALE(fontDesc.pointSize);
+        UIFontDescriptor *newDesc = [fontDesc fontDescriptorWithSize:newSize];
+        UIFont *newFont = [UIFont fontWithDescriptor:newDesc size:newSize];
+        self.font = newFont;
     }
     return self;
 }
