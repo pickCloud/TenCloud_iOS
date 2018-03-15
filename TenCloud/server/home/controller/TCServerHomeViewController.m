@@ -139,6 +139,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage1.type = TCServerUsageIdle;
     [_usageArray addObject:usage1];
     
+    /*
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
     usage2.serverID = fakeServerID;
     usage2.name = @"美国西部CDN";
@@ -153,9 +154,9 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
     usage3.serverID = fakeServerID;
     usage3.name = @"新加坡跳板机";
-    usage3.cpuUsageRate = 0.22;
-    usage3.diskUsageRate = 0.39;
-    usage3.memoryUsageRate = 0.43;
+    usage3.cpuUsageRate = 0.27;
+    usage3.diskUsageRate = 0.31;
+    usage3.memoryUsageRate = 0.26;
     usage3.networkUsage = @"55/66";
     usage3.diskIO = @"77/88";
     usage3.type = TCServerUsageWarning;
@@ -165,8 +166,8 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage4.serverID = fakeServerID;
     usage4.name = @"卖萌专用";
     usage4.cpuUsageRate = 0.22;
-    usage4.diskUsageRate = 0.39;
-    usage4.memoryUsageRate = 0.43;
+    usage4.diskUsageRate = 0.37;
+    usage4.memoryUsageRate = 0.13;
     usage4.networkUsage = @"55/66";
     usage4.diskIO = @"77/88";
     usage4.type = TCServerUsageAlert;
@@ -174,10 +175,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
     usage5.serverID = fakeServerID;
-    usage5.name = @"厦门测试机24";
-    usage5.cpuUsageRate = 0.22;
-    usage5.diskUsageRate = 0.39;
-    usage5.memoryUsageRate = 0.43;
+    usage5.name = @"厦门测试机25";
+    usage5.cpuUsageRate = 0.12;
+    usage5.diskUsageRate = 0.19;
+    usage5.memoryUsageRate = 0.34;
     usage5.networkUsage = @"55/66";
     usage5.diskIO = @"77/88";
     usage5.type = TCServerUsageCrit;
@@ -185,7 +186,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
     usage6.serverID = fakeServerID;
-    usage6.name = @"厦门测试机24";
+    usage6.name = @"厦门测试机26";
     usage6.cpuUsageRate = 0.22;
     usage6.diskUsageRate = 0.39;
     usage6.memoryUsageRate = 0.43;
@@ -193,10 +194,10 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage6.diskIO = @"77/88";
     usage6.type = TCServerUsageSafe;
     [_usageArray addObject:usage6];
-
+    
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
     usage7.serverID = fakeServerID;
-    usage7.name = @"厦门测试机24";
+    usage7.name = @"厦门测试机27";
     usage7.cpuUsageRate = 0.22;
     usage7.diskUsageRate = 0.39;
     usage7.memoryUsageRate = 0.43;
@@ -207,7 +208,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
     usage8.serverID = fakeServerID;
-    usage8.name = @"厦门测试机24";
+    usage8.name = @"厦门测试机28";
     usage8.cpuUsageRate = 0.22;
     usage8.diskUsageRate = 0.39;
     usage8.memoryUsageRate = 0.43;
@@ -218,7 +219,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
     usage9.serverID = fakeServerID;
-    usage9.name = @"厦门测试机24";
+    usage9.name = @"厦门测试机29";
     usage9.cpuUsageRate = 0.22;
     usage9.diskUsageRate = 0.39;
     usage9.memoryUsageRate = 0.43;
@@ -237,6 +238,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage10.diskIO = @"77/88";
     usage10.type = TCServerUsageSafe;
     [_usageArray addObject:usage10];
+     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -253,7 +255,11 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if (_serverArray.count > 0)
+    {
+        return 2;
+    }
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

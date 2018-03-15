@@ -31,6 +31,7 @@
 - (void) setUsage:(TCServerUsage*)usage
 {
     NSLog(@"set usage ");
+    _usage = usage;
     _nameLabel.text = usage.name;
     
     _gradientLayer.startPoint = CGPointMake(0, 0);

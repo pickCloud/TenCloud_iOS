@@ -11,6 +11,7 @@
 @class TCServerUsage;
 @interface TCServerUsageCollectionCell : UICollectionViewCell
 
+@property (nonatomic, strong)   TCServerUsage           *usage;
 @property (nonatomic, weak)     IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak)     IBOutlet    UIView      *maskView;
 @property (nonatomic, weak)     IBOutlet    UIView      *highlightView;
