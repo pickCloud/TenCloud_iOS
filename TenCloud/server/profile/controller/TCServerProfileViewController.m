@@ -32,6 +32,7 @@
 #import "TCServerStatusLabel.h"
 #import "TCMonitorHistoryTableViewController.h"
 #import "TCServerToolViewController.h"
+#import "TCServerConfigInfoViewController.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
 
@@ -81,7 +82,8 @@
 - (IBAction) onAverageLoadButton:(id)sender;
 - (IBAction) onInfoButton:(id)sender;
 - (IBAction) onHelpButton:(id)sender;
-- (IBAction) onConfigButton:(id)sender;
+- (IBAction) onToolButton:(id)sender;
+- (IBAction) onConfigDetailButton:(id)sender;
 - (IBAction) onResourceDetailButton:(id)sender;
 - (IBAction) onFeeDetailButton:(id)sender;
 - (IBAction) onMonitorDetailButton:(id)sender;
@@ -774,10 +776,17 @@
     NSLog(@"on help button");
 }
 
-- (IBAction) onConfigButton:(id)sender
+- (IBAction) onToolButton:(id)sender
 {
     TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] init];
     [self presentViewController:toolVC animated:NO completion:nil];
+}
+
+- (IBAction) onConfigDetailButton:(id)sender
+{
+    TCServerConfigInfoViewController *infoVC = nil;
+    infoVC = [[TCServerConfigInfoViewController alloc] initWithConfig:_config];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 - (IBAction) onResourceDetailButton:(id)sender

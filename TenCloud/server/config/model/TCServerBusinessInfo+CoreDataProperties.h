@@ -12,12 +12,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TCServerBusinessContract;
 @interface TCServerBusinessInfo (CoreDataProperties)
 
 + (NSFetchRequest<TCServerBusinessInfo *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *provider;
-@property (nullable, nonatomic, retain) NSObject *contract;
+@property (nullable, nonatomic, retain) TCServerBusinessContract *contract;
 
 @end
 
