@@ -9,6 +9,7 @@
 #import "TCConfiguration.h"
 #import "TCClusterProviderRequest.h"
 #import "TCClusterProvider+CoreDataClass.h"
+#import "TCServerThresholdRequest.h"
 
 @interface TCConfiguration()
 - (void) sendProviderConfigurationRequest;
@@ -38,6 +39,13 @@
         {
             [self startFetch];
         }
+        
+        _threshold = [TCServerThreshold MR_createEntity];
+        _threshold.block_threshold = 0.8;
+        _threshold.disk_threshold = 0.8;
+        _threshold.memory_threshold = 0.8;
+        _threshold.cpu_threshold = 0.8;
+        _threshold.net_threshold = 0.8;
     }
     return self;
 }
@@ -56,6 +64,18 @@
             [self performSelector:@selector(sendProviderConfigurationRequest)
                        withObject:nil afterDelay:1.5];
         }
+    }];
+}
+
+- (void) getServerThreshold
+{
+    __weak __typeof(self) weakSelf = self;
+    TCServerThresholdRequest *req = [TCServerThresholdRequest new];
+    [req startWithSuccess:^(TCServerThreshold *threshold) {
+        NSLog(@"geeeeettt ");
+        weakSelf.threshold = threshold;
+    } failure:^(NSString *message) {
+        NSLog(@"geeeeettt 2");
     }];
 }
 

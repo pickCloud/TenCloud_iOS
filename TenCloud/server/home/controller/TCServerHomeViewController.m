@@ -49,7 +49,12 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 
 //for fake usage data
 @property (nonatomic, assign)   TCServerUsageType   alertType;
+@property (nonatomic, assign)   int                 columnAmount;
 - (void) oneServerChangeAlertType;
+- (void) usageDataWith4Server;
+- (void) usageDataWith7Server;
+- (void) usageDataWith10Server;
+- (void) switchColumnAmount;
 @end
 
 @implementation TCServerHomeViewController
@@ -128,6 +133,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [[TCDataSync shared] addPermissionChangedObserver:self];
     
     _usageArray = [NSMutableArray new];
+    /*
     int fakeServerID = 186;
 #if ONLINE_ENVIROMENT
     fakeServerID = 27;
@@ -198,6 +204,8 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage6.diskIO = @"77/88";
     usage6.type = TCServerUsageSafe;
     [_usageArray addObject:usage6];
+     */
+    [self usageDataWith7Server];
     
     /*
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
@@ -345,7 +353,9 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
         [self oneServerChangeAlertType];
     }else
     {
-        [MBProgressHUD showError:@"暂无此页面" toView:nil];
+        //[self usageDataWith4Server];
+        [self switchColumnAmount];
+        //[MBProgressHUD showError:@"暂无此页面" toView:nil];
     }
 }
 
@@ -575,5 +585,310 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
         [_usageArray addObject:usage5];
     }
     [self.tableView reloadData];
+}
+
+- (void) usageDataWith4Server
+{
+    [_usageArray removeAllObjects];
+    
+    int fakeServerID = 186;
+#if ONLINE_ENVIROMENT
+    fakeServerID = 27;
+#endif
+    TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
+    usage1.serverID = fakeServerID;
+    usage1.name = @"厦门测试机";
+    usage1.cpuUsageRate = 0.92;
+    usage1.diskUsageRate = 0.39;
+    usage1.memoryUsageRate = 0.93;
+    usage1.networkUsage = @"22/33";
+    usage1.diskIO = @"33/44";
+    usage1.type = TCServerUsageCrit;
+    [_usageArray addObject:usage1];
+    
+    TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
+    usage2.serverID = fakeServerID;
+    usage2.name = @"美国西部CDN";
+    usage2.cpuUsageRate = 0.82;
+    usage2.diskUsageRate = 0.39;
+    usage2.memoryUsageRate = 0.43;
+    usage2.networkUsage = @"55/66";
+    usage2.diskIO = @"77/88";
+    usage2.type = TCServerUsageAlert;
+    [_usageArray addObject:usage2];
+    
+    TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
+    usage3.serverID = fakeServerID;
+    usage3.name = @"新加坡跳板机";
+    usage3.cpuUsageRate = 0.27;
+    usage3.diskUsageRate = 0.31;
+    usage3.memoryUsageRate = 0.26;
+    usage3.networkUsage = @"55/66";
+    usage3.diskIO = @"77/88";
+    usage3.type = TCServerUsageSafe;
+    [_usageArray addObject:usage3];
+    
+    TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
+    usage4.serverID = fakeServerID;
+    usage4.name = @"卖萌专用机";
+    usage4.cpuUsageRate = 0.22;
+    usage4.diskUsageRate = 0.17;
+    usage4.memoryUsageRate = 0.13;
+    usage4.networkUsage = @"55/66";
+    usage4.diskIO = @"77/88";
+    usage4.type = TCServerUsageIdle;
+    [_usageArray addObject:usage4];
+    [self.tableView reloadData];
+}
+
+- (void) usageDataWith7Server
+{
+    [_usageArray removeAllObjects];
+    
+    int fakeServerID = 186;
+#if ONLINE_ENVIROMENT
+    fakeServerID = 27;
+#endif
+    TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
+    usage1.serverID = fakeServerID;
+    usage1.name = @"测试机2";
+    usage1.cpuUsageRate = 0.92;
+    usage1.diskUsageRate = 0.39;
+    usage1.memoryUsageRate = 0.93;
+    usage1.networkUsage = @"22/33";
+    usage1.diskIO = @"33/44";
+    usage1.type = TCServerUsageCrit;
+    [_usageArray addObject:usage1];
+    
+    TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
+    usage2.serverID = fakeServerID;
+    usage2.name = @"美国西部CDN";
+    usage2.cpuUsageRate = 0.82;
+    usage2.diskUsageRate = 0.39;
+    usage2.memoryUsageRate = 0.43;
+    usage2.networkUsage = @"55/66";
+    usage2.diskIO = @"77/88";
+    usage2.type = TCServerUsageAlert;
+    [_usageArray addObject:usage2];
+    
+    TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
+    usage3.serverID = fakeServerID;
+    usage3.name = @"新加坡跳板机";
+    usage3.cpuUsageRate = 0.27;
+    usage3.diskUsageRate = 0.31;
+    usage3.memoryUsageRate = 0.26;
+    usage3.networkUsage = @"55/66";
+    usage3.diskIO = @"77/88";
+    usage3.type = TCServerUsageWarning;
+    [_usageArray addObject:usage3];
+    
+    TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
+    usage4.serverID = fakeServerID;
+    usage4.name = @"卖萌专用机";
+    usage4.cpuUsageRate = 0.22;
+    usage4.diskUsageRate = 0.17;
+    usage4.memoryUsageRate = 0.13;
+    usage4.networkUsage = @"55/66";
+    usage4.diskIO = @"77/88";
+    usage4.type = TCServerUsageSafe;
+    [_usageArray addObject:usage4];
+    
+    TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
+    usage5.serverID = fakeServerID;
+    usage5.name = @"测试机21";
+    usage5.cpuUsageRate = 0.22;
+    usage5.diskUsageRate = 0.17;
+    usage5.memoryUsageRate = 0.13;
+    usage5.networkUsage = @"55/66";
+    usage5.diskIO = @"77/88";
+    usage5.type = TCServerUsageIdle;
+    [_usageArray addObject:usage4];
+    
+    TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
+    usage6.serverID = fakeServerID;
+    usage6.name = @"测试机22";
+    usage6.cpuUsageRate = 0.22;
+    usage6.diskUsageRate = 0.17;
+    usage6.memoryUsageRate = 0.13;
+    usage6.networkUsage = @"55/66";
+    usage6.diskIO = @"77/88";
+    usage6.type = TCServerUsageIdle;
+    [_usageArray addObject:usage6];
+    
+    TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
+    usage7.serverID = fakeServerID;
+    usage7.name = @"测试机23";
+    usage7.cpuUsageRate = 0.22;
+    usage7.diskUsageRate = 0.17;
+    usage7.memoryUsageRate = 0.13;
+    usage7.networkUsage = @"55/66";
+    usage7.diskIO = @"77/88";
+    usage7.type = TCServerUsageIdle;
+    [_usageArray addObject:usage7];
+    
+    TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
+    usage8.serverID = fakeServerID;
+    usage8.name = @"测试机24";
+    usage8.cpuUsageRate = 0.22;
+    usage8.diskUsageRate = 0.17;
+    usage8.memoryUsageRate = 0.13;
+    usage8.networkUsage = @"55/66";
+    usage8.diskIO = @"77/88";
+    usage8.type = TCServerUsageIdle;
+    [_usageArray addObject:usage8];
+    
+    TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
+    usage9.serverID = fakeServerID;
+    usage9.name = @"测试机25";
+    usage9.cpuUsageRate = 0.22;
+    usage9.diskUsageRate = 0.17;
+    usage9.memoryUsageRate = 0.13;
+    usage9.networkUsage = @"55/66";
+    usage9.diskIO = @"77/88";
+    usage9.type = TCServerUsageIdle;
+    [_usageArray addObject:usage9];
+    
+    [self.tableView reloadData];
+}
+
+- (void) usageDataWith10Server
+{
+    [_usageArray removeAllObjects];
+    
+    int fakeServerID = 186;
+#if ONLINE_ENVIROMENT
+    fakeServerID = 27;
+#endif
+    TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
+    usage1.serverID = fakeServerID;
+    usage1.name = @"测试机2";
+    usage1.cpuUsageRate = 0.92;
+    usage1.diskUsageRate = 0.39;
+    usage1.memoryUsageRate = 0.93;
+    usage1.networkUsage = @"22/33";
+    usage1.diskIO = @"33/44";
+    usage1.type = TCServerUsageCrit;
+    [_usageArray addObject:usage1];
+    
+    TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
+    usage2.serverID = fakeServerID;
+    usage2.name = @"美国西部CDN";
+    usage2.cpuUsageRate = 0.82;
+    usage2.diskUsageRate = 0.39;
+    usage2.memoryUsageRate = 0.43;
+    usage2.networkUsage = @"55/66";
+    usage2.diskIO = @"77/88";
+    usage2.type = TCServerUsageAlert;
+    [_usageArray addObject:usage2];
+    
+    TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
+    usage3.serverID = fakeServerID;
+    usage3.name = @"新加坡跳板机";
+    usage3.cpuUsageRate = 0.27;
+    usage3.diskUsageRate = 0.31;
+    usage3.memoryUsageRate = 0.26;
+    usage3.networkUsage = @"55/66";
+    usage3.diskIO = @"77/88";
+    usage3.type = TCServerUsageWarning;
+    [_usageArray addObject:usage3];
+    
+    TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
+    usage4.serverID = fakeServerID;
+    usage4.name = @"卖萌专用机";
+    usage4.cpuUsageRate = 0.22;
+    usage4.diskUsageRate = 0.17;
+    usage4.memoryUsageRate = 0.13;
+    usage4.networkUsage = @"55/66";
+    usage4.diskIO = @"77/88";
+    usage4.type = TCServerUsageSafe;
+    [_usageArray addObject:usage4];
+    
+    TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
+    usage5.serverID = fakeServerID;
+    usage5.name = @"测试机21";
+    usage5.cpuUsageRate = 0.22;
+    usage5.diskUsageRate = 0.17;
+    usage5.memoryUsageRate = 0.13;
+    usage5.networkUsage = @"55/66";
+    usage5.diskIO = @"77/88";
+    usage5.type = TCServerUsageIdle;
+    [_usageArray addObject:usage4];
+    
+    TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
+    usage6.serverID = fakeServerID;
+    usage6.name = @"测试机22";
+    usage6.cpuUsageRate = 0.22;
+    usage6.diskUsageRate = 0.17;
+    usage6.memoryUsageRate = 0.13;
+    usage6.networkUsage = @"55/66";
+    usage6.diskIO = @"77/88";
+    usage6.type = TCServerUsageIdle;
+    [_usageArray addObject:usage6];
+    
+    TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
+    usage7.serverID = fakeServerID;
+    usage7.name = @"测试机23";
+    usage7.cpuUsageRate = 0.22;
+    usage7.diskUsageRate = 0.17;
+    usage7.memoryUsageRate = 0.13;
+    usage7.networkUsage = @"55/66";
+    usage7.diskIO = @"77/88";
+    usage7.type = TCServerUsageIdle;
+    [_usageArray addObject:usage7];
+    
+    TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
+    usage8.serverID = fakeServerID;
+    usage8.name = @"测试机24";
+    usage8.cpuUsageRate = 0.22;
+    usage8.diskUsageRate = 0.17;
+    usage8.memoryUsageRate = 0.13;
+    usage8.networkUsage = @"55/66";
+    usage8.diskIO = @"77/88";
+    usage8.type = TCServerUsageIdle;
+    [_usageArray addObject:usage8];
+    
+    TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
+    usage9.serverID = fakeServerID;
+    usage9.name = @"测试机25";
+    usage9.cpuUsageRate = 0.22;
+    usage9.diskUsageRate = 0.17;
+    usage9.memoryUsageRate = 0.13;
+    usage9.networkUsage = @"55/66";
+    usage9.diskIO = @"77/88";
+    usage9.type = TCServerUsageIdle;
+    [_usageArray addObject:usage9];
+    
+    TCServerUsage *usage10 = [TCServerUsage MR_createEntity];
+    usage10.serverID = fakeServerID;
+    usage10.name = @"测试机26";
+    usage10.cpuUsageRate = 0.22;
+    usage10.diskUsageRate = 0.17;
+    usage10.memoryUsageRate = 0.13;
+    usage10.networkUsage = @"55/66";
+    usage10.diskIO = @"77/88";
+    usage10.type = TCServerUsageIdle;
+    [_usageArray addObject:usage10];
+    
+    [self.tableView reloadData];
+}
+
+- (void) switchColumnAmount
+{
+    if (_columnAmount == 3)
+    {
+        _columnAmount = 0;
+    }
+    _columnAmount ++;
+    if (_columnAmount == 1)
+    {
+        [self usageDataWith4Server];
+    }else if(_columnAmount == 2)
+    {
+        [self usageDataWith7Server];
+    }else
+    {
+        [self usageDataWith10Server];
+    }
+    
 }
 @end

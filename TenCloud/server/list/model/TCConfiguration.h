@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TCServerThreshold+CoreDataProperties.h"
 
 @class TCClusterProvider;
 @interface TCConfiguration : NSObject
@@ -17,8 +18,11 @@
 
 - (void) stopFetch;
 
+- (void) getServerThreshold;
+
 - (void) print;
 
 @property (nonatomic, strong)   NSMutableArray  *providerArray;
+@property (nonatomic, strong)   TCServerThreshold   *threshold;
 
 @end

@@ -14,6 +14,8 @@
 #import "TCServerUsage4Cell.h"
 #import "TCServerProfileViewController.h"
 #import "TCServerUsage+CoreDataClass.h"
+#import "TCServerThreshold+CoreDataClass.h"
+#import "TCConfiguration.h"
 
 #define SERVER_USAGE_CELL_REUSE_ID      @"SERVER_USAGE_CELL_REUSE_ID"
 #define SERVER_USAGE_CELL1_ID           @"SERVER_USAGE_CELL1_ID"
@@ -102,6 +104,19 @@
     NSLog(@"rowAmount:%ld",rowAmount);
     
     [_collectionView reloadData];
+    
+    //设置临界值数据
+    TCServerThreshold *ts = [[TCConfiguration shared] threshold];
+    NSString *cpuStr = [NSString stringWithFormat:@"%g%%",ts.cpu_threshold*100];
+    _cpuUsageLabel.text = cpuStr;
+    NSString *memoryStr = [NSString stringWithFormat:@"%g%%",ts.memory_threshold*100];
+    _memoryUsageLabel.text = memoryStr;
+    NSString *diskIOStr = [NSString stringWithFormat:@"%g%%",ts.block_threshold*100];
+    _diskIOLabel.text = diskIOStr;
+    NSString *diskStr = [NSString stringWithFormat:@"%g%%",ts.disk_threshold*100];
+    _diskUsageLabel.text = diskStr;
+    NSString *netStr = [NSString stringWithFormat:@"%g%%",ts.net_threshold*100];
+    _networkIOLabel.text = netStr;
 }
 
 #pragma mark - UICollectionViewDelegate

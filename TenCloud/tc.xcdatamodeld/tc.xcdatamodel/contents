@@ -165,6 +165,13 @@
     <entity name="TCServerSystemInfo" representedClassName="TCServerSystemInfo" syncable="YES">
         <attribute name="config" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
+    <entity name="TCServerThreshold" representedClassName="TCServerThreshold" syncable="YES">
+        <attribute name="block_threshold" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cpu_threshold" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="disk_threshold" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memory_threshold" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="net_threshold" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="TCServerUsage" representedClassName="TCServerUsage" syncable="YES">
         <attribute name="cpuUsageRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="diskIO" optional="YES" attributeType="String" syncable="YES"/>
@@ -246,5 +253,6 @@
         <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="135"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCServerThreshold" positionX="0" positionY="144" width="128" height="120"/>
     </elements>
 </model>

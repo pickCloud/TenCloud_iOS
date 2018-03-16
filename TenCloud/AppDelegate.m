@@ -18,6 +18,7 @@
 #import "TCMessageManager.h"
 #import "TCWelcomeViewController.h"
 #import <Bugly/Bugly.h>
+#import "TCConfiguration.h"
 
 @interface AppDelegate ()
 
@@ -37,6 +38,7 @@
     [[TCShareManager sharedManager] registerAllPlatForms];
     [[TCMessageManager shared] start];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[TCConfiguration shared] getServerThreshold];
     
     [[UITextField appearance] setTintColor:THEME_TINT_COLOR];
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleExpand];
