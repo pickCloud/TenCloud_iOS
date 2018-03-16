@@ -531,7 +531,19 @@
         lineColor = [UIColor colorWithRed:119/255.f green:215/255.f blue:220/255.f alpha:1.0];
     }
      */
-    lineColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+    if (chartView == _netChartView)
+    {
+        if (index == 0)
+        {
+            lineColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        }else
+        {
+            lineColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+        }
+    }else
+    {
+        lineColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+    }
     resultAttributes[kWYLineChartLineAttributeLineColor] = lineColor;
     resultAttributes[kWYLineChartLineAttributeJunctionColor] = lineColor;
     return resultAttributes;
