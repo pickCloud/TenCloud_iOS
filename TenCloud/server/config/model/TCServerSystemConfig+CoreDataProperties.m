@@ -35,5 +35,7 @@
 @dynamic security_group_ids;
 @dynamic system_disk_id;
 @dynamic image_id;
+@dynamic image_name;
+@dynamic image_version;
 
 @end

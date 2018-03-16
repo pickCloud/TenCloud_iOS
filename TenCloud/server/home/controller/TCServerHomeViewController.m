@@ -527,7 +527,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     {
         TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
         usage1.serverID = fakeServerID;
-        usage1.name = @"厦门测试机";
+        usage1.name = @"@Ten_备用翻墙";
         usage1.cpuUsageRate = 0.12;
         usage1.diskUsageRate = 0.29;
         usage1.memoryUsageRate = 0.3;
@@ -539,7 +539,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     {
         TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
         usage2.serverID = fakeServerID;
-        usage2.name = @"美国西部CDN";
+        usage2.name = @"@Ye教育_线上环境";
         usage2.cpuUsageRate = 0.22;
         usage2.diskUsageRate = 0.39;
         usage2.memoryUsageRate = 0.43;
@@ -551,7 +551,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     {
         TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
         usage3.serverID = fakeServerID;
-        usage3.name = @"新加坡跳板机";
+        usage3.name = @"@Aimer+WF";
         usage3.cpuUsageRate = 0.27;
         usage3.diskUsageRate = 0.31;
         usage3.memoryUsageRate = 0.26;
@@ -563,7 +563,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     {
         TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
         usage4.serverID = fakeServerID;
-        usage4.name = @"卖萌专用";
+        usage4.name = @"@TenCloud官网";
         usage4.cpuUsageRate = 0.22;
         usage4.diskUsageRate = 0.37;
         usage4.memoryUsageRate = 0.13;
@@ -575,7 +575,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     {
         TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
         usage5.serverID = fakeServerID;
-        usage5.name = @"厦门测试机25";
+        usage5.name = @"@TenCloud_开发环境";
         usage5.cpuUsageRate = 0.12;
         usage5.diskUsageRate = 0.19;
         usage5.memoryUsageRate = 0.34;
@@ -597,7 +597,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
-    usage1.name = @"厦门测试机";
+    usage1.name = @"@TenCloud_测试环境";
     usage1.cpuUsageRate = 0.92;
     usage1.diskUsageRate = 0.39;
     usage1.memoryUsageRate = 0.93;
@@ -608,7 +608,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
     usage2.serverID = fakeServerID;
-    usage2.name = @"美国西部CDN";
+    usage2.name = @"@TenCloud_Docker仓库";
     usage2.cpuUsageRate = 0.82;
     usage2.diskUsageRate = 0.39;
     usage2.memoryUsageRate = 0.43;
@@ -619,7 +619,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
     usage3.serverID = fakeServerID;
-    usage3.name = @"新加坡跳板机";
+    usage3.name = @"@Aimer_WF+";
     usage3.cpuUsageRate = 0.27;
     usage3.diskUsageRate = 0.31;
     usage3.memoryUsageRate = 0.26;
@@ -630,7 +630,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
     usage4.serverID = fakeServerID;
-    usage4.name = @"卖萌专用机";
+    usage4.name = @"@Aimer_Infohub";
     usage4.cpuUsageRate = 0.22;
     usage4.diskUsageRate = 0.17;
     usage4.memoryUsageRate = 0.13;
@@ -651,7 +651,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
-    usage1.name = @"测试机2";
+    usage1.name = @"@TenCloud_测试环境";
     usage1.cpuUsageRate = 0.92;
     usage1.diskUsageRate = 0.39;
     usage1.memoryUsageRate = 0.93;
@@ -662,7 +662,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
     usage2.serverID = fakeServerID;
-    usage2.name = @"美国西部CDN";
+    usage2.name = @"@TenCloud_Docker仓库";
     usage2.cpuUsageRate = 0.82;
     usage2.diskUsageRate = 0.39;
     usage2.memoryUsageRate = 0.43;
@@ -673,7 +673,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
     usage3.serverID = fakeServerID;
-    usage3.name = @"新加坡跳板机";
+    usage3.name = @"@Aimer_WF+";
     usage3.cpuUsageRate = 0.27;
     usage3.diskUsageRate = 0.31;
     usage3.memoryUsageRate = 0.26;
@@ -684,7 +684,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
     usage4.serverID = fakeServerID;
-    usage4.name = @"卖萌专用机";
+    usage4.name = @"@Aimer_Infohub";
     usage4.cpuUsageRate = 0.22;
     usage4.diskUsageRate = 0.17;
     usage4.memoryUsageRate = 0.13;
@@ -695,18 +695,18 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
     usage5.serverID = fakeServerID;
-    usage5.name = @"测试机21";
+    usage5.name = @"@Ten_备用翻墙";
     usage5.cpuUsageRate = 0.22;
     usage5.diskUsageRate = 0.17;
     usage5.memoryUsageRate = 0.13;
     usage5.networkUsage = @"55/66";
     usage5.diskIO = @"77/88";
     usage5.type = TCServerUsageIdle;
-    [_usageArray addObject:usage4];
+    [_usageArray addObject:usage5];
     
     TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
     usage6.serverID = fakeServerID;
-    usage6.name = @"测试机22";
+    usage6.name = @"@Ye教育_线上环境";
     usage6.cpuUsageRate = 0.22;
     usage6.diskUsageRate = 0.17;
     usage6.memoryUsageRate = 0.13;
@@ -717,7 +717,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
     usage7.serverID = fakeServerID;
-    usage7.name = @"测试机23";
+    usage7.name = @"@Ye教育_开发测试";
     usage7.cpuUsageRate = 0.22;
     usage7.diskUsageRate = 0.17;
     usage7.memoryUsageRate = 0.13;
@@ -728,7 +728,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
     usage8.serverID = fakeServerID;
-    usage8.name = @"测试机24";
+    usage8.name = @"@Ten_备用翻墙";
     usage8.cpuUsageRate = 0.22;
     usage8.diskUsageRate = 0.17;
     usage8.memoryUsageRate = 0.13;
@@ -739,7 +739,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
     usage9.serverID = fakeServerID;
-    usage9.name = @"测试机25";
+    usage9.name = @"@Ten_官网";
     usage9.cpuUsageRate = 0.22;
     usage9.diskUsageRate = 0.17;
     usage9.memoryUsageRate = 0.13;
@@ -761,7 +761,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
-    usage1.name = @"测试机2";
+    usage1.name = @"@TenCloud_测试环境";
     usage1.cpuUsageRate = 0.92;
     usage1.diskUsageRate = 0.39;
     usage1.memoryUsageRate = 0.93;
@@ -772,7 +772,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage2 = [TCServerUsage MR_createEntity];
     usage2.serverID = fakeServerID;
-    usage2.name = @"美国西部CDN";
+    usage2.name = @"@TenCloud_Docker仓库";
     usage2.cpuUsageRate = 0.82;
     usage2.diskUsageRate = 0.39;
     usage2.memoryUsageRate = 0.43;
@@ -783,7 +783,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage3 = [TCServerUsage MR_createEntity];
     usage3.serverID = fakeServerID;
-    usage3.name = @"新加坡跳板机";
+    usage3.name = @"@Aimer_WF+";
     usage3.cpuUsageRate = 0.27;
     usage3.diskUsageRate = 0.31;
     usage3.memoryUsageRate = 0.26;
@@ -794,7 +794,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage4 = [TCServerUsage MR_createEntity];
     usage4.serverID = fakeServerID;
-    usage4.name = @"卖萌专用机";
+    usage4.name = @"@Aimer_Infohub";
     usage4.cpuUsageRate = 0.22;
     usage4.diskUsageRate = 0.17;
     usage4.memoryUsageRate = 0.13;
@@ -805,7 +805,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage5 = [TCServerUsage MR_createEntity];
     usage5.serverID = fakeServerID;
-    usage5.name = @"测试机21";
+    usage5.name = @"@Ten_备用翻墙";
     usage5.cpuUsageRate = 0.22;
     usage5.diskUsageRate = 0.17;
     usage5.memoryUsageRate = 0.13;
@@ -816,7 +816,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage6 = [TCServerUsage MR_createEntity];
     usage6.serverID = fakeServerID;
-    usage6.name = @"测试机22";
+    usage6.name = @"@Ten_中间件";
     usage6.cpuUsageRate = 0.22;
     usage6.diskUsageRate = 0.17;
     usage6.memoryUsageRate = 0.13;
@@ -827,7 +827,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
     usage7.serverID = fakeServerID;
-    usage7.name = @"测试机23";
+    usage7.name = @"@Ye教育_线上环境";
     usage7.cpuUsageRate = 0.22;
     usage7.diskUsageRate = 0.17;
     usage7.memoryUsageRate = 0.13;
@@ -838,7 +838,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage8 = [TCServerUsage MR_createEntity];
     usage8.serverID = fakeServerID;
-    usage8.name = @"测试机24";
+    usage8.name = @"@Ye教育_开发测试";
     usage8.cpuUsageRate = 0.22;
     usage8.diskUsageRate = 0.17;
     usage8.memoryUsageRate = 0.13;
@@ -849,7 +849,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
     usage9.serverID = fakeServerID;
-    usage9.name = @"测试机25";
+    usage9.name = @"@Ten_官网";
     usage9.cpuUsageRate = 0.22;
     usage9.diskUsageRate = 0.17;
     usage9.memoryUsageRate = 0.13;
@@ -860,7 +860,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     TCServerUsage *usage10 = [TCServerUsage MR_createEntity];
     usage10.serverID = fakeServerID;
-    usage10.name = @"测试机26";
+    usage10.name = @"@测试机";
     usage10.cpuUsageRate = 0.22;
     usage10.diskUsageRate = 0.17;
     usage10.memoryUsageRate = 0.13;

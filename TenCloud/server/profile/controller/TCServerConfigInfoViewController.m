@@ -18,6 +18,8 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *memorySizeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *systemLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *mirrorIDLabel;
+@property (nonatomic, weak) IBOutlet    UILabel     *mirrorNameLabel;
+@property (nonatomic, weak) IBOutlet    UILabel     *mirrorVersionLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *diskTypeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *diskSizeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *netTypeLabel;
@@ -48,7 +50,7 @@
     TCServerSystemConfig *sysConfig = _config.system_info.config;
     NSString *cpuAmountStr = [NSString stringWithFormat:@"%d",(int)sysConfig.cpu];
     _cpuAmountLabel.text = cpuAmountStr;
-    NSString *memoryStr = [NSString stringWithFormat:@"%dM",(int)sysConfig.memory];
+    NSString *memoryStr = [NSString stringWithFormat:@"%dG",(int)(sysConfig.memory/1024.0)];
     _memorySizeLabel.text = memoryStr;
     _systemLabel.text = sysConfig.os_name;
     //_mirrorIDLabel.text = _config.
@@ -59,6 +61,18 @@
     _inBandLabel.text = sysConfig.max_bandwidth_in;
     _outBandLabel.text = sysConfig.max_bandwidth_out;
     _securityIDLabel.text = sysConfig.security_group_ids;
+    NSString *imageName = sysConfig.image_name;
+    if (imageName == nil || imageName.length == 0)
+    {
+        imageName = @"暂无";
+    }
+    _mirrorNameLabel.text = imageName;
+    NSString *imageVersion = sysConfig.image_version;
+    if (imageVersion == nil || imageVersion.length == 0)
+    {
+        imageVersion = @"暂无";
+    }
+    _mirrorVersionLabel.text = imageVersion;
 }
 
 - (void)didReceiveMemoryWarning {

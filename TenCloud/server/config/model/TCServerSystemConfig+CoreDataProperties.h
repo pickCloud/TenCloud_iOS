@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *security_group_ids;
 @property (nullable, nonatomic, copy) NSString *system_disk_id;
 @property (nullable, nonatomic, copy) NSString *image_id;
+@property (nullable, nonatomic, copy) NSString *image_name;
+@property (nullable, nonatomic, copy) NSString *image_version;
 
 @end
 
