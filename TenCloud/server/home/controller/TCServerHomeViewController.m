@@ -205,7 +205,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     usage6.type = TCServerUsageSafe;
     [_usageArray addObject:usage6];
      */
-    [self usageDataWith7Server];
+    [self usageDataWith10Server];
     
     /*
     TCServerUsage *usage7 = [TCServerUsage MR_createEntity];
@@ -521,7 +521,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     int fakeServerID = 186;
 #if ONLINE_ENVIROMENT
-    fakeServerID = 27;
+    fakeServerID = 20;
 #endif
     if (_alertType == TCServerUsageIdle)
     {
@@ -593,7 +593,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     int fakeServerID = 186;
 #if ONLINE_ENVIROMENT
-    fakeServerID = 27;
+    fakeServerID = 20;
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
@@ -647,7 +647,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     int fakeServerID = 186;
 #if ONLINE_ENVIROMENT
-    fakeServerID = 27;
+    fakeServerID = 20;
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;
@@ -757,7 +757,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     
     int fakeServerID = 186;
 #if ONLINE_ENVIROMENT
-    fakeServerID = 27;
+    fakeServerID = 20;
 #endif
     TCServerUsage *usage1 = [TCServerUsage MR_createEntity];
     usage1.serverID = fakeServerID;

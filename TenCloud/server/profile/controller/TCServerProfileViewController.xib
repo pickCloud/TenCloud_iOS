@@ -19,18 +19,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCServerProfileViewController">
             <connections>
                 <outlet property="cpuChartView" destination="wfw-oO-U2I" id="SDN-rN-yh9"/>
+                <outlet property="cpuDescLabel" destination="XgG-Kx-4ue" id="eYe-K6-FMj"/>
                 <outlet property="diskChartView" destination="9iA-nH-fPZ" id="n3p-Tx-lEi"/>
+                <outlet property="diskSizeLabel" destination="Dji-VW-xXn" id="VT2-Rq-4qv"/>
+                <outlet property="diskTypeLabel" destination="Oeo-1K-Eij" id="IgA-RV-C7A"/>
                 <outlet property="fiveMinLabel" destination="vRo-jj-6zK" id="YJy-15-Ybw"/>
                 <outlet property="iconView" destination="pwG-JM-xkL" id="L0m-ne-VHX"/>
                 <outlet property="ipLabel" destination="XpF-ba-gyQ" id="poi-gp-eiD"/>
                 <outlet property="loginUserAmountLabel" destination="aD4-th-4kH" id="ro1-EF-JSI"/>
                 <outlet property="memoryChartView" destination="I5v-C9-eYC" id="KJp-Y7-xAy"/>
+                <outlet property="memoryDescLabel" destination="3Cl-NK-fml" id="tAh-g9-Uli"/>
                 <outlet property="nameLabel" destination="RAv-Y7-tDj" id="UKa-uQ-PDj"/>
                 <outlet property="netChartView" destination="shF-rb-gc0" id="jYy-8D-sZh"/>
                 <outlet property="oneMinLabel" destination="hne-sL-xOz" id="2fA-gp-OVX"/>
                 <outlet property="periodCollectionView" destination="px0-Op-9TO" id="Xyr-oo-j3D"/>
                 <outlet property="runTimeLabel" destination="JEx-0Y-o18" id="1ph-89-dVy"/>
                 <outlet property="statusLabel" destination="nle-2D-HmL" id="FGi-kg-glc"/>
+                <outlet property="systemNameLabel" destination="r7t-4r-Coj" id="n6V-Bx-2uQ"/>
                 <outlet property="systemTimeLabel" destination="AEQ-ya-s5g" id="9A8-gA-8Wi"/>
                 <outlet property="tenMinLabel" destination="BpA-40-Hb9" id="QDb-9p-qcn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -336,8 +341,8 @@
                                             <color key="textColor" red="0.32549019610000002" green="0.36470588240000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgG-Kx-4ue" customClass="TCAutoScaleLabel">
-                                            <rect key="frame" x="158.5" y="16.5" width="7.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgG-Kx-4ue" customClass="TCAutoScaleLabel">
+                                            <rect key="frame" x="158.5" y="16.5" width="8" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -348,8 +353,8 @@
                                             <color key="textColor" red="0.32549019610000002" green="0.36470588240000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cl-NK-fml" customClass="TCAutoScaleLabel">
-                                            <rect key="frame" x="112.5" y="35" width="46.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cl-NK-fml" customClass="TCAutoScaleLabel">
+                                            <rect key="frame" x="112.5" y="35" width="26" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -378,20 +383,20 @@
                                             <color key="textColor" red="0.32549019610000002" green="0.36470588240000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CentOS 7.4 64位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7t-4r-Coj" customClass="TCAutoScaleLabel">
-                                            <rect key="frame" x="79.5" y="60.5" width="94.5" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7t-4r-Coj" customClass="TCAutoScaleLabel">
+                                            <rect key="frame" x="79.5" y="60.5" width="25" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿里云" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-1K-Eij" customClass="TCAutoScaleLabel">
-                                            <rect key="frame" x="88" y="90" width="37" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-1K-Eij" customClass="TCAutoScaleLabel">
+                                            <rect key="frame" x="88" y="90" width="3.5" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0G" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dji-VW-xXn" customClass="TCAutoScaleLabel">
-                                            <rect key="frame" x="88" y="108" width="17" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dji-VW-xXn" customClass="TCAutoScaleLabel">
+                                            <rect key="frame" x="88" y="108" width="3.5" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

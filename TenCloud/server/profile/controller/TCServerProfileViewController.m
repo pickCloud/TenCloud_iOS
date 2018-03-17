@@ -58,6 +58,8 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *memoryDescLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *storageDescLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *networkDescLabel;
+@property (nonatomic, weak) IBOutlet    UILabel             *diskTypeLabel;
+@property (nonatomic, weak) IBOutlet    UILabel             *diskSizeLabel;
 //费用信息
 //监控信息
 @property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
@@ -715,8 +717,8 @@
     _memoryDescLabel.text = memoryDescStr;
     NSString *cpuDescStr = [NSString stringWithFormat:@"%d",(int)(sysConfig.cpu)];
     _cpuDescLabel.text = cpuDescStr;
-    _storageDescLabel.text = @"暂无数据";
-    _networkDescLabel.text = @"暂无数据";
+    _diskTypeLabel.text = sysConfig.system_disk_type;
+    _diskSizeLabel.text = sysConfig.system_disk_size;
 }
 
 - (void) updateSystemLoadUI
