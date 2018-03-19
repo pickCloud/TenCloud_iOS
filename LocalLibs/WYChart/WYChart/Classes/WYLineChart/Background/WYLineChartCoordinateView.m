@@ -51,7 +51,7 @@
     UILabel *label;
     CGFloat centerX, centerY;
     CGFloat labelWidth;
-    CGFloat labelHeight = self.parentView.calculator.xAxisLabelHeight;
+    CGFloat labelHeight = self.parentView.calculator.xAxisLabelHeight * 1.036;
     WYLineChartPoint *point;
     
     for (NSInteger idx = 0; idx < labelCount; ++idx) {
@@ -60,8 +60,9 @@
         point = [self.parentView.datasource lineChartView:self.parentView pointReferToXAxisLabelAtIndex:idx];
         
         labelWidth = [self.parentView.calculator widthOfLabelOnXAxisAtIndex:idx];
-        NSLog(@"label%ld width:%.2f",idx, labelWidth);
+        //NSLog(@"label%ld width:%.2f",idx, labelWidth);
         label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, labelWidth, labelHeight)];
+        label.numberOfLines = 0;
         
         centerY = labelHeight / 2;
         

@@ -16,6 +16,8 @@
 
 + (NSString *) timeStringFromInteger:(NSInteger)timeInteger;
 
++ (NSString *) chartTimeStringFromInteger:(NSInteger)timeInteger;
+
 + (NSString *) periodStringFromTimeInterval:(NSInteger)startTime to:(NSInteger)endTime;
 
 + (NSString *) UUID;

@@ -51,6 +51,20 @@
     return [dateFormatter stringFromDate:date];
 }
 
++ (NSString *) chartTimeStringFromInteger:(NSInteger)timeInteger
+{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInteger];
+    NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+    [hourFormatter setDateFormat:@"hh:mm"];
+    NSString *hour = [hourFormatter stringFromDate:date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd"];
+    NSString *dateStr = [dateFormatter stringFromDate:date];
+    NSString *resStr = [NSString stringWithFormat:@"%@\n%@",hour,dateStr];
+    //return [dateFormatter stringFromDate:date];
+    return resStr;
+}
+
 + (NSString *) periodStringFromTimeInterval:(NSInteger)startTime to:(NSInteger)endTime
 {
     NSLog(@"startTime:%ld endTime:%ld",startTime, endTime);

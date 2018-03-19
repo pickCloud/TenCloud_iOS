@@ -233,28 +233,44 @@
             if (index < _performance.cpu.count)
             {
                 TCServerCPU *cpuItem = [_performance.cpu objectAtIndex:index];
-                return [NSString timeStringFromInteger:cpuItem.created_time];
+                if (_periodSelectedIndex == 0)
+                {
+                    return [NSString timeStringFromInteger:cpuItem.created_time];
+                }
+                return [NSString chartTimeStringFromInteger:cpuItem.created_time];
             }
         }else if(chartView == _memoryChartView)
         {
             if (index < _performance.memory.count)
             {
                 TCServerMemory *memoryItem = [_performance.memory objectAtIndex:index];
-                return [NSString timeStringFromInteger:memoryItem.created_time];
+                if (_periodSelectedIndex == 0)
+                {
+                    return [NSString timeStringFromInteger:memoryItem.created_time];
+                }
+                return [NSString chartTimeStringFromInteger:memoryItem.created_time];
             }
         }else if(chartView == _diskChartView)
         {
             if (index < _performance.disk.count)
             {
                 TCServerDisk *diskItem = [_performance.disk objectAtIndex:index];
-                return [NSString timeStringFromInteger:diskItem.created_time];
+                if (_periodSelectedIndex == 0)
+                {
+                    return [NSString timeStringFromInteger:diskItem.created_time];
+                }
+                return [NSString chartTimeStringFromInteger:diskItem.created_time];
             }
         }else if(chartView == _netChartView)
         {
             if (index < _performance.net.count)
             {
                 TCServerNet *netItem = [_performance.net objectAtIndex:index];
-                return [NSString timeStringFromInteger:netItem.created_time];
+                if (_periodSelectedIndex == 0)
+                {
+                    return [NSString timeStringFromInteger:netItem.created_time];
+                }
+                return [NSString chartTimeStringFromInteger:netItem.created_time];
             }
         }
     }

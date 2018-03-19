@@ -164,7 +164,10 @@
     _animationStyle = DEFAULT_ANIMATION_STYLE;
     _animationDuration = DEFAULT_ANIMATION_DUIRATION;
     
-    _labelsFont = [UIFont systemFontOfSize:11.f weight:0.5];
+    CGFloat scale = [[UIScreen mainScreen] bounds].size.width / 375.0;
+    CGFloat labelFontSize = scale * 8.5f;
+    _labelsFont = [UIFont systemFontOfSize:labelFontSize weight:0.5];
+    //_labelsFont = [UIFont systemFontOfSize:11.f weight:0.5];
     
     _pointsLabelsColor = DEFAULT_POINTS_LABEL_COLOR;
     _pointsLabelsBackgroundColor = DEFAULT_POINTS_LABEL_BACKGROUNDCOLOR;
