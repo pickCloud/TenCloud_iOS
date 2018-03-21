@@ -25,12 +25,14 @@
 #import "TCDataSync.h"
 #import "TCEmptyPermission.h"
 
+#import "TCServerStatusManager.h"
+
 #define SERVER_CONFIG_CELL_REUSE_ID     @"SERVER_CONFIG_CELL_REUSE_ID"
 #define SERVER_STATE_CELL_REUSE_ID      @"SERVER_STATE_CELL_REUSE_ID"
 #define SERVER_BUTTON_CELL_ID           @"SERVER_BUTTON_CELL_ID"
 #define STATE_MAX_RETRY_TIMES           120
 
-@interface TCServerInfoViewController ()<TCDataSyncDelegate>
+@interface TCServerInfoViewController ()<TCDataSyncDelegate,TCServerStatusDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *buttonTableView;
 @property (nonatomic, strong)   TCServerConfig          *config;
@@ -123,6 +125,9 @@
     }];
     
     [[TCDataSync shared] addPermissionChangedObserver:self];
+    
+    [[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
+    [[TCServerStatusManager shared] startWithServerID:_serverID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,6 +138,7 @@
 - (void) dealloc
 {
     [[TCDataSync shared] removePermissionChangedObserver:self];
+    [[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
 }
 
 #pragma mark - Table view data source
