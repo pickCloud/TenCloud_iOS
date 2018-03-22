@@ -159,6 +159,8 @@
 		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
 		A05D65A42061F8D8006006B0 /* TCServerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A32061F8D8006006B0 /* TCServerStatus.m */; };
 		A05D65A72061F8EB006006B0 /* TCServerStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */; };
+		A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */; };
+		A05D65C02062A493006006B0 /* TCNetProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D65BE2062A493006006B0 /* TCNetProfileViewController.xib */; };
 		A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */; };
 		A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0627736202192DF00FF7E30 /* TCStaffStatusRequest.m */; };
 		A062773B202199AD00FF7E30 /* TCInviteJoinedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0627739202199AD00FF7E30 /* TCInviteJoinedViewController.xib */; };
@@ -729,6 +731,9 @@
 		A05D65A32061F8D8006006B0 /* TCServerStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatus.m; sourceTree = "<group>"; };
 		A05D65A52061F8EB006006B0 /* TCServerStatusManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatusManager.h; sourceTree = "<group>"; };
 		A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatusManager.m; sourceTree = "<group>"; };
+		A05D65BC2062A493006006B0 /* TCNetProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCNetProfileViewController.h; sourceTree = "<group>"; };
+		A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCNetProfileViewController.m; sourceTree = "<group>"; };
+		A05D65BE2062A493006006B0 /* TCNetProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCNetProfileViewController.xib; sourceTree = "<group>"; };
 		A06277322021347100FF7E30 /* TCMonitorHistoryTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMonitorHistoryTime.h; sourceTree = "<group>"; };
 		A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMonitorHistoryTime.m; sourceTree = "<group>"; };
 		A0627735202192DF00FF7E30 /* TCStaffStatusRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffStatusRequest.h; sourceTree = "<group>"; };
@@ -1763,6 +1768,10 @@
 		A025553B1FD7C6A100D16D22 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				A05D65B22062A369006006B0 /* disk */,
+				A05D65A82062A369006006B0 /* network */,
+				A05D65AD2062A369006006B0 /* performance */,
+				A05D65B72062A369006006B0 /* security */,
 				A05D659D2061F783006006B0 /* status */,
 				A0A0F08E20580BE3003CB4BD /* usage */,
 				A028BD672057AFBF00548298 /* tool */,
@@ -3246,6 +3255,165 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A05D65A82062A369006006B0 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				A05D65A92062A369006006B0 /* controller */,
+				A05D65AA2062A369006006B0 /* model */,
+				A05D65AB2062A369006006B0 /* request */,
+				A05D65AC2062A369006006B0 /* view */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		A05D65A92062A369006006B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A05D65BC2062A493006006B0 /* TCNetProfileViewController.h */,
+				A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */,
+				A05D65BE2062A493006006B0 /* TCNetProfileViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A05D65AA2062A369006006B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A05D65AB2062A369006006B0 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A05D65AC2062A369006006B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A05D65AD2062A369006006B0 /* performance */ = {
+			isa = PBXGroup;
+			children = (
+				A05D65AE2062A369006006B0 /* controller */,
+				A05D65AF2062A369006006B0 /* model */,
+				A05D65B02062A369006006B0 /* request */,
+				A05D65B12062A369006006B0 /* view */,
+			);
+			path = performance;
+			sourceTree = "<group>";
+		};
+		A05D65AE2062A369006006B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A05D65AF2062A369006006B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A05D65B02062A369006006B0 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A05D65B12062A369006006B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A05D65B22062A369006006B0 /* disk */ = {
+			isa = PBXGroup;
+			children = (
+				A05D65B32062A369006006B0 /* controller */,
+				A05D65B42062A369006006B0 /* model */,
+				A05D65B52062A369006006B0 /* request */,
+				A05D65B62062A369006006B0 /* view */,
+			);
+			path = disk;
+			sourceTree = "<group>";
+		};
+		A05D65B32062A369006006B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A05D65B42062A369006006B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A05D65B52062A369006006B0 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A05D65B62062A369006006B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A05D65B72062A369006006B0 /* security */ = {
+			isa = PBXGroup;
+			children = (
+				A05D65B82062A369006006B0 /* controller */,
+				A05D65B92062A369006006B0 /* model */,
+				A05D65BA2062A369006006B0 /* request */,
+				A05D65BB2062A369006006B0 /* view */,
+			);
+			path = security;
+			sourceTree = "<group>";
+		};
+		A05D65B82062A369006006B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A05D65B92062A369006006B0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A05D65BA2062A369006006B0 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A05D65BB2062A369006006B0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A067D8A1200F4A7600160913 /* MGBadgeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -4570,6 +4738,7 @@
 				A0142C9E205187FB00DC843D /* TCServiceHomeViewController.xib in Resources */,
 				A088F93E202AD27D005A97DD /* TCFilePermTableViewController.xib in Resources */,
 				A0C9A0C31FF25EBA00F94E9E /* TCEditDateTableViewCell.xib in Resources */,
+				A05D65C02062A493006006B0 /* TCNetProfileViewController.xib in Resources */,
 				A019A7491FFB818700216660 /* TCAddTemplateViewController.xib in Resources */,
 				A019A70C1FFB31E100216660 /* TCTemplateTableViewController.xib in Resources */,
 				A025556E1FD7C85500D16D22 /* TCServerHomeViewController.xib in Resources */,
@@ -5053,6 +5222,7 @@
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */,
 				A088F92E202A1130005A97DD /* TCServerPermTableViewCell.m in Sources */,
+				A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */,
 				A033986A20204C0B00CF8630 /* TCPerformanceItem+CoreDataProperties.m in Sources */,
 				A07DBE281FDFA8B800F37715 /* TCServerBasicInfo+CoreDataClass.m in Sources */,
 				A0C3630E2004D27D0033C99C /* TCShareViewController.m in Sources */,

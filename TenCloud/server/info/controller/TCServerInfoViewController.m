@@ -126,8 +126,8 @@
     
     [[TCDataSync shared] addPermissionChangedObserver:self];
     
-    [[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
-    [[TCServerStatusManager shared] startWithServerID:_serverID];
+    //[[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
+    //[[TCServerStatusManager shared] startWithServerID:_serverID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,7 +138,7 @@
 - (void) dealloc
 {
     [[TCDataSync shared] removePermissionChangedObserver:self];
-    [[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
+    //[[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
 }
 
 #pragma mark - Table view data source

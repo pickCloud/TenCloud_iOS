@@ -35,6 +35,9 @@
 #import "TCServerConfigInfoViewController.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 
+//for test
+#import "TCNetProfileViewController.h"
+
 
 @interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource>
 @property (nonatomic, assign)   NSInteger   serverID;
@@ -810,6 +813,8 @@
 - (IBAction) onResourceDetailButton:(id)sender
 {
     NSLog(@"on res detail button");
+    //TCNetProfileViewController *netVC = [TCNetProfileViewController new];
+    //[self.navigationController pushViewController:netVC animated:YES];
 }
 
 - (IBAction) onFeeDetailButton:(id)sender
