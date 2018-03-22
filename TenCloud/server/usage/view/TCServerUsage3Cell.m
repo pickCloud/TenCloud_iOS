@@ -23,9 +23,9 @@
 - (void) setUsage:(TCServerUsage*)usage
 {
     [super setUsage:usage];
-    NSString *cpuDesc = [NSString stringWithFormat:@"%.2g%%",usage.cpuUsageRate*100];
+    NSString *cpuDesc = [NSString stringWithFormat:@"%g%%",usage.cpuUsageRate.doubleValue];
     self.cpuLabel.text = cpuDesc;
-    NSString *memoryDesc = [NSString stringWithFormat:@"%.2g%%",usage.memoryUsageRate*100];
+    NSString *memoryDesc = [NSString stringWithFormat:@"%g%%",usage.memUsageRate.doubleValue];
     self.memoryLabel.text = memoryDesc;
 }
 @end

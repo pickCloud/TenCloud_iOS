@@ -21,6 +21,7 @@
                 <outlet property="inBandLabel" destination="gTa-zX-KbZ" id="p8m-SB-7Eq"/>
                 <outlet property="memorySizeLabel" destination="hX5-v7-oZZ" id="B1b-QV-gEh"/>
                 <outlet property="netTypeLabel" destination="zzB-NG-Nlb" id="tU7-lk-SaY"/>
+                <outlet property="noImageLabel" destination="hdN-Ag-z1y" id="1gy-9c-sok"/>
                 <outlet property="outBandLabel" destination="PMI-vb-tYY" id="in4-K9-5Cl"/>
                 <outlet property="payMethodLabel" destination="HeC-8I-lTo" id="0dt-DW-Lu1"/>
                 <outlet property="securityIDLabel" destination="tdn-NE-GJk" id="6ZI-2D-OqL"/>
@@ -202,11 +203,19 @@
                                         <outlet property="delegate" destination="-1" id="UGf-IQ-SP2"/>
                                     </connections>
                                 </tableView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无镜像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdN-Ag-z1y" customClass="TCAutoScaleLabel">
+                                    <rect key="frame" x="15" y="9" width="49.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.14117647059999999" green="0.1529411765" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="5se-oT-6aF" firstAttribute="top" secondItem="wNE-0e-nox" secondAttribute="top" constant="9" id="2Ct-kC-1Px"/>
                                 <constraint firstAttribute="bottom" secondItem="5se-oT-6aF" secondAttribute="bottom" constant="15" id="aHq-Ci-3cM"/>
+                                <constraint firstItem="hdN-Ag-z1y" firstAttribute="top" secondItem="5se-oT-6aF" secondAttribute="top" id="jqs-C2-Pxd"/>
+                                <constraint firstItem="hdN-Ag-z1y" firstAttribute="leading" secondItem="5se-oT-6aF" secondAttribute="leading" id="sRR-H4-7X8"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jce-DM-13M">

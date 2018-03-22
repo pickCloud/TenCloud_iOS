@@ -2,7 +2,7 @@
 //  TCServerUsage+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/3/13.
+//  Created by huangdx on 2018/3/22.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -16,12 +16,12 @@
 }
 
 @dynamic cpuUsageRate;
-@dynamic diskUsageRate;
-@dynamic memoryUsageRate;
-@dynamic networkUsage;
 @dynamic diskIO;
-@dynamic serverID;
+@dynamic diskUsageRate;
+@dynamic memUsageRate;
 @dynamic name;
-@dynamic type;
+@dynamic networkUsage;
+@dynamic serverID;
+@dynamic colorType;
 
 @end

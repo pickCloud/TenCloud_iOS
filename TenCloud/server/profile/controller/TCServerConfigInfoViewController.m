@@ -39,6 +39,7 @@
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *diskTableHeight;
 @property (nonatomic, weak) IBOutlet    UITableView *imageTableView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *imageTableHeight;
+@property (nonatomic, weak) IBOutlet    UILabel             *noImageLabel;
 @end
 
 @implementation TCServerConfigInfoViewController
@@ -114,6 +115,14 @@
     
     NSInteger imageRow = sysConfig.image_info.count;
     CGFloat imgTableHeight = 43 * imageRow;//TCSCALE(48) * diskRow;
+    if (imgTableHeight == 0.0)
+    {
+        imgTableHeight = TCSCALE(12.0);
+        _noImageLabel.hidden = NO;
+    }else
+    {
+        _noImageLabel.hidden = YES;
+    }
     _imageTableHeight.constant = imgTableHeight;
 }
 

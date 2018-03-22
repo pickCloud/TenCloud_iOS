@@ -107,15 +107,15 @@
     
     //设置临界值数据
     TCServerThreshold *ts = [[TCConfiguration shared] threshold];
-    NSString *cpuStr = [NSString stringWithFormat:@"%g%%",ts.cpu_threshold*100];
+    NSString *cpuStr = [NSString stringWithFormat:@"%g%%",ts.cpu_threshold];
     _cpuUsageLabel.text = cpuStr;
-    NSString *memoryStr = [NSString stringWithFormat:@"%g%%",ts.memory_threshold*100];
+    NSString *memoryStr = [NSString stringWithFormat:@"%g%%",ts.memory_threshold];
     _memoryUsageLabel.text = memoryStr;
-    NSString *diskIOStr = [NSString stringWithFormat:@"%g%%",ts.block_threshold*100];
+    NSString *diskIOStr = [NSString stringWithFormat:@"%g%%",ts.block_threshold];
     _diskIOLabel.text = diskIOStr;
-    NSString *diskStr = [NSString stringWithFormat:@"%g%%",ts.disk_threshold*100];
+    NSString *diskStr = [NSString stringWithFormat:@"%g%%",ts.disk_threshold];
     _diskUsageLabel.text = diskStr;
-    NSString *netStr = [NSString stringWithFormat:@"%g%%",ts.net_threshold*100];
+    NSString *netStr = [NSString stringWithFormat:@"%g%%",ts.net_threshold];
     _networkIOLabel.text = netStr;
 }
 

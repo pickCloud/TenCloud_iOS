@@ -40,11 +40,11 @@
     //_gradientLayer.endPoint = CGPointMake(0.5, 1);
     UIColor *color1 = nil;
     UIColor *color2 = nil;
-    if (usage.type == TCServerUsageIdle)
+    if (usage.colorType == TCServerUsageIdle)
     {
         color1 = [UIColor colorWithRed:86/255.0 green:98/255.0 blue:120/255.0 alpha:1.0];
         color2 = [UIColor colorWithRed:38/255.0 green:42/255.0 blue:53/255.0 alpha:1.0];
-    }else if(usage.type == TCServerUsageSafe)
+    }else if(usage.colorType == TCServerUsageSafe)
     {
         color1 = [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0];
         color2 = [UIColor colorWithRed:28/255.0 green:108/255.0 blue:111/255.0 alpha:1.0];
@@ -54,16 +54,16 @@
         color2 = [UIColor colorWithRed:152/255.0 green:84/255.0 blue:84/255.0 alpha:1.0];
     }
     UIColor *maskColor = nil;
-    if (usage.type == TCServerUsageIdle)
+    if (usage.colorType == TCServerUsageIdle)
     {
         maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
-    }else if(usage.type == TCServerUsageSafe)
+    }else if(usage.colorType == TCServerUsageSafe)
     {
         maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-    }else if (usage.type == TCServerUsageWarning)
+    }else if (usage.colorType == TCServerUsageWarning)
     {
         maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-    }else if(usage.type == TCServerUsageAlert)
+    }else if(usage.colorType == TCServerUsageAlert)
     {
         maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
     }else
