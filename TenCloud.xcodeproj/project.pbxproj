@@ -161,6 +161,12 @@
 		A05D65A72061F8EB006006B0 /* TCServerStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */; };
 		A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */; };
 		A05D65C02062A493006006B0 /* TCNetProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D65BE2062A493006006B0 /* TCNetProfileViewController.xib */; };
+		A05D65C52063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65C22063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m */; };
+		A05D65C62063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65C42063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m */; };
+		A05D65CB2063A9CC006006B0 /* TCImageInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65C82063A9CC006006B0 /* TCImageInfo+CoreDataClass.m */; };
+		A05D65CC2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65CA2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m */; };
+		A05D65D02063B50F006006B0 /* TCServerDiskInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65CE2063B50F006006B0 /* TCServerDiskInfoCell.m */; };
+		A05D65D12063B50F006006B0 /* TCServerDiskInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D65CF2063B50F006006B0 /* TCServerDiskInfoCell.xib */; };
 		A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */; };
 		A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0627736202192DF00FF7E30 /* TCStaffStatusRequest.m */; };
 		A062773B202199AD00FF7E30 /* TCInviteJoinedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0627739202199AD00FF7E30 /* TCInviteJoinedViewController.xib */; };
@@ -734,6 +740,17 @@
 		A05D65BC2062A493006006B0 /* TCNetProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCNetProfileViewController.h; sourceTree = "<group>"; };
 		A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCNetProfileViewController.m; sourceTree = "<group>"; };
 		A05D65BE2062A493006006B0 /* TCNetProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCNetProfileViewController.xib; sourceTree = "<group>"; };
+		A05D65C12063A4AA006006B0 /* TCDiskInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCDiskInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A05D65C22063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCDiskInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A05D65C32063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCDiskInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A05D65C42063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCDiskInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A05D65C72063A9CC006006B0 /* TCImageInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCImageInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A05D65C82063A9CC006006B0 /* TCImageInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCImageInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A05D65C92063A9CC006006B0 /* TCImageInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCImageInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A05D65CA2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCImageInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A05D65CD2063B50F006006B0 /* TCServerDiskInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerDiskInfoCell.h; sourceTree = "<group>"; };
+		A05D65CE2063B50F006006B0 /* TCServerDiskInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerDiskInfoCell.m; sourceTree = "<group>"; };
+		A05D65CF2063B50F006006B0 /* TCServerDiskInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerDiskInfoCell.xib; sourceTree = "<group>"; };
 		A06277322021347100FF7E30 /* TCMonitorHistoryTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMonitorHistoryTime.h; sourceTree = "<group>"; };
 		A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMonitorHistoryTime.m; sourceTree = "<group>"; };
 		A0627735202192DF00FF7E30 /* TCStaffStatusRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffStatusRequest.h; sourceTree = "<group>"; };
@@ -2102,6 +2119,14 @@
 		A025555D1FD7C82100D16D22 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A05D65C72063A9CC006006B0 /* TCImageInfo+CoreDataClass.h */,
+				A05D65C82063A9CC006006B0 /* TCImageInfo+CoreDataClass.m */,
+				A05D65C92063A9CC006006B0 /* TCImageInfo+CoreDataProperties.h */,
+				A05D65CA2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m */,
+				A05D65C12063A4AA006006B0 /* TCDiskInfo+CoreDataClass.h */,
+				A05D65C22063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m */,
+				A05D65C32063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.h */,
+				A05D65C42063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m */,
 				A07DBE301FDFA92200F37715 /* TCServerConfig+CoreDataClass.h */,
 				A07DBE311FDFA92200F37715 /* TCServerConfig+CoreDataClass.m */,
 				A07DBE321FDFA92200F37715 /* TCServerConfig+CoreDataProperties.h */,
@@ -2553,6 +2578,9 @@
 				A0068E9F2050231100DE656C /* TCTimeTagLabel.m */,
 				A018E7B12052836E00C3CB96 /* TCServerStatusLabel.h */,
 				A018E7B22052836E00C3CB96 /* TCServerStatusLabel.m */,
+				A05D65CD2063B50F006006B0 /* TCServerDiskInfoCell.h */,
+				A05D65CE2063B50F006006B0 /* TCServerDiskInfoCell.m */,
+				A05D65CF2063B50F006006B0 /* TCServerDiskInfoCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4654,6 +4682,7 @@
 				A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */,
 				A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */,
 				A07DBDF21FDEE53D00F37715 /* TCServerLogTableViewCell.xib in Resources */,
+				A05D65D12063B50F006006B0 /* TCServerDiskInfoCell.xib in Resources */,
 				A02554E31FD67FD400D16D22 /* LaunchScreen.storyboard in Resources */,
 				A0C9A0AE1FF14B4E00F94E9E /* LICENSE.txt in Resources */,
 				A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */,
@@ -5017,6 +5046,7 @@
 				A03385971FE8BD9D00EC0EC8 /* TCStartServerRequest.m in Sources */,
 				A06D122D1FEBC51F00722C76 /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				A0DC9D86201204770061A015 /* NSManagedObject+Clone.m in Sources */,
+				A05D65CC2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m in Sources */,
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
 				A088F959202BEDF7005A97DD /* TCWelcomeViewController.m in Sources */,
 				A0906E7A20288DB2006D30C8 /* TCShowAlertView.m in Sources */,
@@ -5051,6 +5081,7 @@
 				A0C9A0691FF0D07800F94E9E /* TCCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A0B7141B2006F30600BE9FCA /* TCChangeAdminViewController.m in Sources */,
+				A05D65C52063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m in Sources */,
 				A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */,
 				A033985B201F718600CF8630 /* TCMonitorHistoryTableViewController.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
@@ -5136,6 +5167,7 @@
 				A0C9A0CC1FF2A3F500F94E9E /* TCTextTableViewCell.m in Sources */,
 				A0A0E8D320246B7100265920 /* TCServerSummaryRequest.m in Sources */,
 				A0A0E8D020246B4B00265920 /* TCServerSummary+CoreDataProperties.m in Sources */,
+				A05D65D02063B50F006006B0 /* TCServerDiskInfoCell.m in Sources */,
 				A025556D1FD7C85500D16D22 /* TCServerHomeViewController.m in Sources */,
 				A001FA431FDD81CB008328B0 /* TCServerNet+CoreDataClass.m in Sources */,
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
@@ -5171,6 +5203,7 @@
 				A02CA8782001B2A300BD00C5 /* TCPermissionTableViewController.m in Sources */,
 				A0906E7C20288DB2006D30C8 /* UIView+TCAutoLayout.m in Sources */,
 				A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */,
+				A05D65C62063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A07B7E41205BBA3700E64047 /* TCServerThresholdRequest.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
@@ -5183,6 +5216,7 @@
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A031B60B1FFDB48400B4F448 /* TCRenameTemplateRequest.m in Sources */,
+				A05D65CB2063A9CC006006B0 /* TCImageInfo+CoreDataClass.m in Sources */,
 				A073F9C02018C0B300AB03DA /* TCTextRefreshHeader.m in Sources */,
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */,

@@ -2,7 +2,7 @@
 //  TCServerSystemConfig+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2018/3/16.
+//  Created by huangdx on 2018/3/22.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -23,19 +23,23 @@
              };
 }
 
++ (NSDictionary *) mj_objectClassInArray
+{
+    return @{
+             @"disk_info" : @"TCDiskInfo",
+             @"image_info" : @"TCImageInfo"
+             };
+}
+
 @dynamic cpu;
+@dynamic instance_network_type;
+@dynamic max_bandwidth_in;
+@dynamic max_bandwidth_out;
 @dynamic memory;
 @dynamic os_name;
 @dynamic os_type;
-@dynamic instance_network_type;
-@dynamic max_bandwidth_out;
-@dynamic max_bandwidth_in;
-@dynamic system_disk_size;
-@dynamic system_disk_type;
 @dynamic security_group_ids;
-@dynamic system_disk_id;
-@dynamic image_id;
-@dynamic image_name;
-@dynamic image_version;
+@dynamic disk_info;
+@dynamic image_info;
 
 @end

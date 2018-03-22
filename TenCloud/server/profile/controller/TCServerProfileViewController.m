@@ -33,13 +33,17 @@
 #import "TCMonitorHistoryTableViewController.h"
 #import "TCServerToolViewController.h"
 #import "TCServerConfigInfoViewController.h"
+#import "TCServerDiskInfoCell.h"
+#import "TCDiskInfo+CoreDataClass.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
+#define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
 //for test
 #import "TCNetProfileViewController.h"
 
 
-@interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource>
+@interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource,
+UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, strong)   TCServerPerformance *performance;
 @property (nonatomic, strong)   TCServerConfig      *config;
@@ -63,6 +67,8 @@
 @property (nonatomic, weak) IBOutlet    UILabel             *networkDescLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *diskTypeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel             *diskSizeLabel;
+@property (nonatomic, weak) IBOutlet    UITableView         *diskTableView;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *diskTableHeightConstraint;
 //费用信息
 //监控信息
 @property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
@@ -145,6 +151,12 @@
                                              selector:@selector(reloadConfigData)
                                                  name:NOTIFICATION_MODIFY_SERVER
                                                object:nil];
+    
+    UINib *diskCellNib = [UINib nibWithNibName:@"TCServerDiskInfoCell" bundle:nil];
+    [_diskTableView registerNib:diskCellNib forCellReuseIdentifier:SERVER_PROFILE_DISK_CELL_ID];
+    _diskTableView.tableFooterView = [UIView new];
+    _diskTableView.delegate = self;
+    _diskTableView.dataSource = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -448,6 +460,7 @@
     TCServerConfigRequest *configReq = [[TCServerConfigRequest alloc] initWithServerID:_serverID];
     [configReq startWithSuccess:^(TCServerConfig *config) {
         weakSelf.config = config;
+        NSLog(@"_config:%@",weakSelf.config.system_info.config.disk_info);
         [weakSelf updateConfigUI];
     } failure:^(NSString *message) {
         NSLog(@"server config fail:%@",message);
@@ -736,8 +749,23 @@
     _memoryDescLabel.text = memoryDescStr;
     NSString *cpuDescStr = [NSString stringWithFormat:@"%d",(int)(sysConfig.cpu)];
     _cpuDescLabel.text = cpuDescStr;
-    _diskTypeLabel.text = sysConfig.system_disk_type;
-    _diskSizeLabel.text = sysConfig.system_disk_size;
+    
+    //_diskTypeLabel.text = sysConfig.system_disk_type;
+    //_diskSizeLabel.text = sysConfig.system_disk_size;
+    
+    /*
+    TCDiskInfo *tmpInfo = [TCDiskInfo MR_createEntity];
+    tmpInfo.system_disk_type = @"just ytpe";
+    tmpInfo.system_disk_size = @"129G";
+    tmpInfo.system_disk_id = @"id223";
+    [sysConfig.disk_info addObject:tmpInfo];
+     */
+
+    [_diskTableView reloadData];
+    NSInteger diskRow = sysConfig.disk_info.count;
+    CGFloat diskTableHeight = 43 * diskRow;//TCSCALE(48) * diskRow;
+    _diskTableHeightConstraint.constant = diskTableHeight;
+    NSLog(@"_diskTableView:%@",_diskTableView);
 }
 
 - (void) updateSystemLoadUI
@@ -879,5 +907,55 @@
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == _diskTableView)
+    {
+        NSLog(@"hhhh:%ld",_config.system_info.config.disk_info.count);
+        if (_config) {
+            return _config.system_info.config.disk_info.count;
+        }
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TCServerDiskInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_PROFILE_DISK_CELL_ID forIndexPath:indexPath];
+    NSArray *infoArray = _config.system_info.config.disk_info;
+    if (infoArray && (indexPath.row < infoArray.count))
+    {
+        BOOL showNumber = infoArray.count > 1;
+        TCDiskInfo *info = [infoArray objectAtIndex:indexPath.row];
+        if (showNumber)
+        {
+            [cell setDiskInfo:info withNumber:indexPath.row+1];
+        }else
+        {
+            [cell setDiskInfo:info withNumber:0];
+        }
+    }
+    return cell;
+    /*
+    TCServerContainerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONTAINER_CELL_REUSE_ID forIndexPath:indexPath];
+    NSArray *strArray = [_containerArray objectAtIndex:indexPath.row];
+    [cell setContainer:strArray];
+    return cell;
+     */
+}
+
+
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

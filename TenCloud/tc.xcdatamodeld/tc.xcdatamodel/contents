@@ -17,6 +17,16 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TCDiskInfo" representedClassName="TCDiskInfo" syncable="YES">
+        <attribute name="system_disk_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="system_disk_size" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="system_disk_type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TCImageInfo" representedClassName="TCImageInfo" syncable="YES">
+        <attribute name="image_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_version" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCInviteInfo" representedClassName="TCInviteInfo" syncable="YES">
         <attribute name="cid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -150,9 +160,8 @@
     </entity>
     <entity name="TCServerSystemConfig" representedClassName="TCServerSystemConfig" syncable="YES">
         <attribute name="cpu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="image_id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image_version" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="disk_info" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="image_info" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="instance_network_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="max_bandwidth_in" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="max_bandwidth_out" optional="YES" attributeType="String" syncable="YES"/>
@@ -160,9 +169,6 @@
         <attribute name="os_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="os_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="security_group_ids" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="system_disk_id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="system_disk_size" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="system_disk_type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TCServerSystemInfo" representedClassName="TCServerSystemInfo" syncable="YES">
         <attribute name="config" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -248,13 +254,15 @@
         <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="TCServerPerformance" positionX="-9" positionY="135" width="128" height="105"/>
         <element name="TCServerSummary" positionX="-9" positionY="135" width="128" height="90"/>
-        <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="255"/>
+        <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="195"/>
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
+        <element name="TCServerThreshold" positionX="0" positionY="144" width="128" height="120"/>
         <element name="TCServerUsage" positionX="-9" positionY="135" width="128" height="165"/>
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="135"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCServerThreshold" positionX="0" positionY="144" width="128" height="120"/>
+        <element name="TCDiskInfo" positionX="-9" positionY="135" width="128" height="90"/>
+        <element name="TCImageInfo" positionX="0" positionY="144" width="128" height="90"/>
     </elements>
 </model>
