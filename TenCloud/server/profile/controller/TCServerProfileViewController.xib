@@ -318,7 +318,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLp-rZ-Plk" customClass="TCRightImageButton">
-                                    <rect key="frame" x="231.5" y="-11.5" width="113.5" height="66.5"/>
+                                    <rect key="frame" x="231.5" y="-12.5" width="113.5" height="66.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="tLp-rZ-Plk" secondAttribute="height" multiplier="61:36" id="uxL-pA-Iln"/>
                                     </constraints>
@@ -380,7 +380,7 @@
                                         </label>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="74H-UJ-YCi">
                                             <rect key="frame" x="15" y="78.5" width="330" height="132"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="132" id="1Rq-Dy-m9Q"/>
                                             </constraints>

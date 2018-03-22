@@ -14,7 +14,10 @@
 #import "TCServerBusinessContract+CoreDataClass.h"
 #import "TCServerDiskInfoCell.h"
 #import "TCDiskInfo+CoreDataClass.h"
+#import "TCServerImageInfoCell.h"
+#import "TCImageInfo+CoreDataClass.h"
 #define SERVER_CONFIG_DISK_CELL_ID     @"SERVER_CONFIG_DISK_CELL_ID"
+#define SERVER_CONFIG_IMAGE_CELL_ID     @"SERVER_CONFIG_IMAGE_CELL_ID"
 
 @interface TCServerConfigInfoViewController ()
 <UITableViewDelegate, UITableViewDataSource>
@@ -34,6 +37,8 @@
 @property (nonatomic, strong)   TCServerConfig      *config;
 @property (nonatomic, weak) IBOutlet    UITableView *diskTableView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *diskTableHeight;
+@property (nonatomic, weak) IBOutlet    UITableView *imageTableView;
+@property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *imageTableHeight;
 @end
 
 @implementation TCServerConfigInfoViewController
@@ -83,6 +88,7 @@
     //_mirrorIDLabel.text = _config.
     //_diskTypeLabel.text = sysConfig.system_disk_type;
     //_diskSizeLabel.text = sysConfig.system_disk_size;
+    
     UINib *diskCellNib = [UINib nibWithNibName:@"TCServerDiskInfoCell" bundle:nil];
     [_diskTableView registerNib:diskCellNib forCellReuseIdentifier:SERVER_CONFIG_DISK_CELL_ID];
     _diskTableView.tableFooterView = [UIView new];
@@ -92,6 +98,23 @@
     NSInteger diskRow = sysConfig.disk_info.count;
     CGFloat height = 43 * diskRow;//TCSCALE(48) * diskRow;
     _diskTableHeight.constant = height;
+    
+    /*
+    TCImageInfo *imgInfo2 = [TCImageInfo MR_createEntity];
+    imgInfo2.image_name = @"img2";
+    imgInfo2.image_version = @"version2";
+    [sysConfig.image_info addObject:imgInfo2];
+     */
+    
+    UINib *imageCellNib = [UINib nibWithNibName:@"TCServerImageInfoCell" bundle:nil];
+    [_imageTableView registerNib:imageCellNib forCellReuseIdentifier:SERVER_CONFIG_IMAGE_CELL_ID];
+    _imageTableView.tableFooterView = [UIView new];
+    _imageTableView.delegate = self;
+    _imageTableView.dataSource = self;
+    
+    NSInteger imageRow = sysConfig.image_info.count;
+    CGFloat imgTableHeight = 43 * imageRow;//TCSCALE(48) * diskRow;
+    _imageTableHeight.constant = imgTableHeight;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,30 +141,53 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == _diskTableView)
     {
-        NSLog(@"hhhh:%ld",_config.system_info.config.disk_info.count);
         if (_config) {
             return _config.system_info.config.disk_info.count;
+        }
+    }else if(tableView == _imageTableView)
+    {
+        if (_config)
+        {
+            return _config.system_info.config.image_info.count;
         }
     }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TCServerDiskInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_DISK_CELL_ID forIndexPath:indexPath];
-    NSArray *infoArray = _config.system_info.config.disk_info;
+    if (tableView == _diskTableView)
+    {
+        TCServerDiskInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_DISK_CELL_ID forIndexPath:indexPath];
+        NSArray *infoArray = _config.system_info.config.disk_info;
+        if (infoArray && (indexPath.row < infoArray.count))
+        {
+            BOOL showNumber = infoArray.count > 1;
+            TCDiskInfo *info = [infoArray objectAtIndex:indexPath.row];
+            if (showNumber)
+            {
+                [cell setDiskInfo:info withNumber:indexPath.row+1];
+            }else
+            {
+                [cell setDiskInfo:info withNumber:0];
+            }
+        }
+        return cell;
+    }
+    TCServerImageInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:SERVER_CONFIG_IMAGE_CELL_ID forIndexPath:indexPath];
+    NSArray *infoArray = _config.system_info.config.image_info;
     if (infoArray && (indexPath.row < infoArray.count))
     {
         BOOL showNumber = infoArray.count > 1;
-        TCDiskInfo *info = [infoArray objectAtIndex:indexPath.row];
+        TCImageInfo *info = [infoArray objectAtIndex:indexPath.row];
         if (showNumber)
         {
-            [cell setDiskInfo:info withNumber:indexPath.row+1];
+            [infoCell setImageInfo:info withNumber:indexPath.row+1];
         }else
         {
-            [cell setDiskInfo:info withNumber:0];
+            [infoCell setImageInfo:info withNumber:0];
         }
     }
-    return cell;
+    return infoCell;
 }
 
 

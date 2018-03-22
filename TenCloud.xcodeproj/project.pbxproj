@@ -167,6 +167,8 @@
 		A05D65CC2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65CA2063A9CC006006B0 /* TCImageInfo+CoreDataProperties.m */; };
 		A05D65D02063B50F006006B0 /* TCServerDiskInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65CE2063B50F006006B0 /* TCServerDiskInfoCell.m */; };
 		A05D65D12063B50F006006B0 /* TCServerDiskInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D65CF2063B50F006006B0 /* TCServerDiskInfoCell.xib */; };
+		A05D65D52063E079006006B0 /* TCServerImageInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D65D32063E078006006B0 /* TCServerImageInfoCell.xib */; };
+		A05D65D62063E079006006B0 /* TCServerImageInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65D42063E078006006B0 /* TCServerImageInfoCell.m */; };
 		A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */; };
 		A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0627736202192DF00FF7E30 /* TCStaffStatusRequest.m */; };
 		A062773B202199AD00FF7E30 /* TCInviteJoinedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0627739202199AD00FF7E30 /* TCInviteJoinedViewController.xib */; };
@@ -751,6 +753,9 @@
 		A05D65CD2063B50F006006B0 /* TCServerDiskInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerDiskInfoCell.h; sourceTree = "<group>"; };
 		A05D65CE2063B50F006006B0 /* TCServerDiskInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerDiskInfoCell.m; sourceTree = "<group>"; };
 		A05D65CF2063B50F006006B0 /* TCServerDiskInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServerDiskInfoCell.xib; sourceTree = "<group>"; };
+		A05D65D22063E078006006B0 /* TCServerImageInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServerImageInfoCell.h; sourceTree = "<group>"; };
+		A05D65D32063E078006006B0 /* TCServerImageInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServerImageInfoCell.xib; sourceTree = "<group>"; };
+		A05D65D42063E078006006B0 /* TCServerImageInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServerImageInfoCell.m; sourceTree = "<group>"; };
 		A06277322021347100FF7E30 /* TCMonitorHistoryTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCMonitorHistoryTime.h; sourceTree = "<group>"; };
 		A06277332021347100FF7E30 /* TCMonitorHistoryTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCMonitorHistoryTime.m; sourceTree = "<group>"; };
 		A0627735202192DF00FF7E30 /* TCStaffStatusRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCStaffStatusRequest.h; sourceTree = "<group>"; };
@@ -2571,6 +2576,9 @@
 		A02C2359204FD85B00F709B7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A05D65D22063E078006006B0 /* TCServerImageInfoCell.h */,
+				A05D65D42063E078006006B0 /* TCServerImageInfoCell.m */,
+				A05D65D32063E078006006B0 /* TCServerImageInfoCell.xib */,
 				A0B7FFDF20526F46007A7A93 /* TCTimePeriodCell.h */,
 				A0B7FFDE20526F46007A7A93 /* TCTimePeriodCell.m */,
 				A0B7FFE020526F47007A7A93 /* TCTimePeriodCell.xib */,
@@ -4678,6 +4686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07DBEA41FE187B600F37715 /* TCRegisterViewController.xib in Resources */,
+				A05D65D52063E079006006B0 /* TCServerImageInfoCell.xib in Resources */,
 				A0339853201F0BCB00CF8630 /* TCDissentViewController.xib in Resources */,
 				A0A0B5B720025C1E00EA8512 /* TCStaffProfileTableViewCell.xib in Resources */,
 				A033859C1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.xib in Resources */,
@@ -4993,6 +5002,7 @@
 				A001FA451FDD81CB008328B0 /* TCServerDisk+CoreDataClass.m in Sources */,
 				A0C362FD2004553D0033C99C /* TCJoinSettingTableViewCell.m in Sources */,
 				A0142CA22051891000DC843D /* TCLogHomeViewController.m in Sources */,
+				A05D65D62063E079006006B0 /* TCServerImageInfoCell.m in Sources */,
 				A031B60E1FFDB8E800B4F448 /* TCDeleteTemplateRequest.m in Sources */,
 				A00AFF7E200BAB9000EFADF6 /* TCInviteInfoRequest.m in Sources */,
 				A07DBE2F1FDFA90D00F37715 /* TCServerBusinessInfo+CoreDataProperties.m in Sources */,
