@@ -24,6 +24,7 @@
 #import "TCModifyServerNameRequest.h"
 #import "TCDataSync.h"
 #import "TCEmptyPermission.h"
+#import "TCServerBusinessInfo+CoreDataClass.h"
 
 #import "TCServerStatusManager.h"
 
@@ -88,9 +89,13 @@
     [request startWithSuccess:^(TCServerConfig *config) {
         weakSelf.config = config;
         [weakSelf stopLoading];
+        NSString *providerName = config.business_info.provider;
+        if (providerName == nil)
+        {
+            providerName = @"";
+        }
         TCServerBasicInfo *info = config.basic_info;
         NSString *name = info.name ? info.name : @"";
-        NSString *clusterName = info.cluster_name ? info.cluster_name : @"";
         NSString *address = info.address ? info.address : @"";
         NSString *ip = info.public_ip ? info.public_ip : @"";
         NSString *status = info.machine_status ? info.machine_status : @"";
@@ -98,7 +103,7 @@
         TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
         BOOL canModify = currentCorp.isAdmin || [currentCorp havePermissionForFunc:FUNC_ID_MODIFY_SERVER];
         TCServerInfoItem *item1 = [[TCServerInfoItem alloc] initWithKey:@"名称" value:name disclosure:canModify];
-        TCServerInfoItem *item2 = [[TCServerInfoItem alloc] initWithKey:@"服务商" value:clusterName];
+        TCServerInfoItem *item2 = [[TCServerInfoItem alloc] initWithKey:@"服务商" value:providerName];
         TCServerInfoItem *item3 = [[TCServerInfoItem alloc] initWithKey:@"地址" value:address];
         TCServerInfoItem *item4 = [[TCServerInfoItem alloc] initWithKey:@"IP" value:ip];
         TCServerInfoItem *item5 = [[TCServerInfoItem alloc] initWithKey:@"状态" value:status

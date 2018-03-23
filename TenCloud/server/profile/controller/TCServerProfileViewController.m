@@ -35,6 +35,7 @@
 #import "TCServerConfigInfoViewController.h"
 #import "TCServerDiskInfoCell.h"
 #import "TCDiskInfo+CoreDataClass.h"
+#import "TCServerBusinessInfo+CoreDataClass.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 #define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
@@ -721,7 +722,7 @@ UITableViewDelegate,UITableViewDataSource>
     _nameLabel.text = _config.basic_info.name;
     _ipLabel.text = _config.basic_info.public_ip;
     UIImage *iconImage = nil;
-    NSString *providerName = _config.basic_info.cluster_name;
+    NSString *providerName = _config.business_info.provider;
     if (providerName == nil)
     {
         providerName = @"";
