@@ -39,6 +39,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 @property (nonatomic, assign) NSInteger       totalServerAmount;
 @property (nonatomic, strong) UIButton        *messageButton;
 @property (nonatomic, strong) NSMutableArray  *usageArray;
+@property (nonatomic, strong) NSTimer         *usageDataTimer;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *headerCollectionView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *headerCollectionBgHeightConstraint;
 @property (nonatomic, weak) IBOutlet    UIView              *headerView;
@@ -135,11 +136,26 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [[TCDataSync shared] addPermissionChangedObserver:self];
     
     _usageArray = [NSMutableArray new];
-    [NSTimer scheduledTimerWithTimeInterval:20.0
-                                     target:self
-                                   selector:@selector(reloadUsageData)
-                                   userInfo:nil
-                                    repeats:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _usageDataTimer = [NSTimer scheduledTimerWithTimeInterval:20.0
+                                                       target:self
+                                                     selector:@selector(reloadUsageData)
+                                                     userInfo:nil
+                                                      repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (_usageDataTimer)
+    {
+        [_usageDataTimer invalidate];
+        _usageDataTimer = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
