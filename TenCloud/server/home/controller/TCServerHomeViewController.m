@@ -95,6 +95,9 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [_tableView registerNib:usageCellNib forCellReuseIdentifier:SERVER_HOME_USAGE_REUSE_ID];
     _tableView.emptyDataSetDelegate = self;
     _tableView.emptyDataSetSource = self;
+    _tableView.estimatedRowHeight = 200;
+    _tableView.estimatedSectionHeaderHeight = 0;
+    _tableView.estimatedSectionFooterHeight = 0;
     
     UINib *homeCollectionNibCell = [UINib nibWithNibName:@"ServerHomeIconCollectionViewCell" bundle:nil];
     [_headerCollectionView registerNib:homeCollectionNibCell forCellWithReuseIdentifier:HEADER_COLLECTION_CELL_REUSE_ID];
