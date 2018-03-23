@@ -23,5 +23,11 @@
 - (void) setUsage:(TCServerUsage*)usage
 {
     [super setUsage:usage];
+    
+    NSArray *params = [self usageParamArray];
+    NSString *param1 = [params objectAtIndex:0];
+    //NSString *param2 = [params objectAtIndex:1];
+    self.row1Label.text = param1;
+    //self.row2Label.text = param2;
 }
 @end

@@ -14,4 +14,6 @@
 - (void) startWithSuccess:(void(^)(NSArray<TCServerUsage*> *usageArray))success
                   failure:(void(^)(NSString *message))failure;
 
+- (NSArray<TCServerUsage*> *)resultUsageArray;
+
 @end

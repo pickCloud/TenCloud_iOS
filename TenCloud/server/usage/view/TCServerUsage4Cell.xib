@@ -27,10 +27,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="148"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器名称" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-ev-tdj" customClass="TCAutoScaleLabel">
-                        <rect key="frame" x="12" y="44.5" width="176" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器名称" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-ev-tdj" customClass="TCAutoScaleLabel">
+                        <rect key="frame" x="12" y="37.5" width="176" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第一行指标" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koo-hX-nmD" customClass="TCAutoScaleLabel">
+                        <rect key="frame" x="12" y="101.5" width="141" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -39,14 +45,17 @@
             <constraints>
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="23l-56-3ZB"/>
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AZI-Xs-Gqc"/>
+                <constraint firstItem="koo-hX-nmD" firstAttribute="leading" secondItem="Dd6-ev-tdj" secondAttribute="leading" id="FHJ-jC-rcV"/>
                 <constraint firstItem="U1s-ei-vZr" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="HAi-da-3pP"/>
                 <constraint firstItem="Dd6-ev-tdj" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.88" id="W5k-SP-gSN"/>
+                <constraint firstItem="koo-hX-nmD" firstAttribute="width" secondItem="Dd6-ev-tdj" secondAttribute="width" multiplier="0.8" id="ZoE-7G-qTy"/>
                 <constraint firstItem="U1s-ei-vZr" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="dRK-fj-Sag"/>
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="g62-HA-cgg"/>
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gjH-PY-jat"/>
                 <constraint firstItem="Dd6-ev-tdj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="jBR-SD-i5i"/>
                 <constraint firstItem="U1s-ei-vZr" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="jHH-jQ-Umq"/>
-                <constraint firstItem="Dd6-ev-tdj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="0.7" id="oPx-WS-Q85"/>
+                <constraint firstItem="koo-hX-nmD" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.45" id="jRP-xd-kAY"/>
+                <constraint firstItem="Dd6-ev-tdj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="0.6" id="oPx-WS-Q85"/>
                 <constraint firstItem="U1s-ei-vZr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="rEs-8P-lLp"/>
             </constraints>
             <size key="customSize" width="200" height="90"/>
@@ -54,6 +63,7 @@
                 <outlet property="highlightView" destination="U1s-ei-vZr" id="pWh-r0-DO2"/>
                 <outlet property="maskView" destination="yOp-pc-jhp" id="RWe-0d-FOv"/>
                 <outlet property="nameLabel" destination="Dd6-ev-tdj" id="yd2-vf-j0c"/>
+                <outlet property="row1Label" destination="koo-hX-nmD" id="Gv2-Qb-4bd"/>
             </connections>
             <point key="canvasLocation" x="100" y="72"/>
         </collectionViewCell>

@@ -26,6 +26,7 @@
 #import "TCServerUsage+CoreDataClass.h"
 #import "TCServerHomeUsageCell.h"
 #import "TCServerUsageRequest.h"
+#import "YTKBatchRequest.h"
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
@@ -95,7 +96,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [_tableView registerNib:usageCellNib forCellReuseIdentifier:SERVER_HOME_USAGE_REUSE_ID];
     _tableView.emptyDataSetDelegate = self;
     _tableView.emptyDataSetSource = self;
-    _tableView.estimatedRowHeight = 200;
+    _tableView.estimatedRowHeight = 320;
     _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.estimatedSectionFooterHeight = 0;
     
@@ -316,15 +317,68 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 
 - (void) reloadUsageData
 {
+    /*
     __weak __typeof(self) weakSelf = self;
     TCServerUsageRequest *req = [TCServerUsageRequest new];
     [req startWithSuccess:^(NSArray<TCServerUsage *> *usageArray) {
         NSLog(@"获取%ld usage",usageArray.count);
         [weakSelf.usageArray removeAllObjects];
         [weakSelf.usageArray addObjectsFromArray:usageArray];
+        
+    
+        //for test
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    [weakSelf.usageArray removeLastObject];
+        //}
+     
+        
+        for (int i = 0; i < 5; i++)
+        {
+            TCServerUsage *usage9 = [TCServerUsage MR_createEntity];
+            usage9.serverID = 22;
+            NSString *name = [NSString stringWithFormat:@"fake%d",i];
+            usage9.name = name;
+            usage9.cpuUsageRate = @(0.22);
+            usage9.diskUsageRate = @(0.17);
+            usage9.memUsageRate = @(0.13);
+            usage9.networkUsage = @"55/66";
+            usage9.diskIO = @"77/88";
+            usage9.colorType = TCServerUsageIdle;
+            [weakSelf.usageArray addObject:usage9];
+        }
+         
+        
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
         NSLog(@"获取usage fail");
+    }];
+        */
+    
+    __weak __typeof(self) weakSelf = self;
+    TCServerWarningRequest *req = [TCServerWarningRequest new];
+    TCServerUsageRequest *req2 = [TCServerUsageRequest new];
+    NSArray *reqArray = [NSArray arrayWithObjects:req,req2, nil];
+    YTKBatchRequest *batchReq = [[YTKBatchRequest alloc] initWithRequestArray:reqArray];
+    [batchReq startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
+        NSArray *resArray = batchRequest.requestArray;
+        TCServerWarningRequest *serverReq = resArray[0];
+        TCServerUsageRequest *usageReq = resArray[1];
+        NSArray *serverArray = [serverReq resultServerArray];
+        NSArray *usageArray = [usageReq resultUsageArray];
+        [weakSelf.serverArray removeAllObjects];
+        [weakSelf.serverArray addObjectsFromArray:serverArray];
+        [weakSelf.usageArray removeAllObjects];
+        [weakSelf.usageArray addObjectsFromArray:usageArray];
+        [weakSelf.tableView reloadData];
+        
+        //for test
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    [weakSelf.usageArray removeLastObject];
+        //}
+    } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
+        
     }];
 }
 

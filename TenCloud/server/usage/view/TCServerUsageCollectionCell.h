@@ -22,6 +22,13 @@ typedef void (^TCServerUsageCellNextBlock)(TCServerUsageCollectionCell *cell);
 @property (nonatomic, weak)     IBOutlet    UILabel     *memoryLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel     *diskLabel;
 @property (nonatomic, weak)     IBOutlet    UILabel     *networkLabel;
+
+@property (nonatomic, weak)     IBOutlet    UILabel     *row1Label;
+@property (nonatomic, weak)     IBOutlet    UILabel     *row2Label;
+@property (nonatomic, weak)     IBOutlet    UILabel     *row3Label;
+@property (nonatomic, weak)     IBOutlet    UILabel     *row4Label;
+@property (nonatomic, weak)     IBOutlet    UILabel     *row5Label;
+
 @property (nonatomic, copy) TCServerUsageCellNextBlock  nextBlock;
 
 - (void) setUsage:(TCServerUsage*)usage;
@@ -29,5 +36,7 @@ typedef void (^TCServerUsageCellNextBlock)(TCServerUsageCollectionCell *cell);
 - (void) highlight;
 
 - (void) unhighlight;
+
+- (NSArray*) usageParamArray;
 
 @end

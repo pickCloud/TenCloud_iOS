@@ -30,5 +30,30 @@
     NSString *diskDesc = [NSString stringWithFormat:@"%g%%",usage.diskUsageRate.doubleValue];
     self.diskLabel.text = diskDesc;
     self.networkLabel.text = usage.networkUsage;
+    
+    /*
+    NSArray *params = [self usageParamArray];
+    NSString *param1 = [params objectAtIndex:0];
+    NSString *param2 = [params objectAtIndex:1];
+    NSString *param3 = [params objectAtIndex:2];
+    NSString *param4 = [params objectAtIndex:3];
+    self.row1Label.text = param1;
+    self.row2Label.text = param2;
+    self.row3Label.text = param3;
+    self.row4Label.text = param4;
+     */
+    CGFloat cpuRate = usage.cpuUsageRate.floatValue;
+    CGFloat memoryRate = usage.memUsageRate.floatValue;
+    CGFloat diskRate = usage.diskUsageRate.floatValue;
+    NSString *cpuStr = [NSString stringWithFormat:@"CPU使用率  %g%%",cpuRate];
+    NSString *memoryStr = [NSString stringWithFormat:@"内存使用率  %g%%",memoryRate];
+    NSString *diskStr = [NSString stringWithFormat:@"磁盘使用率  %g%%",diskRate];
+    NSString *diskIOStr = [NSString stringWithFormat:@"磁盘I/O  %@",usage.diskIO];
+    NSString *netIOStr = [NSString stringWithFormat:@"网络I/O  %@",usage.networkUsage];
+    self.row1Label.text = cpuStr;
+    self.row2Label.text = memoryStr;
+    self.row3Label.text = diskIOStr;
+    self.row4Label.text = diskStr;
+    self.row5Label.text = netIOStr;
 }
 @end

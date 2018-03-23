@@ -14,4 +14,6 @@
 - (void) startWithSuccess:(void(^)(NSArray<TCServer*> *serverArray))success
                   failure:(void(^)(NSString *message))failure;
 
+- (NSArray<TCServer*> *)resultServerArray;
+
 @end

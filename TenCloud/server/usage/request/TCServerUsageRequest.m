@@ -33,13 +33,25 @@
                   failure:(void(^)(NSString *message))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        /*
         NSArray *logDictArray = [request.responseJSONObject objectForKey:@"data"];
         NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
         NSArray *logArray = [TCServerUsage mj_objectArrayWithKeyValuesArray:logDictArray context:context];
         success ? success(logArray) : nil;
+         */
+        NSArray *resArray = [self resultUsageArray];
+        success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         failure ? failure([self errorMessaage]) : nil;
     }];
+}
+
+- (NSArray<TCServerUsage*> *)resultUsageArray
+{
+    NSDictionary *arrayDict = [self.responseJSONObject objectForKey:@"data"];
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    NSArray *resArray = [TCServerUsage mj_objectArrayWithKeyValuesArray:arrayDict context:context];
+    return resArray;
 }
 
 - (NSString *)requestUrl {

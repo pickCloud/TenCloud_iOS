@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="116" height="86"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器名称" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-ev-tdj" customClass="TCAutoScaleLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器名称" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-ev-tdj" customClass="TCAutoScaleLabel">
                         <rect key="frame" x="6" y="0.0" width="104" height="41.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Dd6-ev-tdj" secondAttribute="height" multiplier="5:2" id="Mhl-t4-3rO"/>
@@ -38,30 +38,30 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-3m-FNI" customClass="TCAutoScaleLabel">
-                        <rect key="frame" x="6" y="43" width="36" height="12"/>
+                        <rect key="frame" x="6" y="43" width="21.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-bF-u4y" customClass="TCAutoScaleLabel">
-                        <rect key="frame" x="46" y="42.5" width="14.5" height="12"/>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-bF-u4y" customClass="TCAutoScaleLabel">
+                        <rect key="frame" x="31.5" y="42.5" width="14.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-z4-dmp" customClass="TCAutoScaleLabel">
-                        <rect key="frame" x="6" y="61.5" width="36" height="12"/>
+                        <rect key="frame" x="6" y="61.5" width="21.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIM-Nd-sAx" customClass="TCAutoScaleLabel">
-                        <rect key="frame" x="46" y="61.5" width="14.5" height="12"/>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIM-Nd-sAx" customClass="TCAutoScaleLabel">
+                        <rect key="frame" x="31.5" y="61.5" width="14.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdc-pq-1fB">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdc-pq-1fB">
                         <rect key="frame" x="93.5" y="61.5" width="12.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,7 +91,6 @@
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="g62-HA-cgg"/>
                 <constraint firstItem="sHm-3m-FNI" firstAttribute="leading" secondItem="Dd6-ev-tdj" secondAttribute="leading" id="gGc-Yf-fRH"/>
                 <constraint firstItem="yOp-pc-jhp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gjH-PY-jat"/>
-                <constraint firstItem="sHm-3m-FNI" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3103" id="heo-mk-8Xi"/>
                 <constraint firstItem="Fws-y6-mKW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="n1K-hz-dYK"/>
                 <constraint firstItem="cBw-z4-dmp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.59" id="zTc-vw-cUO"/>
             </constraints>
@@ -102,6 +101,8 @@
                 <outlet property="maskView" destination="yOp-pc-jhp" id="RWe-0d-FOv"/>
                 <outlet property="memoryLabel" destination="NIM-Nd-sAx" id="XPP-ab-BsR"/>
                 <outlet property="nameLabel" destination="Dd6-ev-tdj" id="yd2-vf-j0c"/>
+                <outlet property="row1Label" destination="sHm-3m-FNI" id="HmF-we-abo"/>
+                <outlet property="row2Label" destination="cBw-z4-dmp" id="Tld-aV-vfw"/>
             </connections>
             <point key="canvasLocation" x="58" y="41"/>
         </collectionViewCell>

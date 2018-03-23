@@ -94,4 +94,45 @@
 {
     [_highlightView setHidden:YES];
 }
+
+- (NSArray*) usageParamArray
+{
+    NSMutableArray *params = [NSMutableArray new];
+    CGFloat cpuRate = _usage.cpuUsageRate.floatValue;
+    CGFloat memoryRate = _usage.memUsageRate.floatValue;
+    CGFloat diskRate = _usage.diskUsageRate.floatValue;
+    NSString *cpuDesc = [NSString stringWithFormat:@"CPU使用率  %g%%",cpuRate];
+    NSString *memoryDesc = [NSString stringWithFormat:@"内存使用率  %g%%",memoryRate];
+    NSString *diskDesc = [NSString stringWithFormat:@"磁盘使用率  %g%%",diskRate];
+    NSString *diskIODesc = [NSString stringWithFormat:@"磁盘I/O  %@",_usage.diskIO];
+    NSString *netIODesc = [NSString stringWithFormat:@"网络I/O  %@",_usage.networkUsage];
+    NSMutableArray *tmpArray = [NSMutableArray new];
+    [tmpArray addObject:cpuDesc];
+    [tmpArray addObject:memoryDesc];
+    [tmpArray addObject:diskDesc];
+    [tmpArray addObject:diskIODesc];
+    [tmpArray addObject:netIODesc];
+    if (cpuRate >= 80)
+    {
+        [params addObject:cpuDesc];
+        [tmpArray removeObject:cpuDesc];
+    }
+    if (memoryRate >= 80)
+    {
+        [params addObject:memoryDesc];
+        [tmpArray removeObject:memoryDesc];
+    }
+    if (diskRate >= 80)
+    {
+        [params addObject:diskDesc];
+        [tmpArray removeObject:diskDesc];
+    }
+    for (int i = 0; i < tmpArray.count; i++)
+    {
+        NSString *tmpStr = [tmpArray objectAtIndex:i];
+        [params addObject:tmpStr];
+    }
+    
+    return params;
+}
 @end
