@@ -41,11 +41,11 @@
         }
         
         _threshold = [TCServerThreshold MR_createEntity];
-        _threshold.block_threshold = 0.8;
-        _threshold.disk_threshold = 0.8;
-        _threshold.memory_threshold = 0.8;
-        _threshold.cpu_threshold = 0.8;
-        _threshold.net_threshold = 0.8;
+        _threshold.block_threshold = 70;   //磁盘利用率
+        _threshold.disk_threshold = 80;    //磁盘占用率
+        _threshold.memory_threshold = 80;
+        _threshold.cpu_threshold = 70;
+        _threshold.net_threshold = 60;
     }
     return self;
 }

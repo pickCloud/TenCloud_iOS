@@ -366,6 +366,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
         TCServerUsageRequest *usageReq = resArray[1];
         NSArray *serverArray = [serverReq resultServerArray];
         NSArray *usageArray = [usageReq resultUsageArray];
+        
         [weakSelf.serverArray removeAllObjects];
         [weakSelf.serverArray addObjectsFromArray:serverArray];
         [weakSelf.usageArray removeAllObjects];

@@ -8,6 +8,8 @@
 
 #import "TCServerUsageCollectionCell.h"
 #import "TCServerUsage+CoreDataClass.h"
+#import "TCConfiguration.h"
+#import "TCServerThreshold+CoreDataClass.h"
 
 @interface TCServerUsageCollectionCell()
 @property (nonatomic, strong)   CAGradientLayer     *gradientLayer;
@@ -97,36 +99,79 @@
 
 - (NSArray*) usageParamArray
 {
+    TCServerThreshold *threshold = [[TCConfiguration shared] threshold];
     NSMutableArray *params = [NSMutableArray new];
     CGFloat cpuRate = _usage.cpuUsageRate.floatValue;
     CGFloat memoryRate = _usage.memUsageRate.floatValue;
-    CGFloat diskRate = _usage.diskUsageRate.floatValue;
+    CGFloat diskIORate = _usage.diskIO.floatValue;
+    CGFloat diskUsageRate = _usage.diskUsageRate.floatValue;
+    CGFloat netInputRate = 0.0;
+    CGFloat netOutputRate = 0.0;
+    //CGFloat netUsageRate = 0;
+    NSString *netUsageStr = _usage.networkUsage;
+    if (netUsageStr && netUsageStr.length > 0)
+    {
+        NSArray *netStrArray = [netUsageStr componentsSeparatedByString:@"/"];
+        if (netStrArray && netStrArray.count >= 2)
+        {
+            NSString *str1 = [netStrArray objectAtIndex:0];
+            NSString *str2 = [netStrArray objectAtIndex:1];
+            netInputRate = str1.floatValue;
+            netOutputRate = str2.floatValue;
+        }
+    }
     NSString *cpuDesc = [NSString stringWithFormat:@"CPU使用率  %g%%",cpuRate];
     NSString *memoryDesc = [NSString stringWithFormat:@"内存使用率  %g%%",memoryRate];
-    NSString *diskDesc = [NSString stringWithFormat:@"磁盘使用率  %g%%",diskRate];
-    NSString *diskIODesc = [NSString stringWithFormat:@"磁盘I/O  %@",_usage.diskIO];
-    NSString *netIODesc = [NSString stringWithFormat:@"网络I/O  %@",_usage.networkUsage];
+    NSString *diskIODesc = [NSString stringWithFormat:@"磁盘利用率  %g%%",diskIORate];
+    NSString *diskDesc = [NSString stringWithFormat:@"磁盘占用率  %g%%",diskUsageRate];
+    NSString *netIDesc = [NSString stringWithFormat:@"网络I %@",_usage.netDownload ];
+    NSString *netODesc = [NSString stringWithFormat:@"网络O %@",_usage.netUpload];
+    //NSString *netIODesc = [NSString stringWithFormat:@"网络I %@  网络O %@",_usage.netUpload, _usage.netDownload];
     NSMutableArray *tmpArray = [NSMutableArray new];
     [tmpArray addObject:cpuDesc];
     [tmpArray addObject:memoryDesc];
     [tmpArray addObject:diskDesc];
     [tmpArray addObject:diskIODesc];
-    [tmpArray addObject:netIODesc];
-    if (cpuRate >= 80)
+    //[tmpArray addObject:netIODesc];
+    [tmpArray addObject:netIDesc];
+    [tmpArray addObject:netODesc];
+    if (cpuRate >= threshold.cpu_threshold)
     {
         [params addObject:cpuDesc];
         [tmpArray removeObject:cpuDesc];
     }
-    if (memoryRate >= 80)
+    if (memoryRate >= threshold.memory_threshold)
     {
         [params addObject:memoryDesc];
         [tmpArray removeObject:memoryDesc];
     }
-    if (diskRate >= 80)
+    if (diskIORate >= threshold.block_threshold)
+    {
+        [params addObject:diskIODesc];
+        [tmpArray removeObject:diskIODesc];
+    }
+    if (diskUsageRate >= threshold.disk_threshold)
     {
         [params addObject:diskDesc];
         [tmpArray removeObject:diskDesc];
     }
+    //if (netUsageRate >= threshold.net_threshold)
+    //{
+        //[params addObject:netIODesc];
+        //[tmpArray removeObject:netIODesc];
+    //}
+    if (netInputRate >= threshold.net_threshold)
+    {
+        [params addObject:netIDesc];
+        [tmpArray removeObject:netIDesc];
+    }
+    
+    if (netOutputRate >= threshold.net_threshold)
+    {
+        [params addObject:netODesc];
+        [tmpArray removeObject:netODesc];
+    }
+    
     for (int i = 0; i < tmpArray.count; i++)
     {
         NSString *tmpStr = [tmpArray objectAtIndex:i];

@@ -2,7 +2,7 @@
 //  TCServerUsage+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2018/3/22.
+//  Created by huangdx on 2018/3/25.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 //
@@ -24,14 +24,16 @@ typedef NS_ENUM(NSInteger, TCServerUsageType){
 
 + (NSFetchRequest<TCServerUsage *> *)fetchRequest;
 
+@property (nonatomic) int64_t colorType;
 @property (nullable, nonatomic, retain) NSNumber *cpuUsageRate;
-@property (nullable, nonatomic, copy) NSString *diskIO;
+@property (nullable, nonatomic, retain) NSNumber *diskIO;
 @property (nullable, nonatomic, retain) NSNumber *diskUsageRate;
 @property (nullable, nonatomic, retain) NSNumber *memUsageRate;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *networkUsage;
 @property (nonatomic) int64_t serverID;
-@property (nonatomic) int64_t colorType;
+@property (nullable, nonatomic, copy) NSString *netDownload;
+@property (nullable, nonatomic, copy) NSString *netUpload;
 
 @end
 

@@ -28,7 +28,8 @@
 @property (nonatomic, weak) IBOutlet    UILabel     *memoryUsageLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *diskIOLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *diskUsageLabel;
-@property (nonatomic, weak) IBOutlet    UILabel     *networkIOLabel;
+@property (nonatomic, weak) IBOutlet    UILabel     *networkILabel;
+@property (nonatomic, weak) IBOutlet    UILabel     *networkOLabel;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *collectionView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *collectionViewHeightConstraint;
 @property (nonatomic, strong)   NSArray<TCServerUsage*>     *usageArray;
@@ -116,7 +117,8 @@
     NSString *diskStr = [NSString stringWithFormat:@"%g%%",ts.disk_threshold];
     _diskUsageLabel.text = diskStr;
     NSString *netStr = [NSString stringWithFormat:@"%g%%",ts.net_threshold];
-    _networkIOLabel.text = netStr;
+    _networkILabel.text = netStr;
+    _networkOLabel.text = netStr;
 }
 
 #pragma mark - UICollectionViewDelegate

@@ -21,7 +21,7 @@
              @"disk_content":@"disk",
              @"memory_content":@"memory",
              @"cpu_content":@"cpu",
-             @"net_content":@"network"
+             @"net_content":@"net"
              };
 }
 
