@@ -12,8 +12,10 @@
 #import "TCDeploy+CoreDataClass.h"
 #import "TCService+CoreDataClass.h"
 #import "TCAppTableViewCell.h"
+#import "TCAppSectionHeaderCell.h"
 #define APP_HOME_ICON_CELL_ID   @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID    @"APP_HOME_APP_CELL_ID"
+#define APP_SECTION_HEADER_CELL_ID  @"APP_SECTION_HEADER_CELL_ID"
 
 @interface TCAppHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView         *tableView;
@@ -50,9 +52,12 @@
     [_iconView setCollectionViewLayout:iconLayout];
     [_iconView reloadData];
     
+    
     UINib *appCellNib = [UINib nibWithNibName:@"TCAppTableViewCell" bundle:nil];
     [_tableView registerNib:appCellNib forCellReuseIdentifier:APP_HOME_APP_CELL_ID];
     
+    UINib *sectionHeaderNib = [UINib nibWithNibName:@"TCAppSectionHeaderCell" bundle:nil];
+    [_tableView registerNib:sectionHeaderNib forCellReuseIdentifier:APP_SECTION_HEADER_CELL_ID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,6 +136,20 @@
     app2.labels = @[@"普通项目",@"组件",@"美国",@"常用工具",@"AI工具链"];
     [_appArray addObject:app2];
     
+    for (int i = 0; i < 10; i++)
+    {
+        TCApp *tmpApp = [TCApp MR_createEntity];
+        tmpApp.appID = 10+i;
+        tmpApp.name = @"图片智能分析";
+        tmpApp.status = @"正常";
+        tmpApp.source = @"GitHub: AIUnicorn/ImageAI";
+        tmpApp.createTime = [NSDate timeIntervalSinceReferenceDate];
+        tmpApp.updateTime = [NSDate timeIntervalSinceReferenceDate];
+        //[app2.labels addObjectsFromArray:@[@"普通项目"]];
+        tmpApp.labels = @[@"普通项目",@"组件",@"美国",@"常用工具"];
+        [_appArray addObject:tmpApp];
+    }
+    
     TCDeploy *dp1 = [TCDeploy MR_createEntity];
     dp1.deployID = 10;
     dp1.name = @"kubernetes-bootcamp";
@@ -172,6 +191,12 @@
     TCApp *app = [_appArray objectAtIndex:indexPath.row];
     [cell setApp:app];
     return cell;
+}
+
+- (UIView *)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
+{
+    TCAppSectionHeaderCell *header = [tableView dequeueReusableCellWithIdentifier:APP_SECTION_HEADER_CELL_ID];
+    return header;
 }
 
 
