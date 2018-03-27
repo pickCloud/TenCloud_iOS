@@ -67,6 +67,8 @@
 #define SERVER_PROVIDER_MICROS      @"微软云"
 #define SERVER_PROVIDER_TENCENT     @"腾讯云"
 
+#define STATE_CREATE_COLOR     [UIColor colorWithRed:9/255.0 green:187/255.0 blue:7/255.0 alpha:1.0]
+#define STATE_CREATE_BG_COLOR  [UIColor colorWithRed:9/255.0 green:187/255.0 blue:7/255.0 alpha:0.2]
 #define STATE_NORMAL_COLOR     [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0]
 #define STATE_NORMAL_BG_COLOR  [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:0.3]
 #define STATE_ALERT_COLOR      [UIColor colorWithRed:239/255.0 green:154/255.0 blue:154/255.0 alpha:1.0]

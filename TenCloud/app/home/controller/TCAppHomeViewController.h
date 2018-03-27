@@ -8,6 +8,6 @@
 
 #import "TCViewController.h"
 
-@interface TCAppHomeViewController : UIViewController
+@interface TCAppHomeViewController : TCViewController
 
 @end

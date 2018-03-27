@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) int64_t appID;
 @property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, retain) NSMutableArray *labels;
+@property (nullable, nonatomic, retain) NSArray *labels;
 @property (nullable, nonatomic, copy) NSString *source;
 @property (nonatomic) int64_t createTime;
 @property (nonatomic) int64_t updateTime;

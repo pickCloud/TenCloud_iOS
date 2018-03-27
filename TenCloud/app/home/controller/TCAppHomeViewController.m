@@ -11,7 +11,9 @@
 #import "TCApp+CoreDataClass.h"
 #import "TCDeploy+CoreDataClass.h"
 #import "TCService+CoreDataClass.h"
+#import "TCAppTableViewCell.h"
 #define APP_HOME_ICON_CELL_ID   @"APP_HOME_ICON_CELL_ID"
+#define APP_HOME_APP_CELL_ID    @"APP_HOME_APP_CELL_ID"
 
 @interface TCAppHomeViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView         *tableView;
@@ -27,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"应用/服务";
+    [self wr_setNavBarBarTintColor:THEME_TINT_COLOR];
+    [self wr_setNavBarTitleColor:THEME_NAVBAR_TITLE_COLOR];
     
     _appArray = [NSMutableArray new];
     _deployArray = [NSMutableArray new];
@@ -37,7 +41,7 @@
     UINib *iconCellNib = [UINib nibWithNibName:@"TCAppHomeIconCell" bundle:nil];
     [_iconView registerNib:iconCellNib forCellWithReuseIdentifier:APP_HOME_ICON_CELL_ID];
     UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
-    iconLayout.itemSize = CGSizeMake(TCSCALE(73), TCSCALE(84));
+    iconLayout.itemSize = CGSizeMake(TCSCALE(72.92), TCSCALE(83.92));
     iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
     float iconX = 0;
@@ -45,6 +49,10 @@
     iconLayout.footerReferenceSize = CGSizeMake(iconX, iconX);
     [_iconView setCollectionViewLayout:iconLayout];
     [_iconView reloadData];
+    
+    UINib *appCellNib = [UINib nibWithNibName:@"TCAppTableViewCell" bundle:nil];
+    [_tableView registerNib:appCellNib forCellReuseIdentifier:APP_HOME_APP_CELL_ID];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,18 +115,20 @@
     app1.source = @"GitHub: AIUnicorn/10com";
     app1.createTime = [NSDate timeIntervalSinceReferenceDate];
     app1.updateTime = [NSDate timeIntervalSinceReferenceDate];
-    [app1.labels addObjectsFromArray:@[@"基础服务",@"应用组件"]];
+    //[app1.labels addObjectsFromArray:@[@"基础服务",@"应用组件"]];
+    app1.labels = @[@"基础服务",@"应用组件"];
     app1.avatar = @"http://ou3t8uyol.bkt.clouddn.com/63A6B945-2C42-4E07-B004-D4318768165F";
     [_appArray addObject:app1];
     
     TCApp *app2 = [TCApp MR_createEntity];
     app2.appID = 2;
     app2.name = @"图片智能分析";
-    app2.status = @"初创建";
+    app2.status = @"正常";
     app2.source = @"GitHub: AIUnicorn/ImageAI";
     app2.createTime = [NSDate timeIntervalSinceReferenceDate];
     app2.updateTime = [NSDate timeIntervalSinceReferenceDate];
-    [app2.labels addObjectsFromArray:@[@"普通项目"]];
+    //[app2.labels addObjectsFromArray:@[@"普通项目"]];
+    app2.labels = @[@"普通项目",@"组件",@"美国",@"常用工具",@"AI工具链"];
     [_appArray addObject:app2];
     
     TCDeploy *dp1 = [TCDeploy MR_createEntity];
@@ -145,5 +155,30 @@
     [_serviceArray addObject:service1];
     
     
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _appArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TCAppTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_APP_CELL_ID forIndexPath:indexPath];
+    TCApp *app = [_appArray objectAtIndex:indexPath.row];
+    [cell setApp:app];
+    return cell;
+}
+
+
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

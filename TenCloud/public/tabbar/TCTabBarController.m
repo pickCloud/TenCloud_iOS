@@ -14,6 +14,7 @@
 #import "TCCurrentCorp.h"
 #import "TCPersonHomeViewController.h"
 #import "TCCorpHomeViewController.h"
+#import "TCAppHomeViewController.h"
 
 #import "TCServiceHomeViewController.h"
 #import "TCLogHomeViewController.h"
@@ -46,8 +47,9 @@
     serverHomeNav.tabBarItem.titlePositionAdjustment = titleOffset;
     [self addChildViewController:serverHomeNav];
     
-    TCServiceHomeViewController *serviceHomeVC = [TCServiceHomeViewController new];
-    UINavigationController *serviceHomeNav = [[UINavigationController alloc] initWithRootViewController:serviceHomeVC];
+    TCAppHomeViewController *appHomeVC = [TCAppHomeViewController new];
+    //TCServiceHomeViewController *serviceHomeVC = [TCServiceHomeViewController new];
+    UINavigationController *serviceHomeNav = [[UINavigationController alloc] initWithRootViewController:appHomeVC];
     UIImage *serviceSelIcon = [UIImage imageNamed:@"tabbar_service_selected"];
     UIImage *serviceIcon = [[UIImage imageNamed:@"tabbar_service"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     serviceHomeNav.tabBarItem.image = serviceIcon;
