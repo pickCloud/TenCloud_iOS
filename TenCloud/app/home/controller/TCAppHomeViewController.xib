@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCAppHomeViewController">
+            <connections>
+                <outlet property="iconView" destination="ghY-2x-ZPG" id="h1d-wX-gzA"/>
+                <outlet property="tableView" destination="4uI-U3-kZH" id="qAc-tf-mKE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4uI-U3-kZH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="qh8-mG-Uuf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-2x-ZPG">
+                                <rect key="frame" x="5" y="10" width="365" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ghY-2x-ZPG" secondAttribute="height" multiplier="365:84" id="wrq-Bu-1O7"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SKh-Ao-mDa">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="RW6-Qn-tyV"/>
+                                    <outlet property="delegate" destination="-1" id="dXB-ap-khV"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ghY-2x-ZPG" secondAttribute="bottom" constant="10" id="6OL-cl-3YF"/>
+                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="top" secondItem="qh8-mG-Uuf" secondAttribute="top" constant="10" id="7Lv-VE-hxe"/>
+                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="centerX" secondItem="qh8-mG-Uuf" secondAttribute="centerX" id="C6G-1M-zWT"/>
+                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="centerY" secondItem="qh8-mG-Uuf" secondAttribute="centerY" id="lYV-zV-d6L"/>
+                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="width" secondItem="qh8-mG-Uuf" secondAttribute="width" multiplier="0.9733" id="m43-HI-FX1"/>
+                        </constraints>
+                    </view>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4uI-U3-kZH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Rzk-1i-0dh"/>
+                <constraint firstItem="4uI-U3-kZH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="acv-zp-3LX"/>
+                <constraint firstItem="4uI-U3-kZH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nSz-Wr-aTg"/>
+                <constraint firstItem="4uI-U3-kZH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xz4-Uw-VQa"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="62.5"/>
+        </view>
+    </objects>
+</document>

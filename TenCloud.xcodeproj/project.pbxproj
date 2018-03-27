@@ -29,6 +29,16 @@
 		A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA581FDEB29E008328B0 /* FOLoadingView.m */; };
 		A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A001FA591FDEB29E008328B0 /* FOLoadingView.xib */; };
 		A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */; };
+		A005A3E42068DB1700ABA490 /* TCService+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3E12068DB1700ABA490 /* TCService+CoreDataClass.m */; };
+		A005A3E52068DB1700ABA490 /* TCService+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3E32068DB1700ABA490 /* TCService+CoreDataProperties.m */; };
+		A005A3EA2068DB4000ABA490 /* TCDeploy+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3E72068DB4000ABA490 /* TCDeploy+CoreDataClass.m */; };
+		A005A3EB2068DB4000ABA490 /* TCDeploy+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3E92068DB4000ABA490 /* TCDeploy+CoreDataProperties.m */; };
+		A005A3F02068DB6100ABA490 /* TCApp+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3ED2068DB6100ABA490 /* TCApp+CoreDataClass.m */; };
+		A005A3F12068DB6100ABA490 /* TCApp+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3EF2068DB6100ABA490 /* TCApp+CoreDataProperties.m */; };
+		A005A3F52068DBF900ABA490 /* TCAppHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3F32068DBF900ABA490 /* TCAppHomeViewController.m */; };
+		A005A3F62068DBF900ABA490 /* TCAppHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A3F42068DBF900ABA490 /* TCAppHomeViewController.xib */; };
+		A005A3FA2068E24700ABA490 /* TCAppHomeIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A3F82068E24700ABA490 /* TCAppHomeIconCell.m */; };
+		A005A3FB2068E24700ABA490 /* TCAppHomeIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A3F92068E24700ABA490 /* TCAppHomeIconCell.xib */; };
 		A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0068E9F2050231100DE656C /* TCTimeTagLabel.m */; };
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
@@ -513,6 +523,24 @@
 		A001FA591FDEB29E008328B0 /* FOLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FOLoadingView.xib; sourceTree = "<group>"; };
 		A001FA5A1FDEB29E008328B0 /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		A001FA5B1FDEB29E008328B0 /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
+		A005A3E02068DB1700ABA490 /* TCService+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCService+CoreDataClass.h"; sourceTree = "<group>"; };
+		A005A3E12068DB1700ABA490 /* TCService+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCService+CoreDataClass.m"; sourceTree = "<group>"; };
+		A005A3E22068DB1700ABA490 /* TCService+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCService+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A005A3E32068DB1700ABA490 /* TCService+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCService+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A005A3E62068DB4000ABA490 /* TCDeploy+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCDeploy+CoreDataClass.h"; sourceTree = "<group>"; };
+		A005A3E72068DB4000ABA490 /* TCDeploy+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCDeploy+CoreDataClass.m"; sourceTree = "<group>"; };
+		A005A3E82068DB4000ABA490 /* TCDeploy+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCDeploy+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A005A3E92068DB4000ABA490 /* TCDeploy+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCDeploy+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A005A3EC2068DB6100ABA490 /* TCApp+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCApp+CoreDataClass.h"; sourceTree = "<group>"; };
+		A005A3ED2068DB6100ABA490 /* TCApp+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCApp+CoreDataClass.m"; sourceTree = "<group>"; };
+		A005A3EE2068DB6100ABA490 /* TCApp+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCApp+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A005A3EF2068DB6100ABA490 /* TCApp+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCApp+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A005A3F22068DBF900ABA490 /* TCAppHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppHomeViewController.h; sourceTree = "<group>"; };
+		A005A3F32068DBF900ABA490 /* TCAppHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppHomeViewController.m; sourceTree = "<group>"; };
+		A005A3F42068DBF900ABA490 /* TCAppHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppHomeViewController.xib; sourceTree = "<group>"; };
+		A005A3F72068E24700ABA490 /* TCAppHomeIconCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppHomeIconCell.h; sourceTree = "<group>"; };
+		A005A3F82068E24700ABA490 /* TCAppHomeIconCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppHomeIconCell.m; sourceTree = "<group>"; };
+		A005A3F92068E24700ABA490 /* TCAppHomeIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppHomeIconCell.xib; sourceTree = "<group>"; };
 		A0068E9F2050231100DE656C /* TCTimeTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeTagLabel.m; sourceTree = "<group>"; };
 		A0068EA02050231100DE656C /* TCTimeTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeTagLabel.h; sourceTree = "<group>"; };
 		A00703781FE79A5000F232D7 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
@@ -1335,6 +1363,471 @@
 			path = loading;
 			sourceTree = "<group>";
 		};
+		A005A3A82068D91F00ABA490 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3DB2068D95B00ABA490 /* app */,
+				A005A3BD2068D91F00ABA490 /* home */,
+				A005A3A92068D91F00ABA490 /* add */,
+				A005A3AE2068D91F00ABA490 /* bindRepo */,
+				A005A3B32068D91F00ABA490 /* deploy */,
+				A005A3B82068D91F00ABA490 /* filter */,
+				A005A3C22068D91F00ABA490 /* label */,
+				A005A3C72068D91F00ABA490 /* list */,
+				A005A3CC2068D91F00ABA490 /* pod */,
+				A005A3D12068D91F00ABA490 /* profile */,
+				A005A3D62068D91F00ABA490 /* service */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		A005A3A92068D91F00ABA490 /* add */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3AA2068D91F00ABA490 /* controller */,
+				A005A3AB2068D91F00ABA490 /* model */,
+				A005A3AC2068D91F00ABA490 /* request */,
+				A005A3AD2068D91F00ABA490 /* view */,
+			);
+			path = add;
+			sourceTree = "<group>";
+		};
+		A005A3AA2068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3AB2068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3AC2068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3AD2068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3AE2068D91F00ABA490 /* bindRepo */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3AF2068D91F00ABA490 /* controller */,
+				A005A3B02068D91F00ABA490 /* model */,
+				A005A3B12068D91F00ABA490 /* request */,
+				A005A3B22068D91F00ABA490 /* view */,
+			);
+			path = bindRepo;
+			sourceTree = "<group>";
+		};
+		A005A3AF2068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3B02068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3B12068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3B22068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3B32068D91F00ABA490 /* deploy */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3B42068D91F00ABA490 /* controller */,
+				A005A3B52068D91F00ABA490 /* model */,
+				A005A3B62068D91F00ABA490 /* request */,
+				A005A3B72068D91F00ABA490 /* view */,
+			);
+			path = deploy;
+			sourceTree = "<group>";
+		};
+		A005A3B42068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3B52068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3E62068DB4000ABA490 /* TCDeploy+CoreDataClass.h */,
+				A005A3E72068DB4000ABA490 /* TCDeploy+CoreDataClass.m */,
+				A005A3E82068DB4000ABA490 /* TCDeploy+CoreDataProperties.h */,
+				A005A3E92068DB4000ABA490 /* TCDeploy+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3B62068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3B72068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3B82068D91F00ABA490 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3B92068D91F00ABA490 /* controller */,
+				A005A3BA2068D91F00ABA490 /* model */,
+				A005A3BB2068D91F00ABA490 /* request */,
+				A005A3BC2068D91F00ABA490 /* view */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		A005A3B92068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3BA2068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3BB2068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3BC2068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3BD2068D91F00ABA490 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3BE2068D91F00ABA490 /* controller */,
+				A005A3BF2068D91F00ABA490 /* model */,
+				A005A3C02068D91F00ABA490 /* request */,
+				A005A3C12068D91F00ABA490 /* view */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A005A3BE2068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3F22068DBF900ABA490 /* TCAppHomeViewController.h */,
+				A005A3F32068DBF900ABA490 /* TCAppHomeViewController.m */,
+				A005A3F42068DBF900ABA490 /* TCAppHomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3BF2068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3C02068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3C12068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3F72068E24700ABA490 /* TCAppHomeIconCell.h */,
+				A005A3F82068E24700ABA490 /* TCAppHomeIconCell.m */,
+				A005A3F92068E24700ABA490 /* TCAppHomeIconCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3C22068D91F00ABA490 /* label */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3C32068D91F00ABA490 /* controller */,
+				A005A3C42068D91F00ABA490 /* model */,
+				A005A3C52068D91F00ABA490 /* request */,
+				A005A3C62068D91F00ABA490 /* view */,
+			);
+			path = label;
+			sourceTree = "<group>";
+		};
+		A005A3C32068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3C42068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3C52068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3C62068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3C72068D91F00ABA490 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3C82068D91F00ABA490 /* controller */,
+				A005A3C92068D91F00ABA490 /* model */,
+				A005A3CA2068D91F00ABA490 /* request */,
+				A005A3CB2068D91F00ABA490 /* view */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		A005A3C82068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3C92068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3CA2068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3CB2068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3CC2068D91F00ABA490 /* pod */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3CD2068D91F00ABA490 /* controller */,
+				A005A3CE2068D91F00ABA490 /* model */,
+				A005A3CF2068D91F00ABA490 /* request */,
+				A005A3D02068D91F00ABA490 /* view */,
+			);
+			path = pod;
+			sourceTree = "<group>";
+		};
+		A005A3CD2068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3CE2068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3CF2068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3D02068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3D12068D91F00ABA490 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3D22068D91F00ABA490 /* controller */,
+				A005A3D32068D91F00ABA490 /* model */,
+				A005A3D42068D91F00ABA490 /* request */,
+				A005A3D52068D91F00ABA490 /* view */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		A005A3D22068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3D32068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3D42068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3D52068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3D62068D91F00ABA490 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3D72068D91F00ABA490 /* controller */,
+				A005A3D82068D91F00ABA490 /* model */,
+				A005A3D92068D91F00ABA490 /* request */,
+				A005A3DA2068D91F00ABA490 /* view */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		A005A3D72068D91F00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3D82068D91F00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3E02068DB1700ABA490 /* TCService+CoreDataClass.h */,
+				A005A3E12068DB1700ABA490 /* TCService+CoreDataClass.m */,
+				A005A3E22068DB1700ABA490 /* TCService+CoreDataProperties.h */,
+				A005A3E32068DB1700ABA490 /* TCService+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3D92068D91F00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3DA2068D91F00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A005A3DB2068D95B00ABA490 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3DC2068D95B00ABA490 /* controller */,
+				A005A3DD2068D95B00ABA490 /* model */,
+				A005A3DE2068D95B00ABA490 /* request */,
+				A005A3DF2068D95B00ABA490 /* view */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		A005A3DC2068D95B00ABA490 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A005A3DD2068D95B00ABA490 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A005A3EC2068DB6100ABA490 /* TCApp+CoreDataClass.h */,
+				A005A3ED2068DB6100ABA490 /* TCApp+CoreDataClass.m */,
+				A005A3EE2068DB6100ABA490 /* TCApp+CoreDataProperties.h */,
+				A005A3EF2068DB6100ABA490 /* TCApp+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A005A3DE2068D95B00ABA490 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A005A3DF2068D95B00ABA490 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A00703761FE79A5000F232D7 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1586,6 +2079,7 @@
 		A02554D21FD67FD400D16D22 /* TenCloud */ = {
 			isa = PBXGroup;
 			children = (
+				A005A3A82068D91F00ABA490 /* app */,
 				A0142CA420518A0400DC843D /* mirror */,
 				A0142C942051879E00DC843D /* log */,
 				A0142C972051879F00DC843D /* service */,
@@ -4714,6 +5208,7 @@
 				A06D12221FEBA2F100722C76 /* TCSearchFilterViewController.xib in Resources */,
 				A03398642020400E00CF8630 /* TCMonitorHistoryTableViewCell.xib in Resources */,
 				A019A7441FFB6A6900216660 /* TCTemplateTableViewCell.xib in Resources */,
+				A005A3FB2068E24700ABA490 /* TCAppHomeIconCell.xib in Resources */,
 				A07DBDE71FDED78800F37715 /* TCServerLogTableViewController.xib in Resources */,
 				A0C9A0661FF0A57C00F94E9E /* TCPersonProfileViewController.xib in Resources */,
 				A001FA5D1FDEB29E008328B0 /* FOLoadingView.xib in Resources */,
@@ -4804,6 +5299,7 @@
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
 				A031B62B1FFE259000B4F448 /* TCStaffTableViewCell.xib in Resources */,
 				A0A0F0B620595FAB003CB4BD /* TCServerUsage4Cell.xib in Resources */,
+				A005A3F62068DBF900ABA490 /* TCAppHomeViewController.xib in Resources */,
 				A0B7FFE220526F47007A7A93 /* TCTimePeriodCell.xib in Resources */,
 				A01A9BC81FF50EC500BD450D /* TCModifyPhoneViewController.xib in Resources */,
 				A0A0F0B820595FAB003CB4BD /* TCServerUsage2Cell.xib in Resources */,
@@ -4996,8 +5492,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A005A3E42068DB1700ABA490 /* TCService+CoreDataClass.m in Sources */,
 				A033AD3F200CE06300FFD2BF /* TCAcceptJoinRequest.m in Sources */,
 				A06D12211FEBA2F100722C76 /* TCSearchFilterViewController.m in Sources */,
+				A005A3F12068DB6100ABA490 /* TCApp+CoreDataProperties.m in Sources */,
 				A088F942202AE664005A97DD /* TCProjectPermTableViewCell.m in Sources */,
 				A00AFF83200C4B6600EFADF6 /* TCInviteProfileViewController.m in Sources */,
 				A001FA5C1FDEB29E008328B0 /* FOLoadingView.m in Sources */,
@@ -5018,6 +5516,7 @@
 				A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */,
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
 				A0906E872028A220006D30C8 /* TCOKView.m in Sources */,
+				A005A3EB2068DB4000ABA490 /* TCDeploy+CoreDataProperties.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A0A0F0B520595FAB003CB4BD /* TCServerUsage4Cell.m in Sources */,
 				A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */,
@@ -5032,6 +5531,7 @@
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
+				A005A3FA2068E24700ABA490 /* TCAppHomeIconCell.m in Sources */,
 				A0BD8239202CB4330002B8C2 /* TCAddServerFailView.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
 				A088F951202BCB3C005A97DD /* TCDataSync.m in Sources */,
@@ -5080,6 +5580,7 @@
 				A062773C202199AD00FF7E30 /* TCInviteJoinedViewController.m in Sources */,
 				A0C9A0B31FF1EF9200F94E9E /* TCUploadTokenRequest.m in Sources */,
 				A0A0F0A320590321003CB4BD /* TCServerUsageCollectionCell.m in Sources */,
+				A005A3EA2068DB4000ABA490 /* TCDeploy+CoreDataClass.m in Sources */,
 				A02555B01FD7F0C300D16D22 /* TCLoginViewController.m in Sources */,
 				A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */,
 				A001FA441FDD81CB008328B0 /* TCServerNet+CoreDataProperties.m in Sources */,
@@ -5188,6 +5689,7 @@
 				A01A9BBE1FF50D7200BD450D /* TCResetPhoneRequest.m in Sources */,
 				A0B82EDA202DE96F00E93BC0 /* TCModifyServerNameRequest.m in Sources */,
 				A0C363052004C1990033C99C /* TCInviteStaffViewController.m in Sources */,
+				A005A3E52068DB1700ABA490 /* TCService+CoreDataProperties.m in Sources */,
 				A0C9A0A71FF14B4E00F94E9E /* UIImage+Resizing.m in Sources */,
 				A0A0B5B620025C1E00EA8512 /* TCStaffProfileTableViewCell.m in Sources */,
 				A02555251FD6930800D16D22 /* YTKRequest.m in Sources */,
@@ -5232,6 +5734,7 @@
 				A07DBE951FE11BE000F37715 /* TCServerDetailViewController.m in Sources */,
 				A02555981FD7E24A00D16D22 /* TCResourceHomeViewController.m in Sources */,
 				A031B60B1FFDB48400B4F448 /* TCRenameTemplateRequest.m in Sources */,
+				A005A3F02068DB6100ABA490 /* TCApp+CoreDataClass.m in Sources */,
 				A05D65CB2063A9CC006006B0 /* TCImageInfo+CoreDataClass.m in Sources */,
 				A073F9C02018C0B300AB03DA /* TCTextRefreshHeader.m in Sources */,
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
@@ -5258,6 +5761,7 @@
 				A07DBEA31FE187B600F37715 /* TCRegisterViewController.m in Sources */,
 				A0C362F5200444730033C99C /* TCJoinSettingViewController.m in Sources */,
 				A031B6251FFE1DAD00B4F448 /* TCStaff+CoreDataClass.m in Sources */,
+				A005A3F52068DBF900ABA490 /* TCAppHomeViewController.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */,
 				A02C235E204FDEAC00F709B7 /* TCServerProfileViewController.m in Sources */,
