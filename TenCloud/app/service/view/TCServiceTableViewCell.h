@@ -1,0 +1,18 @@
+//
+//  TCServiceTableViewCell.h
+//  功能:应用首页 服务Cell
+//
+//  Created by huangdx on 2017/12/11.
+//  Copyright © 2017年 10.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+//@class TCDeploy;
+@class TCService;
+@interface TCServiceTableViewCell : UITableViewCell
+
+//- (void) setDeploy:(TCDeploy*)deploy;
+- (void) setService:(TCService*)service;
+
+@end

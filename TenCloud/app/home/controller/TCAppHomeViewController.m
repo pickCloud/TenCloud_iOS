@@ -14,9 +14,11 @@
 #import "TCAppTableViewCell.h"
 #import "TCAppSectionHeaderCell.h"
 #import "TCDeployTableViewCell.h"
-#define APP_HOME_ICON_CELL_ID   @"APP_HOME_ICON_CELL_ID"
-#define APP_HOME_APP_CELL_ID    @"APP_HOME_APP_CELL_ID"
-#define APP_HOME_DEPLOY_CELL_ID @"APP_HOME_DEPLOY_CELL_ID"
+#import "TCServiceTableViewCell.h"
+#define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
+#define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
+#define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"
+#define APP_HOME_SERVICE_CELL_ID    @"APP_HOME_SERVICE_CELL_ID"
 #define APP_SECTION_HEADER_CELL_ID  @"APP_SECTION_HEADER_CELL_ID"
 
 @interface TCAppHomeViewController ()
@@ -61,7 +63,8 @@
     [_tableView registerNib:sectionHeaderNib forCellReuseIdentifier:APP_SECTION_HEADER_CELL_ID];
     UINib *deployCellNib = [UINib nibWithNibName:@"TCDeployTableViewCell" bundle:nil];
     [_tableView registerNib:deployCellNib forCellReuseIdentifier:APP_HOME_DEPLOY_CELL_ID];
-    
+    UINib *serviceCellNib = [UINib nibWithNibName:@"TCServiceTableViewCell" bundle:nil];
+    [_tableView registerNib:serviceCellNib forCellReuseIdentifier:APP_HOME_SERVICE_CELL_ID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -188,7 +191,7 @@
     service1.name = @"service-exmaple";
     service1.status = @"成功";
     service1.clusterIP = @"10.43.249.244";
-    //service1.outerIP = @"无";
+    service1.outerIP = @"102.93.39.111";
     service1.loadBalancing = @"none";
     service1.port = @"80/TCP,443/TCP";
     service1.createTime = [NSDate timeIntervalSinceReferenceDate];
@@ -200,13 +203,16 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1)
     {
         return _deployArray.count;
+    }else if(section == 2)
+    {
+        return _serviceArray.count;
     }
     return _appArray.count;
 }
@@ -217,6 +223,12 @@
         TCDeployTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_DEPLOY_CELL_ID forIndexPath:indexPath];
         TCDeploy *dp = [_deployArray objectAtIndex:indexPath.row];
         [cell setDeploy:dp];
+        return cell;
+    }else if(indexPath.section == 2)
+    {
+        TCServiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_SERVICE_CELL_ID forIndexPath:indexPath];
+        TCService *service = [_serviceArray objectAtIndex:indexPath.row];
+        [cell setService:service];
         return cell;
     }
     TCAppTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_APP_CELL_ID forIndexPath:indexPath];

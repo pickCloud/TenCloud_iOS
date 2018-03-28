@@ -50,6 +50,8 @@
 		A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A40F206A4EDB00ABA490 /* TCDeployTableViewCell.xib */; };
 		A005A415206A905600ABA490 /* TCIconStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A414206A905600ABA490 /* TCIconStatusLabel.m */; };
 		A005A418206B101500ABA490 /* TCRoundRectNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A417206B101500ABA490 /* TCRoundRectNameLabel.m */; };
+		A005A41C206B340C00ABA490 /* TCServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A419206B340C00ABA490 /* TCServiceTableViewCell.xib */; };
+		A005A41D206B340C00ABA490 /* TCServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A41B206B340C00ABA490 /* TCServiceTableViewCell.m */; };
 		A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0068E9F2050231100DE656C /* TCTimeTagLabel.m */; };
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
@@ -570,6 +572,9 @@
 		A005A414206A905600ABA490 /* TCIconStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCIconStatusLabel.m; sourceTree = "<group>"; };
 		A005A416206B101400ABA490 /* TCRoundRectNameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRoundRectNameLabel.h; sourceTree = "<group>"; };
 		A005A417206B101500ABA490 /* TCRoundRectNameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRoundRectNameLabel.m; sourceTree = "<group>"; };
+		A005A419206B340C00ABA490 /* TCServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCServiceTableViewCell.xib; sourceTree = "<group>"; };
+		A005A41A206B340C00ABA490 /* TCServiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCServiceTableViewCell.h; sourceTree = "<group>"; };
+		A005A41B206B340C00ABA490 /* TCServiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCServiceTableViewCell.m; sourceTree = "<group>"; };
 		A0068E9F2050231100DE656C /* TCTimeTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeTagLabel.m; sourceTree = "<group>"; };
 		A0068EA02050231100DE656C /* TCTimeTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeTagLabel.h; sourceTree = "<group>"; };
 		A00703781FE79A5000F232D7 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
@@ -1818,6 +1823,9 @@
 		A005A3DA2068D91F00ABA490 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A005A41A206B340C00ABA490 /* TCServiceTableViewCell.h */,
+				A005A41B206B340C00ABA490 /* TCServiceTableViewCell.m */,
+				A005A419206B340C00ABA490 /* TCServiceTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5277,6 +5285,7 @@
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */,
+				A005A41C206B340C00ABA490 /* TCServiceTableViewCell.xib in Resources */,
 				A0BD8236202CB1EA0002B8C2 /* TCAddServerSuccessView.xib in Resources */,
 				A088F934202A14CC005A97DD /* TCServerPermTableViewController.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
@@ -5656,6 +5665,7 @@
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
 				A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */,
 				A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */,
+				A005A41D206B340C00ABA490 /* TCServiceTableViewCell.m in Sources */,
 				A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */,
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
 				A0D58819200E482E00104ED9 /* TCMessageCountRequest.m in Sources */,
