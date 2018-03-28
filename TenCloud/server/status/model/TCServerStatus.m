@@ -75,15 +75,25 @@
             fetchTimer = nil;
         }
         NSLog(@"次数达到停止%ld: %ld",times,_actionType);
-    }else
+    }else if(times > SERVER_STATUS_MIN_TIMES)
     {
-        NSLog(@"fetch status%ld: %ld",times,_actionType);
+        if (_actionType == TCServerActionReboot)
+        {
+            NSLog(@"重启第%ld次获取",times);
+        }else if(_actionType == TCServerActionStart)
+        {
+            NSLog(@"开机第%ld次获取",times);
+        }else if(_actionType == TCServerActionStop)
+        {
+            NSLog(@"关机第%ld次获取",times);
+        }
     }
     __weak __typeof(self) weakSelf = self;
     NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
     TCServerStatusRequest *req = [[TCServerStatusRequest alloc] initWithInstanceID:idStr];
     [req startWithSuccess:^(NSString *status) {
         weakSelf.status = status;
+        NSLog(@"server%ld status:%@",weakSelf.serverID, status);
     } failure:^(NSString *message) {
         
     }];

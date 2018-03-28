@@ -131,8 +131,7 @@
     
     [[TCDataSync shared] addPermissionChangedObserver:self];
     
-    //[[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
-    //[[TCServerStatusManager shared] startWithServerID:_serverID];
+    [[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,7 +142,7 @@
 - (void) dealloc
 {
     [[TCDataSync shared] removePermissionChangedObserver:self];
-    //[[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
+    [[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
 }
 
 #pragma mark - Table view data source
@@ -221,7 +220,8 @@
     TCConfirmBlock block = ^(TCConfirmView *view){
         TCRebootServerRequest *request = [[TCRebootServerRequest alloc] initWithServerID:_serverID];
         [request startWithSuccess:^(NSString *status) {
-            [weakSelf sendUpdateServerStateRequest];
+            //[weakSelf sendUpdateServerStateRequest];
+            [[TCServerStatusManager shared] rebootWithServerID:weakSelf.serverID];
         } failure:^(NSString *message) {
             [MBProgressHUD showError:message toView:nil];
         }];
@@ -449,5 +449,11 @@
     {
         [self updateFooterViewWithStatus:_status];
     }
+}
+
+#pragma mark - TCServerStatusDelegate
+- (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus
+{
+    NSLog(@"**** server%ld statusChanged:%@",serverID, newStatus);
 }
 @end
