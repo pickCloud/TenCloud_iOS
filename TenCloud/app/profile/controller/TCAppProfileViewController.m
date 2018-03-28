@@ -20,10 +20,12 @@
 #import "TCAppProfileSectionHeader.h"
 #import "TCAppProfileMirrorCell.h"
 #import "TCAppProfileSection3Header.h"
+#import "TCAppProfileTaskCell.h"
 #define APP_PROF_TAG_CELL_ID     @"APP_PROF_TAG_CELL_ID"
 #define APP_PROF_DEPLOY_CELL_ID  @"APP_PROF_DEPLOY_CELL_ID"
 #define APP_PROF_SERVICE_CELL_ID @"APP_PROF_SERVICE_CELL_ID"
 #define APP_PROF_MIRROR_CELL_ID  @"APP_PROF_MIRROR_CELL_ID"
+#define APP_PROF_TASK_CELL_ID    @"APP_PROF_TASK_CELL_ID"
 #define APP_PROF_SEC_HEADER_ID   @"APP_PROF_SEC_HEADER_ID"
 #define APP_PROF_SEC3_HEADER_ID  @"APP_PROF_SEC3_HEADER_ID"
 
@@ -79,6 +81,8 @@
     [_tableView registerNib:serviceCellNib forCellReuseIdentifier:APP_PROF_SERVICE_CELL_ID];
     UINib *mirrorCellNib = [UINib nibWithNibName:@"TCAppProfileMirrorCell" bundle:nil];
     [_tableView registerNib:mirrorCellNib forCellReuseIdentifier:APP_PROF_MIRROR_CELL_ID];
+    UINib *taskCellNib = [UINib nibWithNibName:@"TCAppProfileTaskCell" bundle:nil];
+    [_tableView registerNib:taskCellNib forCellReuseIdentifier:APP_PROF_TASK_CELL_ID];
     UINib *headerCellNib = [UINib nibWithNibName:@"TCAppProfileSectionHeader" bundle:nil];
     [_tableView registerNib:headerCellNib forCellReuseIdentifier:APP_PROF_SEC_HEADER_ID];
     UINib *header3CellNib = [UINib nibWithNibName:@"TCAppProfileSection3Header" bundle:nil];
@@ -232,7 +236,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -248,7 +252,7 @@
     {
         return _mirrorArray.count;
     }
-    return 0;
+    return _taskArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -264,13 +268,20 @@
         TCService *service = [_serviceArray objectAtIndex:indexPath.row];
         [cell setService:service];
         return cell;
+    }else if(indexPath.section == 2)
+    {
+        TCAppProfileMirrorCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_PROF_MIRROR_CELL_ID forIndexPath:indexPath];
+        TCMirror *mirror = [_mirrorArray objectAtIndex:indexPath.row];
+        BOOL showSeperator = indexPath.row != (_mirrorArray.count - 1);
+        [cell setMirror:mirror showSeperator:showSeperator];
+        return cell;
     }
-    TCAppProfileMirrorCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_PROF_MIRROR_CELL_ID forIndexPath:indexPath];
-    TCMirror *mirror = [_mirrorArray objectAtIndex:indexPath.row];
-    BOOL showSeperator = indexPath.row != (_mirrorArray.count - 1);
-    [cell setMirror:mirror showSeperator:showSeperator];
+    
+    TCAppProfileTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_PROF_TASK_CELL_ID forIndexPath:indexPath];
+    TCTask *task = [_taskArray objectAtIndex:indexPath.row];
+    [cell setTask:task];
     return cell;
-
+    
 }
 
 - (UIView *)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
@@ -303,6 +314,9 @@
     if (section <= 1)
     {
         return TCSCALE(30);
+    }else if(section == 3)
+    {
+        return TCSCALE(33);
     }
     return TCSCALE(41);
 }
