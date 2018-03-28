@@ -17,6 +17,7 @@
 #import "TCServiceTableViewCell.h"
 #import "TCMessageButton.h"
 #import "TCMessageTableViewController.h"
+#import "TCAppProfileViewController.h"
 #define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
 #define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"
@@ -133,8 +134,8 @@
     app1.name = @"AppAPI";
     app1.status = @"初创建";
     app1.source = @"GitHub: AIUnicorn/10com";
-    app1.createTime = [NSDate timeIntervalSinceReferenceDate];
-    app1.updateTime = [NSDate timeIntervalSinceReferenceDate];
+    app1.createTime = [[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
+    app1.updateTime = [[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
     //[app1.labels addObjectsFromArray:@[@"基础服务",@"应用组件"]];
     app1.labels = @[@"基础服务",@"应用组件"];
     app1.avatar = @"http://ou3t8uyol.bkt.clouddn.com/63A6B945-2C42-4E07-B004-D4318768165F";
@@ -272,5 +273,11 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0)
+    {
+        TCApp *app = [_appArray objectAtIndex:indexPath.row];
+        TCAppProfileViewController *profileVC = [[TCAppProfileViewController alloc] initWithApp:app];
+        [self.navigationController pushViewController:profileVC animated:YES];
+    }
 }
 @end
