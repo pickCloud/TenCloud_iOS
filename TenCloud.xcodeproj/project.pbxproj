@@ -70,6 +70,10 @@
 		A00AFF90200C90F000EFADF6 /* TCInviteSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */; };
 		A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */; };
 		A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */; };
+		A00F002E206C4AE900118EC8 /* TCBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F0027206C4AE800118EC8 /* TCBarChartView.m */; };
+		A00F002F206C4AE900118EC8 /* TCDonutChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F0029206C4AE800118EC8 /* TCDonutChartView.m */; };
+		A00F0030206C4AE900118EC8 /* TCGagueChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F002B206C4AE800118EC8 /* TCGagueChartView.m */; };
+		A00F0031206C4AE900118EC8 /* TCPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F002D206C4AE800118EC8 /* TCPieChartView.m */; };
 		A00FFFD6206BD21A00118EC8 /* TCAppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */; };
 		A00FFFD7206BD21A00118EC8 /* TCAppTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */; };
 		A0142C9D205187FB00DC843D /* TCServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */; };
@@ -626,6 +630,14 @@
 		A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteSuccessViewController.xib; sourceTree = "<group>"; };
 		A00AFF93200CA39C00EFADF6 /* TCCompleteInviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCompleteInviteRequest.h; sourceTree = "<group>"; };
 		A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCompleteInviteRequest.m; sourceTree = "<group>"; };
+		A00F0026206C4AE800118EC8 /* TCBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBarChartView.h; sourceTree = "<group>"; };
+		A00F0027206C4AE800118EC8 /* TCBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBarChartView.m; sourceTree = "<group>"; };
+		A00F0028206C4AE800118EC8 /* TCDonutChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDonutChartView.h; sourceTree = "<group>"; };
+		A00F0029206C4AE800118EC8 /* TCDonutChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDonutChartView.m; sourceTree = "<group>"; };
+		A00F002A206C4AE800118EC8 /* TCGagueChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGagueChartView.h; sourceTree = "<group>"; };
+		A00F002B206C4AE800118EC8 /* TCGagueChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGagueChartView.m; sourceTree = "<group>"; };
+		A00F002C206C4AE800118EC8 /* TCPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPieChartView.h; sourceTree = "<group>"; };
+		A00F002D206C4AE800118EC8 /* TCPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPieChartView.m; sourceTree = "<group>"; };
 		A00FFFD3206BD21A00118EC8 /* TCAppTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppTableViewController.h; sourceTree = "<group>"; };
 		A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppTableViewController.m; sourceTree = "<group>"; };
 		A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppTableViewController.xib; sourceTree = "<group>"; };
@@ -1954,6 +1966,21 @@
 			path = request;
 			sourceTree = "<group>";
 		};
+		A00F0025206C4AE800118EC8 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				A00F0026206C4AE800118EC8 /* TCBarChartView.h */,
+				A00F0027206C4AE800118EC8 /* TCBarChartView.m */,
+				A00F0028206C4AE800118EC8 /* TCDonutChartView.h */,
+				A00F0029206C4AE800118EC8 /* TCDonutChartView.m */,
+				A00F002A206C4AE800118EC8 /* TCGagueChartView.h */,
+				A00F002B206C4AE800118EC8 /* TCGagueChartView.m */,
+				A00F002C206C4AE800118EC8 /* TCPieChartView.h */,
+				A00F002D206C4AE800118EC8 /* TCPieChartView.m */,
+			);
+			path = chart;
+			sourceTree = "<group>";
+		};
 		A0142C942051879E00DC843D /* log */ = {
 			isa = PBXGroup;
 			children = (
@@ -2961,6 +2988,7 @@
 		A025557D1FD7D69F00D16D22 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A00F0025206C4AE800118EC8 /* chart */,
 				A0A124D22051157200E1FF7E /* label */,
 				A0906E5D20288DB1006D30C8 /* alertController */,
 				A073F9B42018C08D00AB03DA /* refresh */,
@@ -5717,7 +5745,9 @@
 				A0A86B8C1FF4D6B600D1D58D /* TCCorpProfileViewController.m in Sources */,
 				A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */,
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
+				A00F0030206C4AE900118EC8 /* TCGagueChartView.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
+				A00F002F206C4AE900118EC8 /* TCDonutChartView.m in Sources */,
 				A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
@@ -5788,6 +5818,7 @@
 				A018E7B32052836E00C3CB96 /* TCServerStatusLabel.m in Sources */,
 				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
+				A00F0031206C4AE900118EC8 /* TCPieChartView.m in Sources */,
 				A0C9A0691FF0D07800F94E9E /* TCCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A0B7141B2006F30600BE9FCA /* TCChangeAdminViewController.m in Sources */,
@@ -5855,6 +5886,7 @@
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
 				A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */,
 				A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */,
+				A00F002E206C4AE900118EC8 /* TCBarChartView.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A0A0F09C2058C55F003CB4BD /* TCServerHomeUsageCell.m in Sources */,
 				A031B6031FFD189400B4F448 /* TCAddTemplateRequest.m in Sources */,

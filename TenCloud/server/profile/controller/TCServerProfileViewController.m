@@ -36,6 +36,10 @@
 #import "TCServerDiskInfoCell.h"
 #import "TCDiskInfo+CoreDataClass.h"
 #import "TCServerBusinessInfo+CoreDataClass.h"
+#import "TCGagueChartView.h"
+#import "TCPieChartView.h"
+#import "TCDonutChartView.h"
+#import "TCBarChartView.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 #define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
@@ -70,6 +74,18 @@ UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet    UILabel             *diskSizeLabel;
 @property (nonatomic, weak) IBOutlet    UITableView         *diskTableView;
 @property (nonatomic, weak) IBOutlet    NSLayoutConstraint  *diskTableHeightConstraint;
+@property (nonatomic, weak) IBOutlet    TCGagueChartView    *cpuUsageView;
+@property (nonatomic, weak) IBOutlet    UILabel             *cpuUsageLabel;
+@property (nonatomic, weak) IBOutlet    TCPieChartView      *memoryUsageView;
+@property (nonatomic, weak) IBOutlet    UILabel             *memoryUsageLabel;
+@property (nonatomic, weak) IBOutlet    TCDonutChartView    *diskUtilView;
+@property (nonatomic, weak) IBOutlet    UILabel             *diskUtilLabel;
+@property (nonatomic, weak) IBOutlet    TCDonutChartView    *diskUsageView;
+@property (nonatomic, weak) IBOutlet    UILabel             *diskUsageLabel;
+@property (nonatomic, weak) IBOutlet    TCBarChartView      *netInView;
+@property (nonatomic, weak) IBOutlet    UILabel             *netInLabel;
+@property (nonatomic, weak) IBOutlet    TCBarChartView      *netOutView;
+@property (nonatomic, weak) IBOutlet    UILabel             *netOutLabel;
 //费用信息
 //监控信息
 @property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
@@ -805,6 +821,25 @@ UITableViewDelegate,UITableViewDataSource>
     {
         [_tenMinLabel setTextColor:THEME_TINT_COLOR];
     }
+    
+    _cpuUsageView.percent = 0.25;
+    _cpuUsageView.foregroundColor = THEME_TINT_COLOR;
+    _cpuUsageLabel.text = @"25%";
+    _memoryUsageView.percent = 0.55;
+    _memoryUsageView.foregroundColor = THEME_TINT_COLOR;
+    _memoryUsageLabel.text = @"55%";
+    _diskUtilView.percent = 0.15;
+    _diskUtilView.foregroundColor = THEME_TINT_COLOR;
+    _diskUtilLabel.text = @"15%";
+    _diskUsageView.percent = 0.70;
+    _diskUsageView.foregroundColor = THEME_TINT_COLOR;
+    _diskUsageLabel.text = @"70%";
+    _netInView.percent = 0.30;
+    _netInView.foregroundColor = THEME_TINT_COLOR;
+    _netInLabel.text = @"30%";
+    _netOutView.percent = 0.25;
+    _netOutView.foregroundColor = THEME_TINT_COLOR;
+    _netOutLabel.text = @"25%";
 }
 
 - (IBAction) onAverageLoadButton:(id)sender
