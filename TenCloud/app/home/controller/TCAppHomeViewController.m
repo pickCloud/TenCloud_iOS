@@ -140,7 +140,7 @@
     app2.createTime = [NSDate timeIntervalSinceReferenceDate];
     app2.updateTime = [NSDate timeIntervalSinceReferenceDate];
     //[app2.labels addObjectsFromArray:@[@"普通项目"]];
-    app2.labels = @[@"普通项目",@"组件",@"美国",@"常用工具",@"AI工具链"];
+    app2.labels = @[@"普通项目",@"常用工具"];
     [_appArray addObject:app2];
     
     /*

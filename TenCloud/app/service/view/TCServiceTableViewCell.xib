@@ -61,13 +61,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NN6-fn-GfG" customClass="TCAutoScaleLabel">
-                                <rect key="frame" x="190" y="115.5" width="41" height="12"/>
+                                <rect key="frame" x="188.5" y="115.5" width="41" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.38431372549999998" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-01-01 12:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9T7-FG-Rsu" customClass="TCAutoScaleLabel">
-                                <rect key="frame" x="190" y="130" width="102" height="12"/>
+                                <rect key="frame" x="188.5" y="130" width="102" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.54901960780000003" green="0.60392156860000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -132,6 +132,7 @@
                             <constraint firstItem="SSH-fJ-MAS" firstAttribute="centerX" secondItem="qei-9A-cMw" secondAttribute="centerX" id="8Ys-D3-Snd"/>
                             <constraint firstAttribute="width" secondItem="qei-9A-cMw" secondAttribute="height" multiplier="345:160" id="DdQ-T0-mEJ"/>
                             <constraint firstItem="hWE-HM-c4i" firstAttribute="leading" secondItem="QB1-9e-Kmt" secondAttribute="leading" id="FHP-5s-7Pg"/>
+                            <constraint firstItem="NN6-fn-GfG" firstAttribute="leading" secondItem="hSQ-u4-q6A" secondAttribute="leading" id="Fid-E6-Cr9"/>
                             <constraint firstItem="hSQ-u4-q6A" firstAttribute="centerY" secondItem="aUB-gb-HvW" secondAttribute="centerY" id="G35-fR-wcu"/>
                             <constraint firstItem="yPZ-XQ-UGi" firstAttribute="leading" secondItem="7Uv-fu-36b" secondAttribute="leading" id="G6g-cu-GpZ"/>
                             <constraint firstItem="ScK-mD-Vgx" firstAttribute="leading" secondItem="hSQ-u4-q6A" secondAttribute="leading" id="GSt-6l-v75"/>
@@ -154,7 +155,6 @@
                             <constraint firstItem="hWE-HM-c4i" firstAttribute="top" secondItem="aUB-gb-HvW" secondAttribute="bottom" constant="2.5" id="ibh-rY-7YC"/>
                             <constraint firstItem="yPZ-XQ-UGi" firstAttribute="centerY" secondItem="y85-M2-y6N" secondAttribute="centerY" id="mAu-mX-ZHr"/>
                             <constraint firstItem="y85-M2-y6N" firstAttribute="leading" secondItem="QB1-9e-Kmt" secondAttribute="leading" id="nDN-Sg-O7p"/>
-                            <constraint firstItem="NN6-fn-GfG" firstAttribute="centerX" secondItem="qei-9A-cMw" secondAttribute="centerX" multiplier="1.22" id="teu-5h-XfZ"/>
                             <constraint firstItem="y85-M2-y6N" firstAttribute="top" secondItem="afb-oK-Q77" secondAttribute="bottom" constant="2.5" id="vwj-zY-NLP"/>
                             <constraint firstItem="Rz6-M6-Nqx" firstAttribute="centerY" secondItem="QB1-9e-Kmt" secondAttribute="centerY" id="wWj-qg-T7Z"/>
                         </constraints>
