@@ -13,8 +13,10 @@
 #import "TCService+CoreDataClass.h"
 #import "TCAppTableViewCell.h"
 #import "TCAppSectionHeaderCell.h"
+#import "TCDeployTableViewCell.h"
 #define APP_HOME_ICON_CELL_ID   @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID    @"APP_HOME_APP_CELL_ID"
+#define APP_HOME_DEPLOY_CELL_ID @"APP_HOME_DEPLOY_CELL_ID"
 #define APP_SECTION_HEADER_CELL_ID  @"APP_SECTION_HEADER_CELL_ID"
 
 @interface TCAppHomeViewController ()
@@ -55,9 +57,11 @@
     
     UINib *appCellNib = [UINib nibWithNibName:@"TCAppTableViewCell" bundle:nil];
     [_tableView registerNib:appCellNib forCellReuseIdentifier:APP_HOME_APP_CELL_ID];
-    
     UINib *sectionHeaderNib = [UINib nibWithNibName:@"TCAppSectionHeaderCell" bundle:nil];
     [_tableView registerNib:sectionHeaderNib forCellReuseIdentifier:APP_SECTION_HEADER_CELL_ID];
+    UINib *deployCellNib = [UINib nibWithNibName:@"TCDeployTableViewCell" bundle:nil];
+    [_tableView registerNib:deployCellNib forCellReuseIdentifier:APP_HOME_DEPLOY_CELL_ID];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,6 +140,7 @@
     app2.labels = @[@"普通项目",@"组件",@"美国",@"常用工具",@"AI工具链"];
     [_appArray addObject:app2];
     
+    /*
     for (int i = 0; i < 10; i++)
     {
         TCApp *tmpApp = [TCApp MR_createEntity];
@@ -149,6 +154,7 @@
         tmpApp.labels = @[@"普通项目",@"组件",@"美国",@"常用工具"];
         [_appArray addObject:tmpApp];
     }
+     */
     
     TCDeploy *dp1 = [TCDeploy MR_createEntity];
     dp1.deployID = 10;
@@ -161,6 +167,21 @@
     dp1.runTime = 120;
     dp1.createTime = [NSDate timeIntervalSinceReferenceDate];
     [_deployArray addObject:dp1];
+    
+    for (int j = 0; j < 2; j++)
+    {
+        TCDeploy *dpj = [TCDeploy MR_createEntity];
+        dpj.deployID = 10;
+        dpj.name = @"kubernetes-bootcamp";
+        dpj.status = @"运行中";
+        dpj.presetPod = 1;
+        dpj.currentPod = 1;
+        dpj.updatedPod = 1;
+        dpj.availablePod = 1;
+        dpj.runTime = 120;
+        dpj.createTime = [NSDate timeIntervalSinceReferenceDate];
+        [_deployArray addObject:dpj];
+    }
     
     TCService *service1 = [TCService MR_createEntity];
     service1.serviceID = 100;
@@ -179,14 +200,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 1)
+    {
+        return _deployArray.count;
+    }
     return _appArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1)
+    {
+        TCDeployTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_DEPLOY_CELL_ID forIndexPath:indexPath];
+        TCDeploy *dp = [_deployArray objectAtIndex:indexPath.row];
+        [cell setDeploy:dp];
+        return cell;
+    }
     TCAppTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:APP_HOME_APP_CELL_ID forIndexPath:indexPath];
     TCApp *app = [_appArray objectAtIndex:indexPath.row];
     [cell setApp:app];
@@ -196,6 +228,16 @@
 - (UIView *)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     TCAppSectionHeaderCell *header = [tableView dequeueReusableCellWithIdentifier:APP_SECTION_HEADER_CELL_ID];
+    if (section == 0)
+    {
+        [header setSectionTitle:@"热门应用"];
+    }else if(section == 1)
+    {
+        [header setSectionTitle:@"最新部署"];
+    }else if(section == 2)
+    {
+        [header setSectionTitle:@"最新服务"];
+    }
     return header;
 }
 

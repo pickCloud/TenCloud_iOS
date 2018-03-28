@@ -75,7 +75,8 @@
     _app = app;
     _nameLabel.text = app.name;
     _sourceLabel.text = app.source;
-    _createTimeLabel.text = [NSString timeStringFromInteger:app.createTime];
+    //_createTimeLabel.text = [NSString timeStringFromInteger:app.createTime];
+    _createTimeLabel.text = [NSString dateTimeStringFromTimeInterval:app.createTime];
     [_statusLabel setStatus:app.status];
     [_labelCollectionView reloadData];
 }

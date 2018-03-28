@@ -33,6 +33,15 @@
     return resDate;
 }
 
++ (NSString *) dateTimeStringFromTimeInterval:(NSInteger)timeInterval
+{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    //NSLog(@"date_dsfr :%@",date);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    return [dateFormatter stringFromDate:date];
+}
+
 + (NSString *) dateStringFromTimeInterval:(NSInteger)timeInterval
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];

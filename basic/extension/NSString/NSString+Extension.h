@@ -12,6 +12,8 @@
 
 - (NSDate *) date;
 
++ (NSString *) dateTimeStringFromTimeInterval:(NSInteger)timeInterval;
+
 + (NSString *) dateStringFromTimeInterval:(NSInteger)timeInterval;
 
 + (NSString *) timeStringFromInteger:(NSInteger)timeInteger;

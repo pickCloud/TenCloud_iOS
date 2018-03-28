@@ -10,4 +10,6 @@
 
 @interface TCAppSectionHeaderCell : UITableViewCell
 
+- (void) setSectionTitle:(NSString*)title;
+
 @end

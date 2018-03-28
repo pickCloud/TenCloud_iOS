@@ -9,6 +9,7 @@
 #import "TCAppSectionHeaderCell.h"
 
 @interface TCAppSectionHeaderCell()
+@property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 - (IBAction) onDetailButton:(id)sender;
 @end
 
@@ -28,5 +29,10 @@
 - (IBAction) onDetailButton:(id)sender
 {
     NSLog(@"on detail button");
+}
+
+- (void) setSectionTitle:(NSString*)title
+{
+    _nameLabel.text = title;
 }
 @end

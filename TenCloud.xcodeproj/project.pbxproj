@@ -46,6 +46,10 @@
 		A005A408206A336300ABA490 /* TCAppStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A406206A336300ABA490 /* TCAppStatusLabel.m */; };
 		A005A40C206A41AB00ABA490 /* TCAppSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A40A206A41AB00ABA490 /* TCAppSectionHeaderCell.m */; };
 		A005A40D206A41AB00ABA490 /* TCAppSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A40B206A41AB00ABA490 /* TCAppSectionHeaderCell.xib */; };
+		A005A411206A4EDC00ABA490 /* TCDeployTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A40E206A4EDB00ABA490 /* TCDeployTableViewCell.m */; };
+		A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A005A40F206A4EDB00ABA490 /* TCDeployTableViewCell.xib */; };
+		A005A415206A905600ABA490 /* TCIconStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A414206A905600ABA490 /* TCIconStatusLabel.m */; };
+		A005A418206B101500ABA490 /* TCRoundRectNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A005A417206B101500ABA490 /* TCRoundRectNameLabel.m */; };
 		A0068EA12050231100DE656C /* TCTimeTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0068E9F2050231100DE656C /* TCTimeTagLabel.m */; };
 		A007037A1FE79A5000F232D7 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A00703781FE79A5000F232D7 /* GT3Captcha.bundle */; };
 		A007037B1FE79A5000F232D7 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00703791FE79A5000F232D7 /* GT3Captcha.framework */; };
@@ -559,6 +563,13 @@
 		A005A409206A41AB00ABA490 /* TCAppSectionHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppSectionHeaderCell.h; sourceTree = "<group>"; };
 		A005A40A206A41AB00ABA490 /* TCAppSectionHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppSectionHeaderCell.m; sourceTree = "<group>"; };
 		A005A40B206A41AB00ABA490 /* TCAppSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppSectionHeaderCell.xib; sourceTree = "<group>"; };
+		A005A40E206A4EDB00ABA490 /* TCDeployTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDeployTableViewCell.m; sourceTree = "<group>"; };
+		A005A40F206A4EDB00ABA490 /* TCDeployTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDeployTableViewCell.xib; sourceTree = "<group>"; };
+		A005A410206A4EDB00ABA490 /* TCDeployTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeployTableViewCell.h; sourceTree = "<group>"; };
+		A005A413206A905600ABA490 /* TCIconStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCIconStatusLabel.h; sourceTree = "<group>"; };
+		A005A414206A905600ABA490 /* TCIconStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCIconStatusLabel.m; sourceTree = "<group>"; };
+		A005A416206B101400ABA490 /* TCRoundRectNameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRoundRectNameLabel.h; sourceTree = "<group>"; };
+		A005A417206B101500ABA490 /* TCRoundRectNameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRoundRectNameLabel.m; sourceTree = "<group>"; };
 		A0068E9F2050231100DE656C /* TCTimeTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeTagLabel.m; sourceTree = "<group>"; };
 		A0068EA02050231100DE656C /* TCTimeTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeTagLabel.h; sourceTree = "<group>"; };
 		A00703781FE79A5000F232D7 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
@@ -1516,6 +1527,11 @@
 		A005A3B72068D91F00ABA490 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A005A413206A905600ABA490 /* TCIconStatusLabel.h */,
+				A005A414206A905600ABA490 /* TCIconStatusLabel.m */,
+				A005A410206A4EDB00ABA490 /* TCDeployTableViewCell.h */,
+				A005A40E206A4EDB00ABA490 /* TCDeployTableViewCell.m */,
+				A005A40F206A4EDB00ABA490 /* TCDeployTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1845,6 +1861,8 @@
 		A005A3DF2068D95B00ABA490 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A005A416206B101400ABA490 /* TCRoundRectNameLabel.h */,
+				A005A417206B101500ABA490 /* TCRoundRectNameLabel.m */,
 				A005A407206A336300ABA490 /* TCAppStatusLabel.h */,
 				A005A406206A336300ABA490 /* TCAppStatusLabel.m */,
 				A005A401206A1FE600ABA490 /* TCTagLabelCell.h */,
@@ -5258,6 +5276,7 @@
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
+				A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */,
 				A0BD8236202CB1EA0002B8C2 /* TCAddServerSuccessView.xib in Resources */,
 				A088F934202A14CC005A97DD /* TCServerPermTableViewController.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
@@ -5730,6 +5749,7 @@
 				A0A18810202F0769007D3C95 /* TCLogoutRequest.m in Sources */,
 				A0DC9D7B200FA70C0061A015 /* NSString+Addition.m in Sources */,
 				A0906E7920288DB2006D30C8 /* TCAlertView.m in Sources */,
+				A005A415206A905600ABA490 /* TCIconStatusLabel.m in Sources */,
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
@@ -5746,6 +5766,7 @@
 				A0A0F09720580BFD003CB4BD /* TCServerUsage+CoreDataClass.m in Sources */,
 				A07DBE9F1FE1836000F37715 /* TCCaptchaLoginRequest.m in Sources */,
 				A0A124E420514D4300E1FF7E /* TCSystemLoadRequest.m in Sources */,
+				A005A418206B101500ABA490 /* TCRoundRectNameLabel.m in Sources */,
 				A0A86B851FF49D0000D1D58D /* TCCorpHomeViewController.m in Sources */,
 				A0A86B771FF3EC0900D1D58D /* TCAccountMenuViewController.m in Sources */,
 				A05D65DF2063E881006006B0 /* TCServerUsageRequest.m in Sources */,
@@ -5761,6 +5782,7 @@
 				A073F9B320185ED500AB03DA /* TCTagLabel.m in Sources */,
 				A033AD45200CEED700FFD2BF /* TCRemoveStaffRequest.m in Sources */,
 				A0A0B5BF200276F900EA8512 /* TCProfileButtonData.m in Sources */,
+				A005A411206A4EDC00ABA490 /* TCDeployTableViewCell.m in Sources */,
 				A031B6071FFD265600B4F448 /* TCModifyTemplateViewController.m in Sources */,
 				A0C9A0651FF0A57C00F94E9E /* TCPersonProfileViewController.m in Sources */,
 				A02555221FD6930800D16D22 /* YTKNetworkAgent.m in Sources */,
