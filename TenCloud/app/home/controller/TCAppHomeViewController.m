@@ -15,6 +15,8 @@
 #import "TCAppSectionHeaderCell.h"
 #import "TCDeployTableViewCell.h"
 #import "TCServiceTableViewCell.h"
+#import "TCMessageButton.h"
+#import "TCMessageTableViewController.h"
 #define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
 #define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"
@@ -28,6 +30,7 @@
 @property (nonatomic, strong)   NSMutableArray              *deployArray;
 @property (nonatomic, strong)   NSMutableArray              *serviceArray;
 - (void) generateFakeData;
+- (void) onMessageButton:(id)sender;
 @end
 
 @implementation TCAppHomeViewController
@@ -65,6 +68,11 @@
     [_tableView registerNib:deployCellNib forCellReuseIdentifier:APP_HOME_DEPLOY_CELL_ID];
     UINib *serviceCellNib = [UINib nibWithNibName:@"TCServiceTableViewCell" bundle:nil];
     [_tableView registerNib:serviceCellNib forCellReuseIdentifier:APP_HOME_SERVICE_CELL_ID];
+    
+    TCMessageButton *msgButton = [TCMessageButton new];
+    [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *msgItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
+    self.navigationItem.rightBarButtonItem = msgItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,9 +204,14 @@
     service1.port = @"80/TCP,443/TCP";
     service1.createTime = [NSDate timeIntervalSinceReferenceDate];
     [_serviceArray addObject:service1];
-    
-    
 }
+
+- (void) onMessageButton:(id)sender
+{
+    TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
+    [self.navigationController pushViewController:msgVC animated:YES];
+}
+
 
 #pragma mark - Table view data source
 
