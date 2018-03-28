@@ -18,6 +18,7 @@
 #import "TCMessageButton.h"
 #import "TCMessageTableViewController.h"
 #import "TCAppProfileViewController.h"
+#import "TCAppTableViewController.h"
 #define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
 #define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"
@@ -119,7 +120,8 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0)
     {
-        
+        TCAppTableViewController *tableVC = [TCAppTableViewController new];
+        [self.navigationController pushViewController:tableVC animated:YES];
     }else
     {
         [MBProgressHUD showError:@"暂无此页面" toView:nil];

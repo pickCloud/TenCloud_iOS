@@ -70,6 +70,8 @@
 		A00AFF90200C90F000EFADF6 /* TCInviteSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF8E200C90F000EFADF6 /* TCInviteSuccessViewController.m */; };
 		A00AFF91200C90F000EFADF6 /* TCInviteSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */; };
 		A00AFF95200CA39C00EFADF6 /* TCCompleteInviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */; };
+		A00FFFD6206BD21A00118EC8 /* TCAppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */; };
+		A00FFFD7206BD21A00118EC8 /* TCAppTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */; };
 		A0142C9D205187FB00DC843D /* TCServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */; };
 		A0142C9E205187FB00DC843D /* TCServiceHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0142C9C205187FB00DC843D /* TCServiceHomeViewController.xib */; };
 		A0142CA22051891000DC843D /* TCLogHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142CA02051891000DC843D /* TCLogHomeViewController.m */; };
@@ -624,6 +626,9 @@
 		A00AFF8F200C90F000EFADF6 /* TCInviteSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCInviteSuccessViewController.xib; sourceTree = "<group>"; };
 		A00AFF93200CA39C00EFADF6 /* TCCompleteInviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCompleteInviteRequest.h; sourceTree = "<group>"; };
 		A00AFF94200CA39C00EFADF6 /* TCCompleteInviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCompleteInviteRequest.m; sourceTree = "<group>"; };
+		A00FFFD3206BD21A00118EC8 /* TCAppTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppTableViewController.h; sourceTree = "<group>"; };
+		A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppTableViewController.m; sourceTree = "<group>"; };
+		A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppTableViewController.xib; sourceTree = "<group>"; };
 		A0142C9A205187FB00DC843D /* TCServiceHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServiceHomeViewController.h; sourceTree = "<group>"; };
 		A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServiceHomeViewController.m; sourceTree = "<group>"; };
 		A0142C9C205187FB00DC843D /* TCServiceHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCServiceHomeViewController.xib; sourceTree = "<group>"; };
@@ -4096,6 +4101,9 @@
 		A08358B0206B629900DF2DA0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A00FFFD3206BD21A00118EC8 /* TCAppTableViewController.h */,
+				A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */,
+				A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -5405,6 +5413,7 @@
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
 				A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */,
 				A005A41C206B340C00ABA490 /* TCServiceTableViewCell.xib in Resources */,
+				A00FFFD7206BD21A00118EC8 /* TCAppTableViewController.xib in Resources */,
 				A0BD8236202CB1EA0002B8C2 /* TCAddServerSuccessView.xib in Resources */,
 				A088F934202A14CC005A97DD /* TCServerPermTableViewController.xib in Resources */,
 				A0C9A0521FED5CEE00F94E9E /* TCPersonHomeViewController.xib in Resources */,
@@ -5748,6 +5757,7 @@
 				A0A86B651FF3B1B200D1D58D /* TCAddCorpViewController.m in Sources */,
 				A088F959202BEDF7005A97DD /* TCWelcomeViewController.m in Sources */,
 				A0906E7A20288DB2006D30C8 /* TCShowAlertView.m in Sources */,
+				A00FFFD6206BD21A00118EC8 /* TCAppTableViewController.m in Sources */,
 				A067D8A0200F438700160913 /* TCMessageListRequest.m in Sources */,
 				A07DBE4F1FDFDD0D00F37715 /* TCServerPerformance+CoreDataProperties.m in Sources */,
 				A0EF3B9D20007C4A00D227BC /* TCPermissionNode+CoreDataProperties.m in Sources */,
