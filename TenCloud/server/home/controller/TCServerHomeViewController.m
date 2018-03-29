@@ -27,10 +27,14 @@
 #import "TCServerHomeUsageCell.h"
 #import "TCServerUsageRequest.h"
 #import "YTKBatchRequest.h"
+
+#import "TCAppSectionHeaderCell.h"
+
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 #define HEADER_COLLECTION_CELL_REUSE_ID @"HEADER_COLLECTION_CELL_REUSE_ID"
 #define SERVER_HOME_HEADER_REUSE_ID     @"SERVER_HOME_HEADER_REUSE_ID"
 #define SERVER_HOME_USAGE_REUSE_ID      @"SERVER_HOME_USAGE_REUSE_ID"
+#define SERVER_HOME_SEC_HEADER_ID       @"SERVER_HOME_SEC_HEADER_ID"
 
 
 @interface TCServerHomeViewController ()<DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,
@@ -94,6 +98,8 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     [_tableView registerNib:serverCellNib forCellReuseIdentifier:SERVER_CELL_REUSE_ID];
     UINib *usageCellNib = [UINib nibWithNibName:@"TCServerHomeUsageCell" bundle:nil];
     [_tableView registerNib:usageCellNib forCellReuseIdentifier:SERVER_HOME_USAGE_REUSE_ID];
+    UINib *sectionHeaderNib = [UINib nibWithNibName:@"TCAppSectionHeaderCell" bundle:nil];
+    [_tableView registerNib:sectionHeaderNib forCellReuseIdentifier:SERVER_HOME_SEC_HEADER_ID];
     _tableView.emptyDataSetDelegate = self;
     _tableView.emptyDataSetSource = self;
     _tableView.estimatedRowHeight = 320;
@@ -145,7 +151,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _usageDataTimer = [NSTimer scheduledTimerWithTimeInterval:20.0
+    _usageDataTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
                                                        target:self
                                                      selector:@selector(reloadUsageData)
                                                      userInfo:nil
@@ -184,7 +190,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1)
+    if (section == 0)
     {
         return 1;
     }
@@ -192,7 +198,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1)
+    if (indexPath.section == 0)
     {
         TCServerHomeUsageCell *cell = [tableView dequeueReusableCellWithIdentifier:SERVER_HOME_USAGE_REUSE_ID forIndexPath:indexPath];
         [cell setNavController:self.navigationController];
@@ -205,11 +211,34 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
     return cell;
 }
 
+- (UIView *)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
+{
+    __weak __typeof(self) weakSelf = self;
+    TCAppSectionHeaderCell *header = [tableView dequeueReusableCellWithIdentifier:SERVER_HOME_SEC_HEADER_ID];
+    if (section == 1)
+    {
+        [header setSectionTitle:@"提醒/关注" buttonName:@"更多"];
+        [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
+            [weakSelf onMoreButton:nil];
+        }];
+        return header;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 1)
+    {
+        return TCSCALE(30);
+    }
+    return 0;
+}
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1)
+    if (indexPath.section == 0)
     {
         return;
     }

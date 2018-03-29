@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class TCAppSectionHeaderCell;
+typedef void (^TCAppSectionHeaderCellBlock)(TCAppSectionHeaderCell *cell);
+
 @interface TCAppSectionHeaderCell : UITableViewCell
 
+@property (nonatomic, copy) TCAppSectionHeaderCellBlock buttonBlock;
+
 - (void) setSectionTitle:(NSString*)title;
+
+- (void) setSectionTitle:(NSString*)title buttonName:(NSString*)name;
 
 @end

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="uE1-ZD-cRK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-7H-mgI">
@@ -65,61 +65,12 @@
                                     <constraint firstAttribute="height" constant="120" id="lGP-qh-hXH"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1A-Ia-to8">
-                                <rect key="frame" x="15" y="119" width="345" height="36"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt8-AX-J9J">
-                                        <rect key="frame" x="332" y="3.5" width="12" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Zt8-AX-J9J" secondAttribute="height" multiplier="1:3" id="QKd-Ib-Gd1"/>
-                                        </constraints>
-                                        <state key="normal" image="server_home_more"/>
-                                        <connections>
-                                            <action selector="onMoreButton:" destination="-1" eventType="touchUpInside" id="fG3-x4-E0n"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 提醒 / 关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky8-a5-Szj">
-                                        <rect key="frame" x="-3" y="14" width="63.5" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.53725490200000003" green="0.60392156860000001" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdN-fE-mqy">
-                                        <rect key="frame" x="282" y="3.5" width="46" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="KdN-fE-mqy" secondAttribute="height" multiplier="23:18" id="g3t-k0-ff6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="更多">
-                                            <color key="titleColor" red="0.1764705882" green="0.71764705880000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onMoreButton:" destination="-1" eventType="touchUpInside" id="wmv-fT-sxT"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="09X-eq-3Q2"/>
-                                    <constraint firstItem="KdN-fE-mqy" firstAttribute="height" secondItem="y1A-Ia-to8" secondAttribute="height" id="8d7-6R-gbQ"/>
-                                    <constraint firstItem="Zt8-AX-J9J" firstAttribute="height" secondItem="y1A-Ia-to8" secondAttribute="height" id="9cs-77-jTp"/>
-                                    <constraint firstItem="Zt8-AX-J9J" firstAttribute="leading" secondItem="KdN-fE-mqy" secondAttribute="trailing" constant="4" id="OVj-Cg-0xM"/>
-                                    <constraint firstItem="KdN-fE-mqy" firstAttribute="centerY" secondItem="y1A-Ia-to8" secondAttribute="centerY" multiplier="1.21" id="Zwi-UA-iR1"/>
-                                    <constraint firstItem="Ky8-a5-Szj" firstAttribute="centerY" secondItem="y1A-Ia-to8" secondAttribute="centerY" multiplier="1.21" id="gRq-fs-unc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zt8-AX-J9J" secondAttribute="trailing" constant="1" id="iBh-IN-ODm"/>
-                                    <constraint firstItem="Ky8-a5-Szj" firstAttribute="leading" secondItem="y1A-Ia-to8" secondAttribute="leading" constant="-3" id="jW1-aW-hXW"/>
-                                    <constraint firstItem="Zt8-AX-J9J" firstAttribute="centerY" secondItem="y1A-Ia-to8" secondAttribute="centerY" multiplier="1.21" id="n31-3E-0ug"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.10196078431372549" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kEg-7H-mgI" firstAttribute="centerX" secondItem="uE1-ZD-cRK" secondAttribute="centerX" id="1GA-A3-wen"/>
-                            <constraint firstItem="y1A-Ia-to8" firstAttribute="top" secondItem="kEg-7H-mgI" secondAttribute="bottom" constant="-1" id="Gx4-MD-eow"/>
-                            <constraint firstItem="y1A-Ia-to8" firstAttribute="width" secondItem="uE1-ZD-cRK" secondAttribute="width" multiplier="0.92" id="K9G-Uv-Ji2"/>
-                            <constraint firstAttribute="bottom" secondItem="y1A-Ia-to8" secondAttribute="bottom" constant="1" id="V4h-tL-H2q"/>
-                            <constraint firstItem="y1A-Ia-to8" firstAttribute="centerX" secondItem="uE1-ZD-cRK" secondAttribute="centerX" id="WS1-xO-47g"/>
+                            <constraint firstAttribute="bottom" secondItem="kEg-7H-mgI" secondAttribute="bottom" id="KuQ-1a-ySe"/>
                             <constraint firstItem="kEg-7H-mgI" firstAttribute="width" secondItem="uE1-ZD-cRK" secondAttribute="width" id="dKo-Or-SUc"/>
                             <constraint firstItem="kEg-7H-mgI" firstAttribute="top" secondItem="uE1-ZD-cRK" secondAttribute="top" id="hxN-gE-VUd"/>
                         </constraints>
@@ -140,7 +91,4 @@
             <point key="canvasLocation" x="32.5" y="66.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="server_home_more" width="12" height="12"/>
-    </resources>
 </document>

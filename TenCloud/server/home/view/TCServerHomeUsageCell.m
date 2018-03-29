@@ -16,6 +16,7 @@
 #import "TCServerUsage+CoreDataClass.h"
 #import "TCServerThreshold+CoreDataClass.h"
 #import "TCConfiguration.h"
+#import "NSString+Extension.h"
 
 #define SERVER_USAGE_CELL_REUSE_ID      @"SERVER_USAGE_CELL_REUSE_ID"
 #define SERVER_USAGE_CELL1_ID           @"SERVER_USAGE_CELL1_ID"
@@ -24,6 +25,7 @@
 #define SERVER_USAGE_CELL4_ID           @"SERVER_USAGE_CELL4_ID"
 @interface TCServerHomeUsageCell()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, assign)   NSInteger           columnAmount;
+@property (nonatomic, weak) IBOutlet    UILabel     *timeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *cpuUsageLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *memoryUsageLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *diskIOLabel;
@@ -119,6 +121,11 @@
     NSString *netStr = [NSString stringWithFormat:@"%g%%",ts.net_threshold];
     _networkILabel.text = netStr;
     _networkOLabel.text = netStr;
+    
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    NSString *timeStr = [NSString dateTimeStringFromTimeInterval:time];
+    NSString *resStr = [NSString stringWithFormat:@"系统更新时间: %@",timeStr];
+    _timeLabel.text = resStr;
 }
 
 #pragma mark - UICollectionViewDelegate

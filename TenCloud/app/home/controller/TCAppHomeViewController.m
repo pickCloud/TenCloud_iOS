@@ -255,16 +255,27 @@
 
 - (UIView *)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
+    __weak __typeof(self) weakSelf = self;
     TCAppSectionHeaderCell *header = [tableView dequeueReusableCellWithIdentifier:APP_SECTION_HEADER_CELL_ID];
     if (section == 0)
     {
         [header setSectionTitle:@"热门应用"];
+        [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
+            TCAppTableViewController *tableVC = [TCAppTableViewController new];
+            [weakSelf.navigationController pushViewController:tableVC animated:YES];
+        }];
     }else if(section == 1)
     {
         [header setSectionTitle:@"最新部署"];
+        [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
+            
+        }];
     }else if(section == 2)
     {
         [header setSectionTitle:@"最新服务"];
+        [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
+            
+        }];
     }
     return header;
 }

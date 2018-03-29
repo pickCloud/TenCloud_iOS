@@ -10,6 +10,7 @@
 
 @interface TCAppSectionHeaderCell()
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
+@property (nonatomic, weak) IBOutlet    UIButton    *detailButton;
 - (IBAction) onDetailButton:(id)sender;
 @end
 
@@ -28,11 +29,20 @@
 
 - (IBAction) onDetailButton:(id)sender
 {
-    NSLog(@"on detail button");
+    if (_buttonBlock)
+    {
+        _buttonBlock(self);
+    }
 }
 
 - (void) setSectionTitle:(NSString*)title
 {
     _nameLabel.text = title;
+}
+
+- (void) setSectionTitle:(NSString*)title buttonName:(NSString*)name
+{
+    [self setSectionTitle:title];
+    [_detailButton setTitle:name forState:UIControlStateNormal];
 }
 @end
