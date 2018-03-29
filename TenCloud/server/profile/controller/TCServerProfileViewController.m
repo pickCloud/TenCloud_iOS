@@ -41,6 +41,7 @@
 #import "TCDonutChartView.h"
 #import "TCBarChartView.h"
 #import "TCServerUsage+CoreDataClass.h"
+#import "TCServerStatusManager.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 #define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
@@ -49,7 +50,7 @@
 
 
 @interface TCServerProfileViewController ()<WYLineChartViewDelegate,WYLineChartViewDatasource,
-UITableViewDelegate,UITableViewDataSource>
+UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
 @property (nonatomic, assign)   NSInteger   serverID;
 @property (nonatomic, strong)   TCServerPerformance *performance;
 @property (nonatomic, strong)   TCServerConfig      *config;
@@ -175,6 +176,8 @@ UITableViewDelegate,UITableViewDataSource>
     _diskTableView.tableFooterView = [UIView new];
     _diskTableView.delegate = self;
     _diskTableView.dataSource = self;
+    
+    [[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -196,6 +199,7 @@ UITableViewDelegate,UITableViewDataSource>
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[TCServerStatusManager shared] removeObserver:self withServerID:_serverID];
 }
 
 
@@ -883,7 +887,7 @@ UITableViewDelegate,UITableViewDataSource>
 
 - (IBAction) onToolButton:(id)sender
 {
-    TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] init];
+    TCServerToolViewController *toolVC = [[TCServerToolViewController alloc] initWithServerID:_serverID status:_statusLabel.text];
     [self presentViewController:toolVC animated:NO completion:nil];
 }
 
@@ -1013,5 +1017,17 @@ UITableViewDelegate,UITableViewDataSource>
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+#pragma mark - TCServerStatusDelegate
+- (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus
+            completed:(BOOL)completed
+{
+    NSLog(@"-- server %ld profile statusChanged:%@",serverID, newStatus);
+    if (newStatus && newStatus.length > 0)
+    {
+        [_statusLabel setStatus:newStatus];
+    }
 }
 @end

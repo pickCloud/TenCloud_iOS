@@ -117,8 +117,8 @@
         [_configArray addObject:item6];
         [weakSelf.tableView reloadData];
         
-        NSLog(@"installll_id:%@",_config.basic_info.instance_id);
-        TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
+        NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
+        TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:idStr];
         [statusReq startWithSuccess:^(NSString *status) {
             weakSelf.status = status;
             [weakSelf updateFooterViewWithStatus:status];
@@ -384,7 +384,8 @@
 - (void) sendUpdateServerStateRequest
 {
     __weak __typeof(self) weakSelf = self;
-    TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
+    NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
+    TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:idStr];
     [statusReq startWithSuccess:^(NSString *status) {
         weakSelf.status = status;
         weakSelf.retryTimes ++;
@@ -457,7 +458,13 @@
 
 #pragma mark - TCServerStatusDelegate
 - (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus
+            completed:(BOOL)completed
 {
     NSLog(@"**** server%ld statusChanged:%@",serverID, newStatus);
+    if (newStatus && newStatus.length > 0)
+    {
+        [self udpateStatusLabel:newStatus];
+        [self updateFooterViewWithStatus:newStatus];
+    }
 }
 @end

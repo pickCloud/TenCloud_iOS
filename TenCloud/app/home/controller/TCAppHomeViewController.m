@@ -259,20 +259,20 @@
     TCAppSectionHeaderCell *header = [tableView dequeueReusableCellWithIdentifier:APP_SECTION_HEADER_CELL_ID];
     if (section == 0)
     {
-        [header setSectionTitle:@"热门应用"];
+        [header setSectionTitle:@"热门应用" buttonName:@"更多"];
         [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
             TCAppTableViewController *tableVC = [TCAppTableViewController new];
             [weakSelf.navigationController pushViewController:tableVC animated:YES];
         }];
     }else if(section == 1)
     {
-        [header setSectionTitle:@"最新部署"];
+        [header setSectionTitle:@"最新部署" buttonName:@"更多"];
         [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
             
         }];
     }else if(section == 2)
     {
-        [header setSectionTitle:@"最新服务"];
+        [header setSectionTitle:@"最新服务" buttonName:@"更多"];
         [header setButtonBlock:^(TCAppSectionHeaderCell *cell) {
             
         }];

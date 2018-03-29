@@ -23,4 +23,6 @@
 
 - (void) removeObserver:(id<TCServerStatusDelegate>)obs withServerID:(NSInteger)serverID;
 
+- (BOOL) operationCompletedWithServerID:(NSInteger)serverID;
+
 @end

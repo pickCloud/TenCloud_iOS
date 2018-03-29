@@ -75,5 +75,6 @@
         [self setTextColor:STATE_NORMAL_COLOR];
         [self setBackgroundColor:STATE_NORMAL_BG_COLOR];
     }
+    [self setText:status];
 }
 @end

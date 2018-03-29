@@ -10,4 +10,6 @@
 
 @interface TCServerToolViewController : UIViewController
 
+- (id) initWithServerID:(NSInteger)serverID status:(NSString*)status;
+
 @end

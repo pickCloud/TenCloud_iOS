@@ -17,7 +17,8 @@ typedef NS_ENUM(NSInteger, TCServerActionType){
 
 @class TCServerStatus;
 @protocol TCServerStatusDelegate<NSObject>
-- (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus;
+- (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus
+            completed:(BOOL)completed;
 @end
 
 @interface TCServerStatus : NSObject
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, TCServerActionType){
 @property (nonatomic, strong)   NSString            *instanceID;
 @property (nonatomic, strong)   NSString            *status;
 @property (nonatomic, assign)   TCServerActionType  actionType;
+@property (nonatomic, assign)   BOOL                completed;
 
 - (void) addObserver:(id<TCServerStatusDelegate>)obs;
 - (void) removeObserver:(id<TCServerStatusDelegate>)obs;
@@ -33,5 +35,6 @@ typedef NS_ENUM(NSInteger, TCServerActionType){
 - (void) reboot;
 - (void) start;
 - (void) stop;
+- (void) printObservers;
 
 @end

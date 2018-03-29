@@ -8,7 +8,7 @@
 
 #import "TCServerStatus.h"
 #import "TCServerStatusRequest.h"
-#define SERVER_STATUS_MIN_TIMES         10
+#define SERVER_STATUS_MIN_TIMES         12
 #define SERVER_STATUS_MAX_TIMES         60
 #define SERVER_STATUS_FETCH_INTERVAL    2.0
 
@@ -18,7 +18,6 @@
     NSInteger           times;
     NSTimer             *fetchTimer;
     NSMutableArray      *mStatusArray;
-    BOOL                completed;
 }
 - (void) reset;
 - (void) fetchServerStatus;
@@ -43,6 +42,7 @@
     if (obs)
     {
         [mObservers addObject:obs];
+        NSLog(@"add obs res:%@",mObservers);
     }
 }
 
@@ -57,7 +57,7 @@
 - (void) reset
 {
     [mStatusArray removeAllObjects];
-    completed = NO;
+    _completed = NO;
     times = 0;
     if (fetchTimer)
     {
@@ -80,11 +80,9 @@
 
     __weak __typeof(self) weakSelf = self;
     NSString *idStr = [NSString stringWithFormat:@"%ld",_serverID];
-    idStr = @"i-bp19uneyioxmz0tqxplv";
     TCServerStatusRequest *req = [[TCServerStatusRequest alloc] initWithInstanceID:idStr];
     [req startWithSuccess:^(NSString *status) {
         NSLog(@"ffff%ld status:%@",times, status);
-        weakSelf.status = status;
         NSLog(@"server%ld status:%@",weakSelf.serverID, status);
         if(times > SERVER_STATUS_MIN_TIMES)
         {
@@ -112,6 +110,7 @@
                     [weakSelf stopFetch];
                 }
             }
+            weakSelf.status = status;
         }
         
     } failure:^(NSString *message) {
@@ -122,6 +121,7 @@
 
 - (void) stopFetch
 {
+    _completed = YES;
     if (fetchTimer)
     {
         [fetchTimer invalidate];
@@ -138,9 +138,10 @@
         NSLog(@"mObs:%@",mObservers);
         for (id<TCServerStatusDelegate> obs in mObservers)
         {
-            if (obs && [obs respondsToSelector:@selector(serverWithID:statusChanged:)])
+            if (obs && [obs respondsToSelector:@selector(serverWithID:statusChanged:completed:)])
             {
-                [obs serverWithID:_serverID statusChanged:_status];
+                [obs serverWithID:_serverID statusChanged:_status
+                        completed:_completed];
             }
         }
     }else
@@ -197,5 +198,8 @@
     }
 }
 
-
+- (void) printObservers
+{
+    NSLog(@"print obs:%@",mObservers);
+}
 @end

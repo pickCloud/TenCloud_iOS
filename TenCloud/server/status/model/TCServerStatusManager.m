@@ -43,6 +43,7 @@
     {
         curStatus = [TCServerStatus new];
         curStatus.serverID = serverID;
+        [_mStatusArray addObject:curStatus];
     }
     [curStatus reboot];
 }
@@ -54,6 +55,7 @@
     {
         curStatus = [TCServerStatus new];
         curStatus.serverID = serverID;
+        [_mStatusArray addObject:curStatus];
     }
     [curStatus start];
 }
@@ -65,8 +67,19 @@
     {
         curStatus = [TCServerStatus new];
         curStatus.serverID = serverID;
+        [_mStatusArray addObject:curStatus];
     }
     [curStatus stop];
+}
+
+- (BOOL) operationCompletedWithServerID:(NSInteger)serverID
+{
+    TCServerStatus *curStatus = [self statusForServerID:serverID];
+    if (curStatus)
+    {
+        return curStatus.completed;
+    }
+    return YES;
 }
 
 - (void) addObserver:(id<TCServerStatusDelegate>)obs withServerID:(NSInteger)serverID
@@ -78,6 +91,7 @@
         {
             curStatus = [TCServerStatus new];
             curStatus.serverID = serverID;
+            [_mStatusArray addObject:curStatus];
         }
         [curStatus addObserver:obs];
     }
