@@ -74,6 +74,8 @@
 		A00F002F206C4AE900118EC8 /* TCDonutChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F0029206C4AE800118EC8 /* TCDonutChartView.m */; };
 		A00F0030206C4AE900118EC8 /* TCGagueChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F002B206C4AE800118EC8 /* TCGagueChartView.m */; };
 		A00F0031206C4AE900118EC8 /* TCPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F002D206C4AE800118EC8 /* TCPieChartView.m */; };
+		A00F0036206CC2C000118EC8 /* TCAppFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00F0034206CC2C000118EC8 /* TCAppFilterViewController.m */; };
+		A00F0037206CC2C000118EC8 /* TCAppFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00F0035206CC2C000118EC8 /* TCAppFilterViewController.xib */; };
 		A00FFFD6206BD21A00118EC8 /* TCAppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */; };
 		A00FFFD7206BD21A00118EC8 /* TCAppTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */; };
 		A0142C9D205187FB00DC843D /* TCServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0142C9B205187FB00DC843D /* TCServiceHomeViewController.m */; };
@@ -638,6 +640,9 @@
 		A00F002B206C4AE800118EC8 /* TCGagueChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGagueChartView.m; sourceTree = "<group>"; };
 		A00F002C206C4AE800118EC8 /* TCPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPieChartView.h; sourceTree = "<group>"; };
 		A00F002D206C4AE800118EC8 /* TCPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPieChartView.m; sourceTree = "<group>"; };
+		A00F0033206CC2C000118EC8 /* TCAppFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppFilterViewController.h; sourceTree = "<group>"; };
+		A00F0034206CC2C000118EC8 /* TCAppFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppFilterViewController.m; sourceTree = "<group>"; };
+		A00F0035206CC2C000118EC8 /* TCAppFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAppFilterViewController.xib; sourceTree = "<group>"; };
 		A00FFFD3206BD21A00118EC8 /* TCAppTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppTableViewController.h; sourceTree = "<group>"; };
 		A00FFFD4206BD21A00118EC8 /* TCAppTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppTableViewController.m; sourceTree = "<group>"; };
 		A00FFFD5206BD21A00118EC8 /* TCAppTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppTableViewController.xib; sourceTree = "<group>"; };
@@ -1613,19 +1618,12 @@
 		A005A3B82068D91F00ABA490 /* filter */ = {
 			isa = PBXGroup;
 			children = (
-				A005A3B92068D91F00ABA490 /* controller */,
+				A00F0032206CC2C000118EC8 /* controller */,
 				A005A3BA2068D91F00ABA490 /* model */,
 				A005A3BB2068D91F00ABA490 /* request */,
 				A005A3BC2068D91F00ABA490 /* view */,
 			);
 			path = filter;
-			sourceTree = "<group>";
-		};
-		A005A3B92068D91F00ABA490 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		A005A3BA2068D91F00ABA490 /* model */ = {
@@ -1979,6 +1977,16 @@
 				A00F002D206C4AE800118EC8 /* TCPieChartView.m */,
 			);
 			path = chart;
+			sourceTree = "<group>";
+		};
+		A00F0032206CC2C000118EC8 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A00F0033206CC2C000118EC8 /* TCAppFilterViewController.h */,
+				A00F0034206CC2C000118EC8 /* TCAppFilterViewController.m */,
+				A00F0035206CC2C000118EC8 /* TCAppFilterViewController.xib */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		A0142C942051879E00DC843D /* log */ = {
@@ -5439,6 +5447,7 @@
 				A031B5E71FFC673600B4F448 /* TCPermissionItemCell.xib in Resources */,
 				A0C9A0BF1FF250BE00F94E9E /* TCEditGenderTableViewCell.xib in Resources */,
 				A07DBE3A1FDFB47600F37715 /* TCServerConfigTableViewCell.xib in Resources */,
+				A00F0037206CC2C000118EC8 /* TCAppFilterViewController.xib in Resources */,
 				A005A412206A4EDC00ABA490 /* TCDeployTableViewCell.xib in Resources */,
 				A005A41C206B340C00ABA490 /* TCServiceTableViewCell.xib in Resources */,
 				A00FFFD7206BD21A00118EC8 /* TCAppTableViewController.xib in Resources */,
@@ -5842,6 +5851,7 @@
 				A0A86B4D1FF3927E00D1D58D /* TCMyCorpTableViewController.m in Sources */,
 				A07B7E46205BBDFC00E64047 /* TCServerThreshold+CoreDataClass.m in Sources */,
 				A07DBDE61FDED78800F37715 /* TCServerLogTableViewController.m in Sources */,
+				A00F0036206CC2C000118EC8 /* TCAppFilterViewController.m in Sources */,
 				A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */,
 				A088F929202A038C005A97DD /* TCDataPermissionViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,

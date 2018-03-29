@@ -10,6 +10,7 @@
 #import "TCAppTableViewCell.h"
 #import "TCApp+CoreDataClass.h"
 #import "TCAppProfileViewController.h"
+#import "TCAppFilterViewController.h"
 #define APP_TABLE_CELL_ID   @"APP_TABLE_CELL_ID"
 
 @interface TCAppTableViewController ()
@@ -105,6 +106,14 @@
 - (IBAction) onFilterButton:(id)sender
 {
     NSLog(@"on filter button");
+    NSArray *tagArray = @[@"普通项目",@"基础服务",@"应用组件"];
+    TCAppFilterViewController *filterVC = [[TCAppFilterViewController alloc] initWithProviderArray:tagArray];
+    [self presentViewController:filterVC animated:NO completion:nil];
+    /*
+    NSArray *providers = [[TCConfiguration shared] providerArray];
+    TCSearchFilterViewController *filterVC = [[TCSearchFilterViewController alloc] initWithProviderArray:providers];
+    [self presentViewController:filterVC animated:NO completion:nil];
+     */
 }
 
 
