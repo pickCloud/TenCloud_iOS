@@ -13,8 +13,10 @@
 #import "TCServerDisk+CoreDataClass.h"
 #import "TCServerMemory+CoreDataClass.h"
 #import "TCProgressView.h"
+#import "TCServerStatusManager.h"
 
-@interface TCServerTableViewCell ()
+@interface TCServerTableViewCell ()<TCServerStatusDelegate>
+@property (nonatomic, strong)   TCServer            *server;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *ipLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *statusLabel;
@@ -34,6 +36,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel         *networkLabel;
 @property (nonatomic, weak) IBOutlet    UILabel         *speedLabel;
 - (void) updateUI;
+- (void) updateStatusLabel;
 @end
 
 @implementation TCServerTableViewCell
@@ -83,6 +86,12 @@
 
 - (void) setServer:(TCServer*)server
 {
+    if (_server)
+    {
+        [[TCServerStatusManager shared] removeObserver:self withServerID:_server.serverID];
+    }
+    _server = server;
+    [[TCServerStatusManager shared] addObserver:self withServerID:server.serverID];
     self.nameLabel.text = server.name;
     self.ipLabel.text = server.public_ip;
     UIImage *iconImage = nil;
@@ -120,8 +129,24 @@
     NSString *networkSpeedStr = [NSString stringWithFormat:@"%ld/%ld",input,output];
     _networkSpeedLabel.text = networkSpeedStr;
     
-    NSString *statusStr = server.machine_status;
-    _statusLabel.text = server.machine_status;
+    [self updateStatusLabel];
+}
+
+- (void) updateUI
+{
+    if (self.highlighted)
+    {
+        self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
+    }else
+    {
+        self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
+    }
+}
+
+- (void) updateStatusLabel
+{
+    NSString *statusStr = _server.machine_status;
+    _statusLabel.text = _server.machine_status;
     if (statusStr && statusStr.length > 0)
     {
         if ([statusStr containsString:@"停止"])
@@ -140,21 +165,36 @@
     }
 }
 
-- (void) updateUI
-{
-    if (self.highlighted)
-    {
-        self.bg2View.backgroundColor = THEME_NAVBAR_TITLE_COLOR;
-    }else
-    {
-        self.bg2View.backgroundColor = TABLE_CELL_BG_COLOR;
-    }
-}
-
 - (void) layoutSubviews
 {
     CGSize statusSize = self.statusBackgroundView.bounds.size;
     self.statusBackgroundView.layer.cornerRadius = statusSize.height / 2.0;
     [super layoutSubviews];
+}
+
+- (void) dealloc
+{
+    if (_server)
+    {
+        [[TCServerStatusManager shared] removeObserver:self withServerID:_server.serverID];
+    }
+}
+
+
+#pragma mark - TCServerStatusDelegate
+- (void) serverWithID:(NSInteger)serverID statusChanged:(NSString*)newStatus
+            completed:(BOOL)completed
+{
+    NSLog(@"cell server %ld profile statusChanged:%@",serverID, newStatus);
+    if (newStatus && newStatus.length > 0)
+    {
+        //[_statusLabel setStatus:newStatus];
+        NSLog(@"serverID:%ld oldID:%ld",serverID, _server.serverID);
+        if (serverID == _server.serverID)
+        {
+            _server.machine_status = newStatus;
+            [self updateStatusLabel];
+        }
+    }
 }
 @end

@@ -110,9 +110,8 @@
                     [weakSelf stopFetch];
                 }
             }
-            weakSelf.status = status;
         }
-        
+        weakSelf.status = status;
     } failure:^(NSString *message) {
         
     }];

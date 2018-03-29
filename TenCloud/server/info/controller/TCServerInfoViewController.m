@@ -318,7 +318,7 @@
                 data1.title = @"开机";
                 data1.color = THEME_TINT_COLOR;
                 data1.type = TCServerButtonStart;
-                [_buttonDataArray addObject:data1];
+                //[_buttonDataArray addObject:data1];
             }
         }else if([status containsString:@"重启"])
         {
@@ -338,7 +338,7 @@
                 data1.title = @"重启";
                 data1.color = THEME_TINT_COLOR;
                 data1.type = TCServerButtonRestart;
-                [_buttonDataArray addObject:data1];
+                //[_buttonDataArray addObject:data1];
             }
 
             if ( haveSpecialPermission ||
@@ -348,7 +348,7 @@
                 data2.title = @"关机";
                 data2.color = THEME_TINT_COLOR;
                 data2.type = TCServerButtonStop;
-                [_buttonDataArray addObject:data2];
+                //[_buttonDataArray addObject:data2];
             }
         }
     }
