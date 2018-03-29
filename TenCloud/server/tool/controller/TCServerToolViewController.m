@@ -11,6 +11,8 @@
 @interface TCServerToolViewController ()
 @property (nonatomic, strong)   UIVisualEffectView      *effectView;
 - (IBAction) onCloseButton:(id)sender;
+- (IBAction) onStopButton:(id)sender;
+- (IBAction) onRestartButton:(id)sender;
 - (IBAction) onRemoteAccessButton:(id)sender;
 - (IBAction) onProcessStatusButton:(id)sender;
 - (IBAction) onNetworkStatusButton:(id)sender;
@@ -83,6 +85,16 @@
                          [weakSelf dismissViewControllerAnimated:NO completion:nil];
                      }];
     
+}
+
+- (IBAction) onStopButton:(id)sender
+{
+    NSLog(@"on stop button");
+}
+
+- (IBAction) onRestartButton:(id)sender
+{
+    NSLog(@"on restart button");
 }
 
 - (IBAction) onRemoteAccessButton:(id)sender

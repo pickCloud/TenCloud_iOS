@@ -21,6 +21,51 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基础操作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zri-dR-u7l" customClass="TCAutoScaleLabel">
+                    <rect key="frame" x="75" y="100.5" width="225" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.24705882352941178" green="0.27450980392156865" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-gm-1d5">
+                    <rect key="frame" x="119" y="106.5" width="181" height="0.5"/>
+                    <color key="backgroundColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="VOX-qf-uEK"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资源监控" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzS-j3-i1Z" customClass="TCAutoScaleLabel">
+                    <rect key="frame" x="75" y="230" width="225" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="dzS-j3-i1Z" secondAttribute="height" multiplier="75:4" id="o2P-cn-a7M"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.2470588235" green="0.27450980390000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5L-yH-duq">
+                    <rect key="frame" x="119" y="236" width="181" height="0.5"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.1647058824" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="ijv-Mv-cQF"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配置管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJx-zf-NX1" customClass="TCAutoScaleLabel">
+                    <rect key="frame" x="75" y="465" width="225" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hJx-zf-NX1" secondAttribute="height" multiplier="75:4" id="bY6-v3-e7L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.2470588235" green="0.27450980390000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiz-nc-Afo">
+                    <rect key="frame" x="119" y="471" width="181" height="0.5"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.1647058824" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="TSk-Vt-ghu"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11n-ZR-Swl">
                     <rect key="frame" x="150" y="562" width="75" height="75"/>
                     <constraints>
@@ -31,28 +76,53 @@
                         <action selector="onCloseButton:" destination="-1" eventType="touchUpInside" id="Wyk-HV-qzQ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80O-aU-6rj" customClass="TCToolButton">
-                    <rect key="frame" x="152" y="191" width="70" height="97"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rP-AF-kYx" customClass="TCToolButton">
+                    <rect key="frame" x="65" y="122.5" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="height" multiplier="70:97" id="6YB-cQ-DVa"/>
+                        <constraint firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="height" multiplier="70:97" id="FKb-9B-jMO"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="查看进程状态" image="server_tool_process_status">
+                    <state key="normal" title="关机" image="server_tool_stop">
                         <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <state key="highlighted">
+                    <state key="highlighted" image="server_tool_stop_p">
                         <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="onProcessStatusButton:" destination="-1" eventType="touchUpInside" id="hWK-3O-HbC"/>
+                        <action selector="onRemoteAccessButton:" destination="-1" eventType="touchUpInside" id="h3l-1g-Pt7"/>
+                        <action selector="onStopButton:" destination="-1" eventType="touchUpInside" id="DO0-77-o1u"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQQ-lJ-3IO" customClass="TCToolButton">
+                    <rect key="frame" x="152" y="122.5" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="XQQ-lJ-3IO" secondAttribute="height" multiplier="70:97" id="WIM-zy-aWO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="重启" image="server_tool_restart">
+                        <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted" image="server_tool_restart_p">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onRemoteAccessButton:" destination="-1" eventType="touchUpInside" id="OdD-EJ-8Vp"/>
+                        <action selector="onRestartButton:" destination="-1" eventType="touchUpInside" id="VdP-Lr-pjw"/>
+                        <action selector="onStopButton:" destination="-1" eventType="touchUpInside" id="hZS-OY-iL3"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfM-f4-3ge" customClass="TCToolButton">
-                    <rect key="frame" x="55" y="191" width="70" height="97"/>
+                    <rect key="frame" x="240.5" y="122.5" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="wfM-f4-3ge" secondAttribute="height" multiplier="70:97" id="uX4-Fj-PkE"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
@@ -66,8 +136,24 @@
                         <action selector="onRemoteAccessButton:" destination="-1" eventType="touchUpInside" id="eN2-Nn-oQB"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80O-aU-6rj" customClass="TCToolButton">
+                    <rect key="frame" x="65" y="252" width="70" height="97"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="查看进程状态" image="server_tool_process_status">
+                        <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onProcessStatusButton:" destination="-1" eventType="touchUpInside" id="hWK-3O-HbC"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJo-a9-IFz" customClass="TCToolButton">
-                    <rect key="frame" x="250" y="191" width="70" height="97"/>
+                    <rect key="frame" x="152" y="252" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
@@ -88,46 +174,7 @@
                                 <attributes>
                                     <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                        <tabStops>
-                                            <textTab alignment="left" location="28">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="56">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="84">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="112">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="140">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="168">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="196">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="224">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="252">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="280">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="308">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="336">
-                                                <options/>
-                                            </textTab>
-                                        </tabStops>
-                                    </paragraphStyle>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
@@ -137,7 +184,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyo-Rm-o5t" customClass="TCToolButton">
-                    <rect key="frame" x="55" y="312" width="70" height="97"/>
+                    <rect key="frame" x="240.5" y="252" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
@@ -153,7 +200,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-xY-gbc" customClass="TCToolButton">
-                    <rect key="frame" x="152" y="312" width="70" height="97"/>
+                    <rect key="frame" x="65" y="357" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
@@ -174,46 +221,7 @@
                                 <attributes>
                                     <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                        <tabStops>
-                                            <textTab alignment="left" location="28">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="56">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="84">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="112">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="140">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="168">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="196">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="224">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="252">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="280">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="308">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="336">
-                                                <options/>
-                                            </textTab>
-                                        </tabStops>
-                                    </paragraphStyle>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
@@ -223,12 +231,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXp-gD-63B" customClass="TCToolButton">
-                    <rect key="frame" x="250" y="312" width="70" height="97"/>
+                    <rect key="frame" x="65" y="487" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="配置管理" image="server_tool_config_manage">
+                    <state key="normal" title="修改配置" image="server_tool_config_manage">
                         <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
@@ -239,7 +247,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C64-aK-hDY" customClass="TCToolButton">
-                    <rect key="frame" x="55" y="433" width="70" height="97"/>
+                    <rect key="frame" x="152" y="357" width="70" height="97"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="-50" minY="64" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="8" minY="-28" maxX="0.0" maxY="0.0"/>
@@ -260,46 +268,7 @@
                                 <attributes>
                                     <color key="NSColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                        <tabStops>
-                                            <textTab alignment="left" location="28">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="56">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="84">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="112">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="140">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="168">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="196">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="224">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="252">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="280">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="308">
-                                                <options/>
-                                            </textTab>
-                                            <textTab alignment="left" location="336">
-                                                <options/>
-                                            </textTab>
-                                        </tabStops>
-                                    </paragraphStyle>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
@@ -311,36 +280,60 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="YsH-xY-gbc" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="0hP-An-iVV"/>
-                <constraint firstItem="FJo-a9-IFz" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="3lT-gi-nLi"/>
-                <constraint firstItem="xXp-gD-63B" firstAttribute="leading" secondItem="FJo-a9-IFz" secondAttribute="leading" id="6Et-4K-d7c"/>
-                <constraint firstItem="wfM-f4-3ge" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="6xX-Tm-SGc"/>
+                <constraint firstItem="1rP-AF-kYx" firstAttribute="top" secondItem="zri-dR-u7l" secondAttribute="bottom" constant="10" id="00Z-R7-5Ef"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="centerX" secondItem="1rP-AF-kYx" secondAttribute="centerX" id="02z-h2-RYW"/>
+                <constraint firstItem="XQQ-lJ-3IO" firstAttribute="centerX" secondItem="zri-dR-u7l" secondAttribute="centerX" id="0h3-Tn-GfF"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="top" secondItem="dzS-j3-i1Z" secondAttribute="bottom" constant="10" id="1L0-1t-qiL"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="2LB-qn-tTb"/>
+                <constraint firstItem="XQQ-lJ-3IO" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="2Pg-4i-gh8"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="bottom" constant="8" id="30q-a6-VqZ"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="centerX" secondItem="wfM-f4-3ge" secondAttribute="centerX" id="6Cw-Wf-vvp"/>
+                <constraint firstItem="MTp-gm-1d5" firstAttribute="trailing" secondItem="zri-dR-u7l" secondAttribute="trailing" id="6De-jO-Dls"/>
                 <constraint firstItem="11n-ZR-Swl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8EJ-IL-Von"/>
-                <constraint firstItem="C64-aK-hDY" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="8ix-wd-vJL"/>
-                <constraint firstItem="wfM-f4-3ge" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="9f3-6V-icE"/>
-                <constraint firstItem="YsH-xY-gbc" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="top" id="AVR-ZA-l8j"/>
-                <constraint firstItem="80O-aU-6rj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.18667" id="Cm1-7O-NU3"/>
-                <constraint firstItem="wfM-f4-3ge" firstAttribute="centerX" secondItem="80O-aU-6rj" secondAttribute="centerX" multiplier="0.48" id="DDK-4P-zvq"/>
-                <constraint firstItem="YsH-xY-gbc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EKq-88-s7K"/>
-                <constraint firstItem="YsH-xY-gbc" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="F2f-4q-ZNB"/>
-                <constraint firstItem="C64-aK-hDY" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="bottom" constant="24" id="Kgo-tf-Zmi"/>
-                <constraint firstItem="80O-aU-6rj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.72" id="Kxk-xZ-z78"/>
-                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="LiF-TX-lu2"/>
-                <constraint firstItem="wfM-f4-3ge" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="top" id="Stt-1O-oDJ"/>
-                <constraint firstItem="C64-aK-hDY" firstAttribute="leading" secondItem="wfM-f4-3ge" secondAttribute="leading" id="SyN-Cg-XXt"/>
-                <constraint firstItem="xXp-gD-63B" firstAttribute="top" secondItem="Dyo-Rm-o5t" secondAttribute="top" id="XHH-PL-4v0"/>
-                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="top" secondItem="wfM-f4-3ge" secondAttribute="bottom" constant="24" id="ZB9-15-npi"/>
-                <constraint firstItem="FJo-a9-IFz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.52" id="dpH-GU-p8B"/>
-                <constraint firstItem="FJo-a9-IFz" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="top" id="g6n-Ak-cYj"/>
-                <constraint firstItem="C64-aK-hDY" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="hgm-82-kHZ"/>
-                <constraint firstItem="xXp-gD-63B" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="i8E-hs-mNf"/>
-                <constraint firstItem="80O-aU-6rj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nNA-rQ-O0u"/>
-                <constraint firstItem="FJo-a9-IFz" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="pv2-jw-zmO"/>
-                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="leading" secondItem="wfM-f4-3ge" secondAttribute="leading" id="sFR-Xp-rsO"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="9wL-OP-bbM"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="9ye-Ey-kVs"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="D8e-po-8Yr"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="GIu-G5-b1l"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="HTM-gS-EBy"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="Iri-M4-pzB"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="centerX" secondItem="XQQ-lJ-3IO" secondAttribute="centerX" id="JNA-oS-Bk9"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="centerX" secondItem="XQQ-lJ-3IO" secondAttribute="centerX" id="Jkj-5M-DML"/>
+                <constraint firstItem="xXp-gD-63B" firstAttribute="top" secondItem="hJx-zf-NX1" secondAttribute="bottom" constant="10" id="KbW-9I-Xv7"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="top" secondItem="1rP-AF-kYx" secondAttribute="top" id="Lti-bB-oZB"/>
+                <constraint firstItem="1rP-AF-kYx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.18667" id="MFY-cT-P1u"/>
+                <constraint firstItem="jiz-nc-Afo" firstAttribute="width" secondItem="c5L-yH-duq" secondAttribute="width" id="Mcd-dt-2cz"/>
+                <constraint firstItem="hJx-zf-NX1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N8O-Tc-5oV"/>
+                <constraint firstItem="MTp-gm-1d5" firstAttribute="width" secondItem="zri-dR-u7l" secondAttribute="width" multiplier="0.8044" id="OYw-D6-8V1"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="OZX-Xu-uG5"/>
+                <constraint firstItem="dzS-j3-i1Z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RaX-Af-308"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="centerX" secondItem="80O-aU-6rj" secondAttribute="centerX" id="TPb-3w-3KR"/>
+                <constraint firstItem="c5L-yH-duq" firstAttribute="centerY" secondItem="dzS-j3-i1Z" secondAttribute="centerY" id="VtE-7c-TnL"/>
+                <constraint firstItem="C64-aK-hDY" firstAttribute="top" secondItem="YsH-xY-gbc" secondAttribute="top" id="Vxw-K5-rst"/>
+                <constraint firstItem="zri-dR-u7l" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YwC-0E-5Kh"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="centerX" secondItem="1rP-AF-kYx" secondAttribute="centerX" id="bU0-3p-Rl6"/>
+                <constraint firstItem="YsH-xY-gbc" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="ben-oF-bUS"/>
+                <constraint firstItem="hJx-zf-NX1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.412" id="eDh-Rx-Qa4"/>
+                <constraint firstItem="XQQ-lJ-3IO" firstAttribute="top" secondItem="1rP-AF-kYx" secondAttribute="top" id="esT-Bi-3Wt"/>
+                <constraint firstItem="c5L-yH-duq" firstAttribute="width" secondItem="MTp-gm-1d5" secondAttribute="width" id="f7P-SN-oOg"/>
+                <constraint firstItem="MTp-gm-1d5" firstAttribute="centerY" secondItem="zri-dR-u7l" secondAttribute="centerY" id="g0t-Qw-IeJ"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="hJI-ei-F8o"/>
+                <constraint firstItem="wfM-f4-3ge" firstAttribute="centerX" secondItem="zri-dR-u7l" secondAttribute="centerX" multiplier="1.468" id="mO3-Yk-St8"/>
+                <constraint firstItem="jiz-nc-Afo" firstAttribute="trailing" secondItem="hJx-zf-NX1" secondAttribute="trailing" id="mdE-aa-7QE"/>
+                <constraint firstItem="zri-dR-u7l" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="nc3-dC-Nlt"/>
+                <constraint firstItem="jiz-nc-Afo" firstAttribute="centerY" secondItem="hJx-zf-NX1" secondAttribute="centerY" id="o1o-qt-aIU"/>
+                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="top" secondItem="FJo-a9-IFz" secondAttribute="top" id="oNr-6A-sC3"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="top" secondItem="80O-aU-6rj" secondAttribute="top" id="ouz-3Q-XAH"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="width" secondItem="1rP-AF-kYx" secondAttribute="width" id="ps3-Sr-vYI"/>
+                <constraint firstItem="FJo-a9-IFz" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="r5Q-nH-eTC"/>
+                <constraint firstItem="zri-dR-u7l" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.32" id="sVA-eo-kUc"/>
+                <constraint firstItem="dzS-j3-i1Z" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.708" id="uOw-Me-GH1"/>
                 <constraint firstItem="11n-ZR-Swl" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.2" id="ugC-WB-PHf"/>
-                <constraint firstItem="Dyo-Rm-o5t" firstAttribute="height" secondItem="80O-aU-6rj" secondAttribute="height" id="w8z-92-lW3"/>
                 <constraint firstAttribute="bottom" secondItem="11n-ZR-Swl" secondAttribute="bottom" constant="30" id="wXi-jU-NgB"/>
-                <constraint firstItem="xXp-gD-63B" firstAttribute="width" secondItem="80O-aU-6rj" secondAttribute="width" id="xNZ-p6-zsK"/>
+                <constraint firstItem="c5L-yH-duq" firstAttribute="trailing" secondItem="dzS-j3-i1Z" secondAttribute="trailing" id="xXI-Gd-kQh"/>
+                <constraint firstItem="1rP-AF-kYx" firstAttribute="centerX" secondItem="zri-dR-u7l" secondAttribute="centerX" multiplier="0.532" id="xvN-VR-CyT"/>
+                <constraint firstItem="dzS-j3-i1Z" firstAttribute="width" secondItem="zri-dR-u7l" secondAttribute="width" id="y5D-oC-9DL"/>
+                <constraint firstItem="80O-aU-6rj" firstAttribute="height" secondItem="1rP-AF-kYx" secondAttribute="height" id="yTr-JU-T3b"/>
+                <constraint firstItem="hJx-zf-NX1" firstAttribute="width" secondItem="zri-dR-u7l" secondAttribute="width" id="zja-Fg-r1Z"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="104.5"/>
         </view>
@@ -353,6 +346,10 @@
         <image name="server_tool_port_info" width="48" height="48"/>
         <image name="server_tool_process_status" width="48" height="48"/>
         <image name="server_tool_remote_access" width="48" height="48"/>
+        <image name="server_tool_restart" width="48" height="48"/>
+        <image name="server_tool_restart_p" width="48" height="48"/>
         <image name="server_tool_route_info" width="48" height="48"/>
+        <image name="server_tool_stop" width="48" height="48"/>
+        <image name="server_tool_stop_p" width="48" height="48"/>
     </resources>
 </document>
