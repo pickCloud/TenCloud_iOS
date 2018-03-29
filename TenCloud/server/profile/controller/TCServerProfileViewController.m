@@ -42,6 +42,8 @@
 #import "TCBarChartView.h"
 #import "TCServerUsage+CoreDataClass.h"
 #import "TCServerStatusManager.h"
+#import "TCConfiguration.h"
+#import "TCServerThreshold+CoreDataClass.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 #define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
@@ -829,22 +831,43 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
         [_tenMinLabel setTextColor:THEME_TINT_COLOR];
     }
     
+    TCServerThreshold *threshold = [[TCConfiguration shared] threshold];
     TCServerUsage *usage = _systemLoad.monitor;
     
     _cpuUsageView.percent = usage.cpuUsageRate.floatValue/100.0; //0.25;
     _cpuUsageView.foregroundColor = THEME_TINT_COLOR;
+    if (usage.cpuUsageRate.floatValue >= threshold.cpu_threshold)
+    {
+        _cpuUsageView.foregroundColor = STATE_ALERT_COLOR;
+        _cpuUsageLabel.textColor = STATE_ALERT_COLOR;
+    }
     NSString *cpuUsageStr = [NSString stringWithFormat:@"%g%%",usage.cpuUsageRate.floatValue];
     _cpuUsageLabel.text = cpuUsageStr;
     _memoryUsageView.percent = usage.memUsageRate.floatValue/100.0;
     _memoryUsageView.foregroundColor = THEME_TINT_COLOR;
+    if (usage.memUsageRate.floatValue >= threshold.memory_threshold)
+    {
+        _memoryUsageView.foregroundColor = STATE_ALERT_COLOR;
+        _memoryUsageLabel.textColor = STATE_ALERT_COLOR;
+    }
     NSString *memUsageStr = [NSString stringWithFormat:@"%g%%",usage.memUsageRate.floatValue];
     _memoryUsageLabel.text = memUsageStr;
     _diskUtilView.percent = usage.diskUtilize.floatValue/100.0;
     _diskUtilView.foregroundColor = THEME_TINT_COLOR;
+    if (usage.diskUtilize.floatValue >= threshold.block_threshold)
+    {
+        _diskUtilView.foregroundColor = STATE_ALERT_COLOR;
+        _diskUsageLabel.textColor = STATE_ALERT_COLOR;
+    }
     NSString *diskUtilStr = [NSString stringWithFormat:@"%g%%",usage.diskUtilize.floatValue];
     _diskUtilLabel.text = diskUtilStr;
     _diskUsageView.percent = usage.diskUsageRate.floatValue/100.0;
     _diskUsageView.foregroundColor = THEME_TINT_COLOR;
+    if (usage.diskUsageRate.floatValue >= threshold.disk_threshold)
+    {
+        _diskUsageView.foregroundColor = STATE_ALERT_COLOR;
+        _diskUsageLabel.textColor = STATE_ALERT_COLOR;
+    }
     NSString *diskUsageStr = [NSString stringWithFormat:@"%g%%",usage.diskUsageRate.floatValue];
     _diskUsageLabel.text = diskUsageStr;
     CGFloat netInRatio = 0;
@@ -862,14 +885,34 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
     }
     _netInView.percent = netInRatio / 100.0;
     _netInView.foregroundColor = THEME_TINT_COLOR;
+    if (netInRatio >= threshold.net_threshold)
+    {
+        _netInView.foregroundColor = STATE_ALERT_COLOR;
+        _netInLabel.textColor = STATE_ALERT_COLOR;
+    }
     //_netInLabel.text = [NSString stringWithFormat:@"%g%%",netInRatio];
     _netInLabel.text = usage.netDownload;
     _netInMaxLabel.text = usage.netInputMax;
     _netOutView.percent = netOutRatio / 100.0;
     _netOutView.foregroundColor = THEME_TINT_COLOR;
+    if (netOutRatio >= threshold.net_threshold)
+    {
+        _netOutView.foregroundColor = STATE_ALERT_COLOR;
+        _netOutLabel.textColor = STATE_ALERT_COLOR;
+    }
     //_netOutLabel.text = [NSString stringWithFormat:@"%g%%",netOutRatio];
-    _netOutLabel.text = usage.netUpload;
-    _netOutMaxLabel.text = usage.netOutputMax;
+    NSString *netOutStr = usage.netUpload;
+    if (netOutStr == nil || netOutStr.length == 0)
+    {
+        netOutStr = @" ";
+    }
+    NSString *netOutMaxStr = usage.netOutputMax;
+    if (netOutMaxStr == nil || netOutMaxStr.length == 0)
+    {
+        netOutMaxStr = @" ";
+    }
+    _netOutLabel.text = netOutStr;//usage.netUpload;
+    _netOutMaxLabel.text = netOutMaxStr;//usage.netOutputMax;
 }
 
 - (IBAction) onAverageLoadButton:(id)sender

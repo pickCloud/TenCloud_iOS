@@ -192,7 +192,7 @@ TCMessageManagerDelegate,TCDataSyncDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
     {
-        return 1;
+        return _serverArray.count > 0;
     }
     return _serverArray.count;
 }
