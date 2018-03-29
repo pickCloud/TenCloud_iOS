@@ -40,6 +40,7 @@
 #import "TCPieChartView.h"
 #import "TCDonutChartView.h"
 #import "TCBarChartView.h"
+#import "TCServerUsage+CoreDataClass.h"
 #define SERVER_PROFILE_PERIOD_CELL_ID   @"SERVER_PROFILE_PERIOD_CELL_ID"
 #define SERVER_PROFILE_DISK_CELL_ID     @"SERVER_PROFILE_DISK_CELL_ID"
 
@@ -822,24 +823,43 @@ UITableViewDelegate,UITableViewDataSource>
         [_tenMinLabel setTextColor:THEME_TINT_COLOR];
     }
     
-    _cpuUsageView.percent = 0.25;
+    TCServerUsage *usage = _systemLoad.monitor;
+    
+    _cpuUsageView.percent = usage.cpuUsageRate.floatValue/100.0; //0.25;
     _cpuUsageView.foregroundColor = THEME_TINT_COLOR;
-    _cpuUsageLabel.text = @"25%";
-    _memoryUsageView.percent = 0.55;
+    NSString *cpuUsageStr = [NSString stringWithFormat:@"%g%%",usage.cpuUsageRate.floatValue];
+    _cpuUsageLabel.text = cpuUsageStr;
+    _memoryUsageView.percent = usage.memUsageRate.floatValue/100.0;
     _memoryUsageView.foregroundColor = THEME_TINT_COLOR;
-    _memoryUsageLabel.text = @"55%";
-    _diskUtilView.percent = 0.15;
+    NSString *memUsageStr = [NSString stringWithFormat:@"%g%%",usage.memUsageRate.floatValue];
+    _memoryUsageLabel.text = memUsageStr;
+    _diskUtilView.percent = usage.diskIO.floatValue/100.0;
     _diskUtilView.foregroundColor = THEME_TINT_COLOR;
-    _diskUtilLabel.text = @"15%";
-    _diskUsageView.percent = 0.70;
+    NSString *diskUtilStr = [NSString stringWithFormat:@"%g%%",usage.diskIO.floatValue];
+    _diskUtilLabel.text = diskUtilStr;
+    _diskUsageView.percent = usage.diskUsageRate.floatValue/100.0;
     _diskUsageView.foregroundColor = THEME_TINT_COLOR;
-    _diskUsageLabel.text = @"70%";
-    _netInView.percent = 0.30;
+    NSString *diskUsageStr = [NSString stringWithFormat:@"%g%%",usage.diskUsageRate.floatValue];
+    _diskUsageLabel.text = diskUsageStr;
+    CGFloat netInRatio = 0;
+    CGFloat netOutRatio = 0;
+    if (usage.networkUsage.length > 0)
+    {
+        NSArray *netStrArray = [usage.networkUsage componentsSeparatedByString:@"/"];
+        if (netStrArray.count >= 2)
+        {
+            NSString *inStr = [netStrArray objectAtIndex:0];
+            NSString *outStr = [netStrArray objectAtIndex:1];
+            netInRatio = inStr.floatValue;
+            netOutRatio = outStr.floatValue;
+        }
+    }
+    _netInView.percent = netInRatio / 100.0;
     _netInView.foregroundColor = THEME_TINT_COLOR;
-    _netInLabel.text = @"30%";
-    _netOutView.percent = 0.25;
+    _netInLabel.text = [NSString stringWithFormat:@"%g%%",netInRatio];
+    _netOutView.percent = netOutRatio / 100.0;
     _netOutView.foregroundColor = THEME_TINT_COLOR;
-    _netOutLabel.text = @"25%";
+    _netOutLabel.text = [NSString stringWithFormat:@"%g%%",netOutRatio];
 }
 
 - (IBAction) onAverageLoadButton:(id)sender

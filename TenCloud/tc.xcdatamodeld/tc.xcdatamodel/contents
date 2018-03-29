@@ -247,6 +247,7 @@
         <attribute name="fifth_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="five_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="login_users" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="monitor" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="one_minute_load" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="run_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -291,6 +292,7 @@
         <element name="TCInviteInfo" positionX="-9" positionY="135" width="128" height="105"/>
         <element name="TCListCorp" positionX="0" positionY="144" width="128" height="150"/>
         <element name="TCMessage" positionX="-9" positionY="135" width="128" height="180"/>
+        <element name="TCMirror" positionX="0" positionY="144" width="128" height="105"/>
         <element name="TCPerformanceItem" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCPermissionNode" positionX="-9" positionY="135" width="128" height="285"/>
         <element name="TCServer" positionX="0" positionY="99" width="128" height="225"/>
@@ -311,10 +313,9 @@
         <element name="TCServerUsage" positionX="-9" positionY="135" width="128" height="195"/>
         <element name="TCService" positionX="9" positionY="153" width="128" height="180"/>
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
-        <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="135"/>
+        <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="150"/>
+        <element name="TCTask" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TCTask" positionX="-9" positionY="135" width="128" height="120"/>
-        <element name="TCMirror" positionX="0" positionY="144" width="128" height="105"/>
     </elements>
 </model>
