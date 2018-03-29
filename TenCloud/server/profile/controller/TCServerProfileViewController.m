@@ -86,8 +86,10 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
 @property (nonatomic, weak) IBOutlet    UILabel             *diskUsageLabel;
 @property (nonatomic, weak) IBOutlet    TCBarChartView      *netInView;
 @property (nonatomic, weak) IBOutlet    UILabel             *netInLabel;
+@property (nonatomic, weak) IBOutlet    UILabel             *netInMaxLabel;
 @property (nonatomic, weak) IBOutlet    TCBarChartView      *netOutView;
 @property (nonatomic, weak) IBOutlet    UILabel             *netOutLabel;
+@property (nonatomic, weak) IBOutlet    UILabel             *netOutMaxLabel;
 //费用信息
 //监控信息
 @property (nonatomic, strong)   NSMutableArray      *periodMenuOptions;
@@ -837,9 +839,9 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
     _memoryUsageView.foregroundColor = THEME_TINT_COLOR;
     NSString *memUsageStr = [NSString stringWithFormat:@"%g%%",usage.memUsageRate.floatValue];
     _memoryUsageLabel.text = memUsageStr;
-    _diskUtilView.percent = usage.diskIO.floatValue/100.0;
+    _diskUtilView.percent = usage.diskUtilize.floatValue/100.0;
     _diskUtilView.foregroundColor = THEME_TINT_COLOR;
-    NSString *diskUtilStr = [NSString stringWithFormat:@"%g%%",usage.diskIO.floatValue];
+    NSString *diskUtilStr = [NSString stringWithFormat:@"%g%%",usage.diskUtilize.floatValue];
     _diskUtilLabel.text = diskUtilStr;
     _diskUsageView.percent = usage.diskUsageRate.floatValue/100.0;
     _diskUsageView.foregroundColor = THEME_TINT_COLOR;
@@ -847,9 +849,9 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
     _diskUsageLabel.text = diskUsageStr;
     CGFloat netInRatio = 0;
     CGFloat netOutRatio = 0;
-    if (usage.networkUsage.length > 0)
+    if (usage.netUsageRate.length > 0)
     {
-        NSArray *netStrArray = [usage.networkUsage componentsSeparatedByString:@"/"];
+        NSArray *netStrArray = [usage.netUsageRate componentsSeparatedByString:@"/"];
         if (netStrArray.count >= 2)
         {
             NSString *inStr = [netStrArray objectAtIndex:0];
@@ -860,10 +862,14 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
     }
     _netInView.percent = netInRatio / 100.0;
     _netInView.foregroundColor = THEME_TINT_COLOR;
-    _netInLabel.text = [NSString stringWithFormat:@"%g%%",netInRatio];
+    //_netInLabel.text = [NSString stringWithFormat:@"%g%%",netInRatio];
+    _netInLabel.text = usage.netDownload;
+    _netInMaxLabel.text = usage.netInputMax;
     _netOutView.percent = netOutRatio / 100.0;
     _netOutView.foregroundColor = THEME_TINT_COLOR;
-    _netOutLabel.text = [NSString stringWithFormat:@"%g%%",netOutRatio];
+    //_netOutLabel.text = [NSString stringWithFormat:@"%g%%",netOutRatio];
+    _netOutLabel.text = usage.netUpload;
+    _netOutMaxLabel.text = usage.netOutputMax;
 }
 
 - (IBAction) onAverageLoadButton:(id)sender

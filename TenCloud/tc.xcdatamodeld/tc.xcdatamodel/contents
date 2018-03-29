@@ -210,13 +210,15 @@
     <entity name="TCServerUsage" representedClassName="TCServerUsage" syncable="YES">
         <attribute name="colorType" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="cpuUsageRate" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="diskIO" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="diskUsageRate" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="diskUtilize" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="memUsageRate" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="netDownload" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="netInputMax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="netOutputMax" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="netUpload" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="networkUsage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="netUsageRate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serverID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCService" representedClassName="TCService" syncable="YES">
@@ -310,7 +312,7 @@
         <element name="TCServerSystemConfig" positionX="9" positionY="171" width="128" height="195"/>
         <element name="TCServerSystemInfo" positionX="18" positionY="180" width="128" height="60"/>
         <element name="TCServerThreshold" positionX="0" positionY="144" width="128" height="120"/>
-        <element name="TCServerUsage" positionX="-9" positionY="135" width="128" height="195"/>
+        <element name="TCServerUsage" positionX="-9" positionY="135" width="128" height="225"/>
         <element name="TCService" positionX="9" positionY="153" width="128" height="180"/>
         <element name="TCStaff" positionX="0" positionY="144" width="128" height="195"/>
         <element name="TCSystemLoad" positionX="-9" positionY="135" width="128" height="150"/>

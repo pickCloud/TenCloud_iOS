@@ -103,12 +103,12 @@
     NSMutableArray *params = [NSMutableArray new];
     CGFloat cpuRate = _usage.cpuUsageRate.floatValue;
     CGFloat memoryRate = _usage.memUsageRate.floatValue;
-    CGFloat diskIORate = _usage.diskIO.floatValue;
+    CGFloat diskIORate = _usage.diskUtilize.floatValue;
     CGFloat diskUsageRate = _usage.diskUsageRate.floatValue;
     CGFloat netInputRate = 0.0;
     CGFloat netOutputRate = 0.0;
     //CGFloat netUsageRate = 0;
-    NSString *netUsageStr = _usage.networkUsage;
+    NSString *netUsageStr = _usage.netUsageRate;
     if (netUsageStr && netUsageStr.length > 0)
     {
         NSArray *netStrArray = [netUsageStr componentsSeparatedByString:@"/"];

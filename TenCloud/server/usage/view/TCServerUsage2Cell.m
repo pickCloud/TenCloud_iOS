@@ -29,11 +29,11 @@
     self.memoryLabel.text = memoryDesc;
     NSString *diskDesc = [NSString stringWithFormat:@"%g%%",usage.diskUsageRate.doubleValue];
     self.diskLabel.text = diskDesc;
-    self.networkLabel.text = usage.networkUsage;
+    self.networkLabel.text = usage.netUsageRate;
     
     CGFloat cpuRate = usage.cpuUsageRate.floatValue;
     CGFloat memoryRate = usage.memUsageRate.floatValue;
-    CGFloat diskIORate = usage.diskIO.floatValue;
+    CGFloat diskIORate = usage.diskUtilize.floatValue;
     CGFloat diskUsageRate = usage.diskUsageRate.floatValue;
     NSString *cpuStr = [NSString stringWithFormat:@"CPU使用率  %g%%",cpuRate];
     NSString *memoryStr = [NSString stringWithFormat:@"内存使用率  %g%%",memoryRate];
