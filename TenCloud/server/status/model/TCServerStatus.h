@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, TCServerActionType){
 @interface TCServerStatus : NSObject
 
 @property (nonatomic, assign)   NSInteger           serverID;
+@property (nonatomic, strong)   NSString            *instanceID;
 @property (nonatomic, strong)   NSString            *status;
 @property (nonatomic, assign)   TCServerActionType  actionType;
 

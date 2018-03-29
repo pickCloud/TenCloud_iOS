@@ -117,6 +117,7 @@
         [_configArray addObject:item6];
         [weakSelf.tableView reloadData];
         
+        NSLog(@"installll_id:%@",_config.basic_info.instance_id);
         TCServerStatusRequest *statusReq = [[TCServerStatusRequest alloc] initWithInstanceID:_config.basic_info.instance_id];
         [statusReq startWithSuccess:^(NSString *status) {
             weakSelf.status = status;
@@ -240,7 +241,8 @@
     TCConfirmBlock block = ^(TCConfirmView *view){
         TCStopServerRequest *request = [[TCStopServerRequest alloc] initWithServerID:_serverID];
         [request startWithSuccess:^(NSString *status) {
-            [weakSelf sendUpdateServerStateRequest];
+            //[weakSelf sendUpdateServerStateRequest];
+            [[TCServerStatusManager shared] stopWithServerID:weakSelf.serverID];
         } failure:^(NSString *message) {
             [MBProgressHUD showError:message toView:nil];
         }];
@@ -258,7 +260,8 @@
     __weak __typeof(self) weakSelf = self;
     TCStartServerRequest *request = [[TCStartServerRequest alloc] initWithServerID:_serverID];
     [request startWithSuccess:^(NSString *status) {
-        [weakSelf sendUpdateServerStateRequest];
+        //[weakSelf sendUpdateServerStateRequest];
+        [[TCServerStatusManager shared] startWithServerID:weakSelf.serverID];
     } failure:^(NSString *message) {
         
     }];
@@ -305,7 +308,8 @@
     if (status != nil)
     {
         [_buttonDataArray removeAllObjects];
-        if ([status containsString:@"已停止"])
+        if ([status containsString:@"已停止"] ||
+            [status containsString:@"已关机"] )
         {
             if ( haveSpecialPermission ||
                 [currentCorp havePermissionForFunc:FUNC_ID_START_SERVER] )
