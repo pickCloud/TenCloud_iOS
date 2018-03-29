@@ -66,7 +66,7 @@
     _memorySizeLabel.text = memoryStr;
     _systemLabel.text = sysConfig.os_name;
     _netTypeLabel.text = sysConfig.instance_network_type;
-    _payMethodLabel.text = _config.business_info.contract.charge_type;
+    _payMethodLabel.text = _config.business_info.contract.instance_internet_charge_type;
     _inBandLabel.text = sysConfig.max_bandwidth_in;
     _outBandLabel.text = sysConfig.max_bandwidth_out;
     _securityIDLabel.text = sysConfig.security_group_ids;

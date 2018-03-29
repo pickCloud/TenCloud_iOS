@@ -2,8 +2,8 @@
 //  TCServerBusinessContract+CoreDataProperties.h
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/12.
-//  Copyright © 2017年 10.com. All rights reserved.
+//  Created by huangdx on 2018/3/29.
+//  Copyright © 2018年 10.com. All rights reserved.
 //
 //
 
@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *charge_type;
 @property (nullable, nonatomic, copy) NSString *create_time;
 @property (nullable, nonatomic, copy) NSString *expired_time;
+@property (nullable, nonatomic, copy) NSString *instance_charge_type;
+@property (nullable, nonatomic, copy) NSString *instance_internet_charge_type;
 
 @end
 

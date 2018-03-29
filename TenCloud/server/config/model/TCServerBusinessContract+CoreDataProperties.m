@@ -2,8 +2,8 @@
 //  TCServerBusinessContract+CoreDataProperties.m
 //  TenCloud
 //
-//  Created by huangdx on 2017/12/12.
-//  Copyright © 2017年 10.com. All rights reserved.
+//  Created by huangdx on 2018/3/29.
+//  Copyright © 2018年 10.com. All rights reserved.
 //
 //
 
@@ -18,5 +18,7 @@
 @dynamic charge_type;
 @dynamic create_time;
 @dynamic expired_time;
+@dynamic instance_charge_type;
+@dynamic instance_internet_charge_type;
 
 @end
