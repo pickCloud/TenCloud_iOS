@@ -14,9 +14,11 @@
 #import "TCAddAppViewController.h"
 #import "TCDataSync.h"
 #import "TCAppListRequest.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #define APP_TABLE_CELL_ID   @"APP_TABLE_CELL_ID"
 
-@interface TCAppTableViewController ()<TCDataSyncDelegate>
+@interface TCAppTableViewController ()<TCDataSyncDelegate,DZNEmptyDataSetSource,
+DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *appArray;
 - (void) generateFakeData;
@@ -79,22 +81,22 @@
     TCApp *app1 = [TCApp MR_createEntity];
     app1.appID = 1;
     app1.name = @"AppAPI";
-    app1.status = @"初创建";
-    app1.source = @"GitHub: AIUnicorn/10com";
-    app1.createTime = [[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
-    app1.updateTime = [[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
+    app1.status = 0;//@"初创建";
+    app1.repos_https_url = @"GitHub: AIUnicorn/10com";
+    app1.create_time = @"2018-01-01 12:00:00";//[[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
+    app1.update_time = @"2018-01-01 12:00:00";//[[NSDate date] timeIntervalSince1970]; //[NSDate timeIntervalSinceReferenceDate];
     //[app1.labels addObjectsFromArray:@[@"基础服务",@"应用组件"]];
     app1.labels = @[@"基础服务",@"应用组件"];
-    app1.avatar = @"http://ou3t8uyol.bkt.clouddn.com/63A6B945-2C42-4E07-B004-D4318768165F";
+    app1.logo_url = @"http://ou3t8uyol.bkt.clouddn.com/63A6B945-2C42-4E07-B004-D4318768165F";
     [_appArray addObject:app1];
     
     TCApp *app2 = [TCApp MR_createEntity];
     app2.appID = 2;
     app2.name = @"图片智能分析";
-    app2.status = @"正常";
-    app2.source = @"GitHub: AIUnicorn/ImageAI";
-    app2.createTime = [NSDate timeIntervalSinceReferenceDate];
-    app2.updateTime = [NSDate timeIntervalSinceReferenceDate];
+    app2.status = 1;//@"正常";
+    app2.repos_https_url = @"GitHub: AIUnicorn/ImageAI";
+    app2.create_time = @"2018-01-01 12:00:00";//[NSDate timeIntervalSinceReferenceDate];
+    app2.update_time = @"2018-01-01 12:00:00";//[NSDate timeIntervalSinceReferenceDate];
     //[app2.labels addObjectsFromArray:@[@"普通项目"]];
     app2.labels = @[@"普通项目",@"常用工具"];
     [_appArray addObject:app2];
@@ -183,6 +185,82 @@
         [self.navigationController pushViewController:profileVC animated:YES];
     }
 }
+
+
+#pragma mark - DZNEmptyDataSetSource Methods
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"app_no_data"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(12.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR2 forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"对不起，你还没有任何应用" attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_APP] ||
+    currentCorp.cid == 0;
+    if (canAdd)
+    {
+        NSString *text = @"马上去添加";
+        UIFont *textFont = TCFont(14.0);
+        NSMutableDictionary *attributes = [NSMutableDictionary new];
+        [attributes setObject:textFont forKey:NSFontAttributeName];
+        if (state == UIControlStateNormal)
+        {
+            [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
+        }else
+        {
+            [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        }
+        return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    }
+    return nil;
+}
+
+- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_APP] ||
+    currentCorp.cid == 0;
+    if (canAdd)
+    {
+        UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
+        UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
+        UIImage *image = nil;
+        if (state == UIControlStateNormal)
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg"];
+        }else
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        }
+        return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
+    }
+    return nil;
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    TCAddAppViewController *addVC = [TCAddAppViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
+}
+
 
 #pragma mark - TCDataSyncDelegate
 - (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed

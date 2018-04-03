@@ -216,9 +216,9 @@ UITextFieldDelegate,UITextViewDelegate>
     TCImageUploader *uploader = [TCImageUploader new];
     uploader.successBlock = ^(NSString *key) {
         [weakSelf.avatarButton setImage:avatarImage forState:UIControlStateNormal];
-        NSString *prefix = @"http://ou3t8uyol.bkt.clouddn.com/";
-        NSString *urlStr = [NSString stringWithFormat:@"%@%@",prefix,key];
-        weakSelf.logoURLStr = urlStr;
+        //NSString *prefix = @"http://ou3t8uyol.bkt.clouddn.com/";
+        //NSString *urlStr = [NSString stringWithFormat:@"%@%@",prefix,key];
+        weakSelf.logoURLStr = key;//urlStr;
     };
     uploader.failBlock = ^(NSString *message) {
         NSLog(@"上传失败:%@",message);

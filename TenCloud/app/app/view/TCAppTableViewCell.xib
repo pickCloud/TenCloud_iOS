@@ -23,7 +23,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qei-9A-cMw">
                         <rect key="frame" x="15" y="8" width="345" height="135"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Q-SS-dwm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Q-SS-dwm" customClass="TCCircleImageView">
                                 <rect key="frame" x="15" y="15" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Y8Q-SS-dwm" secondAttribute="height" multiplier="1:1" id="bJR-OY-RO4"/>

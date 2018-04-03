@@ -56,8 +56,9 @@
     self.layer.cornerRadius = labelSize.height/2.0;
 }
 
-- (void) setStatus:(NSString *)status
+- (void) setStatus:(NSInteger)status
 {
+    /*
     if (status == nil)
     {
         return;
@@ -79,6 +80,23 @@
     {
         [self setTextColor:STATE_NORMAL_COLOR];
         [self setBackgroundColor:STATE_NORMAL_BG_COLOR];
+    }
+     */
+    if (status == 1)
+    {
+        [self setText:@"正常"];
+        [self setTextColor:STATE_NORMAL_COLOR];
+        [self setBackgroundColor:STATE_NORMAL_BG_COLOR];
+    }else if(status == 2)
+    {
+        [self setText:@"异常"];
+        [self setTextColor:STATE_ERROR_COLOR];
+        [self setBackgroundColor:STATE_ERROR_BG_COLOR];
+    }else
+    {
+        [self setText:@"初创建"];
+        [self setTextColor:STATE_CREATE_COLOR];
+        [self setBackgroundColor:STATE_CREATE_BG_COLOR];
     }
 }
 @end

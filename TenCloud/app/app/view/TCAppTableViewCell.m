@@ -9,10 +9,11 @@
 #import "TCAppTableViewCell.h"
 #import "TCApp+CoreDataClass.h"
 #import "TCProgressView.h"
-#import "NSString+Extension.h"
+//#import "NSString+Extension.h"
 #import "TCTagLabelCell.h"
 #import "JYEqualCellSpaceFlowLayout.h"
 #import "TCAppStatusLabel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define APP_TAG_CELL_ID     @"APP_TAG_CELL_ID"
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong)   TCApp               *app;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIView      *bgView;
-@property (nonatomic, weak) IBOutlet    UIView      *avatarView;
+@property (nonatomic, weak) IBOutlet    UIImageView *avatarView;
 @property (nonatomic, weak) IBOutlet    UILabel     *sourceLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *createTimeLabel;
 @property (nonatomic, weak) IBOutlet    UILabel     *updateTimeLabel;
@@ -73,12 +74,21 @@
 - (void) setApp:(TCApp*)app
 {
     _app = app;
+    //[_app.labels removeAllObjects];
+    //[_app.labels addObjectsFromArray:@[@"基础应用",@"智能API"]];
+    _app.labels = @[@"常用插件"];
     _nameLabel.text = app.name;
-    _sourceLabel.text = app.source;
+    _sourceLabel.text = app.repos_https_url;//source;
     //_createTimeLabel.text = [NSString timeStringFromInteger:app.createTime];
-    _createTimeLabel.text = [NSString dateTimeStringFromTimeInterval:app.createTime];
+    _createTimeLabel.text = app.create_time;
+    _updateTimeLabel.text = app.update_time;
+    //[NSString dateTimeStringFromTimeInterval:app.create_time];
     [_statusLabel setStatus:app.status];
     [_labelCollectionView reloadData];
+    
+    NSURL *avatarURL = [NSURL URLWithString:app.logo_url];
+    UIImage *defaultAvatar = [UIImage imageNamed:@"app_avatar_default"];
+    [_avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatar];
 }
 
 - (void) updateUI

@@ -12,6 +12,6 @@
 
 @property (nonatomic, assign) UIEdgeInsets edgeInsets;
 
-- (void) setStatus:(NSString*)status;
+- (void) setStatus:(NSInteger)status;
 
 @end
