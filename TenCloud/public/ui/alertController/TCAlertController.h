@@ -11,6 +11,7 @@
 #import "TCConfirmView.h"
 #import "TCOKView.h"
 
+
 typedef NS_ENUM(NSInteger, TCAlertControllerStyle) {
     TCAlertControllerStyleAlert = 0,
     TCAlertControllerStyleActionSheet
@@ -52,6 +53,8 @@ typedef NS_ENUM(NSInteger, TCAlertTransitionAnimation) {
 
 // dismiss controller completed block
 @property (nonatomic, copy) void (^dismissComplete)(void);
+
+- (instancetype)initWithAlertView:(UIView *)alertView preferredStyle:(TCAlertControllerStyle)preferredStyle transitionAnimation:(TCAlertTransitionAnimation)transitionAnimation transitionAnimationClass:(Class)transitionAnimationClass;
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView;
 
@@ -95,6 +98,8 @@ typedef NS_ENUM(NSInteger, TCAlertTransitionAnimation) {
 
 + (void) presentWithTitle:(NSString *)title
                      desc:(NSString *)desc;
+
+- (void) present;
 
 - (void)dismissViewControllerAnimated: (BOOL)animated;
 

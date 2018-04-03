@@ -102,6 +102,16 @@
 #pragma mark - extension
 - (void) onConfirmButton:(UIButton*)button
 {
-    NSLog(@"哈哈");
+    if (_bindBlock)
+    {
+        NSArray *rows = self.tableView.indexPathsForSelectedRows;
+        if (rows && rows.count > 0)
+        {
+            NSIndexPath *path = rows.firstObject;
+            TCGitRepo *repo = [_repoArray objectAtIndex:path.row];
+            _bindBlock(repo);
+        }
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

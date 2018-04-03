@@ -188,6 +188,8 @@
 		A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04539BB2007514900402D1A /* ShapeSelectView.xib */; };
 		A04539BF2007514900402D1A /* ShapeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539BD2007514900402D1A /* ShapeSelectView.m */; };
 		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
+		A052F7EB2073CC46000A44E6 /* TCSelectAppTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F7E92073CC46000A44E6 /* TCSelectAppTagView.xib */; };
+		A052F7EC2073CC46000A44E6 /* TCSelectAppTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7EA2073CC46000A44E6 /* TCSelectAppTagView.m */; };
 		A05D65A42061F8D8006006B0 /* TCServerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A32061F8D8006006B0 /* TCServerStatus.m */; };
 		A05D65A72061F8EB006006B0 /* TCServerStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */; };
 		A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */; };
@@ -849,6 +851,9 @@
 		A04539BD2007514900402D1A /* ShapeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeSelectView.m; sourceTree = "<group>"; };
 		A04539C02007523000402D1A /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
 		A04539C12007523000402D1A /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
+		A052F7E82073CC46000A44E6 /* TCSelectAppTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSelectAppTagView.h; sourceTree = "<group>"; };
+		A052F7E92073CC46000A44E6 /* TCSelectAppTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSelectAppTagView.xib; sourceTree = "<group>"; };
+		A052F7EA2073CC46000A44E6 /* TCSelectAppTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSelectAppTagView.m; sourceTree = "<group>"; };
 		A05D65A22061F8D8006006B0 /* TCServerStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatus.h; sourceTree = "<group>"; };
 		A05D65A32061F8D8006006B0 /* TCServerStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatus.m; sourceTree = "<group>"; };
 		A05D65A52061F8EB006006B0 /* TCServerStatusManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatusManager.h; sourceTree = "<group>"; };
@@ -5275,6 +5280,9 @@
 		A0FC255F20723A53009E0C12 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A052F7E82073CC46000A44E6 /* TCSelectAppTagView.h */,
+				A052F7EA2073CC46000A44E6 /* TCSelectAppTagView.m */,
+				A052F7E92073CC46000A44E6 /* TCSelectAppTagView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5560,6 +5568,7 @@
 				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
+				A052F7EB2073CC46000A44E6 /* TCSelectAppTagView.xib in Resources */,
 				A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */,
 				A031B62B1FFE259000B4F448 /* TCStaffTableViewCell.xib in Resources */,
 				A0A0F0B620595FAB003CB4BD /* TCServerUsage4Cell.xib in Resources */,
@@ -6013,6 +6022,7 @@
 				A05D65C62063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A07B7E41205BBA3700E64047 /* TCServerThresholdRequest.m in Sources */,
+				A052F7EC2073CC46000A44E6 /* TCSelectAppTagView.m in Sources */,
 				A08358E2206BC1EA00DF2DA0 /* TCAppProfileSection3Header.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
 				A073F9B320185ED500AB03DA /* TCTagLabel.m in Sources */,

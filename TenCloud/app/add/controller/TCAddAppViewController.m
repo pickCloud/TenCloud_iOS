@@ -12,6 +12,13 @@
 #import "LSActionSheet.h"
 #import "UIImage+Resizing.h"
 #import "TCAppBindRepoViewController.h"
+#import "TCGitRepo.h"
+#import "TCTagLabelCell.h"
+#import "JYEqualCellSpaceFlowLayout.h"
+#import "TCSelectAppTagView.h"
+#import "TCAlertController.h"
+#import "UIView+TCAlertView.h"
+#define ADD_APP_TAG_CELL_ID @"ADD_APP_TAG_CELL_ID"
 
 @interface TCAddAppViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,
 UITextFieldDelegate,UITextViewDelegate>
@@ -21,11 +28,15 @@ UITextFieldDelegate,UITextViewDelegate>
 @property (nonatomic, weak) IBOutlet    UITextField         *nameField;
 @property (nonatomic, weak) IBOutlet    XXTextView          *descTextView;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *tagView;
+@property (nonatomic, weak) IBOutlet    UILabel             *editTagLabel;
 @property (nonatomic, weak) IBOutlet    UIButton            *sourceButton;
+@property (nonatomic, strong)   NSString                    *repoAddress;
+@property (nonatomic, strong)   NSMutableArray              *tagArray;
 - (IBAction) onAvatarButton:(id)sender;
 - (IBAction) onMirrorSourceButton:(id)sender;
 - (IBAction) onTagButton:(id)sender;
 - (IBAction) onAddButton:(id)sender;
+- (void) updateTagUI;
 @end
 
 @implementation TCAddAppViewController
@@ -43,8 +54,22 @@ UITextFieldDelegate,UITextViewDelegate>
         _topConstraint.constant = 64+27;
     }
      */
+    _tagArray = [NSMutableArray new];
+    [_tagArray addObject:@"web站"];
+    [_tagArray addObject:@"AI集群"];
+    [_tagArray addObject:@"视频存储专用"];
+    [_tagArray addObject:@"翻墙组"];
+    [_tagArray addObject:@"北美CDN"];
+    [_tagArray addObject:@"基础API"];
     
+    UINib *tagCellNib = [UINib nibWithNibName:@"TCTagLabelCell" bundle:nil];
+    [_tagView registerNib:tagCellNib forCellWithReuseIdentifier:ADD_APP_TAG_CELL_ID];
+    UICollectionViewFlowLayout *layout = nil;
+    layout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithLeft betweenOfCell:8.0];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    [_tagView setCollectionViewLayout:layout];
     
+    [self updateTagUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,19 +114,46 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onMirrorSourceButton:(id)sender
 {
+    __weak __typeof(self) weakSelf = self;
     TCAppBindRepoViewController *bindVC = [TCAppBindRepoViewController new];
+    bindVC.bindBlock = ^(TCGitRepo *repo) {
+        if ([repo isValid])
+        {
+            weakSelf.repoAddress = repo.address;
+            [weakSelf.sourceButton setTitle:repo.name forState:UIControlStateNormal];
+        }else
+        {
+            [weakSelf.sourceButton setTitle:@"绑定github代码仓库" forState:UIControlStateNormal];
+        }
+    };
     [self.navigationController pushViewController:bindVC animated:YES];
 }
 
 - (IBAction) onTagButton:(id)sender
 {
     NSLog(@"on tag button");
+    TCSelectAppTagView *view = [TCSelectAppTagView createViewFromNib];
+    TCAlertController *ctrl = [[TCAlertController alloc] initWithAlertView:view
+    preferredStyle:TCAlertControllerStyleAlert transitionAnimation:TCAlertTransitionAnimationFade transitionAnimationClass:nil];
+    ctrl.backgoundTapDismissEnable = NO;
+    [ctrl present];
     
 }
 
 - (IBAction) onAddButton:(id)sender
 {
     
+}
+
+- (void) updateTagUI
+{
+    if (_tagArray.count > 0)
+    {
+        _editTagLabel.hidden = YES;
+    }else
+    {
+        _editTagLabel.hidden = NO;
+    }
 }
 
 
@@ -149,8 +201,55 @@ UITextFieldDelegate,UITextViewDelegate>
     return YES;
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
     return YES;
+}
+
+
+#pragma mark - collection view delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _tagArray.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCTagLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ADD_APP_TAG_CELL_ID forIndexPath:indexPath];
+    NSString *tagName = [_tagArray objectAtIndex:indexPath.row];
+    [cell setName:tagName];
+    [cell setSelected:NO];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *text = [_tagArray objectAtIndex:indexPath.row];
+    //NSString *text = [_periodMenuOptions objectAtIndex:indexPath.row];
+    if (text == nil || text.length == 0)
+    {
+        text = @"默认";
+    }
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(kScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:TCFont(10.0)} context:nil].size;
+    return CGSizeMake(textSize.width + 6, textSize.height + 2);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 @end

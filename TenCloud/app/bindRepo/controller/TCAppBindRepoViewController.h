@@ -8,6 +8,11 @@
 
 #import "TCViewController.h"
 
+@class TCGitRepo;
+typedef void (^TCBindRepoBlock)(TCGitRepo *repo);
+
 @interface TCAppBindRepoViewController : TCViewController
+
+@property (nonatomic, copy) TCBindRepoBlock     bindBlock;
 
 @end

@@ -20,6 +20,8 @@
 #import "TCAppProfileViewController.h"
 #import "TCAppTableViewController.h"
 
+#import "TCAddAppViewController.h"
+
 #define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
 #define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"
@@ -212,8 +214,12 @@
 
 - (void) onMessageButton:(id)sender
 {
+    TCAddAppViewController *addVC = [TCAddAppViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
+    /*
     TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
+     */
 }
 
 

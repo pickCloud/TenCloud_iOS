@@ -8,8 +8,8 @@
 
 #import "TCAlertController.h"
 #import "UIView+TCAutoLayout.h"
-#import "UIView+TCAlertView.h"
 #import "TCDescView.h"
+#import "UIView+TCAlertView.h"
 
 @interface TCAlertController ()
 
@@ -237,6 +237,12 @@
         [rootVC presentViewController:controller animated:YES completion:nil];
          */
     }
+}
+
+- (void) present
+{
+    UIViewController *rootVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [rootVC presentViewController:self animated:YES completion:nil];
 }
 
 #pragma mark - life cycle

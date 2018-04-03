@@ -16,6 +16,7 @@
                 <outlet property="avatarButton" destination="jMa-XW-acZ" id="tI7-nS-wG2"/>
                 <outlet property="avatarView" destination="BXL-mn-vsk" id="x0M-JV-QTn"/>
                 <outlet property="descTextView" destination="yrH-eF-Cdb" id="qpg-R9-XpA"/>
+                <outlet property="editTagLabel" destination="hNI-9m-tI7" id="MSV-22-GYL"/>
                 <outlet property="nameField" destination="kT6-fL-fKJ" id="KwP-j5-XH6"/>
                 <outlet property="sourceButton" destination="ak6-2p-Rfv" id="Bf3-kq-mNE"/>
                 <outlet property="tagView" destination="qz6-3W-V2b" id="SMr-nA-kIf"/>
@@ -195,7 +196,18 @@
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="DKs-LZ-t4b"/>
+                                        <outlet property="delegate" destination="-1" id="b4t-zp-TDw"/>
+                                    </connections>
                                 </collectionView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK9-ah-YrE">
+                                    <rect key="frame" x="95" y="0.0" width="265" height="44"/>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="onTagButton:" destination="-1" eventType="touchUpInside" id="dne-8h-e8O"/>
+                                    </connections>
+                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7U-sJ-uh8">
                                     <rect key="frame" x="15" y="43" width="360" height="0.5"/>
                                     <color key="backgroundColor" red="0.18823529410000001" green="0.20784313730000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -206,13 +218,17 @@
                             </subviews>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.1647058824" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="xK9-ah-YrE" firstAttribute="centerY" secondItem="qz6-3W-V2b" secondAttribute="centerY" id="5Rs-6H-rtc"/>
                                 <constraint firstAttribute="bottom" secondItem="qz6-3W-V2b" secondAttribute="bottom" id="GUS-7m-Dzt"/>
                                 <constraint firstItem="H7U-sJ-uh8" firstAttribute="leading" secondItem="3Zu-wB-eZa" secondAttribute="leading" id="JLN-Cb-OIk"/>
                                 <constraint firstItem="qz6-3W-V2b" firstAttribute="top" secondItem="ZSO-bb-I0F" secondAttribute="top" id="LhC-au-Lbo"/>
                                 <constraint firstItem="3Zu-wB-eZa" firstAttribute="top" secondItem="ZSO-bb-I0F" secondAttribute="top" constant="10" id="Mrp-em-gec"/>
+                                <constraint firstItem="xK9-ah-YrE" firstAttribute="height" secondItem="qz6-3W-V2b" secondAttribute="height" id="VLI-ES-wnk"/>
                                 <constraint firstItem="hNI-9m-tI7" firstAttribute="centerY" secondItem="3Zu-wB-eZa" secondAttribute="centerY" id="hND-nu-h98"/>
                                 <constraint firstAttribute="bottom" secondItem="H7U-sJ-uh8" secondAttribute="bottom" constant="0.5" id="ihM-kE-0LE"/>
                                 <constraint firstAttribute="trailing" secondItem="H7U-sJ-uh8" secondAttribute="trailing" id="pRP-mW-Zax"/>
+                                <constraint firstItem="xK9-ah-YrE" firstAttribute="centerX" secondItem="qz6-3W-V2b" secondAttribute="centerX" id="r1C-3F-vdW"/>
+                                <constraint firstItem="xK9-ah-YrE" firstAttribute="width" secondItem="qz6-3W-V2b" secondAttribute="width" id="r1W-DU-1kq"/>
                                 <constraint firstItem="hNI-9m-tI7" firstAttribute="leading" secondItem="qz6-3W-V2b" secondAttribute="leading" id="veU-Rs-3Y3"/>
                             </constraints>
                         </view>
