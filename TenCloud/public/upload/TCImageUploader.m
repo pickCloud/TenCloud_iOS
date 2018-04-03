@@ -19,6 +19,7 @@
     TCUploadTokenRequest *tokenReq = [TCUploadTokenRequest new];
     [tokenReq startWithSuccess:^(NSString *token) {
         //__strong __typeof(weakSelf) strongSelf = weakSelf;
+        NSLog(@"img token:%@",token);
         QNUploadManager *uploadManager = [[QNUploadManager alloc] init];
         QNUploadOption *opt =[[QNUploadOption alloc] initWithMime:@"jpg" progressHandler:nil params:nil checkCrc:YES cancellationSignal:nil];
         NSData *jpgData = UIImageJPEGRepresentation(image, 0.8);
@@ -33,6 +34,9 @@
                               strongSelf.successBlock(key);
                           }
                            */
+                          NSLog(@"info :%@",info);
+                          NSLog(@"resp:%@",resp);
+                          NSLog(@"key:%@",key);
                           if (self.successBlock)
                           {
                               self.successBlock(key);

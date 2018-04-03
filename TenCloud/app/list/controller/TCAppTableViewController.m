@@ -12,12 +12,15 @@
 #import "TCAppProfileViewController.h"
 #import "TCAppFilterViewController.h"
 #import "TCAddAppViewController.h"
+#import "TCDataSync.h"
+#import "TCAppListRequest.h"
 #define APP_TABLE_CELL_ID   @"APP_TABLE_CELL_ID"
 
-@interface TCAppTableViewController ()
+@interface TCAppTableViewController ()<TCDataSyncDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   NSMutableArray          *appArray;
 - (void) generateFakeData;
+- (void) reloadAppArray;
 - (void) updateAddAppButton;
 - (void) onAddAppButton:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
@@ -40,17 +43,26 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"应用列表";
     _appArray = [NSMutableArray new];
-    [self generateFakeData];
+    //[self generateFakeData];
     [self updateAddAppButton];
     
     UINib *appCellNib = [UINib nibWithNibName:@"TCAppTableViewCell" bundle:nil];
     [_tableView registerNib:appCellNib forCellReuseIdentifier:APP_TABLE_CELL_ID];
+    [[TCDataSync shared] addPermissionChangedObserver:self];
+    
+    [self startLoading];
+    [self reloadAppArray];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    [[TCDataSync shared] removePermissionChangedObserver:self];
 }
 
 /*
@@ -88,15 +100,37 @@
     [_appArray addObject:app2];
 }
 
+- (void) reloadAppArray
+{
+    __weak __typeof(self) weakSelf = self;
+    TCAppListRequest *req = [TCAppListRequest new];
+    [req startWithSuccess:^(NSArray<TCApp *> *appArray) {
+        [weakSelf.appArray removeAllObjects];
+        [weakSelf stopLoading];
+        [weakSelf.appArray addObjectsFromArray:appArray];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
+}
+
 - (void) updateAddAppButton
 {
-    UIImage *addTmplImg = [UIImage imageNamed:@"app_add"];
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:addTmplImg forState:UIControlStateNormal];
-    [addButton sizeToFit];
-    [addButton addTarget:self action:@selector(onAddAppButton:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = addItem;
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    if (currentCorp.isAdmin || [currentCorp havePermissionForFunc:FUNC_ID_ADD_APP])
+    {
+        UIImage *addTmplImg = [UIImage imageNamed:@"app_add"];
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setImage:addTmplImg forState:UIControlStateNormal];
+        [addButton sizeToFit];
+        [addButton addTarget:self action:@selector(onAddAppButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        self.navigationItem.rightBarButtonItem = addItem;
+    }else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 - (void) onAddAppButton:(id)sender
@@ -148,5 +182,11 @@
         TCAppProfileViewController *profileVC = [[TCAppProfileViewController alloc] initWithApp:app];
         [self.navigationController pushViewController:profileVC animated:YES];
     }
+}
+
+#pragma mark - TCDataSyncDelegate
+- (void) dataSync:(TCDataSync*)sync permissionChanged:(NSInteger)changed
+{
+    [self updateAddAppButton];
 }
 @end

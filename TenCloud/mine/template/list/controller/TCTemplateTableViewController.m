@@ -218,6 +218,7 @@ TCDataSyncDelegate>
         [weakSelf.templateArray addObjectsFromArray:templateArray];
         [weakSelf.tableView reloadData];
     } failure:^(NSString *message) {
+        //need check here
         [weakSelf startLoading];
         [MBProgressHUD showError:message toView:nil];
     }];

@@ -116,6 +116,8 @@
 #define FUNC_ID_DEL_SERVER              23  //删除主机
 #define FUNC_ID_START_SERVER            24  //开机关机
 #define FUNC_ID_MODIFY_SERVER           25  //修改主机信息
+//应用
+#define FUNC_ID_ADD_APP                 32  //创建应用服务
 
 
 #endif /* PrefixHeader_pch */

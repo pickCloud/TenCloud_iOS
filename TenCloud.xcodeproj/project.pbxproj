@@ -190,6 +190,8 @@
 		A04539C22007523000402D1A /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04539C02007523000402D1A /* ShapeView.m */; };
 		A052F7EB2073CC46000A44E6 /* TCSelectAppTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F7E92073CC46000A44E6 /* TCSelectAppTagView.xib */; };
 		A052F7EC2073CC46000A44E6 /* TCSelectAppTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7EA2073CC46000A44E6 /* TCSelectAppTagView.m */; };
+		A052F7EF2073E031000A44E6 /* TCAddAppRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7EE2073E031000A44E6 /* TCAddAppRequest.m */; };
+		A052F7F320742F96000A44E6 /* TCAppListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7F220742F96000A44E6 /* TCAppListRequest.m */; };
 		A05D65A42061F8D8006006B0 /* TCServerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A32061F8D8006006B0 /* TCServerStatus.m */; };
 		A05D65A72061F8EB006006B0 /* TCServerStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */; };
 		A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */; };
@@ -854,6 +856,10 @@
 		A052F7E82073CC46000A44E6 /* TCSelectAppTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSelectAppTagView.h; sourceTree = "<group>"; };
 		A052F7E92073CC46000A44E6 /* TCSelectAppTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCSelectAppTagView.xib; sourceTree = "<group>"; };
 		A052F7EA2073CC46000A44E6 /* TCSelectAppTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSelectAppTagView.m; sourceTree = "<group>"; };
+		A052F7ED2073E031000A44E6 /* TCAddAppRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddAppRequest.h; sourceTree = "<group>"; };
+		A052F7EE2073E031000A44E6 /* TCAddAppRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddAppRequest.m; sourceTree = "<group>"; };
+		A052F7F120742F96000A44E6 /* TCAppListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppListRequest.h; sourceTree = "<group>"; };
+		A052F7F220742F96000A44E6 /* TCAppListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppListRequest.m; sourceTree = "<group>"; };
 		A05D65A22061F8D8006006B0 /* TCServerStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatus.h; sourceTree = "<group>"; };
 		A05D65A32061F8D8006006B0 /* TCServerStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatus.m; sourceTree = "<group>"; };
 		A05D65A52061F8EB006006B0 /* TCServerStatusManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatusManager.h; sourceTree = "<group>"; };
@@ -1712,8 +1718,8 @@
 			isa = PBXGroup;
 			children = (
 				A08358B0206B629900DF2DA0 /* controller */,
+				A052F7F020742F5C000A44E6 /* request */,
 				A005A3C92068D91F00ABA490 /* model */,
-				A005A3CA2068D91F00ABA490 /* request */,
 				A005A3CB2068D91F00ABA490 /* view */,
 			);
 			path = list;
@@ -1724,13 +1730,6 @@
 			children = (
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A005A3CA2068D91F00ABA490 /* request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = request;
 			sourceTree = "<group>";
 		};
 		A005A3CB2068D91F00ABA490 /* view */ = {
@@ -3835,6 +3834,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		A052F7F020742F5C000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A052F7F120742F96000A44E6 /* TCAppListRequest.h */,
+				A052F7F220742F96000A44E6 /* TCAppListRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		A05D659D2061F783006006B0 /* status */ = {
 			isa = PBXGroup;
 			children = (
@@ -5273,6 +5281,8 @@
 		A0FC255E20723A53009E0C12 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A052F7ED2073E031000A44E6 /* TCAddAppRequest.h */,
+				A052F7EE2073E031000A44E6 /* TCAddAppRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -5828,6 +5838,7 @@
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
+				A052F7EF2073E031000A44E6 /* TCAddAppRequest.m in Sources */,
 				A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */,
 				A0906E7B20288DB2006D30C8 /* UIView+TCAlertView.m in Sources */,
 				A02555231FD6930800D16D22 /* YTKNetworkConfig.m in Sources */,
@@ -6121,6 +6132,7 @@
 				A08358C8206B792400DF2DA0 /* TCTask+CoreDataClass.m in Sources */,
 				A07DBE521FDFDDD600F37715 /* TCServerPerformanceRequest.m in Sources */,
 				A028BD712057AFBF00548298 /* TCToolButton.m in Sources */,
+				A052F7F320742F96000A44E6 /* TCAppListRequest.m in Sources */,
 				A005A3FF2069D45900ABA490 /* TCAppTableViewCell.m in Sources */,
 				A001FA421FDD81CB008328B0 /* TCServerCPU+CoreDataProperties.m in Sources */,
 				A07DBE101FDF872900F37715 /* TCServerConfigViewController.m in Sources */,

@@ -74,6 +74,9 @@
                                         <constraint firstAttribute="width" secondItem="jMa-XW-acZ" secondAttribute="height" multiplier="1:1" id="xA6-ts-2JT"/>
                                     </constraints>
                                     <state key="normal" image="app_avatar_default"/>
+                                    <connections>
+                                        <action selector="onAvatarButton:" destination="-1" eventType="touchUpInside" id="SH4-fI-0XR"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.1647058824" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

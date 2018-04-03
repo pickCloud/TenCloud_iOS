@@ -18,6 +18,7 @@
 #import "TCSelectAppTagView.h"
 #import "TCAlertController.h"
 #import "UIView+TCAlertView.h"
+#import "TCAddAppRequest.h"
 #define ADD_APP_TAG_CELL_ID @"ADD_APP_TAG_CELL_ID"
 
 @interface TCAddAppViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,
@@ -30,7 +31,9 @@ UITextFieldDelegate,UITextViewDelegate>
 @property (nonatomic, weak) IBOutlet    UICollectionView    *tagView;
 @property (nonatomic, weak) IBOutlet    UILabel             *editTagLabel;
 @property (nonatomic, weak) IBOutlet    UIButton            *sourceButton;
+@property (nonatomic, strong)   NSString                    *repoName;
 @property (nonatomic, strong)   NSString                    *repoAddress;
+@property (nonatomic, strong)   NSString                    *logoURLStr;
 @property (nonatomic, strong)   NSMutableArray              *tagArray;
 - (IBAction) onAvatarButton:(id)sender;
 - (IBAction) onMirrorSourceButton:(id)sender;
@@ -119,6 +122,7 @@ UITextFieldDelegate,UITextViewDelegate>
     bindVC.bindBlock = ^(TCGitRepo *repo) {
         if ([repo isValid])
         {
+            weakSelf.repoName = repo.name;
             weakSelf.repoAddress = repo.address;
             [weakSelf.sourceButton setTitle:repo.name forState:UIControlStateNormal];
         }else
@@ -142,7 +146,40 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onAddButton:(id)sender
 {
+    if (_nameField.text.length <= 0)
+    {
+        [MBProgressHUD showError:@"名称不能为空" toView:nil];
+        return;
+    }
+    if ([_nameField isFirstResponder])
+    {
+        [_nameField resignFirstResponder];
+    }
+    if (_descTextView.text.length <= 0)
+    {
+        [MBProgressHUD showError:@"描述不能为空" toView:nil];
+        return;
+    }
+    if ([_descTextView isFirstResponder])
+    {
+        [_descTextView resignFirstResponder];
+    }
     
+    __weak __typeof(self) weakSelf = self;
+    TCAddAppRequest *req = [TCAddAppRequest new];
+    req.name = _nameField.text;
+    req.desc = _descTextView.text;
+    req.repos_name = _descTextView.text;
+    req.repos_https_url = _repoAddress;
+    req.logo_url = _logoURLStr;
+    req.image_id = @(0);
+    [req startWithSuccess:^(NSInteger appID) {
+        NSLog(@"ok app id:%ld",appID);
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        [MBProgressHUD showSuccess:@"成功创建应用" toView:nil];
+    } failure:^(NSString *message) {
+        [TCAlertController presentWithTitle:message okBlock:nil];
+    }];
 }
 
 - (void) updateTagUI
@@ -179,6 +216,9 @@ UITextFieldDelegate,UITextViewDelegate>
     TCImageUploader *uploader = [TCImageUploader new];
     uploader.successBlock = ^(NSString *key) {
         [weakSelf.avatarButton setImage:avatarImage forState:UIControlStateNormal];
+        NSString *prefix = @"http://ou3t8uyol.bkt.clouddn.com/";
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@",prefix,key];
+        weakSelf.logoURLStr = urlStr;
     };
     uploader.failBlock = ^(NSString *message) {
         NSLog(@"上传失败:%@",message);
