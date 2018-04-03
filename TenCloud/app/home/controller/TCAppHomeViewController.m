@@ -19,6 +19,7 @@
 #import "TCMessageTableViewController.h"
 #import "TCAppProfileViewController.h"
 #import "TCAppTableViewController.h"
+
 #define APP_HOME_ICON_CELL_ID       @"APP_HOME_ICON_CELL_ID"
 #define APP_HOME_APP_CELL_ID        @"APP_HOME_APP_CELL_ID"
 #define APP_HOME_DEPLOY_CELL_ID     @"APP_HOME_DEPLOY_CELL_ID"

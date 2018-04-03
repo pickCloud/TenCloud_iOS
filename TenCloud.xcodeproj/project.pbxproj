@@ -503,6 +503,15 @@
 		A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */; };
 		A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */; };
 		A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC255B20723175009E0C12 /* TCImageUploader.m */; };
+		A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */; };
+		A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */; };
+		A0FC256920731D8E009E0C12 /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256820731D8E009E0C12 /* XXTextView.m */; };
+		A0FC256C20735814009E0C12 /* TCAutoScaleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256B20735814009E0C12 /* TCAutoScaleTextField.m */; };
+		A0FC256F207378AF009E0C12 /* TCGitRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256E207378AF009E0C12 /* TCGitRepo.m */; };
+		A0FC257420737904009E0C12 /* TCAppBindRepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC257220737904009E0C12 /* TCAppBindRepoViewController.m */; };
+		A0FC257520737904009E0C12 /* TCAppBindRepoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC257320737904009E0C12 /* TCAppBindRepoViewController.xib */; };
+		A0FC257A207379CA009E0C12 /* TCBindRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC2578207379CA009E0C12 /* TCBindRepoTableViewCell.m */; };
+		A0FC257B207379CA009E0C12 /* TCBindRepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC2579207379CA009E0C12 /* TCBindRepoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1382,6 +1391,21 @@
 		A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
 		A0FC255A20723175009E0C12 /* TCImageUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageUploader.h; sourceTree = "<group>"; };
 		A0FC255B20723175009E0C12 /* TCImageUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageUploader.m; sourceTree = "<group>"; };
+		A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddAppViewController.h; sourceTree = "<group>"; };
+		A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAddAppViewController.m; sourceTree = "<group>"; };
+		A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAddAppViewController.xib; sourceTree = "<group>"; };
+		A0FC256720731D8E009E0C12 /* XXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXTextView.h; sourceTree = "<group>"; };
+		A0FC256820731D8E009E0C12 /* XXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTextView.m; sourceTree = "<group>"; };
+		A0FC256A20735814009E0C12 /* TCAutoScaleTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAutoScaleTextField.h; sourceTree = "<group>"; };
+		A0FC256B20735814009E0C12 /* TCAutoScaleTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAutoScaleTextField.m; sourceTree = "<group>"; };
+		A0FC256D207378AF009E0C12 /* TCGitRepo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCGitRepo.h; sourceTree = "<group>"; };
+		A0FC256E207378AF009E0C12 /* TCGitRepo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCGitRepo.m; sourceTree = "<group>"; };
+		A0FC257120737904009E0C12 /* TCAppBindRepoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppBindRepoViewController.h; sourceTree = "<group>"; };
+		A0FC257220737904009E0C12 /* TCAppBindRepoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppBindRepoViewController.m; sourceTree = "<group>"; };
+		A0FC257320737904009E0C12 /* TCAppBindRepoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCAppBindRepoViewController.xib; sourceTree = "<group>"; };
+		A0FC2577207379CA009E0C12 /* TCBindRepoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCBindRepoTableViewCell.h; sourceTree = "<group>"; };
+		A0FC2578207379CA009E0C12 /* TCBindRepoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCBindRepoTableViewCell.m; sourceTree = "<group>"; };
+		A0FC2579207379CA009E0C12 /* TCBindRepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCBindRepoTableViewCell.xib; sourceTree = "<group>"; };
 		AB44CA920E3D6C03577B9EE7 /* Pods-TenCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloudTests/Pods-TenCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75D32E05C9BAC78C16E36EF /* libPods-TenCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TenCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2ACF13510F8C945A56259 /* Pods-TenCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenCloud/Pods-TenCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1506,40 +1530,10 @@
 		A005A3AE2068D91F00ABA490 /* bindRepo */ = {
 			isa = PBXGroup;
 			children = (
-				A005A3AF2068D91F00ABA490 /* controller */,
-				A005A3B02068D91F00ABA490 /* model */,
-				A005A3B12068D91F00ABA490 /* request */,
-				A005A3B22068D91F00ABA490 /* view */,
+				A0FC257620737992009E0C12 /* view */,
+				A0FC2570207378E1009E0C12 /* controller */,
 			);
 			path = bindRepo;
-			sourceTree = "<group>";
-		};
-		A005A3AF2068D91F00ABA490 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		A005A3B02068D91F00ABA490 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		A005A3B12068D91F00ABA490 /* request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = request;
-			sourceTree = "<group>";
-		};
-		A005A3B22068D91F00ABA490 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		A005A3B32068D91F00ABA490 /* deploy */ = {
@@ -2210,6 +2204,7 @@
 		A02555081FD692FA00D16D22 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A0FC256620731D8E009E0C12 /* XXTextView */,
 				A067D8A1200F4A7600160913 /* MGBadgeView */,
 				A0F6BD82200DFB2000843ECF /* WRNavigationBar */,
 				A04539B720074F2200402D1A /* MKDropdownMenu */,
@@ -4090,6 +4085,8 @@
 			children = (
 				A07DBE971FE15B4A00F37715 /* TCSpacingTextField.h */,
 				A07DBE981FE15B4A00F37715 /* TCSpacingTextField.m */,
+				A0FC256A20735814009E0C12 /* TCAutoScaleTextField.h */,
+				A0FC256B20735814009E0C12 /* TCAutoScaleTextField.m */,
 			);
 			path = textfield;
 			sourceTree = "<group>";
@@ -5261,6 +5258,9 @@
 		A0FC255D20723A3F009E0C12 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */,
+				A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */,
+				A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -5282,8 +5282,39 @@
 		A0FC256020723A53009E0C12 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0FC256D207378AF009E0C12 /* TCGitRepo.h */,
+				A0FC256E207378AF009E0C12 /* TCGitRepo.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A0FC256620731D8E009E0C12 /* XXTextView */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC256720731D8E009E0C12 /* XXTextView.h */,
+				A0FC256820731D8E009E0C12 /* XXTextView.m */,
+			);
+			path = XXTextView;
+			sourceTree = "<group>";
+		};
+		A0FC2570207378E1009E0C12 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC257120737904009E0C12 /* TCAppBindRepoViewController.h */,
+				A0FC257220737904009E0C12 /* TCAppBindRepoViewController.m */,
+				A0FC257320737904009E0C12 /* TCAppBindRepoViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0FC257620737992009E0C12 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC2577207379CA009E0C12 /* TCBindRepoTableViewCell.h */,
+				A0FC2578207379CA009E0C12 /* TCBindRepoTableViewCell.m */,
+				A0FC2579207379CA009E0C12 /* TCBindRepoTableViewCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5443,6 +5474,7 @@
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A00AFF82200C4B6600EFADF6 /* TCInviteProfileViewController.xib in Resources */,
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
+				A0FC257520737904009E0C12 /* TCAppBindRepoViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
 				A0142CA32051891000DC843D /* TCLogHomeViewController.xib in Resources */,
@@ -5464,6 +5496,7 @@
 				A02CA86F2000F23F00BD00C5 /* TCPermissionCell.xib in Resources */,
 				A07B7E38205B983800E64047 /* TCServerConfigInfoViewController.xib in Resources */,
 				A0A86B661FF3B1B200D1D58D /* TCAddCorpViewController.xib in Resources */,
+				A0FC257B207379CA009E0C12 /* TCBindRepoTableViewCell.xib in Resources */,
 				A0A0F09D2058C55F003CB4BD /* TCServerHomeUsageCell.xib in Resources */,
 				A0C9A0751FF0E94600F94E9E /* TCModifyTextViewController.xib in Resources */,
 				A00AFF87200C4E1100EFADF6 /* TCAcceptInviteViewController.xib in Resources */,
@@ -5527,6 +5560,7 @@
 				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
+				A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */,
 				A031B62B1FFE259000B4F448 /* TCStaffTableViewCell.xib in Resources */,
 				A0A0F0B620595FAB003CB4BD /* TCServerUsage4Cell.xib in Resources */,
 				A005A3F62068DBF900ABA490 /* TCAppHomeViewController.xib in Resources */,
@@ -5755,6 +5789,7 @@
 				A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
 				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
+				A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
 				A0A86B8C1FF4D6B600D1D58D /* TCCorpProfileViewController.m in Sources */,
 				A0C9A07D1FF115FF00F94E9E /* TCEditAvatarTableViewCell.m in Sources */,
@@ -5765,6 +5800,7 @@
 				A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
 				A0A86B881FF49F6B00D1D58D /* TCCorpProfileRequest.m in Sources */,
+				A0FC256C20735814009E0C12 /* TCAutoScaleTextField.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A005A3FA2068E24700ABA490 /* TCAppHomeIconCell.m in Sources */,
 				A08358B8206B6A5900DF2DA0 /* TCAppProfileViewController.m in Sources */,
@@ -5865,6 +5901,7 @@
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */,
+				A0FC257420737904009E0C12 /* TCAppBindRepoViewController.m in Sources */,
 				A07DBE0C1FDF86C600F37715 /* TCServerConfigRequest.m in Sources */,
 				A0EF3B9C20007C4A00D227BC /* TCPermissionNode+CoreDataClass.m in Sources */,
 				A0B7FFE120526F47007A7A93 /* TCTimePeriodCell.m in Sources */,
@@ -5921,6 +5958,7 @@
 				A06277342021347100FF7E30 /* TCMonitorHistoryTime.m in Sources */,
 				A0A8F3D81FE626B00050F920 /* TCSetPasswordViewController.m in Sources */,
 				A025557C1FD7CCF400D16D22 /* TCTabBarController.m in Sources */,
+				A0FC257A207379CA009E0C12 /* TCBindRepoTableViewCell.m in Sources */,
 				A001FA4B1FDD8292008328B0 /* TCServer+CoreDataClass.m in Sources */,
 				A0A86B2A1FF37F5900D1D58D /* TCSuccessResultViewController.m in Sources */,
 				A07DBDF11FDEE53D00F37715 /* TCServerLogTableViewCell.m in Sources */,
@@ -5952,6 +5990,7 @@
 				A08358D2206B8CB000DF2DA0 /* TCAppProfileDeployCell.m in Sources */,
 				A07DBEA81FE200AE00F37715 /* TCForgetPasswordViewController.m in Sources */,
 				A02555381FD7973D00D16D22 /* TCRegisterRequest.m in Sources */,
+				A0FC256F207378AF009E0C12 /* TCGitRepo.m in Sources */,
 				A04539B620073A2B00402D1A /* TCStaffSearchRequest.m in Sources */,
 				A0A86B601FF398EF00D1D58D /* TCMyCorpTableViewCell.m in Sources */,
 				A0C9A0A81FF14B4E00F94E9E /* UIImage+Rotating.m in Sources */,
@@ -5969,6 +6008,7 @@
 				A08358DC206BBD5100DF2DA0 /* TCAppProfileMirrorCell.m in Sources */,
 				A02CA8782001B2A300BD00C5 /* TCPermissionTableViewController.m in Sources */,
 				A0906E7C20288DB2006D30C8 /* UIView+TCAutoLayout.m in Sources */,
+				A0FC256920731D8E009E0C12 /* XXTextView.m in Sources */,
 				A019A7431FFB6A6900216660 /* TCTemplateTableViewCell.m in Sources */,
 				A05D65C62063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,

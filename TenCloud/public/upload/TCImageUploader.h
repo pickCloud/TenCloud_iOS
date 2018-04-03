@@ -15,7 +15,9 @@ typedef void (^TCImageUploadFailBlock)(NSString *message);
 @property (nonatomic, copy) TCImageUploadSuccessBlock   successBlock;
 @property (nonatomic, copy) TCImageUploadFailBlock      failBlock;
 
-- (void) uploadImage:(UIImage *)image success:(TCImageUploadSuccessBlock)successBlock
-                fail:(TCImageUploadFailBlock)failBlock;
+- (void) uploadImage:(UIImage *)image;
+
+//- (void) uploadImage:(UIImage *)image success:(TCImageUploadSuccessBlock)successBlock
+//                fail:(TCImageUploadFailBlock)failBlock;
 
 @end

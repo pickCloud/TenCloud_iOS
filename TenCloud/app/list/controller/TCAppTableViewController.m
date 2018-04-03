@@ -11,6 +11,7 @@
 #import "TCApp+CoreDataClass.h"
 #import "TCAppProfileViewController.h"
 #import "TCAppFilterViewController.h"
+#import "TCAddAppViewController.h"
 #define APP_TABLE_CELL_ID   @"APP_TABLE_CELL_ID"
 
 @interface TCAppTableViewController ()
@@ -100,7 +101,8 @@
 
 - (void) onAddAppButton:(id)sender
 {
-    
+    TCAddAppViewController *addVC = [TCAddAppViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 - (IBAction) onFilterButton:(id)sender
