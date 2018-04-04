@@ -25,10 +25,12 @@
 @property (nonatomic, strong)   NSMutableArray          *memoryPoints;
 @property (nonatomic, strong)   NSMutableArray          *diskPoints;
 @property (nonatomic, strong)   NSMutableArray          *netPoints;
+@property (nonatomic, strong)   NSMutableArray          *diskUtilPoints;
 @property (nonatomic, weak)     IBOutlet    WYLineChartView *cpuChartView;
 @property (nonatomic, weak)     IBOutlet    WYLineChartView *memoryChartView;
 @property (nonatomic, weak)     IBOutlet    WYLineChartView *diskChartView;
 @property (nonatomic, weak)     IBOutlet    WYLineChartView *netChartView;
+@property (nonatomic, weak)     IBOutlet    WYLineChartView *diskUtilChartView;
 @property (nonatomic, weak)     IBOutlet    UIPageControl   *pageControl;
 @property (nonatomic, weak)     IBOutlet    UIScrollView    *scrollView;
 - (void) initChartUI;
@@ -46,6 +48,7 @@
     _memoryPoints = [NSMutableArray new];
     _diskPoints = [NSMutableArray new];
     _netPoints = [NSMutableArray new];
+    _diskUtilPoints = [NSMutableArray new];
     [self initChartUI];
 }
 
@@ -151,6 +154,26 @@
     _netChartView.horizontalRefernenceLineColor = [UIColor clearColor];
     _netChartView.axisColor = axisColor;
     _netChartView.labelsColor = axisColor;
+    
+    //设置硬盘使用率曲线图
+    _diskUtilChartView.backgroundColor = [UIColor clearColor];
+    _diskUtilChartView.delegate = self;
+    _diskUtilChartView.datasource = self;
+    _diskUtilChartView.lineLeftMargin = 0;
+    _diskUtilChartView.lineRightMargin = 0;
+    _diskUtilChartView.lineTopMargin = 0;
+    _diskUtilChartView.lineBottomMargin = 0;
+    _diskUtilChartView.animationDuration = 1.0;
+    _diskUtilChartView.animationStyle = kWYLineChartAnimationDrawing;
+    _diskUtilChartView.scrollable = NO;
+    _diskUtilChartView.pinchable = NO;
+    _diskUtilPoints = mutableArray;
+    _diskUtilChartView.points = [NSArray arrayWithArray:_diskUtilPoints];
+    _diskUtilChartView.labelsFont = [UIFont systemFontOfSize:TCSCALE(10)];
+    _diskUtilChartView.verticalReferenceLineColor = [UIColor clearColor];
+    _diskUtilChartView.horizontalRefernenceLineColor = [UIColor clearColor];
+    _diskUtilChartView.axisColor = axisColor;
+    _diskUtilChartView.labelsColor = axisColor;
 }
 
 - (void) updateChartUI
@@ -203,11 +226,14 @@
     
     //重新计算硬盘points
     [_diskPoints removeAllObjects];
+    [_diskUtilPoints removeAllObjects];     //重新计算磁盘使用率
     NSMutableArray *rawDiskPoints = [NSMutableArray new];
+    NSMutableArray *rawDiskUtilPoints = [NSMutableArray new];
     for (int i = 0; i < self.performance.disk.count; i++)
     {
         TCServerDisk *disk = [self.performance.disk objectAtIndex:i];
         [rawDiskPoints addObject:@(disk.percent.floatValue)];
+        [rawDiskUtilPoints addObject:@(disk.utilize)];
     }
     if (rawDiskPoints.count == 1)
     {
@@ -221,6 +247,13 @@
     [_diskPoints addObjectsFromArray:diskPointArray];
     self.diskChartView.points = [NSArray arrayWithArray:_diskPoints];
     [self.diskChartView updateGraph];
+    
+    NSMutableArray *diskUtilPointArray = [NSMutableArray new];
+    NSArray *tmpDiskUtilPoints = [WYLineChartPoint pointsFromValueArray:rawDiskUtilPoints];
+    [diskUtilPointArray addObject:tmpDiskUtilPoints];
+    [_diskUtilPoints addObjectsFromArray:diskUtilPointArray];
+    self.diskUtilChartView.points = [NSArray arrayWithArray:_diskUtilPoints];
+    [self.diskUtilChartView updateGraph];
     
     //重新计算网络points
     [_netPoints removeAllObjects];
@@ -247,6 +280,9 @@
     NSArray *tmpNetInputPoints = [WYLineChartPoint pointsFromValueArray:rawNetInputPoints];
     [outputPointArray addObject:tmpNetInputPoints];
     [_netPoints addObjectsFromArray:outputPointArray];
+    
+
+    
     
     self.netChartView.points = [NSArray arrayWithArray:_netPoints];
     [self.netChartView updateGraph];
@@ -291,6 +327,9 @@
     }else if(chartView == _netChartView)
     {
         return [_netPoints[0] count];
+    }else if(chartView == _diskUtilChartView)
+    {
+        return [_diskUtilPoints[0] count];
     }
     return [_cpuPoints[0] count];
 }
@@ -313,6 +352,9 @@
     }else if(chartView == _netChartView)
     {
         return [_netPoints[0] count];
+    }else if(chartView == _diskUtilChartView)
+    {
+        return [_diskUtilPoints[0] count];
     }
     return [_cpuPoints[0] count];
 }
@@ -327,6 +369,9 @@
     }else if(chartView == _netChartView)
     {
         return [_netPoints[0] count];
+    }else if(chartView == _diskUtilChartView)
+    {
+        return [_diskUtilPoints[0] count];
     }
     return [_cpuPoints[0] count];
 }
@@ -369,6 +414,13 @@
                 TCServerNet *netItem = [_performance.net objectAtIndex:index];
                 return [NSString timeStringFromInteger:netItem.created_time];
             }
+        }else if(chartView == _diskUtilChartView)
+        {
+            if (index < _performance.disk.count)
+            {
+                TCServerDisk *diskItem = [_performance.disk objectAtIndex:index];
+                return [NSString timeStringFromInteger:diskItem.created_time];
+            }
         }
     }
     return [NSString stringWithFormat:@"%lu月", index+1];
@@ -384,6 +436,9 @@
     }else if(chartView == _netChartView)
     {
         return _netPoints[0][index];
+    }else if(chartView == _diskUtilChartView)
+    {
+        return _diskUtilPoints[0][index];
     }
     return _cpuPoints[0][index];
 }
@@ -398,6 +453,9 @@
     }else if(chartView == _netChartView)
     {
         return _netPoints[0][index];
+    }else if(chartView == _diskUtilChartView)
+    {
+        return _diskUtilPoints[0][index];
     }
     return _cpuPoints[0][index];
 }
@@ -432,6 +490,18 @@
         CGFloat maxValue = [self.netChartView.calculator maxValuePointsOfLinesPointSet:self.netChartView.points].value;
         CGFloat minValue = [self.netChartView.calculator minValuePointsOfLinesPointSet:self.netChartView.points].value;
         NSInteger yPointNum = [self numberOfLabelOnYAxisInLineChartView:self.netChartView];
+        CGFloat interval = 5.0;
+        if (yPointNum > 0)
+        {
+            interval = (maxValue - minValue) / yPointNum;
+        }
+        CGFloat value = minValue + interval * index;
+        return [NSString stringWithFormat:@"%.02f",value];
+    }else if(chartView == _diskUtilChartView)
+    {
+        CGFloat maxValue = [self.diskUtilChartView.calculator maxValuePointsOfLinesPointSet:self.diskUtilChartView.points].value;
+        CGFloat minValue = [self.diskUtilChartView.calculator minValuePointsOfLinesPointSet:self.diskUtilChartView.points].value;
+        NSInteger yPointNum = [self numberOfLabelOnYAxisInLineChartView:self.diskUtilChartView];
         CGFloat interval = 5.0;
         if (yPointNum > 0)
         {
@@ -480,6 +550,17 @@
         CGFloat maxValue = [self.netChartView.calculator maxValuePointsOfLinesPointSet:self.netChartView.points].value;
         CGFloat minValue = [self.netChartView.calculator minValuePointsOfLinesPointSet:self.netChartView.points].value;
         NSInteger yPointNum = [self numberOfLabelOnYAxisInLineChartView:self.netChartView];
+        CGFloat interval = 5.0;
+        if (yPointNum > 0)
+        {
+            interval = (maxValue - minValue) / yPointNum;
+        }
+        return (minValue + interval * index);
+    }else if(chartView == _diskUtilChartView)
+    {
+        CGFloat maxValue = [self.diskUtilChartView.calculator maxValuePointsOfLinesPointSet:self.diskUtilChartView.points].value;
+        CGFloat minValue = [self.diskUtilChartView.calculator minValuePointsOfLinesPointSet:self.diskUtilChartView.points].value;
+        NSInteger yPointNum = [self numberOfLabelOnYAxisInLineChartView:self.diskUtilChartView];
         CGFloat interval = 5.0;
         if (yPointNum > 0)
         {

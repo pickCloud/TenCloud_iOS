@@ -56,6 +56,7 @@
     [_iconView registerNib:iconCellNib forCellWithReuseIdentifier:APP_HOME_ICON_CELL_ID];
     UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
     iconLayout.itemSize = CGSizeMake(TCSCALE(72.92), TCSCALE(83.92));
+    //iconLayout.itemSize = CGSizeMake(TCSCALE(121), TCSCALE(83.92));
     iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
     float iconX = 0;
@@ -107,14 +108,16 @@
         [cell setName:@"本周有效部署" withAmount:3];
     }else if(indexPath.row == 2)
     {
-        [cell setName:@"有效Pods" withAmount:6];
-    }else if(indexPath.row == 3)
+        [cell setName:@"有效服务" withAmount:3];
+    }
+    else if(indexPath.row == 3)
     {
         [cell setName:@"独立容器" withAmount:3];
     }else if(indexPath.row == 4)
     {
         [cell setName:@"有效服务" withAmount:3];
     }
+     
     return cell;
 }
 

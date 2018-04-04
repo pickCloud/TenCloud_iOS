@@ -163,6 +163,7 @@
         <attribute name="free" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="percent" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="utilize" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="TCServerLog" representedClassName="TCServerLog" syncable="YES">
         <attribute name="created_time" optional="YES" attributeType="String" syncable="YES"/>
@@ -311,7 +312,7 @@
         <element name="TCServerBusinessInfo" positionX="-9" positionY="153" width="128" height="75"/>
         <element name="TCServerConfig" positionX="36" positionY="189" width="128" height="90"/>
         <element name="TCServerCPU" positionX="-54" positionY="63" width="128" height="75"/>
-        <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="105"/>
+        <element name="TCServerDisk" positionX="-36" positionY="72" width="128" height="120"/>
         <element name="TCServerLog" positionX="-27" positionY="135" width="128" height="105"/>
         <element name="TCServerMemory" positionX="-18" positionY="81" width="128" height="120"/>
         <element name="TCServerNet" positionX="-63" positionY="54" width="128" height="90"/>
