@@ -29,13 +29,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTQ-Ft-s1e">
                             <rect key="frame" x="15" y="51.5" width="285" height="55"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8G-Fs-4Yj">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8G-Fs-4Yj">
                                     <rect key="frame" x="8" y="15" width="269" height="24"/>
                                     <state key="normal" title="Button"/>
                                 </button>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vta-iF-U2b">
                                     <rect key="frame" x="8" y="15" width="269" height="24"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="byG-Sm-O6L"/>
                                     </constraints>
@@ -95,7 +95,7 @@
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="thV-Ou-mez">
                             <rect key="frame" x="15" y="153" width="285" height="152"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="thV-Ou-mez" secondAttribute="height" multiplier="15:8" id="p8I-NK-zPe"/>
                             </constraints>
@@ -145,6 +145,11 @@
                     <integer key="value" value="8"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="editingHeight" destination="byG-Sm-O6L" id="cIm-cR-x2r"/>
+                <outlet property="editingTagView" destination="Vta-iF-U2b" id="DVh-5B-lEg"/>
+                <outlet property="myTagView" destination="thV-Ou-mez" id="1ED-4w-22u"/>
+            </connections>
             <point key="canvasLocation" x="37.5" y="-29"/>
         </view>
     </objects>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TCEditTagCell">
+            <rect key="frame" x="0.0" y="0.0" width="57" height="20"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="57" height="20"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="模版名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sa-YN-aDo">
+                        <rect key="frame" x="13" y="4" width="31" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.41176470588235292" green="0.72549019607843135" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="标签名" placeholder="输入名称" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJC-4I-F8s" customClass="TCAutoScaleTextField">
+                        <rect key="frame" x="6" y="4" width="45" height="12"/>
+                        <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                <color key="value" red="0.34509803921568627" green="0.38431372549019605" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.12549019607843137" green="0.30196078431372547" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3sa-YN-aDo" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ajf-C6-oFB"/>
+                <constraint firstItem="3sa-YN-aDo" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="L6B-qr-hiN"/>
+                <constraint firstItem="NJC-4I-F8s" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="XGp-VW-w5u"/>
+                <constraint firstItem="NJC-4I-F8s" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="xsy-ba-VTJ"/>
+            </constraints>
+            <size key="customSize" width="57" height="35"/>
+            <connections>
+                <outlet property="nameLabel" destination="3sa-YN-aDo" id="U49-Oe-quY"/>
+                <outlet property="textField" destination="NJC-4I-F8s" id="dgY-Gp-pco"/>
+            </connections>
+            <point key="canvasLocation" x="28.5" y="44"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -58,12 +58,14 @@ UITextFieldDelegate,UITextViewDelegate>
     }
      */
     _tagArray = [NSMutableArray new];
+    /*
     [_tagArray addObject:@"web站"];
     [_tagArray addObject:@"AI集群"];
     [_tagArray addObject:@"视频存储专用"];
     [_tagArray addObject:@"翻墙组"];
     [_tagArray addObject:@"北美CDN"];
     [_tagArray addObject:@"基础API"];
+     */
     
     UINib *tagCellNib = [UINib nibWithNibName:@"TCTagLabelCell" bundle:nil];
     [_tagView registerNib:tagCellNib forCellWithReuseIdentifier:ADD_APP_TAG_CELL_ID];

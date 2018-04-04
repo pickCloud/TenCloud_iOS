@@ -206,7 +206,7 @@
                                 </collectionView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK9-ah-YrE">
                                     <rect key="frame" x="95" y="0.0" width="265" height="44"/>
-                                    <color key="backgroundColor" red="0.93725490199999995" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="onTagButton:" destination="-1" eventType="touchUpInside" id="dne-8h-e8O"/>
                                     </connections>
