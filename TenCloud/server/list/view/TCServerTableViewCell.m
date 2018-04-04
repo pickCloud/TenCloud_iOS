@@ -149,7 +149,8 @@
     _statusLabel.text = _server.machine_status;
     if (statusStr && statusStr.length > 0)
     {
-        if ([statusStr containsString:@"停止"])
+        if ([statusStr containsString:@"停止"] ||
+            [statusStr containsString:@"已关机"] )
         {
             _statusLabel.textColor = STATE_ALERT_COLOR;
             _statusBackgroundView.backgroundColor = STATE_ALERT_BG_COLOR;

@@ -62,7 +62,8 @@
     {
         return;
     }
-    if ([status containsString:@"已停止"])
+    if ([status containsString:@"已停止"] ||
+        [status containsString:@"已关机"] )
     {
         [self setTextColor:STATE_ALERT_COLOR];
         [self setBackgroundColor:STATE_ALERT_BG_COLOR];

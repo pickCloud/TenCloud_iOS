@@ -57,6 +57,7 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
 @property (nonatomic, strong)   TCServerPerformance *performance;
 @property (nonatomic, strong)   TCServerConfig      *config;
 @property (nonatomic, strong)   TCSystemLoad        *systemLoad;
+@property (nonatomic, strong)   NSTimer             *dataTimer;
 @property (nonatomic, weak) IBOutlet    UILabel             *nameLabel;
 @property (nonatomic, weak) IBOutlet    UIImageView         *iconView;
 @property (nonatomic, weak) IBOutlet    UILabel             *ipLabel;
@@ -184,6 +185,16 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
     [[TCServerStatusManager shared] addObserver:self withServerID:_serverID];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _dataTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                       target:self
+                                                     selector:@selector(reloadChartData)
+                                                     userInfo:nil
+                                                      repeats:YES];
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -193,6 +204,16 @@ UITableViewDelegate,UITableViewDataSource,TCServerStatusDelegate>
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (_dataTimer)
+    {
+        [_dataTimer invalidate];
+        _dataTimer = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
