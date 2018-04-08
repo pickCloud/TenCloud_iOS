@@ -90,6 +90,7 @@
                     <state key="normal" title="关机" image="server_tool_stop">
                         <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="disabled" image="server_tool_stop_u"/>
                     <state key="highlighted">
                         <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -110,6 +111,7 @@
                     <state key="normal" title="重启" image="server_tool_restart">
                         <color key="titleColor" red="0.33725490200000002" green="0.38431372549999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="disabled" image="server_tool_restart_u"/>
                     <state key="highlighted">
                         <color key="titleColor" red="0.15686274510000001" green="0.16862745100000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -349,7 +351,9 @@
         <image name="server_tool_process_status" width="48" height="48"/>
         <image name="server_tool_remote_access" width="48" height="48"/>
         <image name="server_tool_restart" width="48" height="48"/>
+        <image name="server_tool_restart_u" width="48" height="48"/>
         <image name="server_tool_route_info" width="48" height="48"/>
         <image name="server_tool_stop" width="48" height="48"/>
+        <image name="server_tool_stop_u" width="48" height="48"/>
     </resources>
 </document>

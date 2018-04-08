@@ -221,12 +221,13 @@
 
 - (void) onMessageButton:(id)sender
 {
+    /*
     TCAddAppViewController *addVC = [TCAddAppViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
-    /*
+    */
     TCMessageTableViewController *msgVC = [TCMessageTableViewController new];
     [self.navigationController pushViewController:msgVC animated:YES];
-     */
+     
 }
 
 
