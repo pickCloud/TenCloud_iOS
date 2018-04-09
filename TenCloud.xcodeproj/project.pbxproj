@@ -197,6 +197,20 @@
 		A052F7FC20747A01000A44E6 /* TCEditTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7FA20747A01000A44E6 /* TCEditTagCell.m */; };
 		A052F7FD20747A01000A44E6 /* TCEditTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F7FB20747A01000A44E6 /* TCEditTagCell.xib */; };
 		A052F8002074B3B1000A44E6 /* TCEditTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F7FF2074B3B1000A44E6 /* TCEditTag.m */; };
+		A052F823207A2563000A44E6 /* SBAProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F821207A2563000A44E6 /* SBAProviderViewController.m */; };
+		A052F824207A2563000A44E6 /* SBAProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F822207A2563000A44E6 /* SBAProviderViewController.xib */; };
+		A052F829207A57B3000A44E6 /* TCCloud+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F826207A57B3000A44E6 /* TCCloud+CoreDataClass.m */; };
+		A052F82A207A57B3000A44E6 /* TCCloud+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F828207A57B3000A44E6 /* TCCloud+CoreDataProperties.m */; };
+		A052F82D207A5848000A44E6 /* TCCloudListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F82C207A5848000A44E6 /* TCCloudListRequest.m */; };
+		A052F837207A6F9D000A44E6 /* SBAProviderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F835207A6F9D000A44E6 /* SBAProviderTableViewCell.m */; };
+		A052F838207A6F9D000A44E6 /* SBAProviderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F836207A6F9D000A44E6 /* SBAProviderTableViewCell.xib */; };
+		A052F83C207AFB25000A44E6 /* SBAAccessKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F839207AFB25000A44E6 /* SBAAccessKeyViewController.m */; };
+		A052F83D207AFB25000A44E6 /* SBAAccessKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F83A207AFB25000A44E6 /* SBAAccessKeyViewController.xib */; };
+		A052F841207B0DE3000A44E6 /* SBASelectServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F83F207B0DE3000A44E6 /* SBASelectServerViewController.m */; };
+		A052F842207B0DE3000A44E6 /* SBASelectServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F840207B0DE3000A44E6 /* SBASelectServerViewController.xib */; };
+		A052F846207B11DE000A44E6 /* SBASelectServerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F843207B11DE000A44E6 /* SBASelectServerTableViewCell.m */; };
+		A052F847207B11DE000A44E6 /* SBASelectServerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A052F844207B11DE000A44E6 /* SBASelectServerTableViewCell.xib */; };
+		A052F84A207B4630000A44E6 /* TCAutoScaleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F849207B4630000A44E6 /* TCAutoScaleButton.m */; };
 		A05D65A42061F8D8006006B0 /* TCServerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A32061F8D8006006B0 /* TCServerStatus.m */; };
 		A05D65A72061F8EB006006B0 /* TCServerStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65A62061F8EB006006B0 /* TCServerStatusManager.m */; };
 		A05D65BF2062A493006006B0 /* TCNetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D65BD2062A493006006B0 /* TCNetProfileViewController.m */; };
@@ -873,6 +887,29 @@
 		A052F7FB20747A01000A44E6 /* TCEditTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCEditTagCell.xib; sourceTree = "<group>"; };
 		A052F7FE2074B3B1000A44E6 /* TCEditTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCEditTag.h; sourceTree = "<group>"; };
 		A052F7FF2074B3B1000A44E6 /* TCEditTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCEditTag.m; sourceTree = "<group>"; };
+		A052F820207A2563000A44E6 /* SBAProviderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBAProviderViewController.h; sourceTree = "<group>"; };
+		A052F821207A2563000A44E6 /* SBAProviderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBAProviderViewController.m; sourceTree = "<group>"; };
+		A052F822207A2563000A44E6 /* SBAProviderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBAProviderViewController.xib; sourceTree = "<group>"; };
+		A052F825207A57B3000A44E6 /* TCCloud+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCCloud+CoreDataClass.h"; sourceTree = "<group>"; };
+		A052F826207A57B3000A44E6 /* TCCloud+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCCloud+CoreDataClass.m"; sourceTree = "<group>"; };
+		A052F827207A57B3000A44E6 /* TCCloud+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCCloud+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A052F828207A57B3000A44E6 /* TCCloud+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCCloud+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A052F82B207A5848000A44E6 /* TCCloudListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCloudListRequest.h; sourceTree = "<group>"; };
+		A052F82C207A5848000A44E6 /* TCCloudListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCloudListRequest.m; sourceTree = "<group>"; };
+		A052F834207A6F9C000A44E6 /* SBAProviderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAProviderTableViewCell.h; sourceTree = "<group>"; };
+		A052F835207A6F9D000A44E6 /* SBAProviderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAProviderTableViewCell.m; sourceTree = "<group>"; };
+		A052F836207A6F9D000A44E6 /* SBAProviderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAProviderTableViewCell.xib; sourceTree = "<group>"; };
+		A052F839207AFB25000A44E6 /* SBAAccessKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAAccessKeyViewController.m; sourceTree = "<group>"; };
+		A052F83A207AFB25000A44E6 /* SBAAccessKeyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAAccessKeyViewController.xib; sourceTree = "<group>"; };
+		A052F83B207AFB25000A44E6 /* SBAAccessKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAAccessKeyViewController.h; sourceTree = "<group>"; };
+		A052F83E207B0DE3000A44E6 /* SBASelectServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBASelectServerViewController.h; sourceTree = "<group>"; };
+		A052F83F207B0DE3000A44E6 /* SBASelectServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBASelectServerViewController.m; sourceTree = "<group>"; };
+		A052F840207B0DE3000A44E6 /* SBASelectServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBASelectServerViewController.xib; sourceTree = "<group>"; };
+		A052F843207B11DE000A44E6 /* SBASelectServerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBASelectServerTableViewCell.m; sourceTree = "<group>"; };
+		A052F844207B11DE000A44E6 /* SBASelectServerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBASelectServerTableViewCell.xib; sourceTree = "<group>"; };
+		A052F845207B11DE000A44E6 /* SBASelectServerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBASelectServerTableViewCell.h; sourceTree = "<group>"; };
+		A052F848207B4630000A44E6 /* TCAutoScaleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAutoScaleButton.h; sourceTree = "<group>"; };
+		A052F849207B4630000A44E6 /* TCAutoScaleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAutoScaleButton.m; sourceTree = "<group>"; };
 		A05D65A22061F8D8006006B0 /* TCServerStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatus.h; sourceTree = "<group>"; };
 		A05D65A32061F8D8006006B0 /* TCServerStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCServerStatus.m; sourceTree = "<group>"; };
 		A05D65A52061F8EB006006B0 /* TCServerStatusManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCServerStatusManager.h; sourceTree = "<group>"; };
@@ -2388,6 +2425,7 @@
 		A025553B1FD7C6A100D16D22 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				A052F801207A253B000A44E6 /* batchAdd */,
 				A05D65B22062A369006006B0 /* disk */,
 				A05D65A82062A369006006B0 /* network */,
 				A05D65AD2062A369006006B0 /* performance */,
@@ -3856,6 +3894,274 @@
 			path = request;
 			sourceTree = "<group>";
 		};
+		A052F801207A253B000A44E6 /* batchAdd */ = {
+			isa = PBXGroup;
+			children = (
+				A052F802207A253B000A44E6 /* accessKey */,
+				A052F807207A253B000A44E6 /* adding */,
+				A052F80C207A253B000A44E6 /* fail */,
+				A052F811207A253B000A44E6 /* provider */,
+				A052F816207A253B000A44E6 /* select */,
+				A052F81B207A253B000A44E6 /* success */,
+			);
+			path = batchAdd;
+			sourceTree = "<group>";
+		};
+		A052F802207A253B000A44E6 /* accessKey */ = {
+			isa = PBXGroup;
+			children = (
+				A052F803207A253B000A44E6 /* controller */,
+				A052F804207A253B000A44E6 /* model */,
+				A052F805207A253B000A44E6 /* request */,
+				A052F806207A253B000A44E6 /* view */,
+			);
+			path = accessKey;
+			sourceTree = "<group>";
+		};
+		A052F803207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A052F83B207AFB25000A44E6 /* SBAAccessKeyViewController.h */,
+				A052F839207AFB25000A44E6 /* SBAAccessKeyViewController.m */,
+				A052F83A207AFB25000A44E6 /* SBAAccessKeyViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F804207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F805207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F806207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A052F807207A253B000A44E6 /* adding */ = {
+			isa = PBXGroup;
+			children = (
+				A052F808207A253B000A44E6 /* controller */,
+				A052F809207A253B000A44E6 /* model */,
+				A052F80A207A253B000A44E6 /* request */,
+				A052F80B207A253B000A44E6 /* view */,
+			);
+			path = adding;
+			sourceTree = "<group>";
+		};
+		A052F808207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F809207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F80A207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F80B207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A052F80C207A253B000A44E6 /* fail */ = {
+			isa = PBXGroup;
+			children = (
+				A052F80D207A253B000A44E6 /* controller */,
+				A052F80E207A253B000A44E6 /* model */,
+				A052F80F207A253B000A44E6 /* request */,
+				A052F810207A253B000A44E6 /* view */,
+			);
+			path = fail;
+			sourceTree = "<group>";
+		};
+		A052F80D207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F80E207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F80F207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F810207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A052F811207A253B000A44E6 /* provider */ = {
+			isa = PBXGroup;
+			children = (
+				A052F812207A253B000A44E6 /* controller */,
+				A052F813207A253B000A44E6 /* model */,
+				A052F814207A253B000A44E6 /* request */,
+				A052F815207A253B000A44E6 /* view */,
+			);
+			path = provider;
+			sourceTree = "<group>";
+		};
+		A052F812207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A052F820207A2563000A44E6 /* SBAProviderViewController.h */,
+				A052F821207A2563000A44E6 /* SBAProviderViewController.m */,
+				A052F822207A2563000A44E6 /* SBAProviderViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F813207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A052F825207A57B3000A44E6 /* TCCloud+CoreDataClass.h */,
+				A052F826207A57B3000A44E6 /* TCCloud+CoreDataClass.m */,
+				A052F827207A57B3000A44E6 /* TCCloud+CoreDataProperties.h */,
+				A052F828207A57B3000A44E6 /* TCCloud+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F814207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A052F82B207A5848000A44E6 /* TCCloudListRequest.h */,
+				A052F82C207A5848000A44E6 /* TCCloudListRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F815207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A052F834207A6F9C000A44E6 /* SBAProviderTableViewCell.h */,
+				A052F835207A6F9D000A44E6 /* SBAProviderTableViewCell.m */,
+				A052F836207A6F9D000A44E6 /* SBAProviderTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A052F816207A253B000A44E6 /* select */ = {
+			isa = PBXGroup;
+			children = (
+				A052F817207A253B000A44E6 /* controller */,
+				A052F818207A253B000A44E6 /* model */,
+				A052F819207A253B000A44E6 /* request */,
+				A052F81A207A253B000A44E6 /* view */,
+			);
+			path = select;
+			sourceTree = "<group>";
+		};
+		A052F817207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A052F83E207B0DE3000A44E6 /* SBASelectServerViewController.h */,
+				A052F83F207B0DE3000A44E6 /* SBASelectServerViewController.m */,
+				A052F840207B0DE3000A44E6 /* SBASelectServerViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F818207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F819207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F81A207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A052F845207B11DE000A44E6 /* SBASelectServerTableViewCell.h */,
+				A052F843207B11DE000A44E6 /* SBASelectServerTableViewCell.m */,
+				A052F844207B11DE000A44E6 /* SBASelectServerTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A052F81B207A253B000A44E6 /* success */ = {
+			isa = PBXGroup;
+			children = (
+				A052F81C207A253B000A44E6 /* controller */,
+				A052F81D207A253B000A44E6 /* model */,
+				A052F81E207A253B000A44E6 /* request */,
+				A052F81F207A253B000A44E6 /* view */,
+			);
+			path = success;
+			sourceTree = "<group>";
+		};
+		A052F81C207A253B000A44E6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A052F81D207A253B000A44E6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A052F81E207A253B000A44E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A052F81F207A253B000A44E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A05D659D2061F783006006B0 /* status */ = {
 			isa = PBXGroup;
 			children = (
@@ -4120,6 +4426,8 @@
 		A07DBEAD1FE210A200F37715 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				A052F848207B4630000A44E6 /* TCAutoScaleButton.h */,
+				A052F849207B4630000A44E6 /* TCAutoScaleButton.m */,
 				A07DBEAE1FE210E800F37715 /* TCRoundCornerButton.h */,
 				A07DBEAF1FE210E800F37715 /* TCRoundCornerButton.m */,
 				A0C9A0B41FF2281C00F94E9E /* TCCircleButton.h */,
@@ -5492,6 +5800,7 @@
 				A04539BE2007514900402D1A /* ShapeSelectView.xib in Resources */,
 				A0C9A0CD1FF2A3F500F94E9E /* TCTextTableViewCell.xib in Resources */,
 				A0D5881E200E4B3700104ED9 /* TCMessageTableViewController.xib in Resources */,
+				A052F838207A6F9D000A44E6 /* SBAProviderTableViewCell.xib in Resources */,
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A0A86B2B1FF37F5900D1D58D /* TCSuccessResultViewController.xib in Resources */,
 				A08358DD206BBD5100DF2DA0 /* TCAppProfileMirrorCell.xib in Resources */,
@@ -5512,7 +5821,9 @@
 				A08358B9206B6A5900DF2DA0 /* TCAppProfileViewController.xib in Resources */,
 				A02555781FD7CBB400D16D22 /* TCProjectHomeViewController.xib in Resources */,
 				A00AFF82200C4B6600EFADF6 /* TCInviteProfileViewController.xib in Resources */,
+				A052F842207B0DE3000A44E6 /* SBASelectServerViewController.xib in Resources */,
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
+				A052F83D207AFB25000A44E6 /* SBAAccessKeyViewController.xib in Resources */,
 				A0FC257520737904009E0C12 /* TCAppBindRepoViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
@@ -5543,6 +5854,7 @@
 				A0B714202006FF4200BE9FCA /* TCChangeAdminTableViewCell.xib in Resources */,
 				A07DBE441FDFBF8B00F37715 /* TCServerInfoViewController.xib in Resources */,
 				A07DBEA91FE200AE00F37715 /* TCForgetPasswordViewController.xib in Resources */,
+				A052F847207B11DE000A44E6 /* SBASelectServerTableViewCell.xib in Resources */,
 				A06D12271FEBA4E600722C76 /* TCSearchFilterCollectionCell.xib in Resources */,
 				A088F92A202A038C005A97DD /* TCDataPermissionViewController.xib in Resources */,
 				A07DBE031FDF7D3200F37715 /* TCServerContainerTableViewCell.xib in Resources */,
@@ -5589,6 +5901,7 @@
 				A0A86B4E1FF3927E00D1D58D /* TCMyCorpTableViewController.xib in Resources */,
 				A0C9A0611FF0A33F00F94E9E /* TCCustomerServiceViewController.xib in Resources */,
 				A0906E8020288EBF006D30C8 /* TCConfirmView.xib in Resources */,
+				A052F824207A2563000A44E6 /* SBAProviderViewController.xib in Resources */,
 				A02554E01FD67FD400D16D22 /* Assets.xcassets in Resources */,
 				A0A86B111FF33FD400D1D58D /* TCSettingViewController.xib in Resources */,
 				A0A86B611FF398EF00D1D58D /* TCMyCorpTableViewCell.xib in Resources */,
@@ -5825,6 +6138,7 @@
 				A0C9A0A41FF14B4E00F94E9E /* UIImage+Filtering.m in Sources */,
 				A02CA8762001B2A300BD00C5 /* TCPermissionViewController.m in Sources */,
 				A0906E872028A220006D30C8 /* TCOKView.m in Sources */,
+				A052F82D207A5848000A44E6 /* TCCloudListRequest.m in Sources */,
 				A005A3EB2068DB4000ABA490 /* TCDeploy+CoreDataProperties.m in Sources */,
 				A03385911FE8B60800EC0EC8 /* TCRebootServerRequest.m in Sources */,
 				A0A0F0B520595FAB003CB4BD /* TCServerUsage4Cell.m in Sources */,
@@ -5845,6 +6159,7 @@
 				A0FC256C20735814009E0C12 /* TCAutoScaleTextField.m in Sources */,
 				A00703811FE8183900F232D7 /* TCSetSmsCountRequest.m in Sources */,
 				A005A3FA2068E24700ABA490 /* TCAppHomeIconCell.m in Sources */,
+				A052F841207B0DE3000A44E6 /* SBASelectServerViewController.m in Sources */,
 				A08358B8206B6A5900DF2DA0 /* TCAppProfileViewController.m in Sources */,
 				A0BD8239202CB4330002B8C2 /* TCAddServerFailView.m in Sources */,
 				A07DBDF61FDF685E00F37715 /* TCServerContainerTableViewController.m in Sources */,
@@ -5888,6 +6203,7 @@
 				A067D8A7200F591F00160913 /* TCMessageManager.m in Sources */,
 				A001FA2B1FDD3D9E008328B0 /* TCUserProfileRequest.m in Sources */,
 				A07DBE291FDFA8B800F37715 /* TCServerBasicInfo+CoreDataProperties.m in Sources */,
+				A052F84A207B4630000A44E6 /* TCAutoScaleButton.m in Sources */,
 				A025552E1FD693DB00D16D22 /* TCPasswordLoginRequest.m in Sources */,
 				A001FA501FDE1A55008328B0 /* TCServerTableViewCell.m in Sources */,
 				A0A86B101FF33FD400D1D58D /* TCSettingViewController.m in Sources */,
@@ -5939,10 +6255,12 @@
 				A00F0036206CC2C000118EC8 /* TCAppFilterViewController.m in Sources */,
 				A01A9BC71FF50EC500BD450D /* TCModifyPhoneViewController.m in Sources */,
 				A088F929202A038C005A97DD /* TCDataPermissionViewController.m in Sources */,
+				A052F823207A2563000A44E6 /* SBAProviderViewController.m in Sources */,
 				A001FA461FDD81CB008328B0 /* TCServerDisk+CoreDataProperties.m in Sources */,
 				A001FA5E1FDEB29E008328B0 /* UIViewController+LoadingView.m in Sources */,
 				A04539C22007523000402D1A /* ShapeView.m in Sources */,
 				A001FA4C1FDD8292008328B0 /* TCServer+CoreDataProperties.m in Sources */,
+				A052F846207B11DE000A44E6 /* SBASelectServerTableViewCell.m in Sources */,
 				A0C9A0AA1FF14B4E00F94E9E /* UIScrollView+Screenshot.m in Sources */,
 				A00AFF7A200BAB3500EFADF6 /* TCInviteInfo+CoreDataProperties.m in Sources */,
 				A0FC257420737904009E0C12 /* TCAppBindRepoViewController.m in Sources */,
@@ -5983,6 +6301,7 @@
 				A07DBE271FDFA8B800F37715 /* TCServerSystemInfo+CoreDataProperties.m in Sources */,
 				A0C9A0AC1FF14B4E00F94E9E /* NYXProgressiveImageView.m in Sources */,
 				A019A7481FFB818700216660 /* TCAddTemplateViewController.m in Sources */,
+				A052F82A207A57B3000A44E6 /* TCCloud+CoreDataProperties.m in Sources */,
 				A00F002E206C4AE900118EC8 /* TCBarChartView.m in Sources */,
 				A02555BB1FDBD4B400D16D22 /* HMSegmentedControl.m in Sources */,
 				A0A0F09C2058C55F003CB4BD /* TCServerHomeUsageCell.m in Sources */,
@@ -6028,6 +6347,7 @@
 				A031B5D51FFC2FA600B4F448 /* TCPermissionFoldCell.m in Sources */,
 				A07DBE1A1FDFA82700F37715 /* TCServerSystemConfig+CoreDataClass.m in Sources */,
 				A08358D7206B8E5300DF2DA0 /* TCAppProfileServiceCell.m in Sources */,
+				A052F837207A6F9D000A44E6 /* SBAProviderTableViewCell.m in Sources */,
 				A019A72D1FFB627C00216660 /* TCTemplate+CoreDataProperties.m in Sources */,
 				A0B7141F2006FF4200BE9FCA /* TCChangeAdminTableViewCell.m in Sources */,
 				A0C362F1200443AE0033C99C /* TCJoinSettingRequest.m in Sources */,
@@ -6058,6 +6378,7 @@
 				A05D65C62063A4AA006006B0 /* TCDiskInfo+CoreDataProperties.m in Sources */,
 				A02CA86E2000F23F00BD00C5 /* TCPermissionCell.m in Sources */,
 				A07B7E41205BBA3700E64047 /* TCServerThresholdRequest.m in Sources */,
+				A052F829207A57B3000A44E6 /* TCCloud+CoreDataClass.m in Sources */,
 				A052F7EC2073CC46000A44E6 /* TCSelectAppTagView.m in Sources */,
 				A08358E2206BC1EA00DF2DA0 /* TCAppProfileSection3Header.m in Sources */,
 				A0C9A0601FF0A33F00F94E9E /* TCCustomerServiceViewController.m in Sources */,
@@ -6113,6 +6434,7 @@
 				A0A8F3E11FE6B3AE0050F920 /* TCSetPasswordRequest.m in Sources */,
 				A0C9A0821FF149C100F94E9E /* LSActionSheet.m in Sources */,
 				A0B7142320070BBE00BE9FCA /* TCSetAdminRequest.m in Sources */,
+				A052F83C207AFB25000A44E6 /* SBAAccessKeyViewController.m in Sources */,
 				A001FA551FDE5525008328B0 /* TCProgressView.m in Sources */,
 				A0A86B6C1FF3DC5A00D1D58D /* TCSwitchAccountButton.m in Sources */,
 				A088F92E202A1130005A97DD /* TCServerPermTableViewCell.m in Sources */,

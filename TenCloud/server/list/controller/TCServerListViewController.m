@@ -16,6 +16,8 @@
 #import "TCServer+CoreDataClass.h"
 #import "TCSearchFilterViewController.h"
 #import "TCServerProfileViewController.h"
+#import "SBAProviderViewController.h"
+
 #define SERVER_CELL_REUSE_ID    @"SERVER_CELL_REUSE_ID"
 
 @interface TCServerListViewController ()<UITextFieldDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,TCDataSyncDelegate>
@@ -296,8 +298,12 @@
 
 - (void) onAddServerButton:(id)sender
 {
+    SBAProviderViewController *providerVC = [SBAProviderViewController new];
+    [self.navigationController pushViewController:providerVC animated:YES];
+    /*
     TCAddServerViewController *addVC = [TCAddServerViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
+     */
 }
 
 - (IBAction) onRefreshDataButton:(id)sender

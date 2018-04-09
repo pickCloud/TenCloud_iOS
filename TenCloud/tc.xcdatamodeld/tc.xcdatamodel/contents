@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="TCAddingServer" representedClassName="TCAddingServer" syncable="YES" codeGenerationType="class">
+        <attribute name="inner_ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instance_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_add" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="net_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="public_ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TCApp" representedClassName="TCApp" syncable="YES">
         <attribute name="appID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,6 +23,11 @@
         <attribute name="repos_ssh_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TCCloud" representedClassName="TCCloud" syncable="YES">
+        <attribute name="cloudID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TCClusterProvider" representedClassName="TCClusterProvider" syncable="YES">
         <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
@@ -328,5 +341,7 @@
         <element name="TCTask" positionX="-9" positionY="135" width="128" height="120"/>
         <element name="TCTemplate" positionX="27" positionY="171" width="128" height="195"/>
         <element name="TCUser" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TCCloud" positionX="-9" positionY="135" width="128" height="90"/>
+        <element name="TCAddingServer" positionX="0" positionY="144" width="128" height="135"/>
     </elements>
 </model>
