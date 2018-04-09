@@ -54,7 +54,7 @@
                         <constraint firstItem="1mP-wj-Wjc" firstAttribute="centerX" secondItem="Ecb-2N-8HB" secondAttribute="centerX" id="sm6-CB-MNQ"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ale-2N-0yF">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ale-2N-0yF">
                     <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>

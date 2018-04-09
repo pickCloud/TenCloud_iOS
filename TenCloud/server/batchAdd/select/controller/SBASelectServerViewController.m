@@ -46,7 +46,7 @@
     [_serverArray addObject:server0];
     
     TCAddingServer *server1 = [TCAddingServer MR_createEntity];
-    server1.is_add = 0;
+    server1.is_add = 1;
     server1.instance_id = @"A_Win2008_H124";
     server1.public_ip = @"124.124.124.124";
     server1.inner_ip = @"192.168.0.2";
@@ -122,6 +122,18 @@
 #pragma mark - extension
 - (void) onImportButton:(UIButton*)button
 {
+    NSArray *allPaths = [_tableView indexPathsForSelectedRows];
+    NSMutableArray *paths = [NSMutableArray new];
+    for (NSIndexPath *path in allPaths)
+    {
+        TCAddingServer *server = [_serverArray objectAtIndex:path.row];
+        if (!server.is_add)
+        {
+            [paths addObject:path];
+        }
+    }
+    //send import request
     
+    //show importing page
 }
 @end
