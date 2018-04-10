@@ -9,13 +9,20 @@
 #import "SBASelectServerViewController.h"
 #import "SBASelectServerTableViewCell.h"
 #import "TCAddingServer+CoreDataClass.h"
+#import "SBAAddingView.h"
+#import "UIView+TCAlertView.h"
 #define SBA_SELECT_CELL_ID    @"SBA_SELECT_CELL_ID"
 
 @interface SBASelectServerViewController ()
 @property (nonatomic, weak) IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   UIButton                *nextButton;
 @property (nonatomic, strong)   NSMutableArray          *serverArray;
+@property (nonatomic, strong)   SBAAddingView           *addingView;
 - (void) onImportButton:(UIButton*)button;
+
+//for fake data
+@property (nonatomic, assign)   NSInteger   addingTimes;
+- (void) onAddingTimer;
 @end
 
 @implementation SBASelectServerViewController
@@ -66,6 +73,7 @@
     UINib *cellNib = [UINib nibWithNibName:@"SBASelectServerTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:SBA_SELECT_CELL_ID];
     
+    _addingView = [SBAAddingView createViewFromNib];
     /*
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -133,7 +141,30 @@
         }
     }
     //send import request
+    [_addingView setProgress:0 total:5 success:0 fail:0];
+    TCAlertController *vc = [TCAlertController alertControllerWithAlertView:_addingView];
+    [vc present];
     
-    //show importing page
+    //for fake data
+    _addingTimes = 0;
+    [self onAddingTimer];
+}
+
+- (void) onAddingTimer
+{
+    if (_addingTimes < 6)
+    {
+        [NSTimer scheduledTimerWithTimeInterval:1.2 target:self
+                                       selector:@selector(onAddingTimer)
+                                       userInfo:nil
+                                        repeats:NO];
+        [_addingView setProgress:0.2*_addingTimes
+                           total:5 success:_addingTimes+1
+                            fail:0];
+        _addingTimes ++;
+    }else
+    {
+        [_addingView hideView];
+    }
 }
 @end

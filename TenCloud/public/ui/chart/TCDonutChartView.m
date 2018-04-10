@@ -10,9 +10,10 @@
 
 #import "TCDonutChartView.h"
 @interface TCDonutChartView()
-@property (nonatomic, strong) CAShapeLayer *outerCircleLayer;
+@property (nonatomic, strong) CAShapeLayer *bgLayer;
 @property (nonatomic, strong) CAShapeLayer *foreLayer;
 - (void) redraw;
+- (void) redrawBgLayer;
 @end
 
 @implementation TCDonutChartView
@@ -30,7 +31,8 @@
     if (self)
     {
         _foregroundColor = THEME_TINT_COLOR;
-        
+        _bgColor = [UIColor redColor]; //THEME_NAVBAR_TITLE_COLOR;
+        /*
         CGRect rect = self.bounds;
         CGRect gRect = CGRectMake(rect.origin.x, rect.origin.y,
                                   TCSCALE(rect.size.width), TCSCALE(rect.size.height));
@@ -41,13 +43,15 @@
         UIBezierPath* arcPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:M_PI endAngle: 3*M_PI clockwise:YES];
         
         CAShapeLayer *shapelayer = [CAShapeLayer layer];
-        _outerCircleLayer = shapelayer;
+        _bgLayer = shapelayer;
         shapelayer.lineWidth = LINE_WIDTH;
         shapelayer.strokeColor = THEME_NAVBAR_TITLE_COLOR.CGColor;
         shapelayer.fillColor = [UIColor clearColor].CGColor;
         shapelayer.path = arcPath.CGPath;
         
         [self.layer addSublayer:shapelayer];
+         */
+        [self redrawBgLayer];
         [self redraw];
         
     }
@@ -78,6 +82,32 @@
     [self.layer addSublayer:shapelayer];
 }
 
+- (void) redrawBgLayer
+{
+    if (_bgLayer)
+    {
+        [_bgLayer removeFromSuperlayer];
+    }
+    
+    CGRect rect = self.bounds;
+    CGRect gRect = CGRectMake(rect.origin.x, rect.origin.y,
+                              TCSCALE(rect.size.width), TCSCALE(rect.size.height));
+    NSLog(@"grect:%.2f,%.2f,%.2f,%.2f",gRect.origin.x,gRect.origin.y,
+          gRect.size.width, gRect.size.height);
+    CGPoint center = CGPointMake(gRect.size.width * 0.5, gRect.size.height * 0.5);
+    CGFloat radius = gRect.size.width * 0.5 - LINE_WIDTH/2.0;
+    UIBezierPath* arcPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:M_PI endAngle: 3*M_PI clockwise:YES];
+    
+    CAShapeLayer *shapelayer = [CAShapeLayer layer];
+    _bgLayer = shapelayer;
+    shapelayer.lineWidth = LINE_WIDTH;
+    shapelayer.strokeColor = _bgColor.CGColor; //THEME_NAVBAR_TITLE_COLOR.CGColor;
+    shapelayer.fillColor = [UIColor clearColor].CGColor;
+    shapelayer.path = arcPath.CGPath;
+    
+    [self.layer addSublayer:shapelayer];
+}
+
 - (void) setPercent:(CGFloat)percent
 {
     _percent = percent;
@@ -90,4 +120,9 @@
     [self redraw];
 }
 
+- (void) setBgColor:(UIColor *)backgroundColor
+{
+    _bgColor = backgroundColor;
+    [self redrawBgLayer];
+}
 @end

@@ -525,6 +525,8 @@
 		A0EF3BA320007CE500D227BC /* TCEmptyPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3BA220007CE500D227BC /* TCEmptyPermissionRequest.m */; };
 		A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */; };
 		A0F6BD88200DFB2000843ECF /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */; };
+		A0F882A7207B6BE300CEC399 /* SBAAddingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882A4207B6BE300CEC399 /* SBAAddingView.m */; };
+		A0F882A8207B6BE300CEC399 /* SBAAddingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882A5207B6BE300CEC399 /* SBAAddingView.xib */; };
 		A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC255B20723175009E0C12 /* TCImageUploader.m */; };
 		A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */; };
 		A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */; };
@@ -1450,6 +1452,9 @@
 		A0F6BD84200DFB2000843ECF /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
 		A0F6BD85200DFB2000843ECF /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
 		A0F6BD86200DFB2000843ECF /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
+		A0F882A4207B6BE300CEC399 /* SBAAddingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAAddingView.m; sourceTree = "<group>"; };
+		A0F882A5207B6BE300CEC399 /* SBAAddingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAAddingView.xib; sourceTree = "<group>"; };
+		A0F882A6207B6BE300CEC399 /* SBAAddingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAAddingView.h; sourceTree = "<group>"; };
 		A0FC255A20723175009E0C12 /* TCImageUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageUploader.h; sourceTree = "<group>"; };
 		A0FC255B20723175009E0C12 /* TCImageUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageUploader.m; sourceTree = "<group>"; };
 		A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddAppViewController.h; sourceTree = "<group>"; };
@@ -3984,6 +3989,9 @@
 		A052F80B207A253B000A44E6 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0F882A6207B6BE300CEC399 /* SBAAddingView.h */,
+				A0F882A4207B6BE300CEC399 /* SBAAddingView.m */,
+				A0F882A5207B6BE300CEC399 /* SBAAddingView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5913,6 +5921,7 @@
 				A069EF2A1FF5E9F000C126CD /* TCCertificateTableViewCell.xib in Resources */,
 				A0A86B6E1FF3DC7000D1D58D /* TCSwitchAccountButton.xib in Resources */,
 				A0C362F6200444730033C99C /* TCJoinSettingViewController.xib in Resources */,
+				A0F882A8207B6BE300CEC399 /* SBAAddingView.xib in Resources */,
 				A052F7EB2073CC46000A44E6 /* TCSelectAppTagView.xib in Resources */,
 				A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */,
 				A052F7FD20747A01000A44E6 /* TCEditTagCell.xib in Resources */,
@@ -6397,6 +6406,7 @@
 				A005A3F02068DB6100ABA490 /* TCApp+CoreDataClass.m in Sources */,
 				A05D65CB2063A9CC006006B0 /* TCImageInfo+CoreDataClass.m in Sources */,
 				A073F9C02018C0B300AB03DA /* TCTextRefreshHeader.m in Sources */,
+				A0F882A7207B6BE300CEC399 /* SBAAddingView.m in Sources */,
 				A00AFF79200BAB3500EFADF6 /* TCInviteInfo+CoreDataClass.m in Sources */,
 				A0627737202192DF00FF7E30 /* TCStaffStatusRequest.m in Sources */,
 				A06D122A1FEBB38D00722C76 /* TCConfiguration.m in Sources */,

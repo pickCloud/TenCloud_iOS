@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign)   CGFloat     percent;
 @property (nonatomic, strong)   UIColor     *foregroundColor;
+@property (nonatomic, strong)   UIColor     *bgColor;
 
 @end
