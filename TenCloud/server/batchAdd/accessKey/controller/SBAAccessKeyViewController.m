@@ -8,6 +8,10 @@
 
 #import "SBAAccessKeyViewController.h"
 #import "SBASelectServerViewController.h"
+#import "TCPageManager.h"
+#import "TCAccessKeyRequest.h"
+
+#import "TCDelAccessKeyRequest.h"
 
 @interface SBAAccessKeyViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong)   UIButton                *nextButton;
@@ -40,6 +44,16 @@
                                                                                   action:@selector(onTapBlankArea:)];
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
+    
+    //for test only
+    TCDelAccessKeyRequest *req = [TCDelAccessKeyRequest new];
+    req.accessKey = @"LTAIEouRscyh8evG";
+    req.accessSecret = @"D6sGmGSJhG53ZGZl0ptXTPqkm18HA3";
+    [req startWithSuccess:^(NSString *status) {
+        
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -57,8 +71,33 @@
 #pragma mark - extension
 - (void) onNextButton:(UIButton*)button
 {
+    NSString *accessKey = _idField.text;
+    if (accessKey == nil || accessKey.length <= 0)
+    {
+        [MBProgressHUD showError:@"请输入Access Key ID" toView:nil];
+        return;
+    }
+    NSString *accessSecret = _secretField.text;
+    if (accessSecret == nil || accessSecret.length <= 0)
+    {
+        [MBProgressHUD showError:@"请输入Access Key Secret" toView:nil];
+        return;
+    }
+    TCAccessKeyRequest *req = [TCAccessKeyRequest new];
+    req.cloudID = _cloudID;
+    req.accessKey = accessKey;
+    req.accessSecret = accessSecret;
+    [req startWithSuccess:^(NSString *status) {
+        
+    } failure:^(NSString *message) {
+        [MBProgressHUD showError:message toView:nil];
+    }];
+    
+    /*
     SBASelectServerViewController *selectVC = [SBASelectServerViewController new];
-    [self.navigationController pushViewController:selectVC animated:YES];
+    //[self.navigationController pushViewController:selectVC animated:YES];
+    [TCPageManager replaceViewController:self withViewController:selectVC];
+     */
 }
 
 - (void) onTapBlankArea:(id)sender

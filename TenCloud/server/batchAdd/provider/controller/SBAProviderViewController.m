@@ -11,6 +11,7 @@
 #import "TCCloud+CoreDataClass.h"
 #import "SBAProviderTableViewCell.h"
 #import "SBAAccessKeyViewController.h"
+#import "TCPageManager.h"
 #define SBA_PROVIDER_CELL_ID    @"SBA_PROVIDER_CELL_ID"
 
 @interface SBAProviderViewController ()
@@ -38,6 +39,7 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:_nextButton];
     self.navigationItem.rightBarButtonItem = rightButton;
     
+    /*
     TCCloud *cloud0 = [TCCloud MR_createEntity];
     cloud0.cloudID = 1;
     cloud0.name = @"阿里云";
@@ -61,6 +63,7 @@
     cloud4.name = @"亚马逊云";
     cloud4.icon = @"cloud_amazon";
     [_cloudArray addObject:cloud4];
+     */
     
     UINib *cellNib = [UINib nibWithNibName:@"SBAProviderTableViewCell" bundle:nil];
     [_tableView registerNib:cellNib forCellReuseIdentifier:SBA_PROVIDER_CELL_ID];
@@ -71,6 +74,27 @@
     [req startWithSuccess:^(NSArray<TCCloud *> *cloudArray) {
         [weakSelf.cloudArray addObjectsFromArray:cloudArray];
         NSLog(@"clous:%@",weakSelf.cloudArray);
+        
+        for (TCCloud *cloud in weakSelf.cloudArray)
+        {
+            if ([cloud.name isEqualToString:@"阿里云"])
+            {
+                cloud.icon = @"cloud_aliyun";
+            }else if([cloud.name isEqualToString:@"腾讯云"])
+            {
+                cloud.icon = @"cloud_tencent";
+            }else if([cloud.name isEqualToString:@"亚马逊云"])
+            {
+                cloud.icon = @"cloud_amazon";
+            }else if([cloud.name isEqualToString:@"微软云"])
+            {
+                cloud.icon = @"cloud_micro";
+            }
+        }
+        [weakSelf.tableView reloadData];
+        
+        NSIndexPath *path0 = [NSIndexPath indexPathForRow:0 inSection:0];
+        [weakSelf.tableView selectRowAtIndexPath:path0 animated:YES scrollPosition:UITableViewScrollPositionBottom];
         [weakSelf stopLoading];
     } failure:^(NSString *message) {
         [weakSelf stopLoading];
@@ -82,8 +106,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSIndexPath *path0 = [NSIndexPath indexPathForRow:0 inSection:0];
-    [_tableView selectRowAtIndexPath:path0 animated:YES scrollPosition:UITableViewScrollPositionBottom];
+
     
 }
 
@@ -120,7 +143,11 @@
 #pragma mark - extension
 - (void) onNextButton:(UIButton*)button
 {
+    NSIndexPath *path = [_tableView indexPathForSelectedRow];
+    TCCloud *cloud = [_cloudArray objectAtIndex:path.row];
     SBAAccessKeyViewController *accessVC = [SBAAccessKeyViewController new];
-    [self.navigationController pushViewController:accessVC animated:YES];
+    accessVC.cloudID = cloud.cloudID;
+    //[self.navigationController pushViewController:accessVC animated:YES];
+    [TCPageManager replaceViewController:self withViewController:accessVC];
 }
 @end

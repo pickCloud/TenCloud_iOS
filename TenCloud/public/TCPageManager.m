@@ -151,6 +151,8 @@ typedef void (^TCRootVCAnimation)(void);
     if (newVC)
     {
         NSMutableArray *newVCS = [NSMutableArray array];
+        [newVCS addObjectsFromArray:oldVC.navigationController.viewControllers];
+        [newVCS removeLastObject];
         [newVCS addObject:newVC];
         [oldVC.navigationController setViewControllers:newVCS animated:YES];
     }

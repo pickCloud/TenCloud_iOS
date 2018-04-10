@@ -146,6 +146,13 @@
             [paths addObject:path];
         }
     }
+    
+    if (paths.count == 0)
+    {
+        [MBProgressHUD showError:@"请选择服务器" toView:nil];
+        return;
+    }
+    
     //send import request
     [_addingView setProgress:0 total:5 success:0 fail:0];
     TCAlertController *vc = [TCAlertController alertControllerWithAlertView:_addingView];

@@ -10,4 +10,6 @@
 
 @interface SBAAccessKeyViewController : TCViewController
 
+@property (nonatomic, assign)   NSInteger   cloudID;
+
 @end

@@ -80,7 +80,7 @@
     }
     */
     //NSString *url = [NSString stringWithFormat:@"/api/companies/list/%ld",_status];
-    return @"/api/clouds/support";
+    return @"/api/clouds";
 }
 
 - (YTKRequestMethod)requestMethod {

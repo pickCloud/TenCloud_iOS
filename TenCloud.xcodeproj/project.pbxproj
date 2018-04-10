@@ -531,6 +531,8 @@
 		A0F882AD207C91D500CEC399 /* SBASuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882AA207C91D500CEC399 /* SBASuccessView.xib */; };
 		A0F882B1207C977E00CEC399 /* SBAFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882AE207C977E00CEC399 /* SBAFailView.m */; };
 		A0F882B2207C977E00CEC399 /* SBAFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882AF207C977E00CEC399 /* SBAFailView.xib */; };
+		A0F882B5207CB43B00CEC399 /* TCAccessKeyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882B4207CB43A00CEC399 /* TCAccessKeyRequest.m */; };
+		A0F882B8207CB84500CEC399 /* TCDelAccessKeyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882B7207CB84500CEC399 /* TCDelAccessKeyRequest.m */; };
 		A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC255B20723175009E0C12 /* TCImageUploader.m */; };
 		A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */; };
 		A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */; };
@@ -1465,6 +1467,10 @@
 		A0F882AE207C977E00CEC399 /* SBAFailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAFailView.m; sourceTree = "<group>"; };
 		A0F882AF207C977E00CEC399 /* SBAFailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAFailView.xib; sourceTree = "<group>"; };
 		A0F882B0207C977E00CEC399 /* SBAFailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAFailView.h; sourceTree = "<group>"; };
+		A0F882B3207CB43A00CEC399 /* TCAccessKeyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAccessKeyRequest.h; sourceTree = "<group>"; };
+		A0F882B4207CB43A00CEC399 /* TCAccessKeyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccessKeyRequest.m; sourceTree = "<group>"; };
+		A0F882B6207CB84500CEC399 /* TCDelAccessKeyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDelAccessKeyRequest.h; sourceTree = "<group>"; };
+		A0F882B7207CB84500CEC399 /* TCDelAccessKeyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDelAccessKeyRequest.m; sourceTree = "<group>"; };
 		A0FC255A20723175009E0C12 /* TCImageUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageUploader.h; sourceTree = "<group>"; };
 		A0FC255B20723175009E0C12 /* TCImageUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageUploader.m; sourceTree = "<group>"; };
 		A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddAppViewController.h; sourceTree = "<group>"; };
@@ -3953,6 +3959,10 @@
 		A052F805207A253B000A44E6 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A0F882B6207CB84500CEC399 /* TCDelAccessKeyRequest.h */,
+				A0F882B7207CB84500CEC399 /* TCDelAccessKeyRequest.m */,
+				A0F882B3207CB43A00CEC399 /* TCAccessKeyRequest.h */,
+				A0F882B4207CB43A00CEC399 /* TCAccessKeyRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -6256,6 +6266,7 @@
 				A0C9A0A21FF14B4E00F94E9E /* UIImage+Blurring.m in Sources */,
 				A07DBDE11FDED62A00F37715 /* TCServerLog+CoreDataClass.m in Sources */,
 				A00F0031206C4AE900118EC8 /* TCPieChartView.m in Sources */,
+				A0F882B5207CB43B00CEC399 /* TCAccessKeyRequest.m in Sources */,
 				A0C9A0691FF0D07800F94E9E /* TCCellData.m in Sources */,
 				A02555351FD7935900D16D22 /* TCGetCaptchaRequest.m in Sources */,
 				A0B7141B2006F30600BE9FCA /* TCChangeAdminViewController.m in Sources */,
@@ -6452,6 +6463,7 @@
 				A0C362F5200444730033C99C /* TCJoinSettingViewController.m in Sources */,
 				A031B6251FFE1DAD00B4F448 /* TCStaff+CoreDataClass.m in Sources */,
 				A005A3F52068DBF900ABA490 /* TCAppHomeViewController.m in Sources */,
+				A0F882B8207CB84500CEC399 /* TCDelAccessKeyRequest.m in Sources */,
 				A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */,
 				A07DBE341FDFA92200F37715 /* TCServerConfig+CoreDataClass.m in Sources */,
 				A0C9A0B61FF2281C00F94E9E /* TCCircleButton.m in Sources */,
