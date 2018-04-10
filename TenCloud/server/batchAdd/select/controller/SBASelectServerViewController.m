@@ -11,6 +11,7 @@
 #import "TCAddingServer+CoreDataClass.h"
 #import "SBAAddingView.h"
 #import "UIView+TCAlertView.h"
+#import "SBASuccessView.h"
 #define SBA_SELECT_CELL_ID    @"SBA_SELECT_CELL_ID"
 
 @interface SBASelectServerViewController ()
@@ -18,6 +19,7 @@
 @property (nonatomic, strong)   UIButton                *nextButton;
 @property (nonatomic, strong)   NSMutableArray          *serverArray;
 @property (nonatomic, strong)   SBAAddingView           *addingView;
+@property (nonatomic, strong)   SBASuccessView          *successView;
 - (void) onImportButton:(UIButton*)button;
 
 //for fake data
@@ -74,6 +76,7 @@
     [_tableView registerNib:cellNib forCellReuseIdentifier:SBA_SELECT_CELL_ID];
     
     _addingView = [SBAAddingView createViewFromNib];
+    _successView = [SBASuccessView createViewFromNib];
     /*
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -165,6 +168,13 @@
     }else
     {
         [_addingView hideView];
+        _successView.importServerAmount = 5;
+        __weak __typeof(self) weakSelf = self;
+        _successView.successBlock = ^(SBASuccessView *view) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        };
+        TCAlertController *vc = [TCAlertController alertControllerWithAlertView:_successView];
+        [vc present];
     }
 }
 @end
