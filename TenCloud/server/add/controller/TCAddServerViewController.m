@@ -15,6 +15,7 @@
 #import "TCAddServerFailView.h"
 #import "TCShowAlertView.h"
 #import "UIView+TCAlertView.h"
+#import "SBAProviderViewController.h"
 
 #define ADDING_SERVER_BUTTON_TITLE  @"正在添加...请稍候..."
 
@@ -34,6 +35,7 @@
 @property (nonatomic, strong)           TCShowAlertView     *successAlertView;
 @property (nonatomic, strong)           TCShowAlertView     *failAlertView;
 - (void) onTapBlankArea:(id)sender;
+- (void) onBatchAddButton:(id)sender;
 - (IBAction) onAddButton:(id)sender;
 - (IBAction) onLogButton:(id)sender;
 - (void) showLogAlertView;
@@ -94,6 +96,14 @@
 //    _passwordField.text = @"Test1234";
     
     [[TCAddServerManager shared] setDelegate:self];
+    
+    UIImage *addServerImg = [UIImage imageNamed:@"server_batch_add"];
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setImage:addServerImg forState:UIControlStateNormal];
+    [addButton sizeToFit];
+    [addButton addTarget:self action:@selector(onBatchAddButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = addItem;
 }
 
 
@@ -114,6 +124,12 @@
     [_ipField resignFirstResponder];
     [_userNameField resignFirstResponder];
     [_passwordField resignFirstResponder];
+}
+
+- (void) onBatchAddButton:(id)sender
+{
+    SBAProviderViewController *providerVC = [SBAProviderViewController new];
+    [self.navigationController pushViewController:providerVC animated:YES];
 }
 
 - (IBAction) onAddButton:(id)sender
