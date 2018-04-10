@@ -529,6 +529,8 @@
 		A0F882A8207B6BE300CEC399 /* SBAAddingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882A5207B6BE300CEC399 /* SBAAddingView.xib */; };
 		A0F882AC207C91D500CEC399 /* SBASuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882A9207C91D500CEC399 /* SBASuccessView.m */; };
 		A0F882AD207C91D500CEC399 /* SBASuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882AA207C91D500CEC399 /* SBASuccessView.xib */; };
+		A0F882B1207C977E00CEC399 /* SBAFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882AE207C977E00CEC399 /* SBAFailView.m */; };
+		A0F882B2207C977E00CEC399 /* SBAFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882AF207C977E00CEC399 /* SBAFailView.xib */; };
 		A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC255B20723175009E0C12 /* TCImageUploader.m */; };
 		A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */; };
 		A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */; };
@@ -1460,6 +1462,9 @@
 		A0F882A9207C91D500CEC399 /* SBASuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBASuccessView.m; sourceTree = "<group>"; };
 		A0F882AA207C91D500CEC399 /* SBASuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBASuccessView.xib; sourceTree = "<group>"; };
 		A0F882AB207C91D500CEC399 /* SBASuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBASuccessView.h; sourceTree = "<group>"; };
+		A0F882AE207C977E00CEC399 /* SBAFailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAFailView.m; sourceTree = "<group>"; };
+		A0F882AF207C977E00CEC399 /* SBAFailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAFailView.xib; sourceTree = "<group>"; };
+		A0F882B0207C977E00CEC399 /* SBAFailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAFailView.h; sourceTree = "<group>"; };
 		A0FC255A20723175009E0C12 /* TCImageUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageUploader.h; sourceTree = "<group>"; };
 		A0FC255B20723175009E0C12 /* TCImageUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageUploader.m; sourceTree = "<group>"; };
 		A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddAppViewController.h; sourceTree = "<group>"; };
@@ -4036,6 +4041,9 @@
 		A052F810207A253B000A44E6 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0F882B0207C977E00CEC399 /* SBAFailView.h */,
+				A0F882AE207C977E00CEC399 /* SBAFailView.m */,
+				A0F882AF207C977E00CEC399 /* SBAFailView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5840,6 +5848,7 @@
 				A052F842207B0DE3000A44E6 /* SBASelectServerViewController.xib in Resources */,
 				A0C9A0AF1FF14B4E00F94E9E /* readme.md in Resources */,
 				A052F83D207AFB25000A44E6 /* SBAAccessKeyViewController.xib in Resources */,
+				A0F882B2207C977E00CEC399 /* SBAFailView.xib in Resources */,
 				A0FC257520737904009E0C12 /* TCAppBindRepoViewController.xib in Resources */,
 				A02555991FD7E24A00D16D22 /* TCResourceHomeViewController.xib in Resources */,
 				A0C9A0711FF0D47500F94E9E /* TCEditTextTableViewCell.xib in Resources */,
@@ -6193,6 +6202,7 @@
 				A0895CED2018E20F00C00974 /* TCPageManager.m in Sources */,
 				A001FA3F1FDD81CB008328B0 /* TCServerMemory+CoreDataClass.m in Sources */,
 				A0C9A06C1FF0D24200F94E9E /* TCBasicTableViewCell.m in Sources */,
+				A0F882B1207C977E00CEC399 /* SBAFailView.m in Sources */,
 				A0C9A0511FED5CEE00F94E9E /* TCPersonHomeViewController.m in Sources */,
 				A052F7EF2073E031000A44E6 /* TCAddAppRequest.m in Sources */,
 				A04539BA20074F2200402D1A /* MKDropdownMenu.m in Sources */,

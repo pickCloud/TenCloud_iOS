@@ -16,36 +16,11 @@
 
 @implementation SBASuccessView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 - (void) setImportServerAmount:(NSInteger)importServerAmount
 {
     NSString *text = [NSString stringWithFormat:@"共成功导入%ld台云主机",importServerAmount];
     _textLabel.text = text;
 }
-
-/*
-- (void) setText:(NSString *)text
-{
-    _textLabel.text = text;
-}
-
-- (void) setAttrText:(NSAttributedString *)attrText
-{
-    _textLabel.attributedText = attrText;
-}
- 
-- (void) setAlignment:(NSTextAlignment)alignment
-{
-    [_textLabel setTextAlignment:alignment];
-}
- */
 
 - (IBAction) onOkButton:(id)sender
 {

@@ -1,38 +1,55 @@
 //
-//  SBAAddingView.m
+//  SBAFailView.m
 //  TenCloud
 //
 //  Created by huangdx on 2018/2/5.
 //  Copyright © 2018年 10.com. All rights reserved.
 //
 
-#import "SBAAddingView.h"
+#import "SBAFailView.h"
 #import "UIView+TCAlertView.h"
-#import "TCDonutChartView.h"
 
-@interface SBAAddingView()
-@property (nonatomic, weak) IBOutlet    UILabel             *progressLabel;
-@property (nonatomic, weak) IBOutlet    TCDonutChartView    *donutView;
-@property (nonatomic, weak) IBOutlet    UILabel             *descLabel;
+@interface SBAFailView()
+@property (nonatomic, weak) IBOutlet    UILabel     *textLabel;
+@property (nonatomic, weak) IBOutlet    UIButton    *confirmButton;
+- (IBAction) onCancelButton:(id)sender;
+- (IBAction) onConfirmButton:(id)sender;
 @end
 
-@implementation SBAAddingView
+@implementation SBAFailView
 
-- (void) awakeFromNib
+- (void) setText:(NSString *)text
 {
-    [super awakeFromNib];
-    UIColor *grayColor = [UIColor colorWithRed:64/255.0 green:70/255.0 blue:85/255.0 alpha:1.0];
-    _donutView.bgColor = grayColor;
+    _textLabel.text = text;
 }
 
-- (void) setProgress:(CGFloat)progress
-               total:(NSInteger)totalNum
-             success:(NSInteger)sucNum
-                fail:(NSInteger)failNum
+- (void) setConfirmButtonName:(NSString *)confirmButtonName
 {
-    NSString *progStr = [NSString stringWithFormat:@"%g%%",progress*100];
-    _progressLabel.text = progStr;
-    [_donutView setPercent:progress];
+    [_confirmButton setTitle:confirmButtonName forState:UIControlStateNormal];
+}
+
+- (IBAction) onCancelButton:(id)sender
+{
+    [self hideView];
+    if (_cancelBlock)
+    {
+        _cancelBlock(self);
+    }
+}
+
+- (IBAction) onConfirmButton:(id)sender
+{
+    [self hideView];
+    if (_retryBlock)
+    {
+        _retryBlock(self);
+    }
+}
+
+- (void) setTotalAmount:(NSInteger)total
+                success:(NSInteger)success
+                   fail:(NSInteger)fail
+{
     NSMutableAttributedString *desc = [NSMutableAttributedString new];
     UIFont *textFont = TCFont(14.0);
     NSDictionary *grayAttr = @{NSForegroundColorAttributeName : THEME_PLACEHOLDER_COLOR,
@@ -41,16 +58,16 @@
                                 NSFontAttributeName : textFont };
     NSDictionary *pinkAttr = @{NSForegroundColorAttributeName : STATE_ALERT_COLOR,
                                NSFontAttributeName : textFont };
-    NSString *str1 = [NSString stringWithFormat:@"共 %ld 台：已导入 ",totalNum];
+    NSString *str1 = [NSString stringWithFormat:@"共 %ld 台：已导入 ",total];
     NSMutableAttributedString *tmp1 = nil;
     tmp1 = [[NSMutableAttributedString alloc] initWithString:str1 attributes:grayAttr];
-    NSString *str2 = [NSString stringWithFormat:@"%ld",sucNum];
+    NSString *str2 = [NSString stringWithFormat:@"%ld",success];
     NSMutableAttributedString *tmp2 = nil;
     tmp2 = [[NSMutableAttributedString alloc] initWithString:str2 attributes:greenAttr];
     NSString *str3 = [NSString stringWithFormat:@" 台 / 失败 "];
     NSMutableAttributedString *tmp3 = nil;
     tmp3 = [[NSMutableAttributedString alloc] initWithString:str3 attributes:grayAttr];
-    NSString *str4 = [NSString stringWithFormat:@"%ld",failNum];
+    NSString *str4 = [NSString stringWithFormat:@"%ld",fail];
     NSMutableAttributedString *tmp4 = nil;
     tmp4 = [[NSMutableAttributedString alloc] initWithString:str4 attributes:pinkAttr];
     NSString *str5 = @" 台";
@@ -61,8 +78,6 @@
     [desc appendAttributedString:tmp3];
     [desc appendAttributedString:tmp4];
     [desc appendAttributedString:tmp5];
-    _descLabel.attributedText = desc;
-    
+    _textLabel.attributedText = desc;
 }
-
 @end

@@ -12,6 +12,7 @@
 #import "SBAAddingView.h"
 #import "UIView+TCAlertView.h"
 #import "SBASuccessView.h"
+#import "SBAFailView.h"
 #define SBA_SELECT_CELL_ID    @"SBA_SELECT_CELL_ID"
 
 @interface SBASelectServerViewController ()
@@ -20,6 +21,7 @@
 @property (nonatomic, strong)   NSMutableArray          *serverArray;
 @property (nonatomic, strong)   SBAAddingView           *addingView;
 @property (nonatomic, strong)   SBASuccessView          *successView;
+@property (nonatomic, strong)   SBAFailView             *failView;
 - (void) onImportButton:(UIButton*)button;
 
 //for fake data
@@ -77,6 +79,7 @@
     
     _addingView = [SBAAddingView createViewFromNib];
     _successView = [SBASuccessView createViewFromNib];
+    _failView = [SBAFailView createViewFromNib];
     /*
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
@@ -168,12 +171,25 @@
     }else
     {
         [_addingView hideView];
+        /*
+        //导入成功页面
         _successView.importServerAmount = 5;
         __weak __typeof(self) weakSelf = self;
         _successView.successBlock = ^(SBASuccessView *view) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         };
         TCAlertController *vc = [TCAlertController alertControllerWithAlertView:_successView];
+        [vc present];
+         */
+        [_failView setTotalAmount:5 success:4 fail:1];
+        __weak __typeof(self) weakSelf = self;
+        _failView.cancelBlock = ^(SBAFailView *view) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        };
+        _failView.retryBlock = ^(SBAFailView *view) {
+            
+        };
+        TCAlertController *vc = [TCAlertController alertControllerWithAlertView:_failView];
         [vc present];
     }
 }
