@@ -24,12 +24,16 @@
 #import "TCAlertController.h"
 #endif
 
+#define GITHUB_CLIENT_ID        @"5448811562b83dadc3cf"
+#define GITHUB_CLIENT_SECRET    @"d282962b4179ec76ee44076d6301f9f23adf5997"
+
 #define ONLINE_ENVIROMENT       0
 #if     ONLINE_ENVIROMENT       //正式服务器
 #define SERVER_URL_STRING       @"https://c.10.com"
 #define GEETEST_API1            @"https://c.10.com/api/user/captcha"
 #define GEETEST_API2            @"https://c.10.com/api/user/sms"
 #define ADD_SERVER_URL          @"https://c.10.com/api/server/new"
+#define GITHUB_CALLBACK         @"https://c.10.com/api/github/oauth/callback"
 #else                           //测试服务器
 //#define SERVER_URL_STRING       @"http://ct.10.com"
 //#define GEETEST_API1            @"http://ct.10.com/api/user/captcha"
@@ -39,6 +43,7 @@
 #define GEETEST_API1            @"http://cd.10.com/api/user/captcha"
 #define GEETEST_API2            @"http://cd.10.com/api/user/sms"
 #define ADD_SERVER_URL          @"http://cd.10.com/api/server/new"
+#define GITHUB_CALLBACK         @"https://cd.10.com/api/github/oauth/callback"
 #endif
 
 #define THEME_TINT_COLOR            [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0]

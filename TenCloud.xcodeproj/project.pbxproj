@@ -533,6 +533,11 @@
 		A0F882B2207C977E00CEC399 /* SBAFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882AF207C977E00CEC399 /* SBAFailView.xib */; };
 		A0F882B5207CB43B00CEC399 /* TCAccessKeyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882B4207CB43A00CEC399 /* TCAccessKeyRequest.m */; };
 		A0F882B8207CB84500CEC399 /* TCDelAccessKeyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882B7207CB84500CEC399 /* TCDelAccessKeyRequest.m */; };
+		A0F882BF207D076B00CEC399 /* TCAppRepo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882BC207D076B00CEC399 /* TCAppRepo+CoreDataClass.m */; };
+		A0F882C0207D076B00CEC399 /* TCAppRepo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882BE207D076B00CEC399 /* TCAppRepo+CoreDataProperties.m */; };
+		A0F882C3207D080C00CEC399 /* TCGithubReposRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882C2207D080B00CEC399 /* TCGithubReposRequest.m */; };
+		A0F882C7207D0D5800CEC399 /* GithubLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F882C4207D0D5800CEC399 /* GithubLoginViewController.m */; };
+		A0F882C8207D0D5800CEC399 /* GithubLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F882C5207D0D5800CEC399 /* GithubLoginViewController.xib */; };
 		A0FC255C20723175009E0C12 /* TCImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC255B20723175009E0C12 /* TCImageUploader.m */; };
 		A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FC256220723ABD009E0C12 /* TCAddAppViewController.m */; };
 		A0FC256520723ABD009E0C12 /* TCAddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC256320723ABD009E0C12 /* TCAddAppViewController.xib */; };
@@ -1471,6 +1476,15 @@
 		A0F882B4207CB43A00CEC399 /* TCAccessKeyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccessKeyRequest.m; sourceTree = "<group>"; };
 		A0F882B6207CB84500CEC399 /* TCDelAccessKeyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDelAccessKeyRequest.h; sourceTree = "<group>"; };
 		A0F882B7207CB84500CEC399 /* TCDelAccessKeyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDelAccessKeyRequest.m; sourceTree = "<group>"; };
+		A0F882BB207D076B00CEC399 /* TCAppRepo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCAppRepo+CoreDataClass.h"; sourceTree = "<group>"; };
+		A0F882BC207D076B00CEC399 /* TCAppRepo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCAppRepo+CoreDataClass.m"; sourceTree = "<group>"; };
+		A0F882BD207D076B00CEC399 /* TCAppRepo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCAppRepo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A0F882BE207D076B00CEC399 /* TCAppRepo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TCAppRepo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A0F882C1207D080B00CEC399 /* TCGithubReposRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGithubReposRequest.h; sourceTree = "<group>"; };
+		A0F882C2207D080B00CEC399 /* TCGithubReposRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGithubReposRequest.m; sourceTree = "<group>"; };
+		A0F882C4207D0D5800CEC399 /* GithubLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubLoginViewController.m; sourceTree = "<group>"; };
+		A0F882C5207D0D5800CEC399 /* GithubLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoginViewController.xib; sourceTree = "<group>"; };
+		A0F882C6207D0D5800CEC399 /* GithubLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubLoginViewController.h; sourceTree = "<group>"; };
 		A0FC255A20723175009E0C12 /* TCImageUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCImageUploader.h; sourceTree = "<group>"; };
 		A0FC255B20723175009E0C12 /* TCImageUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCImageUploader.m; sourceTree = "<group>"; };
 		A0FC256120723ABD009E0C12 /* TCAddAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAddAppViewController.h; sourceTree = "<group>"; };
@@ -1612,6 +1626,8 @@
 		A005A3AE2068D91F00ABA490 /* bindRepo */ = {
 			isa = PBXGroup;
 			children = (
+				A0F882BA207D071F00CEC399 /* model */,
+				A0F882B9207D071F00CEC399 /* request */,
 				A0FC257620737992009E0C12 /* view */,
 				A0FC2570207378E1009E0C12 /* controller */,
 			);
@@ -5623,6 +5639,26 @@
 			path = WRNavigationBar;
 			sourceTree = "<group>";
 		};
+		A0F882B9207D071F00CEC399 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A0F882C1207D080B00CEC399 /* TCGithubReposRequest.h */,
+				A0F882C2207D080B00CEC399 /* TCGithubReposRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		A0F882BA207D071F00CEC399 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A0F882BB207D076B00CEC399 /* TCAppRepo+CoreDataClass.h */,
+				A0F882BC207D076B00CEC399 /* TCAppRepo+CoreDataClass.m */,
+				A0F882BD207D076B00CEC399 /* TCAppRepo+CoreDataProperties.h */,
+				A0F882BE207D076B00CEC399 /* TCAppRepo+CoreDataProperties.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		A0FC255D20723A3F009E0C12 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -5681,6 +5717,9 @@
 		A0FC2570207378E1009E0C12 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0F882C6207D0D5800CEC399 /* GithubLoginViewController.h */,
+				A0F882C4207D0D5800CEC399 /* GithubLoginViewController.m */,
+				A0F882C5207D0D5800CEC399 /* GithubLoginViewController.xib */,
 				A0FC257120737904009E0C12 /* TCAppBindRepoViewController.h */,
 				A0FC257220737904009E0C12 /* TCAppBindRepoViewController.m */,
 				A0FC257320737904009E0C12 /* TCAppBindRepoViewController.xib */,
@@ -5838,6 +5877,7 @@
 				A0A8F3D91FE626B00050F920 /* TCSetPasswordViewController.xib in Resources */,
 				A0A86B2B1FF37F5900D1D58D /* TCSuccessResultViewController.xib in Resources */,
 				A08358DD206BBD5100DF2DA0 /* TCAppProfileMirrorCell.xib in Resources */,
+				A0F882C8207D0D5800CEC399 /* GithubLoginViewController.xib in Resources */,
 				A0C9A07E1FF115FF00F94E9E /* TCEditAvatarTableViewCell.xib in Resources */,
 				A08358E7206BC7EC00DF2DA0 /* TCAppProfileTaskCell.xib in Resources */,
 				A06D12221FEBA2F100722C76 /* TCSearchFilterViewController.xib in Resources */,
@@ -6181,6 +6221,7 @@
 				A0A0F0B520595FAB003CB4BD /* TCServerUsage4Cell.m in Sources */,
 				A0B7FFDA2052212F007A7A93 /* TCRightImageButton.m in Sources */,
 				A001FA411FDD81CB008328B0 /* TCServerCPU+CoreDataClass.m in Sources */,
+				A0F882C3207D080C00CEC399 /* TCGithubReposRequest.m in Sources */,
 				A0A0B5B1200227A800EA8512 /* TCStaffProfileViewController.m in Sources */,
 				A0FC256420723ABD009E0C12 /* TCAddAppViewController.m in Sources */,
 				A0C9A0761FF0E94600F94E9E /* TCModifyTextViewController.m in Sources */,
@@ -6189,6 +6230,7 @@
 				A07DBE1C1FDFA82700F37715 /* TCServerBusinessContract+CoreDataClass.m in Sources */,
 				A00F0030206C4AE900118EC8 /* TCGagueChartView.m in Sources */,
 				A02555771FD7CBB400D16D22 /* TCProjectHomeViewController.m in Sources */,
+				A0F882BF207D076B00CEC399 /* TCAppRepo+CoreDataClass.m in Sources */,
 				A00F002F206C4AE900118EC8 /* TCDonutChartView.m in Sources */,
 				A0B7FFDD205227FA007A7A93 /* TCRoundRectBorderLabel.m in Sources */,
 				A033859B1FE8E3C500EC0EC8 /* TCServerStateTableViewCell.m in Sources */,
@@ -6278,6 +6320,7 @@
 				A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */,
 				A06D121C1FEB924F00722C76 /* TCClusterProvider+CoreDataClass.m in Sources */,
 				A005A41D206B340C00ABA490 /* TCServiceTableViewCell.m in Sources */,
+				A0F882C0207D076B00CEC399 /* TCAppRepo+CoreDataProperties.m in Sources */,
 				A06D12171FEB8CF200722C76 /* TCClusterProviderRequest.m in Sources */,
 				A08358C9206B792400DF2DA0 /* TCTask+CoreDataProperties.m in Sources */,
 				A07DBE1B1FDFA82700F37715 /* TCServerSystemConfig+CoreDataProperties.m in Sources */,
@@ -6515,6 +6558,7 @@
 				A07DBE041FDF7D3200F37715 /* TCServerContainerTableViewCell.m in Sources */,
 				A033985F201FFA0D00CF8630 /* TCPerformanceHistoryRequest.m in Sources */,
 				A0F6BD87200DFB2000843ECF /* WRCustomNavigationBar.m in Sources */,
+				A0F882C7207D0D5800CEC399 /* GithubLoginViewController.m in Sources */,
 				A0C362F92004504A0033C99C /* TCJoinSettingItem.m in Sources */,
 				A0A86B571FF3951500D1D58D /* TCCorpListRequest.m in Sources */,
 				A0A124D52051158A00E1FF7E /* TCAutoScaleLabel.m in Sources */,

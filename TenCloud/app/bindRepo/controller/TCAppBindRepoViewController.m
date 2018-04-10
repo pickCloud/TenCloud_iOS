@@ -9,6 +9,8 @@
 #import "TCAppBindRepoViewController.h"
 #import "TCBindRepoTableViewCell.h"
 #import "TCGitRepo.h"
+#import "TCGithubReposRequest.h"
+#import "GithubLoginViewController.h"
 #define BIND_REPO_CELL_ID       @"BIND_REPO_CELL_ID"
 
 @interface TCAppBindRepoViewController ()
@@ -59,6 +61,18 @@
     repo2.name = @"python-2048";
     repo2.address = @"http://github.com/1234567/python-2048";
     [_repoArray addObject:repo2];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://github.com/login/oauth/authorize?client_id=%@&state=1&redirect_uri=%@",GITHUB_CLIENT_ID,GITHUB_CALLBACK];
+    TCGithubReposRequest *req = [TCGithubReposRequest new];
+    req.url = urlStr;
+    [req startWithSuccess:^(NSArray<TCAppRepo *> *repoArray) {
+        NSLog(@"get repos amount%ld",repoArray.count);
+    } failure:^(NSString *message) {
+        NSLog(@"message:%@",message);
+    }];
+    
+    //GithubLoginViewController *vc = [GithubLoginViewController new];
+    //[self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
