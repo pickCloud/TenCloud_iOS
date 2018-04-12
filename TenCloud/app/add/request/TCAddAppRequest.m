@@ -13,6 +13,16 @@
 
 @implementation TCAddAppRequest
 
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        _labels = [NSMutableArray new];
+    }
+    return self;
+}
+
 - (void) startWithSuccess:(void(^)(NSInteger corpID))success
                   failure:(void(^)(NSString *message))failure
 {
@@ -51,7 +61,8 @@
              @"repos_ssh_url":_repos_ssh_url,
              @"repos_https_url":_repos_https_url,
              @"logo_url":_logo_url,
-             @"image_id":_image_id
+             @"image_id":_image_id,
+             @"labels":_labels
              };
 }
 

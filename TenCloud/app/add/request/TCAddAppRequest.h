@@ -17,6 +17,7 @@
 @property (nonatomic, strong)   NSString    *repos_https_url;
 @property (nonatomic, strong)   NSString    *logo_url;
 @property (nonatomic, strong)   NSNumber    *image_id;
+@property (nonatomic, strong)   NSMutableArray  *labels;
 
 - (void) startWithSuccess:(void(^)(NSInteger appID))success
                   failure:(void(^)(NSString *message))failure;

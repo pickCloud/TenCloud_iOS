@@ -202,6 +202,24 @@ UITextFieldDelegate,UITextViewDelegate>
         [_descTextView resignFirstResponder];
     }
     
+    NSMutableArray *tagIds = [NSMutableArray new];
+    for (TCEditTag *tmpTag in _tagArray)
+    {
+        if (tmpTag.tagID > 0)
+        {
+            [tagIds addObject:@(tmpTag.tagID)];
+        }
+    }
+    /*
+    [tagIds sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSNumber *num1 = obj1;
+        NSNumber *num2 = obj2;
+        return num1.floatValue > num2.floatValue;
+    }];
+     */
+    NSLog(@"tag ids:%@",tagIds);
+    return;
+    
     __weak __typeof(self) weakSelf = self;
     TCAddAppRequest *req = [TCAddAppRequest new];
     req.name = _nameField.text;
