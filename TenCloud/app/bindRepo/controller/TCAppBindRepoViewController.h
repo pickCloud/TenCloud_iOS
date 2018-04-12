@@ -8,8 +8,8 @@
 
 #import "TCViewController.h"
 
-@class TCGitRepo;
-typedef void (^TCBindRepoBlock)(TCGitRepo *repo);
+@class TCAppRepo;
+typedef void (^TCBindRepoBlock)(TCAppRepo *repo);
 
 @interface TCAppBindRepoViewController : TCViewController
 

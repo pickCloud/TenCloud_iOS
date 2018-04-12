@@ -20,9 +20,7 @@
     self.title = @"GitHub";
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
-    NSString *urlStr = [NSString stringWithFormat:@"https://github.com/login/oauth/authorize?client_id=%@&state=1&redirect_uri=%@",GITHUB_CLIENT_ID,GITHUB_CALLBACK];
-    NSURL *eulaURL = [NSURL URLWithString:urlStr];
-    NSLog(@"eula url:%@",eulaURL);
+    NSURL *eulaURL = [NSURL URLWithString:_loginURLString];
     NSURLRequest *eulaReq = [NSURLRequest requestWithURL:eulaURL];
     [_webView loadRequest:eulaReq];
 }

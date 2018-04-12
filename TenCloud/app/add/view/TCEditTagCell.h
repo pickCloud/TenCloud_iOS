@@ -21,10 +21,11 @@ typedef NS_ENUM(NSInteger, TCTagEditType){
 @interface TCEditTagCell : UICollectionViewCell
 
 //- (void) setName:(NSString*)name;
-@property (nonatomic, weak) IBOutlet    UITextField *textField;
+//@property (nonatomic, weak) IBOutlet    UITextField *textField;
 
 - (void) setEditTag:(TCEditTag*)tag;
 
 //- (void) startEdit;
+//- (BOOL) becomeFirstResponder;
 
 @end

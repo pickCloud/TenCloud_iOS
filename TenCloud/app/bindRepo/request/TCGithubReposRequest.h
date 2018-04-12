@@ -17,6 +17,6 @@
 - (NSArray<TCAppRepo*> *)resultRepoArray;
 
 - (void) startWithSuccess:(void(^)(NSArray<TCAppRepo*> *repoArray))success
-                  failure:(void(^)(NSString *message))failure;
+                  failure:(void(^)(NSString *message,NSString *urlStr))failure;
 
 @end

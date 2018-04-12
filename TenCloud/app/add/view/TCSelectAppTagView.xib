@@ -46,6 +46,19 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5H-iD-j5d" customClass="TCAutoScaleTextField">
+                                    <rect key="frame" x="-150" y="12.5" width="97" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                            <color key="value" red="0.34509803921568627" green="0.38431372549019605" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" red="0.11372549019607843" green="0.12549019607843137" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -148,7 +161,9 @@
             <connections>
                 <outlet property="editingHeight" destination="byG-Sm-O6L" id="cIm-cR-x2r"/>
                 <outlet property="editingTagView" destination="Vta-iF-U2b" id="DVh-5B-lEg"/>
+                <outlet property="editingView" destination="NTQ-Ft-s1e" id="rYE-8B-pG3"/>
                 <outlet property="myTagView" destination="thV-Ou-mez" id="1ED-4w-22u"/>
+                <outlet property="tagTextField" destination="N5H-iD-j5d" id="OAO-nJ-Bfc"/>
             </connections>
             <point key="canvasLocation" x="37.5" y="-29"/>
         </view>

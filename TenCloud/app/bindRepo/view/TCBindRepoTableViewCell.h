@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class TCGitRepo;
+//@class TCGitRepo;
+@class TCAppRepo;
 @interface TCBindRepoTableViewCell : UITableViewCell
 
-- (void) setRepo:(TCGitRepo*)repo;
+//- (void) setRepo:(TCGitRepo*)repo;
+- (void) setRepo:(TCAppRepo*)repo;
 
 @end

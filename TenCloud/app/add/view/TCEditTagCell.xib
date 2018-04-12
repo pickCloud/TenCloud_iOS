@@ -18,36 +18,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="57" height="20"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="模版名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sa-YN-aDo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="模版名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sa-YN-aDo">
                         <rect key="frame" x="13" y="4" width="31" height="12"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.41176470588235292" green="0.72549019607843135" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="标签名" placeholder="输入名称" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJC-4I-F8s" customClass="TCAutoScaleTextField">
-                        <rect key="frame" x="6" y="4" width="45" height="12"/>
-                        <color key="textColor" red="0.28235294119999998" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                <color key="value" red="0.34509803921568627" green="0.38431372549019605" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </textField>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1PV-DJ-hgC">
+                        <rect key="frame" x="0.0" y="0.0" width="57" height="20"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.60392156860000001" blue="0.60392156860000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.12549019607843137" green="0.30196078431372547" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3sa-YN-aDo" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ajf-C6-oFB"/>
+                <constraint firstItem="1PV-DJ-hgC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EbV-YK-ocy"/>
                 <constraint firstItem="3sa-YN-aDo" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="L6B-qr-hiN"/>
-                <constraint firstItem="NJC-4I-F8s" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="XGp-VW-w5u"/>
-                <constraint firstItem="NJC-4I-F8s" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="xsy-ba-VTJ"/>
+                <constraint firstItem="1PV-DJ-hgC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="XUI-ka-9Dc"/>
+                <constraint firstItem="1PV-DJ-hgC" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="fgW-ez-wlj"/>
+                <constraint firstItem="1PV-DJ-hgC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="twU-yi-RQT"/>
             </constraints>
             <size key="customSize" width="57" height="35"/>
             <connections>
                 <outlet property="nameLabel" destination="3sa-YN-aDo" id="U49-Oe-quY"/>
-                <outlet property="textField" destination="NJC-4I-F8s" id="dgY-Gp-pco"/>
             </connections>
             <point key="canvasLocation" x="28.5" y="44"/>
         </collectionViewCell>

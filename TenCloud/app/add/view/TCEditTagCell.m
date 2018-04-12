@@ -10,6 +10,7 @@
 #import "TCEditTag.h"
 
 @interface TCEditTagCell()
+@property (nonatomic, strong)   CAShapeLayer        *dashLayer;
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
 //@property (nonatomic, assign)   TCTagEditType       type;
 @end
@@ -25,8 +26,8 @@
     self.backgroundColor = [UIColor clearColor];
     self.nameLabel.font = TCFont(12.);
     
-    _textField.textColor = THEME_TEXT_COLOR;
-    _textField.font = TCFont(12.);
+    //_textField.textColor = THEME_TEXT_COLOR;
+    //_textField.font = TCFont(12.);
 }
 
 /*
@@ -81,12 +82,14 @@
     if (tag.type == TCTagEditTypeNew)
     {
         //self.nameLabel.text = @"新增标签";
-        _textField.text = @"新增标签";
-        _textField.userInteractionEnabled = NO;
+        self.nameLabel.hidden = NO;
+        //_textField.text = @"新增标签";
+        //_textField.userInteractionEnabled = NO;
         self.layer.borderColor = [UIColor clearColor].CGColor;
         //self.backgroundColor = [UIColor clearColor];
         
         CAShapeLayer *border = [CAShapeLayer layer];
+        _dashLayer = border;
         
         border.strokeColor = THEME_TEXT_COLOR.CGColor;
         
@@ -105,20 +108,31 @@
         [self.layer addSublayer:border];
     }else if(tag.type == TCTagEditTypeEditing)
     {
+        self.nameLabel.hidden = YES;
         self.nameLabel.text = @"";//name;
-        _textField.text = @"";//name;
-        _textField.userInteractionEnabled = YES;
+        //_textField.text = @"";//name;
+        //_textField.userInteractionEnabled = YES;
     }else if(tag.type == TCTagEditTypeFinished)
     {
+        if (_dashLayer)
+        {
+            [_dashLayer removeFromSuperlayer];
+        }
+        self.nameLabel.hidden = NO;
         self.nameLabel.text = tag.name;
         self.layer.borderColor = THEME_TEXT_COLOR.CGColor;
-        _textField.text = tag.name;
-        _textField.userInteractionEnabled = NO;
+        //_textField.text = tag.name;
+        //_textField.userInteractionEnabled = NO;
     }else if(tag.type == TCTagEditTypeSelected)
     {
+        if (_dashLayer)
+        {
+            [_dashLayer removeFromSuperlayer];
+        }
+        self.nameLabel.hidden = NO;
         self.nameLabel.text = tag.name;
-        _textField.text = tag.name;
-        _textField.userInteractionEnabled = NO;
+        //_textField.text = tag.name;
+        //_textField.userInteractionEnabled = NO;
     }
 }
 
@@ -139,4 +153,12 @@
     }
      */
 }
+
+/*
+- (BOOL) becomeFirstResponder
+{
+    [super becomeFirstResponder];
+    return [_textField becomeFirstResponder];
+}
+ */
 @end

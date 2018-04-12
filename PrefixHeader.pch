@@ -43,7 +43,7 @@
 #define GEETEST_API1            @"http://cd.10.com/api/user/captcha"
 #define GEETEST_API2            @"http://cd.10.com/api/user/sms"
 #define ADD_SERVER_URL          @"http://cd.10.com/api/server/new"
-#define GITHUB_CALLBACK         @"https://cd.10.com/api/github/oauth/callback"
+#define GITHUB_CALLBACK         @"http://cd.10.com/api/github/oauth/callback"
 #endif
 
 #define THEME_TINT_COLOR            [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0]

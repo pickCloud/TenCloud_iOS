@@ -15,13 +15,22 @@
 @implementation TCGithubReposRequest
 
 - (void) startWithSuccess:(void(^)(NSArray<TCAppRepo*> *repoArray))success
-                  failure:(void(^)(NSString *message))failure
+                  failure:(void(^)(NSString *message,NSString *urlStr))failure
 {
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSArray *resArray = [self resultRepoArray];
         success ? success(resArray) : nil;
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        failure ? failure([self errorMessaage]) : nil;
+        //failure ? failure([self errorMessaage]) : nil;
+        NSDictionary *callbackDict = [self.responseJSONObject objectForKey:@"data"];
+        if (callbackDict && [callbackDict isKindOfClass:[NSDictionary class]])
+        {
+            NSString *urlstr = [callbackDict objectForKey:@"url"];
+            failure ? failure([self errorMessaage], urlstr) : nil;
+        }else
+        {
+            failure ? failure([self errorMessaage], @"") : nil;
+        }
     }];
 }
 

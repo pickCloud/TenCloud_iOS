@@ -7,7 +7,8 @@
 //
 
 #import "TCBindRepoTableViewCell.h"
-#import "TCGitRepo.h"
+//#import "TCGitRepo.h"
+#import "TCAppRepo+CoreDataClass.h"
 
 @interface TCBindRepoTableViewCell()
 @property (nonatomic, weak) IBOutlet    UILabel     *nameLabel;
@@ -38,11 +39,23 @@
     }
 }
 
+/*
 - (void) setRepo:(TCGitRepo*)repo
 {
     _nameLabel.text = repo.name;
     NSString *addr = [NSString stringWithFormat:@"路径: %@",repo.address];
     if (repo.address.length == 0)
+    {
+        addr = @"";
+    }
+    _addressLabel.text = addr;
+}
+ */
+- (void) setRepo:(TCAppRepo *)repo
+{
+    _nameLabel.text = repo.repos_name;
+    NSString *addr = [NSString stringWithFormat:@"路径: %@",repo.repos_url];
+    if (repo.repos_url.length == 0)
     {
         addr = @"";
     }

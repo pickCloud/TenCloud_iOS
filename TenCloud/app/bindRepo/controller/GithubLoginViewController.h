@@ -10,4 +10,6 @@
 
 @interface GithubLoginViewController : TCViewController
 
+@property (nonatomic, strong)   NSString        *loginURLString;
+
 @end

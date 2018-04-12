@@ -8,7 +8,6 @@
 
 #import "TCAppBindRepoViewController.h"
 #import "TCBindRepoTableViewCell.h"
-#import "TCGitRepo.h"
 #import "TCGithubReposRequest.h"
 #import "GithubLoginViewController.h"
 #define BIND_REPO_CELL_ID       @"BIND_REPO_CELL_ID"
@@ -49,7 +48,7 @@
     UINib *cellNib = [UINib nibWithNibName:@"TCBindRepoTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:BIND_REPO_CELL_ID];
     
-    
+    /*
     TCGitRepo *repo0 = [TCGitRepo new];
     repo0.name = @"不绑定";
     [_repoArray addObject:repo0];
@@ -61,18 +60,36 @@
     repo2.name = @"python-2048";
     repo2.address = @"http://github.com/1234567/python-2048";
     [_repoArray addObject:repo2];
+     */
     
+    /*
     NSString *urlStr = [NSString stringWithFormat:@"https://github.com/login/oauth/authorize?client_id=%@&state=1&redirect_uri=%@",GITHUB_CLIENT_ID,GITHUB_CALLBACK];
+     */
+    [self startLoading];
+    __weak __typeof(self) weakSelf = self;
     TCGithubReposRequest *req = [TCGithubReposRequest new];
-    req.url = urlStr;
+    req.url = @"http://cd.10.com";//urlStr;
     [req startWithSuccess:^(NSArray<TCAppRepo *> *repoArray) {
         NSLog(@"get repos amount%ld",repoArray.count);
-    } failure:^(NSString *message) {
+        [weakSelf.repoArray addObjectsFromArray:repoArray];
+        [weakSelf.tableView reloadData];
+        [weakSelf stopLoading];
+    } failure:^(NSString *message, NSString *urlStr) {
         NSLog(@"message:%@",message);
+        NSLog(@"urlStr:%@",urlStr);
+        if (urlStr && urlStr.length > 0)
+        {
+            GithubLoginViewController *vc = [GithubLoginViewController new];
+            vc.loginURLString = urlStr;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }else
+        {
+            [MBProgressHUD showError:message toView:nil];
+        }
+        [weakSelf stopLoading];
     }];
     
-    //GithubLoginViewController *vc = [GithubLoginViewController new];
-    //[self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,7 +119,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCBindRepoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BIND_REPO_CELL_ID forIndexPath:indexPath];
-    TCGitRepo *repo = [_repoArray objectAtIndex:indexPath.row];
+    TCAppRepo *repo = [_repoArray objectAtIndex:indexPath.row];
     [cell setRepo:repo];
     return cell;
 }
@@ -122,7 +139,7 @@
         if (rows && rows.count > 0)
         {
             NSIndexPath *path = rows.firstObject;
-            TCGitRepo *repo = [_repoArray objectAtIndex:path.row];
+            TCAppRepo *repo = [_repoArray objectAtIndex:path.row];
             _bindBlock(repo);
         }
     }

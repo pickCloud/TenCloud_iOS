@@ -12,13 +12,13 @@
 #import "LSActionSheet.h"
 #import "UIImage+Resizing.h"
 #import "TCAppBindRepoViewController.h"
-#import "TCGitRepo.h"
 #import "TCTagLabelCell.h"
 #import "JYEqualCellSpaceFlowLayout.h"
 #import "TCSelectAppTagView.h"
 #import "TCAlertController.h"
 #import "UIView+TCAlertView.h"
 #import "TCAddAppRequest.h"
+#import "TCAppRepo+CoreDataClass.h"
 
 #define ADD_APP_TAG_CELL_ID @"ADD_APP_TAG_CELL_ID"
 
@@ -122,12 +122,13 @@ UITextFieldDelegate,UITextViewDelegate>
 {
     __weak __typeof(self) weakSelf = self;
     TCAppBindRepoViewController *bindVC = [TCAppBindRepoViewController new];
-    bindVC.bindBlock = ^(TCGitRepo *repo) {
-        if ([repo isValid])
+    bindVC.bindBlock = ^(TCAppRepo *repo) {
+        BOOL valid = (repo.repos_url != nil) && (repo.repos_url.length > 0);
+        if (valid)
         {
-            weakSelf.repoName = repo.name;
-            weakSelf.repoAddress = repo.address;
-            [weakSelf.sourceButton setTitle:repo.name forState:UIControlStateNormal];
+            weakSelf.repoName = repo.repos_name;
+            weakSelf.repoAddress = repo.repos_url;
+            [weakSelf.sourceButton setTitle:repo.repos_name forState:UIControlStateNormal];
         }else
         {
             [weakSelf.sourceButton setTitle:@"绑定github代码仓库" forState:UIControlStateNormal];
@@ -138,7 +139,6 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onTagButton:(id)sender
 {
-    NSLog(@"on tag button");
     TCSelectAppTagView *view = [TCSelectAppTagView createViewFromNib];
     TCAlertController *ctrl = [[TCAlertController alloc] initWithAlertView:view
     preferredStyle:TCAlertControllerStyleAlert transitionAnimation:TCAlertTransitionAnimationFade transitionAnimationClass:nil];

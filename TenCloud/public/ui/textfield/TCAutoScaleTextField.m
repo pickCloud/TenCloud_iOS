@@ -26,4 +26,12 @@
     return self;
 }
 
+/*
+- (BOOL) canBecomeFirstResponder
+{
+    //[super canBecomeFirstResponder];
+    return YES;
+}
+ */
+
 @end
