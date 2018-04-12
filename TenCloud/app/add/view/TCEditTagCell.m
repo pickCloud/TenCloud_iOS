@@ -21,8 +21,8 @@
     [super awakeFromNib];
     self.layer.cornerRadius = TCSCALE(2.0);
     self.layer.borderWidth = 0.6;
-    self.layer.borderColor = THEME_TEXT_COLOR.CGColor;
-    _nameLabel.textColor = THEME_TEXT_COLOR;
+    self.layer.borderColor = THEME_TINT_COLOR.CGColor; //THEME_TEXT_COLOR.CGColor;
+    _nameLabel.textColor = THEME_TINT_COLOR; //THEME_TEXT_COLOR;
     self.backgroundColor = [UIColor clearColor];
     self.nameLabel.font = TCFont(12.);
     
@@ -30,59 +30,29 @@
     //_textField.font = TCFont(12.);
 }
 
-/*
-- (void) setName:(NSString*)name
+- (void) setSelected:(BOOL)selected
 {
-    _nameLabel.text = name;
-    if (_type == TCTagEditTypeNew)
+    [super setSelected:selected];
+    if (self.selected && _editTag.type == TCTagEditTypeFinished)
     {
-        //self.nameLabel.text = @"新增标签";
-        _textField.text = @"新增标签";
-        self.layer.borderColor = [UIColor clearColor].CGColor;
-        //self.backgroundColor = [UIColor clearColor];
-        
-        CAShapeLayer *border = [CAShapeLayer layer];
-        
-        border.strokeColor = THEME_TEXT_COLOR.CGColor;
-        
-        border.fillColor = nil;
-        
-        border.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
-        
-        border.frame = self.bounds;
-        
-        border.lineWidth = 1.f;
-        
-        border.lineCap = @"square";
-        
-        border.lineDashPattern = @[@4, @4];
-        
-        [self.layer addSublayer:border];
-    }else if(_type == TCTagEditTypeEditing)
+        self.backgroundColor = THEME_TINT_COLOR;
+        self.nameLabel.textColor = THEME_BACKGROUND_COLOR;
+    }else
     {
-        self.nameLabel.text = @"";//name;
-        _textField.text = @"";//name;
-    }else if(_type == TCTagEditTypeFinished)
-    {
-        self.nameLabel.text = name;
-        self.layer.borderColor = THEME_TEXT_COLOR.CGColor;
-        _textField.text = name;
-    }else if(_type == TCTagEditTypeSelected)
-    {
-        self.nameLabel.text = name;
-        _textField.text = name;
+        self.backgroundColor = [UIColor clearColor];
+        self.nameLabel.textColor = THEME_TINT_COLOR;
     }
 }
 
- */
-
 - (void) setEditTag:(TCEditTag*)tag
 {
+    _editTag = tag;
     _nameLabel.text = tag.name;
     if (tag.type == TCTagEditTypeNew)
     {
         //self.nameLabel.text = @"新增标签";
         self.nameLabel.hidden = NO;
+        self.nameLabel.textColor = THEME_TEXT_COLOR;
         //_textField.text = @"新增标签";
         //_textField.userInteractionEnabled = NO;
         self.layer.borderColor = [UIColor clearColor].CGColor;
@@ -120,7 +90,8 @@
         }
         self.nameLabel.hidden = NO;
         self.nameLabel.text = tag.name;
-        self.layer.borderColor = THEME_TEXT_COLOR.CGColor;
+        self.nameLabel.textColor = THEME_TINT_COLOR;
+        self.layer.borderColor = THEME_TINT_COLOR.CGColor;
         //_textField.text = tag.name;
         //_textField.userInteractionEnabled = NO;
     }else if(tag.type == TCTagEditTypeSelected)
@@ -134,24 +105,6 @@
         //_textField.text = tag.name;
         //_textField.userInteractionEnabled = NO;
     }
-}
-
-- (void) setSelected:(BOOL)selected
-{
-    [super setSelected:selected];
-    /*
-    if (self.selected)
-    {
-        self.layer.borderColor = [UIColor clearColor].CGColor;
-        _nameLabel.textColor = THEME_TINT_COLOR;
-        self.backgroundColor = STATE_NORMAL_BG_COLOR;
-    }else
-    {
-        self.layer.borderColor = THEME_PLACEHOLDER_COLOR.CGColor;
-        _nameLabel.textColor = THEME_PLACEHOLDER_COLOR;
-        self.backgroundColor = [UIColor clearColor];
-    }
-     */
 }
 
 /*

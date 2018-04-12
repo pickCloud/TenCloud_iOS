@@ -328,6 +328,8 @@
 		A08358E2206BC1EA00DF2DA0 /* TCAppProfileSection3Header.m in Sources */ = {isa = PBXBuildFile; fileRef = A08358E0206BC1EA00DF2DA0 /* TCAppProfileSection3Header.m */; };
 		A08358E6206BC7EC00DF2DA0 /* TCAppProfileTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08358E4206BC7EC00DF2DA0 /* TCAppProfileTaskCell.m */; };
 		A08358E7206BC7EC00DF2DA0 /* TCAppProfileTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08358E5206BC7EC00DF2DA0 /* TCAppProfileTaskCell.xib */; };
+		A086048D207F52D70031A4D6 /* TCAddTagRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A086048B207F52D60031A4D6 /* TCAddTagRequest.m */; };
+		A0860490207F57500031A4D6 /* TCTagListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A086048E207F57500031A4D6 /* TCTagListRequest.m */; };
 		A0884A2720066932004F5010 /* TCShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0884A2520066932004F5010 /* TCShareManager.m */; };
 		A088F929202A038C005A97DD /* TCDataPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F927202A038C005A97DD /* TCDataPermissionViewController.m */; };
 		A088F92A202A038C005A97DD /* TCDataPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F928202A038C005A97DD /* TCDataPermissionViewController.xib */; };
@@ -1128,6 +1130,10 @@
 		A08358E3206BC7EC00DF2DA0 /* TCAppProfileTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppProfileTaskCell.h; sourceTree = "<group>"; };
 		A08358E4206BC7EC00DF2DA0 /* TCAppProfileTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppProfileTaskCell.m; sourceTree = "<group>"; };
 		A08358E5206BC7EC00DF2DA0 /* TCAppProfileTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCAppProfileTaskCell.xib; sourceTree = "<group>"; };
+		A086048B207F52D60031A4D6 /* TCAddTagRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAddTagRequest.m; sourceTree = "<group>"; };
+		A086048C207F52D60031A4D6 /* TCAddTagRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAddTagRequest.h; sourceTree = "<group>"; };
+		A086048E207F57500031A4D6 /* TCTagListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTagListRequest.m; sourceTree = "<group>"; };
+		A086048F207F57500031A4D6 /* TCTagListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTagListRequest.h; sourceTree = "<group>"; };
 		A0884A2520066932004F5010 /* TCShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShareManager.m; sourceTree = "<group>"; };
 		A0884A2620066932004F5010 /* TCShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShareManager.h; sourceTree = "<group>"; };
 		A088F926202A038C005A97DD /* TCDataPermissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDataPermissionViewController.h; sourceTree = "<group>"; };
@@ -5672,6 +5678,10 @@
 		A0FC255E20723A53009E0C12 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A086048F207F57500031A4D6 /* TCTagListRequest.h */,
+				A086048E207F57500031A4D6 /* TCTagListRequest.m */,
+				A086048C207F52D60031A4D6 /* TCAddTagRequest.h */,
+				A086048B207F52D60031A4D6 /* TCAddTagRequest.m */,
 				A052F7ED2073E031000A44E6 /* TCAddAppRequest.h */,
 				A052F7EE2073E031000A44E6 /* TCAddAppRequest.m */,
 			);
@@ -6194,6 +6204,7 @@
 				A033AD3F200CE06300FFD2BF /* TCAcceptJoinRequest.m in Sources */,
 				A06D12211FEBA2F100722C76 /* TCSearchFilterViewController.m in Sources */,
 				A005A3F12068DB6100ABA490 /* TCApp+CoreDataProperties.m in Sources */,
+				A0860490207F57500031A4D6 /* TCTagListRequest.m in Sources */,
 				A088F942202AE664005A97DD /* TCProjectPermTableViewCell.m in Sources */,
 				A08358CE206B88C400DF2DA0 /* TCAppProfileSectionHeader.m in Sources */,
 				A00AFF83200C4B6600EFADF6 /* TCInviteProfileViewController.m in Sources */,
@@ -6372,6 +6383,7 @@
 				A02554D51FD67FD400D16D22 /* AppDelegate.m in Sources */,
 				A02554E61FD67FD400D16D22 /* main.m in Sources */,
 				A088F94C202B01C4005A97DD /* TCPermissionTemplateCell.m in Sources */,
+				A086048D207F52D70031A4D6 /* TCAddTagRequest.m in Sources */,
 				A052F7F720745092000A44E6 /* TCSelectTagLabelCell.m in Sources */,
 				A0C9A0BA1FF2285A00F94E9E /* TCCircleImageView.m in Sources */,
 				A07DBEB51FE2293D00F37715 /* TCServerInfoItem.m in Sources */,

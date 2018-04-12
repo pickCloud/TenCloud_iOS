@@ -10,4 +10,9 @@
 
 @implementation TCEditTag
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"tagID":@"id"};
+}
+
 @end

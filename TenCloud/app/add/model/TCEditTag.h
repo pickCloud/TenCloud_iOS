@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, TCTagEditType){
 
 @interface TCEditTag : NSObject
 
+@property (nonatomic, assign)   NSInteger       tagID;
 @property (nonatomic, assign)   TCTagEditType   type;
 @property (nonatomic, strong)   NSString        *name;
 @end

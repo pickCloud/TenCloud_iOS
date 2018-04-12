@@ -19,6 +19,7 @@
 #import "UIView+TCAlertView.h"
 #import "TCAddAppRequest.h"
 #import "TCAppRepo+CoreDataClass.h"
+#import "TCEditTag.h"
 
 #define ADD_APP_TAG_CELL_ID @"ADD_APP_TAG_CELL_ID"
 
@@ -35,7 +36,7 @@ UITextFieldDelegate,UITextViewDelegate>
 @property (nonatomic, strong)   NSString                    *repoName;
 @property (nonatomic, strong)   NSString                    *repoAddress;
 @property (nonatomic, strong)   NSString                    *logoURLStr;
-@property (nonatomic, strong)   NSMutableArray              *tagArray;
+@property (nonatomic, copy)     NSMutableArray              *tagArray;
 - (IBAction) onAvatarButton:(id)sender;
 - (IBAction) onMirrorSourceButton:(id)sender;
 - (IBAction) onTagButton:(id)sender;
@@ -59,14 +60,12 @@ UITextFieldDelegate,UITextViewDelegate>
     }
      */
     _tagArray = [NSMutableArray new];
-    /*
-    [_tagArray addObject:@"web站"];
-    [_tagArray addObject:@"AI集群"];
-    [_tagArray addObject:@"视频存储专用"];
-    [_tagArray addObject:@"翻墙组"];
-    [_tagArray addObject:@"北美CDN"];
-    [_tagArray addObject:@"基础API"];
-     */
+    NSLog(@"inini tag array");
+    
+    TCEditTag *tag0 = [TCEditTag new];
+    tag0.type = TCTagEditTypeNew;
+    tag0.name = @"新增标签";
+    [_tagArray addObject:tag0];
     
     UINib *tagCellNib = [UINib nibWithNibName:@"TCTagLabelCell" bundle:nil];
     [_tagView registerNib:tagCellNib forCellWithReuseIdentifier:ADD_APP_TAG_CELL_ID];
@@ -139,7 +138,37 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onTagButton:(id)sender
 {
+    __weak __typeof(self) weakSelf = self;
     TCSelectAppTagView *view = [TCSelectAppTagView createViewFromNib];
+    NSLog(@" add app page1:%ld",_tagArray.count);
+    for (TCEditTag *tmpTag in _tagArray)
+    {
+        NSLog(@"tag %@ id%ld",tmpTag.name, tmpTag.tagID);
+    }
+    //view.editingTags = _tagArray;
+    [view setTagArray:_tagArray];
+    //[view.editingTags removeAllObjects];
+    //[view.editingTags addObjectsFromArray:_tagArray];
+    
+    view.resultBlock = ^(TCSelectAppTagView *view, NSArray *tags) {
+        NSLog(@" add app page2:%ld",tags.count);
+        [weakSelf.tagArray removeAllObjects];
+        
+        for (TCEditTag *tmpTag in tags)
+        {
+            //NSLog(@"tag %@ id%ld",tmpTag.name, tmpTag.tagID);
+            //TCEditTag *tg = [tmpTag copy];
+            TCEditTag *tg = [TCEditTag new];
+            tg.type = tmpTag.type;
+            tg.tagID = tmpTag.tagID;
+            tg.name = tmpTag.name;
+            //[weakSelf.tagArray addObjectsFromArray:tags];
+            [weakSelf.tagArray addObject:tg];
+        }
+
+        [weakSelf updateTagUI];
+        [weakSelf.tagView reloadData];
+    };
     TCAlertController *ctrl = [[TCAlertController alloc] initWithAlertView:view
     preferredStyle:TCAlertControllerStyleAlert transitionAnimation:TCAlertTransitionAnimationFade transitionAnimationClass:nil];
     ctrl.backgoundTapDismissEnable = NO;
@@ -192,7 +221,7 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (void) updateTagUI
 {
-    if (_tagArray.count > 0)
+    if (_tagArray.count > 1)
     {
         _editTagLabel.hidden = YES;
     }else
@@ -269,21 +298,23 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _tagArray.count;
+    return _tagArray.count - 1;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TCTagLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ADD_APP_TAG_CELL_ID forIndexPath:indexPath];
-    NSString *tagName = [_tagArray objectAtIndex:indexPath.row];
-    [cell setName:tagName];
+    //NSString *tagName = [_tagArray objectAtIndex:indexPath.row];
+    TCEditTag *tag = [_tagArray objectAtIndex:indexPath.row];
+    [cell setName:tag.name];
     [cell setSelected:NO];
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *text = [_tagArray objectAtIndex:indexPath.row];
+    TCEditTag *tag = [_tagArray objectAtIndex:indexPath.row];
+    NSString *text = tag.name;
     //NSString *text = [_periodMenuOptions objectAtIndex:indexPath.row];
     if (text == nil || text.length == 0)
     {

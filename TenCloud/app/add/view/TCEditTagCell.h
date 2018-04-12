@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, TCTagEditType){
 //- (void) setName:(NSString*)name;
 //@property (nonatomic, weak) IBOutlet    UITextField *textField;
 
-- (void) setEditTag:(TCEditTag*)tag;
+@property (nonatomic, strong)   TCEditTag   *editTag;
+//- (void) setEditTag:(TCEditTag*)tag;
 
 //- (void) startEdit;
 //- (BOOL) becomeFirstResponder;

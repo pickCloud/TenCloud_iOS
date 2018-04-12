@@ -13,6 +13,8 @@ typedef void (^TCSelectAppTagBlock)(TCSelectAppTagView *view,NSArray *tags);
 
 @interface TCSelectAppTagView : UIView
 
+- (void) setTagArray:(NSArray*)tagArray;
+
 @property (nonatomic, copy)     TCSelectAppTagBlock   resultBlock;
 
 @end

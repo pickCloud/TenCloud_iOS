@@ -9,9 +9,10 @@
 #import "TCSelectAppTagView.h"
 #import "UIView+TCAlertView.h"
 #import "TCSelectTagLabelCell.h"
-//#import "JYEqualCellSpaceFlowLayout.h"
 #import "TCEditTag.h"
 #import "TCEditTagCell.h"
+#import "TCTagListRequest.h"
+#import "TCAddTagRequest.h"
 
 #define SELECT_APP_TAG_CELL_ID      @"SELECT_APP_TAG_CELL_ID"
 #define SELECT_APP_TAG_EDIT_CELL_ID @"SELECT_APP_TAG_EDIT_CELL_ID"
@@ -27,8 +28,10 @@ UITextFieldDelegate>
 @property (nonatomic, strong) IBOutlet    UITextField         *tagTextField;
 - (IBAction) onOkButton:(id)sender;
 - (IBAction) textChangedAction:(id)sender;
+- (void) deleteTag:(id)sender;
 - (void) updateTagTextFieldUI;
 - (CGRect) tagTextFieldRect;
+- (void) newTag:(NSString*)tagName;
 @end
 
 @implementation TCSelectAppTagView
@@ -70,30 +73,39 @@ UITextFieldDelegate>
 }
 */
 
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        _editingTags = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        _editingTags = [NSMutableArray new];
+    }
+    return self;
+}
+
 - (void) awakeFromNib
 {
     [super awakeFromNib];
-    NSLog(@"jjjjjjjjj");
-    _editingTags = [NSMutableArray new];
-    TCEditTag *tag0 = [TCEditTag new];
-    tag0.type = TCTagEditTypeNew;
-    tag0.name = @"新增标签";
-    [_editingTags addObject:tag0];
+    
     _myTags = [NSMutableArray new];
-    NSArray *tags = @[@"网站前端",@"AI集群",@"视频存储专用",@"翻墙组",@"北美CDN",@"基础API"];
-    [_myTags addObjectsFromArray:tags];
+    //NSArray *tags = @[@"网站前端",@"AI集群",@"视频存储专用",@"翻墙组",@"北美CDN",@"基础API"];
+    //[_myTags addObjectsFromArray:tags];
     
     UINib *cellNib = [UINib nibWithNibName:@"TCSelectTagLabelCell" bundle:nil];
     [_myTagView registerNib:cellNib forCellWithReuseIdentifier:SELECT_APP_TAG_CELL_ID];
     UINib *editCellNib = [UINib nibWithNibName:@"TCEditTagCell" bundle:nil];
     [_editingTagView registerNib:editCellNib forCellWithReuseIdentifier:SELECT_APP_TAG_EDIT_CELL_ID];
     
-    /*
-    UICollectionViewFlowLayout *layout = nil;
-    layout = [[JYEqualCellSpaceFlowLayout alloc] initWithType:AlignWithLeft betweenOfCell:15.0];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    [_myTagView setCollectionViewLayout:layout];
-     */
     _myTagView.dataSource = self;
     _myTagView.delegate = self;
     _editingTagView.dataSource = self;
@@ -101,21 +113,51 @@ UITextFieldDelegate>
     
     self.tagTextField.delegate = self;
     
+    __weak __typeof(self) weakSelf = self;
+    TCTagListRequest *req = [TCTagListRequest new];
+    [req startWithSuccess:^(NSArray<TCEditTag *> *tagArray) {
+        [weakSelf.myTags addObjectsFromArray:tagArray];
+        [weakSelf.myTagView reloadData];
+        
+        [weakSelf.editingTagView reloadData];
+        CGFloat newHeight = weakSelf.editingTagView.collectionViewLayout.collectionViewContentSize.height;
+        weakSelf.editingHeight.constant = newHeight;
+    } failure:^(NSString *message) {
+        NSLog(@"tag message:%@",message);
+    }];
+    
+
 }
 
 - (IBAction) onOkButton:(id)sender
 {
-    [self hideView];
-
     if (_resultBlock)
     {
-        _resultBlock(self, @[]);
+        _resultBlock(self, _editingTags);
     }
+    
+    [self hideView];
 }
 
 - (IBAction) textChangedAction:(id)sender
 {
     //NSLog(@"changed:%@",_testField.text);
+}
+
+- (void) deleteTag:(id)sender
+{
+    /*
+    NSArray *paths = [_editingTagView indexPathsForSelectedItems];
+    if (paths.count > 0)
+    {
+        NSIndexPath *path = paths.firstObject;
+        if (path.row < _editingTags.count)
+        {
+            [_editingTags removeObjectAtIndex:path.row];
+            [_editingTagView reloadData];
+        }
+    }
+     */
 }
 
 - (void) updateTagTextFieldUI
@@ -134,6 +176,57 @@ UITextFieldDelegate>
     return lastRect;
 }
 
+- (void) newTag:(NSString*)tagName
+{
+    __weak __typeof(self) weakSelf = self;
+    TCAddTagRequest *req = [TCAddTagRequest new];
+    req.name = tagName;
+    [req startWithSuccess:^(NSInteger tagID) {
+        __block TCEditTag *tag = [TCEditTag new];
+        tag.type = TCTagEditTypeFinished;
+        tag.name = tagName;
+        [weakSelf.editingTags insertObject:tag atIndex:weakSelf.editingTags.count - 1];
+        //[weakSelf.editingTagView reloadData];
+        
+        TCTagListRequest *listReq = [TCTagListRequest new];
+        [listReq startWithSuccess:^(NSArray<TCEditTag *> *tagArray) {
+            for (TCEditTag *tmpTag in tagArray)
+            {
+                if ([tag.name isEqualToString:tmpTag.name])
+                {
+                    tag.tagID = tmpTag.tagID;
+                }
+            }
+        } failure:^(NSString *message) {
+            
+        }];
+        
+        TCEditTag *lastTag = weakSelf.editingTags.lastObject;
+        lastTag.name = @"";
+        lastTag.type = TCTagEditTypeNew;
+        [weakSelf.editingTagView reloadData];
+        CGFloat newHeight = weakSelf.editingTagView.collectionViewLayout.collectionViewContentSize.height;
+        weakSelf.editingHeight.constant = newHeight;
+        weakSelf.tagTextField.text = @"";
+        [weakSelf updateTagTextFieldUI];
+    } failure:^(NSString *message) {
+        
+    }];
+
+}
+
+- (void) setTagArray:(NSArray*)tagArray
+{
+    [_editingTags removeAllObjects];
+    for (TCEditTag *tmpTag in tagArray)
+    {
+        TCEditTag *tg = [TCEditTag new];
+        tg.type = tmpTag.type;
+        tg.tagID = tmpTag.tagID;
+        tg.name = tmpTag.name;
+        [_editingTags addObject:tg];
+    }
+}
 
 #pragma mark - collection view delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -160,8 +253,9 @@ UITextFieldDelegate>
         return cell;
     }
     TCSelectTagLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SELECT_APP_TAG_CELL_ID forIndexPath:indexPath];
-    NSString *tagName = [_myTags objectAtIndex:indexPath.row];
-    [cell setName:tagName];
+    //NSString *tagName = [_myTags objectAtIndex:indexPath.row];
+    TCEditTag *tag = [_myTags objectAtIndex:indexPath.row];
+    [cell setName:tag.name];
     [cell setSelected:NO];
     return cell;
 }
@@ -181,7 +275,9 @@ UITextFieldDelegate>
         }
     }else
     {
-        text = [_myTags objectAtIndex:indexPath.row];
+        //text = [_myTags objectAtIndex:indexPath.row];
+        TCEditTag *tag = [_myTags objectAtIndex:indexPath.row];
+        text = tag.name;
     }
     if (text == nil || text.length == 0)
     {
@@ -194,13 +290,14 @@ UITextFieldDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == _myTagView)
     {
-        NSString *selectedTagName = [_myTags objectAtIndex:indexPath.row];
-        NSLog(@"selected tag name:%@",selectedTagName);
+        TCEditTag *selectedTag = [_myTags objectAtIndex:indexPath.row];
+        
         TCEditTag *tag = [TCEditTag new];
         tag.type = TCTagEditTypeFinished;
-        tag.name = selectedTagName;
+        tag.name = selectedTag.name;
+        tag.tagID = selectedTag.tagID;
         [_editingTags insertObject:tag atIndex:_editingTags.count - 1];
-        //[_editingTags addObject:selectedTagName];
+        
         [_editingTagView reloadData];
         CGFloat newHeight = _editingTagView.collectionViewLayout.collectionViewContentSize.height;
         _editingHeight.constant = newHeight;
@@ -211,16 +308,26 @@ UITextFieldDelegate>
         {
             currentTag.type = TCTagEditTypeEditing;
             currentTag.name = @"";
-            //TCEditTagCell *editingCell = (TCEditTagCell*)[_editingTagView cellForItemAtIndexPath:indexPath];
-            //[editingCell setEditTag:currentTag];
             [_editingTagView reloadData];
             
             [self updateTagTextFieldUI];
             [_tagTextField becomeFirstResponder];
-            NSLog(@"选中last cell");
         }else
         {
-            NSLog(@"选中last cell2");
+            [self becomeFirstResponder];
+            UIMenuController *menu = [UIMenuController sharedMenuController];
+            if (menu.isMenuVisible)
+            {
+                [menu setMenuVisible:NO animated:YES];
+            }
+            UIMenuItem *item0 = [[UIMenuItem alloc] initWithTitle:@"删除"
+                                                           action:@selector(deleteTag:)];
+            menu.menuItems = @[item0];
+            
+            UICollectionViewLayoutAttributes *attrs = [_editingTagView layoutAttributesForItemAtIndexPath:indexPath];
+            CGRect cellRect = attrs.frame;
+            [menu setTargetRect:cellRect inView:_editingTagView];
+            [menu setMenuVisible:YES animated:YES];
         }
     }
 }
@@ -238,19 +345,9 @@ UITextFieldDelegate>
     newTagName = [newTagName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (newTagName && newTagName.length > 0)
     {
-        TCEditTag *tag = [TCEditTag new];
-        tag.type = TCTagEditTypeFinished;
-        tag.name = newTagName;
-        [_editingTags insertObject:tag atIndex:_editingTags.count - 1];
+        [self newTag:newTagName];
     }
-    TCEditTag *lastTag = _editingTags.lastObject;
-    lastTag.name = @"";
-    lastTag.type = TCTagEditTypeNew;
-    [_editingTagView reloadData];
-    CGFloat newHeight = _editingTagView.collectionViewLayout.collectionViewContentSize.height;
-    _editingHeight.constant = newHeight;
-    _tagTextField.text = @"";
-    [self updateTagTextFieldUI];
+
     
     return YES;
 }
@@ -258,18 +355,16 @@ UITextFieldDelegate>
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if (newString.length > 10)
+    if (newString.length > 16)
     {
-        [MBProgressHUD showError:@"标签长度需小于10" toView:nil];
+        [MBProgressHUD showError:@"标签长度需小于16" toView:nil];
         return NO;
     }
-    NSLog(@"new str:%@",newString);
     //计算宽度,修改textField宽度
     UIFont *textFont = TCFont(10);
     NSDictionary *dictDict = @{NSFontAttributeName: textFont};
     CGSize textSize = [newString sizeWithAttributes:dictDict];
     CGSize minSize = [@"最小宽度" sizeWithAttributes:dictDict];
-    NSLog(@"text size:%.2f",textSize.width);
     CGRect lastCellRect = [self tagTextFieldRect];
     lastCellRect.origin.x += 4;
     lastCellRect.size.width = textSize.width + 18;
@@ -284,6 +379,10 @@ UITextFieldDelegate>
     //should change here
     lastTag.type = TCTagEditTypeEditing;
     [_editingTagView reloadData];
+    return YES;
+}
+
+- (BOOL) canBecomeFirstResponder{
     return YES;
 }
 @end
