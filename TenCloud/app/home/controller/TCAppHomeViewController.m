@@ -20,6 +20,7 @@
 #import "TCAppProfileViewController.h"
 #import "TCAppTableViewController.h"
 #import "TCAppListRequest.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #import "TCAddAppViewController.h"
 
@@ -29,7 +30,7 @@
 #define APP_HOME_SERVICE_CELL_ID    @"APP_HOME_SERVICE_CELL_ID"
 #define APP_SECTION_HEADER_CELL_ID  @"APP_SECTION_HEADER_CELL_ID"
 
-@interface TCAppHomeViewController ()
+@interface TCAppHomeViewController ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property (nonatomic, weak) IBOutlet    UITableView         *tableView;
 @property (nonatomic, weak) IBOutlet    UICollectionView    *iconView;
 @property (nonatomic, strong)   NSMutableArray              *appArray;
@@ -76,6 +77,8 @@
     [_tableView registerNib:deployCellNib forCellReuseIdentifier:APP_HOME_DEPLOY_CELL_ID];
     UINib *serviceCellNib = [UINib nibWithNibName:@"TCServiceTableViewCell" bundle:nil];
     [_tableView registerNib:serviceCellNib forCellReuseIdentifier:APP_HOME_SERVICE_CELL_ID];
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     
     TCMessageButton *msgButton = [TCMessageButton new];
     [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -88,6 +91,10 @@
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onReloadAppNotification:) name:NOTIFICATION_ADD_APP
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadAppArray)
+                                                 name:NOTIFICATION_CORP_CHANGE
                                                object:nil];
 }
 
@@ -273,6 +280,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (_appArray.count == 0)
+    {
+        return 1;
+    }
     return 3;
 }
 
@@ -346,5 +357,80 @@
         TCAppProfileViewController *profileVC = [[TCAppProfileViewController alloc] initWithApp:app];
         [self.navigationController pushViewController:profileVC animated:YES];
     }
+}
+
+
+#pragma mark - DZNEmptyDataSetSource Methods
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"app_no_data"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary new];
+    [attributes setObject:TCFont(12.0) forKey:NSFontAttributeName];
+    [attributes setObject:THEME_PLACEHOLDER_COLOR2 forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:@"对不起，你还没有任何应用" attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_APP] ||
+    currentCorp.cid == 0;
+    if (canAdd)
+    {
+        NSString *text = @"马上去添加";
+        UIFont *textFont = TCFont(14.0);
+        NSMutableDictionary *attributes = [NSMutableDictionary new];
+        [attributes setObject:textFont forKey:NSFontAttributeName];
+        if (state == UIControlStateNormal)
+        {
+            [attributes setObject:THEME_TINT_COLOR forKey:NSForegroundColorAttributeName];
+        }else
+        {
+            [attributes setObject:THEME_TINT_P_COLOR forKey:NSForegroundColorAttributeName];
+        }
+        return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    }
+    return nil;
+}
+
+- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    TCCurrentCorp *currentCorp = [TCCurrentCorp shared];
+    BOOL canAdd = currentCorp.isAdmin ||
+    [currentCorp havePermissionForFunc:FUNC_ID_ADD_APP] ||
+    currentCorp.cid == 0;
+    if (canAdd)
+    {
+        UIEdgeInsets capInsets = UIEdgeInsetsMake(25.0, 25.0, 25.0, 25.0);
+        UIEdgeInsets rectInsets = UIEdgeInsetsMake(0.0, TCSCALE(-112), 0.0, TCSCALE(-112));
+        UIImage *image = nil;
+        if (state == UIControlStateNormal)
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg"];
+        }else
+        {
+            image = [UIImage imageNamed:@"no_data_button_bg_p"];
+        }
+        return [[image resizableImageWithCapInsets:capInsets resizingMode:UIImageResizingModeStretch] imageWithAlignmentRectInsets:rectInsets];
+    }
+    return nil;
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return !self.isLoading;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    TCAddAppViewController *addVC = [TCAddAppViewController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 @end

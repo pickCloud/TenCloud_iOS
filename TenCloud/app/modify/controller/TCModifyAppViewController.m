@@ -265,7 +265,6 @@ UITextFieldDelegate,UITextViewDelegate>
     req.image_id = @(0);
     req.labels = tagIds;
     [req startWithSuccess:^(NSInteger appID) {
-        NSLog(@"ok app id:%ld",appID);
         weakSelf.app.name = weakSelf.nameField.text;
         weakSelf.app.logo_url = weakSelf.logoURLStr;
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_MODIFY_APP object:nil];

@@ -22,6 +22,7 @@
 #import "TCAppProfileSection3Header.h"
 #import "TCAppProfileTaskCell.h"
 #import "TCModifyAppViewController.h"
+#import "TCAppRequest.h"
 #define APP_PROF_TAG_CELL_ID     @"APP_PROF_TAG_CELL_ID"
 #define APP_PROF_DEPLOY_CELL_ID  @"APP_PROF_DEPLOY_CELL_ID"
 #define APP_PROF_SERVICE_CELL_ID @"APP_PROF_SERVICE_CELL_ID"

@@ -25,7 +25,7 @@ DZNEmptyDataSetDelegate>
 - (void) reloadAppArray;
 - (void) updateAddAppButton;
 - (void) onAddAppButton:(id)sender;
-- (void) onReloadAppNotification:(id)sender;
+//- (void) onReloadAppNotification:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
 @end
 
@@ -57,11 +57,12 @@ DZNEmptyDataSetDelegate>
     [self reloadAppArray];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onReloadAppNotification:)
+                                             selector:@selector(reloadAppArray)
                                                  name:NOTIFICATION_MODIFY_APP
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onReloadAppNotification:) name:NOTIFICATION_ADD_APP
+                                             selector:@selector(reloadAppArray)
+                                                 name:NOTIFICATION_ADD_APP
                                                object:nil];
 }
 

@@ -333,6 +333,7 @@
 		A0860496207FC25B0031A4D6 /* TCModifyAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0860494207FC25A0031A4D6 /* TCModifyAppViewController.m */; };
 		A0860497207FC25B0031A4D6 /* TCModifyAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0860495207FC25A0031A4D6 /* TCModifyAppViewController.xib */; };
 		A086049B20801B790031A4D6 /* TCModifyAppRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A086049A20801B790031A4D6 /* TCModifyAppRequest.m */; };
+		A086049F2080453D0031A4D6 /* TCAppRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A086049E2080453D0031A4D6 /* TCAppRequest.m */; };
 		A0884A2720066932004F5010 /* TCShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0884A2520066932004F5010 /* TCShareManager.m */; };
 		A088F929202A038C005A97DD /* TCDataPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A088F927202A038C005A97DD /* TCDataPermissionViewController.m */; };
 		A088F92A202A038C005A97DD /* TCDataPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A088F928202A038C005A97DD /* TCDataPermissionViewController.xib */; };
@@ -1142,6 +1143,8 @@
 		A0860495207FC25A0031A4D6 /* TCModifyAppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCModifyAppViewController.xib; sourceTree = "<group>"; };
 		A086049920801B790031A4D6 /* TCModifyAppRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCModifyAppRequest.h; sourceTree = "<group>"; };
 		A086049A20801B790031A4D6 /* TCModifyAppRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCModifyAppRequest.m; sourceTree = "<group>"; };
+		A086049D2080453D0031A4D6 /* TCAppRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppRequest.h; sourceTree = "<group>"; };
+		A086049E2080453D0031A4D6 /* TCAppRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppRequest.m; sourceTree = "<group>"; };
 		A0884A2520066932004F5010 /* TCShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCShareManager.m; sourceTree = "<group>"; };
 		A0884A2620066932004F5010 /* TCShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCShareManager.h; sourceTree = "<group>"; };
 		A088F926202A038C005A97DD /* TCDataPermissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCDataPermissionViewController.h; sourceTree = "<group>"; };
@@ -1940,9 +1943,9 @@
 		A005A3DB2068D95B00ABA490 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				A086049C208044EE0031A4D6 /* request */,
 				A005A3DC2068D95B00ABA490 /* controller */,
 				A005A3DD2068D95B00ABA490 /* model */,
-				A005A3DE2068D95B00ABA490 /* request */,
 				A005A3DF2068D95B00ABA490 /* view */,
 			);
 			path = app;
@@ -1964,13 +1967,6 @@
 				A005A3EF2068DB6100ABA490 /* TCApp+CoreDataProperties.m */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		A005A3DE2068D95B00ABA490 /* request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = request;
 			sourceTree = "<group>";
 		};
 		A005A3DF2068D95B00ABA490 /* view */ = {
@@ -4630,6 +4626,15 @@
 			path = request;
 			sourceTree = "<group>";
 		};
+		A086049C208044EE0031A4D6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				A086049D2080453D0031A4D6 /* TCAppRequest.h */,
+				A086049E2080453D0031A4D6 /* TCAppRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		A088F94E202BCB2D005A97DD /* dataSync */ = {
 			isa = PBXGroup;
 			children = (
@@ -6364,6 +6369,7 @@
 				A05D65C52063A4AA006006B0 /* TCDiskInfo+CoreDataClass.m in Sources */,
 				A0C9A0A61FF14B4E00F94E9E /* UIImage+Reflection.m in Sources */,
 				A033985B201F718600CF8630 /* TCMonitorHistoryTableViewController.m in Sources */,
+				A086049F2080453D0031A4D6 /* TCAppRequest.m in Sources */,
 				A02555311FD694AC00D16D22 /* tc.xcdatamodeld in Sources */,
 				A02555AB1FD7E8D700D16D22 /* TCUser+CoreDataClass.m in Sources */,
 				A069EF2D1FF63E6B00C126CD /* TCStaffLabel.m in Sources */,
