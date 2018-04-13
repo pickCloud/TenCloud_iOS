@@ -21,6 +21,7 @@
 - (void) onTapBlankArea:(id)sender;
 - (IBAction) onHelpButton:(id)sender;
 - (IBAction) onHowToForbiddenButton:(id)sender;
+- (IBAction) onFakeAccessKeyButton:(id)sender;
 @end
 
 @implementation SBAAccessKeyViewController
@@ -45,6 +46,7 @@
     [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
     
+    /*
     //for test only
     TCDelAccessKeyRequest *req = [TCDelAccessKeyRequest new];
     req.accessKey = @"LTAIEouRscyh8evG";
@@ -54,6 +56,7 @@
     } failure:^(NSString *message) {
         
     }];
+     */
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -83,26 +86,21 @@
         [MBProgressHUD showError:@"请输入Access Key Secret" toView:nil];
         return;
     }
+    __weak __typeof(self) weakSelf = self;
     TCAccessKeyRequest *req = [TCAccessKeyRequest new];
     req.cloudID = _cloudID;
     req.accessKey = accessKey;
     req.accessSecret = accessSecret;
     [req startWithSuccess:^(NSString *status) {
-        
+        SBASelectServerViewController *selectVC = [SBASelectServerViewController new];
+        [TCPageManager replaceViewController:weakSelf withViewController:selectVC];
     } failure:^(NSString *message) {
         [MBProgressHUD showError:message toView:nil];
     }];
-    
-    /*
-    SBASelectServerViewController *selectVC = [SBASelectServerViewController new];
-    //[self.navigationController pushViewController:selectVC animated:YES];
-    [TCPageManager replaceViewController:self withViewController:selectVC];
-     */
 }
 
 - (void) onTapBlankArea:(id)sender
 {
-    NSLog(@"on tap blank area");
     [_idField resignFirstResponder];
     [_secretField resignFirstResponder];
 }
@@ -115,6 +113,12 @@
 - (IBAction) onHowToForbiddenButton:(id)sender
 {
     NSLog(@"on how to forbidden button");
+}
+
+- (IBAction) onFakeAccessKeyButton:(id)sender
+{
+    _idField.text = @"LTAIEouRscyh8evG";
+    _secretField.text = @"D6sGmGSJhG53ZGZl0ptXTPqkm18HA3";
 }
 
 @end

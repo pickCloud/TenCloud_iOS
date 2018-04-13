@@ -68,7 +68,7 @@
     [self startLoading];
     __weak __typeof(self) weakSelf = self;
     TCGithubReposRequest *req = [TCGithubReposRequest new];
-    req.url = @"http://cd.10.com";//urlStr;
+    req.url = SERVER_URL_STRING;
     [req startWithSuccess:^(NSArray<TCAppRepo *> *repoArray) {
         NSLog(@"get repos amount%ld",repoArray.count);
         [weakSelf.repoArray addObjectsFromArray:repoArray];

@@ -231,6 +231,19 @@
                         <constraint firstItem="tDz-u8-Azi" firstAttribute="centerY" secondItem="3dq-3v-DE7" secondAttribute="centerY" id="fRs-Ve-ON2"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXW-jp-RHy" customClass="TCAutoScaleButton">
+                    <rect key="frame" x="238" y="278" width="113" height="39.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="JXW-jp-RHy" secondAttribute="height" multiplier="20:7" id="6an-Lk-bEQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="用演示AccessKey">
+                        <color key="titleColor" red="0.15686274510000001" green="0.49019607840000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onFakeAccessKeyButton:" destination="-1" eventType="touchUpInside" id="afA-8q-Lkz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.090196078431372548" green="0.10196078431372549" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -243,6 +256,7 @@
                 <constraint firstItem="Odm-eq-yFM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UV1-te-SSX"/>
                 <constraint firstItem="AR8-pn-yYh" firstAttribute="trailing" secondItem="t8Z-4W-bJK" secondAttribute="trailing" id="UXO-nZ-HMc"/>
                 <constraint firstItem="jWy-i3-1HR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.042667" id="WE0-1E-Krs"/>
+                <constraint firstItem="JXW-jp-RHy" firstAttribute="top" secondItem="3dq-3v-DE7" secondAttribute="bottom" constant="12" id="WOL-Dw-2Y4"/>
                 <constraint firstItem="3dq-3v-DE7" firstAttribute="top" secondItem="Odm-eq-yFM" secondAttribute="bottom" id="aQz-ib-A1Y"/>
                 <constraint firstItem="h8F-sP-gMz" firstAttribute="top" secondItem="Ecb-2N-8HB" secondAttribute="bottom" id="aza-VZ-PF2"/>
                 <constraint firstItem="h8F-sP-gMz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bkw-B8-MJe"/>
@@ -252,6 +266,7 @@
                 <constraint firstItem="h8F-sP-gMz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kip-Gg-Pla"/>
                 <constraint firstItem="Odm-eq-yFM" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="lgS-Ad-TJO"/>
                 <constraint firstItem="tDz-u8-Azi" firstAttribute="trailing" secondItem="t8Z-4W-bJK" secondAttribute="trailing" id="oBl-Oa-738"/>
+                <constraint firstItem="JXW-jp-RHy" firstAttribute="trailing" secondItem="t8Z-4W-bJK" secondAttribute="trailing" id="q7g-wQ-viD"/>
                 <constraint firstItem="gtQ-yJ-YIu" firstAttribute="leading" secondItem="t8Z-4W-bJK" secondAttribute="leading" id="rgF-iu-DKx"/>
                 <constraint firstItem="j8B-I6-16F" firstAttribute="centerX" secondItem="t8Z-4W-bJK" secondAttribute="centerX" id="uQU-6B-JpC"/>
                 <constraint firstItem="Ecb-2N-8HB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="w7b-zm-xQ4"/>

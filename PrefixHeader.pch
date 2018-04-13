@@ -39,11 +39,17 @@
 //#define GEETEST_API1            @"http://ct.10.com/api/user/captcha"
 //#define GEETEST_API2            @"http://ct.10.com/api/user/sms"
 //#define ADD_SERVER_URL          @"http://ct.10.com/api/server/new"
-#define SERVER_URL_STRING       @"http://cd.10.com"
-#define GEETEST_API1            @"http://cd.10.com/api/user/captcha"
-#define GEETEST_API2            @"http://cd.10.com/api/user/sms"
-#define ADD_SERVER_URL          @"http://cd.10.com/api/server/new"
-#define GITHUB_CALLBACK         @"http://cd.10.com/api/github/oauth/callback"
+
+//#define SERVER_URL_STRING       @"http://cd.10.com"
+//#define GEETEST_API1            @"http://cd.10.com/api/user/captcha"
+//#define GEETEST_API2            @"http://cd.10.com/api/user/sms"
+//#define ADD_SERVER_URL          @"http://cd.10.com/api/server/new"
+//#define GITHUB_CALLBACK         @"http://cd.10.com/api/github/oauth/callback"
+#define SERVER_URL_STRING         @"http://47.75.159.100"
+#define GEETEST_API1              @"http://47.75.159.100/api/user/captcha"
+#define GEETEST_API2              @"http://47.75.159.100/api/user/sms"
+#define ADD_SERVER_URL            @"http://47.75.159.100/api/server/new"
+#define GITHUB_CALLBACK           @"http://47.75.159.100/api/github/oauth/callback"
 #endif
 
 #define THEME_TINT_COLOR            [UIColor colorWithRed:72/255.0 green:187/255.0 blue:192/255.0 alpha:1.0]
