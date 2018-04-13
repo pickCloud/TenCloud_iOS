@@ -23,6 +23,7 @@
 #import "TCAppProfileTaskCell.h"
 #import "TCModifyAppViewController.h"
 #import "TCAppRequest.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #define APP_PROF_TAG_CELL_ID     @"APP_PROF_TAG_CELL_ID"
 #define APP_PROF_DEPLOY_CELL_ID  @"APP_PROF_DEPLOY_CELL_ID"
 #define APP_PROF_SERVICE_CELL_ID @"APP_PROF_SERVICE_CELL_ID"
@@ -197,6 +198,9 @@
 {
     _nameLabel.text = _app.name;
     [_statusLabel setStatus:_app.status];
+    UIImage *defaultAvatar = [UIImage imageNamed:@"app_avatar_default"];
+    NSURL *avatarURL = [NSURL URLWithString:_app.logo_url];
+    [_avatarView sd_setImageWithURL:avatarURL placeholderImage:defaultAvatar];
     [_tagView reloadData];
 }
 

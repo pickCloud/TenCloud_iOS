@@ -43,7 +43,7 @@
                                             <constraint firstAttribute="height" constant="8" id="udd-0C-G23"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="zKu-4f-EWT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="zKu-4f-EWT" customClass="TCCircleImageView">
                                         <rect key="frame" x="15" y="48" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zKu-4f-EWT" secondAttribute="height" multiplier="1:1" id="Row-4k-9LE"/>

@@ -83,7 +83,9 @@ UITextFieldDelegate,UITextViewDelegate>
     
     _logoURLStr = _app.logo_url;
     NSURL *logoURL = [NSURL URLWithString:_logoURLStr];
-    [_avatarButton sd_setImageWithURL:logoURL forState:UIControlStateNormal];
+    UIImage *defaultAvatar = [UIImage imageNamed:@"app_avatar_default"];
+    //[_avatarButton sd_setImageWithURL:logoURL forState:UIControlStateNormal];
+    [_avatarButton sd_setImageWithURL:logoURL forState:UIControlStateNormal placeholderImage:defaultAvatar];
     _nameField.text = _app.name;
     _repoName = _app.name;
     _repoAddress = _app.repos_https_url;

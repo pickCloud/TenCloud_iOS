@@ -188,13 +188,6 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onAddButton:(id)sender
 {
-    /*
-    if (_logoURLStr == nil || _logoURLStr.length <= 0)
-    {
-        [MBProgressHUD showError:@"请设置图标" toView:nil];
-        return;
-    }
-     */
     if (_nameField.text.length <= 0)
     {
         [MBProgressHUD showError:@"名称不能为空" toView:nil];
@@ -242,6 +235,7 @@ UITextFieldDelegate,UITextViewDelegate>
     req.logo_url = _logoURLStr;
     req.image_id = @(0);
     [req startWithSuccess:^(NSInteger appID) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ADD_APP object:nil];
         [weakSelf.navigationController popViewControllerAnimated:YES];
         [MBProgressHUD showSuccess:@"成功创建应用" toView:nil];
     } failure:^(NSString *message) {
