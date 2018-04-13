@@ -214,11 +214,13 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onModifyButton:(id)sender
 {
+    /*
     if (_logoURLStr == nil || _logoURLStr.length <= 0)
     {
         [MBProgressHUD showError:@"请设置图标" toView:nil];
         return;
     }
+     */
     if (_nameField.text.length <= 0)
     {
         [MBProgressHUD showError:@"名称不能为空" toView:nil];
@@ -252,7 +254,10 @@ UITextFieldDelegate,UITextViewDelegate>
         NSNumber *num2 = obj2;
         return num1.floatValue > num2.floatValue;
     }];
-    NSLog(@"tag ids:%@",tagIds);
+    if (_logoURLStr == nil)
+    {
+        _logoURLStr = @"";
+    }
     
     __weak __typeof(self) weakSelf = self;
     TCModifyAppRequest *req = [TCModifyAppRequest new];
