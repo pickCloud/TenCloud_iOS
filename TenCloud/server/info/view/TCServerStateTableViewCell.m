@@ -48,7 +48,8 @@
 - (void) setStateValue:(NSString*)value
 {
     [_valueLabel setText:value];
-    if ([value containsString:@"已停止"])
+    if ([value containsString:@"已停止"] ||
+        [value containsString:@"已关机"] )
     {
         [_valueLabel setTextColor:STATE_ALERT_COLOR];
         [_stateBackgroundView setBackgroundColor:STATE_ALERT_BG_COLOR];
