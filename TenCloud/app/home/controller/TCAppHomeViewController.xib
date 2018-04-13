@@ -31,10 +31,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-2x-ZPG">
-                                <rect key="frame" x="5" y="10" width="365" height="84"/>
+                                <rect key="frame" x="35" y="10" width="305" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ghY-2x-ZPG" secondAttribute="height" multiplier="365:84" id="wrq-Bu-1O7"/>
+                                    <constraint firstAttribute="width" secondItem="ghY-2x-ZPG" secondAttribute="height" multiplier="305:84" id="wrq-Bu-1O7"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SKh-Ao-mDa">
                                     <size key="itemSize" width="50" height="50"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="ghY-2x-ZPG" firstAttribute="top" secondItem="qh8-mG-Uuf" secondAttribute="top" constant="10" id="7Lv-VE-hxe"/>
                             <constraint firstItem="ghY-2x-ZPG" firstAttribute="centerX" secondItem="qh8-mG-Uuf" secondAttribute="centerX" id="C6G-1M-zWT"/>
                             <constraint firstItem="ghY-2x-ZPG" firstAttribute="centerY" secondItem="qh8-mG-Uuf" secondAttribute="centerY" id="lYV-zV-d6L"/>
-                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="width" secondItem="qh8-mG-Uuf" secondAttribute="width" multiplier="0.9733" id="m43-HI-FX1"/>
+                            <constraint firstItem="ghY-2x-ZPG" firstAttribute="width" secondItem="qh8-mG-Uuf" secondAttribute="width" multiplier="0.8133" id="m43-HI-FX1"/>
                         </constraints>
                     </view>
                     <connections>

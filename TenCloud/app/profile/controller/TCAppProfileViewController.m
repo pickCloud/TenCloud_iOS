@@ -21,6 +21,7 @@
 #import "TCAppProfileMirrorCell.h"
 #import "TCAppProfileSection3Header.h"
 #import "TCAppProfileTaskCell.h"
+#import "TCModifyAppViewController.h"
 #define APP_PROF_TAG_CELL_ID     @"APP_PROF_TAG_CELL_ID"
 #define APP_PROF_DEPLOY_CELL_ID  @"APP_PROF_DEPLOY_CELL_ID"
 #define APP_PROF_SERVICE_CELL_ID @"APP_PROF_SERVICE_CELL_ID"
@@ -42,6 +43,7 @@
 @property (nonatomic, weak) IBOutlet    TCAppStatusLabel    *statusLabel;
 - (void) createFakeData;
 - (void) updateHeaderUI;
+- (void) onModifyAppNotification:(id)sender;
 - (IBAction) onHeaderNextButton:(id)sender;
 @end
 
@@ -91,6 +93,11 @@
     _tableView.dataSource = self;
     
     [self updateHeaderUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onModifyAppNotification:)
+                                                 name:NOTIFICATION_MODIFY_APP
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,6 +105,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 
@@ -188,9 +199,16 @@
     [_tagView reloadData];
 }
 
+- (void) onModifyAppNotification:(id)sender
+{
+    [self updateHeaderUI];
+}
+
 - (IBAction) onHeaderNextButton:(id)sender
 {
-    
+    TCModifyAppViewController *vc = [TCModifyAppViewController new];
+    vc.app = _app;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - collection view delegate

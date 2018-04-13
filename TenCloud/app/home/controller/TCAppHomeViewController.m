@@ -19,6 +19,7 @@
 #import "TCMessageTableViewController.h"
 #import "TCAppProfileViewController.h"
 #import "TCAppTableViewController.h"
+#import "TCAppListRequest.h"
 
 #import "TCAddAppViewController.h"
 
@@ -34,7 +35,8 @@
 @property (nonatomic, strong)   NSMutableArray              *appArray;
 @property (nonatomic, strong)   NSMutableArray              *deployArray;
 @property (nonatomic, strong)   NSMutableArray              *serviceArray;
-- (void) generateFakeData;
+- (void) reloadAppArray;
+- (void) onReloadAppNotification:(id)sender;
 - (void) onMessageButton:(id)sender;
 @end
 
@@ -50,14 +52,14 @@
     _deployArray = [NSMutableArray new];
     _serviceArray = [NSMutableArray new];
     
-    [self generateFakeData];
+    [self reloadAppArray];
     
     UINib *iconCellNib = [UINib nibWithNibName:@"TCAppHomeIconCell" bundle:nil];
     [_iconView registerNib:iconCellNib forCellWithReuseIdentifier:APP_HOME_ICON_CELL_ID];
     UICollectionViewFlowLayout  *iconLayout = [[UICollectionViewFlowLayout alloc] init];
     iconLayout.itemSize = CGSizeMake(TCSCALE(72.92), TCSCALE(83.92));
     //iconLayout.itemSize = CGSizeMake(TCSCALE(121), TCSCALE(83.92));
-    iconLayout.minimumInteritemSpacing = TCSCALE(0.0);
+    iconLayout.minimumInteritemSpacing = TCSCALE(42);
     iconLayout.minimumLineSpacing = TCSCALE(0.0);
     float iconX = 0;
     iconLayout.headerReferenceSize = CGSizeMake(iconX, iconX);
@@ -79,6 +81,14 @@
     [msgButton addTarget:self action:@selector(onMessageButton:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *msgItem = [[UIBarButtonItem alloc] initWithCustomView:msgButton];
     self.navigationItem.rightBarButtonItem = msgItem;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onReloadAppNotification:)
+                                                 name:NOTIFICATION_MODIFY_APP
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onReloadAppNotification:) name:NOTIFICATION_ADD_APP
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +105,7 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -135,8 +145,29 @@
 }
 
 #pragma mark - extension
-- (void) generateFakeData
+- (void) reloadAppArray
 {
+    __weak __typeof(self) weakSelf = self;
+    [self startLoading];
+    TCAppListRequest *req = [TCAppListRequest new];
+    [req startWithSuccess:^(NSArray<TCApp *> *appArray) {
+        [weakSelf.appArray removeAllObjects];
+        [weakSelf stopLoading];
+        [weakSelf.appArray addObjectsFromArray:appArray];
+        int i = (int)weakSelf.appArray.count - 1;
+        for (; i >=0; i--)
+        {
+            if (i > 1)
+            {
+                [weakSelf.appArray removeLastObject];
+            }
+        }
+        [weakSelf.tableView reloadData];
+    } failure:^(NSString *message) {
+        [weakSelf stopLoading];
+        [MBProgressHUD showError:message toView:nil];
+    }];
+    /*
     TCApp *app1 = [TCApp MR_createEntity];
     app1.appID = 1;
     app1.name = @"AppAPI";
@@ -163,6 +194,7 @@
     //[app2.labels addObjectsFromArray:@[@"普通项目"]];
     app2.labels = @[@"普通项目",@"常用工具"];
     [_appArray addObject:app2];
+     */
     
     /*
     for (int i = 0; i < 10; i++)
@@ -180,6 +212,7 @@
     }
      */
     
+    [_deployArray removeAllObjects];
     TCDeploy *dp1 = [TCDeploy MR_createEntity];
     dp1.deployID = 10;
     dp1.name = @"kubernetes-bootcamp";
@@ -207,6 +240,7 @@
         [_deployArray addObject:dpj];
     }
     
+    [_serviceArray removeAllObjects];
     TCService *service1 = [TCService MR_createEntity];
     service1.serviceID = 100;
     service1.name = @"service-exmaple";
@@ -217,6 +251,11 @@
     service1.port = @"80/TCP,443/TCP";
     service1.createTime = [NSDate timeIntervalSinceReferenceDate];
     [_serviceArray addObject:service1];
+}
+
+- (void) onReloadAppNotification:(id)sender
+{
+    [self reloadAppArray];
 }
 
 - (void) onMessageButton:(id)sender

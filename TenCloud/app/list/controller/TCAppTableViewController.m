@@ -25,6 +25,7 @@ DZNEmptyDataSetDelegate>
 - (void) reloadAppArray;
 - (void) updateAddAppButton;
 - (void) onAddAppButton:(id)sender;
+- (void) onReloadAppNotification:(id)sender;
 - (IBAction) onFilterButton:(id)sender;
 @end
 
@@ -55,6 +56,13 @@ DZNEmptyDataSetDelegate>
     [self startLoading];
     [self reloadAppArray];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onReloadAppNotification:)
+                                                 name:NOTIFICATION_MODIFY_APP
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onReloadAppNotification:) name:NOTIFICATION_ADD_APP
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +73,7 @@ DZNEmptyDataSetDelegate>
 - (void) dealloc
 {
     [[TCDataSync shared] removePermissionChangedObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*
@@ -139,6 +148,11 @@ DZNEmptyDataSetDelegate>
 {
     TCAddAppViewController *addVC = [TCAddAppViewController new];
     [self.navigationController pushViewController:addVC animated:YES];
+}
+
+- (void) onAddAppNotification:(id)sender
+{
+    [self reloadAppArray];
 }
 
 - (IBAction) onFilterButton:(id)sender
