@@ -216,13 +216,6 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onModifyButton:(id)sender
 {
-    /*
-    if (_logoURLStr == nil || _logoURLStr.length <= 0)
-    {
-        [MBProgressHUD showError:@"请设置图标" toView:nil];
-        return;
-    }
-     */
     if (_nameField.text.length <= 0)
     {
         [MBProgressHUD showError:@"名称不能为空" toView:nil];

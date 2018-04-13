@@ -41,8 +41,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-Gr-s5u" customClass="WYLineChartView">
                                 <rect key="frame" x="-2" y="0.0" width="310.5" height="167"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPU %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsK-8T-j1z" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="46" y="0.0" width="32.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPU使用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsK-8T-j1z" customClass="TCAutoScaleLabel">
+                                        <rect key="frame" x="43" y="0.0" width="63" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -51,15 +51,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XdH-Gr-s5u" secondAttribute="height" multiplier="310:167" id="W3Y-vb-KNg"/>
-                                    <constraint firstItem="VsK-8T-j1z" firstAttribute="centerX" secondItem="XdH-Gr-s5u" secondAttribute="centerX" multiplier="0.4" id="lyH-wD-4kO"/>
+                                    <constraint firstItem="VsK-8T-j1z" firstAttribute="centerX" secondItem="XdH-Gr-s5u" secondAttribute="centerX" multiplier="0.48" id="lyH-wD-4kO"/>
                                     <constraint firstItem="VsK-8T-j1z" firstAttribute="top" secondItem="XdH-Gr-s5u" secondAttribute="top" id="mru-pg-cWh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jg-1I-j1J" customClass="WYLineChartView">
                                 <rect key="frame" x="308.5" y="0.0" width="310.5" height="167"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内存 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrJ-dI-1bl" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="46.5" y="0.0" width="31.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内存使用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrJ-dI-1bl" customClass="TCAutoScaleLabel">
+                                        <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -67,15 +67,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="vrJ-dI-1bl" firstAttribute="centerX" secondItem="9jg-1I-j1J" secondAttribute="centerX" multiplier="0.4" id="AfD-Av-YiQ"/>
+                                    <constraint firstItem="vrJ-dI-1bl" firstAttribute="centerX" secondItem="9jg-1I-j1J" secondAttribute="centerX" multiplier="0.48" id="AfD-Av-YiQ"/>
                                     <constraint firstItem="vrJ-dI-1bl" firstAttribute="top" secondItem="9jg-1I-j1J" secondAttribute="top" id="ZS4-TG-i3e"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-dx-U5w" customClass="WYLineChartView">
                                 <rect key="frame" x="619" y="0.0" width="310.5" height="167"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-zg-jAG" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="46.5" y="0.0" width="31.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘占用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-zg-jAG" customClass="TCAutoScaleLabel">
+                                        <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="D5m-zg-jAG" firstAttribute="centerX" secondItem="X1l-dx-U5w" secondAttribute="centerX" multiplier="0.4" id="jcU-q8-G3m"/>
+                                    <constraint firstItem="D5m-zg-jAG" firstAttribute="centerX" secondItem="X1l-dx-U5w" secondAttribute="centerX" multiplier="0.48" id="jcU-q8-G3m"/>
                                     <constraint firstItem="D5m-zg-jAG" firstAttribute="top" secondItem="X1l-dx-U5w" secondAttribute="top" id="sPb-hz-ZwL"/>
                                 </constraints>
                             </view>
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="929.5" y="0.0" width="310.5" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络 kb/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-Gm-icF" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="40.5" y="0.0" width="44" height="12"/>
+                                        <rect key="frame" x="40" y="0.0" width="44" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -106,8 +106,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vX-xd-78z" customClass="WYLineChartView">
                                 <rect key="frame" x="1240" y="0.0" width="310.5" height="167"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘使用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPR-DA-asW" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="31.5" y="0.0" width="62.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘利用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPR-DA-asW" customClass="TCAutoScaleLabel">
+                                        <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="aPR-DA-asW" firstAttribute="top" secondItem="4vX-xd-78z" secondAttribute="top" id="4ZR-OZ-7yB"/>
-                                    <constraint firstItem="aPR-DA-asW" firstAttribute="centerX" secondItem="4vX-xd-78z" secondAttribute="centerX" multiplier="0.4" id="t76-bl-7bm"/>
+                                    <constraint firstItem="aPR-DA-asW" firstAttribute="centerX" secondItem="4vX-xd-78z" secondAttribute="centerX" multiplier="0.48" id="t76-bl-7bm"/>
                                 </constraints>
                             </view>
                         </subviews>
