@@ -46,6 +46,16 @@ UITextFieldDelegate,UITextViewDelegate>
 
 @implementation TCAddAppViewController
 
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -178,11 +188,13 @@ UITextFieldDelegate,UITextViewDelegate>
 
 - (IBAction) onAddButton:(id)sender
 {
+    /*
     if (_logoURLStr == nil || _logoURLStr.length <= 0)
     {
         [MBProgressHUD showError:@"请设置图标" toView:nil];
         return;
     }
+     */
     if (_nameField.text.length <= 0)
     {
         [MBProgressHUD showError:@"名称不能为空" toView:nil];
@@ -210,15 +222,16 @@ UITextFieldDelegate,UITextViewDelegate>
             [tagIds addObject:@(tmpTag.tagID)];
         }
     }
-    /*
+    
     [tagIds sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         NSNumber *num1 = obj1;
         NSNumber *num2 = obj2;
         return num1.floatValue > num2.floatValue;
     }];
-     */
-    NSLog(@"tag ids:%@",tagIds);
-    return;
+    if (_logoURLStr == nil)
+    {
+        _logoURLStr = @"";
+    }
     
     __weak __typeof(self) weakSelf = self;
     TCAddAppRequest *req = [TCAddAppRequest new];
@@ -229,7 +242,6 @@ UITextFieldDelegate,UITextViewDelegate>
     req.logo_url = _logoURLStr;
     req.image_id = @(0);
     [req startWithSuccess:^(NSInteger appID) {
-        NSLog(@"ok app id:%ld",appID);
         [weakSelf.navigationController popViewControllerAnimated:YES];
         [MBProgressHUD showSuccess:@"成功创建应用" toView:nil];
     } failure:^(NSString *message) {
