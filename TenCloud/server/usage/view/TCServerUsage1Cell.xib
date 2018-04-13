@@ -71,8 +71,24 @@
                                     <constraint firstItem="vrJ-dI-1bl" firstAttribute="top" secondItem="9jg-1I-j1J" secondAttribute="top" id="ZS4-TG-i3e"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-dx-U5w" customClass="WYLineChartView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vX-xd-78z" customClass="WYLineChartView">
                                 <rect key="frame" x="619" y="0.0" width="310.5" height="167"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘利用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPR-DA-asW" customClass="TCAutoScaleLabel">
+                                        <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aPR-DA-asW" firstAttribute="top" secondItem="4vX-xd-78z" secondAttribute="top" id="4ZR-OZ-7yB"/>
+                                    <constraint firstItem="aPR-DA-asW" firstAttribute="centerX" secondItem="4vX-xd-78z" secondAttribute="centerX" multiplier="0.48" id="t76-bl-7bm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-dx-U5w" customClass="WYLineChartView">
+                                <rect key="frame" x="929.5" y="0.0" width="310.5" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘占用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-zg-jAG" customClass="TCAutoScaleLabel">
                                         <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
@@ -88,7 +104,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9K-hi-Y8X" customClass="WYLineChartView">
-                                <rect key="frame" x="929.5" y="0.0" width="310.5" height="167"/>
+                                <rect key="frame" x="1243" y="0.0" width="310.5" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络 kb/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-Gm-icF" customClass="TCAutoScaleLabel">
                                         <rect key="frame" x="40" y="0.0" width="44" height="12"/>
@@ -103,46 +119,30 @@
                                     <constraint firstItem="aIN-Gm-icF" firstAttribute="top" secondItem="l9K-hi-Y8X" secondAttribute="top" id="rI1-ZK-fyK"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vX-xd-78z" customClass="WYLineChartView">
-                                <rect key="frame" x="1240" y="0.0" width="310.5" height="167"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磁盘利用率 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPR-DA-asW" customClass="TCAutoScaleLabel">
-                                        <rect key="frame" x="43.5" y="0.0" width="62.5" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="aPR-DA-asW" firstAttribute="top" secondItem="4vX-xd-78z" secondAttribute="top" id="4ZR-OZ-7yB"/>
-                                    <constraint firstItem="aPR-DA-asW" firstAttribute="centerX" secondItem="4vX-xd-78z" secondAttribute="centerX" multiplier="0.48" id="t76-bl-7bm"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="l9K-hi-Y8X" firstAttribute="centerY" secondItem="XdH-Gr-s5u" secondAttribute="centerY" id="4VE-aR-Ojw"/>
                             <constraint firstAttribute="width" secondItem="cQt-4W-neK" secondAttribute="height" multiplier="115:62" id="4r6-ab-2mB"/>
                             <constraint firstItem="X1l-dx-U5w" firstAttribute="centerY" secondItem="XdH-Gr-s5u" secondAttribute="centerY" id="BPX-1D-Meb"/>
+                            <constraint firstAttribute="trailing" secondItem="l9K-hi-Y8X" secondAttribute="trailing" id="BiM-eS-EfN"/>
                             <constraint firstItem="XdH-Gr-s5u" firstAttribute="top" secondItem="cQt-4W-neK" secondAttribute="top" id="CAI-6E-Ipf"/>
                             <constraint firstItem="4vX-xd-78z" firstAttribute="height" secondItem="XdH-Gr-s5u" secondAttribute="height" id="CSA-RR-y08"/>
                             <constraint firstItem="4vX-xd-78z" firstAttribute="centerY" secondItem="XdH-Gr-s5u" secondAttribute="centerY" id="EdP-Ex-kVc"/>
                             <constraint firstItem="XdH-Gr-s5u" firstAttribute="leading" secondItem="cQt-4W-neK" secondAttribute="leading" constant="-2" id="LUm-au-HgE"/>
                             <constraint firstItem="l9K-hi-Y8X" firstAttribute="width" secondItem="XdH-Gr-s5u" secondAttribute="width" id="Mrg-a0-Tiq"/>
+                            <constraint firstItem="X1l-dx-U5w" firstAttribute="leading" secondItem="4vX-xd-78z" secondAttribute="trailing" id="NXV-jB-4KW"/>
                             <constraint firstItem="9jg-1I-j1J" firstAttribute="width" secondItem="XdH-Gr-s5u" secondAttribute="width" id="PYC-RJ-uBw"/>
                             <constraint firstItem="XdH-Gr-s5u" firstAttribute="centerY" secondItem="cQt-4W-neK" secondAttribute="centerY" id="VoQ-2n-uBl"/>
-                            <constraint firstItem="l9K-hi-Y8X" firstAttribute="leading" secondItem="X1l-dx-U5w" secondAttribute="trailing" id="bIW-TJ-KxJ"/>
+                            <constraint firstItem="4vX-xd-78z" firstAttribute="leading" secondItem="9jg-1I-j1J" secondAttribute="trailing" id="XdI-ZM-pPh"/>
+                            <constraint firstItem="l9K-hi-Y8X" firstAttribute="leading" secondItem="X1l-dx-U5w" secondAttribute="trailing" constant="3" id="bPd-fB-3R8"/>
                             <constraint firstItem="X1l-dx-U5w" firstAttribute="width" secondItem="XdH-Gr-s5u" secondAttribute="width" id="fEP-ck-sv0"/>
-                            <constraint firstItem="X1l-dx-U5w" firstAttribute="leading" secondItem="9jg-1I-j1J" secondAttribute="trailing" id="fPb-0a-nEW"/>
                             <constraint firstAttribute="bottom" secondItem="XdH-Gr-s5u" secondAttribute="bottom" id="l1f-Rg-T6A"/>
                             <constraint firstItem="9jg-1I-j1J" firstAttribute="leading" secondItem="XdH-Gr-s5u" secondAttribute="trailing" id="lK5-d5-ngK"/>
                             <constraint firstItem="4vX-xd-78z" firstAttribute="width" secondItem="XdH-Gr-s5u" secondAttribute="width" id="t4c-Ht-pjH"/>
                             <constraint firstItem="l9K-hi-Y8X" firstAttribute="height" secondItem="XdH-Gr-s5u" secondAttribute="height" id="uaq-mg-RO1"/>
-                            <constraint firstAttribute="trailing" secondItem="4vX-xd-78z" secondAttribute="trailing" constant="3" id="vTQ-QA-hqg"/>
                             <constraint firstItem="9jg-1I-j1J" firstAttribute="centerY" secondItem="XdH-Gr-s5u" secondAttribute="centerY" id="vp6-H8-Kug"/>
                             <constraint firstItem="9jg-1I-j1J" firstAttribute="height" secondItem="XdH-Gr-s5u" secondAttribute="height" id="vqc-rZ-0G8"/>
                             <constraint firstItem="X1l-dx-U5w" firstAttribute="height" secondItem="XdH-Gr-s5u" secondAttribute="height" id="w8H-hx-uPJ"/>
-                            <constraint firstItem="4vX-xd-78z" firstAttribute="leading" secondItem="l9K-hi-Y8X" secondAttribute="trailing" id="ybX-uD-yQe"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="gTV-IL-0wX" id="pDc-Dh-qkL"/>
